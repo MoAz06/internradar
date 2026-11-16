@@ -6,6 +6,9 @@ Tech internships and new grad roles in Europe, with the part nobody writes down:
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
 
+**Jump to:** [🇳🇱 Netherlands](#netherlands) · [🇬🇧 United Kingdom](#united-kingdom) · [🇩🇪 Germany](#germany) · [🇨🇭 Switzerland](#switzerland) · [🇮🇪 Ireland](#ireland) · [On the radar](#on-the-radar) · [How to read this](#how-to-read-this)
+
+<a id="on-the-radar"></a>
 ## On the radar
 
 What opens next. Put it in your calendar now, most of these close within weeks.
@@ -18,6 +21,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 
 🟢 open · 🟡 opens soon · 🔴 closed · OA = online assessment · AC = assessment centre · AMS = Amsterdam
 
+<a id="netherlands"></a>
 ## 🇳🇱 Netherlands
 
 | Company | Role | City | Status | Start | Process | Re-apply | Checked |
@@ -32,24 +36,29 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Booking.com](companies/booking.md) | SE Grads (Compass) | AMS | 🟡 4 Jan 2027 | Sep 2027, 12 mo | – | – | 16 Nov |
 | [Booking.com](companies/booking.md) | Data Science & Analytics Grads | AMS | 🟡 Feb 2027 | Sep 2027, 12 mo | – | – | 16 Nov |
 
-Eligibility, pay, visa and the full process per company are on the company pages in [companies/](companies/).
+Eligibility, pay, visa and the full process per company are on the company pages in [companies/](companies/). [⬆ back to top](#internradar)
 
+<a id="united-kingdom"></a>
 ## 🇬🇧 United Kingdom
 
-Nothing yet. [Add the first one.](CONTRIBUTING.md)
+Nothing yet. [Add the first one.](CONTRIBUTING.md) · [⬆ back to top](#internradar)
 
+<a id="germany"></a>
 ## 🇩🇪 Germany
 
-Nothing yet.
+Nothing yet. · [⬆ back to top](#internradar)
 
+<a id="switzerland"></a>
 ## 🇨🇭 Switzerland
 
-Nothing yet.
+Nothing yet. · [⬆ back to top](#internradar)
 
+<a id="ireland"></a>
 ## 🇮🇪 Ireland
 
-Nothing yet.
+Nothing yet. · [⬆ back to top](#internradar)
 
+<a id="how-to-read-this"></a>
 ## How to read this
 
 - **Status** is what the careers page said on the Checked date. Windows move, open the link before you plan around it.
