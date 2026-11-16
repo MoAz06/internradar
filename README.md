@@ -66,6 +66,14 @@ Nothing yet. · [⬆ back to top](#internradar)
 - **Re-apply** is the company's own rule for applying again after a rejection. It is the column that costs people a year when they do not know it.
 - **Checked** older than three months: verify it yourself, then send a PR with the new date.
 
+## The site
+
+[internradar.eu](https://internradar.eu) is built from `site/` (Next.js, TypeScript, static export) and deployed by GitHub Actions on every push to `master`. The company data the site renders lives in `site/data/companies.ts`; keep it in step with the table above and the pages in `companies/` when you change something.
+
+```
+cd site && npm install && npm run dev
+```
+
 ## Contributing
 
 Went through one of these processes? [Share what it looked like](../../issues/new?template=share-your-process.yml). It is a form, takes five minutes, no git needed. That is the part of this list that nobody else has, and it only exists if people fill it in.

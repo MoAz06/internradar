@@ -8,6 +8,7 @@ The value of this list is that every line can be checked. Keep it that way.
 2. Every fact gets a source link and a checked date (YYYY-MM-DD). The source is the company's own careers page or job posting. Job boards, Glassdoor and news articles are not sources for the table. They can go in the notes on the company page.
 3. Copy `companies/_template.md` for a new company. Fill in what you can verify, leave the rest as "Not stated". Do not guess.
 4. Add the rows to the table in `README.md` under the right country. Keep the columns.
+5. Add the same company to `site/data/companies.ts` so it shows up on internradar.eu. Copy an existing entry, the types tell you what each field means.
 5. If a window has closed or a role is gone, say so in the Applications column and keep the row. Next year's applicants want to know when it was open.
 
 ## Candidate reports
