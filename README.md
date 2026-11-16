@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-36-blue) ![roles](https://img.shields.io/badge/roles-119-blue) ![checked](https://img.shields.io/badge/last%20checked-16%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-57-blue) ![roles](https://img.shields.io/badge/roles-192-blue) ![checked](https://img.shields.io/badge/last%20checked-16%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -21,6 +21,8 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | **January 2027** | [Miro](companies/miro.md) | Graduate Program (Software Engineer) | Amsterdam, graduated in last 12 months, 12-month programme, 5-6 interview rounds |
 | **4 Jan 2027** | [Booking.com](companies/booking.md) | Software Engineering Grads (Compass), Amsterdam | 12 months rotational, Dutch university, graduating 2026 or 2027 |
 | **Feb 2027** | [Booking.com](companies/booking.md) | Data Science & Analytics Grads, Amsterdam | 12 months, Dutch university, graduating 2026 or 2027 |
+| **1 Feb 2027** | [SBB (Swiss Federal Railways)](companies/sbb-bern.md) | Hochschulpraktikum (university internship) | Window 1-14 Feb 2027, start May-Aug 2027, CHF 2800-4800/month at 100%, IT is one of the fields |
+| **1 Feb 2027** | [SBB (Swiss Federal Railways)](companies/sbb-bern.md) | Career Starter Programm: SAP | Window 1-14 Feb 2027, start May 2027, 18 months, CHF 80,000/year, German B2 |
 | **First week of May 2027** | [bol](companies/bol.md) | Tech Young Professional | 2-year programme, start 1 March or 1 September, HR + coding assessment, online interviews |
 | **May 2027** | [Celonis](companies/celonis-munich.md) | Galaxy Graduate Program (Europe and APAC cohort) | hiring runs May to August, 12-month programme, recruiter call, manager interview, challenge, final interview |
 | **Summer 2027** | [IMC](companies/imc.md) | Intern recruitment season reopens | If you were not selected this season, this is your next window |
@@ -136,8 +138,48 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | Company | Role | City | Status | Start | Process | Re-apply | Checked |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Celonis](companies/celonis-munich.md) | Associate Deployment Engineer - Galaxy Graduate Program | Munich | 🟢 | 1 February 2027 | Recruiter call, Galaxy manager interview, challenge exercise with interviews, final interview with senior management | Not stated | 16 Nov |
+| [Helsing](companies/helsing-munich.md) | AI Research Intern (PhD) – 3D Computer Vision | Munich | 🟢 | – | Not stated on the posting; general Helsing process: screen, 1st stage, about 3 technical interviews, final | Wait at least 6 months | 16 Nov |
+| [Helsing](companies/helsing-munich.md) | Early Careers - Electronics and RF Engineering | Munich | 🟢 | – | Form, 10-minute project video, 2 technical interviews (60 min), 30-min final | Wait at least 6 months | 16 Nov |
+| [Helsing](companies/helsing-munich.md) | Helsing – Formula Student Programme (intern or working student) | Munich | 🟢 | Not stated (“in the next few months”) | Not stated | Wait at least 6 months | 16 Nov |
+| [QuantCo](companies/quantco-germany.md) | Software Engineering Intern | Berlin, Cologne, Karlsruhe or Munich | 🟢 rolling | Summer or off-cycle, no date given | Not stated | Not stated | 16 Nov |
+| [QuantCo](companies/quantco-germany.md) | Data Science Intern | Berlin, Cologne, Karlsruhe or Munich | 🟢 rolling | Summer or off-cycle, no date given | Not stated | Not stated | 16 Nov |
+| [QuantCo](companies/quantco-germany.md) | AI Engineering Intern | Berlin, Cologne, Karlsruhe or Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [QuantCo](companies/quantco-germany.md) | AI Applied Scientist Intern | Berlin, Cologne, Karlsruhe or Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Delivery Hero](companies/delivery-hero-berlin.md) | Tech Graduate Program | Berlin | 🔴 | – | Recruiter interview, coding interview, Bar Raiser interview, hiring manager interview | Not stated | 16 Nov |
+| [BMW Group](companies/bmw.md) | Trainee Programme AcceleratiON | Munich | 🟡 Application phase in September, for an April start | April | Online application, online test, video interview | Not stated | 16 Nov |
+| [BMW Group](companies/bmw.md) | Intern Artificial Intelligence in Robotics (f/m/x) | Munich | 🟢 | Earliest 19 Oct 2026 | Selection by the department, interview; no assessment centre or online test for internships | Not stated | 16 Nov |
+| [BMW Group](companies/bmw.md) | Intern Agentic AI and Industrial Foundation Models (f/m/x) | Munich | 🟢 | Earliest 11 Jan 2027 | Selection by the department, interview; no assessment centre or online test for internships | Not stated | 16 Nov |
+| [BMW Group](companies/bmw.md) | Intern Generative AI for Vehicle Design (f/m/x) | Munich | 🟢 | Earliest 16 Nov 2026 | Selection by the department, interview; no assessment centre or online test for internships | Not stated | 16 Nov |
+| [BMW Group](companies/bmw.md) | Praktikant Data Engineering und Frontend-Entwicklung (w/m/x) | Munich | 🟢 | Earliest 4 Jan 2027 | Selection by the department, interview; no assessment centre or online test for internships | Not stated | 16 Nov |
+| [Siemens](companies/siemens.md) | Siemens Graduate Program Germany, Digital Industries Automation, Research & Development (f/m/d) | Erlangen, Fürth, Regensburg | 🟢 | – | CV screening, initial interview, assessment centre | Not stated | 16 Nov |
+| [Siemens](companies/siemens.md) | Pflichtpraktikum im Bereich Elektronik & Elektrotechnik in der R&D Abteilung | Erlangen, Fürth, Regensburg | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Bosch](companies/bosch.md) | Junior Managers Program (Trainee) - Start your Leadership Journey in Information Technology | Stuttgart area (Gerlingen, Abstatt, Schwieberdingen, Elchingen) | 🟢 | Flexible start date | Telephone interview, assessment center, final interview | Not stated | 16 Nov |
+| [Bosch](companies/bosch.md) | Junior Managers Program (Trainee) - Start your Leadership Journey in Corporate Research | Stuttgart area (Gerlingen, Abstatt, Schwieberdingen, Elchingen) | 🟢 | Flexible start date | Telephone interview, assessment center, final interview | Not stated | 16 Nov |
+| [Bosch](companies/bosch.md) | Mandatory Internship AI Agent for Automated Machine Diagnostics and Root-Cause Analysis | Stuttgart area (Gerlingen, Abstatt, Schwieberdingen, Elchingen) | 🟢 | February 2027 | Not stated on posting; general internship process: document pre-selection, interview with department | Not stated | 16 Nov |
+| [Bosch](companies/bosch.md) | Internship Agentic AI for Automated Code Generation in Safety-Critical Embedded Software | Stuttgart area (Gerlingen, Abstatt, Schwieberdingen, Elchingen) | 🟢 | By agreement | Not stated on posting; general internship process: document pre-selection, interview with department | Not stated | 16 Nov |
+| [Bosch](companies/bosch.md) | Pflichtpraktikum im Bereich Agile Softwareentwicklung, Automatisierung & KI (ETAS) | Stuttgart area (Gerlingen, Abstatt, Schwieberdingen, Elchingen) | 🟢 | By agreement | Not stated on posting; general internship process: document pre-selection, interview with department | Not stated | 16 Nov |
+| [Infineon Technologies](companies/infineon.md) | International Graduate Program (IGP) – Engineer SoC Flow and Methodology (f/m/div) | Munich, Dresden, Langen, Duisburg | 🟢 | Programme starts in February, July or October | CV screening, interview call, recruiting day / extended interview, offer | Not stated | 16 Nov |
+| [Infineon Technologies](companies/infineon.md) | Internship - Data and Workflows for AI Usage in Unit Process Development (f/m/div) | Munich, Dresden, Langen, Duisburg | 🟢 | – | Interview with the department, maybe a second interview, then offer | Not stated | 16 Nov |
+| [Infineon Technologies](companies/infineon.md) | Internship - Development of a flexible robot hardware system architecture (f/m/div) | Munich, Dresden, Langen, Duisburg | 🟢 | – | Interview with the department, maybe a second interview, then offer | Not stated | 16 Nov |
+| [Infineon Technologies](companies/infineon.md) | Internship - Embedded Memory Characterization (f/m/div) | Munich, Dresden, Langen, Duisburg | 🟢 | – | Interview with the department, maybe a second interview, then offer | Not stated | 16 Nov |
+| [Infineon Technologies](companies/infineon.md) | Praktikum - Embedded Control & Sensing System Application Engineering (w/m/div) | Munich, Dresden, Langen, Duisburg | 🟢 | – | Interview with the department, maybe a second interview, then offer | Not stated | 16 Nov |
+| [Mercedes-Benz](companies/mercedes-benz.md) | Inspire – Your Journey of Growth (international graduate programme) | Stuttgart area (Sindelfingen, Immendingen) | 🔴 | Page still names July 2026 as next start | Online application, online assessment, video interview, Inspire Day, onboarding | After a rejection following Inspire Day, you can apply again after one year. | 16 Nov |
+| [Mercedes-Benz](companies/mercedes-benz.md) | Praktikant*in Software Entwicklung im Bereich ADAS/Fahrerassistenzsysteme | Stuttgart area (Sindelfingen, Immendingen) | 🟢 | 1 Mar 2027 | Not stated on posting | Not stated | 16 Nov |
+| [Mercedes-Benz](companies/mercedes-benz.md) | Praktikant*in Data Analytics & AI | Mercedes-Benz Operating System (MB.OS) | Stuttgart area (Sindelfingen, Immendingen) | 🟢 | 1 Mar 2027 | Not stated on posting | Not stated | 16 Nov |
+| [Mercedes-Benz](companies/mercedes-benz.md) | Praktikant*in Entwicklung HIL/SIL im Bereich Fahrassistenzsysteme (ADAS) | Stuttgart area (Sindelfingen, Immendingen) | 🟢 | 1 Mar 2027 | Not stated on posting | Not stated | 16 Nov |
+| [Mercedes-Benz](companies/mercedes-benz.md) | Praktikant*in KI-gestütztes Testing & Connected Car | Stuttgart area (Sindelfingen, Immendingen) | 🟢 | 1 Mar 2027 | Not stated on posting | Not stated | 16 Nov |
+| [Google (Munich)](companies/google-munich.md) | Research Scientist PhD Intern, 2027 | Munich | 🟢 | May, June or July 2027 | Not stated | Not stated | 16 Nov |
+| [Google (Munich)](companies/google-munich.md) | Student Researcher, 2027 | Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Amazon / AWS (Germany)](companies/amazon-germany.md) | 2027 Software Dev Engineer Intern - Germany | Berlin, Munich | 🟢 | – | Online assessment (coding + work styles), then interviews | Not stated | 16 Nov |
+| [Amazon / AWS (Germany)](companies/amazon-germany.md) | 2027 Applied Scientist Internship – PhD, Amazon University Talent Acquisition | Berlin, Munich | 🟢 rolling | Throughout the year | Online assessment (coding + work styles), team match, interviews | Not stated | 16 Nov |
+| [Amazon / AWS (Germany)](companies/amazon-germany.md) | Business Intelligence Engineer Intern Germany (2027) | Berlin, Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Amazon / AWS (Germany)](companies/amazon-germany.md) | System Engineer internship 2027 (6 months), ESC Managed Operations | Berlin, Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple (Munich)](companies/apple-munich.md) | Internship - Software Engineering - AI-Assisted Baseband Debugging Evaluation, WTE | Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple (Munich)](companies/apple-munich.md) | Research Scientist Intern – Human-Centric Generative AI | Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple (Munich)](companies/apple-munich.md) | Modeling Software Intern | Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple (Munich)](companies/apple-munich.md) | SoC Physical Design Intern (m/f/d) | Munich | 🟢 | – | Not stated | Not stated | 16 Nov |
 
-1 company. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+12 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="switzerland"></a>
 ## 🇨🇭 Switzerland
@@ -159,8 +201,41 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [UBS](companies/ubs-zurich.md) | 2027 Graduate Talent Program – Tech – Software Engineer – Zurich | Zurich | 🟢 rolling | 1 February 2027 | Online application, online assessments within 7 days, pre-recorded video interview, final interviews | Not stated | 16 Nov |
 | [UBS](companies/ubs-zurich.md) | 2027 Graduate Talent Program – Tech – Software Engineer (AI) – Zurich | Zurich | 🟢 rolling | 1 February 2027 | Online application, online assessments within 7 days, pre-recorded video interview, final interviews | Not stated | 16 Nov |
 | [UBS](companies/ubs-zurich.md) | 2027 Graduate Talent Program – AI Engineer – Zurich | Zurich | 🟢 rolling | 1 February 2027 | Online application, online assessments within 7 days, pre-recorded video interview, final interviews | Not stated | 16 Nov |
+| [Swiss Re](companies/swiss-re-zurich.md) | Actuarial Data Analyst - Graduate | Zurich | 🟢 | 1 September 2027 | Online ability assessment(s) within 72 hours, update by 15 Jan 2027, assessment centre 17-19 Feb 2027 | Not stated | 16 Nov |
+| [Swiss Re](companies/swiss-re-zurich.md) | Finance AI Transformation - Graduate | Zurich | 🟢 | 1 September 2027 | Online ability assessment(s) within 72 hours, update by 15 Jan 2027, assessment centre 17-19 Feb 2027 | Not stated | 16 Nov |
+| [SBB (Swiss Federal Railways)](companies/sbb-bern.md) | Hochschulpraktikum (university internship, fields include IT) | Bern | 🟡 Next window 1-14 Feb 2027 (start May-Aug 2027); then 3-16 May 2027 | May to August 2027 for the February window | Apply in window, pre-selection, pool, matching interview with the hiring manager | Not stated | 16 Nov |
+| [SBB (Swiss Federal Railways)](companies/sbb-bern.md) | Career Starter Programm: SAP | Bern | 🟡 Window 1-14 Feb 2027 for a May 2027 start | May 2027 | Pre-selection, video interview (5 days), 60-min virtual talk, on-site meeting with case study | Not stated | 16 Nov |
+| [SBB (Swiss Federal Railways)](companies/sbb-bern.md) | Career Starter Programm: Data Science | Bern | 🔴 | September (each year) | Not stated while closed | Not stated | 16 Nov |
+| [SBB (Swiss Federal Railways)](companies/sbb-bern.md) | Career Starter Programm: Cyber Security | Bern | 🔴 | April (each year) | Not stated while closed | Not stated | 16 Nov |
+| [Zürcher Kantonalbank](companies/zuercher-kantonalbank-zurich.md) | Summer Internship | Zurich | 🟡 Window opens at the start of each year; none listed on 2026-11-16 | Not stated (semester break) | Not stated | Not stated | 16 Nov |
+| [Zürcher Kantonalbank](companies/zuercher-kantonalbank-zurich.md) | Traineeprogramm T-Shaped | Zurich | 🟡 Advertised each autumn and spring; none listed on 2026-11-16 | – | Not stated | Not stated | 16 Nov |
+| [Swisscom](companies/swisscom-bern.md) | Trainee programme for Master's graduates | Bern | 🔴 | Not stated for 2027 (the 2026 cohort starts November 2026) | Not stated for the programme; general Swisscom process applies | Not stated | 16 Nov |
+| [GetYourGuide](companies/getyourguide-zurich.md) | Working Student, Security Engineer | Zurich | 🟢 | – | Recruiter call, take-home, technical interview, meet the team | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | Math Device Extension Libraries Intern - 2027 | Zurich | 🟢 | 2027 (month not stated) | Not stated | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | Software Engineering Intern, Physics Simulation - 2027 | Zurich | 🟢 | During 2027 | Not stated | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | AI Compiler Intern, CUDA Tile IR - Summer 2027 | Zurich | 🟢 | Summer 2027 | Not stated | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | GPU Compiler Intern | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | AI Compiler Formal Verification Intern | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | PhD Research Intern, Robotics - Summer 2027 | Zurich | 🟢 | Summer 2027 | Not stated | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | Robotics Simulation and Evaluation PhD Intern - Summer 2027 | Zurich | 🟢 | Summer 2027 | Not stated | Not stated | 16 Nov |
+| [NVIDIA](companies/nvidia-zurich.md) | PhD Research Intern, Autonomous Systems and Physical AI Research - 2027 | Zurich | 🟢 | 2027 (month not stated) | Not stated | Not stated | 16 Nov |
+| [Apple](companies/apple-zurich.md) | Internship - AIML Research | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple](companies/apple-zurich.md) | AI Research Intern - Foundation Models & Multimodal Intelligence | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple](companies/apple-zurich.md) | Human-Centric Modeling Internship | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple](companies/apple-zurich.md) | Internship - Machine Learning (Foundation Models) | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Apple](companies/apple-zurich.md) | Internship - Reasoning and agentic capabilities of LLMs (Lausanne) | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Meta](companies/meta-zurich.md) | Research Scientist Intern, Generative AI & 3D Generation (PhD) | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Meta](companies/meta-zurich.md) | Research Scientist Intern -GenAI, VLM, FlowMatching, Spatial Understanding (PhD) | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Meta](companies/meta-zurich.md) | Research Scientist Intern, Generative AI (PhD) (multiple locations) | Zurich | 🟢 | – | Not stated | Not stated | 16 Nov |
+| [Meta](companies/meta-zurich.md) | Research Scientist Intern, Human Sensing for Wearables, AR and VR (PhD) | Zurich | 🟢 | Various start dates through the year | Not stated | Not stated | 16 Nov |
+| [Meta](companies/meta-zurich.md) | Research Scientist Intern, Muse RL and Agents Team (PhD) | Zurich | 🟢 | Various start dates through the year | Not stated | Not stated | 16 Nov |
+| [Meta](companies/meta-zurich.md) | Research Scientist Intern, Robotics Foundation Models Post-Training (PhD) | Zurich | 🟢 | Various start dates through the year | Not stated | Not stated | 16 Nov |
+| [Meta](companies/meta-zurich.md) | Research Scientist Intern, Robotics - Meta Reality Labs Research (PhD) | Zurich | 🟢 | Various start dates through the year | Not stated | Not stated | 16 Nov |
+| [ANYbotics](companies/anybotics.md) | Internship - Reinforcement Learning for Navigation | Zurich | 🟢 rolling | Preferred September 2026; any month, on the 1st | Not stated | Not stated | 16 Nov |
+| [ANYbotics](companies/anybotics.md) | Internship – 3D Perception, Computer Vision & AI | Zurich | 🟢 rolling | Preferred September 2026; any month, on the 1st | Not stated | Not stated | 16 Nov |
+| [Sensirion](companies/sensirion.md) | Intern Automotive and Environmental Sensors | Stäfa | 🟢 | Around January 2027 | Online interview, then on-site interview with a short task | Not stated | 16 Nov |
 
-3 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+13 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="ireland"></a>
 ## 🇮🇪 Ireland

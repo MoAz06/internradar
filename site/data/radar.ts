@@ -56,4 +56,22 @@ export const radar: RadarItem[] = [
     expect: "hiring runs May to August · 12-month programme · recruiter call, manager interview, challenge, final interview",
     kind: "soon",
   },
+  {
+    opens: "1 Feb 2027",
+    sortKey: "2027-02-01",
+    company: "SBB (Swiss Federal Railways)",
+    slug: "sbb-bern",
+    role: "Hochschulpraktikum (university internship)",
+    expect: "Window 1-14 Feb 2027 · start May-Aug 2027 · CHF 2800-4800/month at 100% · IT is one of the fields",
+    kind: "soon",
+  },
+  {
+    opens: "1 Feb 2027",
+    sortKey: "2027-02-01",
+    company: "SBB (Swiss Federal Railways)",
+    slug: "sbb-bern",
+    role: "Career Starter Programm: SAP",
+    expect: "Window 1-14 Feb 2027 · start May 2027 · 18 months · CHF 80,000/year · German B2",
+    kind: "soon",
+  },
 ];
