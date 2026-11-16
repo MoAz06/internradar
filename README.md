@@ -68,7 +68,9 @@ Nothing yet. · [⬆ back to top](#internradar)
 
 ## Contributing
 
-One company per pull request, every fact with a link and a date. Candidate reports are your own experience, not the questions you were asked. Details in [CONTRIBUTING.md](CONTRIBUTING.md).
+Went through one of these processes? [Share what it looked like](../../issues/new?template=share-your-process.yml). It is a form, takes five minutes, no git needed. That is the part of this list that nobody else has, and it only exists if people fill it in.
+
+Adding or fixing a company: one company per pull request, every fact with a link and a date. Details in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

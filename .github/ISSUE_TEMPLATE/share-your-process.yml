@@ -1,0 +1,68 @@
+name: Share your hiring process
+description: Went through a company's process? Tell the next person what it looked like. No git needed, we add it to the company page.
+title: "[process] "
+labels: ["candidate report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the format and the timing, not the questions. "90 minutes, three coding problems on HackerRank" is useful. The problems themselves are not, and we will not publish them.
+  - type: input
+    id: company
+    attributes:
+      label: Company
+      placeholder: Optiver
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Role and location
+      placeholder: Software Engineer Internship 2027, Amsterdam
+    validations:
+      required: true
+  - type: input
+    id: applied
+    attributes:
+      label: When did you apply?
+      placeholder: November 2026
+    validations:
+      required: true
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline
+      description: One step per line with the date or the number of days after the previous step.
+      placeholder: |
+        Applied 3 Nov
+        Online assessment invite 4 Nov, had to finish within 7 days
+        Assessment done 8 Nov, 90 min, three coding problems on HackerRank
+        Screening call 14 Nov, 75 min video, code review and deployment questions
+        Waiting
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Outcome
+      options:
+        - Still in progress
+        - Offer
+        - Rejected after assessment
+        - Rejected after interview
+        - Withdrew
+        - Prefer not to say
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything the next person should know
+      description: Re-apply rules you were told, how fast they answered, what surprised you. Keep recruiter names out.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: This is my own experience, and I did not include assessment or interview questions.
+          required: true
