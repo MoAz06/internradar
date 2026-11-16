@@ -2,9 +2,8 @@ import Link from "next/link";
 import { links } from "@/data/companies";
 
 const items = [
-  { href: "/#netherlands", label: "Netherlands" },
+  { href: "/companies/", label: "Companies" },
   { href: "/#radar", label: "On the radar" },
-  { href: "/#countries", label: "Countries" },
   { href: "/#how", label: "How to read" },
 ];
 

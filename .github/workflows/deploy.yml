@@ -28,6 +28,7 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      - run: npm run check
       - run: npm run build
       - run: echo internradar.eu > out/CNAME
       - uses: actions/upload-pages-artifact@v3

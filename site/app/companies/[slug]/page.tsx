@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import { StatusLabel } from "@/components/Status";
-import { companies, links } from "@/data/companies";
+import { companies, countries, links } from "@/data/companies";
 import { longDate, stripProtocol } from "@/lib/format";
 
 type Params = { slug: string };
@@ -33,7 +33,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   return (
     <>
       <Section className="pt-10 pb-6 sm:pt-14">
-        <Link href="/" className="text-[13px] text-muted hover:text-ink">
+        <Link href="/companies/" className="text-[13px] text-muted hover:text-ink">
           ← All companies
         </Link>
         <div className="mt-3.5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -63,7 +63,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             </thead>
             <tbody>
               {c.roles.map((r) => (
-                <tr key={r.title} className="border-t border-line text-[13px]">
+                <tr key={r.title + r.source} className="border-t border-line text-[13px]">
                   <td className="px-3 py-3 pl-4 align-middle">
                     <a href={r.source} target="_blank" rel="noreferrer" className="text-sm font-semibold hover:text-signal">
                       {r.title}
@@ -102,6 +102,19 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               <p className="mono text-[11px] font-medium tracking-[0.08em] text-signal">RE-APPLY RULE</p>
               <p className="mt-2 text-sm leading-[1.55]">{c.reapply}</p>
             </Card>
+            {c.notes && c.notes.length > 0 && (
+              <div>
+                <h2 className="text-base font-semibold">Notes</h2>
+                <ul className="mt-2.5 space-y-2.5">
+                  {c.notes.map((n, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className="mono w-6 shrink-0 text-xs leading-6 text-signal">·</span>
+                      <span className="text-sm leading-6 text-muted">{n}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           <div className="w-full space-y-6 lg:w-[400px]">
@@ -167,7 +180,5 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
 }
 
 function countryName(code: string): string {
-  return (
-    { NL: "Netherlands", GB: "United Kingdom", DE: "Germany", CH: "Switzerland", IE: "Ireland" } as Record<string, string>
-  )[code] ?? code;
+  return countries.find((k) => k.code === code)?.name ?? code;
 }

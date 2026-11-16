@@ -15,7 +15,7 @@ const statusText: Record<string, (r: { applications: string }) => string> = {
 export default function Home() {
   const roleCount = companies.reduce((n, c) => n + c.roles.length, 0);
   const soon = companies.flatMap((c) => c.roles).filter((r) => r.status === "soon").length;
-  const nl = companies.filter((c) => c.country === "NL");
+  const filled = countries.filter((k) => companies.some((c) => c.country === k.code));
   const empty = countries.filter((k) => !companies.some((c) => c.country === k.code));
 
   return (
@@ -38,7 +38,7 @@ export default function Home() {
             [companies.length, "companies"],
             [roleCount, "roles"],
             [soon, "opening soon"],
-            [nl.length ? 1 : 0, "country, more via PRs"],
+            [filled.length, filled.length === 1 ? "country" : "countries"],
           ].map(([n, label]) => (
             <div key={String(label)} className="flex items-end gap-2">
               <dd className="mono text-[22px] font-medium leading-none">{n}</dd>
@@ -46,6 +46,24 @@ export default function Home() {
             </div>
           ))}
         </dl>
+        <nav aria-label="Countries" className="mt-7 flex flex-wrap gap-2">
+          {countries.map((k) => {
+            const n = companies.filter((c) => c.country === k.code).length;
+            return (
+              <a
+                key={k.code}
+                href={`#${k.slug}`}
+                className={`flex items-center gap-2 rounded-md border px-3 py-1.5 text-[13px] font-medium ${
+                  n ? "border-line bg-surface hover:border-muted" : "border-dashed border-line text-dim"
+                }`}
+              >
+                <span className="mono text-[11px] tracking-[0.1em] text-dim">{k.code}</span>
+                {k.name}
+                <span className="mono text-[11px] text-dim">{n}</span>
+              </a>
+            );
+          })}
+        </nav>
       </Section>
 
       {/* on the radar */}
@@ -83,73 +101,79 @@ export default function Home() {
         </Card>
       </Section>
 
-      {/* netherlands */}
-      <Section id="netherlands" className="pt-8 pb-6">
-        <div className="mb-3.5 flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="flex items-center gap-2.5 text-[22px] font-semibold leading-tight">
-            <span className="mono text-xs font-semibold tracking-[0.1em] text-dim">NL</span>
-            Netherlands
-          </h2>
-          <Legend />
-        </div>
-        <Card className="scrollbar-thin overflow-x-auto">
-          <table className="w-full min-w-[1040px] border-collapse text-left">
-            <thead>
-              <tr className="mono bg-raised text-[11px] font-medium tracking-[0.06em] text-dim">
-                {["Company", "Role", "City", "Status", "Start", "Process", "Re-apply", "Checked"].map(
-                  (h) => (
-                    <th key={h} className="px-3 py-2.5 first:pl-4 last:pr-4 font-medium uppercase">
-                      {h}
-                    </th>
-                  ),
-                )}
-              </tr>
-            </thead>
-            <tbody>
-              {nl.flatMap((c) =>
-                c.roles.map((r, i) => (
-                  <tr
-                    key={c.slug + i}
-                    className="border-t border-line text-[13px] transition-colors hover:bg-raised"
-                  >
-                    <td className="px-3 py-3 pl-4 align-middle">
-                      <Link href={`/companies/${c.slug}/`} className="text-sm font-semibold hover:text-signal">
-                        {c.name}
-                      </Link>
-                    </td>
-                    <td className="px-3 py-3 align-middle text-sm">{r.title}</td>
-                    <td className="mono px-3 py-3 align-middle text-muted">
-                      {c.city === "Amsterdam" ? "AMS" : c.city}
-                    </td>
-                    <td className="px-3 py-3 align-middle">
-                      <StatusLabel status={r.status} text={statusText[r.status](r)} />
-                    </td>
-                    <td className="mono px-3 py-3 align-middle">
-                      {r.start}
-                      {r.duration ? `, ${r.duration}` : ""}
-                    </td>
-                    <td className="px-3 py-3 align-middle text-muted">{r.process}</td>
-                    <td className="px-3 py-3 align-middle text-muted">{r.reapply}</td>
-                    <td className="mono px-3 py-3 pr-4 align-middle text-xs text-dim">
-                      {shortDate(r.checked)}
-                    </td>
+      {/* one table per country */}
+      {filled.map((k) => {
+        const here = companies.filter((c) => c.country === k.code);
+        return (
+          <Section key={k.code} id={k.slug} className="pt-8 pb-6">
+            <div className="mb-3.5 flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between">
+              <h2 className="flex items-center gap-2.5 text-[22px] font-semibold leading-tight">
+                <span className="mono text-xs font-semibold tracking-[0.1em] text-dim">{k.code}</span>
+                {k.name}
+                <span className="mono text-xs font-normal text-dim">{here.length} {here.length === 1 ? "company" : "companies"}</span>
+              </h2>
+              <Legend />
+            </div>
+            <Card className="scrollbar-thin overflow-x-auto">
+              <table className="w-full min-w-[1040px] border-collapse text-left">
+                <thead>
+                  <tr className="mono bg-raised text-[11px] font-medium tracking-[0.06em] text-dim">
+                    {["Company", "Role", "City", "Status", "Start", "Process", "Re-apply", "Checked"].map((h) => (
+                      <th key={h} className="px-3 py-2.5 first:pl-4 last:pr-4 font-medium uppercase">
+                        {h}
+                      </th>
+                    ))}
                   </tr>
-                )),
-              )}
-            </tbody>
-          </table>
-        </Card>
-        <p className="mt-3 text-[13px] text-dim">
-          <span className="sm:hidden">Scroll sideways for the full table. </span>
-          Eligibility, pay, visa and the full process per company are on the company pages.
-        </p>
-      </Section>
+                </thead>
+                <tbody>
+                  {here.flatMap((c) =>
+                    c.roles.map((r, i) => (
+                      <tr
+                        key={c.slug + i}
+                        className={`text-[13px] transition-colors hover:bg-raised ${
+                          i === 0 ? "border-t border-line" : "border-t border-line/40"
+                        }`}
+                      >
+                        <td className="px-3 py-3 pl-4 align-middle">
+                          {i === 0 ? (
+                            <Link href={`/companies/${c.slug}/`} className="text-sm font-semibold hover:text-signal">
+                              {c.name}
+                            </Link>
+                          ) : (
+                            <span className="sr-only">{c.name}</span>
+                          )}
+                        </td>
+                        <td className="px-3 py-3 align-middle text-sm">{r.title}</td>
+                        <td className="mono px-3 py-3 align-middle text-muted">
+                          {c.city === "Amsterdam" ? "AMS" : c.city}
+                        </td>
+                        <td className="px-3 py-3 align-middle">
+                          <StatusLabel status={r.status} text={statusText[r.status](r)} />
+                        </td>
+                        <td className="mono px-3 py-3 align-middle">{r.start}</td>
+                        <td className="px-3 py-3 align-middle text-muted">{r.process}</td>
+                        <td className="px-3 py-3 align-middle text-muted">{r.reapply}</td>
+                        <td className="mono px-3 py-3 pr-4 align-middle text-xs text-dim">{shortDate(r.checked)}</td>
+                      </tr>
+                    )),
+                  )}
+                </tbody>
+              </table>
+            </Card>
+            <p className="mt-3 text-[13px] text-dim">
+              <span className="sm:hidden">Scroll sideways for the full table. </span>
+              Eligibility, pay, visa and the full process per company are on the company pages.
+            </p>
+          </Section>
+        );
+      })}
 
       {/* other countries */}
+      {empty.length > 0 && (
       <Section id="countries" className="py-6">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {empty.map((k) => (
-            <Card key={k.code} dashed className="px-4.5 py-4">
+            <Card key={k.code} id={k.slug} dashed className="scroll-mt-20 px-4.5 py-4">
               <div className="flex items-center gap-2">
                 <span className="mono text-[11px] font-semibold tracking-[0.1em] text-dim">{k.code}</span>
                 <span className="text-sm font-semibold">{k.name}</span>
@@ -161,6 +185,7 @@ export default function Home() {
           ))}
         </div>
       </Section>
+      )}
 
       {/* how to read + share */}
       <Section id="how" className="pt-10 pb-14">

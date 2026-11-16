@@ -36,6 +36,8 @@ export type Company = {
   pay: string[];
   reports: CandidateReport[];
   sources: { url: string; checked: string }[];
+  /** Anything else worth knowing, from the same sources. */
+  notes?: string[];
 };
 
 export type RadarItem = {
@@ -51,4 +53,7 @@ export type RadarItem = {
 export type Country = {
   code: Company["country"];
   name: string;
+  /** Anchor on the home page and in the README, e.g. "netherlands". */
+  slug: string;
+  flag: string;
 };
