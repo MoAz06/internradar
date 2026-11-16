@@ -1,41 +1,65 @@
 # internradar
 
-Tech internships and new grad roles in Europe, and how the hiring actually works.
+Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
-Most lists give you links. This one also tells you when applications open, what the test looks like, how long you get, and when you can apply again if it goes wrong. Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it.
+![companies](https://img.shields.io/badge/companies-4-blue) ![roles](https://img.shields.io/badge/roles-9-blue) ![checked](https://img.shields.io/badge/last%20checked-16%20Nov%202026-green)
 
-Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
+Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
 
-## Netherlands
+## On the radar
 
-| Company | Role | Location | Applications | Start | Who can apply | Process | Re-apply | Checked | Details |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Optiver | Software Engineer Internship (2027) | Amsterdam | Open, no deadline listed | 2027, 10 weeks | Penultimate year CS/CE, graduating 2028 | Online assessment within 7 days of applying, then interviews | 8 months after an assessment or interview at any Optiver office | 2026-11-16 | [optiver](companies/optiver.md) |
-| Optiver | Quantitative Research Internship (2027) | Amsterdam | Open, no deadline listed | 2027 | See page | Online assessment within 7 days | 8 months | 2026-11-16 | [optiver](companies/optiver.md) |
-| Optiver | FPGA Internship (2027) | Amsterdam | Open, no deadline listed | 2027 | See page | Online assessment within 7 days | 8 months | 2026-11-16 | [optiver](companies/optiver.md) |
-| IMC | Software Engineer Intern (summer 2027) | Amsterdam | Open, no deadline listed | 28 June 2027 | Penultimate year CS/SE or related, graduating 2028, Java or C++ preferred | Not described on the page, IMC links an interview prep guide | Next recruitment season, summer 2027 | 2026-11-16 | [imc](companies/imc.md) |
-| IMC | Graduate Software Engineer (2027) | Amsterdam, Aarhus | Open | February or August 2027 | Final year | See page | See page | 2026-11-16 | [imc](companies/imc.md) |
-| Flow Traders | Graduate Software Development | Amsterdam | Opens a year before the start date, closes when filled | Not listed | Interest in financial markets, no experience needed | HackerRank test, then interviews on technical strengths and business knowledge | Not stated | 2026-11-16 | [flow-traders](companies/flow-traders.md) |
-| Booking.com | Software Engineering Internship (Compass) | Amsterdam | Closed for 2027 | July 2027, 9 weeks | Dutch university, bachelor or master, graduating 2028 | CV, at-home technical test, recruiter phone call, in-person assessment centre | Not stated | 2026-11-16 | [booking](companies/booking.md) |
-| Booking.com | Software Engineering Grads (Compass) | Amsterdam | Opens 4 January 2027 | September 2027, 12 months rotational | Dutch university, graduating 2026 or 2027 | Not described on the page | Not stated | 2026-11-16 | [booking](companies/booking.md) |
-| Booking.com | Data Science & Analytics Grads | Amsterdam | Opens February 2027 | September 2027, 12 months | Dutch university, graduating 2026 or 2027 | Not described on the page | Not stated | 2026-11-16 | [booking](companies/booking.md) |
+What opens next. Put it in your calendar now, most of these close within weeks.
 
-More companies are coming. If yours is missing, open an issue or a pull request.
+| Opens | Company | Role | What to expect |
+| --- | --- | --- | --- |
+| **4 Jan 2027** | Booking.com | Software Engineering Grads (Compass), Amsterdam | 12 months rotational, Dutch university, graduating 2026 or 2027 |
+| **Feb 2027** | Booking.com | Data Science & Analytics Grads, Amsterdam | 12 months, Dutch university, graduating 2026 or 2027 |
+| **Summer 2027** | IMC | Intern recruitment season reopens | If you were not selected this season, this is your next window |
 
-## How to read the table
+🟢 open · 🟡 opens soon · 🔴 closed · OA = online assessment · AC = assessment centre · AMS = Amsterdam
 
-- **Applications**: what the careers page said on the day in the Checked column. Windows move, check the link before you plan around it.
-- **Process**: only what the company states, or what a candidate reported on the company page. Candidate reports say so and carry a month.
-- **Re-apply**: the company's own rule for applying again after a rejection. This is the column nobody else has and the one that costs people a year when they do not know it.
-- **Checked**: the date someone last opened the source. Older than three months means verify it yourself.
+## 🇳🇱 Netherlands
 
-## Why this exists
+| Company | Role | City | Status | Start | Process | Re-apply | Checked |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Optiver](companies/optiver.md) | SWE Internship 2027 | AMS | 🟢 | 2027, 10 wk | OA within 7 days of applying | 8 months, any office | 16 Nov |
+| [Optiver](companies/optiver.md) | Quant Research Internship 2027 | AMS | 🟢 | 2027 | OA within 7 days | 8 months, any office | 16 Nov |
+| [Optiver](companies/optiver.md) | FPGA Internship 2027 | AMS | 🟢 | 2027 | OA within 7 days | 8 months, any office | 16 Nov |
+| [IMC](companies/imc.md) | SWE Intern, summer 2027 | AMS | 🟢 | 28 Jun 2027 | not published, prep guide linked | next season, summer 2027 | 16 Nov |
+| [IMC](companies/imc.md) | Graduate SWE 2027 | AMS, Aarhus | 🟢 | Feb or Aug 2027 | see page | see page | 16 Nov |
+| [Flow Traders](companies/flow-traders.md) | Graduate Software Development | AMS | 🟢 rolling | – | HackerRank, then interviews | – | 16 Nov |
+| [Booking.com](companies/booking.md) | SE Interns (Compass) | AMS | 🔴 | Jul 2027, 9 wk | take-home, recruiter call, AC day | – | 16 Nov |
+| [Booking.com](companies/booking.md) | SE Grads (Compass) | AMS | 🟡 4 Jan 2027 | Sep 2027, 12 mo | – | – | 16 Nov |
+| [Booking.com](companies/booking.md) | Data Science & Analytics Grads | AMS | 🟡 Feb 2027 | Sep 2027, 12 mo | – | – | 16 Nov |
 
-I am a CS student in Leiden going through these processes myself. The information in the right-hand columns is passed around in WhatsApp groups and lost every year. It should be in one place with a date on it.
+Eligibility, pay, visa and the full process per company are on the company pages in [companies/](companies/).
+
+## 🇬🇧 United Kingdom
+
+Nothing yet. [Add the first one.](CONTRIBUTING.md)
+
+## 🇩🇪 Germany
+
+Nothing yet.
+
+## 🇨🇭 Switzerland
+
+Nothing yet.
+
+## 🇮🇪 Ireland
+
+Nothing yet.
+
+## How to read this
+
+- **Status** is what the careers page said on the Checked date. Windows move, open the link before you plan around it.
+- **Process** is only what the company states, or what a candidate reported on the company page. Candidate reports say so and carry a month.
+- **Re-apply** is the company's own rule for applying again after a rejection. It is the column that costs people a year when they do not know it.
+- **Checked** older than three months: verify it yourself, then send a PR with the new date.
 
 ## Contributing
 
-One company per pull request, every fact with a link, and a date. Candidate reports are your own experience, not the questions you were asked. Details in [CONTRIBUTING.md](CONTRIBUTING.md).
+One company per pull request, every fact with a link and a date. Candidate reports are your own experience, not the questions you were asked. Details in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
