@@ -15,12 +15,12 @@ Careers page: https://www.bbva.com/es/empleo/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - A study grant is paid (“Ayuda económica al estudio.”), no figure given.
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

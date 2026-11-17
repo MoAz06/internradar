@@ -27,10 +27,10 @@ export const pt: Company[] = [
     process: [
       "Applicants who reach the offer stage “may be asked to attend an in-person interview within one of the Cloudflare Offices or Cloudflare Hubs”.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “For Portugal based hires: the monthly salary is €2,450.”",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -72,10 +72,10 @@ export const pt: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
-      "Not stated: pay figure, relocation and visa.",
+      "Pay, relocation and visa: not mentioned.",
       "Perks listed include “Free transport from Porto” and a canteen.",
     ],
     reports: [],
@@ -129,8 +129,8 @@ export const pt: Company[] = [
       "Early applicants may only hear back late: “Please do not be concerned if you apply early and are only contacted towards the last months of the recruitment period.”",
       "Only CVs in English are considered on the Porto posting: “We will only consider CVs in English.”",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay figure, relocation and visa."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://careers.smartrecruiters.com/NatixisInPortugal", checked: "2026-11-17" },
@@ -162,8 +162,8 @@ export const pt: Company[] = [
     process: [
       "Only applications in English are considered: “only applications submitted in English will be considered”.",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay figure, relocation and visa."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://group.bnpparibas/en/careers/all-job-offers/trainee-internship/portugal", checked: "2026-11-17" },
@@ -191,11 +191,11 @@ export const pt: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
       "“Podes esperar um pacote de remuneração justo e competitivo”, no figure given.",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [

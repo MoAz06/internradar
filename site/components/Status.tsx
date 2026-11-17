@@ -1,8 +1,8 @@
 import type { Status } from "@/data/types";
 
 const styles: Record<Status, { dot: string; text: string; label: string }> = {
-  open: { dot: "bg-signal glow", text: "text-signal", label: "Open" },
-  rolling: { dot: "bg-signal glow", text: "text-signal", label: "Rolling" },
+  open: { dot: "bg-signal", text: "text-signal", label: "Open" },
+  rolling: { dot: "bg-signal", text: "text-signal", label: "Rolling" },
   soon: { dot: "bg-soon", text: "text-soon", label: "Opens soon" },
   closed: { dot: "bg-closed", text: "text-closed", label: "Closed" },
 };

@@ -23,7 +23,7 @@ Careers page: https://www.bmwgroup.jobs/de/en/students/internship.html
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

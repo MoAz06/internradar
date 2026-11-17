@@ -26,13 +26,13 @@ Careers page: https://www.citadelsecurities.com/careers/open-opportunities/?expe
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the postings.
-- Relocation: not stated.
-- Visa: not stated.
+- Pay: no figure given.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

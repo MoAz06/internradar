@@ -23,7 +23,7 @@ Careers page: https://www.airbus.com/en/careers/students-and-graduates/interns/i
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

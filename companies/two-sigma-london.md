@@ -16,11 +16,11 @@ Careers page: https://careers.twosigma.com/careers/InternshipsAndEarlyCareers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay, relocation or visa details on the London posting.
+- Pay, relocation and visa: not mentioned on the London posting.
 
 ## Candidate reports
 

@@ -23,14 +23,14 @@ Careers page: https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/st
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Hochschulpraktikum, monthly at 100%: CHF 2800 during the Bachelor, CHF 3800 after the Bachelor and during the Master, CHF 4800 after the Master.
 - Career Starter: “Dein attraktives Einstiegssalär beträgt 80 000 Franken pro Jahr” at 100%.
 - Benefits: a 2nd class GA travel pass for the whole programme and five weeks of holiday per year (pro rata for interns).
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: not stated. Language rules apply (see eligibility).
 
 ## Candidate reports

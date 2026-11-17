@@ -37,10 +37,10 @@ export const es: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
-      "Not stated: pay figure and relocation.",
+      "Pay and relocation: not mentioned.",
       "Visa: the Data Intern posting asks you to “hold valid local work authorization without visa sponsorship”.",
       "Perks listed on both postings include “Monthly Glovo credit”.",
     ],
@@ -133,12 +133,12 @@ export const es: Company[] = [
       "After the OA, “If you are moved forward in the process for an interview, Amazon will reach out directly.”",
       "For the Applied Scientist PhD internship you submit one application and are matched with science teams; the recruiter confirms the team's start date and duration preferences before interviewing.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "SDE intern: “a competitive monthly salary, relocation support, and access to a range of employee benefits”, no figure given.",
       "Graduate System Engineer: “Amazon will provide relocation support for successful applicants relocating within the European Union.”",
       "Applied Scientist PhD intern: “All of our internships offer a competitive salary”, no figure given.",
-      "Not stated: visa sponsorship.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -174,10 +174,10 @@ export const es: Company[] = [
       },
     ],
     process: ["BBVA says it picks interns all year: “seleccionamos becarios a lo largo de todo el año”."],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "A study grant is paid (“Ayuda económica al estudio.”), no figure given.",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -222,11 +222,11 @@ export const es: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
       "Paid: “Una beca tutorizada y remunerada”, no figure given.",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -317,7 +317,7 @@ export const es: Company[] = [
       "Recruitment for the 2027 programmes runs “July–December 2026”.",
       "Roles are filled on a rolling basis, so Revolut says to apply early.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay figures are given for Poland only; for “Other locations: Compensation will be discussed during the interview process”.",
       "Graduate Programme: international applicants moving to a tech hub, Spain included, get “visa assistance, travel costs, and your first month of accommodation (conditions apply)”.",

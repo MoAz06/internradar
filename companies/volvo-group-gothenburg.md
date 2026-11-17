@@ -23,12 +23,12 @@ Careers page: https://www.volvogroup.com/en/careers/graduate-programs.html
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “A competitive salary and permanent position from day one.” No figure given.
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

@@ -15,17 +15,17 @@ Careers page: https://www.google.com/about/careers/applications/jobs/results/?lo
 - Apply with a CV and a transcript in English; put your expected graduation date and availability on your CV.
 - Applications are reviewed “on a rolling basis”; you pick a preferred location when you apply.
 - “Timing on when you can hear back will vary and can take upwards of 90+ days.”
-- Interview steps are not described on the postings checked.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Student Researcher, Germany: “€68500 (EUR) + 0% bonus target” for Bachelor's, €71,000 for Master's and €85,000 for PhD students (yearly figures as listed).
 - Research Scientist PhD Intern: the posting lists pay for France and Denmark only; Germany not stated.
-- Relocation: Not stated.
+- Relocation: not mentioned.
 - Visa: Student Researcher applicants “must hold valid work authorization or meet local immigration eligibility requirements”. The Research Scientist PhD Intern posting says applicants are not eligible for immigration sponsorship.
 
 ## Candidate reports

@@ -25,7 +25,7 @@ Optiver has a global re-apply policy for intern and graduate roles. If you took 
 
 - “A highly competitive internship compensation package”, no figure given.
 - Flights and accommodation in the city centre are covered for the internship.
-- Visa: not mentioned on the posting.
+- Visa: not mentioned.
 
 ## Candidate reports
 

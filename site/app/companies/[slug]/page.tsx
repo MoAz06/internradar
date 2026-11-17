@@ -42,52 +42,52 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   return (
     <>
       <Section className="pt-10 pb-6 sm:pt-14">
-        <Link href="/companies/" className="text-[13px] text-muted hover:text-ink">
-          ← All companies
+        <Link href="/companies/" className="link text-sm">
+          All companies
         </Link>
         <div className="mt-3.5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="text-[30px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[40px]">{c.name}</h1>
+            <h1 className="text-[28px] font-bold leading-tight sm:text-[36px]">{c.name}</h1>
             <p className="mt-1.5 text-[15px] text-muted">
               {c.city}, {countryName(c.country)}
             </p>
           </div>
-          <span className={`mono text-xs tracking-[0.08em] ${stale(checked) ? "text-soon" : "text-dim"}`}>
-            CHECKED {longDate(checked).toUpperCase()}
-            {stale(checked) ? " · OVER 3 MONTHS AGO, CHECK THE LINKS" : ""}
+          <span className={`text-sm ${stale(checked) ? "text-soon" : "text-muted"}`}>
+            Last checked {longDate(checked)}
+            {stale(checked) ? ", over three months ago. Check the links before you rely on it." : ""}
           </span>
         </div>
 
         {/* the answer first: what is open, until when, and the rule that costs people a year */}
-        <dl className="mt-6 grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+        <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-5 gap-y-1.5 text-[15px] sm:max-w-[560px]">
           {[
             ["Open now", `${open.length} of ${c.roles.length} ${c.roles.length === 1 ? "role" : "roles"}`],
             ["Next deadline", nextDeadline ? `${fuzzyDate(nextDeadline)}${daysTo(nextDeadline) <= 14 ? `, in ${daysTo(nextDeadline)} days` : ""}` : "None listed"],
             ["Opening soon", soonRoles.length ? `${soonRoles.length} ${soonRoles.length === 1 ? "role" : "roles"}` : "None"],
-            ["Pay figure", c.pay.some((p) => /\d/.test(p) && /€|£|CHF|EUR|GBP|DKK|SEK|NOK|PLN|salary|pay|allowance|remuneration/i.test(p)) ? "Yes, see below" : "Not given"],
+            ["Pay mentioned", c.pay.some((p) => /\d/.test(p) && /€|£|CHF|EUR|GBP|DKK|SEK|NOK|PLN|salary|pay|allowance|remuneration/i.test(p)) ? "Yes, see below" : "No"],
           ].map(([k, v]) => (
-            <div key={k} className="rounded-[10px] border border-line bg-surface px-4 py-3">
-              <dt className="text-xs text-dim">{k}</dt>
-              <dd className="mt-0.5 text-[15px] font-semibold">{v}</dd>
+            <div key={k} className="contents">
+              <dt className="text-muted">{k}</dt>
+              <dd className="font-semibold">{v}</dd>
             </div>
           ))}
         </dl>
-        <div className="mt-2.5 flex flex-col gap-2.5 sm:flex-row sm:items-stretch">
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
           <p
-            className={`flex-1 rounded-[10px] border px-4 py-3 text-sm leading-[1.55] ${
-              hasRule ? "border-soon/40 bg-soon/10 text-soon" : "border-line bg-surface text-muted"
+            className={`flex-1 rounded-md border px-4 py-3 text-sm leading-[1.55] ${
+              hasRule ? "border-soon/40 bg-soon/10 text-soon" : "border-line text-muted"
             }`}
           >
-            <span className="font-semibold">{hasRule ? "⚠ Re-apply rule: " : "Re-apply rule: "}</span>
+            <span className="font-semibold">Re-apply rule: </span>
             {hasRule ? c.reapply : "not stated by the company."}
           </p>
           <a
             href={c.careersUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-center rounded-[10px] bg-signal px-5 py-3 text-sm font-semibold text-[#06120a] hover:brightness-110"
+            className="flex items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-muted"
           >
-            Careers page <span aria-hidden>&nbsp;↗</span>
+            Go to the careers page
             <NewTab />
           </a>
         </div>
@@ -100,9 +100,9 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               Roles at {c.name}
             </caption>
             <thead>
-              <tr className="mono bg-raised text-xs font-medium tracking-[0.06em] text-dim">
+              <tr className="bg-raised text-[13px] text-muted">
                 {["Role", "Status", "Start", "Who can apply"].map((h) => (
-                  <th key={h} scope="col" className="px-3 py-2.5 first:pl-4 last:pr-4 font-medium uppercase">
+                  <th key={h} scope="col" className="px-3 py-2.5 first:pl-4 last:pr-4 font-semibold">
                     {h}
                   </th>
                 ))}
@@ -112,7 +112,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               {c.roles.map((r) => (
                 <tr key={r.title + r.source} className="border-t border-line text-[13px]">
                   <td className="px-3 py-3 pl-4 align-middle">
-                    <a href={r.source} target="_blank" rel="noreferrer" className="text-sm font-semibold hover:text-signal">
+                    <a href={r.source} target="_blank" rel="noreferrer" className="link text-sm font-semibold">
                       {r.title}
                       <NewTab />
                     </a>
@@ -122,7 +122,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                   </td>
                   <td className="mono px-3 py-3 align-middle">
                     {r.start}
-                    {r.duration ? ` · ${r.duration}` : ""}
+                    {r.duration ? `, ${r.duration}` : ""}
                   </td>
                   <td className="px-3 py-3 pr-4 align-middle text-muted">{r.eligibility}</td>
                 </tr>
@@ -134,27 +134,19 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
         <div className="mt-7 flex flex-col gap-6 lg:flex-row lg:items-start">
           <div className="flex-1 space-y-6">
             <div>
-              <h2 className="text-base font-semibold">Process, as the company describes it</h2>
-              <ol className="mt-2.5 space-y-2.5">
+              <h2 className="text-base font-bold">Process, as the company describes it</h2>
+              <ol className="mt-2.5 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted marker:text-ink">
                 {c.process.map((p, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="mono w-6 shrink-0 text-xs leading-6 text-signal">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-sm leading-6 text-muted">{p}</span>
-                  </li>
+                  <li key={i}>{p}</li>
                 ))}
               </ol>
             </div>
             {c.notes && c.notes.length > 0 && (
               <div>
-                <h2 className="text-base font-semibold">Notes</h2>
-                <ul className="mt-2.5 space-y-2.5">
+                <h2 className="text-base font-bold">Notes</h2>
+                <ul className="mt-2.5 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
                   {c.notes.map((n, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="mono w-6 shrink-0 text-xs leading-6 text-signal">·</span>
-                      <span className="text-sm leading-6 text-muted">{n}</span>
-                    </li>
+                    <li key={i}>{n}</li>
                   ))}
                 </ul>
               </div>
@@ -163,22 +155,19 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
 
           <div className="w-full space-y-6 lg:w-[400px]">
             <div>
-              <h2 className="text-base font-semibold">Pay, relocation, visa</h2>
-              <ul className="mt-2.5 space-y-2.5">
+              <h2 className="text-base font-bold">Pay, relocation, visa</h2>
+              <ul className="mt-2.5 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
                 {c.pay.map((p, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="mono w-6 shrink-0 text-xs leading-6 text-signal">·</span>
-                    <span className="text-sm leading-6 text-muted">{p}</span>
-                  </li>
+                  <li key={i}>{p}</li>
                 ))}
               </ul>
             </div>
-            <Card dashed className="p-4.5">
-              <h2 className="text-base font-semibold">Candidate reports</h2>
+            <Card className="bg-raised p-4.5">
+              <h2 className="text-base font-bold">Candidate reports</h2>
               {c.reports.length === 0 ? (
                 <p className="mt-2 text-sm leading-[1.55] text-muted">
-                  None yet. Went through this process? Tell the next person what it looked like: steps,
-                  timing, outcome. No interview questions.
+                  None yet. Went through this process? Tell the next person how it went: the steps, the
+                  timing and the outcome. Please don&apos;t post the interview questions.
                 </p>
               ) : (
                 <ul className="mt-3 space-y-4">
@@ -187,7 +176,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                       <p className="font-semibold">
                         {rep.role}, applied {rep.applied}
                       </p>
-                      <p className="mono mt-1 text-[13px] text-muted">{rep.timeline.join(" → ")}</p>
+                      <p className="mt-1 text-[13px] text-muted">{rep.timeline.join(" → ")}</p>
                       <p className="mt-1 text-muted">Outcome: {rep.outcome}</p>
                       {rep.notes && <p className="mt-1 text-muted">{rep.notes}</p>}
                     </li>
@@ -198,19 +187,18 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                 href={share}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3.5 inline-block rounded-md bg-signal px-3.5 py-2 text-[13px] font-semibold text-[#06120a] hover:brightness-110"
+                className="mt-3.5 inline-block rounded-md bg-ink px-3.5 py-2 text-[13px] font-semibold text-white hover:bg-muted"
               >
                 Share your process
                 <NewTab />
               </a>
             </Card>
             <div>
-              <h2 className="text-base font-semibold">Sources</h2>
-              <ul className="mt-2.5 space-y-2.5">
+              <h2 className="text-base font-bold">Sources</h2>
+              <ul className="mt-2.5 list-disc space-y-2 pl-5 text-sm leading-6">
                 {c.sources.map((s) => (
-                  <li key={s.url} className="flex gap-3">
-                    <span className="mono w-6 shrink-0 text-xs leading-6 text-signal">·</span>
-                    <a href={s.url} target="_blank" rel="noreferrer" className="break-all text-sm leading-6 text-muted hover:text-ink">
+                  <li key={s.url}>
+                    <a href={s.url} target="_blank" rel="noreferrer" className="link break-all">
                       {stripProtocol(s.url)}
                       <NewTab />
                     </a>

@@ -27,7 +27,7 @@ If you are turned down, Equinor says you are “very welcome to apply again at a
 
 - Pay: not stated for interns. For graduates the FAQ lists “Competitive salaries” and a bonus scheme, no figure.
 - Visa: Equinor “does not support, or sponsor work or visa permits for internship applications”.
-- Not stated: relocation.
+- Relocation: not mentioned.
 
 ## Candidate reports
 

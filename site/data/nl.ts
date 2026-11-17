@@ -61,7 +61,7 @@ export const nl: Company[] = [
     pay: [
       "“A highly competitive internship compensation package”, no figure given.",
       "Flights and accommodation in the city centre are covered for the internship.",
-      "Visa: not mentioned on the posting.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -152,7 +152,7 @@ export const nl: Company[] = [
       "Interviews assess technical strengths and business knowledge. That outcome decides your starting team.",
       "If you do not live near the interview location, the recruitment team books flights and accommodation.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "“A base salary and a discretionary variable component”, no figures.",
       "Visa sponsorship is available for international candidates, but not for interns.",
@@ -224,7 +224,7 @@ export const nl: Company[] = [
       "Recruiter phone interview.",
       "In-person assessment centre: a day of one-on-one interviews and group activities. Time between steps is not stated. The grad programme pages list the same four steps.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: ["Not stated on the pages checked. Contact given on the page: graduates@booking.com."],
     reports: [],
     sources: [
@@ -263,9 +263,9 @@ export const nl: Company[] = [
       "The final round is on site over two days: day one afternoon has introductions and a technical challenge, day two is “a full day of interviews”.",
       "DRW says the process can be “slightly different” per candidate.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
-      "Pay: not stated on the posting.",
+      "Pay: no figure given.",
       "Housing: “DRW provides fully furnished apartments located close to the office”.",
       "Visa: the application form asks if you will need DRW to sponsor a Dutch work visa; no policy is stated.",
     ],
@@ -364,7 +364,7 @@ export const nl: Company[] = [
     ],
     reapply: "Not stated. bunq recommends applying only to the role that best fits you, and if you apply to more than one, to keep them similar.",
     pay: [
-      "Pay: not stated on the posting.",
+      "Pay: no figure given.",
       "Perks on the posting: lunches from in-house chefs and a MacBook.",
       "Visa: not stated; the recruiter call covers visas.",
     ],
@@ -526,7 +526,7 @@ export const nl: Company[] = [
     pay: [
       "Pay: “competitive compensation and a pension plan” for the Tech Academy role, no figure given.",
       "Relocation: the Analytics posting says Picnic covers flights for you and your family, your first month's rent and moving costs up to €2000, and helps with the 30% ruling. The relocation page says Picnic “often” covers flights.",
-      "Visa: not mentioned on the pages checked.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -581,7 +581,7 @@ export const nl: Company[] = [
       "bol aims for about four weeks from start to end, and at most 8 working days between accepting the offer and getting the contract.",
       "bol does not accept open applications.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Internship pay: €550 a month, on the Stage AI-innovatie posting.",
       "Tech Young Professional: “you’ll get a full salary”, no figure given; full time, 40 hours a week.",
@@ -645,7 +645,7 @@ export const nl: Company[] = [
       "Pay: monthly full-time allowance of €500 to €700 gross, depending on education level; a different allowance if you relocate to the Netherlands for the internship.",
       "Housing: €300 net a month near Amsterdam, €255 net at other Philips sites, if your home is more than 50 km or 1.5 hours away.",
       "Travel: up to €192 net if you have no free student public transport.",
-      "Visa: not mentioned on the postings.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -688,7 +688,7 @@ export const nl: Company[] = [
       "This is Miro's general hiring page; it does not say whether graduates follow every step.",
     ],
     reapply: "No waiting period is stated. Miro's hiring page says not to be “put off from trying again” if you do not succeed the first time.",
-    pay: ["Pay: not stated.", "Relocation: not stated.", "Visa: not stated."],
+    pay: ["Pay: no figure given.", "Relocation: not mentioned.", "Visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://miro.com/careers/", checked: "2026-11-16" },
@@ -742,8 +742,8 @@ export const nl: Company[] = [
     reapply: "Databricks says it “can only consider one application in 30 days”. Apply to one office only; the postings say location is discussed later in the process.",
     pay: [
       "Pay: not stated on the postings; they link to a regional benefits page only.",
-      "Relocation: not stated.",
-      "Visa: not stated.",
+      "Relocation: not mentioned.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -799,11 +799,11 @@ export const nl: Company[] = [
       "For Student Researcher, you are “considered for Student Researcher positions across all of Google's research teams”, including DeepMind and Google Research.",
       "Interview steps are not described on the postings. Google's hiring process and students pages render only with JavaScript and gave no text when loaded.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Student Researcher, Netherlands: €68500 (Bachelor's), €71000 (Master's), €86500 (PhD), each “+ 0% bonus target”. The posting does not say if this is a yearly rate.",
       "Product Deployment Engineer Intern, Netherlands: €49200 (Bachelor's) and €49000 (Master's), “+ 0% bonus target”. The posting does not say if this is a yearly rate.",
-      "Relocation: not stated.",
+      "Relocation: not mentioned.",
       "Visa: the Product Deployment Engineer intern posting says applicants “will not be eligible for immigration sponsorship”. Student Researcher applicants “must hold valid work authorization or meet local immigration eligibility requirements”.",
     ],
     reports: [],
@@ -842,10 +842,10 @@ export const nl: Company[] = [
       "Expect both behavioral and functional or technical questions; for some roles “you may be asked to write code”.",
       "Your recruiter tells you when to expect the hiring decision.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “The base pay for this internship is € 800.00 per month.”",
-      "Relocation: not stated.",
+      "Relocation: not mentioned.",
       "Visa: “You must be legally authorised to work in the Netherlands to be eligible for this role.”",
     ],
     reports: [],
@@ -930,11 +930,11 @@ export const nl: Company[] = [
       "The posting lists the steps: “Apply online”, “CV selection and feedback”, “Job interview(s)”, “Possible assessment”, “Job offer”, then onboarding.",
       "The IT traineeship runs through six external agencies; the page says “Each agency chooses its own approach.”",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Internships: “An internship allowance of €750 per month, based on a 36-hour work week.”",
       "Traineeships: only “A competitive starting salary”, no figure on the overview page.",
-      "Relocation: not stated.",
+      "Relocation: not mentioned.",
       "Visa: not stated. Interns must “live in the Netherlands during your internship”.",
     ],
     reports: [],
@@ -1143,7 +1143,7 @@ export const nl: Company[] = [
       "Within a week after each interview, your recruiter contacts you about the next steps.",
       "Both Early Talent postings offer the chance to be considered for a full-time role after the programme.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “Compensation: Paid”, no figure given.",
       "Visa: not mentioned. Applicants “must be authorized to work in the country in which they apply”.",
@@ -1187,11 +1187,11 @@ export const nl: Company[] = [
       "A final conversation with the hiring manager and/or team members.",
       "Offer. Mendix adds: “Process may vary depending on role”.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “€52,100- €78,200 annually”, and the role is eligible for incentive compensation.",
       "Benefits on the posting include “30 days of Paid Time Off (PTO)” and travel to and from the office covered by Mendix.",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1230,12 +1230,12 @@ export const nl: Company[] = [
       "If both sides agree, you get an offer that KPN goes through with you.",
       "For internships, KPN says you hear within 5 working days whether you are invited for an introduction, followed by more interviews or an assessment.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “Een bruto maandsalaris van € 3900,- op basis van 40 uur”, plus a fixed 13th month and 8% holiday pay.",
       "A permanent contract from day one and a personal training budget of € 2500.",
       "Internships: “600 euro bruto per maand” for a 40-hour week.",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1301,8 +1301,8 @@ export const nl: Company[] = [
       "After a successful interview process you get a formal offer.",
       "For the Sensor Platform assignments, you name your chosen assignment in your motivation letter.",
     ],
-    reapply: "Not stated.",
-    pay: ["“An excellent internship allowance”, no figure given.", "Not stated: relocation and visa."],
+    reapply: "Not stated",
+    pay: ["“An excellent internship allowance”, no figure given.", "Relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://careers.thalesgroup.com/global/en/studentandgraduates2", checked: "2026-11-17" },
@@ -1341,7 +1341,7 @@ export const nl: Company[] = [
       "Internship Matching Days: “80% of the attendees on the Matching Day go home with a definitive internship”, so you can sign up for only one.",
       "Most internships are “only available for Dutch speaking students”.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Not stated for the IT traineeship.",
       "Internships: 450 (HBO) or 500 (WO) per 4 weeks for full-time work, plus a travel allowance based on distance.",
@@ -1530,7 +1530,7 @@ export const nl: Company[] = [
       "Interns must have a registered home address in the Netherlands at the start; working from abroad is not possible.",
       "For the traineeship you send a CV, a motivation letter and an assignment about your impact and learning goals.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “a monthly internship allowance of € 615 for a full-time internship”.",
       "Travel: a contribution to travel costs if you have no student travel card.",
@@ -1607,12 +1607,12 @@ export const nl: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
       "Pay: one Eindhoven intern posting (X-ray Spectroscopy) offers “internship remuneration based on level and type of the assignment”; the others give no figure.",
       "Visa: applicants “must be legally authorized to work in the Country indicated”.",
-      "Not stated: relocation.",
+      "Relocation: not mentioned.",
     ],
     reports: [],
     sources: [

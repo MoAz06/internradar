@@ -21,11 +21,11 @@ Careers page: https://www.mlp.com/careers/students/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay, relocation or visa details on the student page or the London postings.
+- Pay, relocation and visa: not mentioned on the student page or the London postings.
 
 ## Candidate reports
 

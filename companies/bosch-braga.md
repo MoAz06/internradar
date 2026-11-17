@@ -12,15 +12,15 @@ Careers page: https://careers.smartrecruiters.com/BoschGroup
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay figure, relocation and visa.
+- Pay, relocation and visa: not mentioned.
 - Perks listed include “Free transport from Porto” and a canteen.
 
 ## Candidate reports

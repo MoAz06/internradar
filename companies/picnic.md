@@ -25,7 +25,7 @@ Picnic's FAQ says you can apply again, but it recommends waiting 1 year between 
 
 - Pay: “competitive compensation and a pension plan” for the Tech Academy role, no figure given.
 - Relocation: the Analytics posting says Picnic covers flights for you and your family, your first month's rent and moving costs up to €2000, and helps with the 30% ruling. The relocation page says Picnic “often” covers flights.
-- Visa: not mentioned on the pages checked.
+- Visa: not mentioned.
 
 ## Candidate reports
 

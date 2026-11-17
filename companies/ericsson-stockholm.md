@@ -26,11 +26,11 @@ Careers page: https://www.ericsson.com/en/careers/students-early-careers/early-c
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: the postings give no pay figure.
+- Pay: no figure given.
 - Visa: for the Early Career Program “Ericsson supports work permits”, but you must be based in, or ready to relocate to, the location of the role.
 
 ## Candidate reports

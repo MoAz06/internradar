@@ -32,8 +32,8 @@ export const be: Company[] = [
       "Step 5: “Get an offer”.",
       "The intern posting gives an application duration of “7 - 15 days”.",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay, relocation and visa."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://www.odoo.com/jobs", checked: "2026-11-17" },
@@ -123,7 +123,7 @@ export const be: Company[] = [
       "“Applications should include the following information: resume motivation current study”.",
       "“Incomplete applications will not be considered.”",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Some postings say “Imec allowance will be provided.” (runtime simulation, IEEE 1838 and 2D data analytics topics).",
       "The AI-agent topic is “Only for self-supporting students.”",
@@ -212,8 +212,8 @@ export const be: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: ["Not stated"],
     reports: [],
     sources: [
@@ -292,7 +292,7 @@ export const be: Company[] = [
       "After the form comes in, “gaat de recruiter ermee aan de slag” (the recruiter picks it up).",
       "“De verdere stappen zijn afhankelijk van de vacature waarvoor je solliciteerde.” (next steps depend on the vacancy).",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: ["Not stated"],
     reports: [],
     sources: [
@@ -326,8 +326,8 @@ export const be: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
       "“The salary is based on a clear salary scale”; the recruiter shares the range before the first interview.",
       "Contract: “Permanent contract”.",

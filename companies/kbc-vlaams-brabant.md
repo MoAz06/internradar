@@ -19,7 +19,7 @@ Careers page: https://www.kbc.be/jobs/nl/stages.html
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

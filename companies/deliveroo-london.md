@@ -19,7 +19,7 @@ Careers page: https://careers.deliveroo.co.uk/software-engineering-at-deliveroo/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

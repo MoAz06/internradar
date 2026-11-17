@@ -23,7 +23,7 @@ Careers page: https://www.qube-rt.com/careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

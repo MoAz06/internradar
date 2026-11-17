@@ -22,11 +22,11 @@ Careers page: https://www.getyourguide.careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the posting.
+- Pay: no figure given.
 - Relocation: not stated for this role; the posting asks that “You are based locally”.
 - Visa: not stated. The how-we-hire page says recruiters “might need to verify your work permit before proceeding”.
 

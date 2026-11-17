@@ -15,17 +15,17 @@ Careers page: https://intel.wd1.myworkdayjobs.com/External
 
 ## Process, as the company describes it
 
-- Not stated: the postings checked do not describe the interview steps.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: each posting gives a minimum annual salary in Poland of 68 880,00 zł.
 - Intel says its standard internship rates depend on the job role and degree level.
-- Not stated: relocation and visa are not mentioned on the postings.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

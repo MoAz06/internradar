@@ -19,14 +19,14 @@ Careers page: https://careers.allianz.com/global/en/students
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Students: “attractive salary for students”, no figure given.
 - A tax-free travel allowance of EUR 30 a month if you use only local public transport.
 - Visa: non-EU citizens must send a valid work and residence permit; the posting asks you to check that your current visa lets you work before applying.
-- Not stated: relocation support.
+- Relocation: not mentioned.
 
 ## Candidate reports
 

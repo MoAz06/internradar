@@ -21,11 +21,11 @@ Careers page: https://mistral.ai/careers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
+- Pay: no figure given.
 - Benefits “may include” relocation support, depending on the country.
 - Visa: postings ask you to apply only if you already have the required work authorization for the full internship.
 

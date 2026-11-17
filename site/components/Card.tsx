@@ -9,7 +9,7 @@ export default function Card({
   return (
     <div
       {...rest}
-      className={`rounded-[10px] border bg-surface ${dashed ? "border-dashed" : ""} border-line ${className}`}
+      className={`border bg-surface ${dashed ? "border-dashed" : ""} border-line ${className}`}
     >
       {children}
     </div>

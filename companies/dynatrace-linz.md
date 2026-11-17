@@ -18,12 +18,12 @@ Careers page: https://apply.careers.dynatrace.com/search/?q=internship
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “a monthly gross salary of €2,139 for HTL students and €2,632 for University and FH students”.
-- Not stated: relocation and visa are not mentioned on the postings.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

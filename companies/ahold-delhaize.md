@@ -18,7 +18,7 @@ Careers page: https://careers.aholddelhaize.com/young-professionals/traineeships
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

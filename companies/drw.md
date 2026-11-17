@@ -20,11 +20,11 @@ Careers page: https://drw.com/work-at-drw/interns
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the posting.
+- Pay: no figure given.
 - Housing: “DRW provides fully furnished apartments located close to the office”.
 - Visa: the application form asks if you will need DRW to sponsor a Dutch work visa; no policy is stated.
 

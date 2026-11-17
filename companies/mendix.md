@@ -19,13 +19,13 @@ Careers page: https://www.mendix.com/careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “€52,100- €78,200 annually”, and the role is eligible for incentive compensation.
 - Benefits on the posting include “30 days of Paid Time Off (PTO)” and travel to and from the office covered by Mendix.
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

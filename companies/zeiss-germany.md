@@ -28,7 +28,7 @@ You can apply to as many roles as you like with the same candidate profile. Afte
 
 - Students get “eine attraktive Vergütung” that depends on location and role; no figure given.
 - Travel costs for an in-person interview can be claimed back.
-- Not stated: relocation support or visa sponsorship.
+- Relocation and visa: not mentioned.
 
 ## Notes
 

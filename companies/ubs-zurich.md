@@ -26,9 +26,9 @@ No waiting period is stated. For Switzerland you may send at most three applicat
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the postings.
-- Relocation: not stated.
-- Visa: not stated.
+- Pay: no figure given.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

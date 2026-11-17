@@ -12,16 +12,16 @@ Careers page: https://jobs.telefonica.com/
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Paid: “Una beca tutorizada y remunerada”, no figure given.
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

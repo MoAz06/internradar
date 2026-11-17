@@ -17,12 +17,12 @@ Careers page: https://www.morganstanley.com/people-opportunities/students-gradua
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay.
-- Not stated: relocation or visa.
+- Pay: no figure given.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

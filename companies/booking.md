@@ -20,7 +20,7 @@ Careers page: https://careers.booking.com/early-careers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

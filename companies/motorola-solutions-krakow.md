@@ -14,18 +14,18 @@ Careers page: https://motorolasolutions.wd5.myworkdayjobs.com/Careers
 
 ## Process, as the company describes it
 
-- Not stated: the postings checked do not describe the interview steps.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: a contract of employment, no salary figure given.
 - Benefits listed include private medical and dental cover, life insurance and an employee stock plan.
 - Relocation: the postings say none is provided.
-- Not stated: visa is not mentioned on the postings.
+- Visa: not mentioned.
 
 ## Candidate reports
 

@@ -24,7 +24,7 @@ Careers page: https://www.bosch.de/karriere/dein-einstieg/studentinnen-und-stude
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

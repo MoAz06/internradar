@@ -22,13 +22,13 @@ Careers page: https://www.siemens.com/sgp
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Graduate program: “Permanent employment contract from day one”, salary not stated.
 - Internships: Not stated.
-- Visa: Not stated.
+- Visa: not mentioned.
 
 ## Candidate reports
 

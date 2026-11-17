@@ -15,12 +15,12 @@ Careers page: https://www.cloudflare.com/careers/early-talent/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “For Portugal based hires: the monthly salary is €2,450.”
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

@@ -24,8 +24,8 @@ After a rejection you may apply for other jobs: the FAQ answers “Of course!”
 
 ## Pay, relocation, visa
 
-- Pay: not stated.
-- Relocation: not stated.
+- Pay: no figure given.
+- Relocation: not mentioned.
 - Visa: you can apply without a Swiss work visa and Swisscom “can support you in your work visa application although cannot guarantee the outcome”, but “domestic preference does apply” for Swiss residents and EU citizens.
 
 ## Candidate reports

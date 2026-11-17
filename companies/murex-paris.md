@@ -18,7 +18,7 @@ Careers page: https://www.murex.com/en/careers/students-graduates
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

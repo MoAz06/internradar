@@ -17,7 +17,7 @@ Careers page: https://www.amazon.jobs/content/en/career-programs/university/inte
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

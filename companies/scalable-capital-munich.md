@@ -26,7 +26,7 @@ Scalable says you can reapply for future openings. For a position you were alrea
 ## Pay, relocation, visa
 
 - Pay: no figure given; the posting says “we also remunerate mandatory internships”.
-- Not stated: relocation and visa are not mentioned on the internship postings.
+- Relocation and visa: not mentioned on the internship postings.
 
 ## Candidate reports
 

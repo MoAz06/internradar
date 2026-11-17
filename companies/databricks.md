@@ -25,8 +25,8 @@ Databricks says it “can only consider one application in 30 days”. Apply to 
 ## Pay, relocation, visa
 
 - Pay: not stated on the postings; they link to a regional benefits page only.
-- Relocation: not stated.
-- Visa: not stated.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

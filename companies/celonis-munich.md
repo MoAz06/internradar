@@ -20,13 +20,13 @@ Careers page: https://careers.celonis.com/early-careers/entry-level/galaxy-gradu
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: no figure given. The posting says every full-time employee receives “Restricted Stock Units (RSUs) and merit-based refresh grants”.
-- Relocation: not stated.
-- Visa: not stated.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 - Travel: “There is no assigned travel in this program.”
 
 ## Notes

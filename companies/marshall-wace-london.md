@@ -23,11 +23,11 @@ Careers page: https://www.mwam.com/technology-internship-programme/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated.
+- Not stated
 
 ## Candidate reports
 

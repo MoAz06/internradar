@@ -22,13 +22,13 @@ Careers page: https://alan.com/en/careers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: summer program “€2,800 gross per month”.
 - Pay: Data Associate is hired at the A1 level of Alan's salary grid; no figure on the posting.
-- Not stated: relocation is not mentioned.
+- Relocation: not mentioned.
 - Visa: the summer posting says “International students welcome.” but says nothing about visas.
 
 ## Candidate reports

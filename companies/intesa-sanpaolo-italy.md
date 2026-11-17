@@ -12,11 +12,11 @@ Careers page: https://jobs.intesasanpaolo.com/
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

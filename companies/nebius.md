@@ -22,7 +22,7 @@ Careers page: https://careers.nebius.com/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

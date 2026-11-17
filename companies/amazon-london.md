@@ -23,13 +23,13 @@ Careers page: https://www.amazon.jobs/content/en/career-programs/university
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay (SDE interns): “a competitive monthly salary, relocation support”, no figure given.
 - Pay (Applied Scientist interns): “All of our internships offer a competitive salary”, no figure given.
-- Not stated: visa sponsorship.
+- Visa: not mentioned.
 
 ## Candidate reports
 

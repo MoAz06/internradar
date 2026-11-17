@@ -14,17 +14,17 @@ Careers page: https://jobs.lever.co/quantco-?location=Europe
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: the Software Engineering and Data Science intern postings mention “a generous compensation package that includes a base salary, bonus, relocation and housing support”, no figure given.
 - The AI intern postings mention a base salary, bonus, stock options and relocation support, no figure given.
-- Visa: not mentioned on the postings.
+- Visa: not mentioned.
 
 ## Notes
 

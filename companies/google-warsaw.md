@@ -18,7 +18,7 @@ Careers page: https://www.google.com/about/careers/applications/jobs/results/?lo
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

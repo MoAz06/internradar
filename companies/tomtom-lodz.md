@@ -13,15 +13,15 @@ Careers page: https://jobs.eu.lever.co/tomtom
 
 - TomTom says it may use AI tools to support parts of hiring, such as reviewing applications.
 - Final hiring decisions are made by humans, per the posting.
-- Not stated: interview steps are not described.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay, relocation and visa are not mentioned on the posting.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

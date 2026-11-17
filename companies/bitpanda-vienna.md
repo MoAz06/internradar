@@ -13,15 +13,15 @@ Careers page: https://job-boards.eu.greenhouse.io/bitpanda
 ## Process, as the company describes it
 
 - Hiring for these internships “kicks off in October 2026”, per the postings.
-- Not stated: interview steps are not described on the postings.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
+- Pay: no figure given.
 - A footnote says the listed benefits “do not apply to our internships”.
 
 ## Candidate reports

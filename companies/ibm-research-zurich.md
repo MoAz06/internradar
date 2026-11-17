@@ -25,12 +25,12 @@ Careers page: https://www.zurich.ibm.com/careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: only the Docling posting mentions pay, calling it a “~4-month paid internship”, no figure given. The other postings do not mention pay.
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: not stated. The PDE posting says “We welcome applications from universities in Switzerland and abroad.”
 
 ## Candidate reports

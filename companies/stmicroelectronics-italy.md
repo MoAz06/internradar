@@ -14,11 +14,11 @@ Careers page: https://www.st.com/content/st_com/en/about/careers/students-and-gr
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

@@ -21,14 +21,14 @@ Careers page: https://www.analog.com/en/careers/student-resources.html
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Placement: “Competitive Salary, plus relocation assistance”, no figure given.
 - Graduates: “Competitive Salary, Bonus Scheme, plus relocation assistance”, no figure given.
 - ADI's student page says “All internships at ADI are paid”.
-- Not stated: visa sponsorship.
+- Visa: not mentioned.
 
 ## Candidate reports
 

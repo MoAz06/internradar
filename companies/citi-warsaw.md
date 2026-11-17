@@ -17,7 +17,7 @@ Careers page: https://jobs.citi.com/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

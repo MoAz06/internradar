@@ -50,7 +50,7 @@ export const dk: Company[] = [
       "Remaining candidates get “a second and final interview”.",
       "You can apply to only one track: “Please note that you can only apply for 1 programme.”",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "“Competitive compensation and benefits”, no figure given.",
       "Visa: for the Global tracks “all nationalities are welcome to apply, and Novo provides visa sponsorship for candidates who need it”.",
@@ -89,10 +89,10 @@ export const dk: Company[] = [
     ],
     process: [
       "You apply through Danske Bank's job portal. The posting goes up “just before P-day at Aarhus University” and “we usually find our candidates shortly after that”.",
-      "The pages checked do not describe interviews or tests.",
+      "Interview steps: not described.",
     ],
-    reapply: "Not stated.",
-    pay: ["Pay: “Salary: According to IDA guidelines.”", "Not stated: relocation and visa."],
+    reapply: "Not stated",
+    pay: ["Pay: “Salary: According to IDA guidelines.”", "Relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://danskebank.com/careers/students-and-graduates/internships", checked: "2026-11-17" },
@@ -142,11 +142,11 @@ export const dk: Company[] = [
       "Netcompany says the case is about your reasoning: “A perfectly solved case is less important than showing your reasoning and approach.”",
       "Netcompany aims to give “constructive feedback after interviews”.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: both internships are described as paid; no figure given.",
       "The first internship requires full professional Danish.",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [

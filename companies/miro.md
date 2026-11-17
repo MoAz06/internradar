@@ -25,9 +25,9 @@ No waiting period is stated. Miro's hiring page says not to be “put off from t
 
 ## Pay, relocation, visa
 
-- Pay: not stated.
-- Relocation: not stated.
-- Visa: not stated.
+- Pay: no figure given.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

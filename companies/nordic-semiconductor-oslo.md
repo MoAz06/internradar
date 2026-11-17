@@ -22,13 +22,13 @@ Careers page: https://www.nordicsemi.com/Careers/Students-and-Graduates?lang=en
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Summer Makers: “A paid summer internship of 8–10 weeks”, no figure given.
 - Embedded Software Engineer: “Competitive salary with short- and long-term incentive plan”, no figure given.
-- Not stated: visa and relocation.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

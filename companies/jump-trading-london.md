@@ -22,15 +22,15 @@ Careers page: https://www.jumptrading.com/hr/students-new-grads
 - It asks you to hold off on US roles if you plan to apply to a role in another region.
 - Internships can run outside summer: Jump allows them “during a non-summer term”, and accepts students who need placements or longer internships.
 - Jump calls its internship program “the primary way we identify top young software engineers for our core development team”.
-- Not stated: the postings do not describe the interview steps.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the London postings.
+- Pay: no figure on the London postings.
 - Visa: the ML Research Engineer (Full-Time) posting says “We sponsor work visas for full-time positions.”
 - The London full-time postings list benefits such as private medical, vision and dental insurance and a group pension scheme.
 

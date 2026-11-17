@@ -20,14 +20,14 @@ Careers page: https://jobs.kpn.com/option/expertises/talent-programmas
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “Een bruto maandsalaris van € 3900,- op basis van 40 uur”, plus a fixed 13th month and 8% holiday pay.
 - A permanent contract from day one and a personal training budget of € 2500.
 - Internships: “600 euro bruto per maand” for a 40-hour week.
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Notes
 

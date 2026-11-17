@@ -15,7 +15,7 @@ Careers page: https://careers.king.com/us/en/search-results
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

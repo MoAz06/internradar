@@ -21,14 +21,14 @@ Careers page: https://stripe.com/en-ie/jobs/university
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the Dublin postings.
+- Pay: no figure on the Dublin postings.
 - Learning: early-career hires get “an annual education stipend for courses, conferences and other learning resources”.
-- Relocation: not stated.
-- Visa: not stated.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

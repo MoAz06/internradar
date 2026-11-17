@@ -30,7 +30,7 @@ Not stated. You may apply to more than one position at the same time.
 - “Interns, student trainees, and thesis writers at Infineon are getting paid.” No figure given.
 - “In certain conditions, a housing allowance may also be granted.”
 - IGP: permanent, full-time role; salary not stated.
-- Visa: Not stated.
+- Visa: not mentioned.
 
 ## Candidate reports
 

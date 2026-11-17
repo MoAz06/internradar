@@ -24,7 +24,7 @@ Careers page: https://amazon.jobs/content/en/career-programs/university
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

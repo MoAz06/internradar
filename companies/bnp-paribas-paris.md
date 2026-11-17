@@ -17,7 +17,7 @@ Careers page: https://group.bnpparibas/en/careers/all-job-offers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

@@ -16,16 +16,16 @@ Careers page: https://careers.criteo.com/en/working-at-criteo/criteo-campus/
 
 - Criteo says the selection process “typically takes 2 to 4 weeks”, with possible delays during vacation periods.
 - Criteo prefers internships of “at least 4 to 6 months”.
-- Not stated: the interview steps are not described on the pages checked.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
-- Not stated: relocation and visa are not mentioned on the postings.
+- Pay: no figure given.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

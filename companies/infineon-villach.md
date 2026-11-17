@@ -22,7 +22,7 @@ Careers page: https://jobs.infineon.com/careers?location=Austria
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

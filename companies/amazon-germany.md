@@ -22,7 +22,7 @@ Careers page: https://www.amazon.jobs/en/search?base_query=intern&country=DEU
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

@@ -22,7 +22,7 @@ Careers page: https://careers.societegenerale.com/en/internships-trainee-program
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

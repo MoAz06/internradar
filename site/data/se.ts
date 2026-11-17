@@ -87,9 +87,9 @@ export const se: Company[] = [
       "Final step for the Early Career Program: meet senior leaders and stakeholders.",
       "“Around 100 candidates globally will be accepted into the Early Career Program.”",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
-      "Not stated: the postings give no pay figure.",
+      "Pay: no figure given.",
       "Visa: for the Early Career Program “Ericsson supports work permits”, but you must be based in, or ready to relocate to, the location of the role.",
     ],
     reports: [],
@@ -128,7 +128,7 @@ export const se: Company[] = [
     process: [
       "Apply with “1) your CV, and 2) a cover letter” covering your interest in the role, your preferred research theme, relevant experience with links, and contact details for your academic supervisor.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "No figure given; the page says “new hire compensation is negotiable”.",
       "Visa: not stated; the posting asks for valid authorization to work in Sweden from January 2027.",
@@ -182,8 +182,8 @@ export const se: Company[] = [
       "After interviews and assessments Nordea runs background checks on the final candidates. For candidates in Finland the selected person also gets a security clearance.",
       "Nordea says CV screening is done by people: “We review all applications manually”.",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay, relocation and visa."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://careers.nordea.com/job/Stockholm-Associate-Forward-Deployed-AI-Engineer-111-46/1444244733/", checked: "2026-11-17" },
@@ -235,8 +235,8 @@ export const se: Company[] = [
       "The pages checked do not describe the selection process. Scania says summer job applications for Södertälje in 2027 open 12 January and close 28 February 2027.",
       "For R&D, “When you apply to R&D on our ad, you may get a summer job at either Scania or TRATON.”",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay, relocation and visa."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://www.scania.com/group/en/home/career/students-and-graduates/summer-jobs-in-sweden/summer-job-in-sodertalje.html", checked: "2026-11-17" },
@@ -332,10 +332,10 @@ export const se: Company[] = [
       "Final candidates go through background checks, for example “identity control, verification of qualifications, credit checks”. In some cases SEB also runs random drug checks.",
       "If it is a match you get a job offer and start in early September with onboarding in your department, then a joint kick-off with your cohort.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "You are hired into a full-time tech role from day one; the trainee programme runs alongside it for six months.",
-      "Not stated: pay, relocation and visa.",
+      "Pay, relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -424,10 +424,10 @@ export const se: Company[] = [
       "The graduate postings say “a background check as well as alcohol and drug testing may be conducted”.",
       "The Data Analyst posting asks for a cover letter on how you are building leadership skills and on one data analysis experience.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “A competitive salary and permanent position from day one.” No figure given.",
-      "Not stated: relocation and visa.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [

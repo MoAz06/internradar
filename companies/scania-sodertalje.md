@@ -17,11 +17,11 @@ Careers page: https://www.scania.com/group/en/home/career/students-and-graduates
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay, relocation and visa.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

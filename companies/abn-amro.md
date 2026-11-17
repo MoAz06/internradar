@@ -17,13 +17,13 @@ Careers page: https://www.werkenbijabnamro.nl/en/internships
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Internships: “An internship allowance of €750 per month, based on a 36-hour work week.”
 - Traineeships: only “A competitive starting salary”, no figure on the overview page.
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: not stated. Interns must “live in the Netherlands during your internship”.
 
 ## Candidate reports

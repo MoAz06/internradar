@@ -30,7 +30,7 @@ Google asks people who applied or interviewed and were not selected to “wait a
 ## Pay, relocation, visa
 
 - Pay for Zurich: not stated. The Student Researcher posting lists yearly rates for Germany, France, Sweden and the Netherlands only (Germany, Master's: “€71000 (EUR) + 0% bonus target”).
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: the Software Engineering and Research Scientist PhD internships say applicants “will not be eligible for immigration sponsorship”. The Student Researcher posting says you must hold valid work authorization or meet local immigration rules. The Data Science posting does not mention visas.
 
 ## Candidate reports

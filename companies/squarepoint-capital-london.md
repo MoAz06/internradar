@@ -17,16 +17,16 @@ Careers page: https://www.squarepoint-capital.com/open-opportunities
 
 - Squarepoint asks you to “only apply to the one job you feel best fits your skillset and experience”.
 - If the team thinks another role suits you better, they “will reach out about the alternate opportunity”.
-- Not stated: the postings do not describe the interview steps.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Not stated for London. The Intern Quant Researcher posting only gives a minimum base salary of $150,000 “if located in New York”.
-- Not stated: relocation and visa are not mentioned on the postings.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

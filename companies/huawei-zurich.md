@@ -19,14 +19,14 @@ Careers page: https://careers.huaweirc.ch/jobs
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Fresh Graduates Program: “Competitive Salary package”, no figure given.
 - Visa: research internships need Swiss or EU citizenship or the right to live and work in Switzerland; non-EU/EFTA citizens must send a university certificate saying the internship is mandatory.
 - Fresh Graduates Program: a valid Swiss work permit is mandatory.
-- Not stated: relocation support.
+- Relocation: not mentioned.
 
 ## Candidate reports
 

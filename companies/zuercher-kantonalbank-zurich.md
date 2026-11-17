@@ -12,17 +12,17 @@ Careers page: https://www.zkb.ch/de/ueber-uns/jobs-karriere/young-talents.html
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - T-Shaped trainees get “eine faire Vergütung”, no figure given, and have a permanent contract from day one.
 - Summer Internship pay: not stated.
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: not stated. The T-Shaped page says German is a requirement.
 
 ## Candidate reports

@@ -21,7 +21,7 @@ Careers page: https://www.revolut.com/talent-programmes/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

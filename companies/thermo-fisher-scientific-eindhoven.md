@@ -14,17 +14,17 @@ Careers page: https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCaree
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: one Eindhoven intern posting (X-ray Spectroscopy) offers “internship remuneration based on level and type of the assignment”; the others give no figure.
 - Visa: applicants “must be legally authorized to work in the Country indicated”.
-- Not stated: relocation.
+- Relocation: not mentioned.
 
 ## Candidate reports
 

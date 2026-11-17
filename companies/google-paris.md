@@ -28,7 +28,7 @@ Google typically asks people to wait at least a year before reapplying for the s
 
 - Pay (France), Research Scientist PhD Intern: “€66000 (EUR) + 0% bonus target”.
 - Pay (France), Student Researcher: €53000 for Bachelor's, €54000 for Master's and €66000 for PhD, each “+ 0% bonus target”.
-- Not stated: relocation is not mentioned on the postings.
+- Relocation: not mentioned.
 - Visa: the PhD intern posting says applicants “will not be eligible for immigration sponsorship”; the Student Researcher posting asks for valid work authorization or local immigration eligibility.
 
 ## Candidate reports

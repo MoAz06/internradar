@@ -75,12 +75,12 @@ export const pl: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Not stated: the postings checked do not describe the interview steps."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
       "Pay: each posting gives a minimum annual salary in Poland of 68 880,00 zł.",
       "Intel says its standard internship rates depend on the job role and degree level.",
-      "Not stated: relocation and visa are not mentioned on the postings.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -155,13 +155,13 @@ export const pl: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Not stated: the postings checked do not describe the interview steps."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
       "Pay: a contract of employment, no salary figure given.",
       "Benefits listed include private medical and dental cover, life insurance and an employee stock plan.",
       "Relocation: the postings say none is provided.",
-      "Not stated: visa is not mentioned on the postings.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -214,7 +214,7 @@ export const pl: Company[] = [
       "Put your expected graduation date (month and year) and your internship availability on your CV.",
       "The team and project are picked based on your background, interests and skills.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: the Software Engineering PhD Intern posting lists “zł210000 (PLN) + 0% bonus target”; the Data Science PhD Intern posting lists “zł192000 (PLN) annually”.",
       "Visa: the Software Engineering PhD Intern posting says applicants “will not be eligible for immigration sponsorship”.",
@@ -250,10 +250,10 @@ export const pl: Company[] = [
     process: [
       "You can apply to up to 4 business and location combinations in one recruiting year; any extra application is auto withdrawn.",
       "To apply for another one, you first withdraw a current application that has not been turned down.",
-      "Not stated: the posting does not describe the interview steps.",
+      "Interview steps: not described.",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay, relocation and visa are not mentioned on the posting."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://higher.gs.com/roles/170636", checked: "2026-11-17" },
@@ -299,7 +299,7 @@ export const pl: Company[] = [
       "Candidates must be able to “pass technical interviews consisting of basic algorithmic programming exercises”.",
       "The 2-year Analyst Program starts with a training program and includes rotations.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: both postings list a salary range of zł57,672.00 - zł88,200.00 (period not stated).",
       "Benefits listed include an employer paid pension contribution of 6% and a private medical care package.",
@@ -353,7 +353,7 @@ export const pl: Company[] = [
       "Graduate applicants can name their preferred intake during the recruitment process.",
       "Top interns may be offered a place on the Graduate Programme the following year.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: Krakow PLN18,400 base gross monthly for the Graduate Programme and PLN9,500 base gross monthly for the internship.",
       "Relocation: visa assistance, travel costs and accommodation support, with conditions; for graduates the accommodation is the first month.",
@@ -388,10 +388,10 @@ export const pl: Company[] = [
     process: [
       "TomTom says it may use AI tools to support parts of hiring, such as reviewing applications.",
       "Final hiring decisions are made by humans, per the posting.",
-      "Not stated: interview steps are not described.",
+      "Interview steps: not described.",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay, relocation and visa are not mentioned on the posting."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://jobs.eu.lever.co/tomtom/972cc1dd-d8c1-46d1-83c6-fd92b0da60a7", checked: "2026-11-17" },

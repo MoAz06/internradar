@@ -12,15 +12,15 @@ Careers page: https://careers.glovoapp.com/jobs-at-glovo/
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay figure and relocation.
+- Pay and relocation: not mentioned.
 - Visa: the Data Intern posting asks you to “hold valid local work authorization without visa sponsorship”.
 - Perks listed on both postings include “Monthly Glovo credit”.
 

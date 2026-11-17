@@ -25,7 +25,7 @@ If you were not selected for a student program and still meet the eligibility ru
 ## Pay, relocation, visa
 
 - Pay: “a competitive total rewards package including base salary determined based on the role, experience, skill set and location”, no figure given.
-- Not stated: relocation or visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

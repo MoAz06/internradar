@@ -24,11 +24,11 @@ Careers page: https://www.qube-rt.com/careers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay, relocation or visa details on the postings.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

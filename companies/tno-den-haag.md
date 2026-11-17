@@ -24,7 +24,7 @@ Careers page: https://www.tno.nl/en/careers/graduates/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

@@ -23,13 +23,13 @@ Careers page: https://www.rohde-schwarz.com/de/karriere/studierende/studierende_
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “very good payment”, no figure given on the postings.
 - Housing: some postings offer help finding a room, with “favorably priced accommodations”.
-- Not stated: visa.
+- Visa: not mentioned.
 
 ## Candidate reports
 

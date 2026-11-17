@@ -27,7 +27,7 @@ Careers page: https://www.gresearch.com/students-graduates/graduates/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

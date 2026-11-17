@@ -18,11 +18,11 @@ Careers page: https://careers.ocadogroup.com/teams/early-careers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: salary.
+- Pay: no figure given.
 - Visa: “This role does not qualify for Skilled Worker Sponsorship”.
 - Benefits listed include 25 days annual leave and pension matching up to 7%.
 

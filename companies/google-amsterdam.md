@@ -20,13 +20,13 @@ Careers page: https://www.google.com/about/careers/applications/jobs/results/?lo
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Student Researcher, Netherlands: €68500 (Bachelor's), €71000 (Master's), €86500 (PhD), each “+ 0% bonus target”. The posting does not say if this is a yearly rate.
 - Product Deployment Engineer Intern, Netherlands: €49200 (Bachelor's) and €49000 (Master's), “+ 0% bonus target”. The posting does not say if this is a yearly rate.
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: the Product Deployment Engineer intern posting says applicants “will not be eligible for immigration sponsorship”. Student Researcher applicants “must hold valid work authorization or meet local immigration eligibility requirements”.
 
 ## Notes

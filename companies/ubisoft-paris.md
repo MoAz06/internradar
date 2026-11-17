@@ -20,13 +20,13 @@ Careers page: https://careers.smartrecruiters.com/Ubisoft2
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “Internship reward according to the studies level”, no figure given.
 - Meal voucher (Swile card), 50% of the travel pass paid back, 1 day off per month.
-- Not stated: relocation and visa are not mentioned.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

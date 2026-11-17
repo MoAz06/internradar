@@ -19,14 +19,14 @@ Careers page: https://sensirion.com/career/your-way-to-sensirion/students
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Intern pay from the students page: “Bachelor´s student - CHF 3,000”, “Master´s graduate - CHF 3,800”. The page does not say per month.
 - For comparison, graduate starting salaries on the graduates page: Bachelor’s CHF 87,000, Master’s CHF 90,000, PhD CHF 100,000 (no graduate roles open today).
-- Relocation: not stated.
-- Visa: not stated.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

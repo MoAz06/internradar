@@ -23,12 +23,12 @@ Careers page: https://higher.gs.com/campus
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay.
-- Not stated: relocation or visa.
+- Pay: no figure given.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

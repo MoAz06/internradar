@@ -21,7 +21,7 @@ Careers page: https://www.imec-int.com/en/work-at-imec/job-opportunities
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

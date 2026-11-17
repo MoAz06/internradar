@@ -12,11 +12,11 @@ Careers page: https://careers.baesystems.com/locations/uk/graduates/technology
 
 ## Process, as the company describes it
 
-- Not stated: the postings checked do not describe the selection steps.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

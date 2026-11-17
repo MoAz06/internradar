@@ -23,12 +23,12 @@ Careers page: https://sebgroup.com/career/graduates-and-students/tech-trainee-pr
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - You are hired into a full-time tech role from day one; the trainee programme runs alongside it for six months.
-- Not stated: pay, relocation and visa.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

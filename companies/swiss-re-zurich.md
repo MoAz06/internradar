@@ -21,13 +21,13 @@ Careers page: https://www.swissre.com/careers/early-talent.html
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “The base salary range for this position will be shared with you during the interview process.”
 - Graduate roles are permanent contracts; the programme lasts 18 months and starts in September.
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: candidates should hold a valid work permit for the country of the role; Swiss Re “may not be able to assist with obtaining work permits” and reviews applications case by case.
 
 ## Candidate reports

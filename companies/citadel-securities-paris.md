@@ -18,7 +18,7 @@ Careers page: https://www.citadelsecurities.com/careers/open-opportunities/stude
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

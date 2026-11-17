@@ -20,7 +20,7 @@ Careers page: https://www.revolut.com/careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

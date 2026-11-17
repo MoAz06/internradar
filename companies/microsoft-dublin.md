@@ -24,7 +24,7 @@ Interviewing last year does not let you skip a round: “All candidates must sub
 ## Pay, relocation, visa
 
 - Pay: “As an intern you will receive competitive pay”, no figure given.
-- Not stated: relocation.
+- Relocation: not mentioned.
 - Visa: for Ireland university engineering interns the eligibility page says “Must have right to work in Ireland, no VISA assistance for IN.”
 
 ## Candidate reports

@@ -20,13 +20,13 @@ Careers page: https://www.netcompany.com/careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: both internships are described as paid; no figure given.
 - The first internship requires full professional Danish.
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

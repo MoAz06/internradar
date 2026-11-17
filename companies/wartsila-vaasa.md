@@ -26,7 +26,7 @@ Applications from last year are not valid: “The old applications are no longer
 
 - Relocation: “no relocation costs nor immigration support are available for trainee positions”.
 - Visa: you must arrange any work permit and residence yourself, at your own cost.
-- Not stated: pay.
+- Pay: no figure given.
 
 ## Candidate reports
 

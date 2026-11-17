@@ -11,16 +11,16 @@ Careers page: https://www.metacareers.com/careerprograms/students
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the posting.
-- Relocation: not stated.
+- Pay: no figure given.
+- Relocation: not mentioned.
 - Visa: the posting says you “Must obtain work authorization in the country of employment at the time of hire”; it does not say whether Meta sponsors.
 
 ## Candidate reports

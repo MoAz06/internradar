@@ -16,11 +16,11 @@ Careers page: https://fiverings.com/campus-recruiting/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated.
+- Not stated
 
 ## Candidate reports
 

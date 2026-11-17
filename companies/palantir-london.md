@@ -23,11 +23,11 @@ Careers page: https://www.palantir.com/careers/students-and-early-talent/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the London postings.
+- Pay: no figure on the London postings.
 - Relocation for new grads: covered if you move to an office 50 miles or more from home.
 - Visa: “Yes, we are supportive of visas”, per the student FAQ.
 - Interview travel: Palantir coordinates the trip if you are invited in person.

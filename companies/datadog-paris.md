@@ -22,13 +22,13 @@ Careers page: https://careers.datadoghq.com/early-careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
+- Pay: no figure given.
 - Relocation: postings list “relocation support and travel benefits where applicable”.
-- Not stated: visa is not mentioned on the postings.
+- Visa: not mentioned.
 
 ## Candidate reports
 

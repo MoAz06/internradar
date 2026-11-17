@@ -23,14 +23,14 @@ Careers page: https://www.amazon.jobs/content/en/career-programs/university
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - SDE intern: “a competitive monthly salary, relocation support, and access to a range of employee benefits”, no figure given.
 - Graduate System Engineer: “Amazon will provide relocation support for successful applicants relocating within the European Union.”
 - Applied Scientist PhD intern: “All of our internships offer a competitive salary”, no figure given.
-- Not stated: visa sponsorship.
+- Visa: not mentioned.
 
 ## Candidate reports
 

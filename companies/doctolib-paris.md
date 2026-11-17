@@ -17,13 +17,13 @@ Careers page: https://careers.doctolib.com/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: the software engineering intern posting says “Salary : 1500€ gross per month”.
 - Meal vouchers worth €8.50 per day, €4.50 of it paid by Doctolib, and 50% of public transport paid back (software engineering posting).
-- Not stated: relocation and visa are not mentioned on the postings.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

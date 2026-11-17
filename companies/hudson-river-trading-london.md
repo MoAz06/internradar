@@ -25,7 +25,7 @@ Careers page: https://www.hudsonrivertrading.com/student-opportunities/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

@@ -14,16 +14,16 @@ Careers page: https://www.metacareers.com/careerprograms/research/
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
-- Not stated: relocation is not mentioned on the intern postings.
+- Pay: no figure given.
+- Relocation: not mentioned on the intern postings.
 - Visa: postings say you must obtain work authorization in the country of employment at the time of hire.
 
 ## Candidate reports

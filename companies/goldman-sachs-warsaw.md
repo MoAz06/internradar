@@ -13,15 +13,15 @@ Careers page: https://higher.gs.com/roles/170636
 
 - You can apply to up to 4 business and location combinations in one recruiting year; any extra application is auto withdrawn.
 - To apply for another one, you first withdraw a current application that has not been turned down.
-- Not stated: the posting does not describe the interview steps.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay, relocation and visa are not mentioned on the posting.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

@@ -17,12 +17,12 @@ Careers page: https://jobs.ashbyhq.com/backmarket
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the posting.
-- Not stated: relocation is not mentioned.
+- Pay: no figure given.
+- Relocation: not mentioned.
 - Visa: you must be authorized to work in France (EU nationality or a valid student visa/work permit).
 
 ## Candidate reports

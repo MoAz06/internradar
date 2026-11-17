@@ -16,13 +16,13 @@ Careers page: https://career.post.ch/de/studierende
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Hochschulpraktikum pay depends on study level: CHF 45,000 to 55,000 a year in the bachelor, CHF 50,000 to 65,000 in the master (gross, including the 13th month salary).
 - Home office one or two days a week, agreed with your team.
-- Not stated: visa or work permit rules.
+- Visa: not mentioned.
 
 ## Notes
 

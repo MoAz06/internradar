@@ -20,13 +20,13 @@ Careers page: https://jobs.sap.com/en/students-and-graduates/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay (STAR): EUR 2,150 a month in year 1 and EUR 2,280 a month in year 2.
 - Relocation: the Munich posting names “the possibility of relocation allowance and a mobility subsidy”.
-- Not stated: visa.
+- Visa: not mentioned.
 
 ## Candidate reports
 

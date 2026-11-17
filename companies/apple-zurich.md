@@ -14,17 +14,17 @@ Careers page: https://jobs.apple.com/en-us/search?location=switzerland-CHEC&team
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the Swiss postings.
-- Relocation: not stated.
-- Visa: not stated.
+- Pay: no figure on the Swiss postings.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

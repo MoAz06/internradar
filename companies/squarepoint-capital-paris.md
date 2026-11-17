@@ -18,7 +18,7 @@ Careers page: https://www.squarepoint-capital.com/early-careers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

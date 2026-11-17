@@ -18,12 +18,12 @@ Careers page: https://apply.careers.microsoft.com/careers?query=intern&location=
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “The base pay for this internship is € 800.00 per month.”
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: “You must be legally authorised to work in the Netherlands to be eligible for this role.”
 
 ## Notes

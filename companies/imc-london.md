@@ -24,7 +24,7 @@ You may submit one application per role each year. If you applied for this role 
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the posting.
+- Pay: no figure given.
 - Relocation: IMC's FAQ answers “Yes” to housing or relocation help, no details.
 - Interview travel: IMC books flights and accommodation for onsite interviews.
 - Visa: the posting only names Dutch IND limits for some nationalities; nothing specific for London.

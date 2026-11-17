@@ -26,7 +26,7 @@ Careers page: https://careers.sig.com/europe-campus/jobs
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

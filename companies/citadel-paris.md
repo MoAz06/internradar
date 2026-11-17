@@ -18,7 +18,7 @@ Careers page: https://www.citadel.com/careers/open-opportunities/students/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

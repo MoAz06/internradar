@@ -12,7 +12,7 @@ Careers page: https://apply.careers.hsbc.com/emergingtalent/
 
 ## Process, as the company describes it
 
-- Not stated: the postings do not describe the interview steps.
+- Interview steps: not described.
 - Applications “will be reviewed on a rolling basis” and a vacancy may close before its closing date.
 
 ## Re-apply rule
@@ -21,7 +21,7 @@ HSBC accepts “one application per recruitment cycle” and may not be able to 
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
+- Pay: no figure given.
 - Visa (Engineering Graduate): the programme “does not satisfy the Home Office eligibility criteria for visa sponsorship”; graduate visa holders cannot be progressed.
 - Visa (Quant Finance Internship): “We will consider candidates that require visa sponsorship for this role”.
 

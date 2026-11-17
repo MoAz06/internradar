@@ -141,7 +141,7 @@ export const it: Company[] = [
       "“Our application and interview process differs from role to role.”",
       "The how-we-hire page lists an online application, assessments, a phone screening and an interview loop.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Software Dev Engineer Intern: “Turin, ITA - 1,800.00 EUR Monthly”.",
       "Business Intelligence Intern: “Milan, ITA - 1,800.00 EUR Monthly”.",
@@ -216,8 +216,8 @@ export const it: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: ["Not stated"],
     reports: [],
     sources: [
@@ -262,8 +262,8 @@ export const it: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: ["“Ferrari offers: Monthly allowance and daily complimentary access to company restaurant.”"],
     reports: [],
     sources: [
@@ -293,8 +293,8 @@ export const it: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: ["“Competitive reimbursement. Free company restaurant.”"],
     reports: [],
     sources: [
@@ -336,8 +336,8 @@ export const it: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: ["Not stated"],
     reports: [],
     sources: [
@@ -415,7 +415,7 @@ export const it: Company[] = [
       "Selected candidates have “un colloquio conoscitivo con il team delle Risorse Umane e con il Business” covering technical topics, motivation and attitude.",
       "At the end everyone gets feedback, “sia in caso di esito positivo che negativo” (positive or negative).",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: ["Expenses are reimbursed: “è previsto inoltre un rimborso spese”, no figure given."],
     reports: [],
     sources: [
@@ -448,8 +448,8 @@ export const it: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: ["Not stated"],
     reports: [],
     sources: [

@@ -20,12 +20,12 @@ Careers page: https://www.nokia.com/careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - The traineeship is paid; no figure given.
-- Not stated: visa and relocation.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

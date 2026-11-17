@@ -21,7 +21,7 @@ Careers page: https://www.novonordisk.com/careers/early-career-programmes/gradua
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

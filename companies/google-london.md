@@ -26,7 +26,7 @@ Google's hiring FAQ says you can reapply if you were not selected, but “Typica
 
 ## Pay, relocation, visa
 
-- Not stated: pay.
+- Pay: no figure given.
 - Visa: the SWE PhD and Product Deployment Engineer postings say applicants “will not be eligible for immigration sponsorship”.
 - Visa: Student Researcher applicants “must hold valid work authorization or meet local immigration eligibility requirements”.
 

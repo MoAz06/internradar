@@ -33,8 +33,8 @@ export const fi: Company[] = [
       "Decision and offer: Nokia says it gives feedback and makes hiring decisions promptly.",
       "For the trainee posting: “Applications missing the requested documents will not be considered.”",
     ],
-    reapply: "Not stated.",
-    pay: ["The traineeship is paid; no figure given.", "Not stated: visa and relocation."],
+    reapply: "Not stated",
+    pay: ["The traineeship is paid; no figure given.", "Relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://jobs.nokia.com/en/sites/CX_1/job/41680", checked: "2026-11-17" },
@@ -77,7 +77,7 @@ export const fi: Company[] = [
     pay: [
       "Relocation: “no relocation costs nor immigration support are available for trainee positions”.",
       "Visa: you must arrange any work permit and residence yourself, at your own cost.",
-      "Not stated: pay.",
+      "Pay: no figure given.",
     ],
     reports: [],
     sources: [

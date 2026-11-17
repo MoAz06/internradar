@@ -20,11 +20,11 @@ Careers page: https://www.odoo.com/jobs
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay, relocation and visa.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

@@ -26,7 +26,7 @@ If you are not successful, CARIAD says “You’re welcome to try again”; no w
 
 - Pay: interns get “Remuneration: €13.90 per hour”, for 35 hours a week.
 - Visa: non-EU citizens need a work permit.
-- Not stated: relocation.
+- Relocation: not mentioned.
 
 ## Candidate reports
 

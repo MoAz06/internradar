@@ -16,11 +16,11 @@ Careers page: https://careers.sig.com/london/jobs
 - Susquehanna hires for these roles “on a rolling basis” and asks you to apply early.
 - For the Quantitative Strategy Developer internship, the interview process is “a series of interviews including coding, mathematics, system design and behavioural interviews”.
 - Successful quant research interns “will be invited to join the full time graduate programme in September 2027, January 2028 or September 2028”.
-- Not stated: the quant research postings do not describe their interview steps.
+- Interview steps: not described on the quant research postings.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

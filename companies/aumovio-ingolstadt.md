@@ -19,13 +19,13 @@ Careers page: https://jobs.smartrecruiters.com/Aumovio
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: the Regensburg posting says the work “wird fair vergütet”, no figure given.
 - Visa: applicants from outside the EU send their residence title and work permit.
-- Not stated: relocation.
+- Relocation: not mentioned.
 
 ## Candidate reports
 

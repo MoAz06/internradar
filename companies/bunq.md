@@ -24,7 +24,7 @@ Not stated. bunq recommends applying only to the role that best fits you, and if
 
 ## Pay, relocation, visa
 
-- Pay: not stated on the posting.
+- Pay: no figure given.
 - Perks on the posting: lunches from in-house chefs and a MacBook.
 - Visa: not stated; the recruiter call covers visas.
 

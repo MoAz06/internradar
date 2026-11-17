@@ -19,7 +19,7 @@ Careers page: https://recrutement.natixis.com/en/start-your-career-with-us
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

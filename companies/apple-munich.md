@@ -14,17 +14,17 @@ Careers page: https://jobs.apple.com/en-us/search?location=germany-DEU&team=inte
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process. Postings use a “Submit Resume” button.
+- Interview steps: not described. Postings use a “Submit Resume” button.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Pay: Not stated.
-- Relocation: Not stated.
-- Visa: Not stated.
+- Pay: no figure given.
+- Relocation: not mentioned.
+- Visa: not mentioned.
 
 ## Candidate reports
 

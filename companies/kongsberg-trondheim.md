@@ -15,16 +15,16 @@ Careers page: https://www.kongsberg.com/careers/summer-interns/
 - You apply through Kongsberg's online recruitment system before the deadline. Some candidates “may receive offers before the deadline”, so Kongsberg asks you to apply early.
 - For the Seatex internship, “Applications will be processed on an ongoing basis.”
 - Seatex: the job “may require clearance by the Norwegian National Security Authority”, aviation authority clearance or a background check.
-- The pages checked do not describe interview steps.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Seatex interns in Trondheim join the Workation summer programme, whose activities are “free for you as a student”.
-- Not stated: pay, relocation and visa.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

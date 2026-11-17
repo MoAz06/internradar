@@ -31,7 +31,7 @@ Deutsche Bank's student FAQ says that in most cases, if you are unsuccessful for
 - Internships: “Competitive salary”, no figure given.
 - Graduate programme: “Unlimited employment contract, competitive salary”, a company pension scheme, a Deutschlandticket subsidy and JobRad; no figure given.
 - Visa: the FAQ says Deutsche Bank works with immigration providers to sponsor candidates who are eligible for work visas in most countries, and all offers depend on getting work authorization.
-- Not stated: relocation support.
+- Relocation: not mentioned.
 
 ## Candidate reports
 

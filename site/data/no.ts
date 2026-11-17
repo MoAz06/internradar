@@ -48,11 +48,11 @@ export const no: Company[] = [
       "Some countries add a reference check and a background check before the job offer.",
       "Placements for students (6 to 12 months, paid, full-time) “are usually published in Autumn”.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Summer Makers: “A paid summer internship of 8–10 weeks”, no figure given.",
       "Embedded Software Engineer: “Competitive salary with short- and long-term incentive plan”, no figure given.",
-      "Not stated: visa and relocation.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -89,10 +89,10 @@ export const no: Company[] = [
       "You send “litt om deg selv, CV og karakterutskrift” (a bit about yourself, CV and transcript) by the deadline.",
       "Applications without transcripts or diplomas attached “vil ikke bli vurdert” (will not be assessed).",
       "For all positions Aker BP checks for ties to high-risk countries as part of recruitment.",
-      "The pages checked do not describe interviews or tests.",
+      "Interview steps: not described.",
     ],
-    reapply: "Not stated.",
-    pay: ["Not stated: pay, relocation and visa."],
+    reapply: "Not stated",
+    pay: ["Pay, relocation and visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://akerbp.com/en/career", checked: "2026-11-17" },
@@ -149,7 +149,7 @@ export const no: Company[] = [
     pay: [
       "Pay: not stated for interns. For graduates the FAQ lists “Competitive salaries” and a bonus scheme, no figure.",
       "Visa: Equinor “does not support, or sponsor work or visa permits for internship applications”.",
-      "Not stated: relocation.",
+      "Relocation: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -200,12 +200,12 @@ export const no: Company[] = [
       "You apply through Kongsberg's online recruitment system before the deadline. Some candidates “may receive offers before the deadline”, so Kongsberg asks you to apply early.",
       "For the Seatex internship, “Applications will be processed on an ongoing basis.”",
       "Seatex: the job “may require clearance by the Norwegian National Security Authority”, aviation authority clearance or a background check.",
-      "The pages checked do not describe interview steps.",
+      "Interview steps: not described.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Seatex interns in Trondheim join the Workation summer programme, whose activities are “free for you as a student”.",
-      "Not stated: pay, relocation and visa.",
+      "Pay, relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [

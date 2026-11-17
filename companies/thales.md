@@ -21,12 +21,12 @@ Careers page: https://careers.thalesgroup.com/global/en/studentandgraduates2
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - “An excellent internship allowance”, no figure given.
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

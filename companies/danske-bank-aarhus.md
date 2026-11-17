@@ -12,16 +12,16 @@ Careers page: https://danskebank.com/careers/students-and-graduates/internships
 ## Process, as the company describes it
 
 - You apply through Danske Bank's job portal. The posting goes up “just before P-day at Aarhus University” and “we usually find our candidates shortly after that”.
-- The pages checked do not describe interviews or tests.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “Salary: According to IDA guidelines.”
-- Not stated: relocation and visa.
+- Relocation and visa: not mentioned.
 
 ## Candidate reports
 

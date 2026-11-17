@@ -28,7 +28,7 @@ No waiting period is stated. Philips's FAQ says it would be happy to consider yo
 - Pay: monthly full-time allowance of €500 to €700 gross, depending on education level; a different allowance if you relocate to the Netherlands for the internship.
 - Housing: €300 net a month near Amsterdam, €255 net at other Philips sites, if your home is more than 50 km or 1.5 hours away.
 - Travel: up to €192 net if you have no free student public transport.
-- Visa: not mentioned on the postings.
+- Visa: not mentioned.
 
 ## Candidate reports
 

@@ -18,11 +18,11 @@ Careers page: https://careers.smartrecruiters.com/NatixisInPortugal
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay figure, relocation and visa.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

@@ -40,11 +40,11 @@ export const at: Company[] = [
     ],
     process: [
       "Hiring for these internships “kicks off in October 2026”, per the postings.",
-      "Not stated: interview steps are not described on the postings.",
+      "Interview steps: not described.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
-      "Not stated: no pay figure on the postings.",
+      "Pay: no figure given.",
       "A footnote says the listed benefits “do not apply to our internships”.",
     ],
     reports: [],
@@ -94,10 +94,10 @@ export const at: Company[] = [
       "The Linz posting says applications without these documents or not in English “will not be considered”.",
       "Dynatrace says it needs “a few weeks” to review; first feedback is promised by the end of January (Linz) or the end of November (Vienna).",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “a monthly gross salary of €2,139 for HTL students and €2,632 for University and FH students”.",
-      "Not stated: relocation and visa are not mentioned on the postings.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -189,7 +189,7 @@ export const at: Company[] = [
       "If the feedback is positive, an initial interview with the department follows; depending on the position, a second interview may take place.",
       "After that you may be offered a contract, then onboarding with a buddy.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: the postings fall under the Austrian electrical and electronics industry collective agreement, employment group B for bachelor and D for master students.",
       "The Sommer 2027 Ferialpraktikum posting gives 2.579,44 Euro gross a month (full-time basis) for bachelor students and 3.009,82 Euro for master students.",

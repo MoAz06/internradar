@@ -12,17 +12,17 @@ Careers page: https://www.microsoft.com/en-us/research/lab/microsoft-research-ca
 
 ## Process, as the company describes it
 
-- The pages checked do not describe the process.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: “The base pay for this internship is £ 4,853.00 per month.” (both postings)
 - Relocation: the lab's internship page offers “a competitive salary, a relocation allowance, free beverages and subsidised meals”.
-- Not stated: visa sponsorship.
+- Visa: not mentioned.
 
 ## Candidate reports
 

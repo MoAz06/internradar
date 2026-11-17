@@ -24,12 +24,12 @@ Careers page: https://www.3ds.com/careers/students-graduates
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
-- Not stated: relocation is not mentioned.
+- Pay: no figure given.
+- Relocation: not mentioned.
 - Visa: the FAQ says that aside from local legal rules for foreign workers, Dassault Systèmes adds no extra requirements.
 
 ## Candidate reports

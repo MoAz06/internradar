@@ -14,11 +14,11 @@ Careers page: https://www.anybotics.com/about-us/careers/
 
 - The postings only say: “We will contact you if your skills and experience are a good fit for the team and the role.”
 - Because of volume, “we will only contact those that are relevant.”
-- Interview steps are not described.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

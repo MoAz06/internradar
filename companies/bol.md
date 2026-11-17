@@ -21,7 +21,7 @@ Careers page: https://careers.bol.com/en/early-careers/
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

@@ -12,11 +12,11 @@ Careers page: https://www.tower-research.com/internships
 
 ## Process, as the company describes it
 
-- Not stated: the Tower postings checked do not describe the interview steps.
+- Interview steps: not described on the Tower postings.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

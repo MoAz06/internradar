@@ -21,13 +21,13 @@ Careers page: https://www.drw.com/work-at-drw/interns
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the London postings.
+- Pay: no figure on the London postings.
 - Housing for interns: “DRW provides fully furnished apartments located close to the office”.
-- Not stated: visa is not mentioned on the postings.
+- Visa: not mentioned.
 
 ## Candidate reports
 

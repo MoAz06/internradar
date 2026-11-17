@@ -32,11 +32,11 @@ export const de: Company[] = [
       "The posting says Celonis uses “an artificial intelligence tool to match the information from your resume” to its job descriptions; final decisions are made by people.",
       "The FAQ says candidates who “speak to individuals at Celonis and read about us online tend to perform best” in interviews.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: no figure given. The posting says every full-time employee receives “Restricted Stock Units (RSUs) and merit-based refresh grants”.",
-      "Relocation: not stated.",
-      "Visa: not stated.",
+      "Relocation: not mentioned.",
+      "Visa: not mentioned.",
       "Travel: “There is no assigned travel in this program.”",
     ],
     reports: [],
@@ -182,12 +182,12 @@ export const de: Company[] = [
         checked: "2026-11-16",
       },
     ],
-    process: ["The pages checked do not describe the process."],
-    reapply: "Not stated.",
+    process: ["Interview steps: not described."],
+    reapply: "Not stated",
     pay: [
       "Pay: the Software Engineering and Data Science intern postings mention “a generous compensation package that includes a base salary, bonus, relocation and housing support”, no figure given.",
       "The AI intern postings mention a base salary, bonus, stock options and relocation support, no figure given.",
-      "Visa: not mentioned on the postings.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -230,10 +230,10 @@ export const de: Company[] = [
       "Step 4 is a 60-minute hiring manager interview with a senior engineer, with more coding and technical questions.",
       "The FAQ says the recruiting team gets back to you within a maximum of 2 weeks after you apply.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: not stated. The programme is a full-time permanent job with a 6-month probation period.",
-      "Relocation: not stated.",
+      "Relocation: not mentioned.",
       "Visa: not stated. Only people based in Germany with the right to work there, or based in the EU with German working rights, are eligible.",
     ],
     reports: [],
@@ -327,7 +327,7 @@ export const de: Company[] = [
       "AcceleratiON trainee programme: after applying you get “the invitation to an online test via email”.",
       "If you make it to the next round, there is a video interview, then an assessment centre in a hybrid format. The page says the online assessment centre and the on-site interviews both take place in November.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Interns: “attractive remuneration, depending on the location and form of employment”, no figure given. Postings say “Attractive & fair compensation.”",
       "Compensation details are “discussed during the job interview.”",
@@ -394,11 +394,11 @@ export const de: Company[] = [
       "Applications only through the job portal; applications by email are not accepted.",
       "The internship process is not described on the pages checked.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Graduate program: “Permanent employment contract from day one”, salary not stated.",
       "Internships: Not stated.",
-      "Visa: Not stated.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -496,7 +496,7 @@ export const de: Company[] = [
       "Junior Managers Program: “a Telephone Interview, Assessment Center and a Final Interview.”",
       "Bosch asks for extra information for EU and US export control screening later in the process; some internships are marked as sensitive roles.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Bosch student page lists 1,505 EUR per month for mandatory internships of Bachelor's, Master's and foreign-university students, and 400 EUR per month for pre- and basic internships.",
       "Junior Managers Program: permanent contract, salary not stated.",
@@ -599,7 +599,7 @@ export const de: Company[] = [
       "“Interns, student trainees, and thesis writers at Infineon are getting paid.” No figure given.",
       "“In certain conditions, a housing allowance may also be granted.”",
       "IGP: permanent, full-time role; salary not stated.",
-      "Visa: Not stated.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -757,13 +757,13 @@ export const de: Company[] = [
       "Apply with a CV and a transcript in English; put your expected graduation date and availability on your CV.",
       "Applications are reviewed “on a rolling basis”; you pick a preferred location when you apply.",
       "“Timing on when you can hear back will vary and can take upwards of 90+ days.”",
-      "Interview steps are not described on the postings checked.",
+      "Interview steps: not described.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Student Researcher, Germany: “€68500 (EUR) + 0% bonus target” for Bachelor's, €71,000 for Master's and €85,000 for PhD students (yearly figures as listed).",
       "Research Scientist PhD Intern: the posting lists pay for France and Denmark only; Germany not stated.",
-      "Relocation: Not stated.",
+      "Relocation: not mentioned.",
       "Visa: Student Researcher applicants “must hold valid work authorization or meet local immigration eligibility requirements”. The Research Scientist PhD Intern posting says applicants are not eligible for immigration sponsorship.",
     ],
     reports: [],
@@ -843,7 +843,7 @@ export const de: Company[] = [
       "Applied Scientist PhD internship: one application, then you are matched with teams; “your recruiter will confirm the preferences of the team you're matched with prior to interviewing.”",
       "Interview rounds after the OA are not described on the pages checked.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "SDE intern: “a competitive monthly salary, relocation support, and access to a range of employee benefits.” No figure given.",
       "Applied Scientist intern: “All of our internships offer a competitive salary”.",
@@ -921,9 +921,9 @@ export const de: Company[] = [
         checked: "2026-11-16",
       },
     ],
-    process: ["The pages checked do not describe the process. Postings use a “Submit Resume” button."],
-    reapply: "Not stated.",
-    pay: ["Pay: Not stated.", "Relocation: Not stated.", "Visa: Not stated."],
+    process: ["Interview steps: not described. Postings use a “Submit Resume” button."],
+    reapply: "Not stated",
+    pay: ["Pay: no figure given.", "Relocation: not mentioned.", "Visa: not mentioned."],
     reports: [],
     sources: [
       { url: "https://jobs.apple.com/en-us/search?location=germany-DEU&team=internships-STDNT-INTRN", checked: "2026-11-16" },
@@ -1011,7 +1011,7 @@ export const de: Company[] = [
       "Internships: “Competitive salary”, no figure given.",
       "Graduate programme: “Unlimited employment contract, competitive salary”, a company pension scheme, a Deutschlandticket subsidy and JobRad; no figure given.",
       "Visa: the FAQ says Deutsche Bank works with immigration providers to sponsor candidates who are eligible for work visas in most countries, and all offers depend on getting work authorization.",
-      "Not stated: relocation support.",
+      "Relocation: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1099,7 +1099,7 @@ export const de: Company[] = [
     pay: [
       "Students get “eine attraktive Vergütung” that depends on location and role; no figure given.",
       "Travel costs for an in-person interview can be claimed back.",
-      "Not stated: relocation support or visa sponsorship.",
+      "Relocation and visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1145,12 +1145,12 @@ export const de: Company[] = [
       "Allianz says the process can differ slightly by country or position.",
       "A cover letter is not mandatory. Student postings require a certificate of enrolment (except in a gap year) and, for non-EU citizens, a valid work and residence permit.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Students: “attractive salary for students”, no figure given.",
       "A tax-free travel allowance of EUR 30 a month if you use only local public transport.",
       "Visa: non-EU citizens must send a valid work and residence permit; the posting asks you to check that your current visa lets you work before applying.",
-      "Not stated: relocation support.",
+      "Relocation: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1245,7 +1245,7 @@ export const de: Company[] = [
       "The global FAQ says “Some roles may include technical tests, case studies or online assessments.”",
       "You may apply to more than one role at the same time.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: the postings mention “Attractive salary” (Donauwörth) and “Attraktive Vergütung” (Immenstaad), no figure given.",
       "Hours: a 35-hour week with flexitime, per the postings.",
@@ -1309,7 +1309,7 @@ export const de: Company[] = [
     reapply: "Scalable says you can reapply for future openings. For a position you were already rejected for, it would “generally recommend to wait at least 6 months before applying again”.",
     pay: [
       "Pay: no figure given; the posting says “we also remunerate mandatory internships”.",
-      "Not stated: relocation and visa are not mentioned on the internship postings.",
+      "Relocation and visa: not mentioned on the internship postings.",
     ],
     reports: [],
     sources: [
@@ -1361,11 +1361,11 @@ export const de: Company[] = [
       "STAR starts with a five-week full-time onboarding; after that you work about 20 hours a week next to your master’s and rotate through four departments, one per semester.",
       "You may apply for more than one role at a time.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay (STAR): EUR 2,150 a month in year 1 and EUR 2,280 a month in year 2.",
       "Relocation: the Munich posting names “the possibility of relocation allowance and a mobility subsidy”.",
-      "Not stated: visa.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1442,11 +1442,11 @@ export const de: Company[] = [
       "A voluntary internship lasts up to 3 months; a mandatory one follows your university’s rules. R&S advises applying three to six months before your start date.",
       "You must be enrolled for the whole internship.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: “very good payment”, no figure given on the postings.",
       "Housing: some postings offer help finding a room, with “favorably priced accommodations”.",
-      "Not stated: visa.",
+      "Visa: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1492,7 +1492,7 @@ export const de: Company[] = [
     pay: [
       "Pay: interns get “Remuneration: €13.90 per hour”, for 35 hours a week.",
       "Visa: non-EU citizens need a work permit.",
-      "Not stated: relocation.",
+      "Relocation: not mentioned.",
     ],
     reports: [],
     sources: [
@@ -1566,11 +1566,11 @@ export const de: Company[] = [
       "Applications need your current enrolment certificate and transcript.",
       "For a mandatory internship you may also need a confirmation from your university.",
     ],
-    reapply: "Not stated.",
+    reapply: "Not stated",
     pay: [
       "Pay: the Regensburg posting says the work “wird fair vergütet”, no figure given.",
       "Visa: applicants from outside the EU send their residence title and work permit.",
-      "Not stated: relocation.",
+      "Relocation: not mentioned.",
     ],
     reports: [],
     sources: [

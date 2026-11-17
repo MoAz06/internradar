@@ -20,7 +20,7 @@ Careers page: https://www.leonardo.com/en/careers/students-and-graduates
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

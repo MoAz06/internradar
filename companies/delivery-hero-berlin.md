@@ -19,12 +19,12 @@ Careers page: https://careers.deliveryhero.com/tech-graduate-program
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
 - Pay: not stated. The programme is a full-time permanent job with a 6-month probation period.
-- Relocation: not stated.
+- Relocation: not mentioned.
 - Visa: not stated. Only people based in Germany with the right to work there, or based in the EU with German working rights, are eligible.
 
 ## Candidate reports

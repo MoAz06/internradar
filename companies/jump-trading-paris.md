@@ -11,12 +11,12 @@ Careers page: https://www.jumptrading.com/careers
 
 ## Process, as the company describes it
 
-- The posting does not describe interview rounds.
+- Interview steps: not described.
 - The application form asks about your current school, the degree you are pursuing, your expected graduation date and any “offers from other firms or deadlines we should be aware of”.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 

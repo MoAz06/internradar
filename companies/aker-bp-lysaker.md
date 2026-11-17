@@ -14,15 +14,15 @@ Careers page: https://akerbp.com/en/career
 - You send “litt om deg selv, CV og karakterutskrift” (a bit about yourself, CV and transcript) by the deadline.
 - Applications without transcripts or diplomas attached “vil ikke bli vurdert” (will not be assessed).
 - For all positions Aker BP checks for ties to high-risk countries as part of recruitment.
-- The pages checked do not describe interviews or tests.
+- Interview steps: not described.
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: pay, relocation and visa.
+- Pay, relocation and visa: not mentioned.
 
 ## Candidate reports
 

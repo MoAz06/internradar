@@ -20,11 +20,11 @@ Careers page: https://search.jobs.barclays/early-careers
 
 ## Re-apply rule
 
-Not stated.
+Not stated
 
 ## Pay, relocation, visa
 
-- Not stated: no pay figure on the postings.
+- Pay: no figure given.
 - Visa: Barclays “will accept applications from candidates who require visa sponsorship to work in the UK”, if they meet Home Office skilled worker criteria.
 
 ## Candidate reports
