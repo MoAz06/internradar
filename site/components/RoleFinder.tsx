@@ -13,6 +13,8 @@ type Filters = { q: string; status: StatusFilter; kind: string; field: string; c
 
 const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false };
 const SAVED_KEY = "internradar:saved";
+const PER_KEY = "internradar:per-page";
+const PER_PAGE = [25, 50, 75, 100];
 
 function readSaved(): string[] {
   try {
@@ -61,6 +63,20 @@ function Select({
   );
 }
 
+/** Page numbers to show: the first, the last, and the ones next to the current page. */
+function pageList(cur: number, pages: number): (number | "gap")[] {
+  const keep = new Set([1, pages, cur - 1, cur, cur + 1].filter((n) => n >= 1 && n <= pages));
+  const out: (number | "gap")[] = [];
+  let last = 0;
+  for (const n of [...keep].sort((a, b) => a - b)) {
+    if (n - last === 2) out.push(n - 1);
+    else if (n - last > 2) out.push("gap");
+    out.push(n);
+    last = n;
+  }
+  return out;
+}
+
 const statusColor = (x: Item) =>
   x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
 
@@ -69,8 +85,12 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   const [saved, setSaved] = useState<string[]>([]);
   const [notice, setNotice] = useState("");
   const [shareLink, setShareLink] = useState("");
+  const [page, setPage] = useState(1);
+  const [per, setPer] = useState(25);
   const search = useRef<HTMLInputElement>(null);
   const top = useRef<HTMLDivElement>(null);
+  // set when a page button is clicked, so that step gets its own history entry for the back button
+  const pushNext = useRef(false);
 
   // filters from the URL (?q=&status=&type=&field=&country=) and old #country links
   useEffect(() => {
@@ -85,6 +105,15 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       country: bySlug(p.get("country") ?? "") || fromHash,
       saved: false,
     });
+    const perFromUrl = Number(p.get("per"));
+    let perStored = 0;
+    try {
+      perStored = Number(localStorage.getItem(PER_KEY));
+    } catch {
+      // blocked storage: the default is fine
+    }
+    setPer(PER_PAGE.find((n) => n === perFromUrl) ?? PER_PAGE.find((n) => n === perStored) ?? 25);
+    setPage(Math.max(1, Math.floor(Number(p.get("page")) || 1)));
     // ?saved=key.key.key from "open on another device" adds those roles to this browser's list
     const keys = (p.get("saved") ?? "").split(".").filter(Boolean);
     let mine = readSaved();
@@ -105,10 +134,14 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       const code = bySlug(location.hash.slice(1));
       if (code) {
         setF((x) => ({ ...x, country: code }));
+        setPage(1);
         toList();
       }
     };
     window.addEventListener("hashchange", onHash);
+    // back and forward between pages of the list
+    const onPop = () => setPage(Math.max(1, Math.floor(Number(new URLSearchParams(location.search).get("page")) || 1)));
+    window.addEventListener("popstate", onPop);
     // "/" jumps to the search box
     const onKey = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement;
@@ -120,6 +153,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("hashchange", onHash);
+      window.removeEventListener("popstate", onPop);
       window.removeEventListener("keydown", onKey);
     };
   }, [countries, items]);
@@ -132,10 +166,16 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     if (f.kind) p.set("type", f.kind.toLowerCase());
     if (f.field) p.set("field", fold(f.field).replace(/ /g, "-"));
     if (f.country) p.set("country", countries.find((k) => k.code === f.country)?.slug ?? "");
+    if (page > 1) p.set("page", String(page));
+    if (per !== 25) p.set("per", String(per));
     const qs = p.toString();
     const url = `${location.pathname}${qs ? `?${qs}` : ""}${countries.some((k) => `#${k.slug}` === location.hash) ? "" : location.hash}`;
-    if (url !== location.pathname + location.search + location.hash) history.replaceState(null, "", url);
-  }, [f, countries]);
+    if (url !== location.pathname + location.search + location.hash) {
+      if (pushNext.current) history.pushState(null, "", url);
+      else history.replaceState(null, "", url);
+    }
+    pushNext.current = false;
+  }, [f, countries, page, per]);
 
   const shown = useMemo(() => {
     const words = fold(f.q).split(/\s+/).filter(Boolean);
@@ -154,7 +194,32 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     });
   }, [items, f, saved]);
 
-  const set = (patch: Partial<Filters>) => setF((x) => ({ ...x, ...patch }));
+  const pages = Math.max(1, Math.ceil(shown.length / per));
+  const cur = Math.min(page, pages);
+  const first = (cur - 1) * per;
+  const onPage = shown.slice(first, first + per);
+
+  // a new filter starts again at page 1
+  const set = (patch: Partial<Filters>) => {
+    setF((x) => ({ ...x, ...patch }));
+    setPage(1);
+  };
+  const goTo = (n: number) => {
+    if (n === cur) return;
+    pushNext.current = true;
+    setPage(n);
+    top.current?.scrollIntoView();
+  };
+  const changePer = (n: number) => {
+    // stay near the same roles: keep the first role of this page on screen
+    setPage(Math.floor(first / n) + 1);
+    setPer(n);
+    try {
+      localStorage.setItem(PER_KEY, String(n));
+    } catch {
+      // blocked storage: the choice holds until the page closes
+    }
+  };
   const toggleSave = (id: string) => {
     setSaved((cur) => {
       const next = cur.includes(id) ? cur.filter((s) => s !== id) : [...cur, id];
@@ -242,7 +307,9 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
 
       <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
         <p aria-live="polite" className="font-semibold">
-          {shown.length} {shown.length === 1 ? "role" : "roles"}
+          {shown.length > per
+            ? `${first + 1}-${first + onPage.length} of ${shown.length} roles`
+            : `${shown.length} ${shown.length === 1 ? "role" : "roles"}`}
         </p>
         <span className="text-muted">soonest deadline first</span>
         <label className="flex items-center gap-1.5 text-muted">
@@ -250,7 +317,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           Only saved ({saved.length})
         </label>
         {filtered && (
-          <button type="button" onClick={() => setF(start)} className="text-link underline underline-offset-2">
+          <button type="button" onClick={() => { setF(start); setPage(1); }} className="text-link underline underline-offset-2">
             Clear filters
           </button>
         )}
@@ -302,7 +369,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             </tr>
           </thead>
           <tbody>
-            {shown.map((x) => {
+            {onPage.map((x) => {
               const isSaved = saved.includes(x.id);
               return (
                 <tr key={x.id} className="border-b border-line align-top max-md:block max-md:py-3">
@@ -364,6 +431,70 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             })}
           </tbody>
         </table>
+      )}
+
+      {shown.length > 0 && (
+        <div className="mt-4 flex flex-col gap-3 text-[15px] sm:flex-row sm:items-center sm:justify-between">
+          {pages > 1 ? (
+            <nav aria-label="Pages">
+              <ul className="flex flex-wrap items-center gap-1">
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => goTo(cur - 1)}
+                    disabled={cur === 1}
+                    className="h-10 px-2 text-link underline underline-offset-2 disabled:text-dim disabled:no-underline"
+                  >
+                    Previous
+                  </button>
+                </li>
+                {pageList(cur, pages).map((n, i) =>
+                  n === "gap" ? (
+                    <li key={`gap${i}`} aria-hidden="true" className="px-1 text-dim">
+                      ...
+                    </li>
+                  ) : (
+                    <li key={n}>
+                      <button
+                        type="button"
+                        onClick={() => goTo(n)}
+                        aria-current={n === cur ? "page" : undefined}
+                        className={`h-10 min-w-10 px-2 ${
+                          n === cur ? "bg-ink font-semibold text-white" : "text-link underline underline-offset-2"
+                        }`}
+                      >
+                        <span className="sr-only">Page </span>
+                        {n}
+                      </button>
+                    </li>
+                  ),
+                )}
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => goTo(cur + 1)}
+                    disabled={cur === pages}
+                    className="h-10 px-2 text-link underline underline-offset-2 disabled:text-dim disabled:no-underline"
+                  >
+                    Next
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          ) : (
+            <span />
+          )}
+          <span className="flex items-center gap-2 text-muted">
+            <Select id="role-per-page" label="Roles per page" value={String(per)} onChange={(v) => changePer(Number(v))}>
+              {PER_PAGE.map((n) => (
+                <option key={n} value={n}>
+                  {n}
+                </option>
+              ))}
+            </Select>
+            <span aria-hidden="true">per page</span>
+          </span>
+        </div>
       )}
     </div>
   );
