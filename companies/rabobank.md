@@ -7,7 +7,7 @@ Careers page: https://rabobank.jobs/en/traineeships/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Rabobank Traineeship Business & IT | Open since 1 May 2026, no deadline listed | 1 April 2027 | 18 months, 4 rotations | (Almost) a university degree, graduated before the start; 8 places | [link](https://rabobank.jobs/en/traineeships/business-and-it/) | 2026-11-16 |
+| Rabobank Traineeship Business & IT | Closed; the overview marks it closed and the page says you cannot apply yet | 1 April 2027 | 18 months, 4 rotations | (Almost) a university degree, graduated before the start; 8 places | [link](https://rabobank.jobs/en/traineeships/business-and-it/) | 2026-11-16 |
 | Junior DevOps Engineer, Azure Platform Engineering (IT Early Career Program) | Apply by 20 November 2026 | Early January 2027 (estimated) | 18 months programme | Bachelor's or Master's done, max 2 years work experience, Azure knowledge, eligible to live and work in NL | [link](https://rabobank.jobs/en/job/junior-devops-engineer/JR_00147909/) | 2026-11-16 |
 | Data & Analytics Early Career Program | Overview says soon open; no opening date given | 1 April 2027 | 18 months | (Almost) a Master's or PhD in econometrics, maths, physics or similar; 10 places | [link](https://rabobank.jobs/en/traineeships/data-and-analytics/) | 2026-11-16 |
 | IT & Engineering Early Career Program | Overview marks it closed | 1 April 2027 | 18 months | Bachelor's or Master's degree (or equivalent level); 30 places | [link](https://rabobank.jobs/en/traineeships/early-career-program-engineering/) | 2026-11-16 |

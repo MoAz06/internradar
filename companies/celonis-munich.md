@@ -29,6 +29,10 @@ Not stated.
 - Visa: not stated.
 - Travel: “There is no assigned travel in this program.”
 
+## Notes
+
+- The Galaxy FAQ says: “Hiring for our Europe and APAC cohort begins in May and closes in August.” It gives no year.
+
 ## Candidate reports
 
 None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).

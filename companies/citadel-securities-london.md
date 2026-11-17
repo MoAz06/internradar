@@ -17,11 +17,12 @@ Careers page: https://www.citadelsecurities.com/careers/open-opportunities/?expe
 
 ## Process, as the company describes it
 
-- First round: a 45 to 60 minute remote video interview on programming, data structures, algorithms and your background. Citadel Securities sends a CoderPad link before it.
-- Core languages are Python and C++, but any language is welcome.
-- Second round: “The second round is onsite, and usually consists of three to five 60-minute interviews.” Next steps come within two weeks.
-- Final review: hiring managers across Citadel Securities decide which team fits you.
-- Offer: if two businesses want you, you choose which one makes the offer.
+- Quantitative research, first round: a 45 to 60 minute remote video interview on programming, research ability, data structures, algorithms and your background, with a CoderPad link sent before it.
+- Quantitative research: core languages are Python and C++, but any language is welcome.
+- Quantitative research, second round: “The second round is onsite, and usually consists of three to five 60-minute interviews.” Next steps come within two weeks.
+- Quantitative research, final review: hiring managers across Citadel Securities decide which team fits you.
+- Quantitative research, offer: if two businesses want you, you choose which one makes the offer.
+- Engineering: a 45-minute video interview on coding, data structures and algorithms, then three 45-minute interviews, then a leadership interview with a senior engineer if a team is interested, then a final review.
 
 ## Re-apply rule
 

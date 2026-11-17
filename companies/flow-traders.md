@@ -7,7 +7,7 @@ Careers page: https://www.flowtraders.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Graduate Software Development program | Opens a year before the start date, closes when filled | Not stated | Rotates through a few teams | Not stated for software. The page gives a penultimate-or-final-year rule only for the Graduate Trader program | [link](https://www.flowtraders.com/careers) | 2026-11-16 |
+| Graduate Software Development program | No Graduate Software Development posting on the Greenhouse board on 17 Nov 2026. The careers page says applications open a year before the start date | Not stated | Rotates through a few teams | Not stated for software. The page gives a penultimate-or-final-year rule only for the Graduate Trader program | [link](https://www.flowtraders.com/careers) | 2026-11-16 |
 
 ## Process, as the company describes it
 

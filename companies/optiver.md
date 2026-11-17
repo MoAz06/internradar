@@ -8,8 +8,8 @@ Careers page: https://optiver.com/working-at-optiver/career-opportunities/?locat
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
 | Software Engineer Internship (2027 Start) | Open, no deadline listed | 2027 | 10 weeks | Penultimate-year student in Computer Science, Computer Engineering or equivalent, able to work full time after graduating in 2028 | [link](https://optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/) | 2026-11-16 |
-| Quantitative Research Internship (2027 Start) | Open, no deadline listed | 2027 | Not stated | See posting | [link](https://optiver.com/join-us/jobs/quantitative-research-and-machine-learning/amsterdam/quantitative-research-internship-2027-start/) | 2026-11-16 |
-| FPGA Internship (2027 Start) | Open, no deadline listed | 2027 | Not stated | See posting | [link](https://optiver.com/join-us/jobs/technology/amsterdam/fpga-internship-2027-start/) | 2026-11-16 |
+| Quantitative Research Internship (2027 Start) | Open, no deadline listed | 2027 | 10 weeks | Penultimate-year student in Mathematics, Statistics, Computer Science, Physics or a related STEM field, able to work full time after graduating in 2028 | [link](https://optiver.com/join-us/jobs/quantitative-research-and-machine-learning/amsterdam/quantitative-research-internship-2027-start/) | 2026-11-16 |
+| FPGA Internship (2027 Start) | Open, no deadline listed | 2027 | 10 weeks | Master's student in Electrical/Electronic Engineering, Computer Engineering or similar, able to work full time after graduating in 2028; VHDL, Verilog or SystemVerilog | [link](https://optiver.com/join-us/jobs/technology/amsterdam/fpga-internship-2027-start/) | 2026-11-16 |
 
 ## Process, as the company describes it
 
@@ -19,7 +19,7 @@ Careers page: https://optiver.com/working-at-optiver/career-opportunities/?locat
 
 ## Re-apply rule
 
-Optiver has a global re-apply policy for intern and graduate roles. If you took an online assessment or interviewed for a technology graduate or internship role at any Optiver office in the past eight months, you wait out those eight months before applying again.
+Optiver has a global re-apply policy for intern and graduate roles. If you took an online assessment or interviewed for a technology (or, on the QR posting, quantitative) graduate or internship role at any Optiver office in the past eight months, you wait out those eight months before applying again.
 
 ## Pay, relocation, visa
 
@@ -36,5 +36,7 @@ None yet. Went through this process? [Share what it looked like](https://github.
 - https://optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/ checked 2026-11-16
 - https://optiver.com/working-at-optiver/career-opportunities/?location=amsterdam&level=internship checked 2026-11-16
 - https://optiver.com/join-us/students/ checked 2026-11-16
+- https://optiver.com/join-us/jobs/quantitative-research-and-machine-learning/amsterdam/quantitative-research-internship-2027-start/ checked 2026-11-16
+- https://optiver.com/join-us/jobs/technology/amsterdam/fpga-internship-2027-start/ checked 2026-11-16
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

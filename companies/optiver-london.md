@@ -26,7 +26,7 @@ Optiver has a global re-apply policy for intern and graduate roles. If you compl
 ## Pay, relocation, visa
 
 - Software intern: “A highly competitive internship compensation package and accommodation included”, no figure given.
-- Graduate QR: performance-based bonus, 25 paid vacation days in year one, “Competitive relocation packages and visa sponsorship where necessary for expats”.
+- Graduate QR (posting written for Amsterdam, also listed for London): performance-based bonus, 25 paid vacation days in year one, “Competitive relocation packages and visa sponsorship where necessary for expats”.
 - Visa for the London software internship: Optiver “is unable to provide visa sponsorship” and you need the right to work in the UK for the whole internship.
 
 ## Candidate reports

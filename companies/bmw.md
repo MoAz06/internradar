@@ -7,7 +7,7 @@ Careers page: https://www.bmwgroup.jobs/de/en/students/internship.html
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Trainee Programme AcceleratiON | Application phase in September, for an April start | April | Not stated | Fluent German and English. Four assignments, two in Germany and two abroad | [link](https://www.bmwgroup.jobs/de/en/students/entry-programmes/acceleration.html) | 2026-11-16 |
+| Trainee Programme AcceleratiON | Application phases in September (April start) and April (October start); no AcceleratiON vacancies listed on 17 Nov 2026 | April or October | Not stated | Fluent German and English. Four assignments, two in Germany and two abroad | [link](https://www.bmwgroup.jobs/de/en/students/entry-programmes/acceleration.html) | 2026-11-16 |
 | Intern Artificial Intelligence in Robotics (f/m/x) | Posted 17 Sep 2026, no deadline listed | Earliest 19 Oct 2026 | 6 months | Studies in robotics, computer science, electrical engineering or related; Python, ROS, PyTorch; good German and English | [link](https://jobs.bmwgroup.com/job/Munich-Intern-Artificial-Intelligence-in-Robotics-%28fmx%29-BY-80809/1437896333/) | 2026-11-16 |
 | Intern Agentic AI and Industrial Foundation Models (f/m/x) | Posted 9 Nov 2026, no deadline listed | Earliest 11 Jan 2027 | 6 months | Studies in CS, mechanical engineering, maths, physics or related; Python, LLM agents; English | [link](https://jobs.bmwgroup.com/job/Munich-Intern-Agentic-AI-and-Industrial-Foundation-Models-%28fmx%29-BY-80809/1455605633/) | 2026-11-16 |
 | Intern Generative AI for Vehicle Design (f/m/x) | Posted 14 Oct 2026, no deadline listed | Earliest 16 Nov 2026 | 6 months | Studies in CS, engineering, natural sciences or related; Python, PyTorch, reinforcement learning; fluent English | [link](https://jobs.bmwgroup.com/job/Munich-Intern-Generative-AI-for-Vehicle-Design-%28fmx%29-BY-80809/1447507733/) | 2026-11-16 |
@@ -19,7 +19,7 @@ Careers page: https://www.bmwgroup.jobs/de/en/students/internship.html
 - For internships the interview “will only take place with the respective department”. It can be “on-site, by phone or via Teams, depending on where you live.”
 - Departments “have up to four weeks to carefully screen all incoming applications”, and the result shows in the applicant system.
 - AcceleratiON trainee programme: after applying you get “the invitation to an online test via email”.
-- If you make it to the next round, there is a video interview. Later steps are not stated on the programme page.
+- If you make it to the next round, there is a video interview, then an assessment centre in a hybrid format. The page says the online assessment centre and the on-site interviews both take place in November.
 
 ## Re-apply rule
 

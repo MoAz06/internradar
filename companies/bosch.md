@@ -1,6 +1,6 @@
 # Bosch
 
-Location: Stuttgart area (Gerlingen, Abstatt, Schwieberdingen, Elchingen), Germany
+Location: Gerlingen, Abstatt, Schwieberdingen (Baden-Württemberg) and Elchingen (Bavaria), Germany
 Careers page: https://www.bosch.de/karriere/dein-einstieg/studentinnen-und-studenten/praktikum/
 
 ## Roles
@@ -15,7 +15,7 @@ Careers page: https://www.bosch.de/karriere/dein-einstieg/studentinnen-und-stude
 
 ## Process, as the company describes it
 
-- Internships: apply with the online form in each posting; Bosch does not take unsolicited applications and asks you to apply to a specific posting.
+- Internships: apply with the online form in each posting; Bosch publishes all open places in its job board and asks you to apply to a specific posting.
 - After a pre-selection on your documents there is a personal interview with the supervisor from the department.
 - Apply “mindestens 4 Monate” (at least 4 months) before the start you want.
 - Internship postings ask for CV, transcript, enrolment certificate, examination regulations and, if needed, a valid work and residence permit.

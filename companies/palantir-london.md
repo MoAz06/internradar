@@ -7,8 +7,8 @@ Careers page: https://www.palantir.com/careers/students-and-early-talent/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Software Engineer, Internship | Open, no deadline listed | Not stated | 12 weeks | Graduating 2028; must be your final internship | [link](https://jobs.lever.co/palantir/76a60923-bb49-40f5-b061-7c7eb1299602) | 2026-11-16 |
-| Forward Deployed Software Engineer, Internship - UK Government | Open, no deadline listed | Not stated | 12 weeks | Graduating 2028; security clearance or able to get one | [link](https://jobs.lever.co/palantir/26e23f5d-083b-45aa-b223-1a6e43d960bf) | 2026-11-16 |
+| Software Engineer, Internship | Open, no deadline listed | Not stated | Typically 12 weeks, between May and September | Graduating 2028; must be your final internship | [link](https://jobs.lever.co/palantir/76a60923-bb49-40f5-b061-7c7eb1299602) | 2026-11-16 |
+| Forward Deployed Software Engineer, Internship - UK Government | Open, no deadline listed | Not stated | Typically 12 weeks, between May and September | Graduating 2028; security clearance or able to get one | [link](https://jobs.lever.co/palantir/26e23f5d-083b-45aa-b223-1a6e43d960bf) | 2026-11-16 |
 | Software Engineer, New Grad | Open, no deadline listed | Not stated | Not stated | CS, maths, software engineering or physics background | [link](https://jobs.lever.co/palantir/d372c805-d0cd-4a10-9522-fbecc78d6f3e) | 2026-11-16 |
 | Forward Deployed Software Engineer, New Grad - Commercial | Open, no deadline listed | Not stated | Not stated | Graduating in 2027 or before; 25-50% travel | [link](https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0) | 2026-11-16 |
 | Forward Deployed Software Engineer, New Grad - UK Government | Open, no deadline listed | Not stated | Not stated | Graduating in 2027 or before; security clearance or able to get one | [link](https://jobs.lever.co/palantir/b4aa51a2-bc43-4d67-bf55-12db7feefb3a) | 2026-11-16 |

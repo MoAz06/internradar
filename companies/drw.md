@@ -14,7 +14,7 @@ Careers page: https://drw.com/work-at-drw/interns
 - DRW reviews “applications on a rolling basis” and asks only for your most recent resume.
 - The application form for the Amsterdam posting also asks for a copy of your most recent transcript.
 - Next is a technical challenge; for developers “a coding challenge on fundamental computer science concepts”, done at home under timed conditions.
-- Then a Zoom interview with a developer, with technical and behavioral questions.
+- Then a Zoom interview with a developer, quantitative trader or researcher, with technical and behavioral questions.
 - The final round is on site over two days: day one afternoon has introductions and a technical challenge, day two is “a full day of interviews”.
 - DRW says the process can be “slightly different” per candidate.
 

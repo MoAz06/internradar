@@ -23,7 +23,7 @@ Not stated.
 
 ## Pay, relocation, visa
 
-- Pay: the posting lists yearly-rate figures for Germany, France, Sweden and the Netherlands only; no UK figure.
+- Pay: the posting lists pay figures for Germany, France, Sweden and the Netherlands only; no UK figure.
 - Visa: applicants “must hold valid work authorization or meet local immigration eligibility requirements”.
 - Relocation: not stated.
 

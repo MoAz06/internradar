@@ -1,6 +1,6 @@
 # QuantCo
 
-Location: Berlin, Cologne, Karlsruhe or Munich, Germany
+Location: Europe (German offices: Berlin, Cologne, Karlsruhe, Munich), Germany
 Careers page: https://jobs.lever.co/quantco-?location=Europe
 
 ## Roles

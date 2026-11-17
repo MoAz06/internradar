@@ -11,7 +11,7 @@ Careers page: https://amazon.jobs/content/en/career-programs/university
 | Network Development Engineer Intern | Open, no deadline listed | June/July 2027 | 12 weeks | Bachelor's or master's in CIS, MIS, telecoms or similar, graduating in 2028 | [link](https://www.amazon.jobs/en/jobs/10571025/network-development-engineer-intern) | 2026-11-16 |
 | System Engineer internship 2027 (6 months), ESC Managed Operations | Open, no deadline listed | Not stated (2027) | 6 months | Bachelor's or master's in CS, computer engineering, IS or related, graduating late 2026 or 2027; EU national living in the EU | [link](https://www.amazon.jobs/en/jobs/10571720/system-engineer-internship-2027-6-months-esc-managed-operations) | 2026-11-16 |
 | Cloud Support Associate Internship - April 2027 start, Support Engineering | Open, no deadline listed | April 2027 | 6 months | Bachelor's or master's in a tech field, graduating in 2028 | [link](https://www.amazon.jobs/en/jobs/10567711/cloud-support-associate-internship-april-2027-start-support-engineering) | 2026-11-16 |
-| Graduate System Engineer, ESC Managed Operations | Open, no deadline listed | Not stated | Not stated | Bachelor's in CS or related, finished in the last 12 months or in progress; EU national | [link](https://www.amazon.jobs/en/jobs/10571672/graduate-system-engineer-esc-managed-operations) | 2026-11-16 |
+| Graduate System Engineer, ESC Managed Operations | Open, no deadline listed | Not stated | Not stated | Bachelor's in CS or related, finished in the last 12 months or in progress; EU national living in the EU | [link](https://www.amazon.jobs/en/jobs/10571672/graduate-system-engineer-esc-managed-operations) | 2026-11-16 |
 
 ## Process, as the company describes it
 
@@ -30,7 +30,7 @@ Not stated.
 
 - Pay: the Cloud Support internship lists “Competitive pay”, no figure. The other Dublin postings give no pay.
 - Relocation: the Graduate System Engineer posting says “Amazon will provide relocation support for successful applicants relocating within the European Union.”
-- Visa: not stated. The two ESC Managed Operations roles require EU nationality (the internship also EU residence).
+- Visa: not stated. Both ESC Managed Operations roles require EU nationality and living in the EU.
 
 ## Candidate reports
 

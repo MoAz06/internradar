@@ -15,7 +15,7 @@ export const countries: Country[] = [
   { code: "IE", name: "Ireland", slug: "ireland", flag: "🇮🇪" },
 ];
 
-export const lastChecked = "2026-11-16";
+export const lastChecked = "2026-11-17";
 
 export const companies: Company[] = [...nl, ...gb, ...de, ...ch, ...ie];
 

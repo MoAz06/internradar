@@ -7,7 +7,7 @@ Careers page: https://miro.com/careers/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Graduate Program (Software Engineer) | No role posted today; new positions open each January | Not stated for 2027 (2024 post: August, 12 months) | 12 months | Bachelor's or master's, graduated within the last 12 months; no boot camp graduates; Amsterdam | [link](https://miro.com/careers/life-at-miro/hiring-101/amsterdam-is-calling-join-miros-graduate-program-and-kickstart-your-career/) | 2026-11-16 |
+| Graduate Program (Software Engineer) | No role posted today; new positions open each January | Not stated for 2027 (2024 post: August, 12 months) | 12 months | Hold or about to get a bachelor's or master's, graduating within the last 12 months; no boot camp graduates; able to commute to Amsterdam | [link](https://miro.com/careers/life-at-miro/hiring-101/amsterdam-is-calling-join-miros-graduate-program-and-kickstart-your-career/) | 2026-11-16 |
 
 ## Process, as the company describes it
 

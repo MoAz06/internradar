@@ -12,7 +12,7 @@ Careers page: https://careers.bol.com/en/early-careers/
 
 ## Process, as the company describes it
 
-- Tech Young Professional: before interviews you do “An online HR assessment” and “A coding assessment”.
+- Tech Young Professional: a recruiter reviews your resume and may invite you to an informal chat. Before interviews you do “An online HR assessment” and “A coding assessment”.
 - Tech Young Professional: “All interviews take place online”. First an interview with an Engineering Manager, then a final interview with another Engineering Manager and a Young Professional where you discuss your coding assessment.
 - General process: after you apply, bol contacts you to set up a first interview. For the second interview you complete an online assessment in advance, sometimes also a business case.
 - For Tech vacancies another round may be added, a Tech assessment on your field, before or after the second interview.
@@ -25,7 +25,7 @@ Not stated.
 
 ## Pay, relocation, visa
 
-- Internship pay: €550 a month (the data internship posting says €550 gross for 40 hours a week).
+- Internship pay: €550 a month, on the Stage AI-innovatie posting.
 - Tech Young Professional: “you’ll get a full salary”, no figure given; full time, 40 hours a week.
 - Relocation and visa (general FAQ, for jobs): bol works with an immigration partner so you can legally work, covers airline tickets for you and your family and up to six weeks of temporary housing. Not stated for interns.
 

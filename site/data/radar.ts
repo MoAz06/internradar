@@ -48,7 +48,7 @@ export const radar: RadarItem[] = [
     kind: "soon",
   },
   {
-    opens: "May 2027",
+    opens: "May",
     sortKey: "2027-05-01",
     company: "Celonis",
     slug: "celonis-munich",
@@ -72,6 +72,15 @@ export const radar: RadarItem[] = [
     slug: "sbb-bern",
     role: "Career Starter Programm: SAP",
     expect: "Window 1-14 Feb 2027 · start May 2027 · 18 months · CHF 80,000/year · German B2",
+    kind: "soon",
+  },
+  {
+    opens: "Mar 2027",
+    sortKey: "2027-03-01",
+    company: "Ahold Delhaize",
+    slug: "ahold-delhaize",
+    role: "International IT Traineeship",
+    expect: "3-year programme · one year abroad · two rotations at Dutch brands · 2026 intake closed",
     kind: "soon",
   },
 ];

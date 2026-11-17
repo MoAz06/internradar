@@ -16,7 +16,7 @@ Careers page: https://www.databricks.com/company/careers/university-recruiting
 - The student page says “Your recruiter will be your best resource” and that “our interview process and what we look for vary by role.”
 - For software engineering it says: “Brush up on data structures and algorithms. We’re evaluating code quality and cleanliness.”
 - Applications typically open in August and Databricks says “We hire on a rolling basis, so we recommend applying as early as possible!”
-- The exact number and type of interview rounds are not described on the pages checked.
+- Databricks' general interview page (not student-specific) lists a recruiter call, a pre-onsite screen (hiring manager screen, technical assessment or skill evaluation) and an onsite loop of four to six interviews. Interviews are virtual unless your recruiter says otherwise.
 
 ## Re-apply rule
 
@@ -37,5 +37,7 @@ None yet. Went through this process? [Share what it looked like](https://github.
 - https://www.databricks.com/company/careers/university-recruiting checked 2026-11-16
 - https://boards-api.greenhouse.io/v1/boards/databricks/jobs/6866534002 checked 2026-11-16
 - https://boards-api.greenhouse.io/v1/boards/databricks/jobs/6866549002 checked 2026-11-16
+- https://databricks.com/company/careers/open-positions/job?gh_jid=6866534002 checked 2026-11-16
+- https://databricks.com/company/careers/open-positions/job?gh_jid=6866549002 checked 2026-11-16
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

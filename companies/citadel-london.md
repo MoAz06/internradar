@@ -23,6 +23,7 @@ Careers page: https://www.citadel.com/careers/internships/
 - Leadership interview: if a team is interested, you interview with a senior engineer; several teams can mean several interviews.
 - Final review: hiring managers decide your fit for a specific team.
 - The internship starts with “an immersive one-week offsite”, then 10 weeks of work.
+- Quantitative research: a 45 to 60 minute remote video interview (CoderPad link sent before), then an onsite second round of three to five 60-minute interviews, then a final review and offer.
 
 ## Re-apply rule
 

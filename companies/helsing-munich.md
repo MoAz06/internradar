@@ -41,5 +41,7 @@ None yet. Went through this process? [Share what it looked like](https://github.
 - https://developer.helsing.ai/handbook/process checked 2026-11-16
 - https://helsing.ai/jobs/4941957101 checked 2026-11-16
 - https://boards-api.greenhouse.io/v1/boards/helsing/jobs?content=true checked 2026-11-16
+- https://helsing.ai/jobs/5035194101 checked 2026-11-16
+- https://helsing.ai/jobs/4865788101 checked 2026-11-16
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

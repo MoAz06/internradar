@@ -7,7 +7,7 @@ Careers page: https://www.gresearch.com/students-graduates/graduates/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Software Engineering Internship | Open, no deadline listed | 28 June 2027 (or 30 March 2027) | 12 weeks | Penultimate year, graduating 2028, on track for a 2:1 in CS or close | [link](https://www.gresearch.com/vacancies/software-engineering-intern/) | 2026-11-16 |
+| Software Engineering Internship | Open, no deadline listed | 28 June 2027 (or 30 March 2027) | 12 weeks | Penultimate year, graduating 2028, studying towards a 2:1 or above in CS or a closely related subject | [link](https://www.gresearch.com/vacancies/software-engineering-intern/) | 2026-11-16 |
 | Machine Learning Engineer Internship | Open, no deadline listed | 28 June 2027 | 12 weeks, to 17 Sep 2027 | Undergraduate, master's or PhD student in ML or related | [link](https://www.gresearch.com/vacancies/machine-learning-engineer-intern/) | 2026-11-16 |
 | Quant Research Internship | Open, no deadline listed | 21 June 2027 | 10 weeks, to 27 Aug 2027 | Final or penultimate year of a Masters or PhD in a quantitative subject; PhD preferred | [link](https://www.gresearch.com/vacancies/quant-research-internship/) | 2026-11-16 |
 | Machine Learning Research Internship | Open, no deadline listed | 21 June 2027 | 10 weeks, to 27 Aug 2027 | Postgraduate degree in ML or related, or strong Kaggle record; PhD preferred | [link](https://www.gresearch.com/vacancies/machine-learning-research-internship/) | 2026-11-16 |

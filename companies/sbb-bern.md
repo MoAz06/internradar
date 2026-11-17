@@ -9,17 +9,17 @@ Careers page: https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/st
 | --- | --- | --- | --- | --- | --- | --- |
 | Hochschulpraktikum (university internship, fields include IT) | Next window 1-14 Feb 2027 (start May-Aug 2027); then 3-16 May 2027 | May to August 2027 for the February window | 6 months at 100% (up to 12 months at 50%) | At least four semesters done, or graduated no more than 12 months ago; fluent in one Swiss national language plus B1 in another | [link](https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/studierende-hochschulabsolvent-innen/hochschulpraktika.html) | 2026-11-16 |
 | Career Starter Programm: SAP | Window 1-14 Feb 2027 for a May 2027 start | May 2027 | 18 months | Bachelor's or Master's in computer science, business informatics or business, graduated within 24 months; German B2, English B1 | [link](https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/studierende-hochschulabsolvent-innen/career-starter-programm/career-starter-sap.html) | 2026-11-16 |
-| Career Starter Programm: Data Science | Page says this programme has already been recruited | September (each year) | 18 months | STEM, economics or business informatics degree within 24 months; Python, statistics, ML; German B2, English B1 | [link](https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/studierende-hochschulabsolvent-innen/career-starter-programm/career-starter-data-science.html) | 2026-11-16 |
-| Career Starter Programm: Cyber Security | Page says this programme has already been recruited | April (each year) | 18 months | Degree in computer science, business informatics or similar within 24 months; German B2, English B1 | [link](https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/studierende-hochschulabsolvent-innen/career-starter-programm/career-starter-cyber-security.html) | 2026-11-16 |
+| Career Starter Programm: Data Science | No dates yet; SBB will publish new programme starts and postings later | September (each year) | 18 months | STEM, economics or business informatics degree within 24 months; Python, statistics, ML; German B2, English B1 | [link](https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/studierende-hochschulabsolvent-innen/career-starter-programm/career-starter-data-science.html) | 2026-11-16 |
+| Career Starter Programm: Cyber Security | No dates yet; SBB will publish new programme starts and postings later | April (each year) | 18 months | Degree in computer science, business informatics or similar within 24 months; German B2, English B1 | [link](https://company.sbb.ch/de/jobs-karriere/einsteigen/ersteinstieg/studierende-hochschulabsolvent-innen/career-starter-programm/career-starter-cyber-security.html) | 2026-11-16 |
 
 ## Process, as the company describes it
 
 - All SBB jobs are posted under open vacancies and you can only apply online through the posting. SBB does not want a motivation letter; send CV, diplomas, transcripts and references.
-- Hochschulpraktikum: apply in one of the windows to a generic posting (separate postings for French- and German-speaking Switzerland). SBB screens files in fixed periods and puts suitable candidates in a pool.
+- Hochschulpraktikum: apply in one of the windows to the open posting for your start period; you do not pick a field yet. If your file convinces SBB you join a pool, and within two weeks after the window SBB matches your profile to open internships.
 - From the pool SBB matches you to open internships; the hiring manager invites you to an interview, and if both sides agree you get a contract.
-- Career Starter (SAP): after pre-selection on 15-17 Feb 2027 you get a recorded video interview invitation on 17 Feb 2027 and have five days to complete it.
-- Then a virtual first talk of at most 60 minutes, and finally an on-site meeting with future colleagues that includes a “praxisnahe Case Study”.
-- If both sides agree, the future manager contacts you to settle details and you are hired as a permanent Career Starter.
+- Career Starter (SAP): if you reach the next round you record a video interview between 17 and 21 Feb 2027 and have five days for it.
+- Then a virtual first talk in the week of 22-26 Feb 2027, and by the end of March 2027 an on-site meeting with future colleagues that includes a “praxisnahe Case Study”.
+- If expectations match on both sides, SBB welcomes you as a Career Starter. The page says the programme prepares you for a permanent job at SBB.
 
 ## Re-apply rule
 

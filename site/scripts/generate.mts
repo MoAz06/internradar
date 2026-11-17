@@ -16,7 +16,7 @@ const short = (iso: string) => {
   return `${d} ${months[m - 1]}`;
 };
 const long = (iso: string) => `${short(iso)} ${iso.slice(0, 4)}`;
-const cell = (s: string) => s.replace(/\|/g, "\|").replace(/\n/g, " ");
+const cell = (s: string) => s.replace(/\|/g, "\\|").replace(/\n/g, " ");
 const countryName = (code: string) => countries.find((c) => c.code === code)?.name ?? code;
 
 let stale: string[] = [];

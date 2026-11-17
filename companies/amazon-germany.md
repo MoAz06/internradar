@@ -1,6 +1,6 @@
 # Amazon / AWS (Germany)
 
-Location: Berlin, Munich, Germany
+Location: Berlin, Munich, Tübingen, Aachen, Germany
 Careers page: https://www.amazon.jobs/en/search?base_query=intern&country=DEU
 
 ## Roles

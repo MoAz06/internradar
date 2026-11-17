@@ -1,6 +1,6 @@
 # Siemens
 
-Location: Erlangen, Fürth, Regensburg, Germany
+Location: Fürth, Regensburg, Germany
 Careers page: https://www.siemens.com/sgp
 
 ## Roles

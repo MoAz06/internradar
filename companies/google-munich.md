@@ -7,7 +7,7 @@ Careers page: https://www.google.com/about/careers/applications/jobs/results/?lo
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Research Scientist PhD Intern, 2027 | Apply before 14 Dec 2026, reviewed on a rolling basis | May, June or July 2027 | 13 to 17 weeks | Penultimate or final year PhD in CS or related in EMEA; Java, C++, Python or Go; locations Zürich, Munich or Paris | [link](https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027) | 2026-11-16 |
+| Research Scientist PhD Intern, 2027 | Apply before 14 Dec 2026, reviewed on a rolling basis | May, June or July 2027 | 13 to 17 weeks | Penultimate or final year PhD in CS or related in EMEA; Java, C++, Python or Go; locations Zürich, Munich or Paris; no immigration sponsorship | [link](https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027) | 2026-11-16 |
 | Student Researcher, 2027 | Apply before 13 Dec 2026, reviewed on a rolling basis | Not stated | Varies, part-time to full-time | Pursuing a Bachelor's, Master's or PhD in CS or related; must keep student status; locations incl. Munich and Berlin | [link](https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027) | 2026-11-16 |
 
 ## Process, as the company describes it
@@ -26,7 +26,7 @@ Not stated.
 - Student Researcher, Germany: “€68500 (EUR) + 0% bonus target” for Bachelor's, €71,000 for Master's and €85,000 for PhD students (yearly figures as listed).
 - Research Scientist PhD Intern: the posting lists pay for France and Denmark only; Germany not stated.
 - Relocation: Not stated.
-- Visa: Student Researcher applicants “must hold valid work authorization or meet local immigration eligibility requirements”.
+- Visa: Student Researcher applicants “must hold valid work authorization or meet local immigration eligibility requirements”. The Research Scientist PhD Intern posting says applicants are not eligible for immigration sponsorship.
 
 ## Candidate reports
 

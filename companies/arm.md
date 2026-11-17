@@ -9,7 +9,6 @@ Careers page: https://careers.arm.com/graduates
 | --- | --- | --- | --- | --- | --- | --- |
 | Graduate Program - Engineering Pathways | Closes 22 Nov 2026 | Not stated | Not stated | Degree (BSc, MSc or PhD) in EE, CE, CS, software engineering or similar by the start date; Cambridge, Manchester, Sheffield or Bristol | [link](https://careers.arm.com/job/cambridge/graduate-program-engineering-pathways/33099/102629004672) | 2026-11-16 |
 | Graduate Quality Analytics and Automation Engineer | Closes 29 Nov 2026; reviewed first come, first served | Not stated | Not stated | Degree in CS, data science, software engineering or similar by the start date; Python and SQL | [link](https://careers.arm.com/job/cambridge/graduate-quality-analytics-and-automation-engineer/33099/103071142448) | 2026-11-16 |
-| Graduate Engineer – Systems Engineering (Bristol) | Closes 22 Nov 2026 | As soon as possible, agreed with candidate | Not stated | Degree in EE, CE, CS, maths, physics or similar by the start date | [link](https://careers.arm.com/job/bristol/graduate-engineer-systems-engineering/33099/102648589728) | 2026-11-16 |
 
 ## Process, as the company describes it
 
@@ -39,7 +38,6 @@ None yet. Went through this process? [Share what it looked like](https://github.
 - https://careers.arm.com/graduates checked 2026-11-16
 - https://careers.arm.com/job/cambridge/graduate-program-engineering-pathways/33099/102629004672 checked 2026-11-16
 - https://careers.arm.com/job/cambridge/graduate-quality-analytics-and-automation-engineer/33099/103071142448 checked 2026-11-16
-- https://careers.arm.com/job/bristol/graduate-engineer-systems-engineering/33099/102648589728 checked 2026-11-16
 - https://careers.arm.com/emerging-talent-faq checked 2026-11-16
 - https://careers.arm.com/hiring-process checked 2026-11-16
 
