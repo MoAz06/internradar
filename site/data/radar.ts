@@ -83,4 +83,22 @@ export const radar: RadarItem[] = [
     expect: "3-year programme · one year abroad · two rotations at Dutch brands · 2026 intake closed",
     kind: "soon",
   },
+  {
+    opens: "16 Dec 2026",
+    sortKey: "2026-12-16",
+    company: "Novo Nordisk",
+    slug: "novo-nordisk-copenhagen",
+    role: "Global Digital Business Graduate Programme",
+    expect: "deadline 5 Jan 2027 · starts 1 Sep 2027 · CV, academic records, cover letter · one track only",
+    kind: "soon",
+  },
+  {
+    opens: "16 Dec 2026",
+    sortKey: "2026-12-16",
+    company: "Novo Nordisk",
+    slug: "novo-nordisk-copenhagen",
+    role: "Data Science Graduate Programme",
+    expect: "deadline 5 Jan 2027 · starts 1 Sep 2027 · CV, academic records, cover letter · one track only",
+    kind: "soon",
+  },
 ];

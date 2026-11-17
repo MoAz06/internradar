@@ -30,7 +30,7 @@ export type CandidateReport = {
 export type Company = {
   slug: string;
   name: string;
-  country: "NL" | "GB" | "DE" | "CH" | "IE";
+  country: "NL" | "GB" | "DE" | "CH" | "IE" | "FR" | "SE" | "DK" | "FI" | "NO";
   city: string;
   careersUrl: string;
   roles: Role[];

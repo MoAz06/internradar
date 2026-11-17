@@ -3,13 +3,13 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-85-blue) ![roles](https://img.shields.io/badge/roles-273-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-113-blue) ![roles](https://img.shields.io/badge/roles-349-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
 
 <!-- gen:list -->
-**Jump to:** [🇳🇱 Netherlands](#netherlands) · [🇬🇧 United Kingdom](#united-kingdom) · [🇩🇪 Germany](#germany) · [🇨🇭 Switzerland](#switzerland) · [🇮🇪 Ireland](#ireland) · [On the radar](#on-the-radar) · [How to read this](#how-to-read-this)
+**Jump to:** [🇳🇱 Netherlands](#netherlands) · [🇬🇧 United Kingdom](#united-kingdom) · [🇩🇪 Germany](#germany) · [🇨🇭 Switzerland](#switzerland) · [🇮🇪 Ireland](#ireland) · [🇫🇷 France](#france) · [🇸🇪 Sweden](#sweden) · [🇩🇰 Denmark](#denmark) · [🇫🇮 Finland](#finland) · [🇳🇴 Norway](#norway) · [On the radar](#on-the-radar) · [How to read this](#how-to-read-this)
 
 <a id="on-the-radar"></a>
 ## On the radar
@@ -18,6 +18,8 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 
 | Opens | Company | Role | What to expect |
 | --- | --- | --- | --- |
+| **16 Dec 2026** | [Novo Nordisk](companies/novo-nordisk-copenhagen.md) | Global Digital Business Graduate Programme | deadline 5 Jan 2027, starts 1 Sep 2027, CV, academic records, cover letter, one track only |
+| **16 Dec 2026** | [Novo Nordisk](companies/novo-nordisk-copenhagen.md) | Data Science Graduate Programme | deadline 5 Jan 2027, starts 1 Sep 2027, CV, academic records, cover letter, one track only |
 | **January 2027** | [Miro](companies/miro.md) | Graduate Program (Software Engineer) | Amsterdam, graduated in last 12 months, 12-month programme, 5-6 interview rounds |
 | **4 Jan 2027** | [Booking.com](companies/booking.md) | Software Engineering Grads (Compass), Amsterdam | 12 months rotational, Dutch university, graduating 2026 or 2027 |
 | **Feb 2027** | [Booking.com](companies/booking.md) | Data Science & Analytics Grads, Amsterdam | 12 months, Dutch university, graduating 2026 or 2027 |
@@ -81,8 +83,13 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Thales Nederland](companies/thales.md) | Stage-/afstudeeropdracht - HBO -Thales Naval Game - Game Developer | Hengelo | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Thales Nederland](companies/thales.md) | Internship/graduation assignment - VSM Portal | Hengelo | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Ahold Delhaize](companies/ahold-delhaize.md) | International IT Traineeship | Zaandam | 🟡 2026 intake closed; vacancy expected to reopen in March 2027 | – | Not stated | Not stated | 17 Nov |
+| [Tesla](companies/tesla-amsterdam.md) | Internship, Service Engineering - Diagnostic UI development | AMS | 🟢 | February 2027 | Interview | Not stated | 17 Nov |
+| [Tesla](companies/tesla-amsterdam.md) | Internship, Service Engineering - Infotainment and mobile app | AMS | 🟢 | February 2027 | Interview | Not stated | 17 Nov |
+| [Tesla](companies/tesla-amsterdam.md) | Internship, Service Engineering - Diagnostic tools validation | AMS | 🟢 | February 2027 | Interview | Not stated | 17 Nov |
+| [Tesla](companies/tesla-amsterdam.md) | Data Analyst Internship, Vehicle Operations – EMEA Business Analytics | AMS | 🟢 | January 2027 | Interview | Not stated | 17 Nov |
+| [Tesla](companies/tesla-amsterdam.md) | Power Systems Modeling Internship | AMS | 🟢 | January/February 2027 | Interview | Not stated | 17 Nov |
 
-24 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+25 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="united-kingdom"></a>
 ## 🇬🇧 United Kingdom
@@ -253,8 +260,15 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [ZEISS](companies/zeiss-germany.md) | Praktikum im Bereich FPGA-Entwicklung (m/w/x) | Jena, Karlsruhe and Oberkochen | 🟢 | Agreed with the team | CV screening, then an interview with the team | Not stated | 17 Nov |
 | [ZEISS](companies/zeiss-germany.md) | Praktikum Softwareentwicklung eingebettete Systeme (m/w/x) | Jena, Karlsruhe and Oberkochen | 🟢 | Agreed with the team | CV screening, then an interview with the team | Not stated | 17 Nov |
 | [Allianz Technology](companies/allianz-technology-munich.md) | Intern Innovation Experience Technologist - R&D Center Europe (m/f/d) | Unterföhring (Munich) | 🟢 | Immediately | Resume review, then interview or assessment centre | Not stated | 17 Nov |
+| [Airbus](companies/airbus-germany.md) | Internship (d/f/m) within the mission software department | Donauwörth and Immenstaad am Bodensee | 🟢 | February 2027 | Video or on-site interview with the future manager | Not stated | 17 Nov |
+| [Airbus](companies/airbus-germany.md) | Internship (d/f/m) Embedded Software Engineering for Weapon Systems | Donauwörth and Immenstaad am Bodensee | 🟢 | February 2027 | Video or on-site interview with the future manager | Not stated | 17 Nov |
+| [Airbus](companies/airbus-germany.md) | Praktikum (d/m/w) im Bereich KI-Erweiterung für technische Datenanalyse | Donauwörth and Immenstaad am Bodensee | 🟢 | As soon as possible (“Ab sofort”) | Video or on-site interview with the future manager | Not stated | 17 Nov |
+| [Airbus](companies/airbus-germany.md) | Praktikum (d/m/w) im Bereich IT-Security / FOSS - Evaluierung von Schwachstellenscannern | Donauwörth and Immenstaad am Bodensee | 🟢 | As soon as possible (“Ab sofort”) | Video or on-site interview with the future manager | Not stated | 17 Nov |
+| [Airbus](companies/airbus-germany.md) | Praktikum/Abschlussarbeit: Softwareentwicklung in einer 3D Simulationsengine | Donauwörth and Immenstaad am Bodensee | 🟢 | As soon as possible (“Ab sofort”) | Video or on-site interview with the future manager | Not stated | 17 Nov |
+| [Scalable Capital](companies/scalable-capital-munich.md) | Internship - AI/ML Engineering (m/f/x), Munich | Munich and Berlin | 🟢 | – | Initial interview, optional test assignment, final interview (30-60 min) | Wait at least 6 months before reapplying for a role you were rejected for | 17 Nov |
+| [Scalable Capital](companies/scalable-capital-munich.md) | Internship - AI/ML Engineering (m/f/x), Berlin | Munich and Berlin | 🟢 | – | Initial interview, optional test assignment, final interview (30-60 min) | Wait at least 6 months before reapplying for a role you were rejected for | 17 Nov |
 
-15 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+17 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="switzerland"></a>
 ## 🇨🇭 Switzerland
@@ -342,6 +356,110 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Analog Devices](companies/analog-devices-limerick.md) | FY27 Electronic Engineering Graduate Opportunities | Limerick | 🟢 rolling | – | Not stated | Not stated | 17 Nov |
 
 6 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+
+<a id="france"></a>
+## 🇫🇷 France
+
+| Company | Role | City | Status | Start | Process | Re-apply | Checked |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Datadog](companies/datadog-paris.md) | Software Engineering Intern | Paris | 🟢 | February, March, April, May or June 2027 | Not stated | Not stated | 17 Nov |
+| [Datadog](companies/datadog-paris.md) | Applied Science Intern | Paris | 🟢 | February, March, April, May or June 2027 | Not stated | Not stated | 17 Nov |
+| [Criteo](companies/criteo-paris.md) | Software Engineer Intern - Backend or Fullstack | Paris and Grenoble | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Criteo](companies/criteo-paris.md) | Software Engineer Intern - Front-End or Fullstack | Paris and Grenoble | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Criteo](companies/criteo-paris.md) | Machine Learning Engineer Intern | Paris and Grenoble | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Criteo](companies/criteo-paris.md) | Research Intern | Paris and Grenoble | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Mistral AI](companies/mistral-ai-paris.md) | Applied AI, Forward Deployed Machine Learning Engineer - (Internship) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Mistral AI](companies/mistral-ai-paris.md) | Applied Scientist (Internship) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Mistral AI](companies/mistral-ai-paris.md) | AI Scientist - (Internship, Masters or Phd) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Google](companies/google-paris.md) | Research Scientist PhD Intern, 2027 | Paris | 🟢 | May, June or July 2027 | Not stated | Not stated | 17 Nov |
+| [Google](companies/google-paris.md) | Student Researcher, 2027 | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Meta](companies/meta-paris.md) | Research Scientist Intern, FAIR - Multimodal Foundations (PhD) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
+| [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (PhD) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
+| [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (MSc) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
+| [Meta](companies/meta-paris.md) | Research Scientist Intern, Muse RL and Agents Team (MSc) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
+| [Doctolib](companies/doctolib-paris.md) | Software Engineering Intern - Fullstack (x/f/m) - Paris | Paris | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 17 Nov |
+| [Doctolib](companies/doctolib-paris.md) | Machine Learning Engineer Intern (x/f/m) | Paris | 🟢 | April 2027 | Online coding game, talent partner interview (30 min), technical interview (1 hour), hiring manager interview (45 min) | Not stated | 17 Nov |
+| [Dassault Systèmes](companies/dassault-systemes.md) | STAGE – Ingénieur logiciel (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur Logiciel & Machine Learning (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur.e C++ - Développement d'Assistants IA (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur.e R&D en Intelligence Artificielle (LLM, Deep Learning) (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Back Market](companies/back-market-paris.md) | Software Engineer Intern | Paris | 🟢 | March/April 2027 | Campus recruitment manager video call (30 min), technical interview with live coding (60 min), team fit interview (30 min) | Not stated | 17 Nov |
+| [Alan](companies/alan-paris.md) | Summer Intern 2027 - Alan Summer Internship Program | Paris | 🟢 rolling | Early June 2027 | Application, short call with the team, technical case, final fit interview | Not stated | 17 Nov |
+| [Alan](companies/alan-paris.md) | Data Associate - Internship (6 months, flexible start) | Paris | 🟢 | Flexible start date | Not stated | Not stated | 17 Nov |
+| [Alan](companies/alan-paris.md) | Security Associate - Internship | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Ubisoft](companies/ubisoft-paris.md) | Data Business Analyst Assistant – Internship (6-month) January 2027 (W/M/NB) | Paris and Lyon | 🟢 | January 2027 | Phone call with the Campus Team, then an interview with your future manager (on site or Teams) | Not stated | 17 Nov |
+| [Ubisoft](companies/ubisoft-paris.md) | Mobile Data Analyst Assistant – Stage (6 mois) Janvier 2027 (F/H/NB) | Paris and Lyon | 🟢 | January 2027 | Phone call with the Campus team, a practical case, then an interview with your future tutor and the Technical Director | Not stated | 17 Nov |
+| [Ubisoft](companies/ubisoft-paris.md) | Web & Online Programmer Assistant (F/H/NB) – Stage 6 mois – The Crew Motorfest | Paris and Lyon | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Capital Fund Management (CFM)](companies/cfm-paris.md) | Internship - Applied AI & Cloud Engineering | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Capital Fund Management (CFM)](companies/cfm-paris.md) | Internship - Time Series Foundation Models for Forecasting | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Capital Fund Management (CFM)](companies/cfm-paris.md) | Internship - Market Data Announcements Tool Redesign & AI Assistance | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Capital Fund Management (CFM)](companies/cfm-paris.md) | Memory-Augmented LLMs for Financial Text - Internship | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Capital Fund Management (CFM)](companies/cfm-paris.md) | Portfolio Engineering - Internship | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Qube Research & Technologies (QRT)](companies/qrt-paris.md) | 2027 - Internship, Software Engineering and Quantitative Development | Paris | 🟢 rolling | 2027 | Coding challenge, then interviews on-site or via Microsoft Teams | Not stated | 17 Nov |
+| [Qube Research & Technologies (QRT)](companies/qrt-paris.md) | 2027 - Internship, Data Engineering | Paris | 🟢 rolling | 2027 | Coding challenge, then interviews on-site or via Microsoft Teams | Not stated | 17 Nov |
+| [Qube Research & Technologies (QRT)](companies/qrt-paris.md) | 2027 – Graduate or Internship, Infrastructure Engineer | Paris | 🟢 rolling | – | Coding challenge, then interviews on-site or via Microsoft Teams | Not stated | 17 Nov |
+| [Qube Research & Technologies (QRT)](companies/qrt-paris.md) | 2027 - Internship, Quantitative Research and Trading | Paris | 🟢 rolling | 2027 | Coding challenge, then interviews on-site or via Microsoft Teams | Not stated | 17 Nov |
+| [Qube Research & Technologies (QRT)](companies/qrt-paris.md) | 2027 Internship – Security Engineer | Paris | 🟢 rolling | 2027 | Technical interview with the team, then interviews on-site or via Microsoft Teams | Not stated | 17 Nov |
+| [Squarepoint Capital](companies/squarepoint-capital-paris.md) | Intern Quant Researcher | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Squarepoint Capital](companies/squarepoint-capital-paris.md) | Junior Quant Researcher | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Jump Trading](companies/jump-trading-paris.md) | Campus Quantitative Researcher (M1/M2 Intern) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Citadel](companies/citadel-paris.md) | Quantitative Research Analyst Intern – BS/MS (Europe) | Paris | 🟢 | June to August (signature programme); other times sometimes possible | Remote first round, onsite second round, final review, offer | Not stated | 17 Nov |
+| [Citadel Securities](companies/citadel-securities-paris.md) | Quantitative Research Analyst Intern - BS/MS (Europe) | Paris | 🟢 | – | Remote first round, onsite second round, final review, offer | Not stated | 17 Nov |
+| [BNP Paribas (CIB)](companies/bnp-paribas-paris.md) | Graduate Programme - CIB Global Markets Paris, Structuring QIS, F/H | Paris | 🟢 | March 2027 or September 2027 intake | CV pre-selection, HR assessment, then one or more interviews with the business | Not stated | 17 Nov |
+| [Société Générale](companies/societe-generale-la-defense.md) | Fullstack Developer Kotlin/Angular | La Defense | 🟢 | 1 March 2027 | Shortlist, interview with one or more managers, offer | Not stated | 17 Nov |
+| [Société Générale](companies/societe-generale-la-defense.md) | Analyste quantitatif risques de marché - périmètre fixed income | La Defense | 🟢 | 1 April 2027 | Shortlist, interview with one or more managers, offer | Not stated | 17 Nov |
+| [Société Générale](companies/societe-generale-la-defense.md) | Analyste IA Agentique – Automatisation de stratégies de trading | La Defense | 🟢 | 1 March 2027 | Shortlist, interview with one or more managers, offer | Not stated | 17 Nov |
+| [Société Générale](companies/societe-generale-la-defense.md) | Recherche appliquée en évaluation des modèles d'IA | La Defense | 🟢 | 1 March 2027 | Shortlist, interview with one or more managers, offer | Not stated | 17 Nov |
+| [Société Générale](companies/societe-generale-la-defense.md) | Ingénieur fiabilité des sites | La Defense | 🟢 | 1 March 2027 | Shortlist, interview with one or more managers, offer | Not stated | 17 Nov |
+| [Natixis CIB](companies/natixis-cib-paris.md) | Internship - 6 months - Quants XVA Development of quantitative tools and smart assistants F/M | Paris | 🟢 | April 2027 | Call with a recruiter, then meeting the business team | Not stated | 17 Nov |
+| [Natixis CIB](companies/natixis-cib-paris.md) | Internship - 6 months - Java Microservice Developer F/H | Paris | 🟢 | April 2027 | Call with a recruiter, then meeting the business team | Not stated | 17 Nov |
+| [Natixis CIB](companies/natixis-cib-paris.md) | Internship - 6 months - Data Scientist - F/M | Paris | 🟢 | January 2027 | Not stated | Not stated | 17 Nov |
+| [Murex](companies/murex-paris.md) | INTERNSHIP 2027 - Software Engineer Java | Paris | 🟢 | – | Online test, then a first chat interview and usually one or more further interviews | Not stated | 17 Nov |
+
+20 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+
+<a id="sweden"></a>
+## 🇸🇪 Sweden
+
+| Company | Role | City | Status | Start | Process | Re-apply | Checked |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Ericsson](companies/ericsson-stockholm.md) | Entry level: Software Developer | Stockholm and Lund | 🟢 | – | Recruiter call, then 1 to 3 interviews; case or assessment for some roles | Not stated | 17 Nov |
+| [Ericsson](companies/ericsson-stockholm.md) | AI-Native CI/CD Engineer \| Early Career Program | Stockholm and Lund | 🟢 | Between end of April 2027 and August 2027 | Assessment, recruiter call, 2 to 3 interviews; a case for some roles | Not stated | 17 Nov |
+| [Ericsson](companies/ericsson-stockholm.md) | Telecom Data Scientist \| Early Career Program | Stockholm and Lund | 🟢 | Between end of April 2027 and August 2027 | Assessment, recruiter call, 2 to 3 interviews; a case for some roles | Not stated | 17 Nov |
+| [Ericsson](companies/ericsson-stockholm.md) | Internship: AI & Cloud-Native Development (CPI Ecosystem) | Stockholm and Lund | 🟢 | – | Recruiter call, then 1 to 3 interviews; case or assessment for some roles | Not stated | 17 Nov |
+| [Ericsson](companies/ericsson-stockholm.md) | Entry Level: 6G Baseband Software Engineer | Stockholm and Lund | 🟢 | – | Recruiter call, then 1 to 3 interviews; case or assessment for some roles | Not stated | 17 Nov |
+| [King](companies/king-stockholm.md) | PhD AI/ML Research Engineer Intern | Stockholm | 🟢 | – | CV plus cover letter (interest, research theme, experience, supervisor contact) | Not stated | 17 Nov |
+
+2 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+
+<a id="denmark"></a>
+## 🇩🇰 Denmark
+
+| Company | Role | City | Status | Start | Process | Re-apply | Checked |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Novo Nordisk](companies/novo-nordisk-copenhagen.md) | Global Digital Business Graduate Programme | Copenhagen | 🟡 16 December 2026, deadline 5 January 2027 | 1 September 2027 | First interview, virtual business-case assessment, final interview | Not stated | 17 Nov |
+| [Novo Nordisk](companies/novo-nordisk-copenhagen.md) | Data Science Graduate Programme | Copenhagen | 🟡 16 December 2026, deadline 5 January 2027 | 1 September 2027 | First interview, virtual business-case assessment, final interview | Not stated | 17 Nov |
+
+1 company. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+
+<a id="finland"></a>
+## 🇫🇮 Finland
+
+| Company | Role | City | Status | Start | Process | Re-apply | Checked |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Nokia](companies/nokia-espoo.md) | Financial Data Engineering / Business Data Analytics Trainee - Patent Portfolio Management | Espoo | 🟢 until 30 Nov | Flexible, between January and summer 2027 | Anonymised CV, short motivation letter with a set question, and transcripts | Not stated | 17 Nov |
+
+1 company. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+
+<a id="norway"></a>
+## 🇳🇴 Norway
+
+| Company | Role | City | Status | Start | Process | Re-apply | Checked |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Nordic Semiconductor](companies/nordic-semiconductor-oslo.md) | Summer Makers 2027 – Student internship | Oslo and Trondheim | 🟢 until 29 Nov | Summer 2027 | CV, something you built, latest transcript and preferred location | Not stated | 17 Nov |
+| [Nordic Semiconductor](companies/nordic-semiconductor-oslo.md) | Embedded Software Engineer | Oslo and Trondheim | 🟢 until 13 Dec | – | Not stated | Not stated | 17 Nov |
+
+1 company. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 <!-- /gen:list -->
 
 <a id="how-to-read-this"></a>
