@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
+import NewTab from "@/components/NewTab";
 import { StatusLabel } from "@/components/Status";
 import { companies, countries, links } from "@/data/companies";
 import { longDate, stripProtocol } from "@/lib/format";
@@ -52,12 +53,15 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
       </Section>
 
       <Section className="pb-16">
-        <Card className="scrollbar-thin overflow-x-auto">
+        <Card className="scrollbar-thin overflow-x-auto" role="region" tabIndex={0} aria-labelledby="roles-caption">
           <table className="w-full min-w-[820px] border-collapse text-left">
+            <caption id="roles-caption" className="sr-only">
+              Roles at {c.name}
+            </caption>
             <thead>
-              <tr className="mono bg-raised text-[11px] font-medium tracking-[0.06em] text-dim">
+              <tr className="mono bg-raised text-xs font-medium tracking-[0.06em] text-dim">
                 {["Role", "Status", "Start", "Who can apply"].map((h) => (
-                  <th key={h} className="px-3 py-2.5 first:pl-4 last:pr-4 font-medium uppercase">
+                  <th key={h} scope="col" className="px-3 py-2.5 first:pl-4 last:pr-4 font-medium uppercase">
                     {h}
                   </th>
                 ))}
@@ -69,6 +73,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                   <td className="px-3 py-3 pl-4 align-middle">
                     <a href={r.source} target="_blank" rel="noreferrer" className="text-sm font-semibold hover:text-signal">
                       {r.title}
+                      <NewTab />
                     </a>
                   </td>
                   <td className="px-3 py-3 align-middle">
@@ -101,7 +106,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               </ol>
             </div>
             <Card className="px-4.5 py-4">
-              <p className="mono text-[11px] font-medium tracking-[0.08em] text-signal">RE-APPLY RULE</p>
+              <p className="mono text-xs font-medium tracking-[0.08em] text-signal">RE-APPLY RULE</p>
               <p className="mt-2 text-sm leading-[1.55]">{c.reapply}</p>
             </Card>
             {c.notes && c.notes.length > 0 && (
@@ -159,6 +164,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                 className="mt-3.5 inline-block rounded-md bg-signal px-3.5 py-2 text-[13px] font-semibold text-[#06120a] hover:brightness-110"
               >
                 Share your process
+                <NewTab />
               </a>
             </Card>
             <div>
@@ -169,6 +175,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                     <span className="mono w-6 shrink-0 text-xs leading-6 text-signal">·</span>
                     <a href={s.url} target="_blank" rel="noreferrer" className="break-all text-sm leading-6 text-muted hover:text-ink">
                       {stripProtocol(s.url)}
+                      <NewTab />
                     </a>
                   </li>
                 ))}

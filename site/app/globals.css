@@ -7,7 +7,7 @@
   --color-line: #1f2630;
   --color-ink: #e6edf3;
   --color-muted: #8b98a5;
-  --color-dim: #5c6773;
+  --color-dim: #7d8a97;
   --color-signal: #22c55e;
   --color-soon: #f59e0b;
   --color-closed: #ef4444;
@@ -18,6 +18,30 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
+  /* keeps anchors and focused links clear of the sticky nav, which is taller on phones */
+  scroll-padding-top: 6.5rem;
+}
+
+@media (min-width: 48rem) {
+  html {
+    scroll-padding-top: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+  }
 }
 
 body {

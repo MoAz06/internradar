@@ -29,8 +29,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body className="min-h-screen flex flex-col">
+        <a
+          href="#main"
+          className="sr-only rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-[#06120a] focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-50"
+        >
+          Skip to content
+        </a>
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

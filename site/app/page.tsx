@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
+import NewTab from "@/components/NewTab";
 import { Dot, Legend, StatusLabel } from "@/components/Status";
 import { companies, countries, lastChecked, links, radar } from "@/data/companies";
 import { longDate, shortDate } from "@/lib/format";
@@ -52,9 +53,9 @@ export default function Home() {
                   n ? "border-line bg-surface hover:border-muted" : "border-dashed border-line text-dim"
                 }`}
               >
-                <span className="mono text-[11px] tracking-[0.1em] text-dim">{k.code}</span>
+                <span className="mono text-xs tracking-[0.1em] text-dim">{k.code}</span>
                 {k.name}
-                <span className="mono text-[11px] text-dim">{n}</span>
+                <span className="mono text-xs text-dim">{n}</span>
               </a>
             );
           })}
@@ -108,12 +109,21 @@ export default function Home() {
               </h2>
               <Legend />
             </div>
-            <Card className="scrollbar-thin overflow-x-auto">
+            <Card
+              className="scrollbar-thin overflow-x-auto"
+              role="region"
+              tabIndex={0}
+              aria-labelledby={`${k.slug}-caption`}
+            >
               <table className="w-full min-w-[1040px] border-collapse text-left">
+                <caption id={`${k.slug}-caption`} className="sr-only">
+                  {k.name}: {here.length} {here.length === 1 ? "company" : "companies"},{" "}
+                  {here.reduce((n, c) => n + c.roles.length, 0)} roles
+                </caption>
                 <thead>
-                  <tr className="mono bg-raised text-[11px] font-medium tracking-[0.06em] text-dim">
+                  <tr className="mono bg-raised text-xs font-medium tracking-[0.06em] text-dim">
                     {["Company", "Role", "City", "Status", "Start", "Process", "Re-apply", "Checked"].map((h) => (
-                      <th key={h} className="px-3 py-2.5 first:pl-4 last:pr-4 font-medium uppercase">
+                      <th key={h} scope="col" className="px-3 py-2.5 first:pl-4 last:pr-4 font-medium uppercase">
                         {h}
                       </th>
                     ))}
@@ -139,7 +149,7 @@ export default function Home() {
                         </td>
                         <td className="px-3 py-3 align-middle text-sm">{r.title}</td>
                         <td className="mono px-3 py-3 align-middle text-muted">
-                          {c.city === "Amsterdam" ? "AMS" : c.city}
+                          {c.city}
                         </td>
                         <td className="px-3 py-3 align-middle">
                           <StatusLabel status={live(r).status} text={live(r).short} />
@@ -175,9 +185,9 @@ export default function Home() {
       <Section id="countries" className="py-6">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {empty.map((k) => (
-            <Card key={k.code} id={k.slug} dashed className="scroll-mt-20 px-4.5 py-4">
+            <Card key={k.code} id={k.slug} dashed className="px-4.5 py-4">
               <div className="flex items-center gap-2">
-                <span className="mono text-[11px] font-semibold tracking-[0.1em] text-dim">{k.code}</span>
+                <span className="mono text-xs font-semibold tracking-[0.1em] text-dim">{k.code}</span>
                 <span className="text-sm font-semibold">{k.name}</span>
               </div>
               <a href={links.contributing} className="mt-1.5 block text-[13px] text-dim hover:text-muted">
@@ -221,6 +231,7 @@ export default function Home() {
               className="mt-4 inline-block rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-[#06120a] hover:brightness-110"
             >
               Share your hiring process
+              <NewTab />
             </a>
           </Card>
         </div>

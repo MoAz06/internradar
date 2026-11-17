@@ -27,7 +27,7 @@ export default function Companies() {
             const here = [...companies.filter((c) => c.country === k.code)].sort((a, b) => a.name.localeCompare(b.name));
             if (!here.length) return null;
             return (
-              <div key={k.code} id={k.slug} className="scroll-mt-20">
+              <div key={k.code} id={k.slug}>
                 <h2 className="mb-3 flex items-center gap-2.5 text-lg font-semibold">
                   <span className="mono text-xs font-semibold tracking-[0.1em] text-dim">{k.code}</span>
                   {k.name}

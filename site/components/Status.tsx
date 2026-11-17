@@ -28,9 +28,7 @@ export function Legend() {
       <span className="flex items-center gap-1.5"><Dot status="open" /> open</span>
       <span className="flex items-center gap-1.5"><Dot status="soon" /> opens soon</span>
       <span className="flex items-center gap-1.5"><Dot status="closed" /> closed</span>
-      <span className="mono hidden text-[11px] text-dim lg:inline">
-        OA = online assessment · AC = assessment centre · AMS = Amsterdam
-      </span>
+      <span className="mono text-xs text-dim">OA = online assessment · AC = assessment centre</span>
     </div>
   );
 }

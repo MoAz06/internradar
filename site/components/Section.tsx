@@ -8,7 +8,7 @@ export default function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className={`scroll-mt-16 ${className}`}>
+    <section id={id} className={className}>
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6">{children}</div>
     </section>
   );

@@ -1,17 +1,14 @@
+import type { HTMLAttributes } from "react";
+
 export default function Card({
-  id,
   className = "",
   dashed = false,
   children,
-}: {
-  id?: string;
-  className?: string;
-  dashed?: boolean;
-  children: React.ReactNode;
-}) {
+  ...rest
+}: HTMLAttributes<HTMLDivElement> & { dashed?: boolean }) {
   return (
     <div
-      id={id}
+      {...rest}
       className={`rounded-[10px] border bg-surface ${dashed ? "border-dashed" : ""} border-line ${className}`}
     >
       {children}
