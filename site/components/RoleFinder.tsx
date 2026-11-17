@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { fields, fold, kinds, type Item } from "@/lib/items";
+import { fields, fold, kinds, reportUrl, type Item } from "@/lib/items";
+import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
 
@@ -19,6 +20,14 @@ function readSaved(): string[] {
     return Array.isArray(v) ? v : [];
   } catch {
     return [];
+  }
+}
+
+function writeSaved(ids: string[]) {
+  try {
+    localStorage.setItem(SAVED_KEY, JSON.stringify(ids));
+  } catch {
+    // private mode or blocked storage: saving still works until the page closes
   }
 }
 
@@ -58,6 +67,8 @@ const statusColor = (x: Item) =>
 export default function RoleFinder({ items, countries }: { items: Item[]; countries: CountryOption[] }) {
   const [f, setF] = useState<Filters>(start);
   const [saved, setSaved] = useState<string[]>([]);
+  const [notice, setNotice] = useState("");
+  const [shareLink, setShareLink] = useState("");
   const search = useRef<HTMLInputElement>(null);
   const top = useRef<HTMLDivElement>(null);
 
@@ -74,7 +85,19 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       country: bySlug(p.get("country") ?? "") || fromHash,
       saved: false,
     });
-    setSaved(readSaved());
+    // ?saved=key.key.key from "open on another device" adds those roles to this browser's list
+    const keys = (p.get("saved") ?? "").split(".").filter(Boolean);
+    let mine = readSaved();
+    if (keys.length) {
+      const ids = items.filter((x) => keys.includes(x.key)).map((x) => x.id);
+      const merged = [...new Set([...mine, ...ids])];
+      const added = merged.length - mine.length;
+      mine = merged;
+      writeSaved(mine);
+      setNotice(added ? `Added ${added} saved ${added === 1 ? "role" : "roles"} from the link.` : "Those roles were already saved here.");
+      setF((x) => ({ ...x, saved: ids.length > 0 }));
+    }
+    setSaved(mine);
     // scroll after the filtered list has rendered, else the browser lands somewhere above it
     const toList = () => setTimeout(() => top.current?.scrollIntoView(), 60);
     if (fromHash) toList();
@@ -99,7 +122,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       window.removeEventListener("hashchange", onHash);
       window.removeEventListener("keydown", onKey);
     };
-  }, [countries]);
+  }, [countries, items]);
 
   // keep the URL in step, so a filtered list can be shared as a link
   useEffect(() => {
@@ -133,12 +156,39 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
 
   const set = (patch: Partial<Filters>) => setF((x) => ({ ...x, ...patch }));
   const toggleSave = (id: string) => {
-    const next = saved.includes(id) ? saved.filter((s) => s !== id) : [...saved, id];
-    setSaved(next);
+    setSaved((cur) => {
+      const next = cur.includes(id) ? cur.filter((s) => s !== id) : [...cur, id];
+      writeSaved(next);
+      return next;
+    });
+  };
+  const savedItems = items.filter((x) => saved.includes(x.id));
+  const downloadCalendar = () => {
+    const events = eventsFor(savedItems);
+    if (events.length === 0) {
+      setNotice("None of your saved roles has a date in the posting yet, so there's nothing to put in a calendar.");
+      return;
+    }
+    const blob = new Blob([toIcs("internradar, my saved roles", events)], { type: "text/calendar" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "internradar-saved.ics";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    setNotice(
+      events.length === 1
+        ? "Downloaded 1 date. Open the file to add it to your calendar."
+        : `Downloaded ${events.length} dates. Open the file to add them to your calendar.`,
+    );
+  };
+  const copyLink = async () => {
+    const link = `${location.origin}/?saved=${savedItems.map((x) => x.key).join(".")}`;
+    setShareLink(link);
     try {
-      localStorage.setItem(SAVED_KEY, JSON.stringify(next));
+      await navigator.clipboard.writeText(link);
+      setNotice("Link copied. Open it on your other device to get the same saved list.");
     } catch {
-      // private mode or blocked storage: saving still works until the page closes
+      setNotice("Copy the link below and open it on your other device.");
     }
   };
   const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved;
@@ -204,7 +254,34 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             Clear filters
           </button>
         )}
+        {saved.length > 0 && (
+          <>
+            <button type="button" onClick={downloadCalendar} className="text-link underline underline-offset-2">
+              Saved roles to my calendar
+            </button>
+            <button type="button" onClick={copyLink} className="text-link underline underline-offset-2">
+              Open my saved list on another device
+            </button>
+          </>
+        )}
       </div>
+      <div aria-live="polite" className="text-[14px]">
+        {notice && <p className="mb-2 text-ink">{notice}</p>}
+      </div>
+      {shareLink && (
+        <p className="mb-3 text-[14px]">
+          <label htmlFor="share-link" className="text-muted">
+            Link to your saved list:{" "}
+          </label>
+          <input
+            id="share-link"
+            readOnly
+            value={shareLink}
+            onFocus={(e) => e.currentTarget.select()}
+            className="mt-1 h-9 w-full rounded-md border border-line bg-surface px-2 text-[14px] sm:w-[520px]"
+          />
+        </p>
+      )}
 
       {shown.length === 0 ? (
         <p className="border-t border-line py-6 text-[15px] text-muted">
@@ -271,6 +348,16 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                       {isSaved ? "Saved" : "Save"}
                       <span className="sr-only"> {x.title} at {x.company}</span>
                     </button>
+                    <a
+                      href={reportUrl(x)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 block text-[13px] text-muted underline underline-offset-2 hover:text-ink"
+                    >
+                      Something wrong?
+                      <span className="sr-only"> Report a mistake in {x.title} at {x.company}</span>
+                      <NewTab />
+                    </a>
                   </td>
                 </tr>
               );

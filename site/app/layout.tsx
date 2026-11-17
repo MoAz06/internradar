@@ -3,6 +3,7 @@ import { Libre_Baskerville, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { og } from "@/lib/og";
 
 const display = Libre_Baskerville({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-libre" });
 const serif = Source_Serif_4({ subsets: ["latin"], variable: "--font-source" });
@@ -16,13 +17,8 @@ export const metadata: Metadata = {
     template: "%s - internradar",
   },
   description: blurb,
-  openGraph: {
-    title: "internradar",
-    description: blurb,
-    url: "https://internradar.eu",
-    siteName: "internradar",
-    type: "website",
-  },
+  ...og("internradar", blurb, "home", "/"),
+  alternates: { types: { "application/rss+xml": "/feed.xml" } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

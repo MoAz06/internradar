@@ -6,8 +6,9 @@ import NewTab from "@/components/NewTab";
 
 const items = [
   { href: "/", label: "Front page" },
+  { href: "/edition/", label: "This week" },
   { href: "/companies/", label: "Companies" },
-  { href: "/#radar", label: "On the radar" },
+  { href: "/calendar/", label: "Calendar" },
   { href: "/about/", label: "About" },
 ];
 

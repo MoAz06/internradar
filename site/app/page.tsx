@@ -33,6 +33,16 @@ export default function Home() {
           links to the company&apos;s own page, with the date it was checked. Right now {open.length} roles are
           open and {soon} open soon, at {companies.length} companies in {options.length} countries.
         </p>
+        <p className="mt-3 text-[16px]">
+          <Link href="/calendar/" className="link">
+            Put every deadline in your calendar
+          </Link>{" "}
+          or read{" "}
+          <Link href="/edition/" className="link">
+            this week&apos;s edition
+          </Link>
+          .
+        </p>
 
         <div className="mt-7 grid gap-7 border-t-2 border-ink pt-4 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-0">
           {/* the role that closes first, as the lead story */}

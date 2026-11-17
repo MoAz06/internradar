@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
 import { links } from "@/data/companies";
+import { og } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "About",
   description: "How to read internradar, where the data comes from and how to add to it.",
+  ...og("About internradar", "How to read internradar, where the data comes from and how to add to it.", "about", "/about/"),
 };
 
 const terms: [string, string][] = [

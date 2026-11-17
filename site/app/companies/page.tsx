@@ -3,10 +3,12 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import { companies, countries } from "@/data/companies";
 import { live } from "@/lib/live";
+import { og } from "@/lib/og";
 
 export const metadata: Metadata = {
   title: "All companies",
   description: "Every company on internradar, by country, with its open roles and hiring process.",
+  ...og("All companies on internradar", "Every company on internradar, by country, with its open roles and hiring process.", "companies", "/companies/"),
 };
 
 export default function Companies() {

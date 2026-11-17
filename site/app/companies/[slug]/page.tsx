@@ -8,6 +8,8 @@ import { StatusLabel } from "@/components/Status";
 import { companies, countries, links } from "@/data/companies";
 import { longDate, stripProtocol } from "@/lib/format";
 import { fuzzyDate, live, stale, today } from "@/lib/live";
+import { og } from "@/lib/og";
+import { reportUrl } from "@/lib/items";
 
 type Params = { slug: string };
 
@@ -22,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: `${c.name} hiring process 2027`,
     description: `Roles, process, re-apply rule and pay at ${c.name}, from the company's own careers page, with the date checked.`,
+    ...og(`How ${c.name} hires`, `Roles, process, re-apply rule and pay at ${c.name}, from the company's own careers page.`, c.slug, `/companies/${c.slug}/`),
   };
 }
 
@@ -114,6 +117,16 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                   <td className="px-3 py-3 pl-4 align-middle">
                     <a href={r.source} target="_blank" rel="noreferrer" className="link text-sm font-semibold">
                       {r.title}
+                      <NewTab />
+                    </a>
+                    <a
+                      href={reportUrl({ company: c.name, title: r.title, source: r.source })}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 block text-[13px] text-muted underline underline-offset-2 hover:text-ink"
+                    >
+                      Something wrong?
+                      <span className="sr-only"> Report a mistake in {r.title}</span>
                       <NewTab />
                     </a>
                   </td>

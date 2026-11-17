@@ -1,6 +1,6 @@
 import { companies, countries } from "../data/companies.ts";
 import { fuzzyDate, live, stale, today } from "./live.ts";
-import type { Item } from "./items.ts";
+import { shortKey, type Item } from "./items.ts";
 
 function daysBetween(from: string, to: string): number {
   return Math.round((Date.parse(to) - Date.parse(from)) / 86_400_000);
@@ -32,6 +32,7 @@ export function buildItems(now = today()): Item[] {
       seen.add(id);
       items.push({
         id,
+        key: shortKey(id),
         company: c.name,
         slug: c.slug,
         city: c.city,
@@ -45,6 +46,8 @@ export function buildItems(now = today()): Item[] {
         urgent: daysLeft !== null && daysLeft <= 7,
         daysLeft,
         start: r.start,
+        opens: r.opens,
+        closes: r.closes,
         process: r.process,
         reapply: /^not stated/i.test(r.reapply) ? null : r.reapply,
         source: r.source,
