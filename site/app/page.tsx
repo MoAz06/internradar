@@ -66,7 +66,7 @@ export default function Home() {
                   {lead.city}, {lead.countryName}.{" "}
                   {/^not stated/i.test(lead.process) ? "The process isn't described." : `Process: ${end(lead.process)}.`}
                   {lead.reapply ? ` Re-apply rule: ${end(lead.reapply)}.` : ""}{" "}
-                  <a href={lead.source} target="_blank" rel="noreferrer" className="link">
+                  <a href={lead.source} target="_blank" rel="noreferrer" className="link" data-track="posting-lead">
                     Read the posting
                     <NewTab />
                   </a>

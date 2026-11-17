@@ -324,10 +324,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
         )}
         {saved.length > 0 && (
           <>
-            <button type="button" onClick={downloadCalendar} className="text-link underline underline-offset-2">
+            <button type="button" onClick={downloadCalendar} className="text-link underline underline-offset-2" data-track="saved-calendar">
               Saved roles to my calendar
             </button>
-            <button type="button" onClick={copyLink} className="text-link underline underline-offset-2">
+            <button type="button" onClick={copyLink} className="text-link underline underline-offset-2" data-track="saved-link">
               Open my saved list on another device
             </button>
           </>
@@ -404,13 +404,14 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                     )}
                   </td>
                   <td className="py-2.5 whitespace-nowrap max-md:block max-md:p-0 max-md:pt-2">
-                    <a href={x.source} target="_blank" rel="noreferrer" className="link">
+                    <a href={x.source} target="_blank" rel="noreferrer" className="link" data-track="posting">
                       Posting
                       <NewTab />
                     </a>
                     <button
                       type="button"
                       onClick={() => toggleSave(x.id)}
+                      data-track={isSaved ? "unsave" : "save"}
                       className={`ml-3 underline underline-offset-2 ${isSaved ? "font-semibold text-ink" : "text-muted hover:text-ink"}`}
                     >
                       {isSaved ? "Saved" : "Save"}

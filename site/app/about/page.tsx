@@ -73,6 +73,15 @@ export default function About() {
           : the steps, how long each one took, and the outcome. It&apos;s a short form, no git needed. Please
           don&apos;t post the interview questions.
         </p>
+
+        <h2 className="mt-9 text-lg font-bold">Visits</h2>
+        <p className="mt-3 text-[15px] leading-[1.6] text-muted">
+          I count visits with{" "}
+          <a href="https://www.goatcounter.com" className="link">
+            GoatCounter
+          </a>
+          , to see which pages people use. No cookies, and nothing that tells me who you are.
+        </p>
       </div>
     </Section>
   );

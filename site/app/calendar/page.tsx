@@ -17,16 +17,16 @@ function Links({ path, name }: { path: string; name: string }) {
   const l = calendarLinks(path, name);
   return (
     <span className="flex flex-wrap gap-x-4 gap-y-1">
-      <a href={l.google} className="link">
+      <a href={l.google} className="link" data-track="subscribe-google">
         Google Calendar
       </a>
-      <a href={l.apple} className="link">
+      <a href={l.apple} className="link" data-track="subscribe-apple">
         Apple Calendar
       </a>
-      <a href={l.outlook} className="link">
+      <a href={l.outlook} className="link" data-track="subscribe-outlook">
         Outlook
       </a>
-      <a href={l.file} download className="link">
+      <a href={l.file} download className="link" data-track="subscribe-ics">
         Download .ics
       </a>
     </span>

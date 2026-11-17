@@ -40,7 +40,7 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a href={links.shareProcess} target="_blank" rel="noreferrer" className="link py-1">
+            <a href={links.shareProcess} target="_blank" rel="noreferrer" className="link py-1" data-track="share-process">
               Share your process
               <NewTab />
             </a>

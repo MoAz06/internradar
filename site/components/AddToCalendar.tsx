@@ -29,17 +29,17 @@ export default function AddToCalendar({
         }`}
       >
         <li>
-          <a href={l.google} target="_blank" rel="noreferrer" className="link block py-1">
+          <a href={l.google} target="_blank" rel="noreferrer" className="link block py-1" data-track="calendar-google">
             Google Calendar
           </a>
         </li>
         <li>
-          <a href={l.outlook} target="_blank" rel="noreferrer" className="link block py-1">
+          <a href={l.outlook} target="_blank" rel="noreferrer" className="link block py-1" data-track="calendar-outlook">
             Outlook
           </a>
         </li>
         <li>
-          <a href={l.file} download className="link block py-1">
+          <a href={l.file} download className="link block py-1" data-track="calendar-ics">
             Apple or other (.ics)
           </a>
         </li>
