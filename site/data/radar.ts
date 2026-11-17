@@ -101,4 +101,22 @@ export const radar: RadarItem[] = [
     expect: "deadline 5 Jan 2027 · starts 1 Sep 2027 · CV, academic records, cover letter · one track only",
     kind: "soon",
   },
+  {
+    opens: "12 Jan 2027",
+    sortKey: "2027-01-12",
+    company: "Scania",
+    slug: "scania-sodertalje",
+    role: "Summer job 2027 in Södertälje: IT and R&D",
+    expect: "Window 12 Jan to 28 Feb 2027 · IT examples: system developer, UX designer, system administrator · R&D areas include data, electronics, system/IT",
+    kind: "soon",
+  },
+  {
+    opens: "4 Jan 2027",
+    sortKey: "2027-01-04",
+    company: "Wärtsilä",
+    slug: "wartsila-vaasa",
+    role: "Summer Power 2027 summer trainee (white-collar, incl. software and digital)",
+    expect: "Window 4 Jan to 14 Feb 2027 · one application for all office roles · trainee period 1 May to 20 Sep 2027, 3 to 5 months · students in Finland",
+    kind: "soon",
+  },
 ];

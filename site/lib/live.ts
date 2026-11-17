@@ -33,7 +33,7 @@ function reached(d: string, now: string): boolean {
  * "May, June or July 2027" -> 2027-07, "1 March 2027" -> 2027-03-01, "Summer 2027" -> 2027-08.
  * Texts that leave the start open ("Earliest 4 Jan 2027", "any month", "Not stated") give nothing. */
 export function startBy(start: string): string | undefined {
-  if (/not stated|unclear|earliest|\bany\b|flexib|still names|throughout|agreed|agreement/i.test(start)) return;
+  if (/not stated|unclear|earliest|as early as|\bany\b|flexib|still names|throughout|agreed|agreement/i.test(start)) return;
   const found: string[] = [];
   const re = /(?:(\d{1,2})\s+)?(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?,?\s+(20\d\d)/gi;
   for (const m of start.matchAll(re)) {
