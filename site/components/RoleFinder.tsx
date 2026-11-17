@@ -6,6 +6,7 @@ import { fields, fold, kinds, reportUrl, type Item } from "@/lib/items";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
+import AddToCalendar from "@/components/AddToCalendar";
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
 type StatusFilter = "open" | "soon" | "all";
@@ -415,6 +416,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                       {isSaved ? "Saved" : "Save"}
                       <span className="sr-only"> {x.title} at {x.company}</span>
                     </button>
+                    <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} align="right" className="mt-1 text-[13px]" />
                     <a
                       href={reportUrl(x)}
                       target="_blank"

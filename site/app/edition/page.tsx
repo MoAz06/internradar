@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
+import AddToCalendar from "@/components/AddToCalendar";
+import { eventsFor } from "@/lib/ics";
 import { edition } from "@/lib/edition";
 import type { Item } from "@/lib/items";
 import { og } from "@/lib/og";
@@ -33,6 +35,7 @@ function Roles({ list, empty }: { list: Item[]; empty: string }) {
               <NewTab />
             </a>
           </p>
+          <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} className="mt-1 text-[14px]" />
         </li>
       ))}
     </ul>

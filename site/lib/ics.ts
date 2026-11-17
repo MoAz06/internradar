@@ -31,12 +31,15 @@ export function eventsFor(items: Item[]): CalEvent[] {
   return out.sort((a, b) => a.date.localeCompare(b.date));
 }
 
+/** Short key of a radar entry, for its calendar file. */
+export const radarKey = (r: RadarItem) => shortKey(r.slug + r.role);
+
 /** Radar entries with an exact opening day ("4 Jan 2027"); month-only ones are left out. */
 export function radarEvents(radar: RadarItem[], now: string): CalEvent[] {
   return radar
     .filter((r) => /^\d{4}-\d{2}-\d{2}$/.test(r.sortKey) && /^\d{1,2} /.test(r.opens) && r.sortKey >= now)
     .map((r) => ({
-      uid: `${shortKey(r.slug + r.role)}-radar@internradar.eu`,
+      uid: `${radarKey(r)}-radar@internradar.eu`,
       date: r.sortKey,
       summary: `Opens: ${r.company}, ${r.role}`,
       description: `Expected to open today. ${r.expect}. More: https://internradar.eu/companies/${r.slug}/`,
@@ -64,7 +67,7 @@ function fold(line: string): string {
 }
 
 const day = (d: string) => d.replace(/-/g, "");
-function nextDay(d: string): string {
+export function nextDay(d: string): string {
   const t = new Date(`${d}T00:00:00Z`);
   t.setUTCDate(t.getUTCDate() + 1);
   return t.toISOString().slice(0, 10);

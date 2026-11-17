@@ -2,8 +2,10 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
 import RoleFinder from "@/components/RoleFinder";
+import AddToCalendar from "@/components/AddToCalendar";
 import { companies, countries, links, radar } from "@/data/companies";
-import { upcoming } from "@/lib/live";
+import { today, upcoming } from "@/lib/live";
+import { eventsFor, radarEvents, radarKey } from "@/lib/ics";
 import { buildItems } from "@/lib/buildItems";
 
 /** Drops a closing full stop, so a text can sit inside a sentence. */
@@ -17,6 +19,9 @@ export default function Home() {
   const lead = closing[0];
   const also = closing.slice(1, 5);
   const next = upcoming(radar);
+  const now = today();
+  // about as long as the "Closing first" column; the rest is on /radar/
+  const RADAR_HOME = 4;
   const options = countries
     .map((k) => ({ code: k.code, name: k.name, slug: k.slug, count: items.filter((x) => x.country === k.code).length }))
     .filter((k) => k.count > 0);
@@ -66,6 +71,7 @@ export default function Home() {
                     <NewTab />
                   </a>
                 </p>
+                <AddToCalendar events={eventsFor([lead])} file={`/cal/${lead.key}.ics`} className="mt-2 text-[15px]" />
               </article>
             ) : (
               <p className="mt-2 text-[17px] text-muted">No open role has a deadline right now.</p>
@@ -96,7 +102,7 @@ export default function Home() {
               <p className="mt-3 text-[15px] text-muted">Nothing with a known date right now.</p>
             ) : (
               <ul className="mt-2">
-                {next.map((r) => (
+                {next.slice(0, RADAR_HOME).map((r) => (
                   <li key={r.sortKey + r.role} className="border-t border-line py-2.5 text-[15px] leading-snug">
                     <span className="font-semibold">{r.opens}</span>
                     {", "}
@@ -106,9 +112,17 @@ export default function Home() {
                     {", "}
                     {r.role}
                     <span className="block text-[13px] text-muted">{r.expect}</span>
+                    <AddToCalendar events={radarEvents([r], now)} file={`/cal/r-${radarKey(r)}.ics`} className="mt-1 text-[13px]" />
                   </li>
                 ))}
               </ul>
+            )}
+            {next.length > RADAR_HOME && (
+              <p className="border-t border-line pt-2.5 text-[15px]">
+                <Link href="/radar/" className="link font-semibold">
+                  See all {next.length} on the radar
+                </Link>
+              </p>
             )}
           </div>
         </div>

@@ -1,16 +1,16 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { companies, countries, lastChecked } from "@/data/companies";
+import { companies, countries, lastChecked, radar } from "@/data/companies";
 import { buildItems } from "@/lib/buildItems";
 import { edition } from "@/lib/edition";
 import { longDate } from "@/lib/format";
-import { live } from "@/lib/live";
+import { live, upcoming } from "@/lib/live";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-const pages = ["home", "edition", "calendar", "about", "companies"];
+const pages = ["home", "edition", "radar", "calendar", "about", "companies"];
 
 export function generateStaticParams() {
   return [...pages, ...companies.map((c) => c.slug)].map((p) => ({ file: `${p}.png` }));
@@ -52,6 +52,10 @@ function text(page: string) {
       head: e.title,
       sub: `${e.closingThis.length} closing this week, ${e.closingNext.length} the week after, ${e.opening.length} opening soon.`,
     };
+  }
+  if (page === "radar") {
+    const next = upcoming(radar);
+    return { kicker: "On the radar", head: "What opens next", sub: `${next.length} programmes and seasons with an expected opening date, from each company's own pages.` };
   }
   if (page === "calendar")
     return { kicker: "Deadlines", head: "Every deadline in your own calendar", sub: "Google Calendar, Apple Calendar or Outlook. Subscribe once, it updates itself." };

@@ -10,6 +10,9 @@ import { longDate, stripProtocol } from "@/lib/format";
 import { fuzzyDate, live, stale, today } from "@/lib/live";
 import { og } from "@/lib/og";
 import { reportUrl } from "@/lib/items";
+import { buildItems } from "@/lib/buildItems";
+import { eventsFor } from "@/lib/ics";
+import AddToCalendar from "@/components/AddToCalendar";
 
 type Params = { slug: string };
 
@@ -38,6 +41,8 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   const states = c.roles.map((r) => ({ r, l: live(r, now) }));
   const open = states.filter((s) => s.l.status === "open" || s.l.status === "rolling");
   const soonRoles = states.filter((s) => s.l.status === "soon");
+  const mine = buildItems(now).filter((x) => x.slug === c.slug);
+  const itemOf = (title: string, source: string) => mine.find((x) => x.title === title && x.source === source);
   const nextDeadline = open.map((s) => s.r.closes).filter((d): d is string => !!d && d >= now).sort()[0];
   const daysTo = (d: string) => Math.round((Date.parse(d) - Date.parse(now)) / 86_400_000);
   const hasRule = !/^not stated/i.test(c.reapply);
@@ -129,6 +134,10 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                       <span className="sr-only"> Report a mistake in {r.title}</span>
                       <NewTab />
                     </a>
+                    {(() => {
+                      const x = itemOf(r.title, r.source);
+                      return x ? <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} className="mt-1 text-[13px]" /> : null;
+                    })()}
                   </td>
                   <td className="px-3 py-3 align-middle">
                     <StatusLabel status={live(r).status} text={live(r).long} />
