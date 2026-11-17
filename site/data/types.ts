@@ -5,6 +5,10 @@ export type Role = {
   status: Status;
   /** What the careers page says about applications, in a few words. */
   applications: string;
+  /** When applications open, only if the page names it. YYYY-MM-DD, or YYYY-MM if it only names the month. */
+  opens?: string;
+  /** Last day to apply, only if the posting names it. YYYY-MM-DD. */
+  closes?: string;
   start: string;
   duration?: string;
   eligibility: string;

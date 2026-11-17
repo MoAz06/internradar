@@ -6,6 +6,7 @@ import Card from "@/components/Card";
 import { StatusLabel } from "@/components/Status";
 import { companies, countries, links } from "@/data/companies";
 import { longDate, stripProtocol } from "@/lib/format";
+import { live } from "@/lib/live";
 
 type Params = { slug: string };
 
@@ -70,7 +71,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                     </a>
                   </td>
                   <td className="px-3 py-3 align-middle">
-                    <StatusLabel status={r.status} text={r.applications} />
+                    <StatusLabel status={live(r).status} text={live(r).long} />
                   </td>
                   <td className="mono px-3 py-3 align-middle">
                     {r.start}

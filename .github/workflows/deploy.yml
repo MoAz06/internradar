@@ -3,6 +3,9 @@ name: Deploy site
 on:
   push:
     branches: [master]
+  schedule:
+    # every night, so deadlines that have passed show as closed
+    - cron: "30 3 * * *"
   workflow_dispatch:
 
 permissions:

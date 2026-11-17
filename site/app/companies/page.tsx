@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import Card from "@/components/Card";
 import { Dot } from "@/components/Status";
 import { companies, countries } from "@/data/companies";
+import { live } from "@/lib/live";
 
 export const metadata: Metadata = {
   title: "All companies",
@@ -33,8 +34,9 @@ export default function Companies() {
                 </h2>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {here.map((c) => {
-                    const open = c.roles.filter((r) => r.status === "open" || r.status === "rolling").length;
-                    const soon = c.roles.filter((r) => r.status === "soon").length;
+                    const now = c.roles.map((r) => live(r).status);
+                    const open = now.filter((s) => s === "open" || s === "rolling").length;
+                    const soon = now.filter((s) => s === "soon").length;
                     return (
                       <Link key={c.slug} href={`/companies/${c.slug}/`} className="group">
                         <Card className="h-full px-4.5 py-4 transition-colors group-hover:border-muted">

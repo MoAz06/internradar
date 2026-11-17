@@ -4,17 +4,12 @@ import Card from "@/components/Card";
 import { Dot, Legend, StatusLabel } from "@/components/Status";
 import { companies, countries, lastChecked, links, radar } from "@/data/companies";
 import { longDate, shortDate } from "@/lib/format";
-
-const statusText: Record<string, (r: { applications: string }) => string> = {
-  open: () => "Open",
-  rolling: () => "Rolling",
-  closed: () => "Closed",
-  soon: (r) => r.applications.replace("Opens ", "Opens ").replace(/ 20\d\d$/, ""),
-};
+import { live, upcoming } from "@/lib/live";
 
 export default function Home() {
   const roleCount = companies.reduce((n, c) => n + c.roles.length, 0);
-  const soon = companies.flatMap((c) => c.roles).filter((r) => r.status === "soon").length;
+  const soon = companies.flatMap((c) => c.roles).filter((r) => live(r).status === "soon").length;
+  const next = upcoming(radar);
   const filled = countries.filter((k) => companies.some((c) => c.country === k.code));
   const empty = countries.filter((k) => !companies.some((c) => c.country === k.code));
 
@@ -75,16 +70,15 @@ export default function Home() {
               What opens next. Put it in your calendar now, most windows close within weeks.
             </p>
           </div>
-          <span className="mono text-xs text-dim">{radar.length} upcoming</span>
+          <span className="mono text-xs text-dim">{next.length} upcoming</span>
         </div>
         <Card>
-          {[...radar]
-            .sort((a, b) => a.sortKey.localeCompare(b.sortKey))
-            .map((r, i) => (
+          {next.length === 0 && <p className="px-5 py-4 text-sm text-muted">Nothing with a known date right now.</p>}
+          {next.map((r, i) => (
               <div
                 key={r.sortKey + r.role}
                 className={`flex flex-col gap-1.5 px-4 py-4 sm:grid sm:grid-cols-[150px_130px_1fr_380px] sm:items-center sm:gap-5 sm:px-5 ${
-                  i < radar.length - 1 ? "border-b border-line" : ""
+                  i < next.length - 1 ? "border-b border-line" : ""
                 }`}
               >
                 <span className="mono flex items-center gap-2.5 text-sm font-medium">
@@ -148,7 +142,7 @@ export default function Home() {
                           {c.city === "Amsterdam" ? "AMS" : c.city}
                         </td>
                         <td className="px-3 py-3 align-middle">
-                          <StatusLabel status={r.status} text={statusText[r.status](r)} />
+                          <StatusLabel status={live(r).status} text={live(r).short} />
                         </td>
                         <td className="mono px-3 py-3 align-middle">{r.start}</td>
                         <td className="px-3 py-3 align-middle text-muted">{r.process}</td>
@@ -194,7 +188,7 @@ export default function Home() {
             <h2 className="text-lg font-semibold">How to read this</h2>
             <dl className="mt-3.5 space-y-3">
               {[
-                ["Status", "is what the careers page said on the Checked date. Windows move, open the link before you plan around it."],
+                ["Status", "is what the careers page said on the Checked date. When a posting names a deadline, the role shows as closed once that day has passed. Windows move, open the link before you plan around it."],
                 ["Process", "is only what the company states, or what a candidate reported on the company page. Candidate reports say so and carry a month."],
                 ["Re-apply", "is the company’s own rule for applying again after a rejection. It is the column that costs people a year when they do not know it."],
                 ["Checked", "older than three months: verify it yourself, then send a PR with the new date."],

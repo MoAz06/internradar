@@ -29,8 +29,9 @@ function write(path: string, text: string) {
 }
 
 function status(r: Role): string {
-  if (r.status === "open") return "🟢";
-  if (r.status === "rolling") return "🟢 rolling";
+  const until = r.closes ? ` until ${short(r.closes)}` : "";
+  if (r.status === "open") return `🟢${until}`;
+  if (r.status === "rolling") return `🟢 rolling${until}`;
   if (r.status === "closed") return "🔴";
   return `🟡 ${r.applications.replace(/^Opens /, "")}`;
 }
