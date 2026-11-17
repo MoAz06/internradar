@@ -465,7 +465,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 <a id="how-to-read-this"></a>
 ## How to read this
 
-- **Status** is what the careers page said on the Checked date. When a posting names a deadline it is in the Status column, and the site marks the role closed once that day has passed. Windows move, open the link before you plan around it.
+- **Status** is what the careers page said on the Checked date. When a posting names a deadline it is in the Status column. On the site a role turns closed once its deadline or its start date has passed, and shows "Posting gone" when the link stopped working in the nightly check. Windows move, open the link before you plan around it.
 - **Process** is only what the company states, or what a candidate reported on the company page. Candidate reports say so and carry a month.
 - **Re-apply** is the company's own rule for applying again after a rejection. It is the column that costs people a year when they do not know it.
 - **Checked** older than three months: verify it yourself, then send a PR with the new date.

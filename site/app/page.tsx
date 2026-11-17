@@ -4,7 +4,7 @@ import Card from "@/components/Card";
 import { Dot, Legend, StatusLabel } from "@/components/Status";
 import { companies, countries, lastChecked, links, radar } from "@/data/companies";
 import { longDate, shortDate } from "@/lib/format";
-import { live, upcoming } from "@/lib/live";
+import { live, stale, upcoming } from "@/lib/live";
 
 export default function Home() {
   const roleCount = companies.reduce((n, c) => n + c.roles.length, 0);
@@ -147,7 +147,15 @@ export default function Home() {
                         <td className="mono px-3 py-3 align-middle">{r.start}</td>
                         <td className="px-3 py-3 align-middle text-muted">{r.process}</td>
                         <td className="px-3 py-3 align-middle text-muted">{r.reapply}</td>
-                        <td className="mono px-3 py-3 pr-4 align-middle text-xs text-dim">{shortDate(r.checked)}</td>
+                        <td className="mono px-3 py-3 pr-4 align-middle text-xs text-dim">
+                          {stale(r.checked) ? (
+                            <span className="text-soon" title="Checked more than three months ago">
+                              {shortDate(r.checked)} · old
+                            </span>
+                          ) : (
+                            shortDate(r.checked)
+                          )}
+                        </td>
                       </tr>
                     )),
                   )}
@@ -188,10 +196,10 @@ export default function Home() {
             <h2 className="text-lg font-semibold">How to read this</h2>
             <dl className="mt-3.5 space-y-3">
               {[
-                ["Status", "is what the careers page said on the Checked date. When a posting names a deadline, the role shows as closed once that day has passed. Windows move, open the link before you plan around it."],
+                ["Status", "is what the careers page said on the Checked date. A role shows as closed once its deadline or its start date has passed, and as “Posting gone” when the link stopped working in the nightly check. Windows move, open the link before you plan around it."],
                 ["Process", "is only what the company states, or what a candidate reported on the company page. Candidate reports say so and carry a month."],
                 ["Re-apply", "is the company’s own rule for applying again after a rejection. It is the column that costs people a year when they do not know it."],
-                ["Checked", "older than three months: verify it yourself, then send a PR with the new date."],
+                ["Checked", "older than three months is marked old: verify it yourself, then send a PR with the new date."],
               ].map(([k, v]) => (
                 <div key={k} className="flex gap-3">
                   <dt className="mono w-20 shrink-0 text-xs font-medium leading-6 text-signal">{k}</dt>

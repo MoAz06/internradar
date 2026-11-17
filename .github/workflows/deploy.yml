@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
   schedule:
-    # every night, so deadlines that have passed show as closed
+    # every night, so passed deadlines and start dates show as closed and dead links get caught
     - cron: "30 3 * * *"
   workflow_dispatch:
 
@@ -12,6 +12,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: pages
@@ -32,6 +33,23 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - run: npm ci
       - run: npm run check
+      # a broken check must not stop the deploy, the site then just shows no gone postings
+      - run: npm run linkcheck
+        continue-on-error: true
+      - name: Update the gone-postings issue
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create linkcheck --color d4c5f9 --description "Postings the nightly check could not find" 2>/dev/null || true
+          n=$(gh issue list --label linkcheck --state open --json number --jq '.[0].number')
+          if [ -s .linkcheck.md ]; then
+            if [ -n "$n" ]; then gh issue edit "$n" --body-file .linkcheck.md
+            else gh issue create --title "Postings that look gone" --label linkcheck --body-file .linkcheck.md; fi
+          elif [ -n "$n" ] && [ -f .linkcheck.json ]; then
+            gh issue close "$n" --comment "Every posting loads again."
+          fi
       - run: npm run build
       - run: echo internradar.eu > out/CNAME
       - uses: actions/upload-pages-artifact@v3

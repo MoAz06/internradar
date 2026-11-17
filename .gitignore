@@ -5,3 +5,5 @@ site/.next/
 site/out/
 site/next-env.d.ts
 *.tsbuildinfo
+site/.linkcheck.json
+site/.linkcheck.md

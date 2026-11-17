@@ -6,7 +6,7 @@ import Card from "@/components/Card";
 import { StatusLabel } from "@/components/Status";
 import { companies, countries, links } from "@/data/companies";
 import { longDate, stripProtocol } from "@/lib/format";
-import { live } from "@/lib/live";
+import { live, stale } from "@/lib/live";
 
 type Params = { slug: string };
 
@@ -44,8 +44,9 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               {c.city}, {countryName(c.country)}
             </p>
           </div>
-          <span className="mono text-xs tracking-[0.08em] text-dim">
+          <span className={`mono text-xs tracking-[0.08em] ${stale(checked) ? "text-soon" : "text-dim"}`}>
             CHECKED {longDate(checked).toUpperCase()}
+            {stale(checked) ? " · OVER 3 MONTHS AGO, CHECK THE LINKS" : ""}
           </span>
         </div>
       </Section>
