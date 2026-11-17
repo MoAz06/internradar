@@ -6,7 +6,7 @@ The value of this list is that every line can be checked. Keep it that way.
 
 1. One company per pull request.
 2. Every fact gets a source link and a checked date (YYYY-MM-DD). The source is the company's own careers page or job posting. Job boards, Glassdoor and news articles are not sources for the table. They can go in the notes.
-3. All data lives in `site/data/`, one file per country (`nl.ts`, `gb.ts`, `de.ts`, `ch.ts`, `ie.ts`). Copy an existing company, the types in `site/data/types.ts` say what each field means. Fill in what you can verify, write "Not stated" for the rest. Do not guess.
+3. All data lives in `site/data/`, one file per country (`nl.ts`, `gb.ts`, `de.ts` and so on). Copy an existing company, the types in `site/data/types.ts` say what each field means. Fill in what you can verify, write "Not stated" for the rest. Do not guess. Every role also gets a `kind` (Internship, Graduate or Thesis) and a `field` (Software, Data and AI, Quant, Hardware and embedded, Other tech) for the filters on the site. Pick the closest one.
 4. Run `npm run gen` in `site/`. It rewrites the tables in `README.md` and the page in `companies/`. Do not edit those by hand, the next run overwrites them and the deploy check fails.
 5. If a window has closed or a role is gone, set the status to closed and keep the role. Next year's applicants want to know when it was open.
 

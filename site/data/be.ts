@@ -11,6 +11,8 @@ export const be: Company[] = [
     roles: [
       {
         title: "Software Development Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -47,6 +49,8 @@ export const be: Company[] = [
     roles: [
       {
         title: "Development of an interactive platform for analysing the environmental impacts of semiconductor systems",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -59,6 +63,8 @@ export const be: Company[] = [
       },
       {
         title: "Runtime-Integrated Simulation of Accelerator Memory Behaviour for Distributed LLM Deployment",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -71,6 +77,8 @@ export const be: Company[] = [
       },
       {
         title: "Token-Efficient AI-Agent Design for an Operational Knowledge Hub",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -83,6 +91,8 @@ export const be: Company[] = [
       },
       {
         title: "Design and Implementation of a Test Protocol Description Language for IEEE Std 1838 Flexible Parallel Ports",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -95,6 +105,8 @@ export const be: Company[] = [
       },
       {
         title: "Data Analytics for Next-Generation 2D Semiconductor Devices",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -136,6 +148,8 @@ export const be: Company[] = [
     roles: [
       {
         title: "Internship - Software Engineering",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -147,6 +161,8 @@ export const be: Company[] = [
       },
       {
         title: "Internship - Build, Refactor, Test, and Improve the Barco CTRL UI",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -158,6 +174,8 @@ export const be: Company[] = [
       },
       {
         title: "Internship - Software Quality & Test Automation",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -169,6 +187,8 @@ export const be: Company[] = [
       },
       {
         title: "Internship - Computer Vision & Image Analysis",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -180,6 +200,8 @@ export const be: Company[] = [
       },
       {
         title: "Internship - Self-supervised learning and pathology foundation models",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -212,6 +234,8 @@ export const be: Company[] = [
     roles: [
       {
         title: "Stage Software Engineer Testautomatisatie",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "“Januari-Juni” period, year not stated",
@@ -224,6 +248,8 @@ export const be: Company[] = [
       },
       {
         title: "Stage Analist/Developer & Data Documentatie",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "“Januari-Juni” period, year not stated",
@@ -236,6 +262,8 @@ export const be: Company[] = [
       },
       {
         title: "Stage Analist/Software engineer - Pensioenprocessen",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "“Januari-Juni” period, year not stated",
@@ -248,6 +276,8 @@ export const be: Company[] = [
       },
       {
         title: "Traineeship IT",
+        kind: "Graduate",
+        field: "Software",
         status: "soon",
         applications: "A new IT traineeship launches in spring 2027",
         start: "Not stated",
@@ -283,6 +313,8 @@ export const be: Company[] = [
     roles: [
       {
         title: "Proximus Graduate Program",
+        kind: "Graduate",
+        field: "Other tech",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",

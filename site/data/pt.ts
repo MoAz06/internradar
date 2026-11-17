@@ -11,6 +11,8 @@ export const pt: Company[] = [
     roles: [
       {
         title: "Software Engineer Intern (2027)",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Rolling until all roles are filled",
         start: "January 2027 (Winter/Spring term) or May 2027 (Summer term)",
@@ -45,6 +47,8 @@ export const pt: Company[] = [
     roles: [
       {
         title: "Extracurricular Internship - DevOps & GenAI Engineer for Quality (f/m/div.)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -56,6 +60,8 @@ export const pt: Company[] = [
       },
       {
         title: "Estágio Curricular em Engenharia Informática (f/m/div.)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -91,6 +97,8 @@ export const pt: Company[] = [
     roles: [
       {
         title: "IT Intern, Natixis Trainee Program 2027 S1",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Recruitment December 2026 to March 2027",
         start: "April to May 2027",
@@ -103,6 +111,8 @@ export const pt: Company[] = [
       },
       {
         title: "IT Intern, Natixis Trainee Program 2027 S1",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Recruitment December 2026 to March 2027",
         start: "April to May 2027",
@@ -137,6 +147,8 @@ export const pt: Company[] = [
     roles: [
       {
         title: "Risk Quantitative Analyst Trainee",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -167,6 +179,8 @@ export const pt: Company[] = [
     roles: [
       {
         title: "Estágios Profissionais Tecnologia",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",

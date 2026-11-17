@@ -11,6 +11,8 @@ export const es: Company[] = [
     roles: [
       {
         title: "Data Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -23,6 +25,8 @@ export const es: Company[] = [
       },
       {
         title: "Data Analyst Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -56,6 +60,8 @@ export const es: Company[] = [
     roles: [
       {
         title: "2027 Software Dev Engineer Intern - Spain",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -67,6 +73,8 @@ export const es: Company[] = [
       },
       {
         title: "Software Development Engineer - 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -78,6 +86,8 @@ export const es: Company[] = [
       },
       {
         title: "2027 Applied Scientist Internship - PhD, Amazon University Talent Acquisition",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Reviewed on a rolling basis",
         start: "Throughout the year",
@@ -90,6 +100,8 @@ export const es: Company[] = [
       },
       {
         title: "Graduate System Engineer, ESC Managed Operations",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -101,6 +113,8 @@ export const es: Company[] = [
       },
       {
         title: "System Engineer internship 2027 (6 months), ESC Managed Operations",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -146,6 +160,8 @@ export const es: Company[] = [
     roles: [
       {
         title: "BECAS BBVA ÁREAS DE TECNOLOGÍA E INNOVACIÓN MADRID 2026",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Year-round; if you cannot start within 3 months, apply later",
         start: "Not stated",
@@ -179,6 +195,8 @@ export const es: Company[] = [
     roles: [
       {
         title: "Tech_Beca Cloud",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February",
@@ -191,6 +209,8 @@ export const es: Company[] = [
       },
       {
         title: "Tech_Beca Ciberseguridad",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "From February",
@@ -224,6 +244,8 @@ export const es: Company[] = [
     roles: [
       {
         title: "Internship Programme 2027: Software Engineer (Java)",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Applications open since May 2026; recruitment July to December 2026",
         start: "June / July 2027",
@@ -236,6 +258,8 @@ export const es: Company[] = [
       },
       {
         title: "Graduate Programme 2027: Software Engineer (Java)",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Applications open since May 2026; recruitment July to December 2026",
         start: "March or September 2027",
@@ -248,6 +272,8 @@ export const es: Company[] = [
       },
       {
         title: "Graduate Programme 2027: Software Engineer (Android)",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Applications open since May 2026; recruitment July to December 2026",
         start: "March or September 2027",
@@ -260,6 +286,8 @@ export const es: Company[] = [
       },
       {
         title: "Internship Programme 2027: Software Engineer (iOS)",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Applications open since May 2026; recruitment July to December 2026",
         start: "June / July 2027",
@@ -272,6 +300,8 @@ export const es: Company[] = [
       },
       {
         title: "Graduate Programme 2027: Applied AI Engineer",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "rolling",
         applications: "Recruitment July to December 2026",
         start: "March or September 2027",

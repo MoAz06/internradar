@@ -11,6 +11,8 @@ export const se: Company[] = [
     roles: [
       {
         title: "Entry level: Software Developer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live",
         start: "Not stated",
@@ -22,6 +24,8 @@ export const se: Company[] = [
       },
       {
         title: "AI-Native CI/CD Engineer | Early Career Program",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open; more roles opening over the coming weeks",
         start: "Between end of April 2027 and August 2027",
@@ -34,6 +38,8 @@ export const se: Company[] = [
       },
       {
         title: "Telecom Data Scientist | Early Career Program",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open; more roles opening over the coming weeks",
         start: "Between end of April 2027 and August 2027",
@@ -46,6 +52,8 @@ export const se: Company[] = [
       },
       {
         title: "Internship: AI & Cloud-Native Development (CPI Ecosystem)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live",
         start: "Not stated",
@@ -57,6 +65,8 @@ export const se: Company[] = [
       },
       {
         title: "Entry Level: 6G Baseband Software Engineer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live",
         start: "Not stated",
@@ -102,6 +112,8 @@ export const se: Company[] = [
     roles: [
       {
         title: "PhD AI/ML Research Engineer Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, posting is live",
         start: "Not stated",
@@ -136,6 +148,8 @@ export const se: Company[] = [
     roles: [
       {
         title: "Associate Forward Deployed AI Engineer",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open, apply as soon as possible and by 30 Dec 2026",
         closes: "2026-12-30",
@@ -148,6 +162,8 @@ export const se: Company[] = [
       },
       {
         title: "Associate Forward Deployed AI Scientist",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open, apply as soon as possible and by 30 Dec 2026",
         closes: "2026-12-30",
@@ -186,6 +202,8 @@ export const se: Company[] = [
     roles: [
       {
         title: "Summer job 2027 in Södertälje: IT",
+        kind: "Internship",
+        field: "Software",
         status: "soon",
         applications: "Opens 12 Jan 2027, closes 28 Feb 2027",
         opens: "2027-01-12",
@@ -199,6 +217,8 @@ export const se: Company[] = [
       },
       {
         title: "Summer job 2027 in Södertälje: Research and Development (Scania or TRATON)",
+        kind: "Internship",
+        field: "Other tech",
         status: "soon",
         applications: "Opens 12 Jan 2027, closes 28 Feb 2027",
         opens: "2027-01-12",
@@ -231,6 +251,8 @@ export const se: Company[] = [
     roles: [
       {
         title: "SEB Tech Trainee Programme 2027-28: Full stack developer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open until 10 Jan 2027, 23:59 CET",
         closes: "2027-01-10",
@@ -244,6 +266,8 @@ export const se: Company[] = [
       },
       {
         title: "SEB Tech Trainee Programme 2027-28: Solution Developer - backend",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open until 10 Jan 2027, 23:59 CET",
         closes: "2027-01-10",
@@ -257,6 +281,8 @@ export const se: Company[] = [
       },
       {
         title: "SEB Tech Trainee Programme 2027-28: Cloud Data Engineer",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open until 10 Jan 2027, 23:59 CET",
         closes: "2027-01-10",
@@ -270,6 +296,8 @@ export const se: Company[] = [
       },
       {
         title: "SEB Tech Trainee Programme 2027-28: Developer with AI Skills",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open until 10 Jan 2027, 23:59 CET",
         closes: "2027-01-10",
@@ -283,6 +311,8 @@ export const se: Company[] = [
       },
       {
         title: "SEB Tech Trainee Programme 2027-28: Junior Cloud Platform Engineer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open until 10 Jan 2027, 23:59 CET",
         closes: "2027-01-10",
@@ -327,6 +357,8 @@ export const se: Company[] = [
     roles: [
       {
         title: "Volvo Group Graduate Program 2027 - SW Integration Engineer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open until 22 Nov 2026",
         closes: "2026-11-22",
@@ -340,6 +372,8 @@ export const se: Company[] = [
       },
       {
         title: "Volvo Group Graduate Program 2027 - Data Analyst",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open until 22 Nov 2026",
         closes: "2026-11-22",
@@ -353,6 +387,8 @@ export const se: Company[] = [
       },
       {
         title: "Volvo Group Graduate Program 2027 - Automation Engineer",
+        kind: "Graduate",
+        field: "Other tech",
         status: "open",
         applications: "Open until 22 Nov 2026",
         closes: "2026-11-22",
@@ -366,6 +402,8 @@ export const se: Company[] = [
       },
       {
         title: "Volvo Group Graduate Program 2027 - Power Electronics Engineer",
+        kind: "Graduate",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open until 22 Nov 2026",
         closes: "2026-11-22",

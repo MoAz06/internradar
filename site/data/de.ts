@@ -11,6 +11,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Associate Deployment Engineer - Galaxy Graduate Program",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed on the posting",
         start: "1 February 2027",
@@ -57,6 +59,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "AI Research Intern (PhD) – 3D Computer Vision",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -68,6 +72,8 @@ export const de: Company[] = [
       },
       {
         title: "Early Careers - Electronics and RF Engineering",
+        kind: "Graduate",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -79,6 +85,8 @@ export const de: Company[] = [
       },
       {
         title: "Helsing – Formula Student Programme (intern or working student)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated (“in the next few months”)",
@@ -123,6 +131,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Software Engineering Intern",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Year-round, for summer and off-cycle",
         start: "Summer or off-cycle, no date given",
@@ -134,6 +144,8 @@ export const de: Company[] = [
       },
       {
         title: "Data Science Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Year-round, for summer and off-cycle",
         start: "Summer or off-cycle, no date given",
@@ -145,6 +157,8 @@ export const de: Company[] = [
       },
       {
         title: "AI Engineering Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -156,6 +170,8 @@ export const de: Company[] = [
       },
       {
         title: "AI Applied Scientist Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -195,6 +211,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Tech Graduate Program",
+        kind: "Graduate",
+        field: "Software",
         status: "closed",
         applications: "No open tech graduate roles today; opens “as per business need”",
         start: "Not stated",
@@ -234,6 +252,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Trainee Programme AcceleratiON",
+        kind: "Graduate",
+        field: "Other tech",
         status: "closed",
         applications: "Application phases in September (April start) and April (October start); no AcceleratiON vacancies listed on 17 Nov 2026",
         start: "April or October",
@@ -245,6 +265,8 @@ export const de: Company[] = [
       },
       {
         title: "Intern Artificial Intelligence in Robotics (f/m/x)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 17 Sep 2026, no deadline listed",
         start: "Earliest 19 Oct 2026",
@@ -257,6 +279,8 @@ export const de: Company[] = [
       },
       {
         title: "Intern Agentic AI and Industrial Foundation Models (f/m/x)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 9 Nov 2026, no deadline listed",
         start: "Earliest 11 Jan 2027",
@@ -269,6 +293,8 @@ export const de: Company[] = [
       },
       {
         title: "Intern Generative AI for Vehicle Design (f/m/x)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 14 Oct 2026, no deadline listed",
         start: "Earliest 16 Nov 2026",
@@ -281,6 +307,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikant Data Engineering und Frontend-Entwicklung (w/m/x)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 17 Sep 2026, no deadline listed",
         start: "Earliest 4 Jan 2027",
@@ -330,6 +358,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Siemens Graduate Program Germany, Digital Industries Automation, Research & Development (f/m/d)",
+        kind: "Graduate",
+        field: "Other tech",
         status: "open",
         applications: "Posted 12 Nov 2026, no deadline listed",
         start: "Not stated",
@@ -342,6 +372,8 @@ export const de: Company[] = [
       },
       {
         title: "Pflichtpraktikum im Bereich Elektronik & Elektrotechnik in der R&D Abteilung",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Posted 27 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -387,6 +419,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Junior Managers Program (Trainee) - Start your Leadership Journey in Information Technology",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Posted 13 Nov 2026, no deadline listed",
         start: "Flexible start date",
@@ -399,6 +433,8 @@ export const de: Company[] = [
       },
       {
         title: "Junior Managers Program (Trainee) - Start your Leadership Journey in Corporate Research",
+        kind: "Graduate",
+        field: "Other tech",
         status: "open",
         applications: "Posted 13 Nov 2026, no deadline listed",
         start: "Flexible start date",
@@ -411,6 +447,8 @@ export const de: Company[] = [
       },
       {
         title: "Mandatory Internship AI Agent for Automated Machine Diagnostics and Root-Cause Analysis",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 11 Nov 2026, no deadline listed",
         start: "February 2027",
@@ -423,6 +461,8 @@ export const de: Company[] = [
       },
       {
         title: "Internship Agentic AI for Automated Code Generation in Safety-Critical Embedded Software",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 5 Oct 2026, no deadline listed",
         start: "By agreement",
@@ -435,6 +475,8 @@ export const de: Company[] = [
       },
       {
         title: "Pflichtpraktikum im Bereich Agile Softwareentwicklung, Automatisierung & KI (ETAS)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted 10 Nov 2026, no deadline listed",
         start: "By agreement",
@@ -480,6 +522,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "International Graduate Program (IGP) – Engineer SoC Flow and Methodology (f/m/div)",
+        kind: "Graduate",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Posted 11 Nov 2026, no deadline listed",
         start: "Programme starts in February, July or October",
@@ -492,6 +536,8 @@ export const de: Company[] = [
       },
       {
         title: "Internship - Data and Workflows for AI Usage in Unit Process Development (f/m/div)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 23 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -503,6 +549,8 @@ export const de: Company[] = [
       },
       {
         title: "Internship - Development of a flexible robot hardware system architecture (f/m/div)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Posted 14 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -514,6 +562,8 @@ export const de: Company[] = [
       },
       {
         title: "Internship - Embedded Memory Characterization (f/m/div)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Posted 3 Nov 2026, no deadline listed",
         start: "Not stated",
@@ -525,6 +575,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikum - Embedded Control & Sensing System Application Engineering (w/m/div)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Posted 11 Nov 2026, no deadline listed",
         start: "Not stated",
@@ -571,6 +623,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Inspire – Your Journey of Growth (international graduate programme)",
+        kind: "Graduate",
+        field: "Other tech",
         status: "closed",
         applications: "No phase open: “The next application phase will be annoinced here.” Each phase lasts three weeks",
         start: "Page still names July 2026 as next start",
@@ -583,6 +637,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikant*in Software Entwicklung im Bereich ADAS/Fahrerassistenzsysteme",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Published 11 Nov 2026, no deadline listed",
         start: "1 Mar 2027",
@@ -594,6 +650,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikant*in Data Analytics & AI | Mercedes-Benz Operating System (MB.OS)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Published 2 Nov 2026, no deadline listed",
         start: "1 Mar 2027",
@@ -605,6 +663,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikant*in Entwicklung HIL/SIL im Bereich Fahrassistenzsysteme (ADAS)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Published 20 Oct 2026, no deadline listed",
         start: "1 Mar 2027",
@@ -616,6 +676,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikant*in KI-gestütztes Testing & Connected Car",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Published 20 Oct 2026, no deadline listed",
         start: "1 Mar 2027",
@@ -662,6 +724,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Research Scientist PhD Intern, 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Apply before 14 Dec 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -675,6 +739,8 @@ export const de: Company[] = [
       },
       {
         title: "Student Researcher, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Apply before 13 Dec 2026, reviewed on a rolling basis",
         closes: "2026-12-13",
@@ -716,6 +782,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "2027 Software Dev Engineer Intern - Germany",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted 21 Sep 2026, no deadline listed",
         start: "Not stated",
@@ -727,6 +795,8 @@ export const de: Company[] = [
       },
       {
         title: "2027 Applied Scientist Internship – PhD, Amazon University Talent Acquisition",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Posted 9 Oct 2026; applications “reviewed on a rolling basis”",
         start: "Throughout the year",
@@ -739,6 +809,8 @@ export const de: Company[] = [
       },
       {
         title: "Business Intelligence Engineer Intern Germany (2027)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 2 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -751,6 +823,8 @@ export const de: Company[] = [
       },
       {
         title: "System Engineer internship 2027 (6 months), ESC Managed Operations",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted 7 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -795,6 +869,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Internship - Software Engineering - AI-Assisted Baseband Debugging Evaluation, WTE",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 19 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -806,6 +882,8 @@ export const de: Company[] = [
       },
       {
         title: "Research Scientist Intern – Human-Centric Generative AI",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted 20 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -817,6 +895,8 @@ export const de: Company[] = [
       },
       {
         title: "Modeling Software Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted 19 Oct 2026, no deadline listed",
         start: "Not stated",
@@ -829,6 +909,8 @@ export const de: Company[] = [
       },
       {
         title: "SoC Physical Design Intern (m/f/d)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Posted 17 Sep 2026, no deadline listed",
         start: "Not stated",
@@ -860,6 +942,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Deutsche Bank Internship (f/m/x) in Technology, Data & Innovation 2027 - Frankfurt am Main",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Germany-wide 2027 internship window: September 2026 to August 2027",
         start: "Agreed individually",
@@ -872,6 +956,8 @@ export const de: Company[] = [
       },
       {
         title: "Deutsche Bank Internship (f/m/x) in Technology, Data & Innovation 2027 - Berlin",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Germany-wide 2027 internship window: September 2026 to August 2027",
         start: "Agreed individually",
@@ -884,6 +970,8 @@ export const de: Company[] = [
       },
       {
         title: "Deutsche Bank Graduate Programme (f/m/x) Technology, Data & Innovation 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Germany-wide 2027 trainee and entry programmes: September 2026 to March 2027",
         start: "July 2027",
@@ -896,6 +984,8 @@ export const de: Company[] = [
       },
       {
         title: "Deutsche Bank Graduate Programme (f/m/x) in Berlin Technology Centre 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Germany-wide 2027 trainee and entry programmes: September 2026 to March 2027",
         start: "July 2027",
@@ -946,6 +1036,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Praktikum im Bereich Softwaretests (m/w/x)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open while listed on the job portal; no deadline given",
         start: "Agreed with the team",
@@ -958,6 +1050,8 @@ export const de: Company[] = [
       },
       {
         title: "Internship in AI & Machine Learning (f/m/x)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open while listed on the job portal; no deadline given",
         start: "Agreed with the team",
@@ -969,6 +1063,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikum im Bereich FPGA-Entwicklung (m/w/x)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open while listed on the job portal; no deadline given",
         start: "Agreed with the team",
@@ -980,6 +1076,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikum Softwareentwicklung eingebettete Systeme (m/w/x)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open while listed on the job portal; no deadline given",
         start: "Agreed with the team",
@@ -1027,6 +1125,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Intern Innovation Experience Technologist - R&D Center Europe (m/f/d)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Not stated (no deadline on the posting)",
         start: "Immediately",
@@ -1069,6 +1169,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Internship (d/f/m) within the mission software department",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February 2027",
@@ -1081,6 +1183,8 @@ export const de: Company[] = [
       },
       {
         title: "Internship (d/f/m) Embedded Software Engineering for Weapon Systems",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February 2027",
@@ -1093,6 +1197,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikum (d/m/w) im Bereich KI-Erweiterung für technische Datenanalyse",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "As soon as possible (“Ab sofort”)",
@@ -1105,6 +1211,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikum (d/m/w) im Bereich IT-Security / FOSS - Evaluierung von Schwachstellenscannern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "As soon as possible (“Ab sofort”)",
@@ -1117,6 +1225,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikum/Abschlussarbeit: Softwareentwicklung in einer 3D Simulationsengine",
+        kind: "Thesis",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "As soon as possible (“Ab sofort”)",
@@ -1161,6 +1271,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Internship - AI/ML Engineering (m/f/x), Munich",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1173,6 +1285,8 @@ export const de: Company[] = [
       },
       {
         title: "Internship - AI/ML Engineering (m/f/x), Berlin",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1213,6 +1327,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Master of Science (M.Sc.) (m/w/d) Start 2027 Standort München (STAR)",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Reviewed on a rolling basis, apply early",
         start: "1 March 2027",
@@ -1225,6 +1341,8 @@ export const de: Company[] = [
       },
       {
         title: "Master of Science (M.Sc.) (m/w/d) Start 2027 Standort Dresden (STAR)",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Processed as they come in, no fixed application period",
         start: "1 March 2027",
@@ -1265,6 +1383,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Intern Artificial Intelligence & Machine Learning (m/f/d)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, start as early as possible",
         start: "As early as possible",
@@ -1276,6 +1396,8 @@ export const de: Company[] = [
       },
       {
         title: "Intern DevOps Automation (m/f/d)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, start as early as possible",
         start: "As early as possible",
@@ -1287,6 +1409,8 @@ export const de: Company[] = [
       },
       {
         title: "Intern EMC Software Development (m/f/d)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, start as early as possible",
         start: "As early as possible",
@@ -1298,6 +1422,8 @@ export const de: Company[] = [
       },
       {
         title: "Intern near field antenna measurement algorithms (m/f/d)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, start as early as possible",
         start: "As early as possible",
@@ -1341,6 +1467,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Internship - App Store & Companion App Development (m/f/d)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, posted 12 Nov 2026, no deadline listed",
         start: "Not stated",
@@ -1382,6 +1510,8 @@ export const de: Company[] = [
     roles: [
       {
         title: "Praktikum - embedded Software-Entwicklung",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, start as soon as possible",
         start: "As soon as possible",
@@ -1393,6 +1523,8 @@ export const de: Company[] = [
       },
       {
         title: "Pflichtpraktikum - .NET Entwicklung - ADAS Testsysteme",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, for the summer semester 2027",
         start: "Summer semester 2027",
@@ -1404,6 +1536,8 @@ export const de: Company[] = [
       },
       {
         title: "Pflichtpraktikum - Embedded Linux Entwicklung - ADAS Testsysteme",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, for the summer semester 2027",
         start: "Summer semester 2027",
@@ -1415,6 +1549,8 @@ export const de: Company[] = [
       },
       {
         title: "Praktikum - Softwareentwicklung mit .NET (Web, Mobile, Client)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, for a start in March 2027",
         start: "March 2027",

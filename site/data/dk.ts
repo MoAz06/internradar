@@ -11,6 +11,8 @@ export const dk: Company[] = [
     roles: [
       {
         title: "Global Digital Business Graduate Programme",
+        kind: "Graduate",
+        field: "Other tech",
         status: "soon",
         applications: "Opens 16 December 2026, deadline 5 January 2027",
         opens: "2026-12-16",
@@ -25,6 +27,8 @@ export const dk: Company[] = [
       },
       {
         title: "Data Science Graduate Programme",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "soon",
         applications: "Opens 16 December 2026, deadline 5 January 2027",
         opens: "2026-12-16",
@@ -70,6 +74,8 @@ export const dk: Company[] = [
     roles: [
       {
         title: "Software Engineering Internship in Aarhus (August start)",
+        kind: "Internship",
+        field: "Software",
         status: "soon",
         applications: "Apply in March for the August start (October for the February start); posted on the job portal just before P-day at Aarhus University",
         start: "August",
@@ -102,6 +108,8 @@ export const dk: Company[] = [
     roles: [
       {
         title: "Internship for Bachelor of Engineering students",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 February 2027",
@@ -114,6 +122,8 @@ export const dk: Company[] = [
       },
       {
         title: "Internship for Bachelor of Engineering students, Operations & Infrastructure",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 February 2027",

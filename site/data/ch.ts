@@ -11,6 +11,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Software Engineering PhD Intern, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Apply before 14 December 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -24,6 +26,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Scientist PhD Intern, 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Apply before 14 December 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -37,6 +41,8 @@ export const ch: Company[] = [
       },
       {
         title: "Data Science PhD Intern, 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Apply before 14 December 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -50,6 +56,8 @@ export const ch: Company[] = [
       },
       {
         title: "Student Researcher, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Apply before 13 December 2026, reviewed on a rolling basis",
         closes: "2026-12-13",
@@ -98,6 +106,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Internship: AI-based trainable decoders for qLDPC codes (Ref. 2026_033)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Listed on the lab careers page, no deadline given",
         start: "Not stated",
@@ -109,6 +119,8 @@ export const ch: Company[] = [
       },
       {
         title: "Internship: Parameter optimization for message-passing qLDPC decoders (Ref. 2026_034)",
+        kind: "Internship",
+        field: "Other tech",
         status: "open",
         applications: "Listed on the lab careers page, no deadline given",
         start: "Not stated",
@@ -120,6 +132,8 @@ export const ch: Company[] = [
       },
       {
         title: "Internship: Interconnect technologies for advanced CMOS (Ref. 2026_032)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Listed on the lab careers page, no deadline given",
         start: "May or June 2027",
@@ -132,6 +146,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Internship in AI and Quantum Algorithms for PDEs (Ref. 2026_031)",
+        kind: "Internship",
+        field: "Other tech",
         status: "open",
         applications: "Listed on the lab careers page, no deadline given",
         start: "Not stated",
@@ -144,6 +160,8 @@ export const ch: Company[] = [
       },
       {
         title: "Internship: AI for Quantum Algorithms, Linear Algebra & Hamiltonian Simulation (Ref. 2026_029)",
+        kind: "Internship",
+        field: "Other tech",
         status: "open",
         applications: "Listed on the lab careers page, no deadline given",
         start: "Not stated",
@@ -156,6 +174,8 @@ export const ch: Company[] = [
       },
       {
         title: "Internship: Quantum Algorithms and Applications for Linear Algebra & Hamiltonian Simulation (Ref. 2026_030)",
+        kind: "Internship",
+        field: "Other tech",
         status: "open",
         applications: "Listed on the lab careers page, no deadline given",
         start: "Not stated",
@@ -168,6 +188,8 @@ export const ch: Company[] = [
       },
       {
         title: "Internship or Master's Thesis: Agent-Centric Data Systems (Ref. 2026_014)",
+        kind: "Thesis",
+        field: "Data and AI",
         status: "open",
         applications: "Listed on the lab careers page, no deadline given",
         start: "Not stated",
@@ -214,6 +236,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "2027 Graduate Talent Program – Tech – Software Engineer – Zurich",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Swiss GTP roles are posted for four weeks and may stay open until filled; reviewed on a rolling basis",
         start: "1 February 2027",
@@ -226,6 +250,8 @@ export const ch: Company[] = [
       },
       {
         title: "2027 Graduate Talent Program – Tech – Software Engineer (AI) – Zurich",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "rolling",
         applications: "Swiss GTP roles are posted for four weeks and may stay open until filled; reviewed on a rolling basis",
         start: "1 February 2027",
@@ -238,6 +264,8 @@ export const ch: Company[] = [
       },
       {
         title: "2027 Graduate Talent Program – AI Engineer – Zurich",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "rolling",
         applications: "Swiss GTP roles are posted for four weeks and may stay open until filled; reviewed on a rolling basis",
         start: "1 February 2027",
@@ -279,6 +307,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Actuarial Data Analyst - Graduate",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open until 21 December 2026",
         closes: "2026-12-21",
@@ -292,6 +322,8 @@ export const ch: Company[] = [
       },
       {
         title: "Finance AI Transformation - Graduate",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open until 21 December 2026",
         closes: "2026-12-21",
@@ -337,6 +369,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Hochschulpraktikum (university internship, fields include IT)",
+        kind: "Internship",
+        field: "Other tech",
         status: "soon",
         applications: "Next window 1-14 Feb 2027 (start May-Aug 2027); then 3-16 May 2027",
         opens: "2027-02-01",
@@ -350,6 +384,8 @@ export const ch: Company[] = [
       },
       {
         title: "Career Starter Programm: SAP",
+        kind: "Graduate",
+        field: "Software",
         status: "soon",
         applications: "Window 1-14 Feb 2027 for a May 2027 start",
         opens: "2027-02-01",
@@ -363,6 +399,8 @@ export const ch: Company[] = [
       },
       {
         title: "Career Starter Programm: Data Science",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "closed",
         applications: "No dates yet; SBB will publish new programme starts and postings later",
         start: "September (each year)",
@@ -375,6 +413,8 @@ export const ch: Company[] = [
       },
       {
         title: "Career Starter Programm: Cyber Security",
+        kind: "Graduate",
+        field: "Software",
         status: "closed",
         applications: "No dates yet; SBB will publish new programme starts and postings later",
         start: "April (each year)",
@@ -421,6 +461,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Summer Internship",
+        kind: "Internship",
+        field: "Other tech",
         status: "soon",
         applications: "Window opens at the start of each year; none listed on 2026-11-16",
         start: "Not stated (semester break)",
@@ -433,6 +475,8 @@ export const ch: Company[] = [
       },
       {
         title: "Traineeprogramm T-Shaped",
+        kind: "Graduate",
+        field: "Other tech",
         status: "soon",
         applications: "Advertised each autumn and spring; none listed on 2026-11-16",
         start: "Not stated",
@@ -469,6 +513,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Trainee programme for Master's graduates",
+        kind: "Graduate",
+        field: "Other tech",
         status: "closed",
         applications: "Recruitment for the 2026 cohort is completed; information on the 2027 programme expected in spring 2027",
         start: "Not stated for 2027 (the 2026 cohort starts November 2026)",
@@ -512,6 +558,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Working Student, Security Engineer",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -556,6 +604,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Math Device Extension Libraries Intern - 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027 (month not stated)",
@@ -567,6 +617,8 @@ export const ch: Company[] = [
       },
       {
         title: "Software Engineering Intern, Physics Simulation - 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "During 2027",
@@ -579,6 +631,8 @@ export const ch: Company[] = [
       },
       {
         title: "AI Compiler Intern, CUDA Tile IR - Summer 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -590,6 +644,8 @@ export const ch: Company[] = [
       },
       {
         title: "GPU Compiler Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -601,6 +657,8 @@ export const ch: Company[] = [
       },
       {
         title: "AI Compiler Formal Verification Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -612,6 +670,8 @@ export const ch: Company[] = [
       },
       {
         title: "PhD Research Intern, Robotics - Summer 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -623,6 +683,8 @@ export const ch: Company[] = [
       },
       {
         title: "Robotics Simulation and Evaluation PhD Intern - Summer 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -634,6 +696,8 @@ export const ch: Company[] = [
       },
       {
         title: "PhD Research Intern, Autonomous Systems and Physical AI Research - 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027 (month not stated)",
@@ -673,6 +737,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Internship - AIML Research",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -684,6 +750,8 @@ export const ch: Company[] = [
       },
       {
         title: "AI Research Intern - Foundation Models & Multimodal Intelligence",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -696,6 +764,8 @@ export const ch: Company[] = [
       },
       {
         title: "Human-Centric Modeling Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -708,6 +778,8 @@ export const ch: Company[] = [
       },
       {
         title: "Internship - Reasoning and agentic capabilities of LLMs (Lausanne)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -739,6 +811,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Research Scientist Intern, Generative AI & 3D Generation (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -750,6 +824,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Scientist Intern -GenAI, VLM, FlowMatching, Spatial Understanding (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -761,6 +837,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Scientist Intern, Generative AI (PhD) (multiple locations)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -772,6 +850,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Scientist Intern, Human Sensing for Wearables, AR and VR (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -784,6 +864,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Scientist Intern, Muse RL and Agents Team (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -796,6 +878,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Scientist Intern, Robotics Foundation Models Post-Training (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -808,6 +892,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Scientist Intern, Robotics - Meta Reality Labs Research (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -848,6 +934,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Internship - Reinforcement Learning for Navigation",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Internships open all year, no deadline listed",
         start: "Preferred September 2026; any month, on the 1st",
@@ -860,6 +948,8 @@ export const ch: Company[] = [
       },
       {
         title: "Internship – 3D Perception, Computer Vision & AI",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Internships open all year, no deadline listed",
         start: "Preferred September 2026; any month, on the 1st",
@@ -898,6 +988,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Intern Automotive and Environmental Sensors",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Around January 2027",
@@ -940,6 +1032,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Research Intern – Adaptive CPU Microarchitecture and Memory Hierarchy",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Not stated (no deadline on the posting)",
         start: "Not stated",
@@ -951,6 +1045,8 @@ export const ch: Company[] = [
       },
       {
         title: "Research Intern – Hardware Optimization for AI Accelerators",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Not stated (no deadline on the posting)",
         start: "Flexible, with preference for people who can start soon",
@@ -963,6 +1059,8 @@ export const ch: Company[] = [
       },
       {
         title: "Junior Technical Engineer- Fresh Graduates Program",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Not stated (no deadline on the posting)",
         start: "December 2026/January 2027",
@@ -974,6 +1072,8 @@ export const ch: Company[] = [
       },
       {
         title: "Huawei Research Centre – Competition Talent Program",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Not stated (no deadline on the posting)",
         start: "Not stated",
@@ -1013,6 +1113,8 @@ export const ch: Company[] = [
     roles: [
       {
         title: "Hochschulpraktikum",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Year-round; you can start any time, based on what is currently posted",
         start: "Any time",

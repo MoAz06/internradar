@@ -21,14 +21,3 @@ export function StatusLabel({ status, text }: { status: Status; text?: string })
     </span>
   );
 }
-
-export function Legend() {
-  return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted">
-      <span className="flex items-center gap-1.5"><Dot status="open" /> open</span>
-      <span className="flex items-center gap-1.5"><Dot status="soon" /> opens soon</span>
-      <span className="flex items-center gap-1.5"><Dot status="closed" /> closed</span>
-      <span className="mono text-xs text-dim">OA = online assessment · AC = assessment centre</span>
-    </div>
-  );
-}

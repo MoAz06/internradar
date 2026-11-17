@@ -7,7 +7,7 @@ import NewTab from "@/components/NewTab";
 import { StatusLabel } from "@/components/Status";
 import { companies, countries, links } from "@/data/companies";
 import { longDate, stripProtocol } from "@/lib/format";
-import { live, stale } from "@/lib/live";
+import { fuzzyDate, live, stale, today } from "@/lib/live";
 
 type Params = { slug: string };
 
@@ -31,6 +31,13 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   if (!c) notFound();
   const checked = c.sources.map((s) => s.checked).sort().at(-1) ?? "";
   const share = `${links.shareProcess}&title=${encodeURIComponent(`[process] ${c.name}`)}`;
+  const now = today();
+  const states = c.roles.map((r) => ({ r, l: live(r, now) }));
+  const open = states.filter((s) => s.l.status === "open" || s.l.status === "rolling");
+  const soonRoles = states.filter((s) => s.l.status === "soon");
+  const nextDeadline = open.map((s) => s.r.closes).filter((d): d is string => !!d && d >= now).sort()[0];
+  const daysTo = (d: string) => Math.round((Date.parse(d) - Date.parse(now)) / 86_400_000);
+  const hasRule = !/^not stated/i.test(c.reapply);
 
   return (
     <>
@@ -49,6 +56,40 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             CHECKED {longDate(checked).toUpperCase()}
             {stale(checked) ? " · OVER 3 MONTHS AGO, CHECK THE LINKS" : ""}
           </span>
+        </div>
+
+        {/* the answer first: what is open, until when, and the rule that costs people a year */}
+        <dl className="mt-6 grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+          {[
+            ["Open now", `${open.length} of ${c.roles.length} ${c.roles.length === 1 ? "role" : "roles"}`],
+            ["Next deadline", nextDeadline ? `${fuzzyDate(nextDeadline)}${daysTo(nextDeadline) <= 14 ? `, in ${daysTo(nextDeadline)} days` : ""}` : "None listed"],
+            ["Opening soon", soonRoles.length ? `${soonRoles.length} ${soonRoles.length === 1 ? "role" : "roles"}` : "None"],
+            ["Pay figure", c.pay.some((p) => /\d/.test(p) && /€|£|CHF|EUR|GBP|DKK|SEK|NOK|PLN|salary|pay|allowance|remuneration/i.test(p)) ? "Yes, see below" : "Not given"],
+          ].map(([k, v]) => (
+            <div key={k} className="rounded-[10px] border border-line bg-surface px-4 py-3">
+              <dt className="text-xs text-dim">{k}</dt>
+              <dd className="mt-0.5 text-[15px] font-semibold">{v}</dd>
+            </div>
+          ))}
+        </dl>
+        <div className="mt-2.5 flex flex-col gap-2.5 sm:flex-row sm:items-stretch">
+          <p
+            className={`flex-1 rounded-[10px] border px-4 py-3 text-sm leading-[1.55] ${
+              hasRule ? "border-soon/40 bg-soon/10 text-soon" : "border-line bg-surface text-muted"
+            }`}
+          >
+            <span className="font-semibold">{hasRule ? "⚠ Re-apply rule: " : "Re-apply rule: "}</span>
+            {hasRule ? c.reapply : "not stated by the company."}
+          </p>
+          <a
+            href={c.careersUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center rounded-[10px] bg-signal px-5 py-3 text-sm font-semibold text-[#06120a] hover:brightness-110"
+          >
+            Careers page <span aria-hidden>&nbsp;↗</span>
+            <NewTab />
+          </a>
         </div>
       </Section>
 
@@ -105,10 +146,6 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                 ))}
               </ol>
             </div>
-            <Card className="px-4.5 py-4">
-              <p className="mono text-xs font-medium tracking-[0.08em] text-signal">RE-APPLY RULE</p>
-              <p className="mt-2 text-sm leading-[1.55]">{c.reapply}</p>
-            </Card>
             {c.notes && c.notes.length > 0 && (
               <div>
                 <h2 className="text-base font-semibold">Notes</h2>

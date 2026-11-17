@@ -11,6 +11,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineer, Summer Internship",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "June (year not stated)",
@@ -23,6 +25,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Engineer, Full-Time New Grad",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "Not stated",
@@ -34,6 +38,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher, Summer Internship",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "June (year not stated)",
@@ -46,6 +52,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher, Full-Time New Grad",
+        kind: "Graduate",
+        field: "Quant",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "Not stated",
@@ -57,6 +65,8 @@ export const gb: Company[] = [
       },
       {
         title: "Machine Learning Engineer, Summer Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "June (year not stated)",
@@ -69,6 +79,8 @@ export const gb: Company[] = [
       },
       {
         title: "Machine Learning Researcher, Summer Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "June (year not stated)",
@@ -81,6 +93,8 @@ export const gb: Company[] = [
       },
       {
         title: "Machine Learning Researcher, Full-Time New Grad",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "Not stated",
@@ -92,6 +106,8 @@ export const gb: Company[] = [
       },
       {
         title: "Hardware Engineer (FPGA/ASIC), Summer Internship",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "June (year not stated)",
@@ -104,6 +120,8 @@ export const gb: Company[] = [
       },
       {
         title: "Hardware Engineer (FPGA/ASIC), Full-Time New Grad",
+        kind: "Graduate",
+        field: "Hardware and embedded",
         status: "rolling",
         applications: "Rolling review, no deadline",
         start: "Not stated",
@@ -155,6 +173,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineering Internship (C++ or Python) – Summer 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -167,6 +187,8 @@ export const gb: Company[] = [
       },
       {
         title: "Algorithm Development (Quant Research & Trading) Internship – Summer 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -179,6 +201,8 @@ export const gb: Company[] = [
       },
       {
         title: "Algorithm Development (Quant Research & Trading) PhD Internship – Summer 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -191,6 +215,8 @@ export const gb: Company[] = [
       },
       {
         title: "Data Scientist Intern - 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -203,6 +229,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Engineer (C++ or Python) – 2027 Grads",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027",
@@ -214,6 +242,8 @@ export const gb: Company[] = [
       },
       {
         title: "Algorithm Developer (Quant Research & Trading) – 2027 Grads",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027",
@@ -225,6 +255,8 @@ export const gb: Company[] = [
       },
       {
         title: "Algorithm Developer (Quant Research & Trading) – 2027 PhDs",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027",
@@ -269,6 +301,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineer Internship (2027 Start)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Summer 2027",
@@ -281,6 +315,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Quantitative Researcher (2027 Start)",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027 (month not stated)",
@@ -321,6 +357,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Graduate Deep Learning Researcher - London",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -362,6 +400,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineer, Internship",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -374,6 +414,8 @@ export const gb: Company[] = [
       },
       {
         title: "Forward Deployed Software Engineer, Internship - UK Government",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -386,6 +428,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Engineer, New Grad",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -397,6 +441,8 @@ export const gb: Company[] = [
       },
       {
         title: "Forward Deployed Software Engineer, New Grad - Commercial",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -408,6 +454,8 @@ export const gb: Company[] = [
       },
       {
         title: "Forward Deployed Software Engineer, New Grad - UK Government",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -452,6 +500,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineer – Intern (Europe)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -464,6 +514,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Engineer – University Graduate (Europe)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -475,6 +527,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Research Analyst Intern – BS/MS (Europe)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June (year not stated)",
@@ -487,6 +541,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher – PhD Intern (Europe)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June (year not stated)",
@@ -499,6 +555,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Research Engineer – PHD Intern (Europe)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June (year not stated)",
@@ -511,6 +569,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Research Analyst – University Graduate (Europe)",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -522,6 +582,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher – PhD Graduate (Europe)",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -533,6 +595,8 @@ export const gb: Company[] = [
       },
       {
         title: "Sector Data Analyst – Intern (Europe)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -576,6 +640,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineer - Intern (Europe)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -588,6 +654,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Engineer - University Graduate (Europe)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -599,6 +667,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Research Analyst Intern - BS/MS (Europe)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -611,6 +681,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher - PhD Intern (Europe)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June (year not stated)",
@@ -623,6 +695,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Research Analyst - University Graduate (Europe)",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -634,6 +708,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher - PhD Graduate (Europe)",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -645,6 +721,8 @@ export const gb: Company[] = [
       },
       {
         title: "Machine Learning Researcher - PhD Graduate (Europe)",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -686,6 +764,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineering Internship",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "28 June 2027 (or 30 March 2027)",
@@ -698,6 +778,8 @@ export const gb: Company[] = [
       },
       {
         title: "Machine Learning Engineer Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "28 June 2027",
@@ -710,6 +792,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quant Research Internship",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "21 June 2027",
@@ -722,6 +806,8 @@ export const gb: Company[] = [
       },
       {
         title: "Machine Learning Research Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "21 June 2027",
@@ -734,6 +820,8 @@ export const gb: Company[] = [
       },
       {
         title: "Natural Language Processing Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "21 June 2027",
@@ -746,6 +834,8 @@ export const gb: Company[] = [
       },
       {
         title: "Data Science Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "21 June 2027",
@@ -758,6 +848,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Machine Learning Engineer",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "31 August 2027",
@@ -769,6 +861,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher - Postgraduate",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -816,6 +910,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Graduate Program - Engineering Pathways",
+        kind: "Graduate",
+        field: "Other tech",
         status: "open",
         applications: "Closes 22 Nov 2026",
         closes: "2026-11-22",
@@ -828,6 +924,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Quality Analytics and Automation Engineer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Closes 29 Nov 2026; reviewed first come, first served",
         closes: "2026-11-29",
@@ -871,6 +969,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Student Researcher, 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Rolling review; apply before 13 Dec 2026",
         closes: "2026-12-13",
@@ -912,6 +1012,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Intern Software Developer - London - 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "You pick a start month; the internship runs throughout the year",
@@ -924,6 +1026,8 @@ export const gb: Company[] = [
       },
       {
         title: "Intern Quant Researcher",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -935,6 +1039,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Software Developer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -946,6 +1052,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Quant Developer",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -957,6 +1065,8 @@ export const gb: Company[] = [
       },
       {
         title: "Trading Infrastructure Specialist – Graduate Program",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1001,6 +1111,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Campus UI Software Engineer (Intern)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1013,6 +1125,8 @@ export const gb: Company[] = [
       },
       {
         title: "Campus Systems Engineer (Intern)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1025,6 +1139,8 @@ export const gb: Company[] = [
       },
       {
         title: "Campus Quantitative Researcher (Intern)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1037,6 +1153,8 @@ export const gb: Company[] = [
       },
       {
         title: "Campus Quantitative Researcher (M1/M2 Intern)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1048,6 +1166,8 @@ export const gb: Company[] = [
       },
       {
         title: "Campus AI Researcher, PhD/Postdoc (Intern)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1059,6 +1179,8 @@ export const gb: Company[] = [
       },
       {
         title: "Campus Quantitative Researcher (Full-Time)",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1070,6 +1192,8 @@ export const gb: Company[] = [
       },
       {
         title: "Campus ML Research Engineer (Full-Time)",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1081,6 +1205,8 @@ export const gb: Company[] = [
       },
       {
         title: "Campus Systems Engineer (Full-Time)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board, no deadline listed",
         start: "Not stated",
@@ -1134,6 +1260,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "2027 - Internship, Software Engineering and Quantitative Development",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Reviewed on a rolling basis; applying early is recommended",
         start: "2027",
@@ -1146,6 +1274,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 - Internship, Data Engineering",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Reviewed on a rolling basis",
         start: "2027",
@@ -1158,6 +1288,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 – Internship or Graduate, FPGA Engineering",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Reviewed on a rolling basis; applying early is recommended",
         start: "2027",
@@ -1170,6 +1302,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 – Graduate or Internship, Infrastructure Engineer",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Reviewed on a rolling basis; applying early is recommended",
         start: "Not stated",
@@ -1182,6 +1316,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Internship – Security Engineer",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Reviewed on a rolling basis; applying early is recommended",
         start: "2027",
@@ -1194,6 +1330,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 - Internship, Quantitative Research and Trading",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Reviewed on a rolling basis by the Talent Acquisition team",
         start: "2027",
@@ -1239,6 +1377,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Developer Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board; applications reviewed on a rolling basis",
         start: "Not stated",
@@ -1251,6 +1391,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Research Intern",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Posting live on the job board; applications reviewed on a rolling basis",
         start: "Not stated",
@@ -1262,6 +1404,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Developer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Posting live on the job board; applications reviewed on a rolling basis",
         start: "Not stated",
@@ -1303,6 +1447,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "2027 Quantitative Developer Intern, London",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "2027 Internship Program applications are open",
         start: "Not stated",
@@ -1314,6 +1460,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Quantitative Researcher Intern, London",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "2027 Internship Program applications are open",
         start: "June 2027",
@@ -1326,6 +1474,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Quantitative Researcher Intern, London (6 Month Internship)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "2027 Internship Program applications are open",
         start: "March 2027",
@@ -1338,6 +1488,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Applied AI Engineer Intern, London",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "2027 Internship Program applications are open",
         start: "Not stated",
@@ -1374,6 +1526,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Quantitative Strategy Developer Internship: Summer 2027 (London)",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Hiring on a rolling basis with limited places; apply early",
         start: "Late June",
@@ -1386,6 +1540,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Research Internship: Summer 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Hiring on a rolling basis; apply early",
         start: "Late June",
@@ -1398,6 +1554,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Researcher - Graduate: 2027",
+        kind: "Graduate",
+        field: "Quant",
         status: "rolling",
         applications: "Hiring on a rolling basis; apply early",
         start: "June 2027",
@@ -1437,6 +1595,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineering Full-Time Campus Hire - London",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Posting live on the early careers board, no deadline listed",
         start: "Not stated",
@@ -1469,6 +1629,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "2027 Software Dev Engineer Intern - United Kingdom",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1480,6 +1642,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Software Dev Engineer Intern (Machine Learning) - UK",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1491,6 +1655,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Software Dev Engineer Intern (Embedded Systems) - UK",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1502,6 +1668,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Development Engineer - 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1513,6 +1681,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Applied Scientist Internship – PhD, Amazon University Talent Acquisition",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Reviewed on a rolling basis, application stays active until a team match or no match",
         start: "Start dates throughout the year",
@@ -1557,6 +1727,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineering PhD Intern, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Apply before 14 December 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -1570,6 +1742,8 @@ export const gb: Company[] = [
       },
       {
         title: "Data Science PhD Intern, 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Apply before 14 December 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -1583,6 +1757,8 @@ export const gb: Company[] = [
       },
       {
         title: "Product Deployment Engineer BS/MS, Intern - 2027 (English)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Apply before 20 November 2026, reviewed on a rolling basis",
         closes: "2026-11-20",
@@ -1596,6 +1772,8 @@ export const gb: Company[] = [
       },
       {
         title: "Student Researcher, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Apply before 13 December 2026, reviewed on a rolling basis",
         closes: "2026-12-13",
@@ -1640,6 +1818,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Cambridge Internship Program Azure Research, Security and Privacy",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Open for at least 5 days, then accepted on an ongoing basis until filled",
         start: "Not stated",
@@ -1651,6 +1831,8 @@ export const gb: Company[] = [
       },
       {
         title: "Cambridge Internship Program: MSRC AI Security Research",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Open for at least 5 days, then accepted on an ongoing basis until filled",
         start: "Not stated",
@@ -1685,6 +1867,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Engineering Summer Analyst 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1697,6 +1881,8 @@ export const gb: Company[] = [
       },
       {
         title: "The Core Quantitative Strats Summer Analyst 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1709,6 +1895,8 @@ export const gb: Company[] = [
       },
       {
         title: "The Core Quantitative Strats Summer Associate 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1721,6 +1909,8 @@ export const gb: Company[] = [
       },
       {
         title: "FICC and Equities (Sales and Trading) Quantitative Strats Internship 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1732,6 +1922,8 @@ export const gb: Company[] = [
       },
       {
         title: "Asset and Wealth Management Quantitative Strats Summer Analyst 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1772,6 +1964,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "2027 Quantitative Finance Off-Cycle Internship (London)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline on the posting",
         start: "Not stated",
@@ -1806,6 +2000,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "2027 Machine Learning Center of Excellence (NLP) - Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June, depending on your academic calendar",
@@ -1817,6 +2013,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 AI Research Associate Program - Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1828,6 +2026,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Quantitative Research Markets Associate Program – Off-Cycle Internship – London",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Programs close as positions are filled",
         start: "Not stated",
@@ -1866,6 +2066,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Internship Programme 2027: Software Engineer (Java)",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Open from May 2026, recruitment July to December 2026, filled on a rolling basis",
         start: "June / July 2027",
@@ -1878,6 +2080,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Programme 2027: Software Engineer (Java)",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Open from May 2026, recruitment July to December 2026, filled on a rolling basis",
         start: "March or September 2027",
@@ -1890,6 +2094,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Programme 2027: Applied AI Engineer",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "rolling",
         applications: "Recruitment July to December 2026, filled on a rolling basis",
         start: "March or September 2027",
@@ -1901,6 +2107,8 @@ export const gb: Company[] = [
       },
       {
         title: "Internship Programme 2027: Information Security Engineer (Appsec)",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Open from June 2026, recruitment July to December 2026, filled on a rolling basis",
         start: "June / July 2027",
@@ -1913,6 +2121,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Programme 2027: Software Engineer (Android)",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Open from May 2026, recruitment July to December 2026, filled on a rolling basis",
         start: "March or September 2027",
@@ -1955,6 +2165,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineering Graduate 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Early September 2027",
@@ -1993,6 +2205,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Quantitative Trader/Researcher Graduate Programme 2027",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Live on Tower's Greenhouse board, no deadline listed",
         start: "Not stated",
@@ -2005,6 +2219,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quantitative Trader/Researcher Summer Internship 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Live on Tower's Greenhouse board, no deadline listed",
         start: "Summer 2027",
@@ -2036,6 +2252,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineer, New Grad",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Live on Deliveroo's Greenhouse board, no deadline listed",
         start: "Not stated",
@@ -2070,6 +2288,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Graduate Software Engineer, AI Compute Libraries & Performance 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Deadline midnight 29 November 2026; may close early",
         closes: "2026-11-29",
@@ -2083,6 +2303,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Engineer Summer Intern, AI Compute Libraries & Performance 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Closing early, now closes midnight 18 November 2026",
         closes: "2026-11-18",
@@ -2096,6 +2318,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Firmware Engineer 2027",
+        kind: "Graduate",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Deadline midnight 29 November 2026; may close early",
         closes: "2026-11-29",
@@ -2109,6 +2333,8 @@ export const gb: Company[] = [
       },
       {
         title: "Hardware Summer Intern 2027",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Deadline midnight 29 November (no year on the posting); may close early",
         start: "June 2027",
@@ -2121,6 +2347,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Software Engineer, Drivers and Utilities 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Deadline midnight 29 November 2026; may close early",
         closes: "2026-11-29",
@@ -2165,6 +2393,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Technology Intern - London - 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Rolling interviews, no deadline listed",
         start: "28 June 2027",
@@ -2177,6 +2407,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software/Infrastructure Graduate - 2027 - London",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open for roles starting in 2027, no deadline listed",
         start: "6 September 2027",
@@ -2189,6 +2421,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quant Developer - Quant Associate Programme - 2027",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Live on Marshall Wace's Greenhouse board, no deadline listed",
         start: "Flexible between January and September 2027",
@@ -2200,6 +2434,8 @@ export const gb: Company[] = [
       },
       {
         title: "Quant Research Intern - London - 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Live on Marshall Wace's Greenhouse board, no deadline listed",
         start: "28 June 2027",
@@ -2242,6 +2478,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Campus Full Time 2027 - Software Developer - London",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Live on the careers page, posted 1 Sep 2026; interviews began September 2026",
         start: "Not stated",
@@ -2273,6 +2511,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "2027 Technology Developer Summer Internship Programme London",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Closes 27 November 2026; may close early",
         closes: "2026-11-27",
@@ -2286,6 +2526,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Technology Developer Graduate Programme Glasgow",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Closes 27 November 2026; may close early",
         closes: "2026-11-27",
@@ -2299,6 +2541,8 @@ export const gb: Company[] = [
       },
       {
         title: "2027 Technology Developer Summer Internship Programme Glasgow",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Closes 27 November 2026; may close early",
         closes: "2026-11-27",
@@ -2339,6 +2583,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Software Engineer Graduate Scheme",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open from 10 September, closes 29 November (London closed 15 November); may close early",
         start: "Not stated",
@@ -2351,6 +2597,8 @@ export const gb: Company[] = [
       },
       {
         title: "Data Science & AI Graduate Scheme",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open from 10 September, closes 29 November (London closed 25 October); may close early",
         start: "Not stated",
@@ -2363,6 +2611,8 @@ export const gb: Company[] = [
       },
       {
         title: "Software Engineering Industrial Placement (Leeds)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open from 10 September, closes 29 November; may close early",
         start: "Not stated",
@@ -2408,6 +2658,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Engineering - Graduate",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Opened 5 Oct 2026, closes 29 Nov 2026; rolling review, may close early",
         closes: "2026-11-29",
@@ -2421,6 +2673,8 @@ export const gb: Company[] = [
       },
       {
         title: "Data Analyst - Quantitative Finance - Internship",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Opened 1 Oct 2026, closes 4 Dec 2026; rolling review, may close early",
         closes: "2026-12-04",
@@ -2458,6 +2712,8 @@ export const gb: Company[] = [
     roles: [
       {
         title: "Graduate Software Engineer (Graduate Digital Intelligence Software Engineer)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live",
         start: "6 September 2027",
@@ -2469,6 +2725,8 @@ export const gb: Company[] = [
       },
       {
         title: "Graduate Software Engineer (Graduate Naval Ships Software Engineer)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live",
         start: "6 September 2027",

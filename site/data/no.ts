@@ -11,6 +11,8 @@ export const no: Company[] = [
     roles: [
       {
         title: "Summer Makers 2027 – Student internship",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Deadline 29 November 2026",
         closes: "2026-11-29",
@@ -24,6 +26,8 @@ export const no: Company[] = [
       },
       {
         title: "Embedded Software Engineer",
+        kind: "Graduate",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Deadline 13 December 2026",
         closes: "2026-12-13",
@@ -67,6 +71,8 @@ export const no: Company[] = [
     roles: [
       {
         title: "Sommerstudent 2027 - Subsurface Data Science",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open until 29 Nov 2026",
         closes: "2026-11-29",
@@ -104,6 +110,8 @@ export const no: Company[] = [
     roles: [
       {
         title: "2027 Summer Internship Programme, IT & Cybernetics",
+        kind: "Internship",
+        field: "Software",
         status: "closed",
         applications: "Closed; posts went up 25 September to 15 October",
         start: "Mid June",
@@ -116,6 +124,8 @@ export const no: Company[] = [
       },
       {
         title: "2027 Graduate Programme, IT & Cybernetics",
+        kind: "Graduate",
+        field: "Software",
         status: "closed",
         applications: "Closed; window was 7 to 27 August 2026",
         start: "Most graduates start in August or September",
@@ -158,6 +168,8 @@ export const no: Company[] = [
     roles: [
       {
         title: "Your Summer at Seatex - Kongsberg Discovery (Summer Internship 2027: Resilient Navigation)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open until 30 Nov 2026; applications processed on an ongoing basis",
         closes: "2026-11-30",
@@ -170,6 +182,8 @@ export const no: Company[] = [
       },
       {
         title: "Summer Internship 2027",
+        kind: "Internship",
+        field: "Other tech",
         status: "open",
         applications: "Open until 28 Feb 2027; some offers may go out before the deadline",
         closes: "2027-02-28",

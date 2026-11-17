@@ -11,6 +11,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "Software engineer, summer intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June 2027",
@@ -23,6 +25,8 @@ export const it: Company[] = [
       },
       {
         title: "Graduate software engineer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Flexible start date",
@@ -34,6 +38,8 @@ export const it: Company[] = [
       },
       {
         title: "Graduate AI software engineer",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Flexible start date",
@@ -45,6 +51,8 @@ export const it: Company[] = [
       },
       {
         title: "Graduate security engineer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Flexible start date",
@@ -56,6 +64,8 @@ export const it: Company[] = [
       },
       {
         title: "Graduate data scientist",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -101,6 +111,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "2027 Software Dev Engineer Intern - Italy",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -112,6 +124,8 @@ export const it: Company[] = [
       },
       {
         title: "Business Intelligence Intern Italy",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Start dates vary through the year",
@@ -150,6 +164,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "Internship - SW-based gadgets for protected PQC",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -161,6 +177,8 @@ export const it: Company[] = [
       },
       {
         title: "Internship - Usage of ARM Helium Technology to boost cryptography on ARM Cortex-M MCUs",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -173,6 +191,8 @@ export const it: Company[] = [
       },
       {
         title: "Intership: System On Chip FE Designer",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -184,6 +204,8 @@ export const it: Company[] = [
       },
       {
         title: "Internship: Automotive Junior SW Design Engineer",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -215,6 +237,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "Software Quality Assurance Internship (Maranello)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -226,6 +250,8 @@ export const it: Company[] = [
       },
       {
         title: "EES Functional Safety Engineer Internship (Maranello)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -255,6 +281,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "Internship Data Scientist",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -283,6 +311,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "AI-Augmented Developer - Stage extra curriculare",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -294,6 +324,8 @@ export const it: Company[] = [
       },
       {
         title: "AI Prompt Engineer - Stage extra curriculare",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -323,6 +355,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "Tesi - Addestramento tramite tecniche di Reinforcement Learning di entità virtuali generate al computer all'interno di un simulatore di volo",
+        kind: "Thesis",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -335,6 +369,8 @@ export const it: Company[] = [
       },
       {
         title: "Tesi - Progettazione di una piattaforma grafica per l’addestramento di modello AI per l’analisi di dati prova aeronautici",
+        kind: "Thesis",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -347,6 +383,8 @@ export const it: Company[] = [
       },
       {
         title: "Tesi - Progettazione ed implementazione di modelli per l'interazione di precisione in ambienti virtuali e complessi",
+        kind: "Thesis",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -359,6 +397,8 @@ export const it: Company[] = [
       },
       {
         title: "Tesi/Real-time signal processing acceleration for altimetric applications",
+        kind: "Thesis",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -395,6 +435,8 @@ export const it: Company[] = [
     roles: [
       {
         title: "Internship UniCredit Leasing - Area Digital & Information",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",

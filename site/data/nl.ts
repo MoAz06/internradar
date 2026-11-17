@@ -11,6 +11,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Software Engineer Internship (2027 Start)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027",
@@ -23,6 +25,8 @@ export const nl: Company[] = [
       },
       {
         title: "Quantitative Research Internship (2027 Start)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027",
@@ -35,6 +39,8 @@ export const nl: Company[] = [
       },
       {
         title: "FPGA Internship (2027 Start)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "2027",
@@ -75,6 +81,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Software Engineer Intern (summer 2027)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "28 June 2027, fixed",
@@ -87,6 +95,8 @@ export const nl: Company[] = [
       },
       {
         title: "Graduate Software Engineer (2027)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open",
         start: "February or August 2027",
@@ -124,6 +134,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Graduate Software Development program",
+        kind: "Graduate",
+        field: "Software",
         status: "closed",
         applications: "No Graduate Software Development posting on the Greenhouse board on 17 Nov 2026. The careers page says applications open a year before the start date",
         start: "Not stated",
@@ -163,6 +175,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Software Engineering Interns (Compass)",
+        kind: "Internship",
+        field: "Software",
         status: "closed",
         applications: "Closed for 2027",
         start: "July 2027",
@@ -175,6 +189,8 @@ export const nl: Company[] = [
       },
       {
         title: "Software Engineering Grads (Compass)",
+        kind: "Graduate",
+        field: "Software",
         status: "soon",
         applications: "Opens 4 January 2027",
         opens: "2027-01-04",
@@ -188,6 +204,8 @@ export const nl: Company[] = [
       },
       {
         title: "Data Science & Analytics Grads",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "soon",
         applications: "Opens February 2027",
         opens: "2027-02",
@@ -224,6 +242,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Software Developer Intern",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Posted, rolling review, no deadline listed",
         start: "Not stated; posting refers to “the summer”",
@@ -265,6 +285,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Graduate Quant",
+        kind: "Graduate",
+        field: "Quant",
         status: "rolling",
         applications: "Continuous hiring, FAQ says no strict deadline",
         start: "Not stated; FAQ says training classes normally start in March, July and September",
@@ -276,6 +298,8 @@ export const nl: Company[] = [
       },
       {
         title: "Quant Trading Intern",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "First review on 27 July, applications still considered after",
         start: "Not stated; FAQ calls it a summer internship",
@@ -318,6 +342,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Technical Website Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -358,6 +384,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Internships and graduation assignments in the Netherlands",
+        kind: "Internship",
+        field: "Other tech",
         status: "rolling",
         applications: "Hires interns all year, most assignments in May and November",
         start: "Any time of year",
@@ -370,6 +398,8 @@ export const nl: Company[] = [
       },
       {
         title: "Data Science | Software Engineering internship: software automation development",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February 2027",
@@ -382,6 +412,8 @@ export const nl: Company[] = [
       },
       {
         title: "Computer Science | Artificial Intelligence internship: ai-assisted diagnostics platform",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February 2027",
@@ -394,6 +426,8 @@ export const nl: Company[] = [
       },
       {
         title: "Computer Science | Engineering internship: performance data platform",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February or March 2027",
@@ -406,6 +440,8 @@ export const nl: Company[] = [
       },
       {
         title: "Data Science | Computer Science internship: Measurement analysis framework",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February 2027, earlier possible",
@@ -453,6 +489,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Tech Academy: Java Graduate program",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February 2027",
@@ -465,6 +503,8 @@ export const nl: Company[] = [
       },
       {
         title: "Analytics - Future Leaders Graduate Program",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "rolling",
         applications: "No deadline, monthly onboarding",
         start: "Spring Edition 2027: February or March",
@@ -506,6 +546,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Tech Young Professional",
+        kind: "Graduate",
+        field: "Software",
         status: "closed",
         applications: "Closed; opens first week of November and first week of May",
         start: "1 March or 1 September",
@@ -518,6 +560,8 @@ export const nl: Company[] = [
       },
       {
         title: "Stage AI-innovatie & creatieve technologie",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 February 2027",
@@ -561,6 +605,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Internship: Full Stack Developer in Finance Domain",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "December 2026",
@@ -573,6 +619,8 @@ export const nl: Company[] = [
       },
       {
         title: "Internship: EMC/EMI Test Setup for IVUS Image Interference (Master)",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February 2027",
@@ -617,6 +665,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Graduate Program (Software Engineer)",
+        kind: "Graduate",
+        field: "Software",
         status: "soon",
         applications: "No role posted today; new positions open each January",
         start: "Not stated for 2027 (2024 post: August, 12 months)",
@@ -656,6 +706,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Software Engineering Intern (2027 Start) - Amsterdam",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed; hiring is rolling",
         start: "Summer 2027",
@@ -668,6 +720,8 @@ export const nl: Company[] = [
       },
       {
         title: "Software Engineer - New Grad (2027 Start) - Amsterdam",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed; hiring is rolling",
         start: "2027",
@@ -709,6 +763,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Student Researcher, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open until 13 December 2026; reviewed on a rolling basis",
         closes: "2026-12-13",
@@ -722,6 +778,8 @@ export const nl: Company[] = [
       },
       {
         title: "Product Deployment Engineer BS/MS, Intern - 2027 (English)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open until 20 November 2026; reviewed on a rolling basis",
         closes: "2026-11-20",
@@ -765,6 +823,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Cloud Solution Architecture Intern",
+        kind: "Internship",
+        field: "Other tech",
         status: "rolling",
         applications: "Posted 9 Nov 2026; open until the position is filled",
         start: "February 2027",
@@ -807,6 +867,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Tech Class",
+        kind: "Graduate",
+        field: "Software",
         status: "closed",
         applications: "Page says the application phase is closed",
         start: "1 September 2026",
@@ -850,6 +912,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Group Audit Data Science Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "December (year not stated)",
@@ -893,6 +957,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Rabobank Traineeship Business & IT",
+        kind: "Graduate",
+        field: "Other tech",
         status: "closed",
         applications: "Closed; the overview marks it closed and the page says you cannot apply yet",
         start: "1 April 2027",
@@ -905,6 +971,8 @@ export const nl: Company[] = [
       },
       {
         title: "Junior DevOps Engineer, Azure Platform Engineering (IT Early Career Program)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Apply by 20 November 2026",
         closes: "2026-11-20",
@@ -918,6 +986,8 @@ export const nl: Company[] = [
       },
       {
         title: "Data & Analytics Early Career Program",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "soon",
         applications: "Overview says soon open; no opening date given",
         start: "1 April 2027",
@@ -930,6 +1000,8 @@ export const nl: Company[] = [
       },
       {
         title: "IT & Engineering Early Career Program",
+        kind: "Graduate",
+        field: "Software",
         status: "closed",
         applications: "Overview marks it closed",
         start: "1 April 2027",
@@ -977,6 +1049,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Shell Graduate Programme 2027 - Netherlands",
+        kind: "Graduate",
+        field: "Other tech",
         status: "open",
         applications: "Posted 6 November 2026, no closing date shown",
         start: "May or November 2027",
@@ -989,6 +1063,8 @@ export const nl: Company[] = [
       },
       {
         title: "Shell Assessed Internship Programme 2027 - Netherlands",
+        kind: "Internship",
+        field: "Other tech",
         status: "open",
         applications: "Posted 10 September 2026, no closing date shown",
         start: "Not stated",
@@ -1031,6 +1107,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Software Engineer (Early Talent)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open on the job board, no deadline listed",
         start: "Winter 2027",
@@ -1043,6 +1121,8 @@ export const nl: Company[] = [
       },
       {
         title: "Site Reliability Engineer (SRE) - Early Talent",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open on the job board, no deadline listed",
         start: "January 2027",
@@ -1088,6 +1168,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Junior Front-end Developer",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1126,6 +1208,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Tech & Data Young Talent Program",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Closes Sunday 22 November 2026 at 23:59",
         closes: "2026-11-22",
@@ -1172,6 +1256,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Stage-/Afstudeeropdrachten- HBO/WO - computer science, software engineering - Sensor Platform Assignments",
+        kind: "Thesis",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1183,6 +1269,8 @@ export const nl: Company[] = [
       },
       {
         title: "Stage-/afstudeeropdracht - HBO -Thales Naval Game - Game Developer",
+        kind: "Thesis",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1194,6 +1282,8 @@ export const nl: Company[] = [
       },
       {
         title: "Internship/graduation assignment - VSM Portal",
+        kind: "Thesis",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1231,6 +1321,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "International IT Traineeship",
+        kind: "Graduate",
+        field: "Software",
         status: "soon",
         applications: "2026 intake closed; vacancy expected to reopen in March 2027",
         opens: "2027-03",
@@ -1273,6 +1365,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Internship, Service Engineering - Diagnostic UI development",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live; Tesla may recruit for up to four months after posting",
         start: "February 2027",
@@ -1285,6 +1379,8 @@ export const nl: Company[] = [
       },
       {
         title: "Internship, Service Engineering - Infotainment and mobile app",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live; Tesla may recruit for up to four months after posting",
         start: "February 2027",
@@ -1297,6 +1393,8 @@ export const nl: Company[] = [
       },
       {
         title: "Internship, Service Engineering - Diagnostic tools validation",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live; Tesla may recruit for up to four months after posting",
         start: "February 2027",
@@ -1309,6 +1407,8 @@ export const nl: Company[] = [
       },
       {
         title: "Data Analyst Internship, Vehicle Operations – EMEA Business Analytics",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, posting is live; Tesla may recruit for up to four months after posting",
         start: "January 2027",
@@ -1321,6 +1421,8 @@ export const nl: Company[] = [
       },
       {
         title: "Power Systems Modeling Internship",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, posting is live; Tesla may recruit for up to four months after posting",
         start: "January/February 2027",
@@ -1364,6 +1466,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Graduation Internship, AI-based 6G RAN capacity management",
+        kind: "Thesis",
+        field: "Data and AI",
         status: "open",
         applications: "Open, apply with CV and cover letter via the posting",
         start: "Not stated",
@@ -1376,6 +1480,8 @@ export const nl: Company[] = [
       },
       {
         title: "Internship, Operationalising a Mobile 3D Scanning Setup",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, apply with CV and cover letter via the posting",
         start: "Not stated",
@@ -1388,6 +1494,8 @@ export const nl: Company[] = [
       },
       {
         title: "Graduation internship, MMIC/RFIC design",
+        kind: "Thesis",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open until 23 November 2026",
         closes: "2026-11-23",
@@ -1400,6 +1508,8 @@ export const nl: Company[] = [
       },
       {
         title: "TNO Traineeship",
+        kind: "Graduate",
+        field: "Other tech",
         status: "soon",
         applications: "Closed now; applications for the next cohort open in spring 2027",
         start: "1 September 2027",
@@ -1444,6 +1554,8 @@ export const nl: Company[] = [
     roles: [
       {
         title: "Software Engineering / AI Engineering Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1455,6 +1567,8 @@ export const nl: Company[] = [
       },
       {
         title: "Internship: GenAI-Assisted Software Modernization",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -1466,6 +1580,8 @@ export const nl: Company[] = [
       },
       {
         title: "Internship - Build an agentic software refactoring workflow",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open on the Workday board, no deadline listed",
         start: "Not stated",
@@ -1478,6 +1594,8 @@ export const nl: Company[] = [
       },
       {
         title: "Sr. GenAI Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",

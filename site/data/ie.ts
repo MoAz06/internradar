@@ -11,6 +11,8 @@ export const ie: Company[] = [
     roles: [
       {
         title: "Software Developer Graduate: September 2027 Dublin",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "September 2027",
@@ -22,6 +24,8 @@ export const ie: Company[] = [
       },
       {
         title: "Site Reliability Engineer Graduate: 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Rolling, early applications encouraged",
         start: "Not stated",
@@ -33,6 +37,8 @@ export const ie: Company[] = [
       },
       {
         title: "Quantitative Strategy Developer Internship: Summer 2027 (Dublin)",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Rolling, limited places, apply early",
         start: "Late June 2027",
@@ -45,6 +51,8 @@ export const ie: Company[] = [
       },
       {
         title: "Site Reliability Engineering University Co - Op Placement 2027",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Rolling, apply early",
         start: "Not stated",
@@ -56,6 +64,8 @@ export const ie: Company[] = [
       },
       {
         title: "Quantitative Research Internship: Summer 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Rolling, limited places, apply early",
         start: "Late June 2027",
@@ -68,6 +78,8 @@ export const ie: Company[] = [
       },
       {
         title: "Quantitative Systematic Trading Internship: Summer 2027",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Rolling, limited places, apply early",
         start: "Late June 2027",
@@ -80,6 +92,8 @@ export const ie: Company[] = [
       },
       {
         title: "Quantitative Researcher - Graduate: 2027",
+        kind: "Graduate",
+        field: "Quant",
         status: "rolling",
         applications: "Rolling, apply early",
         start: "Unclear: title says 2027, text says June 2026",
@@ -126,6 +140,8 @@ export const ie: Company[] = [
     roles: [
       {
         title: "Software Engineer, Intern (Summer or Winter)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated (summer or winter)",
@@ -137,6 +153,8 @@ export const ie: Company[] = [
       },
       {
         title: "Software Engineer, New Grad",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Rolling hiring for full-time roles",
         start: "Not stated",
@@ -148,6 +166,8 @@ export const ie: Company[] = [
       },
       {
         title: "Security Engineer, New Grad",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Rolling hiring for full-time roles",
         start: "Not stated",
@@ -189,6 +209,8 @@ export const ie: Company[] = [
     roles: [
       {
         title: "2027 Software Dev Engineer Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated (2027)",
@@ -201,6 +223,8 @@ export const ie: Company[] = [
       },
       {
         title: "Network Development Engineer Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June/July 2027",
@@ -213,6 +237,8 @@ export const ie: Company[] = [
       },
       {
         title: "System Engineer internship 2027 (6 months), ESC Managed Operations",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated (2027)",
@@ -225,6 +251,8 @@ export const ie: Company[] = [
       },
       {
         title: "Cloud Support Associate Internship - April 2027 start, Support Engineering",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "April 2027",
@@ -237,6 +265,8 @@ export const ie: Company[] = [
       },
       {
         title: "Graduate System Engineer, ESC Managed Operations",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -281,6 +311,8 @@ export const ie: Company[] = [
     roles: [
       {
         title: "Network Production Engineer (University Grad)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -314,6 +346,8 @@ export const ie: Company[] = [
     roles: [
       {
         title: "Data Engineering Internship Opportunities",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Accepted on an ongoing basis until filled; open at least 5 days",
         start: "Not stated",
@@ -355,6 +389,8 @@ export const ie: Company[] = [
     roles: [
       {
         title: "FY27 Intern Opportunities",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Recruiting for co-op positions from August/September 2026, no deadline listed",
         start: "Aligned to your college co-op schedule",
@@ -366,6 +402,8 @@ export const ie: Company[] = [
       },
       {
         title: "FY27 Software Engineering Graduate Opportunities",
+        kind: "Graduate",
+        field: "Software",
         status: "rolling",
         applications: "Recruiting from September 2026 on a rolling basis until all positions are filled",
         start: "Not stated",
@@ -377,6 +415,8 @@ export const ie: Company[] = [
       },
       {
         title: "FY27 Electronic Engineering Graduate Opportunities",
+        kind: "Graduate",
+        field: "Hardware and embedded",
         status: "rolling",
         applications: "Recruiting from September 2026 on a rolling basis until all positions are filled",
         start: "Not stated",
@@ -418,6 +458,8 @@ export const ie: Company[] = [
     roles: [
       {
         title: "FY27 Intern - Engineering Internship 2027 - 6 months, Cork",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, posting is live",
         start: "From as early as January 2027",
@@ -430,6 +472,8 @@ export const ie: Company[] = [
       },
       {
         title: "FY27 Intern - CPU Engineering Internship 2027 - 6 months, Cork",
+        kind: "Internship",
+        field: "Hardware and embedded",
         status: "open",
         applications: "Open, posting is live",
         start: "From as early as January 2027",
@@ -442,6 +486,8 @@ export const ie: Company[] = [
       },
       {
         title: "FY27 Intern - Software Intern (Data Center, Cloud-AI Engineering) - Cork",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live",
         start: "Not stated",
@@ -453,6 +499,8 @@ export const ie: Company[] = [
       },
       {
         title: "FY27 IT Cloud Engineering Intern - Cork 8 months",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, posting is live",
         start: "2027",

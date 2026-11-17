@@ -11,6 +11,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Software Engineering Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February, March, April, May or June 2027",
@@ -23,6 +25,8 @@ export const fr: Company[] = [
       },
       {
         title: "Applied Science Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "February, March, April, May or June 2027",
@@ -66,6 +70,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Software Engineer Intern - Backend or Fullstack",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -78,6 +84,8 @@ export const fr: Company[] = [
       },
       {
         title: "Software Engineer Intern - Front-End or Fullstack",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -90,6 +98,8 @@ export const fr: Company[] = [
       },
       {
         title: "Machine Learning Engineer Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -101,6 +111,8 @@ export const fr: Company[] = [
       },
       {
         title: "Research Intern",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -139,6 +151,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Applied AI, Forward Deployed Machine Learning Engineer - (Internship)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -151,6 +165,8 @@ export const fr: Company[] = [
       },
       {
         title: "Applied Scientist (Internship)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -163,6 +179,8 @@ export const fr: Company[] = [
       },
       {
         title: "AI Scientist - (Internship, Masters or Phd)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -204,6 +222,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Research Scientist PhD Intern, 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open until 14 December 2026, reviewed on a rolling basis",
         start: "May, June or July 2027",
@@ -216,6 +236,8 @@ export const fr: Company[] = [
       },
       {
         title: "Student Researcher, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open until 13 December 2026, reviewed on a rolling basis",
         start: "Not stated",
@@ -260,6 +282,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Research Scientist Intern, FAIR - Multimodal Foundations (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -272,6 +296,8 @@ export const fr: Company[] = [
       },
       {
         title: "Research Scientist Intern, AI Core Machine Learning (PhD)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -284,6 +310,8 @@ export const fr: Company[] = [
       },
       {
         title: "Research Scientist Intern, AI Core Machine Learning (MSc)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -296,6 +324,8 @@ export const fr: Company[] = [
       },
       {
         title: "Research Scientist Intern, Muse RL and Agents Team (MSc)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Various start dates through the year",
@@ -332,6 +362,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Software Engineering Intern - Fullstack (x/f/m) - Paris",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "March 2027",
@@ -344,6 +376,8 @@ export const fr: Company[] = [
       },
       {
         title: "Machine Learning Engineer Intern (x/f/m)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "April 2027",
@@ -380,6 +414,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "STAGE – Ingénieur logiciel (F/H)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -392,6 +428,8 @@ export const fr: Company[] = [
       },
       {
         title: "STAGE - Ingénieur Logiciel & Machine Learning (F/H)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -403,6 +441,8 @@ export const fr: Company[] = [
       },
       {
         title: "STAGE - Ingénieur.e C++ - Développement d'Assistants IA (F/H)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -415,6 +455,8 @@ export const fr: Company[] = [
       },
       {
         title: "STAGE - Ingénieur.e R&D en Intelligence Artificielle (LLM, Deep Learning) (F/H)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -460,6 +502,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Software Engineer Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "March/April 2027",
@@ -496,6 +540,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Summer Intern 2027 - Alan Summer Internship Program",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Reviewed on a rolling basis",
         start: "Early June 2027",
@@ -508,6 +554,8 @@ export const fr: Company[] = [
       },
       {
         title: "Data Associate - Internship (6 months, flexible start)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Flexible start date",
@@ -520,6 +568,8 @@ export const fr: Company[] = [
       },
       {
         title: "Security Associate - Internship",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -562,6 +612,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Data Business Analyst Assistant – Internship (6-month) January 2027 (W/M/NB)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "January 2027",
@@ -574,6 +626,8 @@ export const fr: Company[] = [
       },
       {
         title: "Mobile Data Analyst Assistant – Stage (6 mois) Janvier 2027 (F/H/NB)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "January 2027",
@@ -586,6 +640,8 @@ export const fr: Company[] = [
       },
       {
         title: "Web & Online Programmer Assistant (F/H/NB) – Stage 6 mois – The Crew Motorfest",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -625,6 +681,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Internship - Applied AI & Cloud Engineering",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open on the CFM job site, no deadline listed",
         start: "Not stated",
@@ -636,6 +694,8 @@ export const fr: Company[] = [
       },
       {
         title: "Internship - Time Series Foundation Models for Forecasting",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open on the CFM job site, no deadline listed",
         start: "Not stated",
@@ -648,6 +708,8 @@ export const fr: Company[] = [
       },
       {
         title: "Internship - Market Data Announcements Tool Redesign & AI Assistance",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open on the CFM job site, no deadline listed",
         start: "Not stated",
@@ -659,6 +721,8 @@ export const fr: Company[] = [
       },
       {
         title: "Memory-Augmented LLMs for Financial Text - Internship",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open on the CFM job site, no deadline listed",
         start: "Not stated",
@@ -670,6 +734,8 @@ export const fr: Company[] = [
       },
       {
         title: "Portfolio Engineering - Internship",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open on the CFM job site, no deadline listed",
         start: "Not stated",
@@ -703,6 +769,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "2027 - Internship, Software Engineering and Quantitative Development",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Rolling review, applying early is recommended",
         start: "2027",
@@ -715,6 +783,8 @@ export const fr: Company[] = [
       },
       {
         title: "2027 - Internship, Data Engineering",
+        kind: "Internship",
+        field: "Data and AI",
         status: "rolling",
         applications: "Rolling review",
         start: "2027",
@@ -727,6 +797,8 @@ export const fr: Company[] = [
       },
       {
         title: "2027 – Graduate or Internship, Infrastructure Engineer",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Rolling review, applying early is recommended",
         start: "Not stated",
@@ -739,6 +811,8 @@ export const fr: Company[] = [
       },
       {
         title: "2027 - Internship, Quantitative Research and Trading",
+        kind: "Internship",
+        field: "Quant",
         status: "rolling",
         applications: "Rolling review by the Talent Acquisition team",
         start: "2027",
@@ -751,6 +825,8 @@ export const fr: Company[] = [
       },
       {
         title: "2027 Internship – Security Engineer",
+        kind: "Internship",
+        field: "Software",
         status: "rolling",
         applications: "Rolling review, applying early is recommended",
         start: "2027",
@@ -790,6 +866,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Intern Quant Researcher",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed; apply to one job only",
         start: "Not stated",
@@ -802,6 +880,8 @@ export const fr: Company[] = [
       },
       {
         title: "Junior Quant Researcher",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed; apply to one job only",
         start: "Not stated",
@@ -837,6 +917,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Campus Quantitative Researcher (M1/M2 Intern)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -867,6 +949,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Quantitative Research Analyst Intern – BS/MS (Europe)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "June to August (signature programme); other times sometimes possible",
@@ -901,6 +985,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Quantitative Research Analyst Intern - BS/MS (Europe)",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",
@@ -935,6 +1021,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Graduate Programme - CIB Global Markets Paris, Structuring QIS, F/H",
+        kind: "Graduate",
+        field: "Quant",
         status: "open",
         applications: "Open; two intakes in 2027",
         start: "March 2027 or September 2027 intake",
@@ -970,6 +1058,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Fullstack Developer Kotlin/Angular",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 March 2027",
@@ -982,6 +1072,8 @@ export const fr: Company[] = [
       },
       {
         title: "Analyste quantitatif risques de marché - périmètre fixed income",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 April 2027",
@@ -994,6 +1086,8 @@ export const fr: Company[] = [
       },
       {
         title: "Analyste IA Agentique – Automatisation de stratégies de trading",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 March 2027",
@@ -1006,6 +1100,8 @@ export const fr: Company[] = [
       },
       {
         title: "Recherche appliquée en évaluation des modèles d'IA",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 March 2027",
@@ -1018,6 +1114,8 @@ export const fr: Company[] = [
       },
       {
         title: "Ingénieur fiabilité des sites",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "1 March 2027",
@@ -1060,6 +1158,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "Internship - 6 months - Quants XVA Development of quantitative tools and smart assistants F/M",
+        kind: "Internship",
+        field: "Quant",
         status: "open",
         applications: "Open, no deadline listed",
         start: "April 2027",
@@ -1072,6 +1172,8 @@ export const fr: Company[] = [
       },
       {
         title: "Internship - 6 months - Java Microservice Developer F/H",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "April 2027",
@@ -1084,6 +1186,8 @@ export const fr: Company[] = [
       },
       {
         title: "Internship - 6 months - Data Scientist - F/M",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "January 2027",
@@ -1124,6 +1228,8 @@ export const fr: Company[] = [
     roles: [
       {
         title: "INTERNSHIP 2027 - Software Engineer Java",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "Not stated",

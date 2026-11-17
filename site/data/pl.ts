@@ -11,6 +11,8 @@ export const pl: Company[] = [
     roles: [
       {
         title: "Compiler Engineering Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -22,6 +24,8 @@ export const pl: Company[] = [
       },
       {
         title: "GPU Software Engineering Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -33,6 +37,8 @@ export const pl: Company[] = [
       },
       {
         title: "Middleware Software Engineering Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -44,6 +50,8 @@ export const pl: Company[] = [
       },
       {
         title: "Media AI Software Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -55,6 +63,8 @@ export const pl: Company[] = [
       },
       {
         title: "System Software Engineering Intern",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -90,6 +100,8 @@ export const pl: Company[] = [
     roles: [
       {
         title: "Intern Software Developer",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -102,6 +114,8 @@ export const pl: Company[] = [
       },
       {
         title: "Intern Software Developer (Java)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -114,6 +128,8 @@ export const pl: Company[] = [
       },
       {
         title: "Intern Software Developer (JavaScript & React)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -126,6 +142,8 @@ export const pl: Company[] = [
       },
       {
         title: "Intern Software Developer (Salesforce)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on the company job board, no deadline listed",
         start: "Not stated",
@@ -162,6 +180,8 @@ export const pl: Company[] = [
     roles: [
       {
         title: "Software Engineering PhD Intern, 2027",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open until 14 December 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -175,6 +195,8 @@ export const pl: Company[] = [
       },
       {
         title: "Data Science PhD Intern, 2027",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Open until 14 December 2026, reviewed on a rolling basis",
         closes: "2026-12-14",
@@ -212,6 +234,8 @@ export const pl: Company[] = [
     roles: [
       {
         title: "2027, EMEA, Warsaw, Engineering, Summer Analyst",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed; up to 4 business/location applications per recruiting year",
         start: "Summer 2027",
@@ -244,6 +268,8 @@ export const pl: Company[] = [
     roles: [
       {
         title: "Technology - Cyber Security, Full Time Analyst, Warsaw 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, posted 12 Nov 2026, no deadline listed",
         start: "July",
@@ -256,6 +282,8 @@ export const pl: Company[] = [
       },
       {
         title: "Technology - Infrastructure, Full Time Analyst, Warsaw 2027",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open, posted 2 Nov 2026, no deadline listed",
         start: "July",
@@ -292,6 +320,8 @@ export const pl: Company[] = [
     roles: [
       {
         title: "Graduate Programme 2027: Software Engineer (Java)",
+        kind: "Graduate",
+        field: "Software",
         status: "open",
         applications: "Open since May 2026, filled on a rolling basis",
         start: "March or September 2027",
@@ -304,6 +334,8 @@ export const pl: Company[] = [
       },
       {
         title: "Internship Programme 2027: Software Engineer (Java)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open since May 2026, filled on a rolling basis",
         start: "June / July 2027",
@@ -341,6 +373,8 @@ export const pl: Company[] = [
     roles: [
       {
         title: "Software Engineer Internship",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open on TomTom's Lever board, no deadline listed",
         start: "Not stated",

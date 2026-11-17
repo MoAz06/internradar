@@ -11,6 +11,8 @@ export const fi: Company[] = [
     roles: [
       {
         title: "Financial Data Engineering / Business Data Analytics Trainee - Patent Portfolio Management",
+        kind: "Graduate",
+        field: "Data and AI",
         status: "open",
         applications: "Deadline 30 November 2026",
         closes: "2026-11-30",
@@ -48,6 +50,8 @@ export const fi: Company[] = [
     roles: [
       {
         title: "Summer Power 2027 summer trainee (white-collar post, includes Digital, IM, Software & Cyber Security)",
+        kind: "Internship",
+        field: "Other tech",
         status: "soon",
         applications: "Opens 4 Jan 2027, closes 14 Feb 2027; applications handled as they arrive",
         opens: "2027-01-04",

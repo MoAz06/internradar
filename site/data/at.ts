@@ -11,6 +11,8 @@ export const at: Company[] = [
     roles: [
       {
         title: "Intern, Java Engineer",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Hiring started in October 2026, no deadline listed",
         start: "1 February 2027",
@@ -23,6 +25,8 @@ export const at: Company[] = [
       },
       {
         title: "Intern, Business Intelligence",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Hiring started in October 2026, no deadline listed",
         start: "1 February 2027",
@@ -58,6 +62,8 @@ export const at: Company[] = [
     roles: [
       {
         title: "Software Engineering - Summer Internships 2027 (m/f/x) / Upper Austria",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed; first feedback by the end of January",
         start: "Summer 2027",
@@ -70,6 +76,8 @@ export const at: Company[] = [
       },
       {
         title: "Software Engineering - Summer Internships 2027 (m/f/x) / Vienna",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed; first feedback by the end of November",
         start: "Summer 2027",
@@ -106,6 +114,8 @@ export const at: Company[] = [
     roles: [
       {
         title: "Internship: 3rd Party IP Automation using Agentic AI (f/m/div)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted on Infineon's job board, no deadline listed",
         start: "Not stated",
@@ -118,6 +128,8 @@ export const at: Company[] = [
       },
       {
         title: "Internship - Software Developer for Test Engineering (f/m/div)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on Infineon's job board, no deadline listed",
         start: "Not stated",
@@ -130,6 +142,8 @@ export const at: Company[] = [
       },
       {
         title: "Internship - AI and Machine Learning Software Engineering (f/m/div)",
+        kind: "Internship",
+        field: "Data and AI",
         status: "open",
         applications: "Posted on Infineon's job board, no deadline listed",
         start: "Not stated",
@@ -142,6 +156,8 @@ export const at: Company[] = [
       },
       {
         title: "Internship - AI, Digitalization & Software Development in Product Marketing (f/m/div)",
+        kind: "Internship",
+        field: "Software",
         status: "open",
         applications: "Posted on Infineon's job board, no deadline listed",
         start: "Not stated",
@@ -154,6 +170,8 @@ export const at: Company[] = [
       },
       {
         title: "Ferial-/Pflichtpraktikum bei Infineon Österreich (Villach, Klagenfurt, Graz, Linz, Innsbruck) Sommer 2027 Initiativbewerbung (w/m/div)",
+        kind: "Internship",
+        field: "Other tech",
         status: "open",
         applications: "Open; admission answers given by the end of April 2027",
         start: "July, August or September 2027",

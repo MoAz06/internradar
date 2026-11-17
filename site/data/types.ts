@@ -1,7 +1,14 @@
 export type Status = "open" | "soon" | "closed" | "rolling";
 
+export type RoleKind = "Internship" | "Graduate" | "Thesis";
+export type Field = "Software" | "Data and AI" | "Quant" | "Hardware and embedded" | "Other tech";
+
 export type Role = {
   title: string;
+  /** Internship (incl. summer jobs, placements, working student), graduate role or programme, or thesis project. */
+  kind: RoleKind;
+  /** Rough field, for the filters on the site. "Other tech" is for broad or mixed programmes. */
+  field: Field;
   status: Status;
   /** What the careers page says about applications, in a few words. */
   applications: string;
