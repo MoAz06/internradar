@@ -34,6 +34,13 @@ export default function About() {
           process at each company. Everything comes from the company&apos;s own careers page or from someone who
           went through the process, and every line has the date it was checked.
         </p>
+        <p className="mt-3 text-[16px] leading-[1.6] text-muted">
+          I&apos;m{" "}
+          <a href={links.linkedin} className="link">
+            Mohamed Azahrioui
+          </a>
+          , a computer science student in Leiden. I started the list while looking for an internship myself.
+        </p>
 
         <h2 className="mt-9 text-lg font-bold">How to read the list</h2>
         <dl className="mt-3 space-y-3 text-[15px] leading-[1.6]">

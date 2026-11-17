@@ -43,6 +43,7 @@ export const companies: Company[] = [...nl, ...gb, ...de, ...ch, ...ie, ...fr, .
 
 export const links = {
   repo: "https://github.com/MoAz06/internradar",
+  linkedin: "https://www.linkedin.com/in/mohamed-azahrioui/",
   contributing: "https://github.com/MoAz06/internradar/blob/master/CONTRIBUTING.md",
   shareProcess:
     "https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml",
