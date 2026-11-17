@@ -22,7 +22,7 @@ Careers page: https://www.ubs.com/global/en/careers/early-careers/graduate-talen
 
 ## Re-apply rule
 
-No waiting period is stated. For Switzerland you may send at most three applications in total across all UBS divisions and Swiss offices in the same academic year. Assessments cannot be retaken, but a pass from the last six months is reused.
+No waiting period is stated. For Switzerland you may send at most three applications in total across all UBS divisions and regional offices in the same academic year. Assessments cannot be retaken, but a pass from the last six months is reused.
 
 ## Pay, relocation, visa
 

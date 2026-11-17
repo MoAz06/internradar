@@ -21,7 +21,7 @@ Careers page: https://miro.com/careers/
 
 ## Re-apply rule
 
-No waiting period is stated. Miro's hiring page says not to be “put off from trying again” if you do not succeed the first time.
+No waiting period is stated. An Amsterdam employee quoted on Miro's hiring page says not to be “put off from trying again” if you do not succeed the first time.
 
 ## Pay, relocation, visa
 

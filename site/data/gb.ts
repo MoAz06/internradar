@@ -1793,7 +1793,7 @@ export const gb: Company[] = [
       "The process typically takes “roughly 6-8 weeks” once interviews start.",
       "Internship postings ask for a CV and a transcript in English, and say the team and project are picked from your background.",
     ],
-    reapply: "Google's hiring FAQ says you can reapply if you were not selected, but “Typically, we ask for folks to wait at least a year to gain additional experience before reapplying for the same type of role.”",
+    reapply: "Google's hiring FAQ says you can reapply if you were not selected, but “Typically, we ask for folks to wait at least a year to gain additional experience before reapplying for the same type of role.” You can apply to at most three jobs in a rolling 30-day window.",
     pay: [
       "Pay: no figure given.",
       "Visa: the SWE PhD and Product Deployment Engineer postings say applicants “will not be eligible for immigration sponsorship”.",
@@ -2631,7 +2631,7 @@ export const gb: Company[] = [
       "The final stage is a virtual assessment day with “a one-to-one interview, a group exercise, a technical exercise” and pre-work.",
       "Both the application form and the online assessment must be done before the closing date.",
     ],
-    reapply: "Lloyds accepts “one application per candidate” per year, and failed online assessments cannot be retaken.",
+    reapply: "The graduate FAQ says Lloyds accepts “one application per candidate” per year, and failed online assessments cannot be retaken. The placement pages don't say.",
     pay: [
       "Graduate schemes: “£48,500 plus fantastic benefits”.",
       "Industrial placement: “Salary £29,000”.",

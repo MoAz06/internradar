@@ -22,7 +22,7 @@ Careers page: https://www.google.com/about/careers/applications/students/
 
 ## Re-apply rule
 
-Google's hiring FAQ says you can reapply if you were not selected, but “Typically, we ask for folks to wait at least a year to gain additional experience before reapplying for the same type of role.”
+Google's hiring FAQ says you can reapply if you were not selected, but “Typically, we ask for folks to wait at least a year to gain additional experience before reapplying for the same type of role.” You can apply to at most three jobs in a rolling 30-day window.
 
 ## Pay, relocation, visa
 

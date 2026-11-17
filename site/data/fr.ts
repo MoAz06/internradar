@@ -258,7 +258,7 @@ export const fr: Company[] = [
       "You can apply to up to three jobs within a rolling 30 day window.",
       "The Student Researcher posting says hearing back “can take upwards of 90+ days”.",
     ],
-    reapply: "Google typically asks people to wait at least a year before reapplying for the same type of role.",
+    reapply: "Google typically asks people to wait at least a year before reapplying for the same type of role. You can apply to at most three jobs in a rolling 30-day window.",
     pay: [
       "Pay (France), Research Scientist PhD Intern: “€66000 (EUR) + 0% bonus target”.",
       "Pay (France), Student Researcher: €53000 for Bachelor's, €54000 for Master's and €66000 for PhD, each “+ 0% bonus target”.",

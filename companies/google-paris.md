@@ -22,7 +22,7 @@ Careers page: https://www.google.com/about/careers/applications/jobs/results/?lo
 
 ## Re-apply rule
 
-Google typically asks people to wait at least a year before reapplying for the same type of role.
+Google typically asks people to wait at least a year before reapplying for the same type of role. You can apply to at most three jobs in a rolling 30-day window.
 
 ## Pay, relocation, visa
 

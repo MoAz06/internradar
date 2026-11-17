@@ -112,7 +112,7 @@ export const nl: Company[] = [
       "IMC's recruitment page lists five steps: application and review, an (online) assessment and/or interview, first-round interview(s), final-round interview(s), offer. It says the process is tailored to each candidate and role.",
       "The final round may have several interview stations. IMC aims to give feedback after the final round “within a couple of days”. The posting links a technology interview preparation guide.",
     ],
-    reapply: "If you applied this recruitment season and were not selected, “you may reapply when the next recruitment season begins in Summer 2027”.",
+    reapply: "If you applied for this position this recruitment season and were not selected, “you may reapply when the next recruitment season begins in Summer 2027”.",
     pay: [
       "“Highly competitive compensation package”, no figure given.",
       "Fully furnished corporate accommodation and catered meals during the internship. Relocation assistance is not mentioned.",
@@ -687,7 +687,7 @@ export const nl: Company[] = [
       "Decision “within two weeks”. The process has 5-6 rounds and most interviews are on Google Meet.",
       "This is Miro's general hiring page; it does not say whether graduates follow every step.",
     ],
-    reapply: "No waiting period is stated. Miro's hiring page says not to be “put off from trying again” if you do not succeed the first time.",
+    reapply: "No waiting period is stated. An Amsterdam employee quoted on Miro's hiring page says not to be “put off from trying again” if you do not succeed the first time.",
     pay: ["Pay: no figure given.", "Relocation: not mentioned.", "Visa: not mentioned."],
     reports: [],
     sources: [

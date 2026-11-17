@@ -7,7 +7,7 @@ Careers page: https://careers.microsoft.com/v2/global/en/universityinternship
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Data Engineering Internship Opportunities | Accepted on an ongoing basis until filled; open at least 5 days | Not stated | Not stated | Currently pursuing a Bachelor or Master degree in Electrical Engineering, Optical Engineering, Computer Science, Engineering, Information Technology or a related field; at least 1 semester/term left after the internship | [link](https://apply.careers.microsoft.com/careers/job/1970393557002254) | 2026-11-17 |
+| Data Engineering Internship Opportunities | The posting was taken down by 18 Nov 2026; new Dublin internships appear on the university internship page | Not stated | Not stated | Currently pursuing a Bachelor or Master degree in Electrical Engineering, Optical Engineering, Computer Science, Engineering, Information Technology or a related field; at least 1 semester/term left after the internship | [link](https://apply.careers.microsoft.com/careers/job/1970393557002254) | 2026-11-18 |
 
 ## Process, as the company describes it
 

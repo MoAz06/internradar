@@ -285,7 +285,7 @@ export const ch: Company[] = [
       "Step 4: “The last stage of the process is our final round virtual or in-person interviews.”",
       "Rejected candidates do not get detailed feedback.",
     ],
-    reapply: "No waiting period is stated. For Switzerland you may send at most three applications in total across all UBS divisions and Swiss offices in the same academic year. Assessments cannot be retaken, but a pass from the last six months is reused.",
+    reapply: "No waiting period is stated. For Switzerland you may send at most three applications in total across all UBS divisions and regional offices in the same academic year. Assessments cannot be retaken, but a pass from the last six months is reused.",
     pay: ["Pay: no figure given.", "Relocation: not mentioned.", "Visa: not mentioned."],
     reports: [],
     sources: [

@@ -21,7 +21,7 @@ Careers page: https://www.lloydsbankinggrouptalent.com/our-opportunities/technol
 
 ## Re-apply rule
 
-Lloyds accepts “one application per candidate” per year, and failed online assessments cannot be retaken.
+The graduate FAQ says Lloyds accepts “one application per candidate” per year, and failed online assessments cannot be retaken. The placement pages don't say.
 
 ## Pay, relocation, visa
 

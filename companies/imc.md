@@ -17,7 +17,7 @@ Careers page: https://www.imc.com/eu/careers
 
 ## Re-apply rule
 
-If you applied this recruitment season and were not selected, “you may reapply when the next recruitment season begins in Summer 2027”.
+If you applied for this position this recruitment season and were not selected, “you may reapply when the next recruitment season begins in Summer 2027”.
 
 ## Pay, relocation, visa
 

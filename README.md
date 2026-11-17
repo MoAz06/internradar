@@ -394,7 +394,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Amazon / AWS](companies/amazon-dublin.md) | Cloud Support Associate Internship - April 2027 start, Support Engineering | Dublin | 🟢 | April 2027 | Not stated | Not stated | 16 Nov |
 | [Amazon / AWS](companies/amazon-dublin.md) | Graduate System Engineer, ESC Managed Operations | Dublin | 🟢 | – | Not stated | Not stated | 16 Nov |
 | [Meta](companies/meta-dublin.md) | Network Production Engineer (University Grad) | Dublin | 🟢 | – | Not stated | Not stated | 16 Nov |
-| [Microsoft](companies/microsoft-dublin.md) | Data Engineering Internship Opportunities | Dublin | 🟢 rolling | – | Initial interview, then a final interview if selected; all virtual | New application each year | 17 Nov |
+| [Microsoft](companies/microsoft-dublin.md) | Data Engineering Internship Opportunities | Dublin | 🔴 | – | Initial interview, then a final interview if selected; all virtual | New application each year | 18 Nov |
 | [Analog Devices](companies/analog-devices-limerick.md) | FY27 Intern Opportunities | Limerick | 🟢 | Aligned to your college co-op schedule | Not stated | Not stated | 17 Nov |
 | [Analog Devices](companies/analog-devices-limerick.md) | FY27 Software Engineering Graduate Opportunities | Limerick | 🟢 rolling | – | Not stated | Not stated | 17 Nov |
 | [Analog Devices](companies/analog-devices-limerick.md) | FY27 Electronic Engineering Graduate Opportunities | Limerick | 🟢 rolling | – | Not stated | Not stated | 17 Nov |
