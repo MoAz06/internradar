@@ -515,6 +515,20 @@ export const fr: Company[] = [
     careersUrl: "https://jobs.ashbyhq.com/backmarket",
     roles: [
       {
+        title: "AI Content & Knowledge Manager Intern",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "January 2027",
+        duration: "6 months",
+        eligibility: "Master 2 student in data science, applied maths, statistics or another engineering field; English, French helps",
+        process: "Interview with live case study (30 min), video call with talent acquisition (30 min), interview with the manager (30 min)",
+        reapply: "Not stated",
+        source: "https://jobs.ashbyhq.com/backmarket/ae0b69b8-4051-4a31-a11f-f624be54b4e8",
+        checked: "2026-11-18",
+      },
+      {
         title: "Software Engineer Intern",
         kind: "Internship",
         field: "Software",
@@ -543,6 +557,7 @@ export const fr: Company[] = [
     reports: [],
     sources: [
       { url: "https://jobs.ashbyhq.com/backmarket/154e6aa0-dbeb-4521-8135-3304118c822b", checked: "2026-11-17" },
+      { url: "https://jobs.ashbyhq.com/backmarket/ae0b69b8-4051-4a31-a11f-f624be54b4e8", checked: "2026-11-18" },
     ],
   },
   {

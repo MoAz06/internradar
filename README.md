@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-525-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-526-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -447,6 +447,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur Logiciel & Machine Learning (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur.e C++ - Développement d'Assistants IA (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur.e R&D en Intelligence Artificielle (LLM, Deep Learning) (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Back Market](companies/back-market-paris.md) | AI Content & Knowledge Manager Intern | Paris | 🟢 | January 2027 | Interview with live case study (30 min), video call with talent acquisition (30 min), interview with the manager (30 min) | Not stated | 18 Nov |
 | [Back Market](companies/back-market-paris.md) | Software Engineer Intern | Paris | 🟢 | March/April 2027 | Campus recruitment manager video call (30 min), technical interview with live coding (60 min), team fit interview (30 min) | Not stated | 17 Nov |
 | [Alan](companies/alan-paris.md) | Summer Intern 2027 - Alan Summer Internship Program | Paris | 🟢 rolling | Early June 2027 | Application, short call with the team, technical case, final fit interview | Not stated | 17 Nov |
 | [Alan](companies/alan-paris.md) | Data Associate - Internship (6 months, flexible start) | Paris | 🟢 | Flexible start date | Not stated | Not stated | 17 Nov |
