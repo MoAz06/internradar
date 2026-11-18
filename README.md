@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-527-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-528-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -217,6 +217,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Revolut](companies/revolut-london.md) | Graduate Programme 2027: Applied AI Engineer | London | 🟢 rolling | March or September 2027 | Not stated | Not stated | 17 Nov |
 | [Revolut](companies/revolut-london.md) | Internship Programme 2027: Information Security Engineer (Appsec) | London | 🟢 rolling | June / July 2027 | Not stated | Not stated | 17 Nov |
 | [Revolut](companies/revolut-london.md) | Graduate Programme 2027: Software Engineer (Android) | London | 🟢 rolling | March or September 2027 | Not stated | Not stated | 17 Nov |
+| [Ocado Technology](companies/ocado-technology-hatfield.md) | Hardware Engineering Graduate - Robotics & Automation 2027 | Hatfield | 🟢 | Early September 2027 | Not stated | Not stated | 18 Nov |
 | [Ocado Technology](companies/ocado-technology-hatfield.md) | Software Engineering Graduate 2027 | Hatfield | 🟢 | Early September 2027 | Online application, video interview, online tests, assessment centre | Not stated | 17 Nov |
 | [Tower Research Capital](companies/tower-research-capital-london.md) | Quantitative Trader/Researcher Graduate Programme 2027 | London | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Tower Research Capital](companies/tower-research-capital-london.md) | Quantitative Trader/Researcher Summer Internship 2027 | London | 🟢 | Summer 2027 | Not stated | Not stated | 17 Nov |

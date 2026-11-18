@@ -2232,6 +2232,20 @@ export const gb: Company[] = [
     careersUrl: "https://careers.ocadogroup.com/teams/early-careers",
     roles: [
       {
+        title: "Hardware Engineering Graduate - Robotics & Automation 2027",
+        kind: "Graduate",
+        field: "Hardware and embedded",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "Early September 2027",
+        duration: "2 years (fixed-term, full-time), four 6-month rotations",
+        eligibility: "Accredited engineering degree; full right to work in the UK, no sponsorship",
+        process: "Not stated",
+        reapply: "Not stated",
+        source: "https://careers.ocadogroup.com/jobs/details?gh_jid=5036245101&gh_jid=5036245101",
+        checked: "2026-11-18",
+      },
+      {
         title: "Software Engineering Graduate 2027",
         kind: "Graduate",
         field: "Software",
@@ -2262,6 +2276,7 @@ export const gb: Company[] = [
     sources: [
       { url: "https://careers.ocadogroup.com/jobs/details?gh_jid=5018802101", checked: "2026-11-17" },
       { url: "https://boards-api.greenhouse.io/v1/boards/ocadogroup/jobs?content=true", checked: "2026-11-17" },
+      { url: "https://careers.ocadogroup.com/jobs/details?gh_jid=5036245101&gh_jid=5036245101", checked: "2026-11-18" },
     ],
   },
   {
