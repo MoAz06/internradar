@@ -542,7 +542,8 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "thermo-fisher-scientific-eindhoven|Intern Software Scientist - Theoretical Spectroscopy|https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
   "intel-gdansk|Automation Developer - Graphics Software Internship|https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
   "seb-stockholm|SEB Tech Trainee Programme 2027-28: Junior Engineer – AI, Innovation & Cross-Team Delivery|https://jobs.eu.lever.co/seb/99dc8ec0-0b41-487d-8f3a-c4e3fd25ce8a":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
-  "seb-stockholm|SEB Tech Trainee Programme 2027-28: AI Research Analyst|https://jobs.eu.lever.co/seb/6bb6f12e-d9ef-4a9b-9806-2cde4fee402d":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]}
+  "seb-stockholm|SEB Tech Trainee Programme 2027-28: AI Research Analyst|https://jobs.eu.lever.co/seb/6bb6f12e-d9ef-4a9b-9806-2cde4fee402d":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
+  "seb-stockholm|SEB Tech Trainee Programme 2027-28: Solution Developer - IT Asset Management|https://jobs.eu.lever.co/seb/ea7f2bc9-8ce0-4922-8faf-b41cf4b1be83":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]}
 };
 
 /** Per company slug: the day it was added. */
