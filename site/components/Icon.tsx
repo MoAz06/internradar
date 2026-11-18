@@ -40,6 +40,7 @@ const paths: Record<string, React.ReactNode> = {
     </>
   ),
   filter: <path d="M4 7h10M18 7h2M4 17h4M12 17h8M14 5v4M8 15v4" />,
+  install: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
 };
 
 export default function Icon({ name, className = "h-[18px] w-[18px]" }: { name: keyof typeof paths; className?: string }) {

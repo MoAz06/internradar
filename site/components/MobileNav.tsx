@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import { readSaved, SAVED_EVENT, SAVED_KEY } from "@/lib/mine";
+import { canInstall, install, onInstallChange } from "@/lib/install";
 
 type Entry = { href: string; label: string; icon: Parameters<typeof Icon>[0]["name"]; count?: number; track?: string };
 
@@ -27,6 +28,14 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
       window.removeEventListener(SAVED_EVENT, read);
       window.removeEventListener("storage", onStorage);
     };
+  }, []);
+
+  // Install app shows only while Chrome says the site can be installed
+  const [installable, setInstallable] = useState(false);
+  useEffect(() => {
+    const read = () => setInstallable(canInstall());
+    read();
+    return onInstallChange(read);
   }, []);
 
   // a new page closes the drawer
@@ -161,6 +170,19 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
                 </ul>
               ))}
             </nav>
+            {installable && (
+              <button
+                type="button"
+                onClick={() => install()}
+                className="mt-1.5 flex h-10 items-center gap-3 rounded-md border-t border-line px-2 pt-1.5 text-[16px] whitespace-nowrap hover:bg-raised"
+                data-track="install-app"
+              >
+                <span className="text-muted">
+                  <Icon name="install" />
+                </span>
+                Install app
+              </button>
+            )}
             <p className="mt-auto pt-4 pl-2 text-[13px] text-muted">Checked {checked}</p>
           </div>
         </div>

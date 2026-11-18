@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Libre_Baskerville, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
+import Offline from "@/components/Offline";
 import { og } from "@/lib/og";
 
 const display = Libre_Baskerville({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-libre" });
@@ -20,7 +21,14 @@ export const metadata: Metadata = {
   description: blurb,
   ...og("internradar", blurb, "home", "/"),
   alternates: { types: { "application/rss+xml": "/feed.xml" } },
+  icons: {
+    icon: [{ url: "/icons/icon-32.png", sizes: "32x32", type: "image/png" }, { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
+    apple: "/icons/apple-touch-icon.png",
+  },
+  appleWebApp: { title: "internradar", statusBarStyle: "default" },
 };
+
+export const viewport: Viewport = { themeColor: "#fff1e5" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -38,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <Analytics />
+        <Offline />
       </body>
     </html>
   );
