@@ -33,11 +33,28 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - run: npm ci
       - run: npm run check
+      # a push reuses the posting check from the last full run, so it goes live in a minute or two
+      - name: Last posting check
+        if: github.event_name == 'push'
+        uses: actions/cache/restore@v4
+        with:
+          path: site/.linkcheck.json
+          key: linkcheck-${{ github.run_id }}
+          restore-keys: linkcheck-
       # a broken check must not stop the deploy, the site then just shows no gone postings
-      - run: npm run linkcheck
+      - name: Check the posting links
+        id: linkcheck
+        if: github.event_name != 'push' || hashFiles('site/.linkcheck.json') == ''
+        run: npm run linkcheck
         continue-on-error: true
+      - name: Keep the posting check for pushes
+        if: steps.linkcheck.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: site/.linkcheck.json
+          key: linkcheck-${{ github.run_id }}
       - name: Update the gone-postings issue
-        if: github.event_name != 'pull_request'
+        if: steps.linkcheck.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -51,7 +68,9 @@ jobs:
             gh issue close "$n" --comment "Every posting loads again."
           fi
       # new early-career roles on the job boards the listed companies use, for a check by hand
+      # only at night: it takes half an hour and the build doesn't need it
       - run: npm run discover
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         continue-on-error: true
       - name: Update the new-roles issue
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
