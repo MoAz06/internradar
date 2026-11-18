@@ -49,7 +49,7 @@ export const links = {
     "https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml",
   /** The Worker that turns the share form on /share/ into an issue in the private inbox repo (see worker/).
    * Empty until it's deployed; /share/ then points to the GitHub form. */
-  shareEndpoint: "",
+  shareEndpoint: "https://internradar-share.moaz06.workers.dev",
   /** Cloudflare Turnstile site key for the share form. Public by design. */
   turnstileSiteKey: "0x4AAAAAAGHBwwUBm2FTV_Ts",
   /** Buttondown username for email updates. Empty until the account exists; the alerts page hides the email form until then. */

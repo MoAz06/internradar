@@ -9,3 +9,6 @@ site/.linkcheck.json
 site/.linkcheck.md
 site/.discover.json
 site/.discover.md
+
+# wrangler cache
+.wrangler/
