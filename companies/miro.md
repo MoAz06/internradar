@@ -31,7 +31,7 @@ No waiting period is stated. An Amsterdam employee quoted on Miro's hiring page 
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=miro#form).
 
 ## Sources
 

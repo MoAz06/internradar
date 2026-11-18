@@ -30,7 +30,7 @@ After a rejection you may apply for other jobs: the FAQ answers “Of course!”
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=swisscom-bern#form).
 
 ## Sources
 

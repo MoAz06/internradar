@@ -1,0 +1,11 @@
+name = "internradar-share"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+INBOX_REPO = "MoAz06/internradar-inbox"
+ALLOWED_ORIGINS = "https://internradar.eu,http://localhost:3000"
+
+# Secrets, set with `npx wrangler secret put NAME`, never in this file:
+#   TURNSTILE_SECRET  the Turnstile secret key
+#   GITHUB_TOKEN      fine-grained token, only internradar-inbox, Issues read and write

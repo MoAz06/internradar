@@ -35,7 +35,7 @@ No waiting period is stated. The general FAQ says “We certainly encourage you 
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=rabobank#form).
 
 ## Sources
 

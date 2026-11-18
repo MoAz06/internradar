@@ -59,7 +59,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   const c = companies.find((x) => x.slug === slug);
   if (!c) notFound();
   const checked = c.sources.map((s) => s.checked).sort().at(-1) ?? "";
-  const share = shareUrl(c.name);
+  const share = shareUrl(c.slug);
   const follow = calendarLinks(`/calendar/companies/${c.slug}.ics`, `internradar, ${c.name}`);
   const summary = reportSummary(c.reports);
   const now = today();
@@ -265,15 +265,12 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                   ))}
                 </ul>
               )}
-              <a
+              <Link
                 href={share}
-                target="_blank"
-                rel="noreferrer"
                 className="mt-3.5 inline-block rounded-md bg-ink px-3.5 py-2 text-[13px] font-semibold text-white hover:bg-muted"
               >
                 Share your process
-                <NewTab />
-              </a>
+              </Link>
             </Card>
             <div>
               <h2 className="text-base font-bold">Sources</h2>

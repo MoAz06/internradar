@@ -29,7 +29,7 @@ Picnic's FAQ says you can apply again, but it recommends waiting 1 year between 
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=picnic#form).
 
 ## Sources
 

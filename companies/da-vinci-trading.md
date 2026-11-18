@@ -31,7 +31,7 @@ Candidates may take the same assessment only once. If you fail it, you “will n
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=da-vinci-trading#form).
 
 ## Sources
 

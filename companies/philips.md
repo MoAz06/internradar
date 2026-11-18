@@ -32,7 +32,7 @@ No waiting period is stated. Philips's FAQ says it would be happy to consider yo
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=philips#form).
 
 ## Sources
 

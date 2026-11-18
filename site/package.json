@@ -12,7 +12,7 @@
     "linkcheck": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/linkcheck.mts",
     "discover": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/discover.mts",
     "history": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/history.mts",
-    "import-reports": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/import-reports.mts"
+    "add-report": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/add-report.mts"
   },
   "dependencies": {
     "next": "16.2.4",

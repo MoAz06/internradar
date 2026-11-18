@@ -136,7 +136,7 @@ function page(c: Company): string {
   }
   o.push("", "## Candidate reports", "");
   if (c.reports.length === 0) {
-    o.push(`None yet. Went through this process? [Share what it looked like](${links.shareProcess}).`);
+    o.push(`None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=${c.slug}#form).`);
   } else {
     for (const r of c.reports) {
       o.push(`**${r.role}, applied ${r.applied}.** ${r.timeline.join(" → ")}. Outcome: ${r.outcome}.${r.notes ? " " + r.notes : ""}`, "");

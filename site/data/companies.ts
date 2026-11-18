@@ -47,8 +47,11 @@ export const links = {
   contributing: "https://github.com/MoAz06/internradar/blob/master/CONTRIBUTING.md",
   shareProcess:
     "https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml",
-  /** The share form without an account (Tally). Empty until it exists; the GitHub form is used meanwhile. */
-  shareForm: "",
+  /** The Worker that turns the share form on /share/ into an issue in the private inbox repo (see worker/).
+   * Empty until it's deployed; /share/ then points to the GitHub form. */
+  shareEndpoint: "",
+  /** Cloudflare Turnstile site key for the share form. Public by design. */
+  turnstileSiteKey: "0x4AAAAAAGHBwwUBm2FTV_Ts",
   /** Buttondown username for email updates. Empty until the account exists; the alerts page hides the email form until then. */
   newsletter: "",
 };

@@ -32,7 +32,7 @@ No waiting period is stated. For Switzerland you may send at most three applicat
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=ubs-zurich#form).
 
 ## Sources
 

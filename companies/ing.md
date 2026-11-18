@@ -30,7 +30,7 @@ No waiting period is stated. The NL FAQ says you can apply to more than one role
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=ing#form).
 
 ## Sources
 

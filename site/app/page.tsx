@@ -223,10 +223,9 @@ export default function Home() {
       <Section className="pb-14">
         <p className="border-t border-line pt-4 text-[16px] text-muted">
           Went through one of these processes?{" "}
-          <a href={shareUrl()} target="_blank" rel="noreferrer" className="link">
+          <Link href={shareUrl()} className="link">
             Share how it went
-            <NewTab />
-          </a>
+          </Link>
           , it helps the next person. How the list works is on the{" "}
           <Link href="/about/" className="link">
             about page

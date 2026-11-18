@@ -37,7 +37,7 @@ You can apply to as many roles as you like with the same candidate profile. Afte
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=zeiss-germany#form).
 
 ## Sources
 

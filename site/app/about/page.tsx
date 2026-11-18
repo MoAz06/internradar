@@ -1,7 +1,7 @@
 import { shareUrl } from "@/lib/share";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
-import NewTab from "@/components/NewTab";
+import Link from "next/link";
 import { links } from "@/data/companies";
 import { og } from "@/lib/og";
 
@@ -67,10 +67,9 @@ export default function About() {
         </p>
         <p className="mt-3 text-[15px] leading-[1.6] text-muted">
           Went through one of these processes?{" "}
-          <a href={shareUrl()} target="_blank" rel="noreferrer" className="link">
+          <Link href={shareUrl()} className="link">
             Share how it went
-            <NewTab />
-          </a>
+          </Link>
           : the steps, how long each one took, and the outcome. It&apos;s a short form, no git needed. Please
           don&apos;t post the interview questions.
         </p>

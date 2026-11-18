@@ -31,7 +31,7 @@ Arm says you are welcome to re-apply next year if you were unsuccessful, and to 
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=arm#form).
 
 ## Sources
 

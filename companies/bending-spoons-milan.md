@@ -35,7 +35,7 @@ If you applied and got no offer, Bending Spoons asks you to wait at least one ye
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=bending-spoons-milan#form).
 
 ## Sources
 

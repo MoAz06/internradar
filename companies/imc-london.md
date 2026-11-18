@@ -31,7 +31,7 @@ You may submit one application per role each year. If you applied for this role 
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=imc-london#form).
 
 ## Sources
 

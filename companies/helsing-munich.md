@@ -32,7 +32,7 @@ Helsing asks you to wait at least 6 months after a rejection before applying aga
 
 ## Candidate reports
 
-None yet. Went through this process? [Share what it looked like](https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml).
+None yet. Went through this process? [Share what it looked like](https://internradar.eu/share/?company=helsing-munich#form).
 
 ## Sources
 
