@@ -250,6 +250,21 @@ export const se: Company[] = [
     careersUrl: "https://sebgroup.com/career/graduates-and-students/tech-trainee-programme",
     roles: [
       {
+        title: "SEB Tech Trainee Programme 2027-28: Junior Engineer – AI, Innovation & Cross-Team Delivery",
+        kind: "Graduate",
+        field: "Software",
+        status: "open",
+        applications: "Open until 10 Jan 2027, 23:59 CET",
+        closes: "2027-01-10",
+        start: "1 September 2027",
+        duration: "Six months (programme part)",
+        eligibility: "Graduated in the past two years or graduating before 1 Sep 2027, from a relevant degree or a two-year IT or tech vocational education; work in English",
+        process: "Psychometric tests, interviews (digital and on-site), case exercise and presentation, SEB Day; background check for finalists",
+        reapply: "Not stated",
+        source: "https://jobs.eu.lever.co/seb/99dc8ec0-0b41-487d-8f3a-c4e3fd25ce8a",
+        checked: "2026-11-18",
+      },
+      {
         title: "SEB Tech Trainee Programme 2027-28: Full stack developer",
         kind: "Graduate",
         field: "Software",
@@ -451,6 +466,7 @@ export const se: Company[] = [
       { url: "https://jobs.eu.lever.co/seb/ae73492a-ff68-43cf-8f29-8088527446f2", checked: "2026-11-17" },
       { url: "https://jobs.eu.lever.co/seb/a1999747-c813-4e3b-bb5c-219fae84d38a", checked: "2026-11-17" },
       { url: "https://jobs.eu.lever.co/seb/45249e94-5b38-43f2-8e01-9a3487c8ee67", checked: "2026-11-17" },
+      { url: "https://jobs.eu.lever.co/seb/99dc8ec0-0b41-487d-8f3a-c4e3fd25ce8a", checked: "2026-11-18" },
     ],
   },
   {

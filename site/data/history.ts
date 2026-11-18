@@ -540,7 +540,8 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "intel-gdansk|AI Software Development Intern|https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Development-Intern_JR0288895":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
   "ocado-technology-hatfield|Hardware Engineering Graduate - Robotics & Automation 2027|https://careers.ocadogroup.com/jobs/details?gh_jid=5036245101&gh_jid=5036245101":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
   "thermo-fisher-scientific-eindhoven|Intern Software Scientist - Theoretical Spectroscopy|https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
-  "intel-gdansk|Automation Developer - Graphics Software Internship|https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]}
+  "intel-gdansk|Automation Developer - Graphics Software Internship|https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "seb-stockholm|SEB Tech Trainee Programme 2027-28: Junior Engineer – AI, Innovation & Cross-Team Delivery|https://jobs.eu.lever.co/seb/99dc8ec0-0b41-487d-8f3a-c4e3fd25ce8a":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]}
 };
 
 /** Per company slug: the day it was added. */
