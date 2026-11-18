@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-526-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-527-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -598,6 +598,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 
 | Company | Role | City | Status | Start | Process | Re-apply | Checked |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Intel](companies/intel-gdansk.md) | AI Software Development Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 18 Nov |
 | [Intel](companies/intel-gdansk.md) | Compiler Engineering Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Intel](companies/intel-gdansk.md) | GPU Software Engineering Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Intel](companies/intel-gdansk.md) | Middleware Software Engineering Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 17 Nov |

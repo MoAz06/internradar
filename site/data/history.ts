@@ -536,7 +536,8 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "seb-stockholm|SEB Tech Trainee Programme 2027-28: Platform Engineer – AI|https://jobs.eu.lever.co/seb/990ff670-a7b8-4fba-99eb-9e3a2017de1f":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
   "seb-stockholm|SEB Tech Trainee Programme 2027-28: Site Reliability Engineer – Data & AI Platform|https://jobs.eu.lever.co/seb/bf64cf3c-e578-4465-b933-7f077010da26":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
   "seb-stockholm|SEB Tech Trainee Programme 2027-28: AI Engineer with passion of AIOps|https://jobs.eu.lever.co/seb/14a58170-781b-4a67-921a-fb45f596a288":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
-  "back-market-paris|AI Content & Knowledge Manager Intern|https://jobs.ashbyhq.com/backmarket/ae0b69b8-4051-4a31-a11f-f624be54b4e8":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]}
+  "back-market-paris|AI Content & Knowledge Manager Intern|https://jobs.ashbyhq.com/backmarket/ae0b69b8-4051-4a31-a11f-f624be54b4e8":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "intel-gdansk|AI Software Development Intern|https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Development-Intern_JR0288895":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]}
 };
 
 /** Per company slug: the day it was added. */

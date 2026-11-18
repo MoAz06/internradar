@@ -10,6 +10,19 @@ export const pl: Company[] = [
     careersUrl: "https://intel.wd1.myworkdayjobs.com/External",
     roles: [
       {
+        title: "AI Software Development Intern",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Posted on the company job board, no deadline listed",
+        start: "Not stated",
+        eligibility: "Bachelor's, master's or PhD student in CS, computer engineering, EE or related; Python or C/C++ and Linux; knows how LLMs are served and how agents are benchmarked",
+        process: "Not stated",
+        reapply: "Not stated",
+        source: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Development-Intern_JR0288895",
+        checked: "2026-11-18",
+      },
+      {
         title: "Compiler Engineering Intern",
         kind: "Internship",
         field: "Software",
@@ -89,6 +102,7 @@ export const pl: Company[] = [
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Middleware-Software-Engineering-Intern_JR0288213", checked: "2026-11-17" },
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Media-AI-Software-Intern_JR0288216", checked: "2026-11-17" },
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/System-Software-Engineering-Intern_JR0288207", checked: "2026-11-17" },
+      { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Development-Intern_JR0288895", checked: "2026-11-18" },
     ],
   },
   {
