@@ -130,7 +130,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     setSaved(mine);
     // scroll after the filtered list has rendered, else the browser lands somewhere above it
     const toList = () => setTimeout(() => top.current?.scrollIntoView(), 60);
-    if (fromHash) toList();
+    if (fromHash || p.get("q")) toList();
     const onHash = () => {
       const code = bySlug(location.hash.slice(1));
       if (code) {
@@ -140,6 +140,13 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       }
     };
     window.addEventListener("hashchange", onHash);
+    // the search box at the top of the front page
+    const onSearch = (e: Event) => {
+      setF((x) => ({ ...x, q: String((e as CustomEvent).detail ?? "") }));
+      setPage(1);
+      toList();
+    };
+    window.addEventListener("internradar:search", onSearch);
     // back and forward between pages of the list
     const onPop = () => setPage(Math.max(1, Math.floor(Number(new URLSearchParams(location.search).get("page")) || 1)));
     window.addEventListener("popstate", onPop);
@@ -155,6 +162,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     return () => {
       window.removeEventListener("hashchange", onHash);
       window.removeEventListener("popstate", onPop);
+      window.removeEventListener("internradar:search", onSearch);
       window.removeEventListener("keydown", onKey);
     };
   }, [countries, items]);

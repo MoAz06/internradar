@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { companies, countries, lastChecked, radar } from "@/data/companies";
+import { reapplyRules } from "@/data/reapply";
 import { buildItems } from "@/lib/buildItems";
 import { edition } from "@/lib/edition";
 import { longDate } from "@/lib/format";
@@ -10,7 +11,7 @@ import { live, upcoming } from "@/lib/live";
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-const pages = ["home", "edition", "radar", "calendar", "about", "companies"];
+const pages = ["home", "edition", "radar", "reapply", "calendar", "about", "companies"];
 
 export function generateStaticParams() {
   return [...pages, ...companies.map((c) => c.slug)].map((p) => ({ file: `${p}.png` }));
@@ -57,6 +58,12 @@ function text(page: string) {
     const next = upcoming(radar);
     return { kicker: "On the radar", head: "What opens next", sub: `${next.length} programmes and seasons with an expected opening date, from each company's own pages.` };
   }
+  if (page === "reapply")
+    return {
+      kicker: "Re-apply rules",
+      head: "When can you apply again after a rejection?",
+      sub: `${reapplyRules.length} companies say it on their own pages. Shell turns a second try within 10 months down automatically.`,
+    };
   if (page === "calendar")
     return { kicker: "Deadlines", head: "Every deadline in your own calendar", sub: "Google Calendar, Apple Calendar or Outlook. Subscribe once, it updates itself." };
   if (page === "about")
