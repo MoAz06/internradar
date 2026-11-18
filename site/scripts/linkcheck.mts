@@ -7,6 +7,7 @@ import { writeFileSync, rmSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { companies } from "../data/companies.ts";
+import { workdayStatus } from "../lib/fetchGently.ts";
 
 const site = join(dirname(fileURLToPath(import.meta.url)), "..");
 const UA = "internradar-linkcheck (+https://internradar.eu)";
@@ -59,9 +60,12 @@ async function check(url: string): Promise<Result> {
   // Workday: the page is a JavaScript app that always loads, so ask its JSON endpoint
   const wd = u.hostname.match(/^([^.]+)\.wd\d+\.myworkdayjobs\.com$/);
   if (wd) {
+    // Workday turns Node's fetch away with 429, so this one goes through curl
     const path = u.pathname.replace(/^\/[a-z]{2}-[A-Z]{2}\//, "/");
-    const res = await get(`${u.origin}/wday/cxs/${wd[1]}${path}`, "application/json");
-    return byStatus(res, "Workday");
+    const status = await workdayStatus(`${u.origin}/wday/cxs/${wd[1]}${path}`);
+    if (status === null) return { state: "unknown", why: "no answer" };
+    if (status === 404 || status === 410) return { state: "gone", why: `Workday ${status}` };
+    return status >= 200 && status < 300 ? { state: "ok", why: String(status) } : { state: "unknown", why: String(status) };
   }
 
   // Greenhouse: job board API by board and job id
