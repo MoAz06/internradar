@@ -1,6 +1,8 @@
 // The share form, in one place: the site form, the Worker that turns a sending into an issue,
 // and the script that puts an approved issue into site/data all read these.
 
+import { sections } from "./issueSections.ts";
+
 export const outcomes = [
   "Still in progress",
   "Offer",
@@ -101,13 +103,7 @@ export function issueBody(s: Sending): string {
 
 /** Reads an issue body back: the one above, or one from the GitHub issue form. */
 export function readIssue(body: string): Record<keyof typeof heads, string> & { slug: string } {
-  const parts = new Map<string, string>();
-  for (const chunk of body.replace(/\r\n?/g, "\n").split(/^### /m).slice(1)) {
-    const nl = chunk.indexOf("\n");
-    const head = (nl < 0 ? chunk : chunk.slice(0, nl)).trim().toLowerCase();
-    const value = (nl < 0 ? "" : chunk.slice(nl + 1)).trim();
-    parts.set(head, value === "_No response_" ? "" : value);
-  }
+  const parts = sections(body);
   const get = (h: string) => {
     const key = [...parts.keys()].find((k) => k === h.toLowerCase() || k.startsWith(h.toLowerCase().slice(0, 12)));
     return key ? (parts.get(key) ?? "") : "";

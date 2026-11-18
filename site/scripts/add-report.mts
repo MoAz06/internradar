@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 import { companies } from "../data/companies.ts";
 import type { CandidateReport } from "../data/types.ts";
 import { outcomes, readIssue, warnings, weekOptions } from "../lib/reportForm.ts";
+import { insertEntry, literal } from "../lib/dataFile.ts";
 
 const args = process.argv.slice(2);
 const file = args.find((a) => !a.startsWith("--") && args[args.indexOf(a) - 1] !== "--comment");
@@ -52,36 +53,11 @@ const entry: CandidateReport = {
 };
 const look = warnings([r.role, r.applied, r.timeline, r.test, r.notes].join("\n"));
 
-/** The entry as it goes in the data file, in the same style as the rest. */
-function literal(e: CandidateReport, pad: string): string {
-  const q = (s: string) => JSON.stringify(s);
-  const lines = [`${pad}{`];
-  for (const [k, v] of Object.entries(e)) {
-    if (Array.isArray(v)) lines.push(`${pad}  ${k}: [`, ...v.map((x) => `${pad}    ${q(x)},`), `${pad}  ],`);
-    else lines.push(`${pad}  ${k}: ${q(String(v))},`);
-  }
-  lines.push(`${pad}},`);
-  return lines.join("\n");
-}
-
 function insert(slug: string): string {
   for (const f of readdirSync(dataDir).filter((f) => /^[a-z]{2}\.ts$/.test(f))) {
     const path = join(dataDir, f);
-    const text = readFileSync(path, "utf8");
-    const at = text.indexOf(`slug: ${JSON.stringify(slug)},`);
-    if (at < 0) continue;
-    const next = text.indexOf("\n    slug: ", at + 1);
-    const end = next < 0 ? text.length : next;
-    const empty = text.indexOf("\n    reports: [],", at);
-    const full = text.indexOf("\n    reports: [\n", at);
-    let out: string;
-    if (empty > 0 && empty < end) {
-      const i = empty + "\n    reports: [".length;
-      out = `${text.slice(0, i)}\n${literal(entry, "      ")}\n    ${text.slice(i)}`;
-    } else if (full > 0 && full < end) {
-      const i = full + "\n    reports: [\n".length;
-      out = `${text.slice(0, i)}${literal(entry, "      ")}\n${text.slice(i)}`;
-    } else throw new Error(`No reports list found for ${slug} in ${f}`);
+    const out = insertEntry(readFileSync(path, "utf8"), slug, "reports", entry);
+    if (out === null) continue;
     writeFileSync(path, out);
     return f;
   }

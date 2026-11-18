@@ -12,7 +12,10 @@
     "linkcheck": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/linkcheck.mts",
     "discover": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/discover.mts",
     "history": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/history.mts",
-    "add-report": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/add-report.mts"
+    "add-report": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/add-report.mts",
+    "add-role": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/add-role.mts",
+    "role-drafts": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/role-drafts.mts",
+    "test-roles": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/test-roles.mts"
   },
   "dependencies": {
     "next": "16.2.4",
