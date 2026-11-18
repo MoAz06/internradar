@@ -53,5 +53,5 @@ export const links = {
   /** Cloudflare Turnstile site key for the share form. Public by design. */
   turnstileSiteKey: "0x4AAAAAAGHBwwUBm2FTV_Ts",
   /** Buttondown username for email updates. Empty until the account exists; the alerts page hides the email form until then. */
-  newsletter: "",
+  newsletter: "internradar",
 };
