@@ -221,7 +221,8 @@ test("never twice: an earlier issue, open or closed, or the same role under a ne
 });
 
 test("writing into a data file: role on top, link in the sources, reports still work", () => {
-  const text = readFileSync(join(dataDir, "nl.ts"), "utf8");
+  // a Windows checkout has CRLF; the bot works on Linux checkouts with LF
+  const text = readFileSync(join(dataDir, "nl.ts"), "utf8").replace(/\r\n/g, "\n");
   const role = { title: "New Role", kind: "Internship", field: "Software", status: "open", applications: "Open", start: "2027", eligibility: "Students", process: "CV", reapply: "Not stated", source: "https://example.com/new", checked: today };
   const withRole = insertEntry(text, "optiver", "roles", role)!;
   assert.ok(withRole.includes(`slug: "optiver",`));

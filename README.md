@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-533-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-185-blue) ![roles](https://img.shields.io/badge/roles-558-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -100,8 +100,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Internship: GenAI-Assisted Software Modernization | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Internship - Build an agentic software refactoring workflow | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Sr. GenAI Intern | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Doctolib](companies/doctolib-amsterdam.md) | Software Engineer Intern - Fullstack (x/f/m) - Amsterdam | AMS | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 18 Nov |
 
-27 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+28 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="united-kingdom"></a>
 ## 🇬🇧 United Kingdom
@@ -248,12 +249,25 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineer Graduate Scheme | Leeds | 🟢 | – | 130-minute online coding assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
 | [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Data Science & AI Graduate Scheme | Leeds | 🟢 | – | 120-minute online assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
 | [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineering Industrial Placement (Leeds) | Leeds | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Cyber Security Engineer Graduate Scheme | Leeds | 🟢 until 29 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
 | [HSBC](companies/hsbc-sheffield.md) | Engineering - Graduate | Sheffield and London | 🟢 until 29 Nov | 26 July 2027 | Not stated | Not stated | 17 Nov |
 | [HSBC](companies/hsbc-sheffield.md) | Data Analyst - Quantitative Finance - Internship | Sheffield and London | 🟢 until 4 Dec | 21 June 2027 | Not stated | Not stated | 17 Nov |
 | [BAE Systems](companies/bae-systems-frimley.md) | Graduate Software Engineer (Graduate Digital Intelligence Software Engineer) | Frimley | 🟢 | 6 September 2027 | Not stated | Not stated | 17 Nov |
 | [BAE Systems](companies/bae-systems-frimley.md) | Graduate Software Engineer (Graduate Naval Ships Software Engineer) | Frimley | 🟢 | 6 September 2027 | Not stated | Not stated | 17 Nov |
+| [Databricks](companies/databricks-london.md) | Software Engineering Intern (2027 Start) - London | London | 🟢 | Summer 2027 | Varies by role, your recruiter explains it; SWE interviews test data structures and algorithms | One application per 30 days | 18 Nov |
+| [Databricks](companies/databricks-london.md) | Software Engineer - New Grad (2027 Start) - London | London | 🟢 | 2027 | Varies by role, your recruiter explains it; SWE interviews test data structures and algorithms | One application per 30 days | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-bristol.md) | Software Engineer Graduate Scheme | Bristol | 🟢 until 28 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-bristol.md) | Data Science & AI Graduate Scheme | Bristol | 🟢 until 29 Nov | – | 120-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-edinburgh.md) | Software Engineer Graduate Scheme | Edinburgh | 🟢 until 28 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-edinburgh.md) | Data Science & AI Graduate Scheme | Edinburgh | 🟢 until 29 Nov | – | 120-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-edinburgh.md) | Cyber Security Engineer Graduate Scheme | Edinburgh | 🟢 until 29 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-manchester.md) | Software Engineer Graduate Scheme | Manchester | 🟢 until 29 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-manchester.md) | Data Science & AI Graduate Scheme | Manchester | 🟢 until 29 Nov | – | 120-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-manchester.md) | Cyber Security Engineer Graduate Scheme | Manchester | 🟢 until 29 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-halifax.md) | Software Engineer Graduate Scheme | Halifax | 🟢 until 28 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-chester.md) | Software Engineer Graduate Scheme | Chester | 🟢 until 28 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
 
-34 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+40 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="germany"></a>
 ## 🇩🇪 Germany
@@ -328,8 +342,12 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [AUMOVIO (former Continental Automotive)](companies/aumovio-ingolstadt.md) | Pflichtpraktikum - .NET Entwicklung - ADAS Testsysteme | Ingolstadt and Regensburg | 🟢 | Summer semester 2027 | Not stated | Not stated | 17 Nov |
 | [AUMOVIO (former Continental Automotive)](companies/aumovio-ingolstadt.md) | Pflichtpraktikum - Embedded Linux Entwicklung - ADAS Testsysteme | Ingolstadt and Regensburg | 🟢 | Summer semester 2027 | Not stated | Not stated | 17 Nov |
 | [AUMOVIO (former Continental Automotive)](companies/aumovio-ingolstadt.md) | Praktikum - Softwareentwicklung mit .NET (Web, Mobile, Client) | Ingolstadt and Regensburg | 🟢 | March 2027 | Not stated | Not stated | 17 Nov |
+| [Databricks](companies/databricks-berlin.md) | Software Engineering Intern (2027 Start) - Berlin | Berlin | 🟢 | Summer 2027 | Varies by role, your recruiter explains it; SWE interviews test data structures and algorithms | One application per 30 days | 18 Nov |
+| [Databricks](companies/databricks-berlin.md) | Software Engineer - New Grad (2027 Start) - Berlin | Berlin | 🟢 | 2027 | Varies by role, your recruiter explains it; SWE interviews test data structures and algorithms | One application per 30 days | 18 Nov |
+| [Doctolib](companies/doctolib-berlin.md) | Software Engineer Intern - Fullstack (x/f/m) - Berlin - March 2027 | Berlin | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 18 Nov |
+| [Doctolib](companies/doctolib-berlin.md) | AI Engineer Intern (x/f/m) - Berlin | Berlin | 🟢 | March 2027 | Coding Game, recruiter interview, technical interview, behavioral interview | Not stated | 18 Nov |
 
-21 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+23 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="switzerland"></a>
 ## 🇨🇭 Switzerland
@@ -482,8 +500,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Natixis CIB](companies/natixis-cib-paris.md) | Internship - 6 months - Java Microservice Developer F/H | Paris | 🟢 | April 2027 | Call with a recruiter, then meeting the business team | Not stated | 17 Nov |
 | [Natixis CIB](companies/natixis-cib-paris.md) | Internship - 6 months - Data Scientist - F/M | Paris | 🟢 | January 2027 | Not stated | Not stated | 17 Nov |
 | [Murex](companies/murex-paris.md) | INTERNSHIP 2027 - Software Engineer Java | Paris | 🟢 | – | Online test, then a first chat interview and usually one or more further interviews | Not stated | 17 Nov |
+| [Palantir](companies/palantir-paris.md) | Forward Deployed Software Engineer, Internship | Paris | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 18 Nov |
 
-20 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+21 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="sweden"></a>
 ## 🇸🇪 Sweden
@@ -532,8 +551,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Danske Bank](companies/danske-bank-aarhus.md) | Software Engineering Internship in Aarhus (August start) | Aarhus | 🟡 Apply in March for the August start (October for the February start); posted on the job portal just before P-day at Aarhus University | August | Apply through the job portal; candidates are usually found shortly after P-day | Not stated | 17 Nov |
 | [Netcompany](companies/netcompany-copenhagen.md) | Internship for Bachelor of Engineering students | Copenhagen | 🟢 | 1 February 2027 | Upload CV and motivational letter | Not stated | 17 Nov |
 | [Netcompany](companies/netcompany-copenhagen.md) | Internship for Bachelor of Engineering students, Operations & Infrastructure | Copenhagen | 🟢 | 1 February 2027 | Upload CV and motivational letter | Not stated | 17 Nov |
+| [Databricks](companies/databricks-aarhus.md) | Software Engineering Intern (2027 Start) - Aarhus | Aarhus | 🟢 | 2027 | Varies by role, your recruiter explains it; SWE interviews test data structures and algorithms | One application per 30 days | 18 Nov |
+| [Databricks](companies/databricks-aarhus.md) | Software Engineer - New Grad (2027 Start) - Aarhus | Aarhus | 🟢 | 2027 | Varies by role, your recruiter explains it; SWE interviews test data structures and algorithms | One application per 30 days | 18 Nov |
 
-3 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+4 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="finland"></a>
 ## 🇫🇮 Finland
@@ -622,8 +643,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Revolut](companies/revolut-krakow.md) | Graduate Programme 2027: Software Engineer (Java) | Kraków | 🟢 | March or September 2027 | Recruitment runs July to December 2026 | Not stated | 17 Nov |
 | [Revolut](companies/revolut-krakow.md) | Internship Programme 2027: Software Engineer (Java) | Kraków | 🟢 | June / July 2027 | Recruitment runs July to December 2026 | Not stated | 17 Nov |
 | [TomTom](companies/tomtom-lodz.md) | Software Engineer Internship | Łódź | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Squarepoint Capital](companies/squarepoint-capital-warsaw.md) | Intern Software Developer - Warsaw 2027 | Warsaw | 🟢 | You pick a start month; the internship runs throughout the year | Not stated | Not stated | 18 Nov |
+| [Squarepoint Capital](companies/squarepoint-capital-warsaw.md) | Graduate Software Developer | Warsaw | 🟢 | – | You pick one or more tracks (Python, C++, Front-End) when applying | Not stated | 18 Nov |
 
-7 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+8 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="austria"></a>
 ## 🇦🇹 Austria
@@ -692,8 +715,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Leonardo](companies/leonardo-turin.md) | Tesi - Progettazione ed implementazione di modelli per l'interazione di precisione in ambienti virtuali e complessi | Turin | 🟢 | – | CV screening, then an interview with HR and the business | Not stated | 17 Nov |
 | [Leonardo](companies/leonardo-turin.md) | Tesi/Real-time signal processing acceleration for altimetric applications | Turin | 🟢 | – | CV screening, then an interview with HR and the business | Not stated | 17 Nov |
 | [UniCredit](companies/unicredit-milan.md) | Internship UniCredit Leasing - Area Digital & Information | Milan | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Doctolib](companies/doctolib-milan.md) | Software Engineer Intern - Fullstack (x/f/m) - Milano | Milan | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 18 Nov |
+| [Doctolib](companies/doctolib-milan.md) | AI Engineer Intern (x/f/m) - Milano | Milan | 🟢 | March 2027 | Coding Game, recruiter interview, technical interview, behavioral interview | Not stated | 18 Nov |
 
-8 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+9 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 <!-- /gen:list -->
 
 <a id="how-to-read-this"></a>

@@ -1651,4 +1651,40 @@ export const nl: Company[] = [
       { url: "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1", checked: "2026-11-18" },
     ],
   },
+  {
+    slug: "doctolib-amsterdam",
+    name: "Doctolib",
+    country: "NL",
+    city: "Amsterdam",
+    careersUrl: "https://careers.doctolib.com/",
+    roles: [
+      {
+        title: "Software Engineer Intern - Fullstack (x/f/m) - Amsterdam",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "March 2027",
+        duration: "6 months",
+        eligibility: "Final year of a degree in software engineering, CS or a related field; fluent in English",
+        process: "Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h)",
+        reapply: "Not stated",
+        source: "https://jobs.ashbyhq.com/doctolib/f3605428-4d4f-414c-88d1-787b55518e1c",
+        checked: "2026-11-18",
+      },
+    ],
+    process: [
+      "Software engineering intern: “Coding Game (1h)”, then a recruiter interview (30 minutes), a feature building interview (1h) and a behavioral interview (1h).",
+    ],
+    reapply: "Not stated",
+    pay: [
+      "Pay: not stated on the posting.",
+      "Free breakfast and lunch on site every day, and public transport paid back if you live outside the Amsterdam highway ring.",
+      "Relocation and visa: not mentioned.",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://jobs.ashbyhq.com/doctolib/f3605428-4d4f-414c-88d1-787b55518e1c", checked: "2026-11-18" },
+    ],
+  },
 ];

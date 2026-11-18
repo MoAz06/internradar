@@ -1285,4 +1285,46 @@ export const fr: Company[] = [
       { url: "https://murex.wd3.myworkdayjobs.com/MurexCareerPage1/job/Paris/INTERNSHIP-2027---Software-Engineer-Java_JR103162-2", checked: "2026-11-17" },
     ],
   },
+  {
+    slug: "palantir-paris",
+    name: "Palantir",
+    country: "FR",
+    city: "Paris",
+    careersUrl: "https://www.palantir.com/careers/students-and-early-talent/",
+    roles: [
+      {
+        title: "Forward Deployed Software Engineer, Internship",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "Not stated",
+        eligibility: "Graduating in 2027, and this must be your last internship before you graduate; 25-50% travel to client sites preferred",
+        process: "1-2 phone interviews, then onsite round",
+        reapply: "Not stated",
+        source: "https://jobs.lever.co/palantir/1b6f1d82-d459-4dea-8bc2-8d2ffe6f881a",
+        checked: "2026-11-18",
+      },
+    ],
+    process: [
+      "Palantir says the number and format of interviews depend on your skills and the role.",
+      "“Everyone starts with one or two phone interviews”; if there is a fit, you are brought onsite for a round of in-person interviews.",
+      "You apply with a CV and answers to the application questions.",
+      "Forward Deployed postings say that by applying you commit to deciding “within two weeks of receiving your written offer”.",
+    ],
+    reapply: "Not stated",
+    pay: [
+      "Pay: no figure on the posting.",
+      "Visa: “Yes, we are supportive of visas”, per the student FAQ.",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://www.palantir.com/careers/students-and-early-talent/", checked: "2026-11-18" },
+      { url: "https://www.palantir.com/careers/getting-hired/", checked: "2026-11-18" },
+      { url: "https://jobs.lever.co/palantir/1b6f1d82-d459-4dea-8bc2-8d2ffe6f881a", checked: "2026-11-18" },
+    ],
+    notes: [
+      "The posting is written in French and English.",
+    ],
+  },
 ];

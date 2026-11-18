@@ -543,7 +543,32 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "intel-gdansk|Automation Developer - Graphics Software Internship|https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
   "seb-stockholm|SEB Tech Trainee Programme 2027-28: Junior Engineer – AI, Innovation & Cross-Team Delivery|https://jobs.eu.lever.co/seb/99dc8ec0-0b41-487d-8f3a-c4e3fd25ce8a":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
   "seb-stockholm|SEB Tech Trainee Programme 2027-28: AI Research Analyst|https://jobs.eu.lever.co/seb/6bb6f12e-d9ef-4a9b-9806-2cde4fee402d":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
-  "seb-stockholm|SEB Tech Trainee Programme 2027-28: Solution Developer - IT Asset Management|https://jobs.eu.lever.co/seb/ea7f2bc9-8ce0-4922-8faf-b41cf4b1be83":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]}
+  "seb-stockholm|SEB Tech Trainee Programme 2027-28: Solution Developer - IT Asset Management|https://jobs.eu.lever.co/seb/ea7f2bc9-8ce0-4922-8faf-b41cf4b1be83":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2027-01-10"]]},
+  "doctolib-amsterdam|Software Engineer Intern - Fullstack (x/f/m) - Amsterdam|https://jobs.ashbyhq.com/doctolib/f3605428-4d4f-414c-88d1-787b55518e1c":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "lloyds-banking-group-leeds|Cyber Security Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Leeds/Cyber-Security-Engineer-Graduate-Scheme--Leeds-_163311-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-29"]]},
+  "databricks-london|Software Engineering Intern (2027 Start) - London|https://databricks.com/company/careers/open-positions/job?gh_jid=8847738002":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "databricks-london|Software Engineer - New Grad (2027 Start) - London|https://databricks.com/company/careers/open-positions/job?gh_jid=8847747002":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "lloyds-banking-group-bristol|Software Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Bristol/Software-Engineer-Graduate-Scheme--Bristol-_163325-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-28"]]},
+  "lloyds-banking-group-bristol|Data Science & AI Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Bristol/Data-Science---AI-Graduate-Scheme--Bristol-_163351-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-29"]]},
+  "lloyds-banking-group-edinburgh|Software Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Edinburgh/Software-Engineer-Graduate-Scheme--Edinburgh-_163366-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-28"]]},
+  "lloyds-banking-group-edinburgh|Data Science & AI Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Edinburgh/Data-Science---AI-Graduate-Scheme--Edinburgh-_163341-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-29"]]},
+  "lloyds-banking-group-edinburgh|Cyber Security Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Edinburgh/Cyber-Security-Engineer-Graduate-Scheme--Edinburgh-_163314-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-29"]]},
+  "lloyds-banking-group-manchester|Software Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Manchester/Software-Engineer-Graduate-Scheme--Manchester-_163389-2":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-29"]]},
+  "lloyds-banking-group-manchester|Data Science & AI Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Manchester/Data-Science---AI-Graduate-Scheme--Manchester-_163346-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-29"]]},
+  "lloyds-banking-group-manchester|Cyber Security Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Manchester/Cyber-Security-Engineer-Graduate-Scheme--Manchester-_163313-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-29"]]},
+  "lloyds-banking-group-halifax|Software Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Halifax/Software-Engineer-Graduate-Scheme--Halifax-_163376-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-28"]]},
+  "lloyds-banking-group-chester|Software Engineer Graduate Scheme|https://lbg.wd3.myworkdayjobs.com/Graduate_careers/job/Chester/Software-Engineer-Graduate-Scheme--Chester-_164333-1":{"added":"2026-11-18","statuses":[["2026-11-18","open"]],"closes":[["2026-11-18","2026-11-28"]]},
+  "databricks-berlin|Software Engineering Intern (2027 Start) - Berlin|https://databricks.com/company/careers/open-positions/job?gh_jid=6866531002":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "databricks-berlin|Software Engineer - New Grad (2027 Start) - Berlin|https://databricks.com/company/careers/open-positions/job?gh_jid=6886281002":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "doctolib-berlin|Software Engineer Intern - Fullstack (x/f/m) - Berlin - March 2027|https://jobs.ashbyhq.com/doctolib/dda0530c-043e-4ee5-8e82-f1e98c944af4":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "doctolib-berlin|AI Engineer Intern (x/f/m) - Berlin|https://jobs.ashbyhq.com/doctolib/2a909eff-070e-4c49-a305-5adf5aa5c5a2":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "palantir-paris|Forward Deployed Software Engineer, Internship|https://jobs.lever.co/palantir/1b6f1d82-d459-4dea-8bc2-8d2ffe6f881a":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "databricks-aarhus|Software Engineering Intern (2027 Start) - Aarhus|https://databricks.com/company/careers/open-positions/job?gh_jid=8133710002":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "databricks-aarhus|Software Engineer - New Grad (2027 Start) - Aarhus|https://databricks.com/company/careers/open-positions/job?gh_jid=8133691002":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "squarepoint-capital-warsaw|Intern Software Developer - Warsaw 2027|https://www.squarepoint-capital.com/open-opportunities?id=8045124&gh_jid=8045124":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "squarepoint-capital-warsaw|Graduate Software Developer|https://www.squarepoint-capital.com/open-opportunities?id=6040910&gh_jid=6040910":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "doctolib-milan|Software Engineer Intern - Fullstack (x/f/m) - Milano|https://jobs.ashbyhq.com/doctolib/19f389f4-1374-4c61-ae03-aae839f65bf4":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]},
+  "doctolib-milan|AI Engineer Intern (x/f/m) - Milano|https://jobs.ashbyhq.com/doctolib/8eee07c8-dd36-4a3c-99cd-a95d65415dec":{"added":"2026-11-18","statuses":[["2026-11-18","open"]]}
 };
 
 /** Per company slug: the day it was added. */
@@ -719,5 +744,18 @@ export const companyAdded: Record<string, string> = {
   "pirelli-milan": "2026-11-17",
   "intesa-sanpaolo-italy": "2026-11-17",
   "leonardo-turin": "2026-11-17",
-  "unicredit-milan": "2026-11-17"
+  "unicredit-milan": "2026-11-17",
+  "doctolib-amsterdam": "2026-11-18",
+  "databricks-london": "2026-11-18",
+  "lloyds-banking-group-bristol": "2026-11-18",
+  "lloyds-banking-group-edinburgh": "2026-11-18",
+  "lloyds-banking-group-manchester": "2026-11-18",
+  "lloyds-banking-group-halifax": "2026-11-18",
+  "lloyds-banking-group-chester": "2026-11-18",
+  "databricks-berlin": "2026-11-18",
+  "doctolib-berlin": "2026-11-18",
+  "palantir-paris": "2026-11-18",
+  "databricks-aarhus": "2026-11-18",
+  "squarepoint-capital-warsaw": "2026-11-18",
+  "doctolib-milan": "2026-11-18"
 };
