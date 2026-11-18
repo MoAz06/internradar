@@ -7,6 +7,7 @@ Careers page: https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCaree
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Intern Software Scientist - Theoretical Spectroscopy | Open, no deadline listed | Not stated | Not stated | Master's student in physics; basic Python or similar; relativity and quantum mechanics; at least 2 office days a week in Eindhoven | [link](https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1) | 2026-11-18 |
 | Software Engineering / AI Engineering Intern | Open, no deadline listed | Not stated | Not stated | Enrolled in an HBO or WO Software Engineering programme and ready for a graduation assignment; C# or Python; clear English | [link](https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Software-Engineering---AI-Engineering-Intern_R-01374129-1) | 2026-11-17 |
 | Internship: GenAI-Assisted Software Modernization | Open, no deadline listed | Not stated | Not stated | Bachelor's graduate, master's student or master's graduate in computer science, software engineering, AI or a related field | [link](https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Internship--GenAI-Assisted-Software-Modernization_R-01374113-1) | 2026-11-17 |
 | Internship - Build an agentic software refactoring workflow | Open on the Workday board, no deadline listed | Not stated | 6 months | An intern with strong software engineering skills and interest in AI for software development | [link](https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Internship---Build-an-agentic-software-refactoring-workflow_R-01374031-1) | 2026-11-17 |
@@ -37,5 +38,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Internship---Build-an-agentic-software-refactoring-workflow_R-01374031-1 checked 2026-11-17
 - https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Sr-GenAI-Intern_R-01374045-1 checked 2026-11-17
 - https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---X-ray-Spectroscopy_R-01366276 checked 2026-11-17
+- https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1 checked 2026-11-18
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-528-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-529-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -95,6 +95,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [TNO](companies/tno-den-haag.md) | Internship, Operationalising a Mobile 3D Scanning Setup | Den Haag and Soesterberg | 🟢 | – | Apply with CV and cover letter, then an AIVD security screening of about 8 weeks | Not stated | 17 Nov |
 | [TNO](companies/tno-den-haag.md) | Graduation internship, MMIC/RFIC design | Den Haag and Soesterberg | 🟢 until 23 Nov | – | Apply with CV and cover letter, then an AIVD security screening of about 8 weeks | Not stated | 17 Nov |
 | [TNO](companies/tno-den-haag.md) | TNO Traineeship | Den Haag and Soesterberg | 🟡 Closed now; applications for the next cohort open in spring 2027 | 1 September 2027 | CV, motivation letter and an assignment on your impact and learning goals | Not stated | 17 Nov |
+| [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Intern Software Scientist - Theoretical Spectroscopy | Eindhoven | 🟢 | – | Not stated | Not stated | 18 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Software Engineering / AI Engineering Intern | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Internship: GenAI-Assisted Software Modernization | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Internship - Build an agentic software refactoring workflow | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |

@@ -1567,6 +1567,19 @@ export const nl: Company[] = [
     careersUrl: "https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers",
     roles: [
       {
+        title: "Intern Software Scientist - Theoretical Spectroscopy",
+        kind: "Internship",
+        field: "Other tech",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "Not stated",
+        eligibility: "Master's student in physics; basic Python or similar; relativity and quantum mechanics; at least 2 office days a week in Eindhoven",
+        process: "Not stated",
+        reapply: "Not stated",
+        source: "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1",
+        checked: "2026-11-18",
+      },
+      {
         title: "Software Engineering / AI Engineering Intern",
         kind: "Internship",
         field: "Data and AI",
@@ -1635,6 +1648,7 @@ export const nl: Company[] = [
       { url: "https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Internship---Build-an-agentic-software-refactoring-workflow_R-01374031-1", checked: "2026-11-17" },
       { url: "https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Sr-GenAI-Intern_R-01374045-1", checked: "2026-11-17" },
       { url: "https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---X-ray-Spectroscopy_R-01366276", checked: "2026-11-17" },
+      { url: "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1", checked: "2026-11-18" },
     ],
   },
 ];
