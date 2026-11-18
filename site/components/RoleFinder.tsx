@@ -9,12 +9,13 @@ import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
-type StatusFilter = "open" | "soon" | "all";
+type StatusFilter = "open" | "soon" | "new" | "all";
 type Filters = { q: string; status: StatusFilter; kind: string; field: string; country: string; saved: boolean };
 
 const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false };
 const SAVED_KEY = "internradar:saved";
 const PER_KEY = "internradar:per-page";
+const VISIT_KEY = "internradar:last-visit";
 const PER_PAGE = [25, 50, 75, 100];
 
 function readSaved(): string[] {
@@ -88,6 +89,8 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   const [shareLink, setShareLink] = useState("");
   const [page, setPage] = useState(1);
   const [per, setPer] = useState(25);
+  // roles added since the visitor's previous visit (a day, not a moment), on top of the ones from this week
+  const [since, setSince] = useState<string | null>(null);
   const search = useRef<HTMLInputElement>(null);
   const top = useRef<HTMLDivElement>(null);
   // set when a page button is clicked, so that step gets its own history entry for the back button
@@ -100,12 +103,21 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     const fromHash = bySlug(location.hash.slice(1));
     setF({
       q: p.get("q") ?? "",
-      status: (["open", "soon", "all"] as const).find((s) => s === p.get("status")) ?? "open",
+      status: (["open", "soon", "new", "all"] as const).find((s) => s === p.get("status")) ?? "open",
       kind: kinds.find((k) => k.toLowerCase() === p.get("type")) ?? "",
       field: fields.find((x) => fold(x).replace(/ /g, "-") === p.get("field")) ?? "",
       country: bySlug(p.get("country") ?? "") || fromHash,
       saved: false,
     });
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+      const v = JSON.parse(localStorage.getItem(VISIT_KEY) ?? "null") as { visit: string; since: string | null } | null;
+      const prev = v ? (v.visit === today ? v.since : v.visit) : null;
+      localStorage.setItem(VISIT_KEY, JSON.stringify({ visit: today, since: prev }));
+      setSince(prev);
+    } catch {
+      // blocked storage: only "new this week" shows
+    }
     const perFromUrl = Number(p.get("per"));
     let perStored = 0;
     try {
@@ -186,11 +198,15 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     pushNext.current = false;
   }, [f, countries, page, per]);
 
+  const isNew = (x: Item) => x.fresh || (since !== null && x.added > since && x.status !== "closed");
+  const newCount = items.filter(isNew).length;
+
   const shown = useMemo(() => {
     const words = fold(f.q).split(/\s+/).filter(Boolean);
     return items.filter((x) => {
       if (f.status === "open" && x.status !== "open" && x.status !== "rolling") return false;
       if (f.status === "soon" && x.status !== "soon") return false;
+      if (f.status === "new" && !(x.fresh || (since !== null && x.added > since && x.status !== "closed"))) return false;
       if (f.kind && x.kind !== f.kind) return false;
       if (f.field && x.field !== f.field) return false;
       if (f.country && x.country !== f.country) return false;
@@ -201,7 +217,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       }
       return true;
     });
-  }, [items, f, saved]);
+  }, [items, f, saved, since]);
 
   const pages = Math.max(1, Math.ceil(shown.length / per));
   const cur = Math.min(page, pages);
@@ -286,6 +302,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
         <Select id="role-status" label="Status" value={f.status} onChange={(v) => set({ status: v as StatusFilter })}>
           <option value="open">Open now</option>
           <option value="soon">Opening soon</option>
+          <option value="new">New{newCount ? ` (${newCount})` : ""}</option>
           <option value="all">All, also closed</option>
         </Select>
         <Select id="role-type" label="Type" value={f.kind} onChange={(v) => set({ kind: v })}>
@@ -391,6 +408,9 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                     </span>
                   </td>
                   <td className="py-2.5 pr-4 max-md:block max-md:p-0 max-md:pt-1.5 md:w-[28%]">
+                    {isNew(x) && (
+                      <span className="mr-1.5 bg-claret px-1 py-px align-[1px] text-[11px] font-bold text-white">New</span>
+                    )}
                     <span className="font-medium">{x.title}</span>
                     <span className="block text-[13px] text-muted">
                       {x.kind}, {x.field}

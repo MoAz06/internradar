@@ -1,6 +1,7 @@
 import { companies, countries } from "../data/companies.ts";
 import { fuzzyDate, live, stale, today } from "./live.ts";
 import { shortKey, type Item } from "./items.ts";
+import { historyStart, roleHistory } from "../data/history.ts";
 
 function daysBetween(from: string, to: string): number {
   return Math.round((Date.parse(to) - Date.parse(from)) / 86_400_000);
@@ -30,8 +31,11 @@ export function buildItems(now = today()): Item[] {
       let id = `${c.slug}|${r.title}|${r.source}`;
       while (seen.has(id)) id += "+";
       seen.add(id);
+      const added = roleHistory[id]?.added ?? now;
       items.push({
         id,
+        added,
+        fresh: added > historyStart && daysBetween(added, now) <= 7,
         key: shortKey(id),
         company: c.name,
         slug: c.slug,

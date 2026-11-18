@@ -10,11 +10,34 @@ import { longDate, stripProtocol } from "@/lib/format";
 import { fuzzyDate, live, stale, today } from "@/lib/live";
 import { og } from "@/lib/og";
 import { reportUrl } from "@/lib/items";
+import { shareUrl } from "@/lib/share";
+import { calendarLinks } from "@/lib/calendarLinks";
+import type { CandidateReport } from "@/data/types";
 import { buildItems } from "@/lib/buildItems";
 import { eventsFor } from "@/lib/ics";
+import { historyStart } from "@/data/history";
 import AddToCalendar from "@/components/AddToCalendar";
 
 type Params = { slug: string };
+
+const weeksText = (w: string) => (w === "under 1" ? "under a week" : w === "more than 8" ? "more than 8 weeks" : `${w} weeks`);
+
+/** One line over all reports, once there are at least two: how long people waited and how it ended. */
+function reportSummary(reports: CandidateReport[]): string | null {
+  if (reports.length < 2) return null;
+  const parts: string[] = [];
+  const weeks = reports.map((r) => r.weeks).filter((w): w is NonNullable<typeof w> => !!w && w !== "still waiting");
+  if (weeks.length >= 2) {
+    const count = new Map<string, number>();
+    for (const w of weeks) count.set(w, (count.get(w) ?? 0) + 1);
+    const [top, n] = [...count].sort((a, b) => b[1] - a[1])[0];
+    parts.push(`${n} of ${weeks.length} heard back in ${weeksText(top)}`);
+  }
+  const outcomes = new Map<string, number>();
+  for (const r of reports) outcomes.set(r.outcome, (outcomes.get(r.outcome) ?? 0) + 1);
+  parts.push([...outcomes].map(([o, n]) => `${o.toLowerCase()} ${n}`).join(", "));
+  return `From ${reports.length} reports: ${parts.join(". Outcomes: ")}.`;
+}
 
 export function generateStaticParams(): Params[] {
   return companies.map((c) => ({ slug: c.slug }));
@@ -36,7 +59,9 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   const c = companies.find((x) => x.slug === slug);
   if (!c) notFound();
   const checked = c.sources.map((s) => s.checked).sort().at(-1) ?? "";
-  const share = `${links.shareProcess}&title=${encodeURIComponent(`[process] ${c.name}`)}`;
+  const share = shareUrl(c.name);
+  const follow = calendarLinks(`/calendar/companies/${c.slug}.ics`, `internradar, ${c.name}`);
+  const summary = reportSummary(c.reports);
   const now = today();
   const states = c.roles.map((r) => ({ r, l: live(r, now) }));
   const open = states.filter((s) => s.l.status === "open" || s.l.status === "rolling");
@@ -99,6 +124,30 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             <NewTab />
           </a>
         </div>
+        <p className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-[14px] text-muted">
+          <span className="font-semibold text-ink">Follow {c.name}:</span>
+          <a href={`/feeds/companies/${c.slug}.xml`} className="link" data-track="follow-rss">
+            new roles by RSS
+          </a>
+          <span>
+            dates in{" "}
+            <a href={follow.google} className="link" data-track="follow-google">
+              Google
+            </a>
+            ,{" "}
+            <a href={follow.apple} className="link" data-track="follow-apple">
+              Apple
+            </a>{" "}
+            or{" "}
+            <a href={follow.outlook} className="link" data-track="follow-outlook">
+              Outlook
+            </a>{" "}
+            calendar
+          </span>
+          <Link href="/alerts/" className="link">
+            More alerts
+          </Link>
+        </p>
       </Section>
 
       <Section className="pb-16">
@@ -136,7 +185,13 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                     </a>
                     {(() => {
                       const x = itemOf(r.title, r.source);
-                      return x ? <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} className="mt-1 text-[13px]" /> : null;
+                      if (!x) return null;
+                      return (
+                        <>
+                          {x.added > historyStart && <span className="mt-1 block text-[13px] text-muted">On the list since {longDate(x.added)}</span>}
+                          <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} className="mt-1 text-[13px]" />
+                        </>
+                      );
                     })()}
                   </td>
                   <td className="px-3 py-3 align-middle">
@@ -186,6 +241,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             </div>
             <Card className="bg-raised p-4.5">
               <h2 className="text-base font-bold">Candidate reports</h2>
+              {summary && <p className="mt-2 text-sm font-semibold leading-[1.55]">{summary}</p>}
               {c.reports.length === 0 ? (
                 <p className="mt-2 text-sm leading-[1.55] text-muted">
                   None yet. Went through this process? Tell the next person how it went: the steps, the
@@ -199,7 +255,11 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                         {rep.role}, applied {rep.applied}
                       </p>
                       <p className="mt-1 text-[13px] text-muted">{rep.timeline.join(" → ")}</p>
-                      <p className="mt-1 text-muted">Outcome: {rep.outcome}</p>
+                      {rep.test && <p className="mt-1 text-muted">Online test: {rep.test}</p>}
+                      <p className="mt-1 text-muted">
+                        Outcome: {rep.outcome}
+                        {rep.weeks && rep.weeks !== "still waiting" ? `, after ${weeksText(rep.weeks)}` : ""}
+                      </p>
                       {rep.notes && <p className="mt-1 text-muted">{rep.notes}</p>}
                     </li>
                   ))}

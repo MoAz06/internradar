@@ -2,6 +2,10 @@ import type { Field, RoleKind, Status } from "../data/types.ts";
 
 /** One role as the search list on the home page needs it. Built at build time, so it holds no functions. */
 export type Item = {
+  /** Day the role was added to the list, from the git history. */
+  added: string;
+  /** Added in the last 7 days, after the starting set. */
+  fresh: boolean;
   id: string;
   /** Short, stable code for the id, used in "open on another device" links. */
   key: string;

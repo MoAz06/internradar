@@ -47,4 +47,8 @@ export const links = {
   contributing: "https://github.com/MoAz06/internradar/blob/master/CONTRIBUTING.md",
   shareProcess:
     "https://github.com/MoAz06/internradar/issues/new?template=share-your-process.yml",
+  /** The share form without an account (Tally). Empty until it exists; the GitHub form is used meanwhile. */
+  shareForm: "",
+  /** Buttondown username for email updates. Empty until the account exists; the alerts page hides the email form until then. */
+  newsletter: "",
 };

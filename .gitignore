@@ -7,3 +7,5 @@ site/next-env.d.ts
 *.tsbuildinfo
 site/.linkcheck.json
 site/.linkcheck.md
+site/.discover.json
+site/.discover.md

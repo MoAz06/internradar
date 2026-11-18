@@ -1,3 +1,4 @@
+import { shareUrl } from "@/lib/share";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
@@ -66,7 +67,7 @@ export default function About() {
         </p>
         <p className="mt-3 text-[15px] leading-[1.6] text-muted">
           Went through one of these processes?{" "}
-          <a href={links.shareProcess} target="_blank" rel="noreferrer" className="link">
+          <a href={shareUrl()} target="_blank" rel="noreferrer" className="link">
             Share how it went
             <NewTab />
           </a>

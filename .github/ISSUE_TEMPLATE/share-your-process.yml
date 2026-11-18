@@ -41,6 +41,23 @@ body:
         Waiting
     validations:
       required: true
+  - type: input
+    id: test
+    attributes:
+      label: The online test, if there was one
+      description: Platform, length and kind of problems. Not the questions.
+      placeholder: HackerRank, 90 minutes, three coding problems
+  - type: dropdown
+    id: weeks
+    attributes:
+      label: Weeks from applying to the final answer
+      options:
+        - under 1
+        - 1-2
+        - 3-4
+        - 5-8
+        - more than 8
+        - still waiting
   - type: dropdown
     id: outcome
     attributes:

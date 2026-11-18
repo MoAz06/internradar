@@ -11,7 +11,7 @@ import { live, upcoming } from "@/lib/live";
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-const pages = ["home", "edition", "radar", "reapply", "calendar", "about", "companies"];
+const pages = ["home", "edition", "radar", "reapply", "share", "alerts", "calendar", "about", "companies"];
 
 export function generateStaticParams() {
   return [...pages, ...companies.map((c) => c.slug)].map((p) => ({ file: `${p}.png` }));
@@ -64,6 +64,10 @@ function text(page: string) {
       head: "When can you apply again after a rejection?",
       sub: `${reapplyRules.length} companies say it on their own pages. Shell turns a second try within 10 months down automatically.`,
     };
+  if (page === "share")
+    return { kicker: "Share your process", head: "How did your application go?", sub: "The steps, how long each took, and the outcome. It helps the next person. No questions, no names." };
+  if (page === "alerts")
+    return { kicker: "Alerts", head: "Know when something opens", sub: "New roles and deadlines in your calendar, feed reader or inbox, per country or per company." };
   if (page === "calendar")
     return { kicker: "Deadlines", head: "Every deadline in your own calendar", sub: "Google Calendar, Apple Calendar or Outlook. Subscribe once, it updates itself." };
   if (page === "about")

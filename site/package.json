@@ -9,7 +9,10 @@
     "lint": "next lint",
     "gen": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/generate.mts",
     "check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/generate.mts --check",
-    "linkcheck": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/linkcheck.mts"
+    "linkcheck": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/linkcheck.mts",
+    "discover": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/discover.mts",
+    "history": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/history.mts",
+    "import-reports": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/import-reports.mts"
   },
   "dependencies": {
     "next": "16.2.4",

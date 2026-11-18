@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { lastChecked, links } from "@/data/companies";
+import { lastChecked } from "@/data/companies";
 import { longDate } from "@/lib/format";
-import NewTab from "@/components/NewTab";
 
 const items = [
   { href: "/", label: "Front page" },
   { href: "/edition/", label: "This week" },
   { href: "/radar/", label: "On the radar" },
   { href: "/companies/", label: "Companies" },
-  { href: "/calendar/", label: "Calendar" },
+  { href: "/alerts/", label: "Alerts" },
   { href: "/about/", label: "About" },
 ];
 
@@ -33,10 +32,9 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a href={links.shareProcess} target="_blank" rel="noreferrer" className="py-1 hover:underline" data-track="share-process">
+            <Link href="/share/" className="py-1 hover:underline" data-track="share-process">
               Share your process
-              <NewTab />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

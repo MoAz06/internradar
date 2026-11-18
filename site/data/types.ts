@@ -32,6 +32,12 @@ export type CandidateReport = {
   timeline: string[];
   outcome: string;
   notes?: string;
+  /** Weeks from applying to the final answer, as picked in the form. */
+  weeks?: "under 1" | "1-2" | "3-4" | "5-8" | "more than 8" | "still waiting";
+  /** The online test in a few words: platform, length, what kind. Never the questions. */
+  test?: string;
+  /** Day the report was added to the list. */
+  added?: string;
 };
 
 export type Company = {

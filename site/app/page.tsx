@@ -1,3 +1,4 @@
+import { shareUrl } from "@/lib/share";
 import Link from "next/link";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
@@ -222,7 +223,7 @@ export default function Home() {
       <Section className="pb-14">
         <p className="border-t border-line pt-4 text-[16px] text-muted">
           Went through one of these processes?{" "}
-          <a href={links.shareProcess} target="_blank" rel="noreferrer" className="link">
+          <a href={shareUrl()} target="_blank" rel="noreferrer" className="link">
             Share how it went
             <NewTab />
           </a>
