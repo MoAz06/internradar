@@ -1,0 +1,27 @@
+name: Weekly mail
+
+# Every Monday the weekly edition goes to Buttondown, after the night's deploy (03:30 UTC) has made the new feed.xml.
+# Repo variable MAIL_STATUS: draft (default) leaves a draft to send by hand, about_to_send sends it.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mail:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/mail-edition.mts
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          MAIL_STATUS: ${{ vars.MAIL_STATUS }}
