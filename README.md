@@ -246,9 +246,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Barclays](companies/barclays-london.md) | 2027 Technology Developer Summer Internship Programme London | London and Glasgow | 🟢 until 27 Nov | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 17 Nov |
 | [Barclays](companies/barclays-london.md) | 2027 Technology Developer Graduate Programme Glasgow | London and Glasgow | 🟢 until 27 Nov | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 17 Nov |
 | [Barclays](companies/barclays-london.md) | 2027 Technology Developer Summer Internship Programme Glasgow | London and Glasgow | 🟢 until 27 Nov | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 17 Nov |
-| [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineer Graduate Scheme | Leeds | 🟢 | – | 130-minute online coding assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
-| [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Data Science & AI Graduate Scheme | Leeds | 🟢 | – | 120-minute online assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
-| [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineering Industrial Placement (Leeds) | Leeds | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineer Graduate Scheme | Leeds | 🟢 until 29 Nov | – | 130-minute online coding assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Data Science & AI Graduate Scheme | Leeds | 🟢 until 29 Nov | – | 120-minute online assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
+| [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineering Industrial Placement (Leeds) | Leeds | 🟢 until 29 Nov | – | Not stated | Not stated | 17 Nov |
 | [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Cyber Security Engineer Graduate Scheme | Leeds | 🟢 until 29 Nov | – | 130-minute online assessment, job insight assessment, virtual assessment day | One application per year | 18 Nov |
 | [HSBC](companies/hsbc-sheffield.md) | Engineering - Graduate | Sheffield and London | 🟢 until 29 Nov | 26 July 2027 | Not stated | Not stated | 17 Nov |
 | [HSBC](companies/hsbc-sheffield.md) | Data Analyst - Quantitative Finance - Internship | Sheffield and London | 🟢 until 4 Dec | 21 June 2027 | Not stated | Not stated | 17 Nov |
@@ -454,8 +454,8 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Mistral AI](companies/mistral-ai-paris.md) | Applied AI, Forward Deployed Machine Learning Engineer - (Internship) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Mistral AI](companies/mistral-ai-paris.md) | Applied Scientist (Internship) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Mistral AI](companies/mistral-ai-paris.md) | AI Scientist - (Internship, Masters or Phd) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
-| [Google](companies/google-paris.md) | Research Scientist PhD Intern, 2027 | Paris | 🟢 | May, June or July 2027 | Not stated | Not stated | 17 Nov |
-| [Google](companies/google-paris.md) | Student Researcher, 2027 | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Google](companies/google-paris.md) | Research Scientist PhD Intern, 2027 | Paris | 🟢 until 14 Dec | May, June or July 2027 | Not stated | Not stated | 17 Nov |
+| [Google](companies/google-paris.md) | Student Researcher, 2027 | Paris | 🟢 until 13 Dec | – | Not stated | Not stated | 17 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, FAIR - Multimodal Foundations (PhD) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (PhD) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (MSc) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |

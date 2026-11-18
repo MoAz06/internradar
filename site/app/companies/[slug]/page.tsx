@@ -16,7 +16,10 @@ import type { CandidateReport } from "@/data/types";
 import { buildItems } from "@/lib/buildItems";
 import { eventsFor } from "@/lib/ics";
 import { historyStart } from "@/data/history";
+import { opened } from "@/data/opened";
 import AddToCalendar from "@/components/AddToCalendar";
+import EmailSignup from "@/components/EmailSignup";
+import { cityPages, citiesOf } from "@/lib/landing";
 
 type Params = { slug: string };
 
@@ -60,6 +63,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   if (!c) notFound();
   const checked = c.sources.map((s) => s.checked).sort().at(-1) ?? "";
   const share = shareUrl(c.slug);
+  const cities = cityPages().filter((p) => citiesOf(c.city).some((x) => x.slug === p.slug));
   const follow = calendarLinks(`/calendar/companies/${c.slug}.ics`, `internradar, ${c.name}`);
   const summary = reportSummary(c.reports);
   const now = today();
@@ -188,6 +192,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                       if (!x) return null;
                       return (
                         <>
+                          {opened[r.source] && <span className="mt-1 block text-[13px] text-muted">Posted on {longDate(opened[r.source])}</span>}
                           {x.added > historyStart && <span className="mt-1 block text-[13px] text-muted">On the list since {longDate(x.added)}</span>}
                           <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} className="mt-1 text-[13px]" />
                         </>
@@ -285,6 +290,29 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                 ))}
               </ul>
             </div>
+            {links.newsletter && (
+              <div>
+                <h2 className="text-base font-bold">New roles by email</h2>
+                <p className="mt-1.5 text-sm leading-6 text-muted">
+                  One email a week with the new roles at {c.name} and the other companies, and what closes soon.
+                </p>
+                <EmailSignup id="company-email" track="company-email" className="mt-2.5" />
+              </div>
+            )}
+            {cities.length > 0 && (
+              <div>
+                <h2 className="text-base font-bold">More roles nearby</h2>
+                <ul className="mt-2.5 list-disc space-y-2 pl-5 text-sm leading-6">
+                  {cities.map((p) => (
+                    <li key={p.slug}>
+                      <Link href={`/cities/${p.slug}/`} className="link">
+                        All {p.items.length} roles in {p.city}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </Section>

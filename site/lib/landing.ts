@@ -1,0 +1,69 @@
+// The city and field pages: which ones exist, and their roles. A city gets a page once it has at least
+// MIN roles that are open or open soon, at two companies or more, so there are no near-empty pages and no
+// page that only repeats one company page.
+
+import type { Field } from "../data/types.ts";
+import { buildItems } from "./buildItems.ts";
+import { fields, fold, type Item } from "./items.ts";
+
+const MIN = 3;
+
+export const slugOf = (s: string) =>
+  fold(s)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const current = (items: Item[]) => items.filter((x) => x.status !== "closed");
+
+export type CityPage = { slug: string; city: string; countryName: string; items: Item[]; companies: number };
+
+/** Other spellings and districts that belong to a city's page. */
+const sameAs: Record<string, string> = { munchen: "munich", "la-defense": "paris", "zurich-ruschlikon": "zurich" };
+const shown: Record<string, string> = { munich: "Munich", paris: "Paris", zurich: "Zurich" };
+
+/** The cities in a role's place: "Paris and Lyon" is two, "Stuttgart area (Sindelfingen)" is Stuttgart. */
+export function citiesOf(place: string): { slug: string; city: string }[] {
+  return place
+    .replace(/\([^)]*\)/g, "")
+    .split(/,| and | or |\//)
+    .map((x) => x.trim().replace(/ area$/i, ""))
+    .filter((x) => x && x.split(" ").length <= 3 && !/^(europe|remote|hybrid)$/i.test(x))
+    .map((city) => {
+      const slug = sameAs[slugOf(city)] ?? slugOf(city);
+      return { slug, city: shown[slug] ?? city };
+    });
+}
+
+export function cityPages(): CityPage[] {
+  const byCity = new Map<string, { city: string; items: Item[] }>();
+  for (const x of current(buildItems())) {
+    for (const { slug, city } of citiesOf(x.city)) {
+      const page = byCity.get(slug) ?? { city, items: [] };
+      if (!page.items.includes(x)) page.items.push(x);
+      byCity.set(slug, page);
+    }
+  }
+  return [...byCity.entries()]
+    .filter(([, p]) => p.items.length >= MIN && new Set(p.items.map((x) => x.slug)).size >= 2)
+    .map(([slug, p]) => ({ slug, city: p.city, countryName: p.items[0].countryName, items: p.items, companies: new Set(p.items.map((x) => x.slug)).size }))
+    .sort((a, b) => b.items.length - a.items.length || a.city.localeCompare(b.city));
+}
+
+/** How a field reads in a headline. */
+export const fieldTitle: Record<Field, string> = {
+  Software: "Software engineering",
+  "Data and AI": "Data and AI",
+  Quant: "Quant",
+  "Hardware and embedded": "Hardware and embedded",
+  "Other tech": "Other tech",
+};
+
+export type FieldPage = { slug: string; field: Field; items: Item[]; companies: number };
+
+export function fieldPages(): FieldPage[] {
+  const items = current(buildItems());
+  return fields.map((field) => {
+    const here = items.filter((x) => x.field === field);
+    return { slug: slugOf(field), field, items: here, companies: new Set(here.map((x) => x.slug)).size };
+  });
+}

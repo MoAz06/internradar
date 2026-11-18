@@ -9,6 +9,7 @@ site/.linkcheck.json
 site/.linkcheck.md
 site/.discover.json
 site/.discover.md
+site/.opened.json
 
 # wrangler cache
 .wrangler/

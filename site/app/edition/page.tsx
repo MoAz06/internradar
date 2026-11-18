@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
-import NewTab from "@/components/NewTab";
-import AddToCalendar from "@/components/AddToCalendar";
-import { eventsFor } from "@/lib/ics";
+import RoleList from "@/components/RoleList";
 import { edition } from "@/lib/edition";
-import type { Item } from "@/lib/items";
 import { og } from "@/lib/og";
 
 export const metadata: Metadata = {
@@ -14,33 +11,6 @@ export const metadata: Metadata = {
   ...og("This week on internradar", "Internship deadlines that close this week and next, and what opens soon, across Europe.", "edition", "/edition/"),
   alternates: { types: { "application/rss+xml": "/feed.xml" } },
 };
-
-function Roles({ list, empty }: { list: Item[]; empty: string }) {
-  if (list.length === 0) return <p className="mt-2 text-[16px] text-muted">{empty}</p>;
-  return (
-    <ul className="mt-1">
-      {list.map((x) => (
-        <li key={x.id} className="border-t border-line py-2.5 first:border-t-0">
-          <p className="text-[13px] font-semibold text-soon">{x.when}</p>
-          <p className="font-display text-[17px] leading-snug font-bold">
-            <Link href={`/companies/${x.slug}/`} className="hover:underline">
-              {x.company}
-            </Link>
-            : {x.title}
-          </p>
-          <p className="mt-0.5 text-[15px] text-muted">
-            {x.city}, {x.countryName}.{" "}
-            <a href={x.source} target="_blank" rel="noreferrer" className="link">
-              Posting
-              <NewTab />
-            </a>
-          </p>
-          <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} className="mt-1 text-[14px]" />
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 export default function Edition() {
   const e = edition();
@@ -66,13 +36,13 @@ export default function Edition() {
       <div className="mt-7 grid gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
         <div className="lg:border-r lg:border-line lg:pr-7">
           <h2 className="text-[20px] font-bold">Closing this week</h2>
-          <Roles list={e.closingThis} empty="Nothing with a deadline in the next seven days." />
+          <RoleList list={e.closingThis} empty="Nothing with a deadline in the next seven days." />
           <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">Closing next week</h2>
-          <Roles list={e.closingNext} empty="Nothing with a deadline the week after." />
+          <RoleList list={e.closingNext} empty="Nothing with a deadline the week after." />
         </div>
         <div className="lg:pl-7">
           <h2 className="text-[20px] font-bold">Opening soon</h2>
-          <Roles list={e.opening} empty="No role is marked as opening soon." />
+          <RoleList list={e.opening} empty="No role is marked as opening soon." />
           <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">On the radar</h2>
           <ul className="mt-1">
             {e.radarNext.map((r) => (

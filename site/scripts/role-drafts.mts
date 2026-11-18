@@ -61,6 +61,29 @@ async function postingText(f: Found): Promise<string> {
       .map((s) => `${s.title ?? ""}\n${htmlToText(s.text ?? "")}`)
       .join("\n");
   }
+  if (b.ats === "amazon") {
+    // the job page is a web app; the search finds the job by its number and carries the whole text
+    const d = await json<{ jobs: { id_icims: string; description?: string; basic_qualifications?: string; preferred_qualifications?: string }[] }>(
+      `https://www.amazon.jobs/en/search.json?base_query=${f.ref}&result_limit=5`,
+    );
+    const j = d?.jobs.find((x) => x.id_icims === f.ref);
+    return j
+      ? [j.description, `Basic qualifications\n${j.basic_qualifications ?? ""}`, `Preferred qualifications\n${j.preferred_qualifications ?? ""}`].map((s) => htmlToText(s ?? "")).join("\n")
+      : "";
+  }
+  if (b.ats === "oracle") {
+    const d = await json<{ items: Record<string, string | undefined>[] }>(
+      `${b.origin}/hcmRestApi/resources/latest/recruitingCEJobRequisitionDetails?expand=all&onlyData=true&finder=ById;Id=%22${f.ref}%22,siteNumber=${b.site}`,
+    );
+    const j = d?.items?.[0];
+    return j
+      ? ["ExternalDescriptionStr", "ExternalResponsibilitiesStr", "ExternalQualificationsStr"].map((k) => htmlToText(j[k] ?? "")).join("\n")
+      : "";
+  }
+  if (b.ats === "eightfold") {
+    const d = await json<{ data?: { jobDescription?: string } }>(`${b.origin}/api/pcsx/position_details?position_id=${f.ref}&domain=${b.domain}`);
+    return d?.data?.jobDescription ? htmlToText(d.data.jobDescription) : "";
+  }
   const d = await json<{ jobPostingInfo?: { jobDescription?: string } }>(`${b.origin}/wday/cxs/${b.tenant}/${b.site}${f.ref}`);
   return d?.jobPostingInfo?.jobDescription ? htmlToText(d.jobPostingInfo.jobDescription) : "";
 }

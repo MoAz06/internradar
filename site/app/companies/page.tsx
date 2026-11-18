@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import { companies, countries } from "@/data/companies";
 import { live } from "@/lib/live";
 import { og } from "@/lib/og";
+import { cityPages, fieldPages, fieldTitle } from "@/lib/landing";
 
 export const metadata: Metadata = {
   title: "All companies",
@@ -19,6 +20,22 @@ export default function Companies() {
         <p className="mt-2 text-[15px] text-muted">
           {companies.length} companies in {countries.filter((k) => companies.some((c) => c.country === k.code)).length}{" "}
           countries. Each page has the roles, the process as the company describes it, the re-apply rule and the sources.
+        </p>
+        <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
+          <span className="font-semibold">Roles by city:</span>
+          {cityPages().map((p) => (
+            <Link key={p.slug} href={`/cities/${p.slug}/`} className="link">
+              {p.city}
+            </Link>
+          ))}
+        </p>
+        <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
+          <span className="font-semibold">Roles by field:</span>
+          {fieldPages().map((p) => (
+            <Link key={p.slug} href={`/fields/${p.slug}/`} className="link">
+              {fieldTitle[p.field]}
+            </Link>
+          ))}
         </p>
       </Section>
       <Section className="pb-16">

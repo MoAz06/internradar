@@ -35,6 +35,7 @@ const body = [
   `<p>The deadlines for this week and next, from <a href="https://internradar.eu/edition/">internradar.eu</a>.</p>`,
   unescape(tag(item, "description")),
   `<p>Every role with its hiring process: <a href="https://internradar.eu/">internradar.eu</a></p>`,
+  `<p>Went through one of these processes? Tell me the steps, how long it took and how it ended at <a href="https://internradar.eu/share/">internradar.eu/share</a>. It shows up on the company page without your name, so the next person knows what to expect.</p>`,
 ].join("\n");
 
 if (dry) {

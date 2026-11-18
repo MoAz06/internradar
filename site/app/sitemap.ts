@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { companies, lastChecked } from "@/data/companies";
+import { cityPages, fieldPages } from "@/lib/landing";
 
 export const dynamic = "force-static";
 
@@ -16,5 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: c.sources.map((s) => s.checked).sort().at(-1) ?? lastChecked,
     changeFrequency: "weekly" as const,
   }));
-  return [...pages, ...perCompany];
+  const landing = [...cityPages().map((p) => `/cities/${p.slug}/`), ...fieldPages().map((p) => `/fields/${p.slug}/`)].map((p) => ({
+    url: `${site}${p}`,
+    lastModified: lastChecked,
+    changeFrequency: "weekly" as const,
+  }));
+  return [...pages, ...landing, ...perCompany];
 }

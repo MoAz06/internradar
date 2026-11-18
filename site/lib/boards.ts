@@ -8,9 +8,22 @@ export type Board =
   | { ats: "lever"; board: string; eu: boolean }
   | { ats: "ashby"; board: string }
   | { ats: "smartrecruiters"; board: string }
-  | { ats: "workday"; origin: string; tenant: string; site: string };
+  | { ats: "workday"; origin: string; tenant: string; site: string }
+  | { ats: "amazon" }
+  | { ats: "oracle"; origin: string; site: string }
+  | { ats: "eightfold"; origin: string; domain: string };
 
-export const boardKey = (b: Board) => (b.ats === "workday" ? `workday:${b.tenant}/${b.site}` : `${b.ats}:${b.board.toLowerCase()}`);
+/** Eightfold career sites and the domain their search API wants. Only sites whose public search answers us
+ * (Microsoft's answers 429 to every request, so it isn't here). */
+const eightfold: Record<string, string> = { "careers.qualcomm.com": "qualcomm.com" };
+
+export function boardKey(b: Board): string {
+  if (b.ats === "workday") return `workday:${b.tenant}/${b.site}`;
+  if (b.ats === "amazon") return "amazon";
+  if (b.ats === "oracle") return `oracle:${new URL(b.origin).hostname}/${b.site}`;
+  if (b.ats === "eightfold") return `eightfold:${b.domain}`;
+  return `${b.ats}:${b.board.toLowerCase()}`;
+}
 
 export function boardOf(url: string): Board | null {
   let u: URL;
@@ -32,6 +45,12 @@ export function boardOf(url: string): Board | null {
   if (h === "jobs.ashbyhq.com") return parts[0] ? { ats: "ashby", board: parts[0] } : null;
   if (h === "jobs.smartrecruiters.com" || h === "careers.smartrecruiters.com") return parts[0] ? { ats: "smartrecruiters", board: parts[0] } : null;
   if (h === "api.smartrecruiters.com" && parts[2]) return { ats: "smartrecruiters", board: parts[2] };
+  if (h === "amazon.jobs" || h === "www.amazon.jobs") return { ats: "amazon" };
+  if (h.endsWith(".oraclecloud.com")) {
+    const site = u.pathname.match(/\/sites\/([^/]+)/)?.[1];
+    return site ? { ats: "oracle", origin: u.origin, site } : null;
+  }
+  if (eightfold[h]) return { ats: "eightfold", origin: u.origin, domain: eightfold[h] };
   const wd = h.match(/^([^.]+)\.wd\d+\.myworkdayjobs\.com$/);
   if (wd) {
     const p = parts.filter((x) => !/^[a-z]{2}-[A-Z]{2}$/.test(x));
@@ -47,6 +66,8 @@ export function jobId(url: string): string | null {
     url.match(/[?&]token=(\d+)/) ??
     url.match(/[?&]gh_jid=(\d+)/) ??
     url.match(/\/jobs\/(\d{5,})/) ??
+    // Oracle: /sites/CX_1001/job/210806793, before the rule below picks the site number
+    url.match(/\/job\/(\d{5,})(?:[/?#]|$)/) ??
     url.match(/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i) ??
     url.match(/_([A-Z]{0,4}[-_]?\d{4,}(?:-\d+)?)(?:[/?#]|$)/) ??
     url.match(/\/(\d{9,})(?:[-/?#]|$)/);
