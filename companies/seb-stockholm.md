@@ -7,6 +7,7 @@ Careers page: https://sebgroup.com/career/graduates-and-students/tech-trainee-pr
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| SEB Tech Trainee Programme 2027-28: AI Research Analyst | Open until 10 Jan 2027, 23:59 CET | 1 September 2027 | Six months (programme part) | Graduated in the past two years or graduating before 1 Sep 2027, from a relevant degree or a two-year IT or tech vocational education; work in English; CS background | [link](https://jobs.eu.lever.co/seb/6bb6f12e-d9ef-4a9b-9806-2cde4fee402d) | 2026-11-18 |
 | SEB Tech Trainee Programme 2027-28: Junior Engineer – AI, Innovation & Cross-Team Delivery | Open until 10 Jan 2027, 23:59 CET | 1 September 2027 | Six months (programme part) | Graduated in the past two years or graduating before 1 Sep 2027, from a relevant degree or a two-year IT or tech vocational education; work in English | [link](https://jobs.eu.lever.co/seb/99dc8ec0-0b41-487d-8f3a-c4e3fd25ce8a) | 2026-11-18 |
 | SEB Tech Trainee Programme 2027-28: Full stack developer | Open until 10 Jan 2027, 23:59 CET | 1 September 2027 | Six months (programme part) | Graduated in the past two years or graduating before 1 Sep 2027, from a relevant degree or a two-year IT or tech vocational education; work in English | [link](https://jobs.eu.lever.co/seb/1039d993-9555-4441-b58d-3f062e19fce9) | 2026-11-17 |
 | SEB Tech Trainee Programme 2027-28: Solution Developer - backend | Open until 10 Jan 2027, 23:59 CET | 1 September 2027 | Six months (programme part) | Graduated in the past two years or graduating before 1 Sep 2027, from a relevant degree or a two-year IT or tech vocational education; work in English | [link](https://jobs.eu.lever.co/seb/e62b0eb1-9461-42a2-b447-82b1c4a5d38e) | 2026-11-17 |
@@ -52,5 +53,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://jobs.eu.lever.co/seb/a1999747-c813-4e3b-bb5c-219fae84d38a checked 2026-11-17
 - https://jobs.eu.lever.co/seb/45249e94-5b38-43f2-8e01-9a3487c8ee67 checked 2026-11-17
 - https://jobs.eu.lever.co/seb/99dc8ec0-0b41-487d-8f3a-c4e3fd25ce8a checked 2026-11-18
+- https://jobs.eu.lever.co/seb/6bb6f12e-d9ef-4a9b-9806-2cde4fee402d checked 2026-11-18
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

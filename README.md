@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-531-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-172-blue) ![roles](https://img.shields.io/badge/roles-532-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -500,6 +500,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Nordea](companies/nordea-stockholm.md) | Associate Forward Deployed AI Scientist | Stockholm | 🟢 until 30 Dec | – | Not stated | Not stated | 17 Nov |
 | [Scania](companies/scania-sodertalje.md) | Summer job 2027 in Södertälje: IT | Södertälje | 🟡 12 Jan 2027, closes 28 Feb 2027 | – | Not stated | Not stated | 17 Nov |
 | [Scania](companies/scania-sodertalje.md) | Summer job 2027 in Södertälje: Research and Development (Scania or TRATON) | Södertälje | 🟡 12 Jan 2027, closes 28 Feb 2027 | – | Not stated | Not stated | 17 Nov |
+| [SEB](companies/seb-stockholm.md) | SEB Tech Trainee Programme 2027-28: AI Research Analyst | Stockholm | 🟢 until 10 Jan | 1 September 2027 | Psychometric tests, interviews (digital and on-site), case exercise and presentation, SEB Day; background check for finalists | Not stated | 18 Nov |
 | [SEB](companies/seb-stockholm.md) | SEB Tech Trainee Programme 2027-28: Junior Engineer – AI, Innovation & Cross-Team Delivery | Stockholm | 🟢 until 10 Jan | 1 September 2027 | Psychometric tests, interviews (digital and on-site), case exercise and presentation, SEB Day; background check for finalists | Not stated | 18 Nov |
 | [SEB](companies/seb-stockholm.md) | SEB Tech Trainee Programme 2027-28: Full stack developer | Stockholm | 🟢 until 10 Jan | 1 September 2027 | Psychometric tests, interviews (digital and on-site), case exercise and presentation, SEB Day; background check for finalists | Not stated | 17 Nov |
 | [SEB](companies/seb-stockholm.md) | SEB Tech Trainee Programme 2027-28: Solution Developer - backend | Stockholm | 🟢 until 10 Jan | 1 September 2027 | Psychometric tests, interviews (digital and on-site), case exercise and presentation, SEB Day; background check for finalists | Not stated | 17 Nov |
