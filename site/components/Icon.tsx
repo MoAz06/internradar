@@ -41,13 +41,28 @@ const paths: Record<string, React.ReactNode> = {
   ),
   filter: <path d="M4 7h10M18 7h2M4 17h4M12 17h8M14 5v4M8 15v4" />,
   install: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
+  sun: (
+    <>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4" />
+    </>
+  ),
+  chevron: <path d="M6 9l6 6 6-6" />,
 };
 
-export default function Icon({ name, className = "h-[18px] w-[18px]" }: { name: keyof typeof paths; className?: string }) {
+export default function Icon({
+  name,
+  className = "h-[18px] w-[18px]",
+  filled = false,
+}: {
+  name: keyof typeof paths;
+  className?: string;
+  filled?: boolean;
+}) {
   return (
     <svg
       viewBox="0 0 24 24"
-      fill="none"
+      fill={filled ? "currentColor" : "none"}
       stroke="currentColor"
       strokeWidth="1.8"
       strokeLinecap="round"

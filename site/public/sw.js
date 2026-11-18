@@ -2,8 +2,8 @@
 // the cache only answers when there's no connection. Files under /_next/static/ never change (their names
 // have a hash), so those come from the cache first. Other sites (the visit counter, job boards) are left alone.
 
-const CACHE = "internradar-v1";
-const START = ["/", "/mine/"];
+const CACHE = "internradar-v2";
+const START = ["/", "/today/", "/mine/"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

@@ -39,6 +39,23 @@ export type Item = {
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];
 export const fields: Field[] = ["Software", "Data and AI", "Quant", "Hardware and embedded", "Other tech"];
 
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** The status in two or three words, for narrow rows: "3 days", "12 Dec", "Rolling", "Opens Jan 2027".
+ * `left` overrides the days counted at build time, for pages that count from the visitor's own today. */
+export function shortWhen(x: Pick<Item, "status" | "when" | "daysLeft" | "closes">, left = x.daysLeft): string {
+  if (x.status === "closed") return "Closed";
+  if (x.status === "soon") return x.when;
+  if (left !== null && x.closes) {
+    if (left <= 0) return "Today";
+    if (left === 1) return "Tomorrow";
+    if (left <= 14) return `${left} days`;
+    const [, m, d] = x.closes.split("-").map(Number);
+    return `${d} ${monthNames[m - 1]}`;
+  }
+  return x.status === "rolling" ? "Rolling" : "Open";
+}
+
 /** Words for searching: lower case, accents stripped, so "zurich" finds "Zürich". */
 export function fold(s: string): string {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();

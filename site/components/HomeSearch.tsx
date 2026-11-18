@@ -14,7 +14,7 @@ export default function HomeSearch({
 }) {
   const [q, setQ] = useState("");
   return (
-    <div className="mt-4 border border-line bg-surface p-3">
+    <div className="mt-4 border border-line bg-surface p-3 max-md:hidden">
       <form
         action="/"
         method="get"

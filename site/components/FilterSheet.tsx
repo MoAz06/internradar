@@ -29,20 +29,20 @@ export default function FilterSheet({
   set,
   countries,
   count,
-  newCount,
+  counts,
 }: {
   f: SheetFilters;
   set: (patch: Partial<SheetFilters>) => void;
   countries: CountryOption[];
   count: number;
-  newCount: number;
+  counts: { open: number; soon: number; new: number };
 }) {
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   const sheet = useRef<HTMLDivElement>(null);
 
   const on: { label: string; clear: Partial<SheetFilters> }[] = [
-    ...(f.status !== "open" ? [{ label: statusNames[f.status], clear: { status: "open" as Status } }] : []),
+    ...(f.status === "all" ? [{ label: statusNames.all, clear: { status: "open" as Status } }] : []),
     ...(f.kind ? [{ label: f.kind, clear: { kind: "" } }] : []),
     ...(f.field ? [{ label: f.field, clear: { field: "" } }] : []),
     ...(f.country ? [{ label: countries.find((k) => k.code === f.country)?.name ?? f.country, clear: { country: "" } }] : []),
@@ -77,25 +77,38 @@ export default function FilterSheet({
 
   return (
     <div className="md:hidden">
-      <div className="flex gap-2 overflow-x-auto [scrollbar-width:none]">
+      <div className="flex flex-wrap gap-1.5">
         <button
           ref={button}
           type="button"
           onClick={() => setOpen(true)}
           aria-expanded={open}
           aria-controls="filters"
-          className="flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-muted bg-surface px-3 text-[15px] font-semibold text-ink"
+          className="flex h-9 shrink-0 items-center gap-1 rounded-full border border-muted bg-surface px-2.5 text-[14px] font-semibold text-ink"
           data-track="filters-open"
         >
           <Icon name="filter" />
           Filters{on.length ? ` ${on.length}` : ""}
         </button>
+        {(["open", "soon", "new"] as const).map((s) => (
+          <button
+            key={s}
+            type="button"
+            aria-pressed={f.status === s}
+            onClick={() => set({ status: s })}
+            className={`h-9 shrink-0 rounded-full border px-2.5 text-[14px] whitespace-nowrap ${
+              f.status === s ? "border-ink bg-ink font-semibold text-white" : "border-line bg-surface text-ink"
+            }`}
+          >
+            {s === "open" ? "Open" : s === "soon" ? "Soon" : "New"} <span className={f.status === s ? "" : "text-dim"}>{counts[s]}</span>
+          </button>
+        ))}
         {on.map((x) => (
           <button
             key={x.label}
             type="button"
             onClick={() => set(x.clear)}
-            className="flex h-9 shrink-0 items-center gap-1 rounded-full bg-raised px-3 text-[15px] font-semibold whitespace-nowrap text-ink"
+            className="flex h-9 shrink-0 items-center gap-1 rounded-full bg-raised px-2.5 text-[14px] font-semibold whitespace-nowrap text-ink"
           >
             {x.label}
             <Icon name="x" className="h-4 w-4" />
@@ -134,7 +147,7 @@ export default function FilterSheet({
             <div className="mt-1 flex flex-wrap gap-1.5">
               {(["open", "soon", "new", "all"] as Status[]).map((s) => (
                 <Chip key={s} on={f.status === s} onClick={() => set({ status: s })}>
-                  {s === "open" ? "Open" : s === "soon" ? "Soon" : s === "new" ? `New${newCount ? ` ${newCount}` : ""}` : "All"}
+                  {s === "open" ? `Open ${counts.open}` : s === "soon" ? `Soon ${counts.soon}` : s === "new" ? `New ${counts.new}` : "All"}
                 </Chip>
               ))}
             </div>

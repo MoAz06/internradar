@@ -136,15 +136,16 @@ export default function Home() {
 
   return (
     <>
-      <Section className="pt-6 pb-8 sm:pt-8">
-        <h1 className="max-w-[900px] text-[26px] leading-tight font-bold text-balance sm:text-[38px]">
+      {/* phones get the list first: one line on top, the stories and the radar move below the list */}
+      <Section className="pt-6 pb-8 max-md:pt-3 max-md:pb-3 sm:pt-8">
+        <h1 className="max-w-[900px] text-[26px] leading-tight font-bold text-balance max-md:text-[15px] max-md:leading-snug max-md:font-normal max-md:text-muted sm:text-[38px]">
           Tech internships in Europe, and how each company hires
         </h1>
-        <p className="mt-2.5 max-w-[720px] text-[17px] leading-[1.55] text-muted text-pretty">
+        <p className="mt-2.5 max-w-[720px] text-[17px] leading-[1.55] text-muted text-pretty max-md:hidden">
           Deadlines, tests, and when you can apply again after a rejection, straight from each company&apos;s own
           page. I&apos;m a CS student in Leiden and I&apos;m applying too.
         </p>
-        <p className="mt-2 text-[14px] text-dim">
+        <p className="mt-2 text-[14px] text-dim max-md:hidden">
           <b className="font-semibold text-ink">{open.length}</b> open now · <b className="font-semibold text-ink">{soon}</b>{" "}
           opening soon · <b className="font-semibold text-ink">{companies.length}</b> companies ·{" "}
           <b className="font-semibold text-ink">{options.length}</b> countries
@@ -152,7 +153,7 @@ export default function Home() {
 
         <HomeSearch countries={openBy} total={options.length} />
 
-        <div className="mt-6 grid gap-7 border-t-2 border-ink pt-4 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-0">
+        <div className="mt-6 grid gap-7 border-t-2 border-ink pt-4 max-md:hidden lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-0">
           <div className="lg:border-r lg:border-line lg:pr-7">
             {story ? <ReapplyStory /> : lead ? <LeadRole lead={lead} /> : null}
             {!story && !lead && <p className="text-[17px] text-muted">No open role has a deadline right now.</p>}
@@ -216,11 +217,29 @@ export default function Home() {
       </Section>
 
       <Section className="pb-10">
-        <h2 className="mb-3 border-t-2 border-ink pt-3 text-[24px] font-bold">All roles</h2>
+        <h2 className="mb-3 border-t-2 border-ink pt-3 text-[24px] font-bold max-md:sr-only">All roles</h2>
         <RoleFinder items={items} countries={options} />
       </Section>
 
       <Section className="pb-14">
+        <div className="mb-5 border-t-2 border-ink pt-3 text-[16px] leading-[1.5] md:hidden">
+          <p>
+            {story
+              ? "Rejected by Shell? Apply again within 10 months and it's turned down automatically. "
+              : "When can you apply again after a rejection? "}
+            <Link href="/reapply/" className="link font-semibold">
+              Re-apply rules
+            </Link>
+          </p>
+          {next[0] && (
+            <p className="mt-2">
+              Opening next: {next[0].company}, {next[0].opens}.{" "}
+              <Link href="/radar/" className="link font-semibold">
+                All {next.length} on the radar
+              </Link>
+            </p>
+          )}
+        </div>
         <p className="border-t border-line pt-4 text-[16px] text-muted">
           Went through one of these processes?{" "}
           <Link href={shareUrl()} className="link">

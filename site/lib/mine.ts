@@ -60,6 +60,22 @@ export function localDay(): string {
   return new Date().toLocaleDateString("en-CA");
 }
 
+export const VISIT_KEY = "internradar:last-visit";
+
+/** The day of the visit before today, so pages can mark what's new since then. Counts today as a visit.
+ * A second look on the same day keeps the same answer. Null on a first visit or with blocked storage. */
+export function visitSince(): string | null {
+  try {
+    const day = localDay();
+    const v = JSON.parse(localStorage.getItem(VISIT_KEY) ?? "null") as { visit: string; since: string | null } | null;
+    const prev = v ? (v.visit === day ? v.since : v.visit) : null;
+    localStorage.setItem(VISIT_KEY, JSON.stringify({ visit: day, since: prev }));
+    return prev;
+  } catch {
+    return null;
+  }
+}
+
 /** The day `n` months or days after `iso`. */
 export function after(iso: string, months = 0, days = 0): string {
   const d = new Date(`${iso}T12:00:00Z`);

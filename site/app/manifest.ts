@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "internradar",
     short_name: "internradar",
     description: "Tech internships and new grad roles in Europe, with the hiring process at each company.",
-    start_url: "/",
+    start_url: "/today/",
     scope: "/",
     display: "standalone",
     background_color: "#fff1e5",
@@ -20,6 +20,7 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: "/icons/maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
     shortcuts: [
+      { name: "Roles", url: "/", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
       { name: "Saved", url: "/mine/", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
       { name: "This week", url: "/edition/", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
     ],

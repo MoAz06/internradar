@@ -71,6 +71,7 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
 
   const groups: Entry[][] = [
     [
+      { href: "/today/", label: "Today", icon: "sun" },
       { href: "/", label: "Roles", icon: "list", count: roles },
       { href: "/edition/", label: "This week", icon: "news" },
       { href: "/radar/", label: "Radar", icon: "radar", count: radar },
@@ -114,7 +115,8 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
           <Link href="/" className="font-display text-[26px] leading-none font-bold text-ink">
             internradar
           </Link>
-          <Link href="/mine/" className="relative flex h-11 w-11 items-center justify-center text-ink" data-track="to-mine">
+          {/* the installed app has a Saved tab at the bottom, so the header leaves it out there */}
+          <Link href="/mine/" className="relative flex h-11 w-11 items-center justify-center text-ink app:invisible" data-track="to-mine">
             <Icon name="bookmark" className="h-6 w-6" />
             {saved > 0 && (
               <span className="absolute top-1.5 right-0.5 min-w-[18px] rounded-full bg-claret px-1 text-center text-[11px] leading-[18px] font-bold text-white">

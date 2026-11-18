@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* the installed app on a phone: Chrome or Safari opened it from the home screen */
+@custom-variant app (@media (display-mode: standalone) and (width < 48rem));
+
 @theme {
   --color-bg: #fff1e5;
   --color-surface: #fff7ef;

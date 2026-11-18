@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { fields, fold, kinds, reportUrl, type Item } from "@/lib/items";
+import { fields, fold, kinds, reportUrl, shortWhen, type Item } from "@/lib/items";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
-import { readSaved, writeSaved } from "@/lib/mine";
+import { readSaved, visitSince, writeSaved } from "@/lib/mine";
 import FilterSheet from "@/components/FilterSheet";
+import Icon from "@/components/Icon";
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
 type StatusFilter = "open" | "soon" | "new" | "all";
@@ -16,7 +17,6 @@ type Filters = { q: string; status: StatusFilter; kind: string; field: string; c
 
 const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false };
 const PER_KEY = "internradar:per-page";
-const VISIT_KEY = "internradar:last-visit";
 const PER_PAGE = [25, 50, 75, 100];
 
 function Select({
@@ -93,15 +93,8 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       country: bySlug(p.get("country") ?? "") || fromHash,
       saved: false,
     });
-    try {
-      const today = new Date().toISOString().slice(0, 10);
-      const v = JSON.parse(localStorage.getItem(VISIT_KEY) ?? "null") as { visit: string; since: string | null } | null;
-      const prev = v ? (v.visit === today ? v.since : v.visit) : null;
-      localStorage.setItem(VISIT_KEY, JSON.stringify({ visit: today, since: prev }));
-      setSince(prev);
-    } catch {
-      // blocked storage: only "new this week" shows
-    }
+    // blocked storage gives null: then only "new this week" shows
+    setSince(visitSince());
     const perFromUrl = Number(p.get("per"));
     let perStored = 0;
     try {
@@ -185,12 +178,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   const isNew = (x: Item) => x.fresh || (since !== null && x.added > since && x.status !== "closed");
   const newCount = items.filter(isNew).length;
 
-  const shown = useMemo(() => {
+  // every filter except the status, so the status chips can say how many each one would show
+  const matched = useMemo(() => {
     const words = fold(f.q).split(/\s+/).filter(Boolean);
     return items.filter((x) => {
-      if (f.status === "open" && x.status !== "open" && x.status !== "rolling") return false;
-      if (f.status === "soon" && x.status !== "soon") return false;
-      if (f.status === "new" && !(x.fresh || (since !== null && x.added > since && x.status !== "closed"))) return false;
       if (f.kind && x.kind !== f.kind) return false;
       if (f.field && x.field !== f.field) return false;
       if (f.country && x.country !== f.country) return false;
@@ -201,7 +192,23 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       }
       return true;
     });
-  }, [items, f, saved, since]);
+  }, [items, f.q, f.kind, f.field, f.country, f.saved, saved]);
+
+  const shown = useMemo(
+    () =>
+      matched.filter((x) => {
+        if (f.status === "open") return x.status === "open" || x.status === "rolling";
+        if (f.status === "soon") return x.status === "soon";
+        if (f.status === "new") return x.fresh || (since !== null && x.added > since && x.status !== "closed");
+        return true;
+      }),
+    [matched, f.status, since],
+  );
+  const counts = {
+    open: matched.filter((x) => x.status === "open" || x.status === "rolling").length,
+    soon: matched.filter((x) => x.status === "soon").length,
+    new: matched.filter(isNew).length,
+  };
 
   const pages = Math.max(1, Math.ceil(shown.length / per));
   const cur = Math.min(page, pages);
@@ -283,7 +290,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           autoComplete="off"
           className="h-10 min-w-0 rounded-md border border-line bg-surface px-3 text-[15px] text-ink placeholder:text-dim hover:border-muted sm:min-w-[260px] sm:flex-1"
         />
-        <FilterSheet f={f} set={set} countries={countries} count={shown.length} newCount={newCount} />
+        <FilterSheet f={f} set={set} countries={countries} count={shown.length} counts={counts} />
         <div className="contents max-md:hidden">
         <Select id="role-status" label="Status" value={f.status} onChange={(v) => set({ status: v as StatusFilter })}>
           <option value="open">Open now</option>
@@ -318,14 +325,14 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
         </div>
       </div>
 
-      <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+      <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm max-md:mt-3 max-md:mb-1.5">
         <p aria-live="polite" className="font-semibold">
           {shown.length > per
             ? `${first + 1}-${first + onPage.length} of ${shown.length} roles`
             : `${shown.length} ${shown.length === 1 ? "role" : "roles"}`}
         </p>
         <span className="text-muted">soonest deadline first</span>
-        <label className="flex items-center gap-1.5 text-muted">
+        <label className="flex items-center gap-1.5 text-muted max-md:hidden">
           <input type="checkbox" checked={f.saved} onChange={(e) => set({ saved: e.target.checked })} className="h-4 w-4" />
           Only saved ({saved.length})
         </label>
@@ -336,7 +343,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
         )}
         {saved.length > 0 && (
           <>
-            <Link href="/mine/" className="font-semibold text-link underline underline-offset-2" data-track="to-mine">
+            <Link href="/mine/" className="font-semibold text-link underline underline-offset-2 max-md:hidden" data-track="to-mine">
               My applications ({saved.length})
             </Link>
             <button type="button" onClick={downloadCalendar} className="text-link underline underline-offset-2 max-md:hidden" data-track="saved-calendar">
@@ -371,7 +378,71 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           No roles match. Try fewer filters, or search for a city instead of a company.
         </p>
       ) : (
-        <table className="w-full border-collapse text-left text-sm">
+        <>
+        {/* phones: one compact row per role, the details open on a tap */}
+        <ul className="border-t border-line md:hidden">
+          {onPage.map((x) => {
+            const isSaved = saved.includes(x.id);
+            const hot = x.status === "soon" ? "text-soon" : x.urgent ? "font-bold text-claret" : "text-muted";
+            return (
+              <li key={x.id} className="relative border-b border-line">
+                <details>
+                  <summary className="block cursor-pointer list-none py-2.5 [&::-webkit-details-marker]:hidden">
+                    <span className="flex items-baseline gap-2 pr-10">
+                      <span className="min-w-0 flex-1 truncate">
+                        {isNew(x) && <span className="mr-1.5 bg-claret px-1 py-px align-[1px] text-[11px] font-bold text-white">New</span>}
+                        <b className="text-[15px] font-bold">{x.company}</b>
+                        <span className="text-[13px] text-muted"> · {x.city}</span>
+                      </span>
+                      <span className={`shrink-0 text-[13px] whitespace-nowrap ${hot}`}>{shortWhen(x)}</span>
+                    </span>
+                    <span className="mt-0.5 block truncate text-[15px]">{x.title}</span>
+                  </summary>
+                  <div className="pb-3 text-[14px] leading-[1.5]">
+                    <p className="text-muted">
+                      {x.when}. {x.kind}, {x.field}. {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
+                      {x.old ? ", over 3 months ago" : ""}.
+                    </p>
+                    <p className="mt-1.5">{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</p>
+                    {x.reapply && (
+                      <p className="mt-1.5 text-soon">
+                        <span className="font-semibold">Re-apply rule:</span> {x.reapply}
+                      </p>
+                    )}
+                    <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                      <a href={x.source} target="_blank" rel="noreferrer" className="link font-semibold" data-track="posting">
+                        Posting
+                        <NewTab />
+                      </a>
+                      <Link href={`/companies/${x.slug}/`} className="link">
+                        {x.company}
+                      </Link>
+                      <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} />
+                      <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-2">
+                        Something wrong?
+                        <span className="sr-only"> Report a mistake in {x.title} at {x.company}</span>
+                        <NewTab />
+                      </a>
+                    </div>
+                  </div>
+                </details>
+                <button
+                  type="button"
+                  onClick={() => toggleSave(x.id)}
+                  aria-pressed={isSaved}
+                  data-track={isSaved ? "unsave" : "save"}
+                  className={`absolute top-0 right-0 flex h-11 w-10 items-center justify-end ${isSaved ? "text-claret" : "text-dim"}`}
+                >
+                  <Icon name="bookmark" filled={isSaved} className="h-5 w-5" />
+                  <span className="sr-only">
+                    Save {x.title} at {x.company}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        <table className="w-full border-collapse text-left text-sm max-md:hidden">
           <caption className="sr-only">Roles that match the filters</caption>
           <thead className="max-md:hidden">
             <tr className="border-b-2 border-ink text-[13px]">
@@ -452,6 +523,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             })}
           </tbody>
         </table>
+        </>
       )}
 
       {shown.length > 0 && (

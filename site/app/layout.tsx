@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import Offline from "@/components/Offline";
+import AppTabs from "@/components/AppTabs";
 import { og } from "@/lib/og";
 
 const display = Libre_Baskerville({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-libre" });
@@ -33,7 +34,7 @@ export const viewport: Viewport = { themeColor: "#fff1e5" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${serif.variable}`}>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col app:pb-[calc(3.5rem+env(safe-area-inset-bottom))]">
         <a
           href="#main"
           className="sr-only bg-ink px-4 py-2.5 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-50"
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <Analytics />
         <Offline />
+        <AppTabs />
       </body>
     </html>
   );
