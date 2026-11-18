@@ -10,6 +10,19 @@ export const pl: Company[] = [
     careersUrl: "https://intel.wd1.myworkdayjobs.com/External",
     roles: [
       {
+        title: "Automation Developer - Graphics Software Internship",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Posted on the company job board, no deadline listed",
+        start: "Not stated",
+        eligibility: "Student in 2nd, 3rd or 4th year, preferably CS; part-time during the academic year and over the summer; Python and Git; English",
+        process: "Not stated",
+        reapply: "Not stated",
+        source: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264",
+        checked: "2026-11-18",
+      },
+      {
         title: "AI Software Development Intern",
         kind: "Internship",
         field: "Data and AI",
@@ -103,6 +116,7 @@ export const pl: Company[] = [
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Media-AI-Software-Intern_JR0288216", checked: "2026-11-17" },
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/System-Software-Engineering-Intern_JR0288207", checked: "2026-11-17" },
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Development-Intern_JR0288895", checked: "2026-11-18" },
+      { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264", checked: "2026-11-18" },
     ],
   },
   {
