@@ -21,7 +21,7 @@ export default function Companies() {
           {companies.length} companies in {countries.filter((k) => companies.some((c) => c.country === k.code)).length}{" "}
           countries. Each page has the roles, the process as the company describes it, the re-apply rule and the sources.
         </p>
-        <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
+        <p id="cities" className="mt-4 flex scroll-mt-16 flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
           <span className="font-semibold">Roles by city:</span>
           {cityPages().map((p) => (
             <Link key={p.slug} href={`/cities/${p.slug}/`} className="link">
@@ -29,7 +29,7 @@ export default function Companies() {
             </Link>
           ))}
         </p>
-        <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
+        <p id="fields" className="mt-2 flex scroll-mt-16 flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
           <span className="font-semibold">Roles by field:</span>
           {fieldPages().map((p) => (
             <Link key={p.slug} href={`/fields/${p.slug}/`} className="link">

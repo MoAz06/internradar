@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { lastChecked } from "@/data/companies";
-import { longDate } from "@/lib/format";
+import { longDate, shortDate } from "@/lib/format";
+import { buildItems } from "@/lib/buildItems";
+import MobileNav from "@/components/MobileNav";
 
 const items = [
   { href: "/", label: "Front page" },
@@ -8,13 +10,19 @@ const items = [
   { href: "/radar/", label: "On the radar" },
   { href: "/companies/", label: "Companies" },
   { href: "/alerts/", label: "Alerts" },
+  { href: "/mine/", label: "My applications" },
   { href: "/about/", label: "About" },
 ];
 
-/** The site header, set like a newspaper masthead. */
+/** The site header, set like a newspaper masthead. Phones get one line and a drawer instead. */
 export default function Nav() {
+  const all = buildItems();
+  const roles = all.filter((x) => x.status === "open" || x.status === "rolling").length;
+  const radar = all.filter((x) => x.status === "soon").length;
   return (
-    <header className="mx-auto w-full max-w-[1200px] px-4 pt-4 sm:px-6 sm:pt-5">
+    <>
+    <MobileNav roles={roles} radar={radar} checked={shortDate(lastChecked)} />
+    <header className="mx-auto w-full max-w-[1200px] px-4 pt-4 max-md:hidden sm:px-6 sm:pt-5">
       <div className="flex items-center justify-center text-[13px] text-muted sm:justify-between">
         <span className="max-sm:hidden">Europe edition</span>
         <Link href="/" className="font-display text-[30px] leading-none font-bold text-ink sm:text-[46px]">
@@ -39,5 +47,6 @@ export default function Nav() {
         </ul>
       </nav>
     </header>
+    </>
   );
 }

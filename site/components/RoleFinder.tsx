@@ -7,33 +7,17 @@ import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
+import { readSaved, writeSaved } from "@/lib/mine";
+import FilterSheet from "@/components/FilterSheet";
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
 type StatusFilter = "open" | "soon" | "new" | "all";
 type Filters = { q: string; status: StatusFilter; kind: string; field: string; country: string; saved: boolean };
 
 const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false };
-const SAVED_KEY = "internradar:saved";
 const PER_KEY = "internradar:per-page";
 const VISIT_KEY = "internradar:last-visit";
 const PER_PAGE = [25, 50, 75, 100];
-
-function readSaved(): string[] {
-  try {
-    const v = JSON.parse(localStorage.getItem(SAVED_KEY) ?? "[]");
-    return Array.isArray(v) ? v : [];
-  } catch {
-    return [];
-  }
-}
-
-function writeSaved(ids: string[]) {
-  try {
-    localStorage.setItem(SAVED_KEY, JSON.stringify(ids));
-  } catch {
-    // private mode or blocked storage: saving still works until the page closes
-  }
-}
 
 function Select({
   id,
@@ -284,7 +268,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved;
 
   return (
-    <div ref={top} id="roles">
+    <div ref={top} id="roles" className="max-md:scroll-mt-16">
       <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
         <label htmlFor="role-search" className="sr-only">
           Search roles
@@ -299,6 +283,8 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           autoComplete="off"
           className="h-10 min-w-0 rounded-md border border-line bg-surface px-3 text-[15px] text-ink placeholder:text-dim hover:border-muted sm:min-w-[260px] sm:flex-1"
         />
+        <FilterSheet f={f} set={set} countries={countries} count={shown.length} newCount={newCount} />
+        <div className="contents max-md:hidden">
         <Select id="role-status" label="Status" value={f.status} onChange={(v) => set({ status: v as StatusFilter })}>
           <option value="open">Open now</option>
           <option value="soon">Opening soon</option>
@@ -329,6 +315,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             </option>
           ))}
         </Select>
+        </div>
       </div>
 
       <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
@@ -343,16 +330,19 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           Only saved ({saved.length})
         </label>
         {filtered && (
-          <button type="button" onClick={() => { setF(start); setPage(1); }} className="text-link underline underline-offset-2">
+          <button type="button" onClick={() => { setF(start); setPage(1); }} className="text-link underline underline-offset-2 max-md:hidden">
             Clear filters
           </button>
         )}
         {saved.length > 0 && (
           <>
-            <button type="button" onClick={downloadCalendar} className="text-link underline underline-offset-2" data-track="saved-calendar">
+            <Link href="/mine/" className="font-semibold text-link underline underline-offset-2" data-track="to-mine">
+              My applications ({saved.length})
+            </Link>
+            <button type="button" onClick={downloadCalendar} className="text-link underline underline-offset-2 max-md:hidden" data-track="saved-calendar">
               Saved roles to my calendar
             </button>
-            <button type="button" onClick={copyLink} className="text-link underline underline-offset-2" data-track="saved-link">
+            <button type="button" onClick={copyLink} className="text-link underline underline-offset-2 max-md:hidden" data-track="saved-link">
               Open my saved list on another device
             </button>
           </>

@@ -16,6 +16,9 @@ export type ReapplyRule = {
   lang?: string;
   url: string;
   checked: string;
+  /** The waiting time as a number, only when the rule names one plainly. Used on /mine/ to give a date. */
+  waitMonths?: number;
+  waitDays?: number;
 };
 
 export const reapplyGroups: { id: ReapplyGroup; title: string; blurb: string }[] = [
@@ -37,6 +40,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "if you have an unsuccessful application and re-apply to a different position in a 10-month period, your application will be automatically regretted.",
     url: "https://www.shell.com/careers/about-careers-at-shell/early-careers/shell-graduate-programme/details-on-the-graduate-programme-and-how-to-apply.html",
     checked: day,
+    waitMonths: 10,
   },
   {
     company: "Bending Spoons",
@@ -46,6 +50,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "We ask that you wait at least one year before you apply again for a similar job.",
     url: "https://jobs.bendingspoons.com/faq",
     checked: day,
+    waitMonths: 12,
   },
   {
     company: "Mercedes-Benz",
@@ -55,6 +60,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "If you receive a rejection after our Inspire Day, you can apply again after one year.",
     url: "https://group.mercedes-benz.com/careers/graduates/inspire-journey/how-to-apply/",
     checked: day,
+    waitMonths: 12,
   },
   {
     company: "Jane Street",
@@ -64,6 +70,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "We usually recommend waiting to reapply for at least a year (in the case of current students)",
     url: "https://www.janestreet.com/join-jane-street/interviewing/",
     checked: day,
+    waitMonths: 12,
   },
   {
     company: "Google",
@@ -73,6 +80,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "Typically, we ask for folks to wait at least a year to gain additional experience before reapplying for the same type of role.",
     url: "https://www.google.com/about/careers/applications/how-we-hire/",
     checked: day,
+    waitMonths: 12,
   },
   {
     company: "Picnic",
@@ -82,6 +90,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "We recommend 1 year in between applications so you can reflect and improve on the points provided by the hiring team.",
     url: "https://jobs.picnic.app/en/faq",
     checked: day,
+    waitMonths: 12,
   },
   {
     company: "Optiver",
@@ -91,6 +100,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "We welcome you to re-apply after the 8-month cool off period.",
     url: "https://optiver.com/join-us/jobs/technology/amsterdam/software-engineer-internship-2027-start/",
     checked: day,
+    waitMonths: 8,
   },
   {
     company: "Helsing",
@@ -100,6 +110,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "If you wish to re-apply, Helsing asks that you wait at least 6 months before doing so.",
     url: "https://developer.helsing.ai/handbook/process",
     checked: day,
+    waitMonths: 6,
   },
   {
     company: "Scalable Capital",
@@ -109,6 +120,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "When re-applying for a position that you have previously been rejected for, we would generally recommend to wait at least 6 months before applying again",
     url: "https://de.scalable.capital/careers",
     checked: day,
+    waitMonths: 6,
   },
   {
     company: "Databricks",
@@ -118,6 +130,7 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "We can only consider one application in 30 days.",
     url: "https://boards-api.greenhouse.io/v1/boards/databricks/jobs/6866534002",
     checked: day,
+    waitDays: 30,
   },
 
   // once per season or year
