@@ -57,13 +57,22 @@ export type Item = {
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];
 export const fields: Field[] = ["Software", "Data and AI", "Quant", "Hardware and embedded", "Other tech"];
 
-/** A process line short enough for one or two lines on a phone, cut where the company's own list has a break. */
+/** A process line short enough for one or two lines on a phone: whole sentences when the first one fits, else cut
+ * where the company's own list has a break. A cut inside a quote closes the quote. */
 export function shortProcess(text: string, max = 130): string {
   const t = text.replace(/\s+/g, " ").trim();
   if (t.length <= max) return t;
+  let out = "";
+  for (const s of t.split(/(?<=[.!?][”"]?)\s+(?=[A-Z“"])/)) {
+    if ((out ? out.length + 1 : 0) + s.length > max) break;
+    out = out ? `${out} ${s}` : s;
+  }
+  if (out) return out;
   const cut = t.slice(0, max);
   const at = Math.max(cut.lastIndexOf(";"), cut.lastIndexOf(","));
-  return `${(at > 40 ? cut.slice(0, at) : cut.slice(0, cut.lastIndexOf(" "))).replace(/[,;:\s]+$/, "")}, and more`;
+  const short = (at > 40 ? cut.slice(0, at) : cut.slice(0, cut.lastIndexOf(" "))).replace(/[,;:\s]+$/, "");
+  const inQuote = (short.match(/“/g) ?? []).length > (short.match(/”/g) ?? []).length;
+  return inQuote ? `${short}...”` : `${short}, and more`;
 }
 
 /** The title without what the line already says: "(x/f/m)", and the city or company at the end.

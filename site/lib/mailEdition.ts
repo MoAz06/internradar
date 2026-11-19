@@ -6,7 +6,7 @@
 // its process and re-apply rule.
 
 import type { Company } from "../data/types.ts";
-import { companies, countries } from "../data/companies.ts";
+import { countries } from "../data/companies.ts";
 import { buildItems } from "./buildItems.ts";
 import { isoWeek } from "./edition.ts";
 import { cleanTitle, roleHref, shortProcess, type Item } from "./items.ts";
@@ -39,8 +39,10 @@ export type Group = {
   closes?: string;
   when: string;
   opens?: string;
+  /** How they hire, the same line as on the site. */
   process: string;
-  reapply: string | null;
+  /** A strict re-apply rule in two or three words, the same label as on the site. */
+  reapplyTag: string;
 };
 
 export type MailEdition = {
@@ -82,12 +84,6 @@ function openWord(opens: string): string {
 const and = (xs: string[]) => (xs.length <= 1 ? (xs[0] ?? "") : `${xs.slice(0, -1).join(", ")} and ${xs.at(-1)}`);
 const href = (x: Item) => `${site}${roleHref(x.key)}`;
 
-function processOf(x: Item): string {
-  if (x.process && !/^not stated/i.test(x.process)) return shortProcess(x.process);
-  const c = companies.find((k) => k.slug === x.slug);
-  return c?.process.length ? shortProcess(c.process.join(", ")) : "";
-}
-
 /** One line per company (and per deadline, for roles that close), in the order the items come. */
 function group(items: Item[], byDeadline: boolean): Group[] {
   const out = new Map<string, Group>();
@@ -111,8 +107,8 @@ function group(items: Item[], byDeadline: boolean): Group[] {
       closes: x.closes,
       when: x.when,
       opens: x.opens,
-      process: processOf(x),
-      reapply: x.reapply,
+      process: x.how ? shortProcess(x.how) : "",
+      reapplyTag: x.reapplyTag,
     });
   }
   return [...out.values()];
@@ -186,20 +182,29 @@ function roleLinks(g: Group): string {
   return rest > 0 ? `${shown}<span style="color:${dim};"> and </span>${a(`${site}/companies/${g.slug}/`, `${rest} more`)}` : shown;
 }
 
+/** The line under a role, as on the site: a strict re-apply rule first, then how they hire. */
+function howLine(g: Group): string {
+  const tag = g.reapplyTag ? `<b style="color:${soon};">Re-apply: ${esc(g.reapplyTag)}.</b>` : "";
+  const process = g.process ? esc(g.process.endsWith(".") ? g.process : `${g.process}.`) : "";
+  return [tag, process].filter(Boolean).join(" ");
+}
+
 function closingRow(g: Group): string {
   const day = dayWord(g.daysLeft!, g.closes!);
   const color = g.daysLeft! <= 2 ? closed : soon;
   const head = `<b style="color:${color};">Closes ${day}.</b>`;
-  const process = g.process ? ` ${esc(g.process.endsWith(".") ? g.process : `${g.process}.`)}` : "";
   return `<div style="margin-top:12px;">
 <div style="font-family:${serif};font-size:16px;line-height:1.4;color:${ink};">${roleLinks(g)} <span style="color:${muted};">· ${esc(g.company)}, ${esc(where(g))}</span></div>
-<div style="font-family:${serif};font-size:14px;line-height:1.5;color:${muted};margin-top:2px;">${head}${process}</div>
+<div style="font-family:${serif};font-size:14px;line-height:1.5;color:${muted};margin-top:2px;">${[head, howLine(g)].filter(Boolean).join(" ")}</div>
 </div>`;
 }
 
 function freshRow(g: Group): string {
-  const again = g.reapply ? ` Turned down? ${esc(g.reapply.endsWith(".") ? g.reapply : `${g.reapply}.`)}` : "";
-  return `<div style="margin-top:10px;font-family:${serif};font-size:15px;line-height:1.5;color:${ink};">${roleLinks(g)} <span style="color:${muted};">· ${esc(g.company)}, ${esc(where(g))}.${again}</span></div>`;
+  const how = howLine(g);
+  return `<div style="margin-top:10px;">
+<div style="font-family:${serif};font-size:15px;line-height:1.5;color:${ink};">${roleLinks(g)} <span style="color:${muted};">· ${esc(g.company)}, ${esc(where(g))}</span></div>
+${how ? `<div style="font-family:${serif};font-size:14px;line-height:1.5;color:${muted};margin-top:2px;">${how}</div>
+` : ""}</div>`;
 }
 
 function comingRow(g: Group): string {

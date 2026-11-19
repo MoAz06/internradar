@@ -198,6 +198,10 @@ test("weekly mail: one edition per country, short lines, links to role pages", (
   const long = "Application and review, online assessment, first-round interviews, final-round interviews, offer; a prep guide is linked from the page for each step";
   assert.ok(shortProcess(long).length <= 140);
   assert.ok(shortProcess(long).endsWith("and more"));
+  // whole sentences when they fit, and a cut inside a quote closes it
+  assert.equal(shortProcess(`You apply online. ${"Then a long step with many words in it ".repeat(4)}.`), "You apply online.");
+  const quoted = shortProcess(`Postings say: “After a positive screening based on your CV you will have an initial video conversation with our Talent Acquisition team, then interviews”.`);
+  assert.equal((quoted.match(/“/g) ?? []).length, (quoted.match(/”/g) ?? []).length);
   assert.equal(new Set(editions.map((e) => e.tag)).size, editions.length);
 
   const one = mailEditions("2026-11-23", false);
@@ -235,8 +239,12 @@ test("home list: one row per role in several cities or per programme, headings b
   assert.equal(citiesOf(cities[0]), "Bristol, Leeds");
   const programme = toRows([role("Graduate Program 2027 - Data Analyst", "Gothenburg"), role("Graduate Program 2027 - Automation Engineer", "Gothenburg")]);
   assert.deepEqual([programme.length, programme[0].title, programme[0].chip], [1, "Graduate Program 2027", "2 roles"]);
-  // a bare "Internship" is no programme name: without a deadline those stay apart
-  assert.equal(toRows([role("Internship - Firmware", "Paris"), role("Internship - Compilers", "Paris")]).length, 2);
+  // without a deadline one company's roles of one kind still share a row; another kind stays apart
+  const loose = toRows([role("Internship - Firmware", "Paris"), role("Internship - Compilers", "Paris"), { ...role("Internship - Tools", "Paris"), kind: "Internship" }]);
+  assert.deepEqual(
+    loose.map((r) => [r.title, r.chip]),
+    [["Internship - Firmware · Internship - Compilers", "2 roles"], ["Internship - Tools", null]],
+  );
   // one deadline joins them, and by pay they stay apart
   const sameDay = [role("Firmware Engineer", "Bristol", "2026-11-29", 10), role("Cloud Engineer", "Bristol", "2026-11-29", 10)];
   assert.equal(toRows(sameDay).length, 1);

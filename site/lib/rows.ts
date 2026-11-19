@@ -1,5 +1,6 @@
 // The rows of the list on the home page. The same role in several cities is one row, and so are the roles of one
-// company that close on the same day, or that share a programme name ("SEB Tech Trainee Programme 2027-28: ...").
+// company and one kind that close on the same day, or that have no deadline. A shared programme name ("SEB Tech
+// Trainee Programme 2027-28: ...") becomes the row's title.
 // No data import, so the browser can run it.
 
 import { cleanTitle, fold, type Item } from "./items.ts";
@@ -39,12 +40,11 @@ export function toRows(items: Item[], merge = true): Row[] {
   }
   let groups = [...same.values()];
   if (merge) {
-    // one company, one kind of role, one deadline: one row. Without a deadline only a shared programme name joins them.
+    // one company, one kind of role, one deadline (or none): one row
     const byDay = new Map<string, Item[][]>();
     for (const g of groups) {
       const x = g[0];
-      const head = x.closes ? "" : headOf(cleanTitle(x.title, x.city, x.company));
-      const k = x.closes || head !== null ? `${x.company}|${x.kind}|${x.status}|${x.closes ?? ""}|${head ?? ""}` : `${x.id}#alone`;
+      const k = `${x.company}|${x.kind}|${x.status}|${x.closes ?? ""}`;
       byDay.set(k, [...(byDay.get(k) ?? []), g]);
     }
     groups = [...byDay.values()].map((gs) => gs.flat());
@@ -66,6 +66,41 @@ export function toRows(items: Item[], merge = true): Row[] {
         cities,
       };
     });
+}
+
+/** Rows on the first page of the home list. */
+export const FIRST_PAGE = 25;
+
+/** What the home page needs before the full list (/roles.json) has loaded: the roles of the first page in the
+ * plain view (open roles, closing soonest), and the numbers that view shows. */
+export type StartView = {
+  first: Item[];
+  /** open roles, the number above the list */
+  shown: number;
+  soon: number;
+  fresh: number;
+  withPay: number;
+  rows: number;
+  perHeading: [string, number][];
+};
+
+export function startView(items: Item[], now: string): StartView {
+  const open = items.filter((x) => x.status === "open" || x.status === "rolling");
+  const rows = toRows(open);
+  const perHeading = new Map<string, number>();
+  for (const r of rows) {
+    const h = closesGroup(r.items[0], now);
+    perHeading.set(h, (perHeading.get(h) ?? 0) + r.items.length);
+  }
+  return {
+    first: rows.slice(0, FIRST_PAGE).flatMap((r) => r.items),
+    shown: open.length,
+    soon: items.filter((x) => x.status === "soon").length,
+    fresh: items.filter((x) => x.fresh).length,
+    withPay: open.filter((x) => x.pay).length,
+    rows: rows.length,
+    perHeading: [...perHeading],
+  };
 }
 
 /** The cities of a row in a few words: "Amsterdam, London" or "Bristol and 3 more". */

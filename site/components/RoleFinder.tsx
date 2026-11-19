@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { fields, fold, kinds, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
-import { citiesOf, closesGroup, closesShort, payOf, toRows, type Row } from "@/lib/rows";
+import { citiesOf, closesGroup, closesShort, FIRST_PAGE, payOf, toRows, type Row, type StartView } from "@/lib/rows";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
@@ -102,14 +102,25 @@ function Process({ x }: { x: Item }) {
 const statusColor = (x: Item) =>
   x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
 
-export default function RoleFinder({ items, countries, now }: { items: Item[]; countries: CountryOption[]; now: string }) {
+/** The list on the home page. The page carries the first page of the plain view (`view`); every role comes from
+ * /roles.json right after, and a link with its own filters waits for that. */
+export default function RoleFinder({ view, countries, now }: { view: StartView; countries: CountryOption[]; now: string }) {
+  const [all, setAll] = useState<Item[] | null>(null);
+  const [failed, setFailed] = useState(false);
+  const items = all ?? view.first;
+  const ready = all !== null || failed;
   const [f, setF] = useState<Filters>(start);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [saved, setSaved] = useState<string[]>([]);
   const [notice, setNotice] = useState("");
   const [shareLink, setShareLink] = useState("");
   const [page, setPage] = useState(1);
-  const [per, setPer] = useState(25);
+  const [per, setPer] = useState(FIRST_PAGE);
+  // keys from a ?saved= link, added once every role has loaded
+  const savedKeys = useRef<string[]>([]);
+  // phone rows opened at least once: their details are only built then, which keeps the page small
+  const [seen, setSeen] = useState<Set<string>>(new Set());
+  const saw = (id: string) => setSeen((cur) => (cur.has(id) ? cur : new Set(cur).add(id)));
   // roles added since the visitor's previous visit (a day, not a moment), on top of the ones from this week
   const [since, setSince] = useState<string | null>(null);
   // desktop rows whose details are open
@@ -156,21 +167,12 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     } catch {
       // blocked storage: the default is fine
     }
-    setPer(PER_PAGE.find((n) => n === perFromUrl) ?? PER_PAGE.find((n) => n === perStored) ?? 25);
+    setPer(PER_PAGE.find((n) => n === perFromUrl) ?? PER_PAGE.find((n) => n === perStored) ?? FIRST_PAGE);
     setPage(Math.max(1, Math.floor(Number(p.get("page")) || 1)));
-    // ?saved=key.key.key from "open on another device" adds those roles to this browser's list
-    const keys = (p.get("saved") ?? "").split(".").filter(Boolean);
-    let mine = readSaved();
-    if (keys.length) {
-      const ids = items.filter((x) => keys.includes(x.key)).map((x) => x.id);
-      const merged = [...new Set([...mine, ...ids])];
-      const added = merged.length - mine.length;
-      mine = merged;
-      writeSaved(mine);
-      setNotice(added ? `Added ${added} saved ${added === 1 ? "role" : "roles"} from the link.` : "Those roles were already saved here.");
-      setF((x) => ({ ...x, saved: ids.length > 0 }));
-    }
-    setSaved(mine);
+    // ?saved=key.key.key from "open on another device": those roles are added once the list has loaded
+    savedKeys.current = (p.get("saved") ?? "").split(".").filter(Boolean);
+    if (savedKeys.current.length) setF((x) => ({ ...x, saved: true }));
+    setSaved(readSaved());
     // scroll after the filtered list has rendered, else the browser lands somewhere above it
     const toList = () => setTimeout(() => top.current?.scrollIntoView(), 60);
     if (fromHash || p.get("q")) toList();
@@ -203,7 +205,42 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
       window.removeEventListener("popstate", onPop);
       window.removeEventListener("keydown", onKey);
     };
-  }, [countries, items]);
+  }, [countries]);
+
+  // every role, right after the first paint
+  useEffect(() => {
+    let gone = false;
+    // no-cache asks the server whether the copy is still current, so a new build shows at once
+    fetch("/roles.json", { cache: "no-cache" })
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json() as Promise<{ items: Item[] }>;
+      })
+      .then((d) => !gone && setAll(d.items))
+      .catch(() => {
+        if (gone) return;
+        setFailed(true);
+        setNotice("The full list didn't load. Reload the page to try again.");
+      });
+    return () => {
+      gone = true;
+    };
+  }, []);
+
+  // the roles from a ?saved= link
+  useEffect(() => {
+    const keys = savedKeys.current;
+    if (!all || !keys.length) return;
+    savedKeys.current = [];
+    const ids = all.filter((x) => keys.includes(x.key)).map((x) => x.id);
+    const mine = readSaved();
+    const merged = [...new Set([...mine, ...ids])];
+    const added = merged.length - mine.length;
+    writeSaved(merged);
+    setSaved(merged);
+    setNotice(added ? `Added ${added} saved ${added === 1 ? "role" : "roles"} from the link.` : "Those roles were already saved here.");
+    if (!ids.length) setF((x) => ({ ...x, saved: false }));
+  }, [all]);
 
   // keep the URL in step, so a filtered list can be shared as a link
   useEffect(() => {
@@ -281,14 +318,22 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
       }
     return m;
   }, [rows, headings, now]);
-  const withPay = shown.filter((x) => x.pay).length;
-  const counts = {
-    open: matched.filter((x) => x.status === "open" || x.status === "rolling").length,
-    soon: matched.filter((x) => x.status === "soon").length,
-    new: matched.filter(isNew).length,
-  };
+  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
+  // before every role has loaded: the plain view shows the first page and the build's numbers, any other view waits
+  const waiting = !ready && !!(filtered || f.fit || page > 1 || per !== FIRST_PAGE);
+  const pre = !ready && !waiting;
+  const shownCount = pre ? view.shown : shown.length;
+  const withPay = pre ? view.withPay : shown.filter((x) => x.pay).length;
+  const counts = pre
+    ? { open: view.shown, soon: view.soon, new: view.fresh }
+    : {
+        open: matched.filter((x) => x.status === "open" || x.status === "rolling").length,
+        soon: matched.filter((x) => x.status === "soon").length,
+        new: matched.filter(isNew).length,
+      };
+  const heads = pre ? new Map(view.perHeading) : perHeading;
 
-  const pages = Math.max(1, Math.ceil(rows.length / per));
+  const pages = Math.max(1, Math.ceil((pre ? view.rows : rows.length) / per));
   const cur = Math.min(page, pages);
   const first = (cur - 1) * per;
   const onPage = rows.slice(first, first + per);
@@ -337,7 +382,13 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     });
   };
   const savedItems = items.filter((x) => saved.includes(x.id));
+  const stillLoading = () => {
+    if (ready) return false;
+    setNotice("The list is still loading. Try again in a second.");
+    return true;
+  };
   const downloadCalendar = () => {
+    if (stillLoading()) return;
     const events = eventsFor(savedItems);
     if (events.length === 0) {
       setNotice("None of your saved roles has a date in the posting yet, so there's nothing to put in a calendar.");
@@ -356,6 +407,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     );
   };
   const copyLink = async () => {
+    if (stillLoading()) return;
     const link = `${location.origin}/?saved=${savedItems.map((x) => x.key).join(".")}`;
     setShareLink(link);
     try {
@@ -366,7 +418,6 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     }
   };
   const profileText = profile ? profileWords(profile, (code) => countries.find((k) => k.code === code)?.name ?? code) : null;
-  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
   // the filters from "More filters" that are on, each with a way to turn it off from the list
   const on: { label: string; clear: Partial<Filters> }[] = [
     ...(f.fit && profileText ? [{ label: "Fits my profile", clear: { fit: false } }] : []),
@@ -471,7 +522,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     return i === 0 || closesGroup(onPage[i - 1].items[0], now) !== h ? h : null;
   };
   const headingCount = (h: string) => {
-    const n = perHeading.get(h) ?? 0;
+    const n = heads.get(h) ?? 0;
     return `${n} ${n === 1 ? "role" : "roles"}`;
   };
   const chip = (r: Row, open: boolean) => <CountChip text={r.chip ?? ""} open={open} />;
@@ -563,7 +614,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     const hot = x.status === "soon" ? "text-soon" : x.urgent ? "font-semibold text-soon" : "text-muted";
     return (
       <li key={x.id} className={`relative border-line ${inner ? "border-t pl-3" : "border-b"}`}>
-        <details>
+        <details onToggle={(e) => e.currentTarget.open && saw(x.id)}>
           <summary className="block cursor-pointer list-none py-2.5 pr-11 [&::-webkit-details-marker]:hidden">
             {!inner && (
               <span className="flex items-baseline gap-2">
@@ -588,7 +639,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
               <span className="mt-0.5 block font-sans text-[13px] text-muted">{[x.city, x.pay?.short].filter(Boolean).join(" · ")}</span>
             )}
           </summary>
-          <div className="pr-1 pb-3 text-[14px] leading-[1.5]">{details(x)}</div>
+          {seen.has(x.id) && <div className="pr-1 pb-3 text-[14px] leading-[1.5]">{details(x)}</div>}
         </details>
         <div className="absolute top-0 right-0">{saveButton(x, "justify-end", "h-5 w-5")}</div>
       </li>
@@ -601,7 +652,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     const hot = x.urgent ? "font-semibold text-soon" : "text-muted";
     return (
       <li key={r.id} className="relative border-b border-line">
-        <details>
+        <details onToggle={(e) => e.currentTarget.open && saw(`group:${r.id}`)}>
           <summary className="block cursor-pointer list-none py-2.5 pr-11 [&::-webkit-details-marker]:hidden">
             <span className="flex items-baseline gap-2">
               <span className="min-w-0 flex-1 truncate">
@@ -617,7 +668,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
             {howLine(x, "mt-0.5 text-[13px]")}
             <span className="mt-0.5 block font-sans text-[13px] text-muted">{[citiesOf(r), payOf(r)].filter(Boolean).join(" · ")}</span>
           </summary>
-          <ul className="mb-2">{r.items.map((y) => itemCard(y, true))}</ul>
+          {seen.has(`group:${r.id}`) && <ul className="mb-2">{r.items.map((y) => itemCard(y, true))}</ul>}
         </details>
         <div className="absolute top-0 right-0">{groupSave(r, "justify-end", "h-5 w-5")}</div>
       </li>
@@ -659,7 +710,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
         <FilterSheet
           f={f}
           set={set}
-          count={shown.length}
+          count={shownCount}
           counts={counts}
           profile={profileText}
           on={on.length}
@@ -685,8 +736,14 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
 
       <div className="mt-3 mb-1 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-sans text-[14px] text-muted">
         <p aria-live="polite" className="font-semibold text-ink">
-          {shown.length} {shown.length === 1 ? "role" : "roles"}
-          {f.status === "soon" ? " opening soon" : f.status === "new" ? " new" : ""}
+          {waiting ? (
+            "Loading roles"
+          ) : (
+            <>
+              {shownCount} {shownCount === 1 ? "role" : "roles"}
+              {f.status === "soon" ? " opening soon" : f.status === "new" ? " new" : ""}
+            </>
+          )}
         </p>
         <label className="flex items-center gap-1.5 max-md:hidden">
           Sort
@@ -764,7 +821,9 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
         </p>
       )}
 
-      {shown.length === 0 ? (
+      {waiting ? (
+        <p className="border-t border-line py-6 text-[15px] text-muted">Loading the roles.</p>
+      ) : shown.length === 0 ? (
         <p className="border-t border-line py-6 text-[15px] text-muted">
           No roles match. Try fewer filters, or search for a city instead of a company.
         </p>
@@ -841,7 +900,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
         </>
       )}
 
-      {shown.length > 0 && (
+      {!waiting && shown.length > 0 && (
         <div className="mt-4 flex flex-col gap-3 text-[15px] sm:flex-row sm:items-center sm:justify-between">
           {pages > 1 ? (
             <nav aria-label="Pages">

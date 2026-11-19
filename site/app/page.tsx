@@ -8,6 +8,7 @@ import { reapplyRules } from "@/data/reapply";
 import { longDate } from "@/lib/format";
 import { today, upcoming } from "@/lib/live";
 import { buildItems } from "@/lib/buildItems";
+import { startView } from "@/lib/rows";
 
 /** The re-apply story leads the side column until this day. */
 const STORY_UNTIL = "2026-12-15";
@@ -138,7 +139,7 @@ export default function Home() {
         </div>
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
           <div className="min-w-0">
-            <RoleFinder items={items} countries={options} now={now} />
+            <RoleFinder view={startView(items, now)} countries={options} now={now} />
           </div>
           <Rail story={story} next={next} />
         </div>
