@@ -35,7 +35,7 @@ export default function AlertsPage() {
           <>
             <h2 className="mt-8 border-t-2 border-ink pt-3 text-[20px] font-bold">By email</h2>
             <p className="mt-1 text-[16px] leading-[1.55] text-muted">
-              One email on Monday for the country you pick: what closes that week, what is new and what opens soon. Nothing else, and you can leave with one click. Your address is kept by Buttondown, see{" "}
+              One email on Monday{links.mailEditions ? " for the country you pick" : ""}: what closes that week, what is new and what opens soon. Nothing else, and you can leave with one click. Your address is kept by Buttondown, see{" "}
               <Link href="/privacy/" className="link">
                 privacy
               </Link>

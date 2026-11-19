@@ -13,22 +13,26 @@ export default function EmailSignup({ id, track, edition = "All of Europe", clas
       className={`max-w-[460px] ${className}`}
       data-track={track}
     >
-      <label htmlFor={`${id}-edition`} className="text-[14px] text-muted">
-        Edition
-      </label>
-      <select
-        id={`${id}-edition`}
-        name="tag"
-        defaultValue={edition}
-        className="mt-1 block min-h-11 w-full border border-line bg-surface px-3 py-2 text-[16px]"
-      >
-        {editions.map((e) => (
-          <option key={e.code} value={e.tag}>
-            {e.tag}
-          </option>
-        ))}
-      </select>
-      <div className="mt-2 flex gap-2">
+      {links.mailEditions && (
+        <>
+          <label htmlFor={`${id}-edition`} className="text-[14px] text-muted">
+            Edition
+          </label>
+          <select
+            id={`${id}-edition`}
+            name="tag"
+            defaultValue={edition}
+            className="mt-1 mb-2 block min-h-11 w-full border border-line bg-surface px-3 py-2 text-[16px]"
+          >
+            {editions.map((e) => (
+              <option key={e.code} value={e.tag}>
+                {e.tag}
+              </option>
+            ))}
+          </select>
+        </>
+      )}
+      <div className="flex gap-2">
         <label htmlFor={id} className="sr-only">
           Your email
         </label>

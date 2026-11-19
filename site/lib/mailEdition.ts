@@ -227,7 +227,7 @@ function comingRow(g: Group): string {
   return `<div style="margin-top:8px;font-family:${serif};font-size:15px;line-height:1.5;color:${ink};"><b>${esc(g.company)}</b> ${a(g.roles[0].href, g.roles[0].title, "text-decoration:none;")}<span style="color:${muted};">. ${esc(when)}</span></div>`;
 }
 
-function render(m: Omit<MailEdition, "html">): string {
+function render(m: Omit<MailEdition, "html">, perCountry: boolean): string {
   const e = m.edition;
   const all = e.code === "EU" ? `${site}/` : `${site}/?country=${countries.find((c) => c.code === e.code)!.slug}`;
   const button = e.code === "EU" ? "Every role on internradar" : `Every role in ${e.name === "Netherlands" || e.name === "United Kingdom" ? `the ${e.name}` : e.name}`;
@@ -257,7 +257,7 @@ ${parts.join("\n")}
 <a href="${esc(all)}" style="font-family:${sans};font-size:15px;font-weight:bold;color:${paper};text-decoration:none;display:block;">${esc(button)}</a>
 </td></tr>
 </table>
-<div style="margin-top:18px;font-family:${serif};font-size:13px;font-style:italic;line-height:1.55;color:${dim};">Applied to one of these? ${a(`${site}/share/`, "Tell the next person how it went")}, without your name. Want other countries? ${a(`${site}/alerts/`, "Pick another edition")}.</div>
+<div style="margin-top:18px;font-family:${serif};font-size:13px;font-style:italic;line-height:1.55;color:${dim};">Applied to one of these? ${a(`${site}/share/`, "Tell the next person how it went")}, without your name.${perCountry ? ` Want other countries? ${a(`${site}/alerts/`, "Pick another edition")}.` : ""}</div>
 </td></tr>
 </table>
 </td></tr>
@@ -265,11 +265,12 @@ ${parts.join("\n")}
 }
 
 /** The editions for the week of `now`, one per edition that has something to say. */
-export function mailEditions(now = today()): MailEdition[] {
+/** `perCountry` off: only the edition for all of Europe. */
+export function mailEditions(now = today(), perCountry = true): MailEdition[] {
   const items = buildItems(now);
   const { year, week } = isoWeek(now);
   const out: MailEdition[] = [];
-  for (const e of editions) {
+  for (const e of perCountry ? editions : editions.filter((x) => x.code === "EU")) {
     const mine = e.code === "EU" ? items : items.filter((x) => x.country === e.code);
     const open = mine.filter((x) => x.status === "open" || x.status === "rolling");
     const cap = e.code === "EU" ? 6 : 5;
@@ -308,7 +309,7 @@ export function mailEditions(now = today()): MailEdition[] {
       freshMore: freshAll.length - fresh.length,
       coming,
     };
-    out.push({ ...m, html: render(m) });
+    out.push({ ...m, html: render(m, perCountry) });
   }
   return out;
 }

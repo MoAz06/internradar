@@ -307,7 +307,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               <div>
                 <h2 className="text-base font-bold">New roles by email</h2>
                 <p className="mt-1.5 text-sm leading-6 text-muted">
-                  One email on Monday with what closes, what is new and what opens soon, for the country you pick.{" "}
+                  One email on Monday with what closes, what is new and what opens soon{links.mailEditions ? ", for the country you pick" : ""}.{" "}
                   <Link href="/privacy/" className="link">
                     Privacy
                   </Link>

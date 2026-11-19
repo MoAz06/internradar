@@ -199,6 +199,9 @@ test("weekly mail: one edition per country, short lines, links to role pages", (
   assert.ok(shortProcess(long).endsWith("and more"));
   assert.equal(new Set(editions.map((e) => e.tag)).size, editions.length);
 
+  const one = mailEditions("2026-11-23", false);
+  assert.deepEqual(one.map((m) => m.edition.code), ["EU"]);
+  assert.ok(!one[0].html.includes("Pick another edition"));
   const all = mailEditions("2026-11-23");
   assert.ok(all.some((m) => m.edition.code === "EU"));
   for (const m of all) {

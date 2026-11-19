@@ -80,7 +80,7 @@ export default function Privacy() {
 
         <h2 className={h2}>The email</h2>
         <p className={p}>
-          {`If you sign up for the email, your email address and the edition you pick (a country, or all of Europe) go to Buttondown, the service that sends the weekly email. Buttondown is a company in the United States, so your address is stored there. Buttondown also records technical details such as your IP address and can see whether an email was opened. I use your address only to send the weekly email. Every email has a link to unsubscribe; after that you get nothing more. You can also ask me to delete your address. Buttondown's own terms are in `}
+          {`If you sign up for the email, your email address goes to Buttondown, the service that sends the weekly email, together with the edition you pick if the form asks for one. Buttondown is a company in the United States, so your address is stored there. Buttondown also records technical details such as your IP address and can see whether an email was opened. I use your address only to send the weekly email. Every email has a link to unsubscribe; after that you get nothing more. You can also ask me to delete your address. Buttondown's own terms are in `}
           <a href="https://buttondown.com/legal/privacy" className="link">
             its privacy policy
           </a>

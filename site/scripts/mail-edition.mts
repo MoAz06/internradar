@@ -10,6 +10,7 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { links } from "../data/companies.ts";
 import { editions, mailEditions } from "../lib/mailEdition.ts";
 import { isoWeek } from "../lib/edition.ts";
 import { today } from "../lib/live.ts";
@@ -26,7 +27,7 @@ if (!["draft", "about_to_send"].includes(status)) throw new Error(`MAIL_STATUS m
 if (!key && !dry) throw new Error("BUTTONDOWN_API_KEY is not set");
 
 const now = today();
-const all = mailEditions(now);
+const all = mailEditions(now, links.mailEditions);
 
 if (dry) {
   for (const m of all) {
@@ -65,21 +66,26 @@ async function allPages<T>(path: string): Promise<T[]> {
   }
 }
 
-// every edition has a tag readers can pick and change themselves
-const tags = new Map((await allPages<{ id: string; name: string }>("/tags")).map((t) => [t.name, t.id]));
-for (const e of editions) {
-  if (tags.has(e.tag)) continue;
-  const made = await call<{ id: string }>("/tags", {
-    method: "POST",
-    body: JSON.stringify({
-      name: e.tag,
-      color: "#0f5a46",
-      public_description: e.code === "EU" ? "The weekly email for all countries" : `The weekly email for ${e.name}`,
-      subscriber_editable: true,
-    }),
-  });
-  tags.set(e.tag, made.id);
-  console.log(`Tag made: ${e.tag}`);
+// Editions per country need Buttondown tags, which are a paid add-on. Until links.mailEditions is on, only the
+// edition for all of Europe goes out, to everyone.
+const tags = new Map<string, string>();
+if (links.mailEditions) {
+  // every edition has a tag readers can pick and change themselves
+  for (const t of await allPages<{ id: string; name: string }>("/tags")) tags.set(t.name, t.id);
+  for (const e of editions) {
+    if (tags.has(e.tag)) continue;
+    const made = await call<{ id: string }>("/tags", {
+      method: "POST",
+      body: JSON.stringify({
+        name: e.tag,
+        color: "#0f5a46",
+        public_description: e.code === "EU" ? "The weekly email for all countries" : `The weekly email for ${e.name}`,
+        subscriber_editable: true,
+      }),
+    });
+    tags.set(e.tag, made.id);
+    console.log(`Tag made: ${e.tag}`);
+  }
 }
 
 // what was made this week already
@@ -88,26 +94,34 @@ const made = await allPages<{ metadata?: { edition?: string } }>(`/emails?creati
 const done = new Set(made.map((m) => m.metadata?.edition).filter(Boolean));
 
 for (const m of all) {
-  const id = tags.get(m.edition.tag)!;
   if (done.has(m.key)) {
     console.log(`Already in Buttondown: ${m.key}`);
     continue;
   }
-  if (m.edition.code !== "EU") {
-    const readers = await call<Page<unknown>>(`/subscribers?tag=${encodeURIComponent(id)}&type=regular`);
-    if (!readers.count) {
-      console.log(`Nobody reads ${m.edition.name}: skipped`);
-      continue;
+  let filters: object | undefined;
+  if (links.mailEditions) {
+    const id = tags.get(m.edition.tag)!;
+    if (m.edition.code !== "EU") {
+      const readers = await call<Page<unknown>>(`/subscribers?tag=${encodeURIComponent(id)}&type=regular`);
+      if (!readers.count) {
+        console.log(`Nobody reads ${m.edition.name}: skipped`);
+        continue;
+      }
     }
+    const has = { field: "subscriber.tags", operator: "contains", value: id };
+    filters =
+      m.edition.code === "EU"
+        ? { predicate: "or", groups: [], filters: [has, { field: "subscriber.tags", operator: "is_empty", value: "" }] }
+        : { predicate: "and", groups: [], filters: [has] };
   }
-  const has = { field: "subscriber.tags", operator: "contains", value: id };
-  const filters =
-    m.edition.code === "EU"
-      ? { predicate: "or", groups: [], filters: [has, { field: "subscriber.tags", operator: "is_empty", value: "" }] }
-      : { predicate: "and", groups: [], filters: [has] };
-  await call("/emails", {
-    method: "POST",
-    body: JSON.stringify({ subject: m.subject, body: m.html, status, filters, template: "naked", metadata: { edition: m.key } }),
-  });
+  const email = { subject: m.subject, body: m.html, status, metadata: { edition: m.key }, ...(filters ? { filters } : {}) };
+  // the bare template keeps Buttondown's own frame off the paper look; on a plan without it, the default frame
+  try {
+    await call("/emails", { method: "POST", body: JSON.stringify({ ...email, template: "naked" }) });
+  } catch (e) {
+    if (!/feature_disabled|template/i.test(String(e))) throw e;
+    console.log("The naked template isn't available; using the newsletter's own template");
+    await call("/emails", { method: "POST", body: JSON.stringify(email) });
+  }
   console.log(`${status === "draft" ? "Draft made" : "Sent"}: ${m.edition.name}, ${m.subject}`);
 }
