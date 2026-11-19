@@ -14,7 +14,9 @@ Careers page: https://jobs.lever.co/quantco-?location=Europe
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply on Lever with your CV and your transcripts. The form says “an unofficial copy is satisfactory”.
+- You can add letters of recommendation or a cover letter, and you choose between summer and off-cycle and pick your preferred offices (Berlin, Cologne, Karlsruhe, London, Munich, Zurich).
+- QuantCo says “We accept internship applications year-round for summer and off-cycle periods.”
 
 ## Re-apply rule
 
@@ -42,5 +44,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://jobs.lever.co/quantco-/a9862eb3-bbfa-4cdc-862d-ad614f20b1e4 checked 2026-11-16
 - https://jobs.lever.co/quantco-/da68e273-8f7e-47a7-a7d6-bf658a52561b checked 2026-11-16
 - https://jobs.lever.co/quantco-/6ba386eb-ac9b-451c-877d-b4d3ed493a9c checked 2026-11-16
+- https://jobs.lever.co/quantco-?location=Europe checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

@@ -12,7 +12,10 @@ Careers page: https://www.microsoft.com/en-us/research/lab/microsoft-research-ca
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply online with your resume, which is required, on Microsoft's careers site. The example posting says it “will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled”.
+- Microsoft says “The interview process varies depending on the role” and “All interviews are conducted virtually.”
+- Microsoft asks you to “allow up to 90 days to receive a decision on your application”.
+- The Cambridge lab says “We mostly offer internships to Masters or PhD students, but will consider Undergraduates if the opportunity fits,” and the internship lasts 12 weeks.
 
 ## Re-apply rule
 
@@ -33,5 +36,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://apply.careers.microsoft.com/careers/job/1970393557050102 checked 2026-11-17
 - https://apply.careers.microsoft.com/careers/job/1970393557070382 checked 2026-11-17
 - https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/internships/ checked 2026-11-17
+- https://careers.microsoft.com/v2/global/en/universityinternship checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

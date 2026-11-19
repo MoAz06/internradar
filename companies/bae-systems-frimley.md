@@ -12,7 +12,10 @@ Careers page: https://careers.baesystems.com/locations/uk/graduates/technology
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You start with “a short online application”, and BAE Systems says “candidates may apply for only one role per year.”
+- If you pass, you do “an online assessment with interactive activities, and an on-demand video interview”.
+- The last stage is a “competency-based interview, either virtual or face-to-face.”
+- “Our main recruitment window runs from the beginning of September”, and roles may close early, so BAE Systems advises applying as soon as possible.
 
 ## Re-apply rule
 
@@ -31,5 +34,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 
 - https://jobsearch.baesystems.com/job/graduate-software-engineer-v06527-11597 checked 2026-11-17
 - https://jobsearch.baesystems.com/job/graduate-software-engineer-v06572-11797 checked 2026-11-17
+- https://careers.baesystems.com/locations/uk/graduates/technology checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

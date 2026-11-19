@@ -182,7 +182,11 @@ export const de: Company[] = [
         checked: "2026-11-16",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply on Lever with your CV and your transcripts. The form says “an unofficial copy is satisfactory”.",
+      "You can add letters of recommendation or a cover letter, and you choose between summer and off-cycle and pick your preferred offices (Berlin, Cologne, Karlsruhe, London, Munich, Zurich).",
+      "QuantCo says “We accept internship applications year-round for summer and off-cycle periods.”",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay: the Software Engineering and Data Science intern postings mention “a generous compensation package that includes a base salary, bonus, relocation and housing support”, no figure given.",
@@ -197,6 +201,7 @@ export const de: Company[] = [
       { url: "https://jobs.lever.co/quantco-/a9862eb3-bbfa-4cdc-862d-ad614f20b1e4", checked: "2026-11-16" },
       { url: "https://jobs.lever.co/quantco-/da68e273-8f7e-47a7-a7d6-bf658a52561b", checked: "2026-11-16" },
       { url: "https://jobs.lever.co/quantco-/6ba386eb-ac9b-451c-877d-b4d3ed493a9c", checked: "2026-11-16" },
+      { url: "https://jobs.lever.co/quantco-?location=Europe", checked: "2026-11-19" },
     ],
     notes: [
       "The postings say only Europe. QuantCo lists offices in Berlin, Cologne, Karlsruhe and Munich, and also London and Zurich.",

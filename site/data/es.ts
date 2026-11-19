@@ -37,7 +37,12 @@ export const es: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online through Glovo's job page, and the data intern posting asks for the “Ability to commit full-time (40h/week) for at least 6 months”.",
+      "For tech roles Glovo lists five steps: a recruiter call, a technical problem interview, a whiteboard interview, meetings with stakeholders, and the offer.",
+      "For business roles the steps are a recruiter call, a Hiring Manager interview, a “practical challenge” that you “present to a panel of interviewers including the Hiring manager”, stakeholder meetings, and the offer.",
+      "Glovo says its internships “typically run for 6 months” and for Spain-based roles it helps with NIE and SSN but does not sponsor visas.",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay and relocation: not mentioned.",
@@ -49,6 +54,8 @@ export const es: Company[] = [
       { url: "https://careers.glovoapp.com/jobs-at-glovo/", checked: "2026-11-17" },
       { url: "https://careers.glovoapp.com/job/data-intern-in-barcelona-spain-jid-744000160871880/", checked: "2026-11-17" },
       { url: "https://careers.glovoapp.com/job/data-analyst-intern-in-barcelona-spain-jid-744000133574326/", checked: "2026-11-17" },
+      { url: "https://careers.glovoapp.com/our-hiring-process/", checked: "2026-11-19" },
+      { url: "https://careers.glovoapp.com/early-careers/", checked: "2026-11-19" },
     ],
   },
   {
@@ -222,7 +229,11 @@ export const es: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online on the posting with the button “Enviar candidatura ahora” (apply now).",
+      "The Tech Beca Cloud posting offers “Una beca tutorizada y remunerada durante 6 + 6 meses compatible con tus estudios” (a tutored, paid grant for 6 + 6 months, compatible with your studies), at “25 horas semanales en horario de mañana” (25 hours a week, mornings), starting “en febrero” (in February).",
+      "A former Talentum intern writes on Telefónica Tech's blog that he applied and “after three interviews I was told that I was in”.",
+    ],
     reapply: "Not stated",
     pay: [
       "Paid: “Una beca tutorizada y remunerada”, no figure given.",
@@ -233,6 +244,7 @@ export const es: Company[] = [
       { url: "https://jobs.telefonica.com/", checked: "2026-11-17" },
       { url: "https://jobs.telefonica.com/job/Tech_Beca-Cloud/1454849733/", checked: "2026-11-17" },
       { url: "https://jobs.telefonica.com/job/Tech_Beca-Ciberseguridad/1454852833/", checked: "2026-11-17" },
+      { url: "https://telefonicatech.com/en/blog/intern-to-employee-experience", checked: "2026-11-19" },
     ],
   },
   {

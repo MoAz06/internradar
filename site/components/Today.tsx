@@ -3,14 +3,34 @@
 import Link from "next/link";
 import Reminders from "@/components/Reminders";
 import { useEffect, useState } from "react";
-import { roleHref, shortWhen, type Item } from "@/lib/items";
+import { cleanTitle, roleHref, shortWhen, type Item } from "@/lib/items";
+import { HowLine } from "@/components/RoleBits";
 import { shortDate } from "@/lib/format";
 import { fits, PROFILE_EVENT, profileWords, readProfile, type Profile } from "@/lib/profile";
 import { daysBetween, FOLLOW_EVENT, localDay, readFollowing, readProgress, readSaved, SAVED_EVENT, stages, visitSince, type Progress } from "@/lib/mine";
 
 export type TodayItem = Pick<
   Item,
-  "id" | "key" | "slug" | "company" | "title" | "city" | "status" | "when" | "daysLeft" | "closes" | "added" | "fresh" | "country" | "kind" | "levels" | "workRights" | "languages"
+  | "id"
+  | "key"
+  | "slug"
+  | "company"
+  | "title"
+  | "city"
+  | "status"
+  | "when"
+  | "daysLeft"
+  | "closes"
+  | "added"
+  | "fresh"
+  | "country"
+  | "kind"
+  | "levels"
+  | "workRights"
+  | "languages"
+  | "how"
+  | "reapplyTag"
+  | "reapplyRule"
 >;
 export type NextUp = { company: string; slug: string; role: string; opens: string };
 
@@ -23,11 +43,13 @@ const weekday = (iso: string, long = false) =>
     ...(long ? { day: "numeric", month: "long" } : {}),
   });
 
-/** The same role in several cities becomes one row: "Bristol, Edinburgh, Halifax". */
+/** The same role in several cities becomes one row: "Bristol, Edinburgh, Halifax". The title without the city
+ * at the end, as on the home page. */
 function merged(list: TodayItem[]): (TodayItem & { cities: string })[] {
   const out: (TodayItem & { cities: string })[] = [];
+  const sameTitle = (a: TodayItem, b: TodayItem) => cleanTitle(a.title, a.city, a.company) === cleanTitle(b.title, b.city, b.company);
   for (const x of list) {
-    const same = out.find((o) => o.company === x.company && o.title === x.title && o.closes === x.closes);
+    const same = out.find((o) => o.company === x.company && o.closes === x.closes && sameTitle(o, x));
     if (same) {
       if (!same.cities.split(", ").includes(x.city)) same.cities = `${same.cities}, ${x.city}`;
     } else out.push({ ...x, cities: x.city });
@@ -129,14 +151,16 @@ export default function Today({
     </h2>
   );
 
-  const row = (key: string, href: string, top: React.ReactNode, title: string, right: string, rightClass: string) => (
+  // a role row also gets the one line of how they hire, with a strict re-apply rule first
+  const row = (key: string, href: string, top: React.ReactNode, title: string, right: string, rightClass: string, x?: TodayItem) => (
     <li key={key} className="border-b border-line">
       <Link href={href} className="block py-2.5 hover:bg-raised/50">
         <span className="flex items-baseline gap-2">
           <span className="min-w-0 flex-1 truncate">{top}</span>
           <span className={`shrink-0 font-sans text-[12px] whitespace-nowrap tabular-nums ${rightClass}`}>{right}</span>
         </span>
-        <span className="mt-0.5 block truncate text-[15px]">{title}</span>
+        <span className="mt-0.5 line-clamp-2 block font-serif text-[15px] leading-snug">{x ? cleanTitle(title, x.city, x.company) : title}</span>
+        {x && <HowLine x={x} className="mt-0.5 text-[13px]" />}
       </Link>
     </li>
   );
@@ -185,7 +209,7 @@ export default function Today({
           {mine.slice(0, SHOW + 2).map((x) => {
             const p = progress[x.id];
             const stage = p && `${stages.find((s) => s.id === p.stage)?.label} ${shortDate(p.on)}`;
-            return row(x.id, roleHref(x.key), top(x.company, stage || (x.status === "soon" ? "not open yet" : "to apply")), x.title, p ? "" : due(x), hot(x));
+            return row(x.id, roleHref(x.key), top(x.company, stage || (x.status === "soon" ? "not open yet" : "to apply")), x.title, p ? "" : due(x), hot(x), x);
           })}
         </ul>
       )}
@@ -224,14 +248,14 @@ export default function Today({
       {closing.length === 0 ? (
         <p className="py-3 text-[15px] text-muted">Nothing on the list closes in the next 7 days.</p>
       ) : (
-        <ul>{closing.slice(0, SHOW).map((x) => row(x.id, roleHref(x.key), top(x.company, x.cities), x.title, due(x), hot(x)))}</ul>
+        <ul>{closing.slice(0, SHOW).map((x) => row(x.id, roleHref(x.key), top(x.company, x.cities), x.title, due(x), hot(x), x))}</ul>
       )}
 
       {head(`${newTitle} · ${fresh.length}`, fresh.length > SHOW ? { href: "/?status=new", label: "All new" } : undefined)}
       {fresh.length === 0 ? (
         <p className="py-3 text-[15px] text-muted">No new roles since then. The list is checked every day.</p>
       ) : (
-        <ul>{fresh.slice(0, SHOW).map((x) => row(x.id, roleHref(x.key), top(x.company, x.cities), x.title, due(x), hot(x)))}</ul>
+        <ul>{fresh.slice(0, SHOW).map((x) => row(x.id, roleHref(x.key), top(x.company, x.cities), x.title, due(x), hot(x), x))}</ul>
       )}
 
       {next.length > 0 && (

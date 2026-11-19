@@ -14,7 +14,10 @@ Careers page: https://motorolasolutions.wd5.myworkdayjobs.com/Careers
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply online through Motorola Solutions' Workday careers site.
+- For the Poland Research & Development Internship, Motorola Solutions says “Recruitment is open year-round, and positions become available depending on demand.”
+- The internship typically lasts 15 months, needs at least 24 hours a week in a hybrid model in the Kraków area, and has “No student status required”.
+- The example posting asks for at least 32 hours per week, offers a “15 months Contract (UoP)” and 2 office days per week in Kraków.
 
 ## Re-apply rule
 
@@ -37,5 +40,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Krakow-Poland/Intern-Software-Developer--C---_R69047 checked 2026-11-17
 - https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Krakow-Poland/Intern-Software-Developer--JavaScript---React-_R70490 checked 2026-11-17
 - https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Krakow-Poland/Intern-Software-Developer--Salesforce-_R69887 checked 2026-11-17
+- https://www.motorolasolutions.com/en_xu/about/careers.html checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

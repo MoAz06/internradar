@@ -11,7 +11,9 @@ Careers page: https://www.santander.com/en/careers
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply online, and Santander's recruitment team reviews your CV against the role.
+- Santander says “If you’re shortlisted, you’ll be invited to a 20-minute call with someone from our People & Culture team.”
+- Next comes an interview, “virtual or in person”, then “standard final checks such as references, and background”, and then an official offer letter.
 
 ## Re-apply rule
 

@@ -11,7 +11,9 @@ Careers page: https://careers.unicredit.eu/en_GB/jobsuche/SearchJobs/
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- For internships, UniCredit asks you to read the job descriptions and apply to the role that fits you, “Then, your selection process will start!”
+- Internships last 3 to 6 months, with “a monthly contribution to cover your living expenses.” The example Milan posting offers “uno stage di 6 mesi” (a 6 month internship).
+- For the 12-month UniCredit Graduate Program, the selection steps are “Online Application”, “Online Assessment”, “Interviews & Business Case” and “Feedback”.
 
 ## Re-apply rule
 
@@ -29,5 +31,7 @@ None yet. Went through this process? [Share what it looked like](https://internr
 
 - https://careers.unicredit.eu/en_GB/jobsuche/SearchJobs/ checked 2026-11-17
 - https://careers.unicredit.eu/en_GB/jobsuche/JobDetail/Internship-UniCredit-Leasing-Area-Digital-Information/88270 checked 2026-11-17
+- https://www.unicreditgroup.eu/en/careers/join-unicredit/internship.html checked 2026-11-19
+- https://www.unicreditgroup.eu/en/careers/join-unicredit/unicredit-graduate-program.html checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

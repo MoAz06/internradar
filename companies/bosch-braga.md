@@ -12,7 +12,10 @@ Careers page: https://careers.smartrecruiters.com/BoschGroup
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply online with your CV and cover letter, max 10 MB, and Bosch Portugal says you get an email “em poucos minutos” (within a few minutes) confirming receipt.
+- Bosch Portugal says that, depending on the job, “podes esperar um contacto nosso entre duas a três semanas” (you can expect to hear from us within two to three weeks).
+- If you pass pre-selection, Bosch Portugal invites you to a visit at the company and says it will contact you “dentro de duas semanas após a tua visita” (within two weeks after your visit).
+- Bosch's global FAQ lists the steps as online application, screening and “one or more interviews video or onsite”; some roles add technical assessments, coding tasks, case studies or presentations, and it says the whole process usually takes 2 to 6 weeks.
 
 ## Re-apply rule
 
@@ -35,5 +38,7 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://jobs.smartrecruiters.com/BoschGroup/744000142098284 checked 2026-11-17
 - https://api.smartrecruiters.com/v1/companies/BoschGroup/postings/744000142098284 checked 2026-11-17
 - https://api.smartrecruiters.com/v1/companies/BoschGroup/postings/744000142096739 checked 2026-11-17
+- https://www.bosch.pt/carreiras/ofertas-de-emprego/ checked 2026-11-19
+- https://www.bosch.com/careers/faq/ checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

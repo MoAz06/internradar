@@ -21,7 +21,10 @@ Careers page: https://intel.wd1.myworkdayjobs.com/External
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You find the internship on Intel's Workday job board, click Apply and sign up for Workday; Intel says internships are open to “students enrolled in a degree-level earning program”.
+- You can follow your status in Workday under Candidate Home, and if you miss a recruiter's call Intel says “a second call attempt will be made to reach you”.
+- Intel says offers come “only after an interview and conversation with an Intel staffing representative”, and that the process “could take anywhere from days to several months”.
+- The Gdańsk compiler internship is part time and asks that you can keep your student status “for at least 1 year”.
 
 ## Re-apply rule
 
@@ -46,5 +49,9 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/System-Software-Engineering-Intern_JR0288207 checked 2026-11-17
 - https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Development-Intern_JR0288895 checked 2026-11-18
 - https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264 checked 2026-11-18
+- https://www.intel.com/content/www/us/en/support/articles/000021775/programs/jobs-at-intel.html checked 2026-11-19
+- https://www.intel.com/content/www/us/en/support/articles/000059971/programs.html checked 2026-11-19
+- https://www.intel.com/content/www/us/en/support/articles/000060132/programs/jobs-at-intel.html checked 2026-11-19
+- https://www.intel.com/content/www/us/en/support/articles/000088098/programs/jobs-at-intel.html checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

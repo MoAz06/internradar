@@ -48,6 +48,10 @@ export type Item = {
   auto: boolean;
   /** How they hire, in one short line: the role's own process, or the company's for a role without one. */
   how: string;
+  /** A strict re-apply rule in two or three words ("a year", "next season", "test once"), or "" when there is none. */
+  reapplyTag: string;
+  /** That rule in a sentence, for the tooltip. */
+  reapplyRule: string;
 };
 
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];

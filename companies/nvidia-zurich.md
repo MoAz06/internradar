@@ -18,7 +18,10 @@ Careers page: https://www.nvidia.com/en-us/about-nvidia/careers/university-recru
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply online through NVIDIA's Workday site. NVIDIA offers internships of “a minimum of 12 weeks” year-round.
+- For interns, NVIDIA says “Interns will typically complete phone interviews only,” and interviews “usually last 30-60 minutes each.”
+- Technical candidates “may be asked to complete a coding exercise, which is usually done using Hackerrank”, and “The use of unapproved outside tools, such as ChatGPT, during the interview will result in the disqualification of candidacy.”
+- NVIDIA says “Most candidates will have a decision within a matter of weeks from their first interview”.
 
 ## Re-apply rule
 
@@ -45,5 +48,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Robotics---Summer-2027_JR2027294 checked 2026-11-16
 - https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Robotics-Simulation-and-Evaluation-PhD-Intern---Summer-2027_JR2027531 checked 2026-11-16
 - https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Autonomous-Systems-and-Physical-AI-Research---2027_JR2024606-1 checked 2026-11-16
+- https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/ checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

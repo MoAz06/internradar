@@ -13,7 +13,9 @@ Careers page: https://www.tower-research.com/internships
 
 ## Process, as the company describes it
 
-- Interview steps: not described on the Tower postings.
+- You apply on Greenhouse with a CV and an optional cover letter.
+- The form asks: “Do you have any other offers/final stage interviews or processes/deadline that we need to be aware of?” and whether you need visa sponsorship for London.
+- Tower says “We strive to conduct a straightforward interview and hiring process” with “no gotcha questions, random logic problems, or abstract, overly academic discussions”.
 
 ## Re-apply rule
 
@@ -32,5 +34,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://job-boards.greenhouse.io/embed/job_app?for=towerresearchcapital&token=8037824 checked 2026-11-17
 - https://job-boards.greenhouse.io/embed/job_app?for=towerresearchcapital&token=8037860 checked 2026-11-17
 - https://www.tower-research.com/internships checked 2026-11-17
+- https://tower-research.com/careers/ checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

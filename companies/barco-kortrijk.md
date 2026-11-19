@@ -15,7 +15,10 @@ Careers page: https://jobs.barco.com/go/Students/4342001/
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply online through the Barco jobs site. The example posting only offers an “Apply now” button that leads to Barco's talent community, plus a LinkedIn option.
+- For a spontaneous internship application Barco asks for your CV and “A short motivation letter: Tell us what excites you and why you’d love to join our team.”
+- You can mention when you want to start, and Barco says “we’ll do our best to accommodate.” A spontaneous application puts your profile in a talent pool “visible to hiring managers across Barco Belgium.”
+- In the example posting Barco says that “Depending on your interests and skills, you will be matched to a project”.
 
 ## Re-apply rule
 
@@ -37,5 +40,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://jobs.barco.com/job/Kortrijk-Internship-Software-Quality-&-Test-Automation/1441079233/ checked 2026-11-17
 - https://jobs.barco.com/job/Kortrijk-Internship-Computer-Vision-&-Image-Analysis/1441077933/ checked 2026-11-17
 - https://jobs.barco.com/job/Kortrijk-Internship-Self-supervised-learning-and-pathology-foundation-models/1441077533/ checked 2026-11-17
+- https://jobs.barco.com/job/Kortrijk-Internship-Spontaneous-application/1265742201/ checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

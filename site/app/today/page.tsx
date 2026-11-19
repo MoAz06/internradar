@@ -20,7 +20,7 @@ export default function TodayPage() {
   const now = today();
   const items = buildItems(now)
     .filter((x) => x.status !== "closed")
-    .map(({ id, key, slug, company, title, city, status, when, daysLeft, closes, added, fresh, country, kind, levels, workRights, languages }) => ({
+    .map(({ id, key, slug, company, title, city, status, when, daysLeft, closes, added, fresh, country, kind, levels, workRights, languages, how, reapplyTag, reapplyRule }) => ({
       id,
       key,
       slug,
@@ -38,6 +38,9 @@ export default function TodayPage() {
       levels,
       workRights,
       languages,
+      how,
+      reapplyTag,
+      reapplyRule,
     }));
   const next = upcoming(radar, now).map(({ company, slug, role, opens }) => ({ company, slug, role, opens }));
   return (

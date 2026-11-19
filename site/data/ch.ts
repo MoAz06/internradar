@@ -488,7 +488,12 @@ export const ch: Company[] = [
         checked: "2026-11-16",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "ZKB says “Die Bewerbungsfenster für unsere Summer Internships öffnen jeweils Anfangs Jahr” (application windows for summer internships open at the start of each year).",
+      "In general, ZKB says “Unser Rekrutierungsprozess beinhaltet normalerweise mindestens zwei Runden” (usually at least two rounds), and it often holds first interviews digitally.",
+      "For IT roles, ZKB sometimes asks for must-have criteria by phone first, and “zum Teil schon zu Beginn ein Tech-Assessment” (sometimes a tech assessment at the start).",
+      "Most interviews are held together with someone from the business line, and “Gegen Ende des Rekrutierungsprozesses kommt es meist zu einer Vorstellung im Team” (near the end you usually meet the team).",
+    ],
     reapply: "Not stated",
     pay: [
       "T-Shaped trainees get “eine faire Vergütung”, no figure given, and have a permanent contract from day one.",
@@ -502,6 +507,7 @@ export const ch: Company[] = [
       { url: "https://www.zkb.ch/de/ueber-uns/jobs-karriere/young-talents/summer-internship.html", checked: "2026-11-16" },
       { url: "https://www.zkb.ch/de/ueber-uns/jobs-karriere/young-talents/programm-t-shaped.html", checked: "2026-11-16" },
       { url: "https://apply.refline.ch/792841/search.html?segment=student", checked: "2026-11-16" },
+      { url: "https://www.zkb.ch/de/blog/themen/bewerbungsgespraech-zuercher-kantonalbank.html", checked: "2026-11-19" },
     ],
   },
   {
@@ -708,7 +714,12 @@ export const ch: Company[] = [
         checked: "2026-11-16",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online through NVIDIA's Workday site. NVIDIA offers internships of “a minimum of 12 weeks” year-round.",
+      "For interns, NVIDIA says “Interns will typically complete phone interviews only,” and interviews “usually last 30-60 minutes each.”",
+      "Technical candidates “may be asked to complete a coding exercise, which is usually done using Hackerrank”, and “The use of unapproved outside tools, such as ChatGPT, during the interview will result in the disqualification of candidacy.”",
+      "NVIDIA says “Most candidates will have a decision within a matter of weeks from their first interview”.",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay: no figure. Two Zurich postings say NVIDIA “offers highly competitive salaries and a comprehensive benefits package”.",
@@ -726,6 +737,7 @@ export const ch: Company[] = [
       { url: "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Robotics---Summer-2027_JR2027294", checked: "2026-11-16" },
       { url: "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Robotics-Simulation-and-Evaluation-PhD-Intern---Summer-2027_JR2027531", checked: "2026-11-16" },
       { url: "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Autonomous-Systems-and-Physical-AI-Research---2027_JR2024606-1", checked: "2026-11-16" },
+      { url: "https://www.nvidia.com/en-us/about-nvidia/careers/how-we-hire/", checked: "2026-11-19" },
     ],
   },
   {
@@ -905,7 +917,12 @@ export const ch: Company[] = [
         checked: "2026-11-16",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online and Meta asks you to check that “your resume clearly reflects” the minimum qualifications.",
+      "Meta says “For most roles at Meta, the first step in the interview process is an initial call with a recruiter”; for select roles the first step may be “an initial prescreen form via Career Profile”.",
+      "For software engineering interns, Meta's blog describes two stages: “an initial phone screen” and then an interview that was held by video, each with “one to two coding questions” and 30 to 35 minutes of coding.",
+      "Meta says many technical interviews include an AI assistant that candidates “are expected to use”, and that “The typical interview process usually takes about 2 to 3 months.”",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay: no figure on the Zurich postings.",
@@ -923,6 +940,8 @@ export const ch: Company[] = [
       { url: "https://www.metacareers.com/profile/job_details/2082008865811696", checked: "2026-11-16" },
       { url: "https://www.metacareers.com/profile/job_details/848358355026771", checked: "2026-11-16" },
       { url: "https://www.metacareers.com/profile/job_details/1420325362923811", checked: "2026-11-16" },
+      { url: "https://www.metacareers.com/hiring-process/", checked: "2026-11-19" },
+      { url: "https://www.metacareers.com/blog/acing-your-software-engineering-internship-interview-at-meta/", checked: "2026-11-19" },
     ],
   },
   {

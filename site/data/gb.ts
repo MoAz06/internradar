@@ -1912,7 +1912,12 @@ export const gb: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online with your resume, which is required, on Microsoft's careers site. The example posting says it “will be open for a minimum of 5 days, with applications accepted on an ongoing basis until the position is filled”.",
+      "Microsoft says “The interview process varies depending on the role” and “All interviews are conducted virtually.”",
+      "Microsoft asks you to “allow up to 90 days to receive a decision on your application”.",
+      "The Cambridge lab says “We mostly offer internships to Masters or PhD students, but will consider Undergraduates if the opportunity fits,” and the internship lasts 12 weeks.",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay: “The base pay for this internship is £ 4,853.00 per month.” (both postings)",
@@ -1924,6 +1929,7 @@ export const gb: Company[] = [
       { url: "https://apply.careers.microsoft.com/careers/job/1970393557050102", checked: "2026-11-17" },
       { url: "https://apply.careers.microsoft.com/careers/job/1970393557070382", checked: "2026-11-17" },
       { url: "https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/internships/", checked: "2026-11-17" },
+      { url: "https://careers.microsoft.com/v2/global/en/universityinternship", checked: "2026-11-19" },
     ],
   },
   {
@@ -2343,7 +2349,11 @@ export const gb: Company[] = [
         checked: "2026-11-18",
       },
     ],
-    process: ["Interview steps: not described on the Tower postings."],
+    process: [
+      "You apply on Greenhouse with a CV and an optional cover letter.",
+      "The form asks: “Do you have any other offers/final stage interviews or processes/deadline that we need to be aware of?” and whether you need visa sponsorship for London.",
+      "Tower says “We strive to conduct a straightforward interview and hiring process” with “no gotcha questions, random logic problems, or abstract, overly academic discussions”.",
+    ],
     reapply: "Not stated",
     pay: [
       "No pay figure given. Listed benefits include “Free breakfast, lunch, and snacks daily” and “Hybrid working opportunities”.",
@@ -2353,6 +2363,7 @@ export const gb: Company[] = [
       { url: "https://job-boards.greenhouse.io/embed/job_app?for=towerresearchcapital&token=8037824", checked: "2026-11-17" },
       { url: "https://job-boards.greenhouse.io/embed/job_app?for=towerresearchcapital&token=8037860", checked: "2026-11-17" },
       { url: "https://www.tower-research.com/internships", checked: "2026-11-17" },
+      { url: "https://tower-research.com/careers/", checked: "2026-11-19" },
     ],
   },
   {
@@ -2989,7 +3000,12 @@ export const gb: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You start with “a short online application”, and BAE Systems says “candidates may apply for only one role per year.”",
+      "If you pass, you do “an online assessment with interactive activities, and an on-demand video interview”.",
+      "The last stage is a “competency-based interview, either virtual or face-to-face.”",
+      "“Our main recruitment window runs from the beginning of September”, and roles may close early, so BAE Systems advises applying as soon as possible.",
+    ],
     reapply: "Not stated",
     pay: [
       "Salary: “£34,000 Per Annum + £2,000 Welcome Bonus”.",
@@ -2999,6 +3015,7 @@ export const gb: Company[] = [
     sources: [
       { url: "https://jobsearch.baesystems.com/job/graduate-software-engineer-v06527-11597", checked: "2026-11-17" },
       { url: "https://jobsearch.baesystems.com/job/graduate-software-engineer-v06572-11797", checked: "2026-11-17" },
+      { url: "https://careers.baesystems.com/locations/uk/graduates/technology", checked: "2026-11-19" },
     ],
   },
   {

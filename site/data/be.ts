@@ -212,7 +212,12 @@ export const be: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online through the Barco jobs site. The example posting only offers an “Apply now” button that leads to Barco's talent community, plus a LinkedIn option.",
+      "For a spontaneous internship application Barco asks for your CV and “A short motivation letter: Tell us what excites you and why you’d love to join our team.”",
+      "You can mention when you want to start, and Barco says “we’ll do our best to accommodate.” A spontaneous application puts your profile in a talent pool “visible to hiring managers across Barco Belgium.”",
+      "In the example posting Barco says that “Depending on your interests and skills, you will be matched to a project”.",
+    ],
     reapply: "Not stated",
     pay: ["Not stated"],
     reports: [],
@@ -223,6 +228,7 @@ export const be: Company[] = [
       { url: "https://jobs.barco.com/job/Kortrijk-Internship-Software-Quality-&-Test-Automation/1441079233/", checked: "2026-11-17" },
       { url: "https://jobs.barco.com/job/Kortrijk-Internship-Computer-Vision-&-Image-Analysis/1441077933/", checked: "2026-11-17" },
       { url: "https://jobs.barco.com/job/Kortrijk-Internship-Self-supervised-learning-and-pathology-foundation-models/1441077533/", checked: "2026-11-17" },
+      { url: "https://jobs.barco.com/job/Kortrijk-Internship-Spontaneous-application/1265742201/", checked: "2026-11-19" },
     ],
   },
   {
@@ -326,7 +332,12 @@ export const be: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "For the Graduate Program, Proximus lists five steps: “CV screening”, “Online ability test”, “Digital interview”, “Selection day” and “Decision and offer”. The program “Starts 1 September 2027” with three assignments of 8 months.",
+      "In its general hiring steps, Proximus reviews your CV and says “Within a week, you'll either hear from us for the next steps, or get an update if it's not a match.”",
+      "Then a recruiter calls you “for a short chat about your motivation, experience, and fit.” For some roles you take “a short personality and/or cognitive test”.",
+      "You then meet a recruiter and the hiring manager, online or in person. Proximus says that if you are not selected, “You'll get honest, constructive feedback”.",
+    ],
     reapply: "Not stated",
     pay: [
       "“The salary is based on a clear salary scale”; the recruiter shares the range before the first interview.",
@@ -336,6 +347,8 @@ export const be: Company[] = [
     sources: [
       { url: "https://jobs.proximus.com/be/en", checked: "2026-11-17" },
       { url: "https://jobs.proximus.com/be/en/job/req20149/Proximus-Graduate-Program", checked: "2026-11-17" },
+      { url: "https://jobs.proximus.com/be/en/graduate-program", checked: "2026-11-19" },
+      { url: "https://jobs.proximus.com/be/en/tips-and-tricks", checked: "2026-11-19" },
     ],
     notes: [
       "A mixed programme: most tracks are on the business side; you can also pick AI, fibre, IT or cybersecurity.",

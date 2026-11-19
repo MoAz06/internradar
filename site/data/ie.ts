@@ -323,7 +323,12 @@ export const ie: Company[] = [
         checked: "2026-11-16",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online and Meta asks you to check that “your resume clearly reflects” the minimum qualifications.",
+      "Meta says “For most roles at Meta, the first step in the interview process is an initial call with a recruiter”; for select roles the first step may be “an initial prescreen form via Career Profile”.",
+      "For software engineering interns, Meta's blog describes two stages: “an initial phone screen” and then an interview that was held by video, each with “one to two coding questions” and 30 to 35 minutes of coding.",
+      "Meta says many technical interviews include an AI assistant that candidates “are expected to use”, and that “The typical interview process usually takes about 2 to 3 months.”",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay: no figure given.",
@@ -335,6 +340,8 @@ export const ie: Company[] = [
       { url: "https://www.metacareers.com/careerprograms/students", checked: "2026-11-16" },
       { url: "https://www.metacareers.com/profile/job_details/28481093051507524", checked: "2026-11-16" },
       { url: "https://www.metacareers.com/jobsearch/?offices[0]=Dublin%2C%20Ireland&roles[0]=Internship", checked: "2026-11-16" },
+      { url: "https://www.metacareers.com/hiring-process/", checked: "2026-11-19" },
+      { url: "https://www.metacareers.com/blog/acing-your-software-engineering-internship-interview-at-meta/", checked: "2026-11-19" },
     ],
   },
   {

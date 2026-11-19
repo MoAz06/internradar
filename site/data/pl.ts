@@ -157,7 +157,12 @@ export const pl: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You find the internship on Intel's Workday job board, click Apply and sign up for Workday; Intel says internships are open to “students enrolled in a degree-level earning program”.",
+      "You can follow your status in Workday under Candidate Home, and if you miss a recruiter's call Intel says “a second call attempt will be made to reach you”.",
+      "Intel says offers come “only after an interview and conversation with an Intel staffing representative”, and that the process “could take anywhere from days to several months”.",
+      "The Gdańsk compiler internship is part time and asks that you can keep your student status “for at least 1 year”.",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay: each posting gives a minimum annual salary in Poland of 68 880,00 zł.",
@@ -173,6 +178,10 @@ export const pl: Company[] = [
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/System-Software-Engineering-Intern_JR0288207", checked: "2026-11-17" },
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Development-Intern_JR0288895", checked: "2026-11-18" },
       { url: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Automation-Developer---Graphics-Software-Internship_JR0289264", checked: "2026-11-18" },
+      { url: "https://www.intel.com/content/www/us/en/support/articles/000021775/programs/jobs-at-intel.html", checked: "2026-11-19" },
+      { url: "https://www.intel.com/content/www/us/en/support/articles/000059971/programs.html", checked: "2026-11-19" },
+      { url: "https://www.intel.com/content/www/us/en/support/articles/000060132/programs/jobs-at-intel.html", checked: "2026-11-19" },
+      { url: "https://www.intel.com/content/www/us/en/support/articles/000088098/programs/jobs-at-intel.html", checked: "2026-11-19" },
     ],
   },
   {
@@ -239,7 +248,12 @@ export const pl: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online through Motorola Solutions' Workday careers site.",
+      "For the Poland Research & Development Internship, Motorola Solutions says “Recruitment is open year-round, and positions become available depending on demand.”",
+      "The internship typically lasts 15 months, needs at least 24 hours a week in a hybrid model in the Kraków area, and has “No student status required”.",
+      "The example posting asks for at least 32 hours per week, offers a “15 months Contract (UoP)” and 2 office days per week in Kraków.",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay: a contract of employment, no salary figure given.",
@@ -253,6 +267,7 @@ export const pl: Company[] = [
       { url: "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Krakow-Poland/Intern-Software-Developer--C---_R69047", checked: "2026-11-17" },
       { url: "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Krakow-Poland/Intern-Software-Developer--JavaScript---React-_R70490", checked: "2026-11-17" },
       { url: "https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Krakow-Poland/Intern-Software-Developer--Salesforce-_R69887", checked: "2026-11-17" },
+      { url: "https://www.motorolasolutions.com/en_xu/about/careers.html", checked: "2026-11-19" },
     ],
   },
   {

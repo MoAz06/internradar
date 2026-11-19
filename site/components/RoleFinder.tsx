@@ -11,6 +11,7 @@ import AddToCalendar from "@/components/AddToCalendar";
 import { readSaved, visitSince, writeSaved } from "@/lib/mine";
 import FilterSheet from "@/components/FilterSheet";
 import Icon from "@/components/Icon";
+import { CountChip, HowLine } from "@/components/RoleBits";
 import { toast } from "@/lib/toast";
 import { levels, type Level } from "@/lib/eligibility";
 import { query, searchable } from "@/lib/search";
@@ -321,6 +322,20 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
       return next;
     });
   };
+  /** Saves every role in a merged row, or takes them all off when they are all saved already. Undo puts back the list as it was. */
+  const toggleSaveAll = (ids: string[]) => {
+    const all = ids.every((id) => saved.includes(id));
+    const before = saved;
+    toast(all ? `Removed ${ids.length} roles from your list` : `Saved ${ids.length} roles to your list`, () => {
+      writeSaved(before);
+      setSaved(before);
+    });
+    setSaved((cur) => {
+      const next = all ? cur.filter((s) => !ids.includes(s)) : [...new Set([...cur, ...ids])];
+      writeSaved(next);
+      return next;
+    });
+  };
   const savedItems = items.filter((x) => saved.includes(x.id));
   const downloadCalendar = () => {
     const events = eventsFor(savedItems);
@@ -426,6 +441,29 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     );
   };
 
+  const howLine = (x: Item, className: string) => <HowLine x={x} className={className} />;
+
+  /** The bookmark of a merged row: it saves all its roles. Partly saved shows in colour, not filled. */
+  const groupSave = (r: Row, align: string, size: string) => {
+    const ids = r.items.map((x) => x.id);
+    const n = ids.filter((id) => saved.includes(id)).length;
+    const all = n === ids.length;
+    return (
+      <button
+        type="button"
+        onClick={() => toggleSaveAll(ids)}
+        aria-pressed={all}
+        data-track={all ? "unsave-group" : "save-group"}
+        className={`flex h-11 w-11 items-center ${align} ${n ? "text-accent" : "text-dim hover:text-ink"}`}
+      >
+        <Icon name="bookmark" filled={all} className={size} />
+        <span className="sr-only">
+          Save all {ids.length} roles: {r.title} at {r.items[0].company}
+        </span>
+      </button>
+    );
+  };
+
   /** A heading above a row when the deadline group changes, and above the first row of a page. */
   const headingOf = (r: Row, i: number) => {
     if (!headings) return null;
@@ -436,12 +474,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     const n = perHeading.get(h) ?? 0;
     return `${n} ${n === 1 ? "role" : "roles"}`;
   };
-  const chip = (r: Row, open: boolean) => (
-    <span className="ml-1.5 inline-flex items-center gap-0.5 rounded-sm border border-line bg-surface px-1.5 align-[1px] font-sans text-[12.5px] whitespace-nowrap text-muted">
-      {r.chip}
-      <Icon name="chevron" className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
-    </span>
-  );
+  const chip = (r: Row, open: boolean) => <CountChip text={r.chip ?? ""} open={open} />;
 
   /** Desktop: one role as a table row, with its details below when open. `inner` for a role inside a merged row. */
   const itemRow = (x: Item, inner = false) => {
@@ -470,7 +503,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
               </span>
               <Icon name="chevron" className={`mt-1 h-4 w-4 shrink-0 text-dim transition-transform ${open ? "rotate-180" : ""}`} />
             </button>
-            {!inner && x.how && <span className="-mt-1 mb-1.5 block truncate font-sans text-[13.5px] text-dim">{x.how}</span>}
+            {!inner && howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{x.city}</td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{x.pay?.short}</td>
@@ -495,7 +528,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     return (
       <Fragment key={r.id}>
         <tr className={`border-line hover:bg-raised/40 ${open ? "" : "border-b"}`}>
-          <td />
+          <td className="align-top">{groupSave(r, "justify-center", "h-[18px] w-[18px]")}</td>
           <td className="py-2.5 pr-3 align-top leading-snug">
             <Link href={`/companies/${x.slug}/`} className="font-display text-[15px] font-bold hover:underline">
               {x.company}
@@ -514,7 +547,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
                 {chip(r, open)}
               </span>
             </button>
-            {x.how && <span className="-mt-1 mb-1.5 block truncate font-sans text-[13.5px] text-dim">{x.how}</span>}
+            {howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{citiesOf(r)}</td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{payOf(r)}</td>
@@ -545,7 +578,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
               {inner && isNew(x) && newBadge}
               {x.title}
             </span>
-            {!inner && x.how && <span className="mt-0.5 block truncate font-sans text-[13px] text-dim">{x.how}</span>}
+            {!inner && howLine(x, "mt-0.5 text-[13px]")}
             {inner ? (
               <span className="mt-0.5 flex gap-2 font-sans text-[13px] text-muted">
                 <span className="min-w-0 flex-1">{[x.city, x.pay?.short].filter(Boolean).join(" · ")}</span>
@@ -567,9 +600,9 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
     const x = r.items[0];
     const hot = x.urgent ? "font-semibold text-soon" : "text-muted";
     return (
-      <li key={r.id} className="border-b border-line">
+      <li key={r.id} className="relative border-b border-line">
         <details>
-          <summary className="block cursor-pointer list-none py-2.5 [&::-webkit-details-marker]:hidden">
+          <summary className="block cursor-pointer list-none py-2.5 pr-11 [&::-webkit-details-marker]:hidden">
             <span className="flex items-baseline gap-2">
               <span className="min-w-0 flex-1 truncate">
                 {r.items.some(isNew) && newBadge}
@@ -581,11 +614,12 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
               {r.title}
               {chip(r, false)}
             </span>
-            {x.how && <span className="mt-0.5 block truncate font-sans text-[13px] text-dim">{x.how}</span>}
+            {howLine(x, "mt-0.5 text-[13px]")}
             <span className="mt-0.5 block font-sans text-[13px] text-muted">{[citiesOf(r), payOf(r)].filter(Boolean).join(" · ")}</span>
           </summary>
           <ul className="mb-2">{r.items.map((y) => itemCard(y, true))}</ul>
         </details>
+        <div className="absolute top-0 right-0">{groupSave(r, "justify-end", "h-5 w-5")}</div>
       </li>
     );
   };
@@ -633,6 +667,20 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
           onCalendar={downloadCalendar}
           onCopyLink={copyLink}
         />
+        {/* phones: the order next to More filters, so the line below stays one line */}
+        <label htmlFor="role-sort-phone" className="sr-only">
+          Sort
+        </label>
+        <select
+          id="role-sort-phone"
+          value={f.sort}
+          onChange={(e) => set({ sort: e.target.value as Sort })}
+          className="h-11 flex-[1_1_40%] rounded-md border border-line bg-surface px-2.5 text-[15px] text-ink md:hidden"
+        >
+          <option value="deadline">Closing soonest</option>
+          <option value="pay">Highest pay ({withPay})</option>
+          <option value="new">Newest</option>
+        </select>
       </div>
 
       <div className="mt-3 mb-1 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-sans text-[14px] text-muted">
@@ -640,7 +688,7 @@ export default function RoleFinder({ items, countries, now }: { items: Item[]; c
           {shown.length} {shown.length === 1 ? "role" : "roles"}
           {f.status === "soon" ? " opening soon" : f.status === "new" ? " new" : ""}
         </p>
-        <label className="flex items-center gap-1.5">
+        <label className="flex items-center gap-1.5 max-md:hidden">
           Sort
           <select
             value={f.sort}

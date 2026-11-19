@@ -16,7 +16,10 @@ Careers page: https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCaree
 
 ## Process, as the company describes it
 
-- Interview steps: not described.
+- You apply online through Thermo Fisher's Workday site, which Thermo Fisher says takes “Up to 5 minutes”.
+- Then you have a “Text, phone/video, onsite interview with a Recruiter” of 15 to 60 minutes.
+- Next is a “Phone/video or onsite interview with Hiring Manager” of 30 to 60 minutes, then an “Onsite or video interview with 1-5 members of the hiring team”.
+- The Eindhoven posting is a graduation assignment for an HBO or WO Software Engineering student, and it ends with a thesis and a final presentation.
 
 ## Re-apply rule
 
@@ -40,5 +43,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Sr-GenAI-Intern_R-01374045-1 checked 2026-11-17
 - https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---X-ray-Spectroscopy_R-01366276 checked 2026-11-17
 - https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Intern-Software-Scientist---Theoretical-Spectroscopy_R-01374093-1 checked 2026-11-18
+- https://jobs.thermofisher.com/global/en/science-of-hiring checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

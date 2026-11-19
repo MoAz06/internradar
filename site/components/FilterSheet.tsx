@@ -99,7 +99,7 @@ export default function FilterSheet({
         onClick={() => setOpen(true)}
         aria-expanded={open}
         aria-controls="filters"
-        className="flex h-11 items-center justify-center gap-1.5 rounded-md border border-ink bg-transparent px-3.5 text-[15px] text-ink hover:bg-raised max-md:flex-[1_1_100%]"
+        className="flex h-11 items-center justify-center gap-1.5 rounded-md border border-ink bg-transparent px-3.5 text-[15px] text-ink hover:bg-raised max-md:flex-[1_1_40%]"
         data-track="filters-open"
       >
         <Icon name="filter" />

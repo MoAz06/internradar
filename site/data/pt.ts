@@ -72,7 +72,12 @@ export const pt: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online with your CV and cover letter, max 10 MB, and Bosch Portugal says you get an email “em poucos minutos” (within a few minutes) confirming receipt.",
+      "Bosch Portugal says that, depending on the job, “podes esperar um contacto nosso entre duas a três semanas” (you can expect to hear from us within two to three weeks).",
+      "If you pass pre-selection, Bosch Portugal invites you to a visit at the company and says it will contact you “dentro de duas semanas após a tua visita” (within two weeks after your visit).",
+      "Bosch's global FAQ lists the steps as online application, screening and “one or more interviews video or onsite”; some roles add technical assessments, coding tasks, case studies or presentations, and it says the whole process usually takes 2 to 6 weeks.",
+    ],
     reapply: "Not stated",
     pay: [
       "Pay, relocation and visa: not mentioned.",
@@ -86,6 +91,8 @@ export const pt: Company[] = [
       { url: "https://jobs.smartrecruiters.com/BoschGroup/744000142098284", checked: "2026-11-17" },
       { url: "https://api.smartrecruiters.com/v1/companies/BoschGroup/postings/744000142098284", checked: "2026-11-17" },
       { url: "https://api.smartrecruiters.com/v1/companies/BoschGroup/postings/744000142096739", checked: "2026-11-17" },
+      { url: "https://www.bosch.pt/carreiras/ofertas-de-emprego/", checked: "2026-11-19" },
+      { url: "https://www.bosch.com/careers/faq/", checked: "2026-11-19" },
     ],
   },
   {
@@ -191,7 +198,11 @@ export const pt: Company[] = [
         checked: "2026-11-17",
       },
     ],
-    process: ["Interview steps: not described."],
+    process: [
+      "You apply online, and Santander's recruitment team reviews your CV against the role.",
+      "Santander says “If you’re shortlisted, you’ll be invited to a 20-minute call with someone from our People & Culture team.”",
+      "Next comes an interview, “virtual or in person”, then “standard final checks such as references, and background”, and then an official offer letter.",
+    ],
     reapply: "Not stated",
     pay: [
       "“Podes esperar um pacote de remuneração justo e competitivo”, no figure given.",
