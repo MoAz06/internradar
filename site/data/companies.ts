@@ -58,5 +58,5 @@ export const links = {
    * Off: one edition for all of Europe, to everyone. */
   mailEditions: false,
   /** Address for privacy questions and removal requests. Empty: the privacy page points to LinkedIn. */
-  contact: "",
+  contact: "contact@internradar.eu",
 };
