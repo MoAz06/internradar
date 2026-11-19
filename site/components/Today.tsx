@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { shortWhen, type Item } from "@/lib/items";
+import { roleHref, shortWhen, type Item } from "@/lib/items";
 import { shortDate } from "@/lib/format";
 import { daysBetween, localDay, readProgress, readSaved, SAVED_EVENT, stages, visitSince, type Progress } from "@/lib/mine";
 
 export type TodayItem = Pick<
   Item,
-  "id" | "slug" | "company" | "title" | "city" | "status" | "when" | "daysLeft" | "closes" | "added" | "fresh"
+  "id" | "key" | "slug" | "company" | "title" | "city" | "status" | "when" | "daysLeft" | "closes" | "added" | "fresh"
 >;
 export type NextUp = { company: string; slug: string; role: string; opens: string };
 
@@ -129,7 +129,7 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
           {mine.slice(0, SHOW + 2).map((x) => {
             const p = progress[x.id];
             const stage = p && `${stages.find((s) => s.id === p.stage)?.label} ${shortDate(p.on)}`;
-            return row(x.id, "/mine/", top(x.company, stage || (x.status === "soon" ? "not open yet" : "to apply")), x.title, p ? "" : due(x), hot(x));
+            return row(x.id, roleHref(x.key), top(x.company, stage || (x.status === "soon" ? "not open yet" : "to apply")), x.title, p ? "" : due(x), hot(x));
           })}
         </ul>
       )}
@@ -138,14 +138,14 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
       {closing.length === 0 ? (
         <p className="py-3 text-[15px] text-muted">Nothing on the list closes in the next 7 days.</p>
       ) : (
-        <ul>{closing.slice(0, SHOW).map((x) => row(x.id, `/companies/${x.slug}/`, top(x.company, x.cities), x.title, due(x), hot(x)))}</ul>
+        <ul>{closing.slice(0, SHOW).map((x) => row(x.id, roleHref(x.key), top(x.company, x.cities), x.title, due(x), hot(x)))}</ul>
       )}
 
       {head(`${newTitle} · ${fresh.length}`, fresh.length > SHOW ? { href: "/?status=new", label: "All new" } : undefined)}
       {fresh.length === 0 ? (
         <p className="py-3 text-[15px] text-muted">No new roles since then. The list is checked every day.</p>
       ) : (
-        <ul>{fresh.slice(0, SHOW).map((x) => row(x.id, `/companies/${x.slug}/`, top(x.company, x.cities), x.title, due(x), hot(x)))}</ul>
+        <ul>{fresh.slice(0, SHOW).map((x) => row(x.id, roleHref(x.key), top(x.company, x.cities), x.title, due(x), hot(x)))}</ul>
       )}
 
       {next.length > 0 && (

@@ -39,6 +39,9 @@ export type Item = {
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];
 export const fields: Field[] = ["Software", "Data and AI", "Quant", "Hardware and embedded", "Other tech"];
 
+/** Where a role's own page lives (app/roles/[key]). */
+export const roleHref = (key: string) => `/roles/${key}/`;
+
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /** The status in two or three words, for narrow rows: "3 days", "12 Dec", "Rolling", "Opens Jan 2027".

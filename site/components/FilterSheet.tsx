@@ -16,7 +16,7 @@ function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; chi
       type="button"
       aria-pressed={on}
       onClick={onClick}
-      className={`h-9 rounded-full border px-3 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink"}`}
+      className={`h-11 rounded-full border px-3.5 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink"}`}
     >
       {children}
     </button>
@@ -84,7 +84,7 @@ export default function FilterSheet({
           onClick={() => setOpen(true)}
           aria-expanded={open}
           aria-controls="filters"
-          className="flex h-9 shrink-0 items-center gap-1 rounded-full border border-muted bg-surface px-2.5 text-[14px] font-semibold text-ink"
+          className="flex h-11 shrink-0 items-center gap-1 rounded-full border border-muted bg-surface px-2.5 text-[14px] font-semibold text-ink"
           data-track="filters-open"
         >
           <Icon name="filter" />
@@ -96,7 +96,7 @@ export default function FilterSheet({
             type="button"
             aria-pressed={f.status === s}
             onClick={() => set({ status: s })}
-            className={`h-9 shrink-0 rounded-full border px-2.5 text-[14px] whitespace-nowrap ${
+            className={`h-11 shrink-0 rounded-full border px-2.5 text-[14px] whitespace-nowrap ${
               f.status === s ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink"
             }`}
           >
@@ -108,7 +108,7 @@ export default function FilterSheet({
             key={x.label}
             type="button"
             onClick={() => set(x.clear)}
-            className="flex h-9 shrink-0 items-center gap-1 rounded-full bg-raised px-2.5 text-[14px] font-semibold whitespace-nowrap text-ink"
+            className="flex h-11 shrink-0 items-center gap-1 rounded-full bg-raised px-2.5 text-[14px] font-semibold whitespace-nowrap text-ink"
           >
             {x.label}
             <Icon name="x" className="h-4 w-4" />

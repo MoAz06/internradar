@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { fields, fold, kinds, reportUrl, shortWhen, type Item } from "@/lib/items";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { fields, fold, kinds, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
@@ -10,6 +10,7 @@ import AddToCalendar from "@/components/AddToCalendar";
 import { readSaved, visitSince, writeSaved } from "@/lib/mine";
 import FilterSheet from "@/components/FilterSheet";
 import Icon from "@/components/Icon";
+import { toast } from "@/lib/toast";
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
 type StatusFilter = "open" | "soon" | "new" | "all";
@@ -75,6 +76,14 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   const [per, setPer] = useState(25);
   // roles added since the visitor's previous visit (a day, not a moment), on top of the ones from this week
   const [since, setSince] = useState<string | null>(null);
+  // desktop rows whose details are open
+  const [openRows, setOpenRows] = useState<Set<string>>(new Set());
+  const flipRow = (id: string) =>
+    setOpenRows((cur) => {
+      const next = new Set(cur);
+      if (!next.delete(id)) next.add(id);
+      return next;
+    });
   const search = useRef<HTMLInputElement>(null);
   const top = useRef<HTMLDivElement>(null);
   // set when a page button is clicked, so that step gets its own history entry for the back button
@@ -236,7 +245,8 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       // blocked storage: the choice holds until the page closes
     }
   };
-  const toggleSave = (id: string) => {
+  const toggleSave = (id: string, quiet = false) => {
+    if (!quiet) toast(saved.includes(id) ? "Removed from your list" : "Saved to your list", () => toggleSave(id, true));
     setSaved((cur) => {
       const next = cur.includes(id) ? cur.filter((s) => s !== id) : [...cur, id];
       writeSaved(next);
@@ -388,7 +398,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
               <li key={x.id} className="relative border-b border-line">
                 <details>
                   <summary className="block cursor-pointer list-none py-2.5 [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-baseline gap-2 pr-10">
+                    <span className="flex items-baseline gap-2 pr-11">
                       <span className="min-w-0 flex-1 truncate">
                         {isNew(x) && <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[1px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>}
                         <b className="text-[15px] font-bold">{x.company}</b>
@@ -414,6 +424,9 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                         Posting
                         <NewTab />
                       </a>
+                      <Link href={roleHref(x.key)} className="link">
+                        Role page
+                      </Link>
                       <Link href={`/companies/${x.slug}/`} className="link">
                         {x.company}
                       </Link>
@@ -431,7 +444,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                   onClick={() => toggleSave(x.id)}
                   aria-pressed={isSaved}
                   data-track={isSaved ? "unsave" : "save"}
-                  className={`absolute top-0 right-0 flex h-11 w-10 items-center justify-end ${isSaved ? "text-accent" : "text-dim"}`}
+                  className={`absolute top-0 right-0 flex h-11 w-11 items-center justify-end ${isSaved ? "text-accent" : "text-dim"}`}
                 >
                   <Icon name="bookmark" filled={isSaved} className="h-5 w-5" />
                   <span className="sr-only">
@@ -442,83 +455,115 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             );
           })}
         </ul>
-        <table className="w-full border-collapse text-left text-sm max-md:hidden">
-          <caption className="sr-only">Roles that match the filters</caption>
-          <thead className="max-md:hidden">
+        <table className="w-full table-fixed border-collapse text-left text-[15px] max-md:hidden">
+          <caption className="sr-only">Roles that match the filters. Open a role for its process and links.</caption>
+          <colgroup>
+            <col className="w-11" />
+            <col className="w-[19%]" />
+            <col />
+            <col className="w-[16%]" />
+            <col className="w-[13%]" />
+            <col className="w-[88px]" />
+          </colgroup>
+          <thead>
             <tr className="border-b-2 border-ink text-[13px]">
+              <th scope="col">
+                <span className="sr-only">Saved</span>
+              </th>
               <th scope="col" className="py-2 pr-4 font-semibold">Company</th>
               <th scope="col" className="py-2 pr-4 font-semibold">Role</th>
-              <th scope="col" className="py-2 pr-4 font-semibold">Status</th>
-              <th scope="col" className="py-2 pr-4 font-semibold">Process</th>
-              <th scope="col" className="py-2 font-semibold">
-                <span className="sr-only">Links</span>
+              <th scope="col" className="py-2 pr-4 font-semibold">City</th>
+              <th scope="col" className="py-2 pr-4 font-semibold">Deadline</th>
+              <th scope="col">
+                <span className="sr-only">Posting</span>
               </th>
             </tr>
           </thead>
           <tbody>
             {onPage.map((x) => {
               const isSaved = saved.includes(x.id);
+              const open = openRows.has(x.id);
               return (
-                <tr key={x.id} className="border-b border-line align-top max-md:block max-md:py-3">
-                  <td className="py-2.5 pr-4 max-md:block max-md:p-0 md:w-[17%]">
-                    <Link href={`/companies/${x.slug}/`} className="link font-semibold">
-                      {x.company}
-                    </Link>
-                    <span className="block text-[13px] text-muted">
-                      {x.city}, {x.countryName}
-                    </span>
-                  </td>
-                  <td className="py-2.5 pr-4 max-md:block max-md:p-0 max-md:pt-1.5 md:w-[28%]">
-                    {isNew(x) && (
-                      <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[1px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>
-                    )}
-                    <span className="font-medium">{x.title}</span>
-                    <span className="block text-[13px] text-muted">
-                      {x.kind}, {x.field}
-                    </span>
-                  </td>
-                  <td className="py-2.5 pr-4 max-md:block max-md:p-0 max-md:pt-1.5 md:w-[15%]">
-                    <span className={`font-sans text-[13px] font-semibold tabular-nums ${statusColor(x)}`}>{x.when}</span>
-                    <span className={`block text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
-                      {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}, `}checked {shortDate(x.checked)}
-                      {x.old ? ", over 3 months ago" : ""}
-                    </span>
-                  </td>
-                  <td className="py-2.5 pr-4 text-muted max-md:block max-md:p-0 max-md:pt-1.5">
-                    {/^not stated/i.test(x.process) ? "Process not stated" : x.process}
-                    {x.reapply && (
-                      <span className="mt-1 block text-[13px] text-soon">
-                        <span className="font-semibold">Re-apply rule:</span> {x.reapply}
-                      </span>
-                    )}
-                  </td>
-                  <td className="py-2.5 whitespace-nowrap max-md:block max-md:p-0 max-md:pt-2">
-                    <a href={x.source} target="_blank" rel="noreferrer" className="link" data-track="posting">
-                      Posting
-                      <NewTab />
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => toggleSave(x.id)}
-                      data-track={isSaved ? "unsave" : "save"}
-                      className={`ml-3 underline underline-offset-2 ${isSaved ? "font-semibold text-ink" : "text-muted hover:text-ink"}`}
-                    >
-                      {isSaved ? "Saved" : "Save"}
-                      <span className="sr-only"> {x.title} at {x.company}</span>
-                    </button>
-                    <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} align="right" className="mt-1 text-[13px]" />
-                    <a
-                      href={reportUrl(x)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-1 block text-[13px] text-muted underline underline-offset-2 hover:text-ink"
-                    >
-                      Something wrong?
-                      <span className="sr-only"> Report a mistake in {x.title} at {x.company}</span>
-                      <NewTab />
-                    </a>
-                  </td>
-                </tr>
+                <Fragment key={x.id}>
+                  <tr className={`border-line ${open ? "bg-raised/60" : "border-b hover:bg-raised/40"}`}>
+                    <td className="align-top">
+                      <button
+                        type="button"
+                        onClick={() => toggleSave(x.id)}
+                        aria-pressed={isSaved}
+                        data-track={isSaved ? "unsave" : "save"}
+                        className={`flex h-11 w-11 items-center justify-center ${isSaved ? "text-accent" : "text-dim hover:text-ink"}`}
+                      >
+                        <Icon name="bookmark" filled={isSaved} className="h-[18px] w-[18px]" />
+                        <span className="sr-only">
+                          Save {x.title} at {x.company}
+                        </span>
+                      </button>
+                    </td>
+                    <td className="truncate py-2.5 pr-4 align-top">
+                      <Link href={`/companies/${x.slug}/`} className="font-semibold hover:underline">
+                        {x.company}
+                      </Link>
+                    </td>
+                    <td className="py-1 pr-4 align-top">
+                      <button
+                        type="button"
+                        onClick={() => flipRow(x.id)}
+                        aria-expanded={open}
+                        className="flex min-h-9 w-full items-start gap-1.5 py-1.5 text-left font-serif hover:underline"
+                      >
+                        <span className="line-clamp-2">
+                          {isNew(x) && (
+                            <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[2px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>
+                          )}
+                          {x.title}
+                        </span>
+                        <Icon name="chevron" className={`mt-1 h-4 w-4 shrink-0 text-dim transition-transform ${open ? "rotate-180" : ""}`} />
+                      </button>
+                    </td>
+                    <td className="truncate py-2.5 pr-4 align-top font-sans text-[13px] leading-6 text-muted">{x.city}</td>
+                    <td className={`py-2.5 pr-4 align-top font-sans text-[13px] leading-6 font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>
+                      {shortWhen(x)}
+                    </td>
+                    <td className="py-2.5 text-right align-top font-sans text-[13px] leading-6">
+                      <a href={x.source} target="_blank" rel="noreferrer" className="link" data-track="posting">
+                        Posting
+                        <NewTab />
+                      </a>
+                    </td>
+                  </tr>
+                  {open && (
+                    <tr className="border-b border-line bg-raised/60">
+                      <td />
+                      <td colSpan={5} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
+                        <p className={`font-sans text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
+                          {x.when}. {x.kind}, {x.field}. {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
+                          {x.old ? ", over 3 months ago" : ""}.
+                        </p>
+                        <p className="mt-1">{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</p>
+                        {x.reapply && (
+                          <p className="mt-1 text-soon">
+                            <span className="font-semibold">Re-apply rule:</span> {x.reapply}
+                          </p>
+                        )}
+                        <div className="mt-2 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-sans text-[14px]">
+                          <Link href={roleHref(x.key)} className="link font-semibold">
+                            Role page
+                          </Link>
+                          <Link href={`/companies/${x.slug}/`} className="link">
+                            How {x.company} hires
+                          </Link>
+                          <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} />
+                          <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-2 hover:text-ink">
+                            Something wrong?
+                            <span className="sr-only"> Report a mistake in {x.title} at {x.company}</span>
+                            <NewTab />
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </Fragment>
               );
             })}
           </tbody>
@@ -536,7 +581,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                     type="button"
                     onClick={() => goTo(cur - 1)}
                     disabled={cur === 1}
-                    className="h-10 px-2 text-link underline underline-offset-2 disabled:text-dim disabled:no-underline"
+                    className="h-11 px-2 text-link underline underline-offset-2 disabled:text-dim disabled:no-underline"
                   >
                     Previous
                   </button>
@@ -552,7 +597,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                         type="button"
                         onClick={() => goTo(n)}
                         aria-current={n === cur ? "page" : undefined}
-                        className={`h-10 min-w-10 px-2 ${
+                        className={`h-11 min-w-11 px-2 ${
                           n === cur ? "bg-ink font-semibold text-bg" : "text-link underline underline-offset-2"
                         }`}
                       >
@@ -567,7 +612,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                     type="button"
                     onClick={() => goTo(cur + 1)}
                     disabled={cur === pages}
-                    className="h-10 px-2 text-link underline underline-offset-2 disabled:text-dim disabled:no-underline"
+                    className="h-11 px-2 text-link underline underline-offset-2 disabled:text-dim disabled:no-underline"
                   >
                     Next
                   </button>

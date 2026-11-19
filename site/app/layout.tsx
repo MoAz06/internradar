@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import Offline from "@/components/Offline";
 import AppTabs from "@/components/AppTabs";
+import Toast from "@/components/Toast";
 import { og } from "@/lib/og";
 
 const display = Libre_Baskerville({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-libre" });
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <Offline />
         <AppTabs />
+        <Toast />
       </body>
     </html>
   );

@@ -20,8 +20,9 @@ export default function TodayPage() {
   const now = today();
   const items = buildItems(now)
     .filter((x) => x.status !== "closed")
-    .map(({ id, slug, company, title, city, status, when, daysLeft, closes, added, fresh }) => ({
+    .map(({ id, key, slug, company, title, city, status, when, daysLeft, closes, added, fresh }) => ({
       id,
+      key,
       slug,
       company,
       title,

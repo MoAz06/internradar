@@ -158,7 +158,7 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
                           onClick={() => setOpen(false)}
                           aria-current={on ? "page" : undefined}
                           data-track={e.track}
-                          className={`flex h-10 items-center gap-3 rounded-md px-2 text-[16px] whitespace-nowrap ${on ? "bg-raised font-semibold" : "hover:bg-raised"}`}
+                          className={`flex h-11 items-center gap-3 rounded-md px-2 text-[16px] whitespace-nowrap ${on ? "bg-raised font-semibold" : "hover:bg-raised"}`}
                         >
                           <span className="text-muted">
                             <Icon name={e.icon} />
@@ -176,7 +176,7 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
               <button
                 type="button"
                 onClick={() => install()}
-                className="mt-1.5 flex h-10 items-center gap-3 rounded-md border-t border-line px-2 pt-1.5 text-[16px] whitespace-nowrap hover:bg-raised"
+                className="mt-1.5 flex h-11 items-center gap-3 rounded-md border-t border-line px-2 pt-1.5 text-[16px] whitespace-nowrap hover:bg-raised"
                 data-track="install-app"
               >
                 <span className="text-muted">

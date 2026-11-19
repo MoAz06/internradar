@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { companies, lastChecked } from "@/data/companies";
 import { cityPages, fieldPages } from "@/lib/landing";
+import { rolePages } from "@/lib/rolePages";
+import { roleHref } from "@/lib/items";
 
 export const dynamic = "force-static";
 
@@ -22,5 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: lastChecked,
     changeFrequency: "weekly" as const,
   }));
-  return [...pages, ...landing, ...perCompany];
+  // closed roles keep their page for old links, but aren't offered to search engines
+  const perRole = rolePages()
+    .filter((p) => p.item.status !== "closed")
+    .map((p) => ({ url: `${site}${roleHref(p.item.key)}`, lastModified: p.role.checked, changeFrequency: "weekly" as const }));
+  return [...pages, ...landing, ...perCompany, ...perRole];
 }

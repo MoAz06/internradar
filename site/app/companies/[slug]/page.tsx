@@ -9,7 +9,7 @@ import { companies, countries, links } from "@/data/companies";
 import { longDate, stripProtocol } from "@/lib/format";
 import { fuzzyDate, live, stale, today } from "@/lib/live";
 import { og } from "@/lib/og";
-import { reportUrl } from "@/lib/items";
+import { reportUrl, roleHref } from "@/lib/items";
 import { shareUrl } from "@/lib/share";
 import { calendarLinks } from "@/lib/calendarLinks";
 import type { CandidateReport } from "@/data/types";
@@ -173,8 +173,15 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               {c.roles.map((r) => (
                 <tr key={r.title + r.source} className="border-t border-line text-[13px]">
                   <td className="px-3 py-3 pl-4 align-middle">
-                    <a href={r.source} target="_blank" rel="noreferrer" className="link text-sm font-semibold">
-                      {r.title}
+                    {itemOf(r.title, r.source) ? (
+                      <Link href={roleHref(itemOf(r.title, r.source)!.key)} className="link text-sm font-semibold">
+                        {r.title}
+                      </Link>
+                    ) : (
+                      <span className="text-sm font-semibold">{r.title}</span>
+                    )}{" "}
+                    <a href={r.source} target="_blank" rel="noreferrer" className="link text-[13px]">
+                      Posting
                       <NewTab />
                     </a>
                     <a

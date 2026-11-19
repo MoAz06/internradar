@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import type { Item } from "@/lib/items";
+import { roleHref, type Item } from "@/lib/items";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { longDate, shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
@@ -159,13 +159,16 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
             {stages.find((s) => s.id === p.stage)?.label} {shortDate(p.on)}, {ago(daysBetween(p.on, today))}
           </p>
         ) : (
-          <p className={`text-[13px] font-semibold ${x.urgent ? "text-accent" : "text-soon"}`}>{x.when}</p>
+          <p className={`font-sans text-[13px] font-semibold ${x.urgent || x.status === "soon" ? "text-soon" : "text-signal"}`}>{x.when}</p>
         )}
         <p className="font-display text-[17px] leading-snug font-bold">
           <Link href={`/companies/${x.slug}/`} className="hover:underline">
             {x.company}
           </Link>
-          : {x.title}
+          :{" "}
+          <Link href={roleHref(x.key)} className="hover:underline">
+            {x.title}
+          </Link>
         </p>
         <p className="mt-0.5 text-[15px] text-muted">
           {x.city}, {x.countryName}.{" "}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
 import { eventsFor } from "@/lib/ics";
-import type { Item } from "@/lib/items";
+import { roleHref, type Item } from "@/lib/items";
 
 /** A short list of roles: when, company and title, place, posting and a calendar link. Used by the edition,
  * the city pages and the field pages. */
@@ -17,7 +17,10 @@ export default function RoleList({ list, empty }: { list: Item[]; empty: string 
             <Link href={`/companies/${x.slug}/`} className="hover:underline">
               {x.company}
             </Link>
-            : {x.title}
+            :{" "}
+            <Link href={roleHref(x.key)} className="hover:underline">
+              {x.title}
+            </Link>
           </p>
           <p className="mt-0.5 text-[15px] text-muted">
             {x.city}, {x.countryName}.{" "}
