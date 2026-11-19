@@ -32,7 +32,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   const others = cityPages().filter((x) => x.slug !== p.slug);
   return (
     <Section className="pt-8 pb-16 sm:pt-10">
-      <p className="text-[14px] font-bold text-claret">{p.countryName}</p>
+      <p className="text-[14px] font-bold text-accent">{p.countryName}</p>
       <h1 className="mt-1 text-[28px] leading-tight font-bold sm:text-[40px]">Tech internships and graduate roles in {p.city}</h1>
       <p className="mt-3 max-w-[720px] text-[17px] leading-[1.6] text-muted">
         {describe(p.city, p.items.length, p.companies)} Deadlines first. The company pages have the interview steps and the

@@ -31,7 +31,7 @@ export default async function FieldPage({ params }: { params: Promise<{ field: s
   const soon = p.items.filter((x) => x.status === "soon");
   return (
     <Section className="pt-8 pb-16 sm:pt-10">
-      <p className="text-[14px] font-bold text-claret">Europe</p>
+      <p className="text-[14px] font-bold text-accent">Europe</p>
       <h1 className="mt-1 text-[28px] leading-tight font-bold sm:text-[40px]">{fieldTitle[p.field]} internships and graduate roles</h1>
       <p className="mt-3 max-w-[720px] text-[17px] leading-[1.6] text-muted">
         {describe(fieldTitle[p.field], p.items.length, p.companies)} Deadlines first. To narrow it down by country or kind of

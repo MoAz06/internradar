@@ -27,7 +27,7 @@ export default function AppTabs() {
             key={t.href}
             href={t.href}
             aria-current={on ? "page" : undefined}
-            className={`flex h-14 flex-1 flex-col items-center justify-center gap-0.5 text-[12px] ${on ? "font-semibold text-claret" : "text-muted"}`}
+            className={`flex h-14 flex-1 flex-col items-center justify-center gap-0.5 text-[12px] ${on ? "font-semibold text-accent" : "text-muted"}`}
           >
             <Icon name={t.icon} className="h-[22px] w-[22px]" />
             {t.label}

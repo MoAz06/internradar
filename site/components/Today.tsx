@@ -59,7 +59,7 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
   const due = (x: TodayItem) => shortWhen(x, left(x));
   const hot = (x: TodayItem) => {
     const d = left(x);
-    return d !== null && d <= 7 ? "font-bold text-claret" : "text-muted";
+    return d !== null && d <= 7 ? "font-semibold text-soon" : "text-muted";
   };
 
   const mine =
@@ -80,7 +80,7 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
     : "New this week";
 
   const head = (title: string, more?: { href: string; label: string }) => (
-    <h2 className="mt-6 flex items-baseline justify-between border-t-2 border-ink pt-2.5 text-[14px] font-bold text-claret">
+    <h2 className="mt-6 flex items-baseline justify-between border-t-2 border-ink pt-2.5 text-[14px] font-bold text-accent">
       {title}
       {more && (
         <Link href={more.href} className="text-[15px] font-normal text-link underline underline-offset-2">
@@ -95,7 +95,7 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
       <Link href={href} className="block py-2.5 hover:bg-raised/50">
         <span className="flex items-baseline gap-2">
           <span className="min-w-0 flex-1 truncate">{top}</span>
-          <span className={`shrink-0 text-[13px] whitespace-nowrap ${rightClass}`}>{right}</span>
+          <span className={`shrink-0 font-sans text-[12px] whitespace-nowrap tabular-nums ${rightClass}`}>{right}</span>
         </span>
         <span className="mt-0.5 block truncate text-[15px]">{title}</span>
       </Link>
@@ -105,14 +105,14 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
   const top = (company: string, rest: string) => (
     <>
       <b className="text-[15px] font-bold">{company}</b>
-      <span className="text-[13px] text-muted"> · {rest}</span>
+      <span className="font-sans text-[12px] text-muted"> · {rest}</span>
     </>
   );
 
   return (
     <>
       <h1 className="text-[26px] leading-tight font-bold">Today</h1>
-      <p className="mt-0.5 text-[15px] text-muted">{weekday(day, true)}</p>
+      <p className="mt-0.5 font-sans text-[14px] text-muted">{weekday(day, true)}</p>
 
       {head("Your deadlines", mine && mine.length > SHOW + 2 ? { href: "/mine/", label: `All ${mine.length}` } : undefined)}
       {mine === null ? (

@@ -22,7 +22,7 @@ export default function EmailSignup({ id, track, className = "" }: { id: string;
         placeholder="you@example.com"
         className="min-w-0 flex-1 border border-line bg-surface px-3 py-2 text-[16px]"
       />
-      <button type="submit" className="bg-ink px-4 py-2 text-[15px] font-semibold text-white hover:bg-muted">
+      <button type="submit" className="bg-ink px-4 py-2 text-[15px] font-semibold text-bg hover:bg-muted">
         Sign up
       </button>
     </form>

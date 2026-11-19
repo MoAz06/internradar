@@ -325,7 +325,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
         </div>
       </div>
 
-      <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm max-md:mt-3 max-md:mb-1.5">
+      <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-sans text-[13px] max-md:mt-3 max-md:mb-1.5">
         <p aria-live="polite" className="font-semibold">
           {shown.length > per
             ? `${first + 1}-${first + onPage.length} of ${shown.length} roles`
@@ -383,18 +383,18 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
         <ul className="border-t border-line md:hidden">
           {onPage.map((x) => {
             const isSaved = saved.includes(x.id);
-            const hot = x.status === "soon" ? "text-soon" : x.urgent ? "font-bold text-claret" : "text-muted";
+            const hot = x.status === "soon" ? "text-soon" : x.urgent ? "font-semibold text-soon" : "text-muted";
             return (
               <li key={x.id} className="relative border-b border-line">
                 <details>
                   <summary className="block cursor-pointer list-none py-2.5 [&::-webkit-details-marker]:hidden">
                     <span className="flex items-baseline gap-2 pr-10">
                       <span className="min-w-0 flex-1 truncate">
-                        {isNew(x) && <span className="mr-1.5 bg-claret px-1 py-px align-[1px] text-[11px] font-bold text-white">New</span>}
+                        {isNew(x) && <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[1px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>}
                         <b className="text-[15px] font-bold">{x.company}</b>
-                        <span className="text-[13px] text-muted"> · {x.city}</span>
+                        <span className="font-sans text-[12px] text-muted"> · {x.city}</span>
                       </span>
-                      <span className={`shrink-0 text-[13px] whitespace-nowrap ${hot}`}>{shortWhen(x)}</span>
+                      <span className={`shrink-0 font-sans text-[12px] whitespace-nowrap tabular-nums ${hot}`}>{shortWhen(x)}</span>
                     </span>
                     <span className="mt-0.5 block truncate text-[15px]">{x.title}</span>
                   </summary>
@@ -431,7 +431,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                   onClick={() => toggleSave(x.id)}
                   aria-pressed={isSaved}
                   data-track={isSaved ? "unsave" : "save"}
-                  className={`absolute top-0 right-0 flex h-11 w-10 items-center justify-end ${isSaved ? "text-claret" : "text-dim"}`}
+                  className={`absolute top-0 right-0 flex h-11 w-10 items-center justify-end ${isSaved ? "text-accent" : "text-dim"}`}
                 >
                   <Icon name="bookmark" filled={isSaved} className="h-5 w-5" />
                   <span className="sr-only">
@@ -470,7 +470,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                   </td>
                   <td className="py-2.5 pr-4 max-md:block max-md:p-0 max-md:pt-1.5 md:w-[28%]">
                     {isNew(x) && (
-                      <span className="mr-1.5 bg-claret px-1 py-px align-[1px] text-[11px] font-bold text-white">New</span>
+                      <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[1px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>
                     )}
                     <span className="font-medium">{x.title}</span>
                     <span className="block text-[13px] text-muted">
@@ -478,7 +478,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                     </span>
                   </td>
                   <td className="py-2.5 pr-4 max-md:block max-md:p-0 max-md:pt-1.5 md:w-[15%]">
-                    <span className={`font-medium ${statusColor(x)}`}>{x.when}</span>
+                    <span className={`font-sans text-[13px] font-semibold tabular-nums ${statusColor(x)}`}>{x.when}</span>
                     <span className={`block text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
                       {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}, `}checked {shortDate(x.checked)}
                       {x.old ? ", over 3 months ago" : ""}
@@ -553,7 +553,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                         onClick={() => goTo(n)}
                         aria-current={n === cur ? "page" : undefined}
                         className={`h-10 min-w-10 px-2 ${
-                          n === cur ? "bg-ink font-semibold text-white" : "text-link underline underline-offset-2"
+                          n === cur ? "bg-ink font-semibold text-bg" : "text-link underline underline-offset-2"
                         }`}
                       >
                         <span className="sr-only">Page </span>

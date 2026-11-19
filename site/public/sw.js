@@ -2,7 +2,7 @@
 // the cache only answers when there's no connection. Files under /_next/static/ never change (their names
 // have a hash), so those come from the cache first. Other sites (the visit counter, job boards) are left alone.
 
-const CACHE = "internradar-v2";
+const CACHE = "internradar-v3";
 const START = ["/", "/today/", "/mine/"];
 
 self.addEventListener("install", (event) => {
@@ -27,9 +27,9 @@ self.addEventListener("activate", (event) => {
 const offline = () =>
   new Response(
     '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Offline - internradar</title>' +
-      '<body style="font-family:Georgia,serif;background:#fff1e5;color:#33302e;padding:24px;max-width:560px">' +
+      '<body style="font-family:Georgia,serif;background:#f5f0e6;color:#1f2421;padding:24px;max-width:560px">' +
       "<h1>No connection</h1><p>This page isn't saved on this device yet. Pages you opened before, and your saved roles, work without a connection.</p>" +
-      '<p><a href="/mine/" style="color:#0b6670">Your saved roles</a></p></body>',
+      '<p><a href="/mine/" style="color:#0f5a46">Your saved roles</a></p></body>',
     { status: 503, headers: { "Content-Type": "text/html; charset=utf-8" } },
   );
 

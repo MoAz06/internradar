@@ -16,7 +16,7 @@ export default function Edition() {
   const e = edition();
   return (
     <Section className="pt-8 pb-16 sm:pt-10">
-      <p className="text-[14px] font-bold text-claret">
+      <p className="text-[14px] font-bold text-accent">
         Week {e.week}, {e.year}
       </p>
       <h1 className="mt-1 text-[28px] leading-tight font-bold sm:text-[40px]">{e.title}</h1>

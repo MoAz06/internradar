@@ -46,11 +46,11 @@ function ReapplyStory() {
   const welcome = reapplyRules.filter((r) => r.group === "welcome");
   return (
     <article>
-      <h2 className="text-[13px] font-bold text-claret">Re-apply rules</h2>
+      <h2 className="text-[13px] font-bold text-accent">Re-apply rules</h2>
       <p className="font-display mt-1.5 text-[24px] leading-snug font-bold text-balance sm:text-[30px]">
         Rejected by Shell? Apply again within 10 months and it&apos;s turned down automatically
       </p>
-      <blockquote className="mt-3 border-l-[3px] border-claret pl-3.5 text-[16px] leading-[1.55] italic">
+      <blockquote className="mt-3 border-l-[3px] border-accent pl-3.5 text-[16px] leading-[1.55] italic">
         &ldquo;your application will be automatically regretted.&rdquo;
       </blockquote>
       <p className="mt-1 text-[13px] text-dim">
@@ -92,7 +92,7 @@ function ReapplyStory() {
 function LeadRole({ lead }: { lead: Item }) {
   return (
     <article>
-      <h2 className="text-[13px] font-bold text-claret">Closing first</h2>
+      <h2 className="text-[13px] font-bold text-accent">Closing first</h2>
       <p className="mt-2 text-[15px] font-semibold text-soon">{lead.when}</p>
       <h3 className="mt-1 text-[24px] leading-snug font-bold sm:text-[28px]">
         <Link href={`/companies/${lead.slug}/`} className="hover:underline">
@@ -159,7 +159,7 @@ export default function Home() {
             {!story && !lead && <p className="text-[17px] text-muted">No open role has a deadline right now.</p>}
             {also.length > 0 && (
               <div className="mt-6 border-t-2 border-ink pt-3">
-                <h2 className="text-[13px] font-bold text-claret">{story ? "Closing first" : "Closing soon"}</h2>
+                <h2 className="text-[13px] font-bold text-accent">{story ? "Closing first" : "Closing soon"}</h2>
                 <ul className="mt-2 grid gap-4 sm:grid-cols-2">
                   {also.map((x) => (
                     <li key={x.id}>
@@ -180,7 +180,7 @@ export default function Home() {
 
           {/* what opens next */}
           <div id="radar" className="lg:pl-7">
-            <h2 className="text-[13px] font-bold text-claret">On the radar</h2>
+            <h2 className="text-[13px] font-bold text-accent">On the radar</h2>
             {next.length === 0 ? (
               <p className="mt-3 text-[15px] text-muted">Nothing with a known date right now.</p>
             ) : (

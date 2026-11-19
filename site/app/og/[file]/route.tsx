@@ -24,10 +24,10 @@ const fonts = [
   { name: "Source Serif", data: font("source-serif-4-400.woff"), weight: 400 as const },
 ];
 
-const paper = "#fff1e5";
-const ink = "#33302e";
-const muted = "#5a524d";
-const claret = "#990f3d";
+const paper = "#f5f0e6";
+const ink = "#1f2421";
+const muted = "#4b5048";
+const green = "#0f5a46";
 /** First sentence, if it is short enough; else the text cut at a word. */
 const firstSentence = (s: string, n: number) => {
   const first = s.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? s;
@@ -98,7 +98,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ file: s
         </div>
         <div style={{ display: "flex", marginTop: 22, borderTop: `3px solid ${ink}`, borderBottom: `1px solid ${ink}`, height: 8 }} />
         <div style={{ display: "flex", flexDirection: "column", marginTop: 44 }}>
-          <span style={{ fontFamily: "Source Serif", fontSize: 28, color: claret }}>{t.kicker}</span>
+          <span style={{ fontFamily: "Source Serif", fontSize: 28, color: green }}>{t.kicker}</span>
           <span style={{ fontFamily: "Libre Baskerville", fontWeight: 700, fontSize: 58, lineHeight: 1.15, marginTop: 10 }}>{t.head}</span>
           <span style={{ fontFamily: "Source Serif", fontSize: 30, lineHeight: 1.4, color: muted, marginTop: 22 }}>{t.sub}</span>
         </div>

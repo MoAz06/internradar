@@ -76,7 +76,7 @@ export default function SharePage() {
                 href={links.shareProcess}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block bg-ink px-4 py-2.5 text-[15px] font-semibold text-white hover:bg-muted"
+                className="inline-block bg-ink px-4 py-2.5 text-[15px] font-semibold text-bg hover:bg-muted"
                 data-track="share-form"
               >
                 Open the form on GitHub

@@ -122,7 +122,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             href={c.careersUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-muted"
+            className="flex items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-semibold text-bg hover:bg-muted"
           >
             Go to the careers page
             <NewTab />
@@ -272,7 +272,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               )}
               <Link
                 href={share}
-                className="mt-3.5 inline-block rounded-md bg-ink px-3.5 py-2 text-[13px] font-semibold text-white hover:bg-muted"
+                className="mt-3.5 inline-block rounded-md bg-ink px-3.5 py-2 text-[13px] font-semibold text-bg hover:bg-muted"
               >
                 Share your process
               </Link>

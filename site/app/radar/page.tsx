@@ -51,7 +51,7 @@ export default function RadarPage() {
           <ul className="mt-8 border-t-2 border-ink">
             {next.map((r) => (
               <li key={r.sortKey + r.slug + r.role} className="border-b border-line py-3.5">
-                <p className="text-[15px] font-semibold text-claret">{r.opens}</p>
+                <p className="text-[15px] font-semibold text-accent">{r.opens}</p>
                 <p className="font-display mt-0.5 text-[18px] leading-snug font-bold">
                   <Link href={`/companies/${r.slug}/`} className="hover:underline">
                     {r.company}

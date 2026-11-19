@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Libre_Baskerville, Source_Serif_4 } from "next/font/google";
+import { Inter, Libre_Baskerville, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -10,6 +10,7 @@ import { og } from "@/lib/og";
 
 const display = Libre_Baskerville({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-libre" });
 const serif = Source_Serif_4({ subsets: ["latin"], variable: "--font-source" });
+const sans = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const blurb = "Tech internships and new grad roles in Europe, with the hiring process at each company.";
 
@@ -29,15 +30,21 @@ export const metadata: Metadata = {
   appleWebApp: { title: "internradar", statusBarStyle: "default" },
 };
 
-export const viewport: Viewport = { themeColor: "#fff1e5" };
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f0e6" },
+    { media: "(prefers-color-scheme: dark)", color: "#161a17" },
+  ],
+  colorScheme: "light dark",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${serif.variable}`}>
+    <html lang="en" className={`${display.variable} ${serif.variable} ${sans.variable}`}>
       <body className="min-h-screen flex flex-col app:pb-[calc(3.5rem+env(safe-area-inset-bottom))]">
         <a
           href="#main"
-          className="sr-only bg-ink px-4 py-2.5 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-50"
+          className="sr-only bg-ink px-4 py-2.5 text-sm font-semibold text-bg focus:not-sr-only focus:fixed focus:top-3 focus:left-4 focus:z-50"
         >
           Skip to content
         </a>

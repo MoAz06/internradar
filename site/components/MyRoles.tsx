@@ -159,7 +159,7 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
             {stages.find((s) => s.id === p.stage)?.label} {shortDate(p.on)}, {ago(daysBetween(p.on, today))}
           </p>
         ) : (
-          <p className={`text-[13px] font-semibold ${x.urgent ? "text-claret" : "text-soon"}`}>{x.when}</p>
+          <p className={`text-[13px] font-semibold ${x.urgent ? "text-accent" : "text-soon"}`}>{x.when}</p>
         )}
         <p className="font-display text-[17px] leading-snug font-bold">
           <Link href={`/companies/${x.slug}/`} className="hover:underline">

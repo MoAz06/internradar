@@ -17,7 +17,7 @@ declare global {
 }
 
 const OTHER = "other";
-const field = "mt-1 block w-full border border-muted bg-white px-3 py-2 text-[16px] text-ink placeholder:text-dim";
+const field = "mt-1 block w-full border border-muted bg-surface px-3 py-2 text-[16px] text-ink placeholder:text-dim";
 const label = "block text-[16px] font-semibold";
 const hint = "mt-0.5 block text-[14px] font-normal text-dim";
 
@@ -249,7 +249,7 @@ export default function ShareForm({ countries, endpoint, siteKey, githubForm }: 
       <button
         type="submit"
         disabled={state === "sending"}
-        className="bg-ink px-5 py-2.5 text-[15px] font-semibold text-white hover:bg-muted disabled:opacity-60"
+        className="bg-ink px-5 py-2.5 text-[15px] font-semibold text-bg hover:bg-muted disabled:opacity-60"
         data-track="share-send"
       >
         {state === "sending" ? "Sending..." : "Send"}

@@ -21,8 +21,8 @@ export function generateStaticParams() {
 }
 
 const bold = readFileSync(join(process.cwd(), "assets/fonts", "libre-baskerville-700.woff"));
-const paper = "#fff1e5";
-const claret = "#990f3d";
+const paper = "#f5f0e6";
+const green = "#0f5a46";
 
 /** Where the dot of the i sits on the 96 grid, and the arcs around it (angle ±35 degrees). */
 const DOT_X = 48.3;
@@ -47,7 +47,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ file: stri
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: claret,
+          background: green,
           borderRadius: shape === "any" ? size * 0.22 : 0,
         }}
       >

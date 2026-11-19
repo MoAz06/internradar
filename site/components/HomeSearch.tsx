@@ -36,9 +36,9 @@ export default function HomeSearch({
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search a company, role or city"
           autoComplete="off"
-          className="h-11 min-w-0 flex-1 border border-muted bg-white px-3 text-[16px] text-ink placeholder:text-dim"
+          className="h-11 min-w-0 flex-1 border border-muted bg-surface px-3 text-[16px] text-ink placeholder:text-dim"
         />
-        <button type="submit" className="h-11 bg-ink px-4 text-[15px] font-semibold text-white" data-track="home-search">
+        <button type="submit" className="h-11 bg-ink px-4 text-[15px] font-semibold text-bg" data-track="home-search">
           Search
         </button>
       </form>

@@ -119,7 +119,7 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
           <Link href="/mine/" className="relative flex h-11 w-11 items-center justify-center text-ink app:invisible" data-track="to-mine">
             <Icon name="bookmark" className="h-6 w-6" />
             {saved > 0 && (
-              <span className="absolute top-1.5 right-0.5 min-w-[18px] rounded-full bg-claret px-1 text-center text-[11px] leading-[18px] font-bold text-white">
+              <span className="absolute top-1.5 right-0.5 min-w-[18px] rounded-full bg-accent px-1 text-center text-[11px] leading-[18px] font-bold text-bg">
                 {saved}
               </span>
             )}
@@ -185,7 +185,7 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
                 Install app
               </button>
             )}
-            <p className="mt-auto pt-4 pl-2 text-[13px] text-muted">Checked {checked}</p>
+            <p className="mt-auto pt-4 pl-2 font-sans text-[13px] text-muted">Checked {checked}</p>
           </div>
         </div>
       )}

@@ -3,27 +3,46 @@
 /* the installed app on a phone: Chrome or Safari opened it from the home screen */
 @custom-variant app (@media (display-mode: standalone) and (width < 48rem));
 
+/* "Archief": off-white paper, green-black ink, bottle green for the brand and your own things,
+   rust for anything that needs attention soon. The dark set below swaps the same names. */
 @theme {
-  --color-bg: #fff1e5;
-  --color-surface: #fff7ef;
-  --color-raised: #f2dfce;
-  --color-line: #d9c8b8;
-  --color-ink: #33302e;
-  --color-muted: #5a524d;
-  --color-dim: #645b55;
-  --color-link: #0b6670;
-  --color-claret: #990f3d;
-  --color-signal: #0a6633;
-  --color-soon: #8a4a07;
+  --color-bg: #f5f0e6;
+  --color-surface: #fbf8f2;
+  --color-raised: #ebe4d6;
+  --color-line: #d9d1c1;
+  --color-ink: #1f2421;
+  --color-muted: #4b5048;
+  --color-dim: #5d6258;
+  --color-link: #0f5a46;
+  --color-accent: #0f5a46;
+  --color-signal: #2b6a2b;
+  --color-soon: #a3421a;
   --color-closed: #a3171f;
   --font-display: var(--font-libre), Georgia, "Times New Roman", serif;
   --font-serif: var(--font-source), Georgia, "Times New Roman", serif;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #161a17;
+    --color-surface: #1d221e;
+    --color-raised: #262c27;
+    --color-line: #353c35;
+    --color-ink: #ebe5d8;
+    --color-muted: #bdb7a8;
+    --color-dim: #a39e92;
+    --color-link: #7fcfae;
+    --color-accent: #6cc3a2;
+    --color-signal: #8fd18f;
+    --color-soon: #ee8b5c;
+    --color-closed: #f08a8a;
+  }
+}
+
 html {
-  color-scheme: light;
+  color-scheme: light dark;
   scroll-behavior: smooth;
   scroll-padding-top: 1rem;
 }
@@ -42,6 +61,16 @@ html {
   h2,
   h3 {
     font-family: var(--font-display);
+  }
+  /* names and stories are serif; the things you press, count and filter are sans */
+  button,
+  input,
+  select,
+  textarea,
+  label,
+  nav,
+  th {
+    font-family: var(--font-sans);
   }
   :focus-visible {
     outline: 2px solid var(--color-link);

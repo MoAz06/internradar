@@ -16,7 +16,7 @@ function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; chi
       type="button"
       aria-pressed={on}
       onClick={onClick}
-      className={`h-9 rounded-full border px-3 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-white" : "border-line bg-surface text-ink"}`}
+      className={`h-9 rounded-full border px-3 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink"}`}
     >
       {children}
     </button>
@@ -97,7 +97,7 @@ export default function FilterSheet({
             aria-pressed={f.status === s}
             onClick={() => set({ status: s })}
             className={`h-9 shrink-0 rounded-full border px-2.5 text-[14px] whitespace-nowrap ${
-              f.status === s ? "border-ink bg-ink font-semibold text-white" : "border-line bg-surface text-ink"
+              f.status === s ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink"
             }`}
           >
             {s === "open" ? "Open" : s === "soon" ? "Soon" : "New"} <span className={f.status === s ? "" : "text-dim"}>{counts[s]}</span>
@@ -190,7 +190,7 @@ export default function FilterSheet({
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="mt-4 h-11 w-full rounded-md bg-ink text-[16px] font-semibold text-white"
+              className="mt-4 h-11 w-full rounded-md bg-ink text-[16px] font-semibold text-bg"
             >
               Show {count} {count === 1 ? "role" : "roles"}
             </button>
