@@ -3357,4 +3357,42 @@ export const gb: Company[] = [
       "You pick one office when you apply and stay based there for the scheme, with at least two days a week in that office.",
     ],
   },
+  {
+    slug: "cadence-edinburgh",
+    name: "Cadence Design Systems",
+    country: "GB",
+    city: "Edinburgh",
+    careersUrl: "https://cadence.wd1.myworkdayjobs.com/External_Careers",
+    roles: [
+      {
+        title: "Intern Software Engineer, Summer 2027, Three Month Duration",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/EDINBURGH-01/Intern-Software-Engineer--Summer-2027--Three-Month-Duration----_R57170",
+        checked: "2026-11-19",
+        workRights: true,
+        auto: true,
+      },
+    ],
+    process: [
+      "Not stated. The postings describe the work and who can apply, not the steps after you apply.",
+      "The summer 2027 software internships in Edinburgh last three months. “You will have a local mentor.”",
+    ],
+    reapply: "Not stated",
+    pay: [
+      "Pay and housing: not stated.",
+      "Visa: “You must be eligible to work in the UK.”",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/EDINBURGH-01/Intern-Software-Engineer--Summer-2027--Three-Month-Duration----_R57170", checked: "2026-11-19" },
+      { url: "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/EDINBURGH-01/Intern-Software-Engineer--Summer-2027--Three-Month-Duration-_R57171-1", checked: "2026-11-19" },
+    ],
+  },
 ];

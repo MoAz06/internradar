@@ -15,7 +15,11 @@ export type Board =
 
 /** Eightfold career sites and the domain their search API wants. Only sites whose public search answers us
  * (Microsoft's answers 429 to every request, so it isn't here). */
-const eightfold: Record<string, string> = { "careers.qualcomm.com": "qualcomm.com" };
+const eightfold: Record<string, string> = {
+  "careers.qualcomm.com": "qualcomm.com",
+  "jobs.infineon.com": "infineon.com",
+  "jobs.ericsson.com": "ericsson.com",
+};
 
 export function boardKey(b: Board): string {
   if (b.ats === "workday") return `workday:${b.tenant}/${b.site}`;
@@ -51,7 +55,7 @@ export function boardOf(url: string): Board | null {
     return site ? { ats: "oracle", origin: u.origin, site } : null;
   }
   if (eightfold[h]) return { ats: "eightfold", origin: u.origin, domain: eightfold[h] };
-  const wd = h.match(/^([^.]+)\.wd\d+\.myworkdayjobs\.com$/);
+  const wd = h.match(/^([^.]+)\.(?:wd\d+\.)?myworkdayjobs\.com$/);
   if (wd) {
     const p = parts.filter((x) => !/^[a-z]{2}-[A-Z]{2}$/.test(x));
     if (p[0] === "wday" && p[1] === "cxs" && p[3]) return { ats: "workday", origin: u.origin, tenant: p[2], site: p[3] };

@@ -113,6 +113,21 @@ export const at: Company[] = [
     careersUrl: "https://jobs.infineon.com/careers?location=Austria",
     roles: [
       {
+        title: "Internship - Lab Verification Engineer in the AMS Lab of the Development Center Villach (f/m/div)",
+        kind: "Internship",
+        field: "Hardware and embedded",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "6 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://jobs.infineon.com/careers/job/563808971620732",
+        checked: "2026-11-19",
+        auto: true,
+      },
+      {
         title: "Internship: 3rd Party IP Automation using Agentic AI (f/m/div)",
         kind: "Internship",
         field: "Data and AI",

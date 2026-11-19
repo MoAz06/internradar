@@ -39,5 +39,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://careers.thalesgroup.com/global/en/job/R0222821 checked 2026-11-17
 - https://careers.thalesgroup.com/global/en/job/R0310566 checked 2026-11-17
 - https://careers.thalesgroup.com/global/en/job/R0345542 checked 2026-11-17
+- https://thales.wd3.myworkdayjobs.com/Careers/job/Hengelo/Stage--Afstudeeropdrachten--HBO-WO---computer-science--software-engineering---Sensor-Platform-Assignments_R0222821 checked 2026-11-19
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

@@ -319,4 +319,13 @@ export const reapplyRules: ReapplyRule[] = [
     url: "https://miro.com/careers/how-we-hire/",
     checked: day,
   },
+  {
+    company: "NXP Semiconductors",
+    slug: "nxp-eindhoven",
+    group: "welcome",
+    rule: "Apply again to a similar or other role, any time.",
+    quote: "If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.",
+    url: "https://www.nxp.com/company/about-nxp/careers/career-faqs:CAREERS-FAQ",
+    checked: day,
+  },
 ];

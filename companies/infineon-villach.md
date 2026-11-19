@@ -7,6 +7,7 @@ Careers page: https://jobs.infineon.com/careers?location=Austria
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Internship - Lab Verification Engineer in the AMS Lab of the Development Center Villach (f/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808971620732) | 2026-11-19 |
 | Internship: 3rd Party IP Automation using Agentic AI (f/m/div) | Posted on Infineon's job board, no deadline listed | Not stated | 12 months | Enrolled in electronic engineering or CS; good English | [link](https://jobs.infineon.com/careers/job/563808971946727) | 2026-11-17 |
 | Internship - Software Developer for Test Engineering (f/m/div) | Posted on Infineon's job board, no deadline listed | Not stated | At least 12 months, part-time | Enrolled in electronics, electrical engineering, informatics or related; Python, C++ or similar | [link](https://jobs.infineon.com/careers/job/563808971620935) | 2026-11-17 |
 | Internship - AI and Machine Learning Software Engineering (f/m/div) | Posted on Infineon's job board, no deadline listed | Not stated | At least 12 months | Master's student in CS, software engineering, data science, AI or similar; strong Python | [link](https://jobs.infineon.com/careers/job/563808972165821) | 2026-11-17 |

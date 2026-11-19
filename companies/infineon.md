@@ -7,6 +7,14 @@ Careers page: https://www.infineon.com/careers/students-graduates/students
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Werkstudent - Productivity Improvement Frontend (w/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972129957) | 2026-11-19 |
+| Working Student - Digital Functional Verification (f/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972249019) | 2026-11-19 |
+| Werkstudent/Praktikum - 3D-Druck und Microcontroller-Programmierung (w/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972261270) | 2026-11-19 |
+| Working Student - Electronic Measurements at cryogenic temperatures for Trapped Ion Quantum Computer (f/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972334993) | 2026-11-19 |
+| Working Student - Electrical characterization and data analysis (f/m/div) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.infineon.com/careers/job/563808972298208) | 2026-11-19 |
+| Working Student - Software testing for equipment-data collection (f/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972394170) | 2026-11-19 |
+| Working Student – Power Electronics & Middleware Development (f/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972352038) | 2026-11-19 |
+| Working Student - AI Enabled Embedded Firmware & Automation (f/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972352037) | 2026-11-19 |
 | International Graduate Program (IGP) – Engineer SoC Flow and Methodology (f/m/div) | Posted 11 Nov 2026, no deadline listed | Programme starts in February, July or October | 18 months incl. a 4 to 8 month international assignment | Master's with outstanding performance in physics, EE, technical CS or similar; time abroad; excellent English, German a plus | [link](https://jobs.infineon.com/careers/job/563808971542513) | 2026-11-16 |
 | Internship - Data and Workflows for AI Usage in Unit Process Development (f/m/div) | Posted 23 Oct 2026, no deadline listed | Not stated | Not stated | Enrolled Bachelor's or Master's in CS, data science or AI; 2+ years programming; fluent English | [link](https://jobs.infineon.com/careers/job/563808972248406) | 2026-11-16 |
 | Internship - Development of a flexible robot hardware system architecture (f/m/div) | Posted 14 Oct 2026, no deadline listed | Not stated | Not stated | Studying electrical/computer engineering, computer science or similar | [link](https://jobs.infineon.com/careers/job/563808972098778) | 2026-11-16 |

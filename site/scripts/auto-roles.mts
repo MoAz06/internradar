@@ -2,6 +2,7 @@
 // The rules are in lib/autoRole.ts. The inbox workflow runs it every night, after discover:
 //
 //   --plan --seen seen.txt --cap 150 --out dir   picks the roles: dir/plan.json and dir/summary.md
+//          [--found .discover-only.json]         from another discover output than .discover.json
 //   --apply dir/plan.json --issue issue.md       puts them in site/data (skips any that are there by now)
 //                                                and writes the morning issue for the ones it put in
 //   --covered open.json                          the open drafts whose posting is on the list now, one number a line
@@ -36,7 +37,7 @@ if (args.includes("--plan")) {
   const out = arg("--out");
   const cap = Math.max(0, Number(arg("--cap") || 150));
   const seen = arg("--seen") ? readFileSync(arg("--seen"), "utf8") : "";
-  const { found } = JSON.parse(readFileSync(join(site, ".discover.json"), "utf8")) as { found: Found[] };
+  const { found } = JSON.parse(readFileSync(join(site, arg("--found") || ".discover.json"), "utf8")) as { found: Found[] };
   const skipped = new Set(skip.map((s) => s.url));
   const why = new Map<string, number>();
   const tally = (w: string) => why.set(w, (why.get(w) ?? 0) + 1);

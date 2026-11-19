@@ -7,6 +7,8 @@ Careers page: https://www.ericsson.com/en/careers/students-early-careers/early-c
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Internship: Test Automation & Integration Testing (CPI Automation Portal) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777415103) | 2026-11-19 |
+| AI intern | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777546788) | 2026-11-19 |
 | Entry level: Software Developer | Open, posting is live | Not stated | Not stated | New graduates with a bachelor's or master's in computer science, electrical engineering, wireless communication or a related field; C++ experience | [link](https://jobs.ericsson.com/careers/job/563121777201291) | 2026-11-17 |
 | AI-Native CI/CD Engineer \| Early Career Program | Open; more roles opening over the coming weeks | Between end of April 2027 and August 2027 | 18 months | About to graduate or recently graduated with up to 5 years of relevant experience; degree done by August 2027 | [link](https://jobs.ericsson.com/careers/job/563121777370335) | 2026-11-17 |
 | Telecom Data Scientist \| Early Career Program | Open; more roles opening over the coming weeks | Between end of April 2027 and August 2027 | 18 months | MSc or PhD in data science, computer science, AI, ML, telecom, engineering, maths or related; recently graduated or up to five years of experience | [link](https://jobs.ericsson.com/careers/job/563121777274654) | 2026-11-17 |

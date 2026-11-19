@@ -523,4 +523,43 @@ export const ie: Company[] = [
       { url: "https://careers.qualcomm.com/careers/job/446720699932", checked: "2026-11-17" },
     ],
   },
+  {
+    slug: "logitech-cork",
+    name: "Logitech",
+    country: "IE",
+    city: "Cork",
+    careersUrl: "https://logitech.wd5.myworkdayjobs.com/Logitech",
+    roles: [
+      {
+        title: "Data Science Intern (12-months contract)",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://logitech.wd5.myworkdayjobs.com/Logitech/job/Cork-Ireland/Data-Science-Intern_148685",
+        checked: "2026-11-19",
+        auto: true,
+      },
+    ],
+    process: [
+      "Logitech calls this “a general approach”. You apply to an open listing; if you know someone at Logitech, you can name them as a reference.",
+      "A recruiter gets in touch to set up a phone call.",
+      "You meet future colleagues: the hiring manager, team members and other leaders. “This might take several hours over a few days.”",
+      "Then Logitech discusses and makes an offer.",
+      "The Cork data science internship lasts 12 months, hybrid, and asks for a completed MSc in data science, computer science or a related field.",
+    ],
+    reapply: "Not stated",
+    pay: [
+      "Pay, housing and visa: not stated.",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://www.logitech.com/en-ie/careers", checked: "2026-11-19" },
+      { url: "https://logitech.wd5.myworkdayjobs.com/Logitech/job/Cork-Ireland/Data-Science-Intern_148685", checked: "2026-11-19" },
+    ],
+  },
 ];

@@ -8,6 +8,7 @@ site/next-env.d.ts
 site/.linkcheck.json
 site/.linkcheck.md
 site/.discover.json
+site/.discover-only.json
 site/.discover.md
 site/.opened.json
 

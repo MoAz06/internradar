@@ -4,6 +4,8 @@
 // on its own posting before it goes in.
 //
 // Writes .discover.json (read by scripts/role-drafts.mts) and .discover.md. Run: npm run discover
+// --only nxp,thales reads only the boards of companies whose slug starts with, or whose name is, one of those
+// words, and writes .discover-only.json instead (auto-roles --found reads it). The full report stays as it was.
 // A role that was looked at and is not for the list goes in data/skip.ts, so it doesn't come back.
 
 import { writeFileSync, rmSync } from "node:fs";
@@ -17,6 +19,10 @@ import { readBoard } from "../lib/readBoard.ts";
 const site = join(dirname(fileURLToPath(import.meta.url)), "..");
 /** At most this many per board in the report; a big board gets a link to the rest. */
 const PER_BOARD = 12;
+const args = process.argv.slice(2);
+const only = args.includes("--only") ? (args[args.indexOf("--only") + 1] ?? "").toLowerCase().split(",").map((w) => w.trim()).filter(Boolean) : [];
+if (args.includes("--only") && !only.length) throw new Error("--only needs company words, like --only nxp,thales");
+const picked = (c: { slug: string; name: string }) => only.some((w) => c.slug.startsWith(w) || c.name.toLowerCase() === w);
 
 // ---------- run ----------
 
@@ -38,6 +44,11 @@ for (const c of companies) {
       e.titles.add(normTitle(r.title));
     }
   }
+}
+
+if (only.length) {
+  for (const [k, e] of boards) if (![...e.entries.values()].some(picked)) boards.delete(k);
+  if (!boards.size) throw new Error(`No board belongs to ${only.join(", ")}`);
 }
 
 const skipIds = new Set(skip.map((s) => jobId(s.url) ?? s.url));
@@ -91,6 +102,12 @@ await Promise.all(
 
 found.sort((a, b) => a.company.localeCompare(b.company) || a.title.localeCompare(b.title));
 const checkedAt = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
+if (only.length) {
+  writeFileSync(join(site, ".discover-only.json"), JSON.stringify({ checkedAt, boards: boards.size, failed, found }, null, 1));
+  console.log(`${boards.size} boards (${[...boards.keys()].join(", ")}), ${found.length} new (${found.filter((f) => f.tech).length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}`);
+  console.log("Wrote .discover-only.json; the full report is untouched. Next: auto-roles --plan --found .discover-only.json");
+  process.exit(0);
+}
 writeFileSync(join(site, ".discover.json"), JSON.stringify({ checkedAt, boards: boards.size, failed, found }, null, 1));
 writeFileSync(join(site, ".opened.json"), JSON.stringify(postedOn, null, 1));
 
