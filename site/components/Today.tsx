@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Reminders from "@/components/Reminders";
 import { useEffect, useState } from "react";
 import { roleHref, shortWhen, type Item } from "@/lib/items";
 import { shortDate } from "@/lib/format";
-import { daysBetween, localDay, readProgress, readSaved, SAVED_EVENT, stages, visitSince, type Progress } from "@/lib/mine";
+import { daysBetween, FOLLOW_EVENT, localDay, readFollowing, readProgress, readSaved, SAVED_EVENT, stages, visitSince, type Progress } from "@/lib/mine";
 
 export type TodayItem = Pick<
   Item,
@@ -35,12 +36,24 @@ function merged(list: TodayItem[]): (TodayItem & { cities: string })[] {
 
 /** The start screen of the installed app: your own deadlines first, then what closes this week, what's new
  * since your last visit and what opens next. Saved roles live in this browser, so that part fills in after load. */
-export default function Today({ items, next, built }: { items: TodayItem[]; next: NextUp[]; built: string }) {
+export default function Today({
+  items,
+  next,
+  built,
+  names,
+}: {
+  items: TodayItem[];
+  next: NextUp[];
+  built: string;
+  /** Every company's name by slug, for followed companies with nothing open. */
+  names: Record<string, string>;
+}) {
   // the build day until the visitor's own day is known, so the static page already makes sense
   const [day, setDay] = useState(built);
   const [saved, setSaved] = useState<string[] | null>(null);
   const [progress, setProgress] = useState<Progress>({});
   const [since, setSince] = useState<string | null>(null);
+  const [following, setFollowing] = useState<string[] | null>(null);
 
   useEffect(() => {
     setDay(localDay());
@@ -49,9 +62,15 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
       setSaved(readSaved());
       setProgress(readProgress());
     };
+    const readFollow = () => setFollowing(readFollowing());
     read();
+    readFollow();
     window.addEventListener(SAVED_EVENT, read);
-    return () => window.removeEventListener(SAVED_EVENT, read);
+    window.addEventListener(FOLLOW_EVENT, readFollow);
+    return () => {
+      window.removeEventListener(SAVED_EVENT, read);
+      window.removeEventListener(FOLLOW_EVENT, readFollow);
+    };
   }, []);
 
   const left = (x: TodayItem) => (x.closes ? daysBetween(day, x.closes) : null);
@@ -75,6 +94,16 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
   const fresh = merged(
     items.filter((x) => live(x) && (since ? x.added > since : x.fresh)).sort((a, b) => b.added.localeCompare(a.added)),
   );
+  // per followed company: what's new since the last visit, what's open, or when it opens
+  const followed = (following ?? [])
+    .filter((slug) => names[slug])
+    .map((slug) => {
+      const open = items.filter((x) => x.slug === slug && live(x) && x.status !== "soon").sort((a, b) => (left(a) ?? 999) - (left(b) ?? 999));
+      const fresh = open.filter((x) => (since ? x.added > since : x.fresh));
+      return { slug, company: names[slug], open, fresh, opens: next.find((r) => r.slug === slug) };
+    })
+    .sort((a, b) => b.fresh.length - a.fresh.length || b.open.length - a.open.length);
+
   const newTitle = since
     ? `New since ${daysBetween(since, day) <= 6 ? weekday(since) : shortDate(since)}`
     : "New this week";
@@ -130,6 +159,36 @@ export default function Today({ items, next, built }: { items: TodayItem[]; next
             const p = progress[x.id];
             const stage = p && `${stages.find((s) => s.id === p.stage)?.label} ${shortDate(p.on)}`;
             return row(x.id, roleHref(x.key), top(x.company, stage || (x.status === "soon" ? "not open yet" : "to apply")), x.title, p ? "" : due(x), hot(x));
+          })}
+        </ul>
+      )}
+
+      <Reminders className="mt-1" />
+
+      {head("Companies you follow")}
+      {following === null ? (
+        <div className="h-10" />
+      ) : followed.length === 0 ? (
+        <p className="py-3 text-[15px] leading-[1.5] text-muted">
+          Tap Follow on a company's page and its new roles show up here.{" "}
+          <Link href="/companies/" className="link">
+            Companies
+          </Link>
+        </p>
+      ) : (
+        <ul>
+          {followed.map((c) => {
+            const lead = c.fresh[0] ?? c.open[0];
+            const rest = c.fresh.length ? `${c.fresh.length} new` : c.open.length ? `${c.open.length} open` : c.opens ? `opens ${c.opens.opens}` : "nothing open";
+            const title = lead ? lead.title : c.opens ? c.opens.role : "No open roles right now";
+            return row(
+              c.slug,
+              lead && c.open.length === 1 ? roleHref(lead.key) : `/companies/${c.slug}/`,
+              top(c.company, rest),
+              title,
+              lead ? due(lead) : "",
+              c.fresh.length ? "font-semibold text-signal" : lead ? hot(lead) : "",
+            );
           })}
         </ul>
       )}

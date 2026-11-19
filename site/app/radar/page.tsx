@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FollowButton from "@/components/FollowButton";
 import Section from "@/components/Section";
 import AddToCalendar from "@/components/AddToCalendar";
 import { radar } from "@/data/companies";
@@ -59,7 +60,10 @@ export default function RadarPage() {
                   : {r.role}
                 </p>
                 <p className="mt-1 text-[15px] leading-[1.55] text-muted">{r.expect}</p>
-                <AddToCalendar events={radarEvents([r], now)} file={`/cal/r-${radarKey(r)}.ics`} className="mt-1.5 text-[14px]" />
+                <div className="mt-0.5 flex flex-wrap items-center gap-x-5">
+                  <AddToCalendar events={radarEvents([r], now)} file={`/cal/r-${radarKey(r)}.ics`} className="text-[14px]" />
+                  <FollowButton slug={r.slug} name={r.company} plain />
+                </div>
               </li>
             ))}
           </ul>

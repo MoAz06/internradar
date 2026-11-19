@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import Today from "@/components/Today";
-import { radar } from "@/data/companies";
+import { companies, radar } from "@/data/companies";
 import { buildItems } from "@/lib/buildItems";
 import { today, upcoming } from "@/lib/live";
 import { og } from "@/lib/og";
@@ -38,7 +38,7 @@ export default function TodayPage() {
   return (
     <Section className="pt-4 pb-16 sm:pt-8">
       <div className="max-w-[640px]">
-        <Today items={items} next={next} built={now} />
+        <Today items={items} next={next} built={now} names={Object.fromEntries(companies.map((c) => [c.slug, c.name]))} />
       </div>
     </Section>
   );

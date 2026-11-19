@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import MyRoles, { type Waits } from "@/components/MyRoles";
+import Reminders from "@/components/Reminders";
 import { reapplyRules } from "@/data/reapply";
 import { buildItems } from "@/lib/buildItems";
 import { og } from "@/lib/og";
@@ -22,6 +23,7 @@ export default function MinePage() {
     <Section className="pt-8 pb-16 sm:pt-10">
       <h1 className="text-[28px] leading-tight font-bold sm:text-[36px]">My applications</h1>
       <p className="mt-3 max-w-[720px] text-[17px] leading-[1.6] text-muted">{blurb}</p>
+      <Reminders className="mt-2 max-w-[720px]" />
       <MyRoles items={buildItems()} waits={waits} />
     </Section>
   );

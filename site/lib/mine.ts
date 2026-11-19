@@ -101,3 +101,26 @@ export function decodeOne(part: string): { key: string; progress?: { stage: Stag
   if (!stage || !/^\d{8}$/.test(day ?? "")) return { key };
   return { key, progress: { stage, on: `${day.slice(0, 4)}-${day.slice(4, 6)}-${day.slice(6)}` } };
 }
+
+export const FOLLOW_KEY = "internradar:following";
+/** Fired on window after the followed companies change. */
+export const FOLLOW_EVENT = "internradar:following";
+
+/** Company slugs the visitor follows. Their new roles show on Today and in the reminders. */
+export function readFollowing(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(FOLLOW_KEY) ?? "[]");
+    return Array.isArray(v) ? v : [];
+  } catch {
+    return [];
+  }
+}
+
+export function writeFollowing(slugs: string[]) {
+  try {
+    localStorage.setItem(FOLLOW_KEY, JSON.stringify(slugs));
+  } catch {
+    // blocked storage: following still works until the page closes
+  }
+  setTimeout(() => window.dispatchEvent(new Event(FOLLOW_EVENT)), 0);
+}

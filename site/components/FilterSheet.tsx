@@ -3,9 +3,19 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import { fields, kinds } from "@/lib/items";
+import { levels, type Level } from "@/lib/eligibility";
 
 type Status = "open" | "soon" | "new" | "all";
-export type SheetFilters = { status: Status; kind: string; field: string; country: string };
+export type SheetFilters = {
+  status: Status;
+  kind: string;
+  field: string;
+  country: string;
+  level: Level | "";
+  visa: boolean;
+  english: boolean;
+  sort: "deadline" | "pay";
+};
 type CountryOption = { code: string; name: string; count: number };
 
 const statusNames: Record<Status, string> = { open: "Open", soon: "Opening soon", new: "New", all: "All, also closed" };
@@ -46,6 +56,10 @@ export default function FilterSheet({
     ...(f.kind ? [{ label: f.kind, clear: { kind: "" } }] : []),
     ...(f.field ? [{ label: f.field, clear: { field: "" } }] : []),
     ...(f.country ? [{ label: countries.find((k) => k.code === f.country)?.name ?? f.country, clear: { country: "" } }] : []),
+    ...(f.level ? [{ label: levels.find((l) => l.value === f.level)?.label ?? f.level, clear: { level: "" as const } }] : []),
+    ...(f.visa ? [{ label: "I need a visa", clear: { visa: false } }] : []),
+    ...(f.english ? [{ label: "English only", clear: { english: false } }] : []),
+    ...(f.sort === "pay" ? [{ label: "By pay", clear: { sort: "deadline" as const } }] : []),
   ];
 
   useEffect(() => {
@@ -136,7 +150,7 @@ export default function FilterSheet({
               </h2>
               <button
                 type="button"
-                onClick={() => set({ status: "open", kind: "", field: "", country: "" })}
+                onClick={() => set({ status: "open", kind: "", field: "", country: "", level: "", visa: false, english: false, sort: "deadline" })}
                 className="h-10 px-1 text-[15px] text-link underline underline-offset-2"
               >
                 Clear
@@ -168,6 +182,37 @@ export default function FilterSheet({
                   {x}
                 </Chip>
               ))}
+            </div>
+
+            <p className="mt-3 text-[13px] font-semibold text-muted">Your study level</p>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              {levels.map((l) => (
+                <Chip key={l.value} on={f.level === l.value} onClick={() => set({ level: f.level === l.value ? "" : l.value })}>
+                  {l.label}
+                </Chip>
+              ))}
+            </div>
+            <p className="mt-1 text-[12px] text-muted">Roles that name no level stay in.</p>
+
+            <p className="mt-3 text-[13px] font-semibold text-muted">Visa and language</p>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              <Chip on={f.visa} onClick={() => set({ visa: !f.visa })}>
+                I need a visa
+              </Chip>
+              <Chip on={f.english} onClick={() => set({ english: !f.english })}>
+                English only
+              </Chip>
+            </div>
+            <p className="mt-1 text-[12px] text-muted">Hides roles that say they don't sponsor, or that ask for another language.</p>
+
+            <p className="mt-3 text-[13px] font-semibold text-muted">Order</p>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              <Chip on={f.sort === "deadline"} onClick={() => set({ sort: "deadline" })}>
+                Soonest deadline
+              </Chip>
+              <Chip on={f.sort === "pay"} onClick={() => set({ sort: "pay" })}>
+                Highest stated pay
+              </Chip>
             </div>
 
             <label htmlFor="sheet-country" className="mt-3 block text-[13px] font-semibold text-muted">

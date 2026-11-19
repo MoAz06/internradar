@@ -2,6 +2,8 @@ import { companies, countries } from "../data/companies.ts";
 import { fuzzyDate, live, stale, today } from "./live.ts";
 import { shortKey, type Item } from "./items.ts";
 import { historyStart, roleHistory } from "../data/history.ts";
+import { payFor } from "../data/pay.ts";
+import { languagesOf, levelsOf, needsWorkRights } from "./eligibility.ts";
 
 function daysBetween(from: string, to: string): number {
   return Math.round((Date.parse(to) - Date.parse(from)) / 86_400_000);
@@ -57,6 +59,10 @@ export function buildItems(now = today()): Item[] {
         source: r.source,
         checked: r.checked,
         old: stale(r.checked, now),
+        pay: payFor(c.slug, r.title, r.kind),
+        levels: levelsOf(r.eligibility, r.title),
+        workRights: needsWorkRights(r.eligibility),
+        languages: languagesOf(r.eligibility),
       });
     });
   }

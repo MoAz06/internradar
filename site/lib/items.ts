@@ -1,4 +1,6 @@
 import type { Field, RoleKind, Status } from "../data/types.ts";
+import type { Pay } from "../data/pay.ts";
+import type { Level } from "./eligibility.ts";
 
 /** One role as the search list on the home page needs it. Built at build time, so it holds no functions. */
 export type Item = {
@@ -34,6 +36,14 @@ export type Item = {
   source: string;
   checked: string;
   old: boolean;
+  /** Pay the company states for this role (data/pay.ts). */
+  pay?: Pay;
+  /** Study levels the eligibility line names; null when it names none. */
+  levels: Level[] | null;
+  /** The role says you need the right to work there already, or that it doesn't sponsor visas. */
+  workRights: boolean;
+  /** Languages other than English the role asks for. */
+  languages: string[];
 };
 
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];

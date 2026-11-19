@@ -18,6 +18,7 @@ import { eventsFor } from "@/lib/ics";
 import { historyStart } from "@/data/history";
 import { opened } from "@/data/opened";
 import AddToCalendar from "@/components/AddToCalendar";
+import FollowButton from "@/components/FollowButton";
 import EmailSignup from "@/components/EmailSignup";
 import { cityPages, citiesOf } from "@/lib/landing";
 
@@ -88,6 +89,9 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             <p className="mt-1.5 text-[15px] text-muted">
               {c.city}, {countryName(c.country)}
             </p>
+            <div className="mt-3">
+              <FollowButton slug={c.slug} name={c.name} />
+            </div>
           </div>
           <span className={`text-sm ${stale(checked) ? "text-soon" : "text-muted"}`}>
             Last checked {longDate(checked)}
@@ -129,7 +133,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
           </a>
         </div>
         <p className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-[14px] text-muted">
-          <span className="font-semibold text-ink">Follow {c.name}:</span>
+          <span className="font-semibold text-ink">Or keep up outside this site:</span>
           <a href={`/feeds/companies/${c.slug}.xml`} className="link" data-track="follow-rss">
             new roles by RSS
           </a>

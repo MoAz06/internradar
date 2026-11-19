@@ -11,12 +11,28 @@ import { readSaved, visitSince, writeSaved } from "@/lib/mine";
 import FilterSheet from "@/components/FilterSheet";
 import Icon from "@/components/Icon";
 import { toast } from "@/lib/toast";
+import { levels, type Level } from "@/lib/eligibility";
+import { query, searchable } from "@/lib/search";
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
 type StatusFilter = "open" | "soon" | "new" | "all";
-type Filters = { q: string; status: StatusFilter; kind: string; field: string; country: string; saved: boolean };
+type Sort = "deadline" | "pay";
+type Filters = {
+  q: string;
+  status: StatusFilter;
+  kind: string;
+  field: string;
+  country: string;
+  saved: boolean;
+  level: Level | "";
+  /** hide roles that need work rights already or don't sponsor */
+  visa: boolean;
+  /** hide roles that ask for a language besides English */
+  english: boolean;
+  sort: Sort;
+};
 
-const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false };
+const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false, level: "", visa: false, english: false, sort: "deadline" };
 const PER_KEY = "internradar:per-page";
 const PER_PAGE = [25, 50, 75, 100];
 
@@ -101,6 +117,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       field: fields.find((x) => fold(x).replace(/ /g, "-") === p.get("field")) ?? "",
       country: bySlug(p.get("country") ?? "") || fromHash,
       saved: false,
+      level: levels.find((l) => l.value === p.get("level"))?.value ?? "",
+      visa: p.get("visa") === "1",
+      english: p.get("english") === "1",
+      sort: p.get("sort") === "pay" ? "pay" : "deadline",
     });
     // blocked storage gives null: then only "new this week" shows
     setSince(visitSince());
@@ -173,6 +193,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     if (f.kind) p.set("type", f.kind.toLowerCase());
     if (f.field) p.set("field", fold(f.field).replace(/ /g, "-"));
     if (f.country) p.set("country", countries.find((k) => k.code === f.country)?.slug ?? "");
+    if (f.level) p.set("level", f.level);
+    if (f.visa) p.set("visa", "1");
+    if (f.english) p.set("english", "1");
+    if (f.sort === "pay") p.set("sort", "pay");
     if (page > 1) p.set("page", String(page));
     if (per !== 25) p.set("per", String(per));
     const qs = p.toString();
@@ -188,20 +212,22 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   const newCount = items.filter(isNew).length;
 
   // every filter except the status, so the status chips can say how many each one would show
+  const index = useMemo(() => new Map(items.map((x) => [x.id, searchable([x.company, x.title, x.city, x.countryName, x.field, x.kind])])), [items]);
   const matched = useMemo(() => {
-    const words = fold(f.q).split(/\s+/).filter(Boolean);
+    const test = query(f.q);
     return items.filter((x) => {
       if (f.kind && x.kind !== f.kind) return false;
       if (f.field && x.field !== f.field) return false;
       if (f.country && x.country !== f.country) return false;
       if (f.saved && !saved.includes(x.id)) return false;
-      if (words.length) {
-        const hay = fold(`${x.company} ${x.title} ${x.city} ${x.countryName} ${x.field} ${x.kind}`);
-        if (!words.every((w) => hay.includes(w))) return false;
-      }
+      // a role that names no level fits every level
+      if (f.level && x.levels && !x.levels.includes(f.level)) return false;
+      if (f.visa && x.workRights) return false;
+      if (f.english && x.languages.length) return false;
+      if (test && !test(index.get(x.id)!)) return false;
       return true;
     });
-  }, [items, f.q, f.kind, f.field, f.country, f.saved, saved]);
+  }, [items, index, f.q, f.kind, f.field, f.country, f.saved, f.level, f.visa, f.english, saved]);
 
   const shown = useMemo(
     () =>
@@ -213,6 +239,13 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       }),
     [matched, f.status, since],
   );
+  // highest stated pay first, then figures without a period, then the rest in deadline order
+  const sorted = useMemo(() => {
+    if (f.sort !== "pay") return shown;
+    const rank = (x: Item) => (x.pay?.month !== undefined ? 0 : x.pay ? 1 : 2);
+    return [...shown].sort((a, b) => rank(a) - rank(b) || (b.pay?.month ?? 0) - (a.pay?.month ?? 0));
+  }, [shown, f.sort]);
+  const withPay = shown.filter((x) => x.pay).length;
   const counts = {
     open: matched.filter((x) => x.status === "open" || x.status === "rolling").length,
     soon: matched.filter((x) => x.status === "soon").length,
@@ -222,7 +255,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   const pages = Math.max(1, Math.ceil(shown.length / per));
   const cur = Math.min(page, pages);
   const first = (cur - 1) * per;
-  const onPage = shown.slice(first, first + per);
+  const onPage = sorted.slice(first, first + per);
 
   // a new filter starts again at page 1
   const set = (patch: Partial<Filters>) => {
@@ -282,7 +315,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       setNotice("Copy the link below and open it on your other device.");
     }
   };
-  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved;
+  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
 
   return (
     <div ref={top} id="roles" className="max-md:scroll-mt-16">
@@ -332,6 +365,14 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             </option>
           ))}
         </Select>
+        <Select id="role-level" label="Your study level" value={f.level} onChange={(v) => set({ level: v as Level | "" })}>
+          <option value="">Any level</option>
+          {levels.map((l) => (
+            <option key={l.value} value={l.value}>
+              {l.label}
+            </option>
+          ))}
+        </Select>
         </div>
       </div>
 
@@ -341,7 +382,26 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             ? `${first + 1}-${first + onPage.length} of ${shown.length} roles`
             : `${shown.length} ${shown.length === 1 ? "role" : "roles"}`}
         </p>
-        <span className="text-muted">soonest deadline first</span>
+        <span className="text-muted md:hidden">{f.sort === "pay" ? `highest stated pay first, ${withPay} with a figure` : "soonest deadline first"}</span>
+        <label className="flex items-center gap-1.5 text-muted max-md:hidden">
+          <span className="sr-only">Sort</span>
+          <select
+            value={f.sort}
+            onChange={(e) => set({ sort: e.target.value as Sort })}
+            className="h-8 rounded-md border border-line bg-surface px-1.5 text-[13px] text-ink hover:border-muted"
+          >
+            <option value="deadline">Soonest deadline first</option>
+            <option value="pay">Highest stated pay first ({withPay})</option>
+          </select>
+        </label>
+        <label className="flex items-center gap-1.5 text-muted max-md:hidden" title="Hides roles that say they don't sponsor visas or that you need the right to work there already">
+          <input type="checkbox" checked={f.visa} onChange={(e) => set({ visa: e.target.checked })} className="h-4 w-4" />
+          I need a visa
+        </label>
+        <label className="flex items-center gap-1.5 text-muted max-md:hidden" title="Hides roles that ask for German, French, Dutch or another language">
+          <input type="checkbox" checked={f.english} onChange={(e) => set({ english: e.target.checked })} className="h-4 w-4" />
+          English only
+        </label>
         <label className="flex items-center gap-1.5 text-muted max-md:hidden">
           <input type="checkbox" checked={f.saved} onChange={(e) => set({ saved: e.target.checked })} className="h-4 w-4" />
           Only saved ({saved.length})
@@ -406,7 +466,14 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                       </span>
                       <span className={`shrink-0 font-sans text-[12px] whitespace-nowrap tabular-nums ${hot}`}>{shortWhen(x)}</span>
                     </span>
-                    <span className="mt-0.5 block truncate text-[15px]">{x.title}</span>
+                    {x.pay ? (
+                      <span className="mt-0.5 flex items-baseline gap-2 pr-11">
+                        <span className="min-w-0 flex-1 truncate text-[15px]">{x.title}</span>
+                        <span className="shrink-0 font-sans text-[12px] whitespace-nowrap text-muted tabular-nums">{x.pay.short}</span>
+                      </span>
+                    ) : (
+                      <span className="mt-0.5 block truncate text-[15px]">{x.title}</span>
+                    )}
                   </summary>
                   <div className="pb-3 text-[14px] leading-[1.5]">
                     <p className="text-muted">
@@ -414,6 +481,12 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                       {x.old ? ", over 3 months ago" : ""}.
                     </p>
                     <p className="mt-1.5">{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</p>
+                    {x.pay && (
+                      <p className="mt-1.5">
+                        <span className="font-semibold">Pay:</span> {x.pay.label}
+                      </p>
+                    )}
+                    {x.languages.length > 0 && <p className="mt-1.5 text-muted">Asks for {x.languages.join(" and ")}.</p>}
                     {x.reapply && (
                       <p className="mt-1.5 text-soon">
                         <span className="font-semibold">Re-apply rule:</span> {x.reapply}
@@ -459,10 +532,11 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           <caption className="sr-only">Roles that match the filters. Open a role for its process and links.</caption>
           <colgroup>
             <col className="w-11" />
-            <col className="w-[19%]" />
+            <col className="w-[17%]" />
             <col />
-            <col className="w-[16%]" />
             <col className="w-[13%]" />
+            <col className="w-[12%]" />
+            <col className="w-[11%]" />
             <col className="w-[88px]" />
           </colgroup>
           <thead>
@@ -473,6 +547,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
               <th scope="col" className="py-2 pr-4 font-semibold">Company</th>
               <th scope="col" className="py-2 pr-4 font-semibold">Role</th>
               <th scope="col" className="py-2 pr-4 font-semibold">City</th>
+              <th scope="col" className="py-2 pr-4 font-semibold">Pay</th>
               <th scope="col" className="py-2 pr-4 font-semibold">Deadline</th>
               <th scope="col">
                 <span className="sr-only">Posting</span>
@@ -522,6 +597,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                       </button>
                     </td>
                     <td className="truncate py-2.5 pr-4 align-top font-sans text-[13px] leading-6 text-muted">{x.city}</td>
+                    <td className="truncate py-2.5 pr-4 align-top font-sans text-[13px] leading-6 text-muted tabular-nums">{x.pay?.short}</td>
                     <td className={`py-2.5 pr-4 align-top font-sans text-[13px] leading-6 font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>
                       {shortWhen(x)}
                     </td>
@@ -535,12 +611,18 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                   {open && (
                     <tr className="border-b border-line bg-raised/60">
                       <td />
-                      <td colSpan={5} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
+                      <td colSpan={6} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
                         <p className={`font-sans text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
                           {x.when}. {x.kind}, {x.field}. {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
                           {x.old ? ", over 3 months ago" : ""}.
                         </p>
                         <p className="mt-1">{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</p>
+                        {x.pay && (
+                          <p className="mt-1">
+                            <span className="font-semibold">Pay:</span> {x.pay.label}
+                          </p>
+                        )}
+                        {x.languages.length > 0 && <p className="mt-1 text-muted">Asks for {x.languages.join(" and ")}.</p>}
                         {x.reapply && (
                           <p className="mt-1 text-soon">
                             <span className="font-semibold">Re-apply rule:</span> {x.reapply}

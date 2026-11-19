@@ -79,6 +79,7 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
     ["Type", `${r.kind}, ${r.field}`],
     ["Start", stated(r.start)],
     ["Duration", stated(r.duration)],
+    ["Pay", x.pay?.label],
     ["Who can apply", stated(r.eligibility)],
     ["Applications", stated(r.applications)],
     ["Hiring process", stated(r.process) ?? "The posting doesn't describe it."],
