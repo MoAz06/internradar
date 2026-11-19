@@ -6,6 +6,7 @@ import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
 import SaveButton from "@/components/SaveButton";
 import { opened } from "@/data/opened";
+import type { Salary } from "@/data/pay";
 import { eventsFor } from "@/lib/ics";
 import { longDate, stripProtocol } from "@/lib/format";
 import { reportUrl, roleHref, shortWhen } from "@/lib/items";
@@ -40,6 +41,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 /** Google's job search reads this. Only for roles you can apply to now, and only facts from the posting. */
+/** Only a figure the company states with its period; one amount, a range, or "at least". */
+function baseSalary(s: Salary) {
+  const value = s.max === undefined ? { value: s.min } : s.max === "open" ? { minValue: s.min } : { minValue: s.min, maxValue: s.max };
+  return { "@type": "MonetaryAmount", currency: s.currency, value: { "@type": "QuantitativeValue", ...value, unitText: s.unit } };
+}
+
 function jobPosting(p: NonNullable<ReturnType<typeof page>>) {
   const { item: x, role: r, company: c } = p;
   const parts = [
@@ -55,6 +62,7 @@ function jobPosting(p: NonNullable<ReturnType<typeof page>>) {
     description: parts.join("") || `<p>${r.title} at ${c.name}.</p>`,
     datePosted: opened[r.source] ?? x.added,
     ...(r.closes ? { validThrough: `${r.closes}T23:59:59` } : {}),
+    ...(x.pay?.salary ? { baseSalary: baseSalary(x.pay.salary) } : {}),
     employmentType: r.kind === "Graduate" ? "FULL_TIME" : "INTERN",
     hiringOrganization: { "@type": "Organization", name: c.name, sameAs: c.careersUrl },
     jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: x.city, addressCountry: c.country } },

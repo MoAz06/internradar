@@ -49,6 +49,20 @@ test("pay: every rule matches a company and a role", () => {
   assert.equal(payFor("optiver", "Software Engineer Intern", "Internship"), undefined);
 });
 
+test("pay: a figure for Google only where the period is stated", () => {
+  for (const rules of Object.values(payRules))
+    for (const { pay } of rules) {
+      assert.equal(!!pay.salary, pay.month !== undefined, `${pay.short}: salary and sorting value go together`);
+      if (!pay.salary) continue;
+      const { min, max, unit } = pay.salary;
+      assert.ok(min > 0 && (typeof max !== "number" || max > min), `${pay.short}: range`);
+      const word = { HOUR: /hour/, WEEK: /week/, MONTH: /month/, YEAR: /year/ }[unit];
+      assert.match(pay.label, word, `${pay.short}: the label names the period ${unit}`);
+    }
+  assert.deepEqual(payFor("graphcore-bristol", "Firmware Summer Intern 2027", "Internship")?.salary, { currency: "GBP", unit: "MONTH", min: 2500 });
+  assert.deepEqual(payFor("intel-gdansk", "Graduate Talent Program", "Graduate")?.salary, { currency: "PLN", unit: "YEAR", min: 68880, max: "open" });
+});
+
 test("eligibility: levels, work rights and languages", () => {
   assert.deepEqual(levelsOf("PhD student in CS or related field in EMEA", "Research Scientist PhD Intern"), ["phd"]);
   assert.equal(levelsOf("Enrolled in a Bachelor's degree or above in CS", "SDE Intern"), null);

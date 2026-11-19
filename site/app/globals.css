@@ -24,8 +24,9 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+/* dark follows the system, unless the visitor picked a theme with the sun and moon (data-theme on <html>) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color-bg: #161a17;
     --color-surface: #1d221e;
     --color-raised: #262c27;
@@ -39,6 +40,26 @@
     --color-soon: #ee8b5c;
     --color-closed: #f08a8a;
   }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #161a17;
+  --color-surface: #1d221e;
+  --color-raised: #262c27;
+  --color-line: #353c35;
+  --color-ink: #ebe5d8;
+  --color-muted: #bdb7a8;
+  --color-dim: #a39e92;
+  --color-link: #7fcfae;
+  --color-accent: #6cc3a2;
+  --color-signal: #8fd18f;
+  --color-soon: #ee8b5c;
+  --color-closed: #f08a8a;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
 html {

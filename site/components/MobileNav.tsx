@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
+import ThemeToggle from "@/components/ThemeToggle";
 import { readSaved, SAVED_EVENT, SAVED_KEY } from "@/lib/mine";
 import { canInstall, install, onInstallChange } from "@/lib/install";
 
@@ -185,7 +186,10 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
                 Install app
               </button>
             )}
-            <p className="mt-auto pt-4 pl-2 font-sans text-[13px] text-muted">Checked {checked}</p>
+            <div className="mt-auto flex items-center justify-between pt-4 pl-2">
+              <p className="font-sans text-[13px] text-muted">Checked {checked}</p>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}

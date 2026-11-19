@@ -7,6 +7,7 @@ import Analytics from "@/components/Analytics";
 import Offline from "@/components/Offline";
 import AppTabs from "@/components/AppTabs";
 import Toast from "@/components/Toast";
+import { themeScript } from "@/lib/theme";
 import { og } from "@/lib/og";
 
 const display = Libre_Baskerville({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-libre" });
@@ -41,7 +42,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${serif.variable} ${sans.variable}`}>
+    // the theme script sets data-theme on <html> before React runs, hence suppressHydrationWarning
+    <html lang="en" className={`${display.variable} ${serif.variable} ${sans.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-screen flex flex-col app:pb-[calc(3.5rem+env(safe-area-inset-bottom))]">
         <a
           href="#main"

@@ -58,7 +58,7 @@ function Select({
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-10 rounded-md border border-line bg-surface px-2.5 text-[15px] text-ink hover:border-muted"
+        className="h-10 max-w-[170px] rounded-md border border-line bg-surface px-2.5 text-[15px] text-ink hover:border-muted"
       >
         {children}
       </select>
@@ -158,13 +158,6 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       }
     };
     window.addEventListener("hashchange", onHash);
-    // the search box at the top of the front page
-    const onSearch = (e: Event) => {
-      setF((x) => ({ ...x, q: String((e as CustomEvent).detail ?? "") }));
-      setPage(1);
-      toList();
-    };
-    window.addEventListener("internradar:search", onSearch);
     // back and forward between pages of the list
     const onPop = () => setPage(Math.max(1, Math.floor(Number(new URLSearchParams(location.search).get("page")) || 1)));
     window.addEventListener("popstate", onPop);
@@ -180,7 +173,6 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     return () => {
       window.removeEventListener("hashchange", onHash);
       window.removeEventListener("popstate", onPop);
-      window.removeEventListener("internradar:search", onSearch);
       window.removeEventListener("keydown", onKey);
     };
   }, [countries, items]);
@@ -209,7 +201,6 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   }, [f, countries, page, per]);
 
   const isNew = (x: Item) => x.fresh || (since !== null && x.added > since && x.status !== "closed");
-  const newCount = items.filter(isNew).length;
 
   // every filter except the status, so the status chips can say how many each one would show
   const index = useMemo(() => new Map(items.map((x) => [x.id, searchable([x.company, x.title, x.city, x.countryName, x.field, x.kind])])), [items]);
@@ -331,16 +322,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           onChange={(e) => set({ q: e.target.value })}
           placeholder="Search a company, role or city"
           autoComplete="off"
-          className="h-10 min-w-0 rounded-md border border-line bg-surface px-3 text-[15px] text-ink placeholder:text-dim hover:border-muted sm:min-w-[260px] sm:flex-1"
+          className="h-10 min-w-0 rounded-md border border-line bg-surface px-3 text-[15px] text-ink placeholder:text-dim hover:border-muted sm:min-w-[200px] sm:flex-1"
         />
         <FilterSheet f={f} set={set} countries={countries} count={shown.length} counts={counts} />
         <div className="contents max-md:hidden">
-        <Select id="role-status" label="Status" value={f.status} onChange={(v) => set({ status: v as StatusFilter })}>
-          <option value="open">Open now</option>
-          <option value="soon">Opening soon</option>
-          <option value="new">New{newCount ? ` (${newCount})` : ""}</option>
-          <option value="all">All, also closed</option>
-        </Select>
         <Select id="role-type" label="Type" value={f.kind} onChange={(v) => set({ kind: v })}>
           <option value="">Any type</option>
           {kinds.map((k) => (
@@ -424,6 +409,22 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             </button>
           </>
         )}
+        <span className="ml-auto flex gap-1.5 max-md:hidden">
+          {(["open", "soon", "new", "all"] as const).map((st) => (
+            <button
+              key={st}
+              type="button"
+              aria-pressed={f.status === st}
+              onClick={() => set({ status: st })}
+              className={`h-8 rounded-full border px-3 text-[13px] whitespace-nowrap ${
+                f.status === st ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink hover:border-muted"
+              }`}
+            >
+              {st === "open" ? "Open" : st === "soon" ? "Soon" : st === "new" ? "New" : "All"}
+              {st === "all" ? <span className="sr-only">, also closed</span> : <span className={`ml-1 ${f.status === st ? "opacity-75" : "text-dim"}`}>{counts[st]}</span>}
+            </button>
+          ))}
+        </span>
       </div>
       <div aria-live="polite" className="text-[14px]">
         {notice && <p className="mb-2 text-ink">{notice}</p>}
@@ -532,12 +533,11 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           <caption className="sr-only">Roles that match the filters. Open a role for its process and links.</caption>
           <colgroup>
             <col className="w-11" />
-            <col className="w-[17%]" />
+            <col className="w-[18%]" />
             <col />
+            <col className="w-[14%]" />
             <col className="w-[13%]" />
-            <col className="w-[12%]" />
             <col className="w-[11%]" />
-            <col className="w-[88px]" />
           </colgroup>
           <thead>
             <tr className="border-b-2 border-ink text-[13px]">
@@ -549,9 +549,6 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
               <th scope="col" className="py-2 pr-4 font-semibold">City</th>
               <th scope="col" className="py-2 pr-4 font-semibold">Pay</th>
               <th scope="col" className="py-2 pr-4 font-semibold">Deadline</th>
-              <th scope="col">
-                <span className="sr-only">Posting</span>
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -587,7 +584,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                         aria-expanded={open}
                         className="flex min-h-9 w-full items-start gap-1.5 py-1.5 text-left font-serif hover:underline"
                       >
-                        <span className="line-clamp-2">
+                        <span className="line-clamp-1">
                           {isNew(x) && (
                             <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[2px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>
                           )}
@@ -601,17 +598,11 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                     <td className={`py-2.5 pr-4 align-top font-sans text-[13px] leading-6 font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>
                       {shortWhen(x)}
                     </td>
-                    <td className="py-2.5 text-right align-top font-sans text-[13px] leading-6">
-                      <a href={x.source} target="_blank" rel="noreferrer" className="link" data-track="posting">
-                        Posting
-                        <NewTab />
-                      </a>
-                    </td>
                   </tr>
                   {open && (
                     <tr className="border-b border-line bg-raised/60">
                       <td />
-                      <td colSpan={6} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
+                      <td colSpan={5} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
                         <p className={`font-sans text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
                           {x.when}. {x.kind}, {x.field}. {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
                           {x.old ? ", over 3 months ago" : ""}.
@@ -629,7 +620,11 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                           </p>
                         )}
                         <div className="mt-2 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-sans text-[14px]">
-                          <Link href={roleHref(x.key)} className="link font-semibold">
+                          <a href={x.source} target="_blank" rel="noreferrer" className="link font-semibold" data-track="posting">
+                            Posting
+                            <NewTab />
+                          </a>
+                          <Link href={roleHref(x.key)} className="link">
                             Role page
                           </Link>
                           <Link href={`/companies/${x.slug}/`} className="link">
