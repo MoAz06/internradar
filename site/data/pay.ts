@@ -103,6 +103,11 @@ export const payRules: Record<string, Rule[]> = {
   "nxp-hamburg": [{ title: /Working Student|Werkstudent/i, pay: { label: "€19.40 an hour, up to 18 hours a week; in Hamburg €20.00 from the 7th month", short: "€19.40/hr", month: Math.round((19.4 * 18 * 52) / 12), salary: { currency: "EUR", unit: "HOUR", min: 19.4 } } }],
   "ericsson-milan": [{ kind: "Internship", title: /Engineer|Solution/i, pay: { label: "€1,000 a month plus meal vouchers of €9", short: "€1,000/mo", ...paid("MONTH", "EUR", 1000) } }],
   "thales-madrid": [{ title: /IS-IT/, pay: { label: "€1,150 a month gross, one year full time", short: "€1,150/mo", ...paid("MONTH", "EUR", 1150) } }],
+  "leonardo-uk": [{ kind: "Graduate", pay: { label: "£34,000 a year, plus a £1,000 welcome bonus and a £1,000 exit bonus", short: "£34k/yr", ...paid("YEAR", "GBP", 34000) } }],
+  "intel-munich": [
+    { title: /Physical Design/, pay: { label: "At least €28,920 a year (master's or PhD)", short: "€28.9k+/yr", ...paid("YEAR", "EUR", 28920, "open") } },
+    { kind: "Internship", pay: { label: "At least €11,870 a year", short: "€11.9k+/yr", ...paid("YEAR", "EUR", 11870, "open") } },
+  ],
   "bending-spoons-milan": [{ kind: "Graduate", pay: { label: "Typical offers €66,065 to €107,837 a year outside London", short: "€66–108k/yr", ...paid("YEAR", "EUR", 66065, 107837) } }],
   "amazon-italy": [{ pay: { label: "€1,800 a month", short: "€1,800/mo", ...paid("MONTH", "EUR", 1800) } }],
   "doctolib-milan": [{ title: /AI Engineer Intern/, pay: { label: "€1,000 a month gross", short: "€1,000/mo", ...paid("MONTH", "EUR", 1000) } }],

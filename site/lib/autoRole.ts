@@ -7,7 +7,7 @@
 // next morning's issue, where a wrong one is taken off with one tick.
 
 import type { Company, Role, RoleKind } from "../data/types.ts";
-import { type Found, normTitle } from "./boards.ts";
+import { division, type Found, normTitle } from "./boards.ts";
 import { needsWorkRights } from "./eligibility.ts";
 import { sameCity } from "./places.ts";
 import { entryInCountry, fieldOf, kindOf, matchCompanies, readPosting, roleLimits, shortDate } from "./roleDraft.ts";
@@ -71,8 +71,8 @@ export function beforeText(f: Found, all: Company[], skip: Set<string> = new Set
   if (title.length > roleLimits.title) return no("title too long");
   if (senior.test(title)) return no("senior title");
   if (notStudy.test(title)) return no("junior or apprenticeship");
-  if (notTech.test(title)) return no("not a tech job");
-  if (!strongTech.test(title) && !strongIT.test(title)) return no("title not plainly tech");
+  if (notTech.test(title) && !division.test(title)) return no("not a tech job");
+  if (!strongTech.test(title) && !strongIT.test(title) && !division.test(title)) return no("title not plainly tech");
   const kind = kindOf(title);
   if (!kind) return no("kind not clear from the title");
 

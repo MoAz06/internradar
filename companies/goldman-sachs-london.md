@@ -7,6 +7,7 @@ Careers page: https://higher.gs.com/campus
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2027 \| EMEA \| London \| Asset and Wealth Management Quantitative Strats \| Summer Associate | Open, no deadline listed |  | Not stated |  | [link](https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LateralHiring/job/175423) | 2026-11-19 |
 | Engineering Summer Analyst 2027 | Open, no deadline listed | Not stated | 9 to 10 weeks | Students pursuing a bachelor's or graduate degree | [link](https://higher.gs.com/roles/170644) | 2026-11-17 |
 | The Core Quantitative Strats Summer Analyst 2027 | Open, no deadline listed | Not stated | 9 to 10 weeks | Students pursuing a bachelor's or graduate degree | [link](https://higher.gs.com/roles/175426) | 2026-11-17 |
 | The Core Quantitative Strats Summer Associate 2027 | Open, no deadline listed | Not stated | 9 to 10 weeks | Students pursuing an advanced degree such as MBA, PhD, JD, MD or LLM | [link](https://higher.gs.com/roles/175427) | 2026-11-17 |
@@ -36,6 +37,7 @@ None yet. Went through this process? [Share what it looked like](https://internr
 
 ## Sources
 
+- https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LateralHiring checked 2026-11-19
 - https://higher.gs.com/roles/170644 checked 2026-11-17
 - https://higher.gs.com/roles/175426 checked 2026-11-17
 - https://higher.gs.com/roles/175427 checked 2026-11-17

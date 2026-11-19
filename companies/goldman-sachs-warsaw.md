@@ -29,6 +29,7 @@ None yet. Went through this process? [Share what it looked like](https://internr
 
 ## Sources
 
+- https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LateralHiring checked 2026-11-19
 - https://higher.gs.com/roles/170636 checked 2026-11-17
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

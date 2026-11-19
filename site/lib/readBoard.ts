@@ -172,3 +172,11 @@ export async function readBoard(b: Board): Promise<Listed[] | null> {
   return out;
 }
 
+/** Where a Workday posting is, when the list only says "3 Locations": its main place and the others, from the
+ * posting itself, like "Switzerland, Zurich; Germany, Munich". null when the posting doesn't answer. */
+export async function workdayPlaces(b: Extract<Board, { ats: "workday" }>, ref: string): Promise<string | null> {
+  const d = await json<{ jobPostingInfo?: { location?: string; additionalLocations?: string[] } }>(`${b.origin}/wday/cxs/${b.tenant}/${b.site}${ref}`);
+  const info = d?.jobPostingInfo;
+  const places = [info?.location, ...(info?.additionalLocations ?? [])].filter((x): x is string => !!x);
+  return places.length ? places.join("; ") : null;
+}

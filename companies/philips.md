@@ -7,6 +7,7 @@ Careers page: https://www.careers.philips.com/student/nl/en
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Product Innovation & AI Prototyping Internship – Philips Avent Experience Innovation | Open, no deadline listed |  | 6 months |  | [link](https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Product-Innovation---AI-Powered-Video-Creation-Internship---Philips-Avent-Experience-Innovation_586187) | 2026-11-19 |
 | Internship: Full Stack Developer in Finance Domain | Open, no deadline listed | December 2026 | Minimum 6 months | Last-year BSc or MSc in software engineering, IT or related; enrolled for the whole internship | [link](https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Internship--Full-Stack-Developer-in-Finance-Domain_592556) | 2026-11-16 |
 | Internship: EMC/EMI Test Setup for IVUS Image Interference (Master) | Open, no deadline listed | February 2027 | Minimum 6 months | Master's students in telecommunications, electrical engineering or related; based in Best | [link](https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Best/Internship--EMC-EMI-Test-Setup-for-IVUS-Image-Interference--Master-_591987) | 2026-11-16 |
 

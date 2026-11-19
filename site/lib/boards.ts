@@ -70,6 +70,8 @@ export function jobId(url: string): string | null {
     url.match(/[?&]token=(\d+)/) ??
     url.match(/[?&]gh_jid=(\d+)/) ??
     url.match(/\/jobs\/(\d{5,})/) ??
+    // Goldman Sachs: higher.gs.com/roles/175426 is job 175426 on its Oracle board
+    url.match(/higher\.gs\.com\/roles\/(\d{5,})/) ??
     // Oracle: /sites/CX_1001/job/210806793, before the rule below picks the site number
     url.match(/\/job\/(\d{5,})(?:[/?#]|$)/) ??
     url.match(/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i) ??
@@ -82,6 +84,9 @@ export const early =
   /\b(intern|interns|internship|internships|graduate|graduates|grad|new grad|student|students|trainee|traineeship|placement|thesis|praktik\w*|praktikum|werkstudent\w*|working student|stagiair\w*|stage|stagiaire|alternance|alternant|tirocinio|tirocinante|pr[aá]cticas|becari[oa]|summer analyst|summer associate|early careers?|apprentice\w*|ausbildung|duales studium|masterarbeit|abschlussarbeit|exjobb|harjoittelija|trainee\w*)\b/i;
 export const tech =
   /\b(software|softwareentwickl\w*|developer|data|ai|machine learning|ml|deep learning|quant\w*|hardware|embedded|firmware|fpga|asic|chip|silicon|semiconductor|cloud|security|cyber\w*|devops|platform engineer\w*|backend|back-end|front-?end|full-?stack|compiler|gpu|computer|informati\w*|it|algorithm\w*|robotic\w*|infrastructure|sre|analytics|mlops|llm|computer vision|simulation|electronic\w*|elektronik|programm\w*|c\+\+|python|java|rust|tech|research engineer|research scientist|digital design|verification|test automation)\b/i;
+/** Goldman Sachs puts the division in the title: "| Engineering |" is tech, and "Quantitative Strats" is quant
+ * even next to "Sales and Trading" or "Asset and Wealth Management". */
+export const division = /\bquantitative strats\b|\|\s*engineering\s*\|/i;
 
 /** Only the 16 countries the list covers, by name, local name or a city on it. */
 const europe = new RegExp(

@@ -13,8 +13,8 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { companies, countries } from "../data/companies.ts";
 import { skip } from "../data/skip.ts";
-import { boardKey, boardOf, early, inEurope, jobId, normTitle, tech, type Board, type BoardCompany, type Found } from "../lib/boards.ts";
-import { readBoard } from "../lib/readBoard.ts";
+import { boardKey, boardOf, division, early, inEurope, jobId, normTitle, tech, type Board, type BoardCompany, type Found } from "../lib/boards.ts";
+import { readBoard, workdayPlaces } from "../lib/readBoard.ts";
 
 const site = join(dirname(fileURLToPath(import.meta.url)), "..");
 /** At most this many per board in the report; a big board gets a link to the rest. */
@@ -54,6 +54,8 @@ if (only.length) {
 const skipIds = new Set(skip.map((s) => jobId(s.url) ?? s.url));
 const found: Found[] = [];
 const failed: string[] = [];
+/** "3 Locations" postings whose places were read from the posting itself. */
+let placesRead = 0;
 /** Posting link on the list to the day its job board says it was first published. Kept by scripts/opened.mts. */
 const postedOn: Record<string, string> = {};
 // Workday answers 429 when several of its boards are read at once, so those go one by one in a lane of their own
@@ -81,8 +83,14 @@ await Promise.all(
         if (skipIds.has(id) || skipIds.has(j.url)) continue;
         if (e.titles.has(normTitle(j.title))) continue;
         if (!early.test(j.title)) continue;
-        // a location we can't read ("3 Locations") is kept, the check by hand decides
-        if (j.location && !/^\d+ locations?$/i.test(j.location) && !inEurope(j.location)) continue;
+        // Workday lists some postings as "3 Locations"; the posting itself names them
+        let location = j.location;
+        if (e.board.ats === "workday" && /^\d+ locations?$/i.test(location)) {
+          location = (await workdayPlaces(e.board, j.ref)) ?? location;
+          if (location !== j.location) placesRead++;
+        }
+        // a location we still can't read is kept, the check by hand decides
+        if (location && !/^\d+ locations?$/i.test(location) && !inEurope(location)) continue;
         found.push({
           board: key,
           spec: e.board,
@@ -90,10 +98,10 @@ await Promise.all(
           company: [...e.names].join(" / "),
           title: j.title.trim(),
           url: j.url,
-          location: j.location || "not given",
+          location: location || "not given",
           ref: j.ref,
           posted: j.posted,
-          tech: tech.test(j.title),
+          tech: tech.test(j.title) || division.test(j.title),
         });
       }
     }
@@ -104,7 +112,7 @@ found.sort((a, b) => a.company.localeCompare(b.company) || a.title.localeCompare
 const checkedAt = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
 if (only.length) {
   writeFileSync(join(site, ".discover-only.json"), JSON.stringify({ checkedAt, boards: boards.size, failed, found }, null, 1));
-  console.log(`${boards.size} boards (${[...boards.keys()].join(", ")}), ${found.length} new (${found.filter((f) => f.tech).length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}`);
+  console.log(`${boards.size} boards (${[...boards.keys()].join(", ")}), ${found.length} new (${found.filter((f) => f.tech).length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}, places read for ${placesRead} "N Locations" postings`);
   console.log("Wrote .discover-only.json; the full report is untouched. Next: auto-roles --plan --found .discover-only.json");
   process.exit(0);
 }
@@ -134,4 +142,4 @@ if (found.length) {
   writeFileSync(md, lines.join("\n") + "\n");
 }
 
-console.log(`${boards.size} boards, ${found.length} new (${techFound.length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}`);
+console.log(`${boards.size} boards, ${found.length} new (${techFound.length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}, places read for ${placesRead} "N Locations" postings`);

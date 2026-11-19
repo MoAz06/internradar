@@ -71,6 +71,9 @@ test("titles: early-career words, not Internal or International", () => {
   assert.ok(!early.test("Internal Audit Manager"));
   assert.ok(!early.test("Director, International Tax Planning"));
   assert.equal(jobId("https://job-boards.greenhouse.io/imc/jobs/4945420101"), "4945420101");
+  // Goldman's campus site and its Oracle board name the same job by the same number
+  assert.equal(jobId("https://higher.gs.com/roles/175426"), "175426");
+  assert.equal(jobId("https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LateralHiring/job/175426"), "175426");
 });
 
 test("company entry by city", () => {
@@ -309,6 +312,10 @@ test("roles that go on by themselves", () => {
   assert.equal(why({ title: "Marketing Data Intern" }), "not a tech job");
   assert.equal(why({ title: "Data Center Technician Intern" }), "not a tech job");
   assert.equal(why({ title: "Business Developer Intern" }), "not a tech job");
+  // Goldman Sachs names the division in the title
+  assert.notEqual(why({ title: "2027 | EMEA | Paris | FICC and Equities (Sales and Trading) Quantitative Strats | Seasonal/Off Cycle Internship" }), "not a tech job");
+  assert.notEqual(why({ title: "2027 | EMEA | The Hague | Engineering | Seasonal/Off Cycle Internship" }), "title not plainly tech");
+  assert.equal(why({ title: "2027 | EMEA | Paris | FICC and Equities (Sales and Trading) | Summer Analyst" }), "not a tech job");
   assert.equal(why({ title: "Ausbildung Fachinformatiker Anwendungsentwicklung" }), "junior or apprenticeship");
   assert.equal(why({ title: "Stage-Tesi Quantum" }), "title not plainly tech");
   assert.equal(why({ title: "Software Engineer" }), "kind not clear from the title");
