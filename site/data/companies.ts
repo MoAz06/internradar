@@ -54,4 +54,6 @@ export const links = {
   turnstileSiteKey: "0x4AAAAAAGHBwwUBm2FTV_Ts",
   /** Buttondown username for email updates. Empty until the account exists; the alerts page hides the email form until then. */
   newsletter: "internradar",
+  /** Address for privacy questions and removal requests. Empty: the privacy page points to LinkedIn. */
+  contact: "",
 };

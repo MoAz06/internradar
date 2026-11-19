@@ -307,7 +307,10 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               <div>
                 <h2 className="text-base font-bold">New roles by email</h2>
                 <p className="mt-1.5 text-sm leading-6 text-muted">
-                  One email a week with the new roles at {c.name} and the other companies, and what closes soon.
+                  One email a week with the new roles at {c.name} and the other companies, and what closes soon.{" "}
+                  <Link href="/privacy/" className="link">
+                    Privacy
+                  </Link>
                 </p>
                 <EmailSignup id="company-email" track="company-email" className="mt-2.5" />
               </div>

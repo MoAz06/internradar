@@ -34,7 +34,11 @@ export default function AlertsPage() {
           <>
             <h2 className="mt-8 border-t-2 border-ink pt-3 text-[20px] font-bold">By email</h2>
             <p className="mt-1 text-[16px] leading-[1.55] text-muted">
-              One email a week with the new roles and what closes soon. Nothing else, and you can leave with one click.
+              One email a week with the new roles and what closes soon. Nothing else, and you can leave with one click. Your address is kept by Buttondown, see{" "}
+              <Link href="/privacy/" className="link">
+                privacy
+              </Link>
+              .
             </p>
             <form
               action={`https://buttondown.com/api/emails/embed-subscribe/${links.newsletter}`}

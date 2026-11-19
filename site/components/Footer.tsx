@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { links } from "@/data/companies";
 
 export default function Footer() {
@@ -11,9 +12,14 @@ export default function Footer() {
           </a>
           , a CS student in Leiden. Open data, MIT licence.
         </span>
-        <a href={links.repo} className="link">
-          Source and data on GitHub
-        </a>
+        <span className="flex gap-4">
+          <Link href="/privacy/" className="link">
+            Privacy
+          </Link>
+          <a href={links.repo} className="link">
+            Source and data on GitHub
+          </a>
+        </span>
       </div>
     </footer>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useTurnstile } from "@/lib/useTurnstile";
 import { limits, outcomes, weekOptions } from "@/lib/reportForm";
@@ -200,7 +201,10 @@ export default function ShareForm({ countries, endpoint, siteKey, githubForm }: 
         <input type="checkbox" required className="mt-1 h-4 w-4 shrink-0" />
         <span>
           No test or interview questions and no names of recruiters or interviewers. I&apos;m fine with this going on
-          internradar.eu without my name.
+          internradar.eu without my name.{" "}
+          <Link href="/privacy/" className="link">
+            Privacy
+          </Link>
         </span>
       </label>
 

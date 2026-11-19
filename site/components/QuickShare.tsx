@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { FormCountry } from "@/components/ShareForm";
 import { limits, quickEnds as ends, quickTimeline, weekOptions, type Sending } from "@/lib/reportForm";
@@ -221,7 +222,12 @@ export default function QuickShare({ countries, endpoint, siteKey, githubForm, o
 
       <label className="flex items-start gap-2.5 text-[16px] leading-[1.5]">
         <input type="checkbox" required className="mt-1 h-5 w-5 shrink-0" />
-        <span>I&apos;m fine with this going on internradar.eu without my name.</span>
+        <span>
+          I&apos;m fine with this going on internradar.eu without my name.{" "}
+          <Link href="/privacy/" className="link">
+            Privacy
+          </Link>
+        </span>
       </label>
 
       <div ref={widget} />
