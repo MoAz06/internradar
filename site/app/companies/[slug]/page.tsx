@@ -103,7 +103,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
         <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-5 gap-y-1.5 text-[15px] sm:max-w-[560px]">
           {[
             ["Open now", `${open.length} of ${c.roles.length} ${c.roles.length === 1 ? "role" : "roles"}`],
-            ["Next deadline", nextDeadline ? `${fuzzyDate(nextDeadline)}${daysTo(nextDeadline) <= 14 ? `, in ${daysTo(nextDeadline)} days` : ""}` : "None listed"],
+            ["Next deadline", nextDeadline ? `${fuzzyDate(nextDeadline)}${daysTo(nextDeadline) <= 0 ? ", today" : daysTo(nextDeadline) === 1 ? ", tomorrow" : daysTo(nextDeadline) <= 14 ? `, in ${daysTo(nextDeadline)} days` : ""}` : "None listed"],
             ["Opening soon", soonRoles.length ? `${soonRoles.length} ${soonRoles.length === 1 ? "role" : "roles"}` : "None"],
             ["Pay mentioned", c.pay.some((p) => /\d/.test(p) && /€|£|CHF|EUR|GBP|DKK|SEK|NOK|PLN|salary|pay|allowance|remuneration/i.test(p)) ? "Yes, see below" : "No"],
           ].map(([k, v]) => (
@@ -307,12 +307,12 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               <div>
                 <h2 className="text-base font-bold">New roles by email</h2>
                 <p className="mt-1.5 text-sm leading-6 text-muted">
-                  One email a week with the new roles at {c.name} and the other companies, and what closes soon.{" "}
+                  One email on Monday with what closes, what is new and what opens soon, for the country you pick.{" "}
                   <Link href="/privacy/" className="link">
                     Privacy
                   </Link>
                 </p>
-                <EmailSignup id="company-email" track="company-email" className="mt-2.5" />
+                <EmailSignup id="company-email" track="company-email" edition={countries.find((k) => k.code === c.country)?.name} className="mt-2.5" />
               </div>
             )}
             {cities.length > 0 && (

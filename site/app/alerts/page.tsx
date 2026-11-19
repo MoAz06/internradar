@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import EmailSignup from "@/components/EmailSignup";
 import Section from "@/components/Section";
 import { companies, countries, links } from "@/data/companies";
 import { buildItems } from "@/lib/buildItems";
@@ -34,34 +35,13 @@ export default function AlertsPage() {
           <>
             <h2 className="mt-8 border-t-2 border-ink pt-3 text-[20px] font-bold">By email</h2>
             <p className="mt-1 text-[16px] leading-[1.55] text-muted">
-              One email a week with the new roles and what closes soon. Nothing else, and you can leave with one click. Your address is kept by Buttondown, see{" "}
+              One email on Monday for the country you pick: what closes that week, what is new and what opens soon. Nothing else, and you can leave with one click. Your address is kept by Buttondown, see{" "}
               <Link href="/privacy/" className="link">
                 privacy
               </Link>
               .
             </p>
-            <form
-              action={`https://buttondown.com/api/emails/embed-subscribe/${links.newsletter}`}
-              method="post"
-              target="_blank"
-              className="mt-3 flex max-w-[460px] gap-2"
-              data-track="alerts-email"
-            >
-              <label htmlFor="alert-email" className="sr-only">
-                Your email
-              </label>
-              <input
-                id="alert-email"
-                type="email"
-                name="email"
-                required
-                placeholder="you@example.com"
-                className="min-w-0 flex-1 border border-line bg-surface px-3 py-2 text-[16px]"
-              />
-              <button type="submit" className="bg-ink px-4 py-2 text-[15px] font-semibold text-bg hover:bg-muted">
-                Sign up
-              </button>
-            </form>
+            <EmailSignup id="alert-email" track="alerts-email" className="mt-3" />
           </>
         )}
 

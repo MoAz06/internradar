@@ -14,6 +14,7 @@ import { query, searchable } from "../lib/search.ts";
 import { reminderRow, shortKey } from "../lib/items.ts";
 import { buildItems } from "../lib/buildItems.ts";
 import { fits, isEmpty, type Profile } from "../lib/profile.ts";
+import { cleanTitle, dayWord, editions, mailEditions, shortProcess } from "../lib/mailEdition.ts";
 import { cleanSending, issueBody, outcomes, quickEnds, quickTimeline, readIssue } from "../lib/reportForm.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -182,4 +183,30 @@ test("quick share: the Worker takes it and the inbox reads it back", () => {
   assert.equal(back.slug, "asml");
   assert.equal(back.timeline, timeline);
   assert.equal(back.outcome, outcome);
+});
+
+test("weekly mail: one edition per country, short lines, links to role pages", () => {
+  assert.equal(dayWord(0, "2026-11-23"), "today");
+  assert.equal(dayWord(1, "2026-11-24"), "tomorrow");
+  assert.equal(dayWord(4, "2026-11-27"), "Friday");
+  assert.equal(dayWord(7, "2026-11-30"), "next Monday");
+  assert.equal(dayWord(20, "2026-12-13"), "on 13 Dec");
+  assert.equal(cleanTitle("Software Engineer Intern - Fullstack (x/f/m) - Amsterdam", "Amsterdam", "Doctolib"), "Software Engineer Intern - Fullstack");
+  assert.equal(cleanTitle("Data Engineer (m/w/d)", "Berlin", "X"), "Data Engineer");
+  assert.equal(cleanTitle("Amsterdam", "Amsterdam", "X"), "Amsterdam");
+  const long = "Application and review, online assessment, first-round interviews, final-round interviews, offer; a prep guide is linked from the page for each step";
+  assert.ok(shortProcess(long).length <= 140);
+  assert.ok(shortProcess(long).endsWith("and more"));
+  assert.equal(new Set(editions.map((e) => e.tag)).size, editions.length);
+
+  const all = mailEditions("2026-11-23");
+  assert.ok(all.some((m) => m.edition.code === "EU"));
+  for (const m of all) {
+    assert.match(m.key, /^[a-z]{2}-2026-w48$/);
+    assert.ok(m.subject.length > 5 && m.subject.length <= 90, m.subject);
+    assert.ok(!/undefined|null|NaN/.test(m.subject + m.preheader + m.html), m.key);
+    assert.ok(m.closing.length + m.fresh.length + m.coming.length > 0);
+    for (const g of [...m.closing, ...m.fresh, ...m.coming]) for (const r of g.roles) assert.match(r.href, /^https:\/\/internradar\.eu\/roles\/[\w-]+\/$/);
+    if (m.edition.code !== "EU") for (const g of m.closing) assert.ok(g.daysLeft !== null && g.daysLeft <= 7);
+  }
 });

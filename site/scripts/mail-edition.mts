@@ -1,57 +1,112 @@
-// Sends the weekly edition to Buttondown, every Monday after the night's deploy.
-// It reads the live feed.xml, so the mail is exactly what the site shows that morning.
-// MAIL_STATUS=draft (the default) leaves a draft in Buttondown to send by hand; about_to_send sends it.
-// A second run in the same week does nothing: it first asks Buttondown for an email with the same subject.
-// Run: BUTTONDOWN_API_KEY=... node scripts/mail-edition.mts [--dry]
+// Puts the Monday email in Buttondown: one edition per country plus one for all of Europe (lib/mailEdition.ts).
+//
+// Readers pick their edition at sign-up; it becomes a Buttondown tag with the country's name, or "All of Europe".
+// Each edition goes only to readers with that tag. "All of Europe" also goes to readers without any tag, such as
+// everyone who signed up before there were editions. A country edition nobody has picked is skipped.
+//
+// MAIL_STATUS=draft (the default) leaves drafts to send by hand; about_to_send sends them.
+// A second run in the same week skips the editions it made already (metadata.edition).
+// Run: BUTTONDOWN_API_KEY=... node scripts/mail-edition.mts [--dry [--out dir]]
 
+import { mkdirSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { editions, mailEditions } from "../lib/mailEdition.ts";
 import { isoWeek } from "../lib/edition.ts";
 import { today } from "../lib/live.ts";
 
-const API ="https://api.buttondown.com/v1";
-const FEED = "https://internradar.eu/feed.xml";
-const dry = process.argv.includes("--dry");
+const API = "https://api.buttondown.com/v1";
+const args = process.argv.slice(2);
+const dry = args.includes("--dry");
+const outAt = args.indexOf("--out");
+const outDir = outAt >= 0 ? args[outAt + 1] : "";
 const key = process.env.BUTTONDOWN_API_KEY ?? "";
 const status = process.env.MAIL_STATUS || "draft";
 
 if (!["draft", "about_to_send"].includes(status)) throw new Error(`MAIL_STATUS must be draft or about_to_send, not ${status}`);
 if (!key && !dry) throw new Error("BUTTONDOWN_API_KEY is not set");
 
-const unescape = (s: string) =>
-  s.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&");
-const tag = (xml: string, name: string) => xml.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`))?.[1] ?? "";
-
-const res = await fetch(`${FEED}?t=${Date.now()}`, { headers: { "Cache-Control": "no-cache" } });
-if (!res.ok) throw new Error(`feed.xml answered ${res.status}`);
-const item = tag(await res.text(), "item");
-const subject = unescape(tag(item, "title"));
-const guid = tag(item, "guid");
-// the same week numbers the feed puts in its guid
-const { year, week } = isoWeek(today());
-if (guid !== `internradar-edition-${year}-w${week}`) {
-  throw new Error(`The feed still has ${guid}, not week ${week} of ${year}. Did the night's deploy run?`);
-}
-
-const body = [
-  `<p>The deadlines for this week and next, from <a href="https://internradar.eu/edition/">internradar.eu</a>.</p>`,
-  unescape(tag(item, "description")),
-  `<p>Every role with its hiring process: <a href="https://internradar.eu/">internradar.eu</a></p>`,
-  `<p>Went through one of these processes? Tell me the steps, how long it took and how it ended at <a href="https://internradar.eu/share/">internradar.eu/share</a>. It shows up on the company page without your name, so the next person knows what to expect.</p>`,
-].join("\n");
+const now = today();
+const all = mailEditions(now);
 
 if (dry) {
-  console.log(`subject: ${subject}\nstatus: ${status}\n\n${body}`);
+  for (const m of all) {
+    console.log(`${m.key}  ${m.subject}\n    ${m.preheader}\n    closing ${m.closing.length} (+${m.closingMore}), new ${m.fresh.length} (+${m.freshMore}), opens soon ${m.coming.length}`);
+  }
+  if (outDir) {
+    mkdirSync(outDir, { recursive: true });
+    const page = (m: (typeof all)[number]) =>
+      `<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${m.subject}</title><body style="margin:0;">${m.html}</body>`;
+    for (const m of all) writeFileSync(join(outDir, `${m.key}.html`), page(m));
+    writeFileSync(
+      join(outDir, "index.html"),
+      `<!doctype html><meta charset="utf-8"><title>Editions</title><ul style="font-family:sans-serif;line-height:2">${all.map((m) => `<li><a href="${m.key}.html">${m.edition.name}</a>: ${m.subject}`).join("")}</ul>`,
+    );
+    console.log(`\nWrote ${all.length} editions to ${outDir}`);
+  }
   process.exit(0);
 }
 
 const headers = { Authorization: `Token ${key}`, "Content-Type": "application/json" };
-const seen = await fetch(`${API}/emails?subject=${encodeURIComponent(subject)}`, { headers });
-if (!seen.ok) throw new Error(`Buttondown answered ${seen.status} on the list of emails: ${await seen.text()}`);
-const found = ((await seen.json()) as { results?: { subject: string; status: string }[] }).results ?? [];
-if (found.some((e) => e.subject === subject && e.status !== "deleted")) {
-  console.log(`Already in Buttondown: ${subject}`);
-  process.exit(0);
+
+async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const res = await fetch(`${API}${path}`, { ...init, headers });
+  if (!res.ok) throw new Error(`Buttondown answered ${res.status} on ${init.method ?? "GET"} ${path}: ${await res.text()}`);
+  return (await res.json()) as T;
 }
 
-const made = await fetch(`${API}/emails`, { method: "POST", headers, body: JSON.stringify({ subject, body, status }) });
-if (!made.ok) throw new Error(`Buttondown answered ${made.status}: ${await made.text()}`);
-console.log(`${status === "draft" ? "Draft made" : "Sent"}: ${subject}`);
+type Page<T> = { results: T[]; next: string | null; count: number };
+
+async function allPages<T>(path: string): Promise<T[]> {
+  const out: T[] = [];
+  for (let page = 1; ; page++) {
+    const p = await call<Page<T>>(`${path}${path.includes("?") ? "&" : "?"}page=${page}`);
+    out.push(...p.results);
+    if (!p.next) return out;
+  }
+}
+
+// every edition has a tag readers can pick and change themselves
+const tags = new Map((await allPages<{ id: string; name: string }>("/tags")).map((t) => [t.name, t.id]));
+for (const e of editions) {
+  if (tags.has(e.tag)) continue;
+  const made = await call<{ id: string }>("/tags", {
+    method: "POST",
+    body: JSON.stringify({
+      name: e.tag,
+      public_description: e.code === "EU" ? "The weekly email for all countries" : `The weekly email for ${e.name}`,
+      subscriber_editable: true,
+    }),
+  });
+  tags.set(e.tag, made.id);
+  console.log(`Tag made: ${e.tag}`);
+}
+
+// what was made this week already
+const { monday } = isoWeek(now);
+const made = await allPages<{ metadata?: { edition?: string } }>(`/emails?creation_date__start=${monday}`);
+const done = new Set(made.map((m) => m.metadata?.edition).filter(Boolean));
+
+for (const m of all) {
+  const id = tags.get(m.edition.tag)!;
+  if (done.has(m.key)) {
+    console.log(`Already in Buttondown: ${m.key}`);
+    continue;
+  }
+  if (m.edition.code !== "EU") {
+    const readers = await call<Page<unknown>>(`/subscribers?tag=${encodeURIComponent(id)}&type=regular`);
+    if (!readers.count) {
+      console.log(`Nobody reads ${m.edition.name}: skipped`);
+      continue;
+    }
+  }
+  const has = { field: "subscriber.tags", operator: "contains", value: id };
+  const filters =
+    m.edition.code === "EU"
+      ? { predicate: "or", groups: [], filters: [has, { field: "subscriber.tags", operator: "is_empty", value: "" }] }
+      : { predicate: "and", groups: [], filters: [has] };
+  await call("/emails", {
+    method: "POST",
+    body: JSON.stringify({ subject: m.subject, body: m.html, status, filters, template: "naked", metadata: { edition: m.key } }),
+  });
+  console.log(`${status === "draft" ? "Draft made" : "Sent"}: ${m.edition.name}, ${m.subject}`);
+}
