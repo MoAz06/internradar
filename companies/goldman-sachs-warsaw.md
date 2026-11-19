@@ -13,7 +13,8 @@ Careers page: https://higher.gs.com/roles/170636
 
 - You can apply to up to 4 business and location combinations in one recruiting year; any extra application is auto withdrawn.
 - To apply for another one, you first withdraw a current application that has not been turned down.
-- Interview steps: not described.
+- If selected, “you will be asked to participate in a recorded HireVue video interview”. “Engineering applicants will be asked to complete a technical assessment” first.
+- Then “a Superday consisting of additional interviews with representatives from the business area(s) for which you are being considered.”
 
 ## Re-apply rule
 
@@ -29,6 +30,7 @@ None yet. Went through this process? [Share what it looked like](https://internr
 
 ## Sources
 
+- https://www.goldmansachs.com/careers/students/prepare checked 2026-11-19
 - https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LateralHiring checked 2026-11-19
 - https://higher.gs.com/roles/170636 checked 2026-11-17
 

@@ -65,6 +65,10 @@ export function buildItems(now = today()): Item[] {
         workRights: needsWorkRights(r.eligibility) || !!r.workRights,
         languages: r.language ? [...new Set([...languagesOf(r.eligibility), r.language])] : languagesOf(r.eligibility),
         auto: !!r.auto,
+        // the role's own line, else the company's first step that says something; the list shows one line of it
+        how: (!r.auto && r.process && !/^not stated/i.test(r.process) ? r.process : (c.process.find((p) => !/not (described|stated)/i.test(p)) ?? ""))
+          .replace(/\s+/g, " ")
+          .trim(),
       });
     });
   }

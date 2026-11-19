@@ -213,11 +213,11 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Microsoft Research](companies/microsoft-research-cambridge.md) | Cambridge Internship Program Azure Research, Security and Privacy | Cambridge | 🟢 rolling | – | Not stated | Not stated | 17 Nov |
 | [Microsoft Research](companies/microsoft-research-cambridge.md) | Cambridge Internship Program: MSRC AI Security Research | Cambridge | 🟢 rolling | – | Not stated | Not stated | 17 Nov |
 | [Goldman Sachs](companies/goldman-sachs-london.md) | 2027 \| EMEA \| London \| Asset and Wealth Management Quantitative Strats \| Summer Associate | London | 🟢 | – | See the company page | Not stated | 19 Nov |
-| [Goldman Sachs](companies/goldman-sachs-london.md) | Engineering Summer Analyst 2027 | London | 🟢 | – | Video interview (about 30 minutes) and a HackerRank assessment, then a Superday of 2 to 5 interviews | Not stated | 17 Nov |
-| [Goldman Sachs](companies/goldman-sachs-london.md) | The Core Quantitative Strats Summer Analyst 2027 | London | 🟢 | – | Video interview (about 30 minutes), then a Superday of 2 to 5 interviews | Not stated | 17 Nov |
-| [Goldman Sachs](companies/goldman-sachs-london.md) | The Core Quantitative Strats Summer Associate 2027 | London | 🟢 | – | Video interview (about 30 minutes), then a Superday of 2 to 5 interviews | Not stated | 17 Nov |
-| [Goldman Sachs](companies/goldman-sachs-london.md) | FICC and Equities (Sales and Trading) Quantitative Strats Internship 2027 | London | 🟢 | – | Video interview (about 30 minutes), then a Superday of 2 to 5 interviews | Not stated | 17 Nov |
-| [Goldman Sachs](companies/goldman-sachs-london.md) | Asset and Wealth Management Quantitative Strats Summer Analyst 2027 | London | 🟢 | – | Video interview (about 30 minutes), then a Superday of 2 to 5 interviews | Not stated | 17 Nov |
+| [Goldman Sachs](companies/goldman-sachs-london.md) | Engineering Summer Analyst 2027 | London | 🟢 | – | Technical assessment, then a HireVue video interview, then a Superday of interviews | Not stated | 17 Nov |
+| [Goldman Sachs](companies/goldman-sachs-london.md) | The Core Quantitative Strats Summer Analyst 2027 | London | 🟢 | – | HireVue video interview, then a Superday of interviews | Not stated | 17 Nov |
+| [Goldman Sachs](companies/goldman-sachs-london.md) | The Core Quantitative Strats Summer Associate 2027 | London | 🟢 | – | HireVue video interview, then a Superday of interviews | Not stated | 17 Nov |
+| [Goldman Sachs](companies/goldman-sachs-london.md) | FICC and Equities (Sales and Trading) Quantitative Strats Internship 2027 | London | 🟢 | – | HireVue video interview, then a Superday of interviews | Not stated | 17 Nov |
+| [Goldman Sachs](companies/goldman-sachs-london.md) | Asset and Wealth Management Quantitative Strats Summer Analyst 2027 | London | 🟢 | – | HireVue video interview, then a Superday of interviews | Not stated | 17 Nov |
 | [Morgan Stanley](companies/morgan-stanley-london.md) | 2027 Quantitative Finance Off-Cycle Internship (London) | London | 🟢 | – | CV and cover letter in English; a coding assessment may be required | Not stated | 17 Nov |
 | [JPMorgan Chase](companies/jpmorgan-chase-london.md) | 2027 Machine Learning Center of Excellence (NLP) - Internship | London | 🟢 | June, depending on your academic calendar | Not stated | Not stated | 17 Nov |
 | [JPMorgan Chase](companies/jpmorgan-chase-london.md) | 2027 AI Research Associate Program - Internship | London | 🟢 | – | Not stated | Not stated | 17 Nov |
@@ -726,7 +726,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Motorola Solutions](companies/motorola-solutions-krakow.md) | Intern Software Developer (Salesforce) | Kraków | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Google](companies/google-warsaw.md) | Software Engineering PhD Intern, 2027 | Warsaw | 🟢 until 14 Dec | May, June or July 2027 | CV and transcript in English | Not stated | 17 Nov |
 | [Google](companies/google-warsaw.md) | Data Science PhD Intern, 2027 | Warsaw | 🟢 until 14 Dec | May to July 2027 | CV and transcript in English | Not stated | 17 Nov |
-| [Goldman Sachs](companies/goldman-sachs-warsaw.md) | 2027, EMEA, Warsaw, Engineering, Summer Analyst | Warsaw | 🟢 | Summer 2027 | Not stated | Not stated | 17 Nov |
+| [Goldman Sachs](companies/goldman-sachs-warsaw.md) | 2027, EMEA, Warsaw, Engineering, Summer Analyst | Warsaw | 🟢 | Summer 2027 | Technical assessment, then a HireVue video interview, then a Superday of interviews | Not stated | 17 Nov |
 | [Citi](companies/citi-warsaw.md) | Technology - Cyber Security, Full Time Analyst, Warsaw 2027 | Warsaw | 🟢 | July | Technical interviews with basic algorithmic programming exercises | Not stated | 17 Nov |
 | [Citi](companies/citi-warsaw.md) | Technology - Infrastructure, Full Time Analyst, Warsaw 2027 | Warsaw | 🟢 | July | Technical interviews with basic algorithmic programming exercises | Not stated | 17 Nov |
 | [Revolut](companies/revolut-krakow.md) | Graduate Programme 2027: Software Engineer (Java) | Kraków | 🟢 | March or September 2027 | Recruitment runs July to December 2026 | Not stated | 17 Nov |

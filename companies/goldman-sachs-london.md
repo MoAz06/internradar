@@ -18,9 +18,9 @@ Careers page: https://higher.gs.com/campus
 
 - Each applicant can apply to “up to 4 separate business / location combinations in any given recruiting year”; extra applications are auto withdrawn.
 - “We evaluate applications throughout the recruiting season”, so you may hear back about different roles at different times.
-- First interview: if selected, a video interview “which will take approximately 30 minutes to complete”.
-- “Engineering applicants will be asked to take a HackerRank assessment.”
-- Superday: after the HireVue interview, a series of final round interviews; “Typically, we conduct between two and five interviews for campus hires, depending on the division.”
+- First interview: if selected, “you will be asked to participate in a recorded HireVue video interview”.
+- “Engineering applicants will be asked to complete a technical assessment.” Selected engineering applicants then do the HireVue video interview.
+- Superday: after the HireVue interview, “a Superday consisting of additional interviews with representatives from the business area(s) for which you are being considered.”
 
 ## Re-apply rule
 
@@ -43,7 +43,7 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://higher.gs.com/roles/175427 checked 2026-11-17
 - https://higher.gs.com/roles/175424 checked 2026-11-17
 - https://higher.gs.com/roles/175421 checked 2026-11-17
-- https://www.goldmansachs.com/careers/students/prepare checked 2026-11-17
+- https://www.goldmansachs.com/careers/students/prepare checked 2026-11-19
 - https://higher.gs.com/campus?&page=1&search=London&sort=RELEVANCE checked 2026-11-17
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

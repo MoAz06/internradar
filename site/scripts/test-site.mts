@@ -11,7 +11,8 @@ import { companies } from "../data/companies.ts";
 import { payFor, payRules } from "../data/pay.ts";
 import { languagesOf, levelsOf, needsWorkRights } from "../lib/eligibility.ts";
 import { query, searchable } from "../lib/search.ts";
-import { reminderRow, shortKey } from "../lib/items.ts";
+import { reminderRow, shortKey, type Item } from "../lib/items.ts";
+import { citiesOf, closesGroup, closesShort, toRows } from "../lib/rows.ts";
 import { buildItems } from "../lib/buildItems.ts";
 import { fits, isEmpty, type Profile } from "../lib/profile.ts";
 import { cleanTitle, dayWord, editions, mailEditions, shortProcess } from "../lib/mailEdition.ts";
@@ -212,4 +213,44 @@ test("weekly mail: one edition per country, short lines, links to role pages", (
     for (const g of [...m.closing, ...m.fresh, ...m.coming]) for (const r of g.roles) assert.match(r.href, /^https:\/\/internradar\.eu\/roles\/[\w-]+\/$/);
     if (m.edition.code !== "EU") for (const g of m.closing) assert.ok(g.daysLeft !== null && g.daysLeft <= 7);
   }
+});
+
+test("home list: one row per role in several cities or per programme, headings by deadline", () => {
+  const base = buildItems("2026-11-19").find((x) => x.status === "open")!;
+  const role = (title: string, city: string, closes?: string, daysLeft: number | null = null): Item => ({
+    ...base,
+    id: `${title}|${city}`,
+    company: "Acme",
+    title,
+    city,
+    kind: "Graduate",
+    status: "open",
+    closes,
+    daysLeft,
+  });
+  assert.equal(cleanTitle("2027 Technology Developer Summer Internship Programme Glasgow", "London and Glasgow", "Barclays"), "2027 Technology Developer Summer Internship Programme");
+  const cities = toRows([role("Software Engineer Graduate Scheme", "Bristol"), role("Software Engineer Graduate Scheme", "Leeds")]);
+  assert.equal(cities.length, 1);
+  assert.equal(cities[0].chip, "2 cities");
+  assert.equal(citiesOf(cities[0]), "Bristol, Leeds");
+  const programme = toRows([role("Graduate Program 2027 - Data Analyst", "Gothenburg"), role("Graduate Program 2027 - Automation Engineer", "Gothenburg")]);
+  assert.deepEqual([programme.length, programme[0].title, programme[0].chip], [1, "Graduate Program 2027", "2 roles"]);
+  // a bare "Internship" is no programme name: without a deadline those stay apart
+  assert.equal(toRows([role("Internship - Firmware", "Paris"), role("Internship - Compilers", "Paris")]).length, 2);
+  // one deadline joins them, and by pay they stay apart
+  const sameDay = [role("Firmware Engineer", "Bristol", "2026-11-29", 10), role("Cloud Engineer", "Bristol", "2026-11-29", 10)];
+  assert.equal(toRows(sameDay).length, 1);
+  assert.equal(toRows(sameDay, false).length, 2);
+  // Thursday 19 Nov: Friday is tomorrow, Sunday this week, the next Sunday next week
+  assert.equal(closesGroup(role("A", "B", "2026-11-20", 1), "2026-11-19"), "Closes tomorrow");
+  assert.equal(closesGroup(role("A", "B", "2026-11-22", 3), "2026-11-19"), "Closes this week");
+  assert.equal(closesGroup(role("A", "B", "2026-11-29", 10), "2026-11-19"), "Closes next week");
+  assert.equal(closesGroup(role("A", "B", "2026-12-13", 24), "2026-11-19"), "Closes in December");
+  assert.equal(closesGroup(role("A", "B", "2027-01-10", 52), "2026-11-19"), "Closes in January 2027");
+  assert.equal(closesGroup(role("A", "B"), "2026-11-19"), "No deadline listed");
+  assert.equal(closesShort(role("A", "B", "2026-11-20", 1), true), "Fri");
+  assert.equal(closesShort(role("A", "B", "2026-11-20", 1), false), "Tomorrow");
+  assert.equal(closesShort(role("A", "B", "2026-11-27", 8), true), "27 Nov");
+  // every role on the site has a hiring line, or its company has none that says something
+  for (const x of buildItems("2026-11-19")) assert.ok(!/not (described|stated)/i.test(x.how.slice(0, 30)), x.id);
 });

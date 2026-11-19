@@ -113,7 +113,6 @@ export default function Home() {
   const now = today();
   const items = buildItems(now);
   const open = items.filter((x) => x.status === "open" || x.status === "rolling");
-  const soon = items.filter((x) => x.status === "soon").length;
   const fresh = items.filter((x) => x.fresh).length;
   const story = now <= STORY_UNTIL;
   const next = upcoming(radar, now);
@@ -125,18 +124,21 @@ export default function Home() {
     <>
       {/* the list first, on every screen: one line on top, the stories beside the list (or below it on phones) */}
       <Section className="pt-5 pb-10 max-md:pt-3 max-md:pb-6">
-        <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 max-md:mb-3">
-          <h1 className="text-[26px] leading-tight font-bold text-balance max-md:font-sans max-md:text-[15px] max-md:leading-snug max-md:font-normal max-md:text-muted">
-            <span className="text-accent max-md:font-semibold">{open.length}</span> tech internships and graduate roles open in Europe
+        <div className="mb-5 max-md:mb-4">
+          <h1 className="text-[32px] leading-tight font-bold text-balance max-md:text-[24px]">
+            <span className="text-accent">{open.length}</span> tech internships and graduate roles open in Europe
           </h1>
-          <p className="font-sans text-[14px] text-muted max-md:hidden">
-            <b className="font-semibold text-ink">{soon}</b> opening soon · <b className="font-semibold text-ink">{fresh}</b> new this week ·{" "}
-            {companies.length} companies · {options.length} countries
+          <p className="mt-1.5 max-w-[720px] text-[19px] leading-[1.45] text-muted max-md:text-[17px]">
+            With each company&apos;s hiring steps, its rule on applying again and the pay, taken from its own pages.
+          </p>
+          <p className="mt-1.5 font-sans text-[15px] text-muted max-md:text-[14px]">
+            <b className="font-semibold text-ink">{fresh}</b> new this week · <b className="font-semibold text-ink">{companies.length}</b> companies ·{" "}
+            <b className="font-semibold text-ink">{options.length}</b> countries
           </p>
         </div>
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
           <div className="min-w-0">
-            <RoleFinder items={items} countries={options} />
+            <RoleFinder items={items} countries={options} now={now} />
           </div>
           <Rail story={story} next={next} />
         </div>

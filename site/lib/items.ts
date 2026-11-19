@@ -46,10 +46,36 @@ export type Item = {
   languages: string[];
   /** Put on the list straight from the job board, not looked at by a person yet. */
   auto: boolean;
+  /** How they hire, in one short line: the role's own process, or the company's for a role without one. */
+  how: string;
 };
 
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];
 export const fields: Field[] = ["Software", "Data and AI", "Quant", "Hardware and embedded", "Other tech"];
+
+/** A process line short enough for one or two lines on a phone, cut where the company's own list has a break. */
+export function shortProcess(text: string, max = 130): string {
+  const t = text.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max);
+  const at = Math.max(cut.lastIndexOf(";"), cut.lastIndexOf(","));
+  return `${(at > 40 ? cut.slice(0, at) : cut.slice(0, cut.lastIndexOf(" "))).replace(/[,;:\s]+$/, "")}, and more`;
+}
+
+/** The title without what the line already says: "(x/f/m)", and the city or company at the end.
+ * A role in "London and Glasgow" also loses "London" or "Glasgow" at the end. */
+export function cleanTitle(title: string, city: string, company: string): string {
+  let t = title.replace(/\s*\((?:[mfwdx]\s*\/\s*){1,3}[mfwdx]\)/gi, "").replace(/\s+/g, " ").trim();
+  const places = [city, ...city.split(/,\s*|\s+and\s+/)].filter(Boolean);
+  for (const end of [...places, company]) {
+    const at = t.toLowerCase().lastIndexOf(end.toLowerCase());
+    if (at > 0 && at + end.length === t.length) {
+      const cut = t.slice(0, at).replace(/[\s,–—\-|(]+$/, "");
+      if (cut.length >= 8) t = cut;
+    }
+  }
+  return t.replace(/\(\s*\)$/, "").trim();
+}
 
 /** Where a role's own page lives (app/roles/[key]). */
 export const roleHref = (key: string) => `/roles/${key}/`;

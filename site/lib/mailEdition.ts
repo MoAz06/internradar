@@ -9,7 +9,9 @@ import type { Company } from "../data/types.ts";
 import { companies, countries } from "../data/companies.ts";
 import { buildItems } from "./buildItems.ts";
 import { isoWeek } from "./edition.ts";
-import { roleHref, type Item } from "./items.ts";
+import { cleanTitle, roleHref, shortProcess, type Item } from "./items.ts";
+
+export { cleanTitle, shortProcess };
 import { today } from "./live.ts";
 
 const site = "https://internradar.eu";
@@ -75,28 +77,6 @@ export function dayWord(daysLeft: number, closes: string): string {
 function openWord(opens: string): string {
   const [, m, d] = opens.split("-").map(Number);
   return d ? `${d} ${months[m - 1]}` : `in ${months[m - 1]}`;
-}
-
-/** A process line short enough for one or two lines on a phone, cut where the company's own list has a break. */
-export function shortProcess(text: string, max = 130): string {
-  const t = text.replace(/\s+/g, " ").trim();
-  if (t.length <= max) return t;
-  const cut = t.slice(0, max);
-  const at = Math.max(cut.lastIndexOf(";"), cut.lastIndexOf(","));
-  return `${(at > 40 ? cut.slice(0, at) : cut.slice(0, cut.lastIndexOf(" "))).replace(/[,;:\s]+$/, "")}, and more`;
-}
-
-/** The title without what the line already says: "(x/f/m)", and the city or company at the end. */
-export function cleanTitle(title: string, city: string, company: string): string {
-  let t = title.replace(/\s*\((?:[mfwdx]\s*\/\s*){1,3}[mfwdx]\)/gi, "").replace(/\s+/g, " ").trim();
-  for (const end of [city, company]) {
-    const at = t.toLowerCase().lastIndexOf(end.toLowerCase());
-    if (at > 0 && at + end.length === t.length) {
-      const cut = t.slice(0, at).replace(/[\s,–—\-|(]+$/, "");
-      if (cut.length >= 8) t = cut;
-    }
-  }
-  return t.replace(/\(\s*\)$/, "").trim();
 }
 
 const and = (xs: string[]) => (xs.length <= 1 ? (xs[0] ?? "") : `${xs.slice(0, -1).join(", ")} and ${xs.at(-1)}`);

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { fields, fold, kinds, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
+import { citiesOf, closesGroup, closesShort, payOf, toRows, type Row } from "@/lib/rows";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
@@ -17,7 +18,7 @@ import { fits, PROFILE_EVENT, profileWords, readProfile, type Profile } from "@/
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
 type StatusFilter = "open" | "soon" | "new" | "all";
-type Sort = "deadline" | "pay";
+type Sort = "deadline" | "pay" | "new";
 type Filters = {
   q: string;
   status: StatusFilter;
@@ -61,7 +62,7 @@ function Select({
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-10 max-w-[170px] rounded-md border border-line bg-surface px-2.5 text-[15px] text-ink hover:border-muted"
+        className="h-11 rounded-md border border-line bg-surface px-2.5 text-[15px] text-ink hover:border-muted max-md:flex-[1_1_40%] md:max-w-[190px]"
       >
         {children}
       </select>
@@ -100,7 +101,7 @@ function Process({ x }: { x: Item }) {
 const statusColor = (x: Item) =>
   x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
 
-export default function RoleFinder({ items, countries }: { items: Item[]; countries: CountryOption[] }) {
+export default function RoleFinder({ items, countries, now }: { items: Item[]; countries: CountryOption[]; now: string }) {
   const [f, setF] = useState<Filters>(start);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [saved, setSaved] = useState<string[]>([]);
@@ -142,7 +143,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       level: levels.find((l) => l.value === p.get("level"))?.value ?? "",
       visa: p.get("visa") === "1",
       english: p.get("english") === "1",
-      sort: p.get("sort") === "pay" ? "pay" : "deadline",
+      sort: p.get("sort") === "pay" ? "pay" : p.get("sort") === "new" ? "new" : "deadline",
       fit: !!me && !ownFilters,
     });
     // blocked storage gives null: then only "new this week" shows
@@ -214,7 +215,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     if (f.level) p.set("level", f.level);
     if (f.visa) p.set("visa", "1");
     if (f.english) p.set("english", "1");
-    if (f.sort === "pay") p.set("sort", "pay");
+    if (f.sort !== "deadline") p.set("sort", f.sort);
     // turned off by hand: keep it off on reload
     if (profile && !f.fit && !p.size) p.set("all", "1");
     if (page > 1) p.set("page", String(page));
@@ -259,12 +260,26 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       }),
     [matched, f.status, since],
   );
-  // highest stated pay first, then figures without a period, then the rest in deadline order
+  // highest stated pay first, then figures without a period, then the rest in deadline order; or the newest first
   const sorted = useMemo(() => {
+    if (f.sort === "new") return [...shown].sort((a, b) => b.added.localeCompare(a.added));
     if (f.sort !== "pay") return shown;
     const rank = (x: Item) => (x.pay?.month !== undefined ? 0 : x.pay ? 1 : 2);
     return [...shown].sort((a, b) => rank(a) - rank(b) || (b.pay?.month ?? 0) - (a.pay?.month ?? 0));
   }, [shown, f.sort]);
+  // by pay each role keeps its own figure, so only the same role in several cities shares a row
+  const rows = useMemo(() => toRows(sorted, f.sort !== "pay"), [sorted, f.sort]);
+  // headings by deadline only in the deadline order, with the number of roles under each
+  const headings = f.sort === "deadline";
+  const perHeading = useMemo(() => {
+    const m = new Map<string, number>();
+    if (headings)
+      for (const r of rows) {
+        const h = closesGroup(r.items[0], now);
+        m.set(h, (m.get(h) ?? 0) + r.items.length);
+      }
+    return m;
+  }, [rows, headings, now]);
   const withPay = shown.filter((x) => x.pay).length;
   const counts = {
     open: matched.filter((x) => x.status === "open" || x.status === "rolling").length,
@@ -272,10 +287,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     new: matched.filter(isNew).length,
   };
 
-  const pages = Math.max(1, Math.ceil(shown.length / per));
+  const pages = Math.max(1, Math.ceil(rows.length / per));
   const cur = Math.min(page, pages);
   const first = (cur - 1) * per;
-  const onPage = sorted.slice(first, first + per);
+  const onPage = rows.slice(first, first + per);
 
   // a new filter starts again at page 1
   const set = (patch: Partial<Filters>) => {
@@ -337,12 +352,249 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
   };
   const profileText = profile ? profileWords(profile, (code) => countries.find((k) => k.code === code)?.name ?? code) : null;
   const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
+  // the filters from "More filters" that are on, each with a way to turn it off from the list
+  const on: { label: string; clear: Partial<Filters> }[] = [
+    ...(f.fit && profileText ? [{ label: "Fits my profile", clear: { fit: false } }] : []),
+    ...(f.status === "new" ? [{ label: "New", clear: { status: "open" as StatusFilter } }] : []),
+    ...(f.status === "all" ? [{ label: "Also closed", clear: { status: "open" as StatusFilter } }] : []),
+    ...(f.field ? [{ label: f.field, clear: { field: "" } }] : []),
+    ...(f.level ? [{ label: levels.find((l) => l.value === f.level)?.label ?? f.level, clear: { level: "" as const } }] : []),
+    ...(f.visa ? [{ label: "I need a visa", clear: { visa: false } }] : []),
+    ...(f.english ? [{ label: "English only", clear: { english: false } }] : []),
+    ...(f.saved ? [{ label: "Only saved", clear: { saved: false } }] : []),
+  ];
+  const day = (x: Item) => closesShort(x, headings) ?? shortWhen(x);
+  const newBadge = <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[2px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>;
+
+  /** What opens under a role: its dates, process, pay, rules and links. */
+  const details = (x: Item) => (
+    <>
+      <p className={`font-sans text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
+        {x.when}. {x.kind}, {x.field}. {!x.start || /^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
+        {x.old ? ", over 3 months ago" : ""}.
+      </p>
+      <p className="mt-1">
+        <Process x={x} />
+      </p>
+      {x.pay && (
+        <p className="mt-1">
+          <span className="font-semibold">Pay:</span> {x.pay.label}
+        </p>
+      )}
+      {x.languages.length > 0 && <p className="mt-1 text-muted">Asks for {x.languages.join(" and ")}.</p>}
+      {x.reapply && (
+        <p className="mt-1 text-soon">
+          <span className="font-semibold">Re-apply rule:</span> {x.reapply}
+        </p>
+      )}
+      <div className="mt-2 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-sans text-[14px]">
+        <a href={x.source} target="_blank" rel="noreferrer" className="link font-semibold" data-track="posting">
+          Posting
+          <NewTab />
+        </a>
+        <Link href={roleHref(x.key)} className="link">
+          Role page
+        </Link>
+        <Link href={`/companies/${x.slug}/`} className="link">
+          How {x.company} hires
+        </Link>
+        <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} />
+        <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-2 hover:text-ink">
+          Something wrong?
+          <span className="sr-only"> Report a mistake in {x.title} at {x.company}</span>
+          <NewTab />
+        </a>
+      </div>
+    </>
+  );
+
+  const saveButton = (x: Item, align: string, size: string) => {
+    const isSaved = saved.includes(x.id);
+    return (
+      <button
+        type="button"
+        onClick={() => toggleSave(x.id)}
+        aria-pressed={isSaved}
+        data-track={isSaved ? "unsave" : "save"}
+        className={`flex h-11 w-11 items-center ${align} ${isSaved ? "text-accent" : "text-dim hover:text-ink"}`}
+      >
+        <Icon name="bookmark" filled={isSaved} className={size} />
+        <span className="sr-only">
+          Save {x.title} at {x.company}
+        </span>
+      </button>
+    );
+  };
+
+  /** A heading above a row when the deadline group changes, and above the first row of a page. */
+  const headingOf = (r: Row, i: number) => {
+    if (!headings) return null;
+    const h = closesGroup(r.items[0], now);
+    return i === 0 || closesGroup(onPage[i - 1].items[0], now) !== h ? h : null;
+  };
+  const headingCount = (h: string) => {
+    const n = perHeading.get(h) ?? 0;
+    return `${n} ${n === 1 ? "role" : "roles"}`;
+  };
+  const chip = (r: Row, open: boolean) => (
+    <span className="ml-1.5 inline-flex items-center gap-0.5 rounded-sm border border-line bg-surface px-1.5 align-[1px] font-sans text-[12.5px] whitespace-nowrap text-muted">
+      {r.chip}
+      <Icon name="chevron" className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+    </span>
+  );
+
+  /** Desktop: one role as a table row, with its details below when open. `inner` for a role inside a merged row. */
+  const itemRow = (x: Item, inner = false) => {
+    const open = openRows.has(x.id);
+    return (
+      <Fragment key={x.id}>
+        <tr className={`border-line ${open ? "bg-raised/60" : `border-b hover:bg-raised/40 ${inner ? "bg-raised/30" : ""}`}`}>
+          <td className="align-top">{saveButton(x, "justify-center", "h-[18px] w-[18px]")}</td>
+          <td className="py-2.5 pr-3 align-top leading-snug">
+            {!inner && (
+              <Link href={`/companies/${x.slug}/`} className="font-display text-[15px] font-bold hover:underline">
+                {x.company}
+              </Link>
+            )}
+          </td>
+          <td className="py-1 pr-3 align-top">
+            <button
+              type="button"
+              onClick={() => flipRow(x.id)}
+              aria-expanded={open}
+              className={`flex min-h-9 w-full items-start gap-1.5 py-1.5 text-left font-serif leading-snug hover:underline ${inner ? "pl-3 text-[15px]" : "text-[16px]"}`}
+            >
+              <span>
+                {isNew(x) && newBadge}
+                {x.title}
+              </span>
+              <Icon name="chevron" className={`mt-1 h-4 w-4 shrink-0 text-dim transition-transform ${open ? "rotate-180" : ""}`} />
+            </button>
+            {!inner && x.how && <span className="-mt-1 mb-1.5 block truncate font-sans text-[13.5px] text-dim">{x.how}</span>}
+          </td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{x.city}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{x.pay?.short}</td>
+          <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
+        </tr>
+        {open && (
+          <tr className="border-b border-line bg-raised/60">
+            <td />
+            <td colSpan={5} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
+              {details(x)}
+            </td>
+          </tr>
+        )}
+      </Fragment>
+    );
+  };
+
+  /** Desktop: a row with several roles. The chip opens the roles, each with its own bookmark and details. */
+  const groupRow = (r: Row) => {
+    const x = r.items[0];
+    const open = openRows.has(`group:${r.id}`);
+    return (
+      <Fragment key={r.id}>
+        <tr className={`border-line hover:bg-raised/40 ${open ? "" : "border-b"}`}>
+          <td />
+          <td className="py-2.5 pr-3 align-top leading-snug">
+            <Link href={`/companies/${x.slug}/`} className="font-display text-[15px] font-bold hover:underline">
+              {x.company}
+            </Link>
+          </td>
+          <td className="py-1 pr-3 align-top">
+            <button
+              type="button"
+              onClick={() => flipRow(`group:${r.id}`)}
+              aria-expanded={open}
+              className="flex min-h-9 w-full items-start py-1.5 text-left font-serif text-[16px] leading-snug"
+            >
+              <span>
+                {r.items.some(isNew) && newBadge}
+                <span className="hover:underline">{r.title}</span>
+                {chip(r, open)}
+              </span>
+            </button>
+            {x.how && <span className="-mt-1 mb-1.5 block truncate font-sans text-[13.5px] text-dim">{x.how}</span>}
+          </td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{citiesOf(r)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{payOf(r)}</td>
+          <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
+        </tr>
+        {open && r.items.map((y) => itemRow(y, true))}
+      </Fragment>
+    );
+  };
+
+  /** Phones: one role, the details open on a tap. `inner` for a role inside a merged row. */
+  const itemCard = (x: Item, inner = false) => {
+    const hot = x.status === "soon" ? "text-soon" : x.urgent ? "font-semibold text-soon" : "text-muted";
+    return (
+      <li key={x.id} className={`relative border-line ${inner ? "border-t pl-3" : "border-b"}`}>
+        <details>
+          <summary className="block cursor-pointer list-none py-2.5 pr-11 [&::-webkit-details-marker]:hidden">
+            {!inner && (
+              <span className="flex items-baseline gap-2">
+                <span className="min-w-0 flex-1 truncate">
+                  {isNew(x) && newBadge}
+                  <b className="font-display text-[15px] font-bold">{x.company}</b>
+                </span>
+                <span className={`shrink-0 font-sans text-[13px] whitespace-nowrap tabular-nums ${hot}`}>{day(x)}</span>
+              </span>
+            )}
+            <span className={`block font-serif leading-snug ${inner ? "text-[15px]" : "mt-0.5 text-[16px]"}`}>
+              {inner && isNew(x) && newBadge}
+              {x.title}
+            </span>
+            {!inner && x.how && <span className="mt-0.5 block truncate font-sans text-[13px] text-dim">{x.how}</span>}
+            {inner ? (
+              <span className="mt-0.5 flex gap-2 font-sans text-[13px] text-muted">
+                <span className="min-w-0 flex-1">{[x.city, x.pay?.short].filter(Boolean).join(" · ")}</span>
+                <span className={`shrink-0 tabular-nums ${hot}`}>{day(x)}</span>
+              </span>
+            ) : (
+              <span className="mt-0.5 block font-sans text-[13px] text-muted">{[x.city, x.pay?.short].filter(Boolean).join(" · ")}</span>
+            )}
+          </summary>
+          <div className="pr-1 pb-3 text-[14px] leading-[1.5]">{details(x)}</div>
+        </details>
+        <div className="absolute top-0 right-0">{saveButton(x, "justify-end", "h-5 w-5")}</div>
+      </li>
+    );
+  };
+
+  /** Phones: a row with several roles; a tap shows them. */
+  const groupCard = (r: Row) => {
+    const x = r.items[0];
+    const hot = x.urgent ? "font-semibold text-soon" : "text-muted";
+    return (
+      <li key={r.id} className="border-b border-line">
+        <details>
+          <summary className="block cursor-pointer list-none py-2.5 [&::-webkit-details-marker]:hidden">
+            <span className="flex items-baseline gap-2">
+              <span className="min-w-0 flex-1 truncate">
+                {r.items.some(isNew) && newBadge}
+                <b className="font-display text-[15px] font-bold">{x.company}</b>
+              </span>
+              <span className={`shrink-0 font-sans text-[13px] whitespace-nowrap tabular-nums ${hot}`}>{day(x)}</span>
+            </span>
+            <span className="mt-0.5 block font-serif text-[16px] leading-snug">
+              {r.title}
+              {chip(r, false)}
+            </span>
+            {x.how && <span className="mt-0.5 block truncate font-sans text-[13px] text-dim">{x.how}</span>}
+            <span className="mt-0.5 block font-sans text-[13px] text-muted">{[citiesOf(r), payOf(r)].filter(Boolean).join(" · ")}</span>
+          </summary>
+          <ul className="mb-2">{r.items.map((y) => itemCard(y, true))}</ul>
+        </details>
+      </li>
+    );
+  };
 
   return (
     <div ref={top} id="roles" className="max-md:scroll-mt-16">
-      <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+      <div className="flex flex-wrap gap-2">
         <label htmlFor="role-search" className="sr-only">
-          Search roles
+          Search companies or roles
         </label>
         <input
           ref={search}
@@ -350,28 +602,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           type="search"
           value={f.q}
           onChange={(e) => set({ q: e.target.value })}
-          placeholder="Search a company, role or city"
+          placeholder="Search companies or roles"
           autoComplete="off"
-          className="h-10 min-w-0 rounded-md border border-line bg-surface px-3 text-[15px] text-ink placeholder:text-dim hover:border-muted sm:min-w-[200px] sm:flex-1"
+          className="h-11 min-w-0 flex-[1_1_260px] rounded-md border border-line bg-surface px-3 text-[16px] text-ink placeholder:text-dim hover:border-muted"
         />
-        <FilterSheet f={f} set={set} countries={countries} count={shown.length} counts={counts} profile={profileText} />
-        <div className="contents max-md:hidden">
-        <Select id="role-type" label="Type" value={f.kind} onChange={(v) => set({ kind: v })}>
-          <option value="">Any type</option>
-          {kinds.map((k) => (
-            <option key={k} value={k}>
-              {k}
-            </option>
-          ))}
-        </Select>
-        <Select id="role-field" label="Field" value={f.field} onChange={(v) => set({ field: v })}>
-          <option value="">Any field</option>
-          {fields.map((x) => (
-            <option key={x} value={x}>
-              {x}
-            </option>
-          ))}
-        </Select>
         <Select id="role-country" label="Country" value={f.country} onChange={(v) => set({ country: v })}>
           <option value="">All countries</option>
           {countries.map((k) => (
@@ -380,96 +614,89 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             </option>
           ))}
         </Select>
-        <Select id="role-level" label="Your study level" value={f.level} onChange={(v) => set({ level: v as Level | "" })}>
-          <option value="">Any level</option>
-          {levels.map((l) => (
-            <option key={l.value} value={l.value}>
-              {l.label}
+        <Select id="role-type" label="Type" value={f.kind} onChange={(v) => set({ kind: v })}>
+          <option value="">Any type</option>
+          {kinds.map((k) => (
+            <option key={k} value={k}>
+              {k}
             </option>
           ))}
         </Select>
-        </div>
+        <FilterSheet
+          f={f}
+          set={set}
+          count={shown.length}
+          counts={counts}
+          profile={profileText}
+          on={on.length}
+          saved={saved.length}
+          onCalendar={downloadCalendar}
+          onCopyLink={copyLink}
+        />
       </div>
 
-      <div className="mt-4 mb-2 flex flex-wrap items-baseline gap-x-4 gap-y-1 font-sans text-[13px] max-md:mt-3 max-md:mb-1.5">
-        <p aria-live="polite" className="font-semibold">
-          {shown.length > per
-            ? `${first + 1}-${first + onPage.length} of ${shown.length} roles`
-            : `${shown.length} ${shown.length === 1 ? "role" : "roles"}`}
+      <div className="mt-3 mb-1 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-sans text-[14px] text-muted">
+        <p aria-live="polite" className="font-semibold text-ink">
+          {shown.length} {shown.length === 1 ? "role" : "roles"}
+          {f.status === "soon" ? " opening soon" : f.status === "new" ? " new" : ""}
         </p>
-        <span className="text-muted md:hidden">{f.sort === "pay" ? `highest stated pay first, ${withPay} with a figure` : "soonest deadline first"}</span>
-        <label className="flex items-center gap-1.5 text-muted max-md:hidden">
-          <span className="sr-only">Sort</span>
+        <label className="flex items-center gap-1.5">
+          Sort
           <select
             value={f.sort}
             onChange={(e) => set({ sort: e.target.value as Sort })}
-            className="h-8 rounded-md border border-line bg-surface px-1.5 text-[13px] text-ink hover:border-muted"
+            className="h-9 rounded-md border border-line bg-surface px-1.5 text-[14px] text-ink hover:border-muted max-md:h-11"
           >
-            <option value="deadline">Soonest deadline first</option>
-            <option value="pay">Highest stated pay first ({withPay})</option>
+            <option value="deadline">Closing soonest</option>
+            <option value="pay">Highest pay ({withPay})</option>
+            <option value="new">Newest</option>
           </select>
         </label>
-        {profileText ? (
-          <span className="flex items-center gap-1.5 text-muted max-md:hidden">
-            <label className="flex items-center gap-1.5" title={profileText}>
-              <input type="checkbox" checked={f.fit} onChange={(e) => set({ fit: e.target.checked })} className="h-4 w-4" />
-              Fits my profile
-            </label>
-            <Link href="/profile/" className="text-link underline underline-offset-2">
-              Edit
-            </Link>
-          </span>
+        {f.status === "soon" ? (
+          <button type="button" onClick={() => set({ status: "open" })} className="text-link underline underline-offset-2 max-md:min-h-11">
+            Back to open roles
+          </button>
         ) : (
-          <Link href="/profile/" className="text-link underline underline-offset-2 max-md:hidden" data-track="profile-from-list">
-            Set your profile
-          </Link>
+          counts.soon > 0 && (
+            <button type="button" onClick={() => set({ status: "soon" })} className="text-link underline underline-offset-2 max-md:min-h-11">
+              Opening soon ({counts.soon})
+            </button>
+          )
         )}
-        <label className="flex items-center gap-1.5 text-muted max-md:hidden" title="Hides roles that say they don't sponsor visas or that you need the right to work there already">
-          <input type="checkbox" checked={f.visa} onChange={(e) => set({ visa: e.target.checked })} className="h-4 w-4" />
-          I need a visa
-        </label>
-        <label className="flex items-center gap-1.5 text-muted max-md:hidden" title="Hides roles that ask for German, French, Dutch or another language">
-          <input type="checkbox" checked={f.english} onChange={(e) => set({ english: e.target.checked })} className="h-4 w-4" />
-          English only
-        </label>
-        <label className="flex items-center gap-1.5 text-muted max-md:hidden">
-          <input type="checkbox" checked={f.saved} onChange={(e) => set({ saved: e.target.checked })} className="h-4 w-4" />
-          Only saved ({saved.length})
-        </label>
+        {on.map((x) => (
+          <button
+            key={x.label}
+            type="button"
+            onClick={() => set(x.clear)}
+            className="flex h-8 items-center gap-1 rounded-full bg-raised px-2.5 text-[13px] font-semibold whitespace-nowrap text-ink max-md:h-11"
+          >
+            {x.label}
+            <Icon name="x" className="h-3.5 w-3.5" />
+            <span className="sr-only">, remove this filter</span>
+          </button>
+        ))}
         {filtered && (
-          <button type="button" onClick={() => { setF({ ...start, fit: f.fit }); setPage(1); }} className="text-link underline underline-offset-2 max-md:hidden">
+          <button
+            type="button"
+            onClick={() => {
+              setF({ ...start, fit: f.fit });
+              setPage(1);
+            }}
+            className="text-link underline underline-offset-2 max-md:min-h-11"
+          >
             Clear filters
           </button>
         )}
         {saved.length > 0 && (
-          <>
-            <Link href="/mine/" className="font-semibold text-link underline underline-offset-2 max-md:hidden" data-track="to-mine">
-              My applications ({saved.length})
-            </Link>
-            <button type="button" onClick={downloadCalendar} className="text-link underline underline-offset-2 max-md:hidden" data-track="saved-calendar">
-              Saved roles to my calendar
-            </button>
-            <button type="button" onClick={copyLink} className="text-link underline underline-offset-2 max-md:hidden" data-track="saved-link">
-              Open my saved list on another device
-            </button>
-          </>
+          <Link href="/mine/" className="font-semibold text-link underline underline-offset-2 max-md:hidden" data-track="to-mine">
+            My applications ({saved.length})
+          </Link>
         )}
-        <span className="ml-auto flex gap-1.5 max-md:hidden">
-          {(["open", "soon", "new", "all"] as const).map((st) => (
-            <button
-              key={st}
-              type="button"
-              aria-pressed={f.status === st}
-              onClick={() => set({ status: st })}
-              className={`h-8 rounded-full border px-3 text-[13px] whitespace-nowrap ${
-                f.status === st ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink hover:border-muted"
-              }`}
-            >
-              {st === "open" ? "Open" : st === "soon" ? "Soon" : st === "new" ? "New" : "All"}
-              {st === "all" ? <span className="sr-only">, also closed</span> : <span className={`ml-1 ${f.status === st ? "opacity-75" : "text-dim"}`}>{counts[st]}</span>}
-            </button>
-          ))}
-        </span>
+        {!profileText && (
+          <Link href="/profile/" className="text-link underline underline-offset-2 max-md:hidden" data-track="profile-from-list">
+            Set your profile
+          </Link>
+        )}
       </div>
       <div aria-live="polite" className="text-[14px]">
         {notice && <p className="mb-2 text-ink">{notice}</p>}
@@ -495,205 +722,74 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
         </p>
       ) : (
         <>
-        {/* phones: one compact row per role, the details open on a tap */}
-        <ul className="border-t border-line md:hidden">
-          {onPage.map((x) => {
-            const isSaved = saved.includes(x.id);
-            const hot = x.status === "soon" ? "text-soon" : x.urgent ? "font-semibold text-soon" : "text-muted";
-            return (
-              <li key={x.id} className="relative border-b border-line">
-                <details>
-                  <summary className="block cursor-pointer list-none py-2.5 [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-baseline gap-2 pr-11">
-                      <span className="min-w-0 flex-1 truncate">
-                        {isNew(x) && <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[1px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>}
-                        <b className="text-[15px] font-bold">{x.company}</b>
-                        <span className="font-sans text-[12px] text-muted"> · {x.city}</span>
-                      </span>
-                      <span className={`shrink-0 font-sans text-[12px] whitespace-nowrap tabular-nums ${hot}`}>{shortWhen(x)}</span>
-                    </span>
-                    {x.pay ? (
-                      <span className="mt-0.5 flex items-baseline gap-2 pr-11">
-                        <span className="min-w-0 flex-1 truncate text-[15px]">{x.title}</span>
-                        <span className="shrink-0 font-sans text-[12px] whitespace-nowrap text-muted tabular-nums">{x.pay.short}</span>
-                      </span>
-                    ) : (
-                      <span className="mt-0.5 block truncate text-[15px]">{x.title}</span>
-                    )}
-                  </summary>
-                  <div className="pb-3 text-[14px] leading-[1.5]">
-                    <p className="text-muted">
-                      {x.when}. {x.kind}, {x.field}. {!x.start || /^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
-                      {x.old ? ", over 3 months ago" : ""}.
-                    </p>
-                    <p className="mt-1.5">
-                      <Process x={x} />
-                    </p>
-                    {x.pay && (
-                      <p className="mt-1.5">
-                        <span className="font-semibold">Pay:</span> {x.pay.label}
-                      </p>
-                    )}
-                    {x.languages.length > 0 && <p className="mt-1.5 text-muted">Asks for {x.languages.join(" and ")}.</p>}
-                    {x.reapply && (
-                      <p className="mt-1.5 text-soon">
-                        <span className="font-semibold">Re-apply rule:</span> {x.reapply}
-                      </p>
-                    )}
-                    <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                      <a href={x.source} target="_blank" rel="noreferrer" className="link font-semibold" data-track="posting">
-                        Posting
-                        <NewTab />
-                      </a>
-                      <Link href={roleHref(x.key)} className="link">
-                        Role page
-                      </Link>
-                      <Link href={`/companies/${x.slug}/`} className="link">
-                        {x.company}
-                      </Link>
-                      <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} />
-                      <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-2">
-                        Something wrong?
-                        <span className="sr-only"> Report a mistake in {x.title} at {x.company}</span>
-                        <NewTab />
-                      </a>
-                    </div>
-                  </div>
-                </details>
-                <button
-                  type="button"
-                  onClick={() => toggleSave(x.id)}
-                  aria-pressed={isSaved}
-                  data-track={isSaved ? "unsave" : "save"}
-                  className={`absolute top-0 right-0 flex h-11 w-11 items-center justify-end ${isSaved ? "text-accent" : "text-dim"}`}
-                >
-                  <Icon name="bookmark" filled={isSaved} className="h-5 w-5" />
-                  <span className="sr-only">
-                    Save {x.title} at {x.company}
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        <table className="w-full table-fixed border-collapse text-left text-[15px] max-md:hidden">
-          <caption className="sr-only">Roles that match the filters. Open a role for its process and links.</caption>
-          <colgroup>
-            <col className="w-11" />
-            <col className="w-[18%]" />
-            <col />
-            <col className="w-[14%]" />
-            <col className="w-[13%]" />
-            <col className="w-[11%]" />
-          </colgroup>
-          <thead>
-            <tr className="border-b-2 border-ink text-[13px]">
-              <th scope="col">
-                <span className="sr-only">Saved</span>
-              </th>
-              <th scope="col" className="py-2 pr-4 font-semibold">Company</th>
-              <th scope="col" className="py-2 pr-4 font-semibold">Role</th>
-              <th scope="col" className="py-2 pr-4 font-semibold">City</th>
-              <th scope="col" className="py-2 pr-4 font-semibold">Pay</th>
-              <th scope="col" className="py-2 pr-4 font-semibold">Deadline</th>
-            </tr>
-          </thead>
-          <tbody>
-            {onPage.map((x) => {
-              const isSaved = saved.includes(x.id);
-              const open = openRows.has(x.id);
+          {/* phones: one block per row, the details open on a tap */}
+          <ul className={`md:hidden ${headings ? "" : "border-t border-line"}`}>
+            {onPage.map((r, i) => {
+              const h = headingOf(r, i);
               return (
-                <Fragment key={x.id}>
-                  <tr className={`border-line ${open ? "bg-raised/60" : "border-b hover:bg-raised/40"}`}>
-                    <td className="align-top">
-                      <button
-                        type="button"
-                        onClick={() => toggleSave(x.id)}
-                        aria-pressed={isSaved}
-                        data-track={isSaved ? "unsave" : "save"}
-                        className={`flex h-11 w-11 items-center justify-center ${isSaved ? "text-accent" : "text-dim hover:text-ink"}`}
-                      >
-                        <Icon name="bookmark" filled={isSaved} className="h-[18px] w-[18px]" />
-                        <span className="sr-only">
-                          Save {x.title} at {x.company}
-                        </span>
-                      </button>
-                    </td>
-                    <td className="truncate py-2.5 pr-4 align-top">
-                      <Link href={`/companies/${x.slug}/`} className="font-semibold hover:underline">
-                        {x.company}
-                      </Link>
-                    </td>
-                    <td className="py-1 pr-4 align-top">
-                      <button
-                        type="button"
-                        onClick={() => flipRow(x.id)}
-                        aria-expanded={open}
-                        className="flex min-h-9 w-full items-start gap-1.5 py-1.5 text-left font-serif hover:underline"
-                      >
-                        <span className="line-clamp-1">
-                          {isNew(x) && (
-                            <span className="mr-1.5 rounded-sm bg-ink px-1 py-px align-[2px] font-sans text-[10px] font-semibold tracking-wide text-bg uppercase">New</span>
-                          )}
-                          {x.title}
-                        </span>
-                        <Icon name="chevron" className={`mt-1 h-4 w-4 shrink-0 text-dim transition-transform ${open ? "rotate-180" : ""}`} />
-                      </button>
-                    </td>
-                    <td className="truncate py-2.5 pr-4 align-top font-sans text-[13px] leading-6 text-muted">{x.city}</td>
-                    <td className="truncate py-2.5 pr-4 align-top font-sans text-[13px] leading-6 text-muted tabular-nums">{x.pay?.short}</td>
-                    <td className={`py-2.5 pr-4 align-top font-sans text-[13px] leading-6 font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>
-                      {shortWhen(x)}
-                    </td>
-                  </tr>
-                  {open && (
-                    <tr className="border-b border-line bg-raised/60">
-                      <td />
-                      <td colSpan={5} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
-                        <p className={`font-sans text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
-                          {x.when}. {x.kind}, {x.field}. {!x.start || /^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
-                          {x.old ? ", over 3 months ago" : ""}.
-                        </p>
-                        <p className="mt-1">
-                          <Process x={x} />
-                        </p>
-                        {x.pay && (
-                          <p className="mt-1">
-                            <span className="font-semibold">Pay:</span> {x.pay.label}
-                          </p>
-                        )}
-                        {x.languages.length > 0 && <p className="mt-1 text-muted">Asks for {x.languages.join(" and ")}.</p>}
-                        {x.reapply && (
-                          <p className="mt-1 text-soon">
-                            <span className="font-semibold">Re-apply rule:</span> {x.reapply}
-                          </p>
-                        )}
-                        <div className="mt-2 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-sans text-[14px]">
-                          <a href={x.source} target="_blank" rel="noreferrer" className="link font-semibold" data-track="posting">
-                            Posting
-                            <NewTab />
-                          </a>
-                          <Link href={roleHref(x.key)} className="link">
-                            Role page
-                          </Link>
-                          <Link href={`/companies/${x.slug}/`} className="link">
-                            How {x.company} hires
-                          </Link>
-                          <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} />
-                          <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-2 hover:text-ink">
-                            Something wrong?
-                            <span className="sr-only"> Report a mistake in {x.title} at {x.company}</span>
-                            <NewTab />
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
+                <Fragment key={r.id}>
+                  {h && (
+                    <li className={`flex items-baseline gap-2.5 border-b border-ink pb-1.5 font-display text-[18px] font-bold ${i === 0 ? "pt-2" : "pt-5"}`}>
+                      {h}
+                      <span className="font-sans text-[13px] font-normal text-muted">{headingCount(h)}</span>
+                    </li>
                   )}
+                  {r.items.length === 1 ? itemCard(r.items[0]) : groupCard(r)}
                 </Fragment>
               );
             })}
-          </tbody>
-        </table>
+          </ul>
+          <table className="w-full table-fixed border-collapse text-left text-[15px] max-md:hidden">
+            <caption className="sr-only">Roles that match the filters. Open a role for its process and links.</caption>
+            <colgroup>
+              <col className="w-11" />
+              <col className="w-[132px]" />
+              <col />
+              <col className="w-[124px]" />
+              <col className="w-[100px]" />
+              <col className="w-[68px]" />
+            </colgroup>
+            <thead>
+              <tr className="border-b border-ink font-sans text-[13px] text-muted">
+                <th scope="col">
+                  <span className="sr-only">Saved</span>
+                </th>
+                <th scope="col" className="py-2 pr-3 font-medium">
+                  Company
+                </th>
+                <th scope="col" className="py-2 pr-3 font-medium">
+                  Role
+                </th>
+                <th scope="col" className="py-2 pr-3 font-medium">
+                  City
+                </th>
+                <th scope="col" className="py-2 pr-3 font-medium">
+                  Pay
+                </th>
+                <th scope="col" className="py-2 pr-2 font-medium">
+                  Closes
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {onPage.map((r, i) => {
+                const h = headingOf(r, i);
+                return (
+                  <Fragment key={r.id}>
+                    {h && (
+                      <tr className="border-b border-ink">
+                        <th scope="colgroup" colSpan={6} className={`pb-2 text-left font-display text-[19px] font-bold ${i === 0 ? "pt-3" : "pt-6"}`}>
+                          {h}
+                          <span className="ml-2.5 font-sans text-[14px] font-normal text-muted">{headingCount(h)}</span>
+                        </th>
+                      </tr>
+                    )}
+                    {r.items.length === 1 ? itemRow(r.items[0]) : groupRow(r)}
+                  </Fragment>
+                );
+              })}
+            </tbody>
+          </table>
         </>
       )}
 
