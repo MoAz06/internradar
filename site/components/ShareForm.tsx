@@ -1,20 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useTurnstile } from "@/lib/useTurnstile";
 import { limits, outcomes, weekOptions } from "@/lib/reportForm";
 
-export type FormCountry = { code: string; name: string; companies: { slug: string; label: string }[] };
+export type FormCountry = { code: string; name: string; companies: { slug: string; label: string; roles: string[] }[] };
 
 type Props = { countries: FormCountry[]; endpoint: string; siteKey: string; githubForm: string };
-
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (el: HTMLElement, o: Record<string, unknown>) => string;
-      reset: (id?: string) => void;
-    };
-  }
-}
 
 const OTHER = "other";
 const field = "mt-1 block w-full border border-muted bg-surface px-3 py-2 text-[16px] text-ink placeholder:text-dim";
@@ -24,11 +16,9 @@ const hint = "mt-0.5 block text-[14px] font-normal text-dim";
 export default function ShareForm({ countries, endpoint, siteKey, githubForm }: Props) {
   const [country, setCountry] = useState("");
   const [company, setCompany] = useState("");
-  const [token, setToken] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [problem, setProblem] = useState("");
-  const widget = useRef<HTMLDivElement>(null);
-  const widgetId = useRef<string | undefined>(undefined);
+  const { token, widget, reset } = useTurnstile(siteKey);
 
   // coming from a company page: /share/?company=optiver
   useEffect(() => {
@@ -39,25 +29,6 @@ export default function ShareForm({ countries, endpoint, siteKey, githubForm }: 
       setCompany(slug);
     }
   }, [countries]);
-
-  // Cloudflare Turnstile, the spam check; it only shows a box when it's unsure
-  useEffect(() => {
-    const draw = () => {
-      if (!widget.current || !window.turnstile || widgetId.current !== undefined) return;
-      widgetId.current = window.turnstile.render(widget.current, {
-        sitekey: siteKey,
-        callback: (t: string) => setToken(t),
-        "expired-callback": () => setToken(""),
-        "error-callback": () => setToken(""),
-      });
-    };
-    if (window.turnstile) return draw();
-    const s = document.createElement("script");
-    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-    s.async = true;
-    s.onload = draw;
-    document.head.appendChild(s);
-  }, [siteKey]);
 
   const list = countries.find((k) => k.code === country)?.companies ?? [];
   const notListed = country === OTHER || company === OTHER;
@@ -95,8 +66,7 @@ export default function ShareForm({ countries, endpoint, siteKey, githubForm }: 
     } catch (err) {
       setState("error");
       setProblem(err instanceof Error ? err.message : "Something went wrong.");
-      setToken("");
-      window.turnstile?.reset(widgetId.current);
+      reset();
     }
   }
 

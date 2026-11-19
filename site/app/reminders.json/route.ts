@@ -1,5 +1,6 @@
 import { buildItems } from "@/lib/buildItems";
 import { today } from "@/lib/live";
+import { reminderRow } from "@/lib/items";
 
 export const dynamic = "force-static";
 
@@ -9,6 +10,6 @@ export function GET() {
   const now = today();
   const roles = buildItems(now)
     .filter((x) => x.status !== "closed")
-    .map((x) => ({ k: x.key, s: x.slug, c: x.company, t: x.title, d: x.closes ?? null, a: x.added }));
+    .map(reminderRow);
   return Response.json({ built: now, roles });
 }

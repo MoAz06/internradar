@@ -3,12 +3,13 @@
 // allows that only for an installed app. Safari and Firefox don't have it.
 
 import { readFollowing, readSaved } from "./mine.ts";
+import { readProfile, type Profile } from "./profile.ts";
 
 const STATE = "internradar-state";
 const STATE_URL = "/__reminders-state";
 const TAG = "internradar-reminders";
 
-type State = { on?: boolean; saved?: string[]; following?: string[] };
+type State = { on?: boolean; saved?: string[]; following?: string[]; profile?: Profile | null };
 type SyncRegistration = ServiceWorkerRegistration & {
   periodicSync: { register: (tag: string, o: { minInterval: number }) => Promise<void>; unregister: (tag: string) => Promise<void>; getTags: () => Promise<string[]> };
 };
@@ -54,9 +55,9 @@ export async function turnRemindersOn(): Promise<TurnOn> {
   if (sync?.state !== "granted") return "install";
   if ((await Notification.requestPermission()) !== "granted") return "denied";
   await reg.periodicSync.register(TAG, { minInterval: 12 * 60 * 60 * 1000 });
-  await write({ on: true, saved: readSaved(), following: readFollowing() });
+  await write({ on: true, saved: readSaved(), following: readFollowing(), profile: readProfile() });
   await reg.showNotification("Reminders are on", {
-    body: "You'll hear about saved deadlines 7 and 2 days ahead and on the day, and about new roles at companies you follow.",
+    body: "You'll hear about saved deadlines 7 and 2 days ahead and on the day, new roles at companies you follow, and new roles that fit your profile.",
     icon: "/icons/icon-192.png",
     tag: "on",
   });
@@ -70,10 +71,10 @@ export async function turnRemindersOff() {
   await write({ on: false });
 }
 
-/** Called after the saved list or the followed companies change, so the worker sees the same lists. */
+/** Called after the saved list, the followed companies or the profile change, so the worker sees the same lists. */
 export function shareWithWorker() {
   if (typeof window === "undefined" || !("caches" in window)) return;
   read()
-    .then((s) => (s.on ? write({ saved: readSaved(), following: readFollowing() }) : undefined))
+    .then((s) => (s.on ? write({ saved: readSaved(), following: readFollowing(), profile: readProfile() }) : undefined))
     .catch(() => {});
 }

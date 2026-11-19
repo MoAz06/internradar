@@ -260,8 +260,8 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               {summary && <p className="mt-2 text-sm font-semibold leading-[1.55]">{summary}</p>}
               {c.reports.length === 0 ? (
                 <p className="mt-2 text-sm leading-[1.55] text-muted">
-                  None yet. Went through this process? Tell the next person how it went: the steps, the
-                  timing and the outcome. Please don&apos;t post the interview questions.
+                  None yet. Went through this process? Tell the next person how far you got, which online
+                  test it was and how many weeks it took. It takes a minute, and no questions or names.
                 </p>
               ) : (
                 <ul className="mt-3 space-y-4">
@@ -283,9 +283,10 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               )}
               <Link
                 href={share}
-                className="mt-3.5 inline-block rounded-md bg-ink px-3.5 py-2 text-[13px] font-semibold text-bg hover:bg-muted"
+                className="mt-3.5 inline-flex h-11 items-center rounded-md bg-ink px-4 text-[14px] font-semibold text-bg hover:bg-muted"
+                data-track="share-from-company"
               >
-                Share your process
+                Share how it went, 1 minute
               </Link>
             </Card>
             <div>

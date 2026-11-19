@@ -86,6 +86,7 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
       { href: "/companies/#cities", label: "Cities", icon: "pin" },
       { href: "/companies/#fields", label: "Fields", icon: "code" },
       { href: "/reapply/", label: "Re-apply", icon: "again" },
+      { href: "/pay/", label: "Pay", icon: "euro" },
     ],
     [
       { href: "/share/", label: "Share", icon: "message", track: "share-process" },

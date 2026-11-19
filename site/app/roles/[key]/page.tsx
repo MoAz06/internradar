@@ -12,6 +12,7 @@ import { longDate, stripProtocol } from "@/lib/format";
 import { reportUrl, roleHref, shortWhen } from "@/lib/items";
 import { rolePages } from "@/lib/rolePages";
 import { og } from "@/lib/og";
+import { shareUrl } from "@/lib/share";
 
 type Params = { key: string };
 
@@ -154,6 +155,13 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
             {c.name} page
           </Link>
           .
+        </p>
+        <p className="mt-3 text-[17px] leading-[1.6]">
+          Applied for this one?{" "}
+          <Link href={shareUrl(c.slug, r.title)} className="link" data-track="share-from-role">
+            Tell the next person how it went
+          </Link>
+          . It takes a minute.
         </p>
 
         {others.length > 0 && (

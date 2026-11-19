@@ -12,6 +12,7 @@ const items = [
   { href: "/edition/", label: "This week" },
   { href: "/radar/", label: "On the radar" },
   { href: "/companies/", label: "Companies" },
+  { href: "/pay/", label: "Pay" },
   { href: "/alerts/", label: "Alerts" },
   { href: "/mine/", label: "My applications" },
   { href: "/about/", label: "About" },

@@ -5,9 +5,9 @@
 // Reminders: when the visitor turns them on in the installed app, Chrome wakes this worker about twice a day
 // (Periodic Background Sync). It reads the saved roles and followed companies the page left in the cache,
 // fetches /reminders.json and shows a notification for deadlines 7 and 2 days out and on the day, and for new
-// roles at followed companies. Nothing is sent anywhere; it all stays on the phone.
+// roles at followed companies and new roles that fit the profile from /profile/. Nothing is sent anywhere; it all stays on the phone.
 
-const CACHE = "internradar-v4";
+const CACHE = "internradar-v5";
 const START = ["/", "/today/", "/mine/"];
 const STATE = "internradar-state";
 const STATE_URL = "/__reminders-state";
@@ -100,6 +100,16 @@ function shortKey(id) {
   return h.toString(36);
 }
 
+/** The same test as fits() in lib/profile.ts, on a row of reminders.json. */
+function fitsRole(r, p) {
+  if (p.countries && p.countries.length && !p.countries.includes(r.n)) return false;
+  if (p.kinds && p.kinds.length && !p.kinds.includes(r.y)) return false;
+  if (p.level && r.l && !r.l.includes(p.level)) return false;
+  if (p.visa && r.w) return false;
+  if (p.english && r.g) return false;
+  return true;
+}
+
 const daysTo = (from, to) => Math.round((Date.parse(`${to}T12:00:00Z`) - Date.parse(`${from}T12:00:00Z`)) / 86400000);
 const closes = (left) => (left === 0 ? "closes today" : left === 1 ? "closes tomorrow" : `closes in ${left} days`);
 const STEPS = ["7", "2", "0"];
@@ -128,7 +138,17 @@ function plan(state, roles, today) {
     if (known[slug]) fresh.push(...roles.filter((r) => r.s === slug && !known[slug].includes(r.k)));
     known[slug] = keys;
   }
-  for (const slug of Object.keys(known)) if (!following.includes(slug)) delete known[slug];
+  for (const slug of Object.keys(known)) if (slug !== "@all" && !following.includes(slug)) delete known[slug];
+  // new roles that fit the profile; the first check after setting one starts quiet, like a new follow
+  const forYou = [];
+  if (state.profile) {
+    if (known["@all"]) {
+      const seen = new Set(known["@all"]);
+      const told = new Set(fresh.map((r) => r.k));
+      forYou.push(...roles.filter((r) => !seen.has(r.k) && !told.has(r.k) && fitsRole(r, state.profile)));
+    }
+    known["@all"] = roles.map((r) => r.k);
+  } else delete known["@all"];
   const live = new Set(roles.map((r) => r.k));
   for (const k of Object.keys(sent)) if (!live.has(k.split(":")[0])) delete sent[k];
 
@@ -149,6 +169,14 @@ function plan(state, roles, today) {
     const lines = fresh.slice(0, 4).map((r) => `${r.c}: ${r.t}`);
     if (fresh.length > 4) lines.push(`and ${fresh.length - 4} more`);
     notes.push({ tag: "follow", title: `${fresh.length} new roles at companies you follow`, body: lines.join("\n"), url: "/today/" });
+  }
+  if (forYou.length === 1) {
+    const r = forYou[0];
+    notes.push({ tag: "fit", title: `New role for you at ${r.c}`, body: r.t, url: `/roles/${r.k}/` });
+  } else if (forYou.length > 1) {
+    const lines = forYou.slice(0, 4).map((r) => `${r.c}: ${r.t}`);
+    if (forYou.length > 4) lines.push(`and ${forYou.length - 4} more`);
+    notes.push({ tag: "fit", title: `${forYou.length} new roles fit your profile`, body: lines.join("\n"), url: "/today/" });
   }
   return { notes, sent, known };
 }
@@ -190,4 +218,4 @@ self.addEventListener("notificationclick", (event) => {
 });
 
 // for scripts/test-reminders.mjs, which runs this file outside a browser
-if (typeof module !== "undefined") module.exports = { plan, shortKey };
+if (typeof module !== "undefined") module.exports = { plan, shortKey, fitsRole };

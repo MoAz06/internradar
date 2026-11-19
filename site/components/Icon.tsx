@@ -49,6 +49,7 @@ const paths: Record<string, React.ReactNode> = {
   ),
   chevron: <path d="M6 9l6 6 6-6" />,
   moon: <path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z" />,
+  euro: <path d="M17 6.5A6.5 6.5 0 1017 17.5M5 10.5h9M5 13.5h9" />,
 };
 
 export default function Icon({

@@ -47,7 +47,7 @@ export default function Reminders({ className = "" }: { className?: string }) {
       )}
       {view === "browser" && (
         <p className="text-muted">
-          Install the app (Chrome menu, Add to Home screen) and it can remind you of saved deadlines and new roles at companies you follow.
+          Install the app (Chrome menu, Add to Home screen) and it can remind you of saved deadlines, new roles at companies you follow and new roles that fit your profile.
         </p>
       )}
       {view === "off" && (
@@ -62,7 +62,7 @@ export default function Reminders({ className = "" }: { className?: string }) {
             <Icon name="bell" filled className="h-4 w-4" />
             Reminders are on
           </span>
-          <span>7 and 2 days before a saved deadline, and when a company you follow adds a role.</span>
+          <span>7 and 2 days before a saved deadline, when a company you follow adds a role, and when a role that fits your profile is added.</span>
           <button type="button" onClick={off} className="h-11 text-link underline underline-offset-2" data-track="reminders-off">
             Turn off
           </button>

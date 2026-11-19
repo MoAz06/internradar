@@ -69,6 +69,24 @@ export function shortWhen(x: Pick<Item, "status" | "when" | "daysLeft" | "closes
   return x.status === "rolling" ? "Rolling" : "Open";
 }
 
+/** One role in /reminders.json, for the service worker: short names keep the file small.
+ * n country, y kind, l levels (only when named), w needs work rights, g asks for another language. */
+export function reminderRow(x: Item) {
+  return {
+    k: x.key,
+    s: x.slug,
+    c: x.company,
+    t: x.title,
+    d: x.closes ?? null,
+    a: x.added,
+    n: x.country,
+    y: x.kind,
+    ...(x.levels ? { l: x.levels } : {}),
+    ...(x.workRights ? { w: 1 } : {}),
+    ...(x.languages.length ? { g: 1 } : {}),
+  };
+}
+
 /** Words for searching: lower case, accents stripped, so "zurich" finds "Zürich". */
 export function fold(s: string): string {
   return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();

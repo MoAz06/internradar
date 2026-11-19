@@ -1,5 +1,5 @@
-// Offline tests for the list features: search words, pay per role, the eligibility filters and the
-// reminders in the service worker. No network. Run: npm run test-site
+// Offline tests for the list features: search words, pay per role, the eligibility filters, the profile,
+// the quick share form and the reminders in the service worker. No network. Run: npm run test-site
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -11,9 +11,22 @@ import { companies } from "../data/companies.ts";
 import { payFor, payRules } from "../data/pay.ts";
 import { languagesOf, levelsOf, needsWorkRights } from "../lib/eligibility.ts";
 import { query, searchable } from "../lib/search.ts";
-import { shortKey } from "../lib/items.ts";
+import { reminderRow, shortKey } from "../lib/items.ts";
+import { buildItems } from "../lib/buildItems.ts";
+import { fits, isEmpty, type Profile } from "../lib/profile.ts";
+import { cleanSending, issueBody, outcomes, quickEnds, quickTimeline, readIssue } from "../lib/reportForm.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
+
+function worker() {
+  const box = { module: { exports: {} as Record<string, unknown> }, self: { addEventListener() {} } };
+  vm.runInNewContext(readFileSync(join(here, "..", "public", "sw.js"), "utf8"), box);
+  return box.module.exports as {
+    plan: (state: object, roles: object[], today: string) => { notes: { title: string; url: string; tag: string }[]; sent: Record<string, string>; known: Record<string, string[]> };
+    shortKey: (id: string) => string;
+    fitsRole: (r: object, p: Profile) => boolean;
+  };
+}
 
 test("search: synonyms, short words and typos", () => {
   const role = (...parts: string[]) => searchable(parts);
@@ -81,12 +94,7 @@ test("eligibility: levels, work rights and languages", () => {
 });
 
 test("reminders: deadlines once per step, new roles at followed companies", () => {
-  const box = { module: { exports: {} as Record<string, unknown> }, self: { addEventListener() {} } };
-  vm.runInNewContext(readFileSync(join(here, "..", "public", "sw.js"), "utf8"), box);
-  const { plan, shortKey: swKey } = box.module.exports as {
-    plan: (state: object, roles: object[], today: string) => { notes: { title: string; url: string }[]; sent: Record<string, string>; known: Record<string, string[]> };
-    shortKey: (id: string) => string;
-  };
+  const { plan, shortKey: swKey } = worker();
 
   const id = "arm|Graduate Program|https://example.com/1";
   assert.equal(swKey(id), shortKey(id), "the worker and the site make the same key");
@@ -117,4 +125,61 @@ test("reminders: deadlines once per step, new roles at followed companies", () =
   // a company followed just now starts quiet
   out = plan({ saved: [], following: ["arm"], known: {} }, roles, "2026-11-24");
   assert.equal(out.notes.length, 0);
+});
+
+test("profile: the list and the worker agree on what fits", () => {
+  const { fitsRole } = worker();
+  const items = buildItems("2026-11-19");
+  const profiles: Profile[] = [
+    { level: "master" },
+    { countries: ["NL", "DE"], kinds: ["Internship"] },
+    { visa: true, english: true },
+    { level: "phd", countries: ["GB"], visa: true },
+    { kinds: ["Graduate", "Thesis"], english: true },
+  ];
+  for (const p of profiles) {
+    const a = items.filter((x) => fits(x, p)).length;
+    const b = items.filter((x) => fitsRole(reminderRow(x), p)).length;
+    assert.equal(a, b, JSON.stringify(p));
+    assert.ok(a > 0 && a < items.length, `${JSON.stringify(p)} narrows the list`);
+  }
+  assert.ok(isEmpty({ countries: [], kinds: [] }));
+  assert.ok(fits({ country: "NL", kind: "Internship", levels: null, workRights: false, languages: [] }, { level: "phd" }), "no level named fits every level");
+});
+
+test("profile reminders: quiet at first, then new roles that fit", () => {
+  const { plan } = worker();
+  const row = (k: string, n: string, y = "Internship") => ({ k, s: `co-${k}`, c: `Co ${k}`, t: `Role ${k}`, d: null, a: "2026-11-01", n, y });
+  const roles = [row("a", "NL"), row("b", "DE")];
+  const profile = { countries: ["NL"] };
+  let out = plan({ profile }, roles, "2026-11-19");
+  assert.equal(out.notes.length, 0, "setting a profile starts quiet");
+  const more = [...roles, row("c", "NL"), row("d", "FR"), row("e", "NL", "Graduate")];
+  out = plan({ profile, known: out.known }, more, "2026-11-20");
+  assert.deepEqual(Array.from(out.notes, (n) => n.title), ["2 new roles fit your profile"]);
+  out = plan({ profile, known: out.known }, more, "2026-11-21");
+  assert.equal(out.notes.length, 0, "told once");
+  // a role at a followed company is told there, not twice
+  const followed = [...more, row("f", "NL")];
+  out = plan({ profile, following: ["co-f"], known: { ...out.known, "co-f": [] } }, followed, "2026-11-22");
+  assert.deepEqual(Array.from(out.notes, (n) => n.tag), ["follow"]);
+  // no profile: the list of seen roles goes
+  out = plan({ known: out.known }, followed, "2026-11-23");
+  assert.equal(out.known["@all"], undefined);
+});
+
+test("quick share: the Worker takes it and the inbox reads it back", () => {
+  const { timeline, outcome } = quickTimeline("final-no", "HackerRank");
+  assert.equal(timeline, "Applied\nOnline test (HackerRank)\nInterviews\nFinal round\nRejected");
+  assert.equal(outcome, "Rejected after interview");
+  assert.equal(quickTimeline("test-no", "").timeline, "Applied\nOnline test\nRejected", "the test step stays when the pick needs it");
+  assert.equal(quickTimeline("offer", "").timeline, "Applied\nInterviews\nOffer");
+  for (const e of quickEnds) assert.ok((outcomes as readonly string[]).includes(e.outcome), e.id);
+
+  const { sending, problems } = cleanSending({ company: "asml", companyLabel: "ASML, Veldhoven", other: "", role: "Software Intern", applied: "October 2026", timeline, test: "HackerRank", weeks: "3-4", outcome, notes: "" });
+  assert.deepEqual(problems, []);
+  const back = readIssue(issueBody(sending));
+  assert.equal(back.slug, "asml");
+  assert.equal(back.timeline, timeline);
+  assert.equal(back.outcome, outcome);
 });

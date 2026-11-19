@@ -11,7 +11,7 @@ import { live, upcoming } from "@/lib/live";
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-const pages = ["home", "edition", "radar", "reapply", "share", "alerts", "calendar", "about", "companies"];
+const pages = ["home", "edition", "radar", "reapply", "share", "alerts", "calendar", "about", "companies", "pay"];
 
 export function generateStaticParams() {
   return [...pages, ...companies.map((c) => c.slug)].map((p) => ({ file: `${p}.png` }));
@@ -70,6 +70,10 @@ function text(page: string) {
     return { kicker: "Alerts", head: "Know when something opens", sub: "New roles and deadlines in your calendar, feed reader or inbox, per country or per company." };
   if (page === "calendar")
     return { kicker: "Deadlines", head: "Every deadline in your own calendar", sub: "Google Calendar, Apple Calendar or Outlook. Subscribe once, it updates itself." };
+  if (page === "pay") {
+    const n = new Set(buildItems().filter((x) => x.pay).map((x) => x.slug)).size;
+    return { kicker: "Pay", head: "What tech internships in Europe pay", sub: `The figures ${n} companies state on their own pages, per country, in their own currency.` };
+  }
   if (page === "about")
     return { kicker: "About", head: "How to read the list", sub: "Where the data comes from, and how to add to it." };
   if (page === "companies")

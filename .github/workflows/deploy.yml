@@ -33,6 +33,8 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - run: npm ci
       - run: npm run check
+      # search, pay, filters, profile, share form and reminders; a failure here stops the deploy
+      - run: npm run test-site
       # a push reuses the posting check from the last full run, so it goes live in a minute or two
       - name: Last posting check
         if: github.event_name == 'push'

@@ -13,6 +13,7 @@ import Icon from "@/components/Icon";
 import { toast } from "@/lib/toast";
 import { levels, type Level } from "@/lib/eligibility";
 import { query, searchable } from "@/lib/search";
+import { fits, PROFILE_EVENT, profileWords, readProfile, type Profile } from "@/lib/profile";
 
 type CountryOption = { code: string; name: string; slug: string; count: number };
 type StatusFilter = "open" | "soon" | "new" | "all";
@@ -30,9 +31,11 @@ type Filters = {
   /** hide roles that ask for a language besides English */
   english: boolean;
   sort: Sort;
+  /** only roles that fit the profile from /profile/ */
+  fit: boolean;
 };
 
-const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false, level: "", visa: false, english: false, sort: "deadline" };
+const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false, level: "", visa: false, english: false, sort: "deadline", fit: false };
 const PER_KEY = "internradar:per-page";
 const PER_PAGE = [25, 50, 75, 100];
 
@@ -85,6 +88,7 @@ const statusColor = (x: Item) =>
 
 export default function RoleFinder({ items, countries }: { items: Item[]; countries: CountryOption[] }) {
   const [f, setF] = useState<Filters>(start);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [saved, setSaved] = useState<string[]>([]);
   const [notice, setNotice] = useState("");
   const [shareLink, setShareLink] = useState("");
@@ -110,6 +114,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     const p = new URLSearchParams(location.search);
     const bySlug = (slug: string) => countries.find((k) => k.slug === slug || k.code.toLowerCase() === slug)?.code ?? "";
     const fromHash = bySlug(location.hash.slice(1));
+    // a link with its own filters shows those; a plain visit starts with the roles that fit the profile
+    const me = readProfile();
+    setProfile(me);
+    const ownFilters = ["q", "status", "type", "field", "country", "level", "visa", "english", "sort", "saved", "all"].some((k) => p.has(k)) || !!fromHash;
     setF({
       q: p.get("q") ?? "",
       status: (["open", "soon", "new", "all"] as const).find((s) => s === p.get("status")) ?? "open",
@@ -121,6 +129,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       visa: p.get("visa") === "1",
       english: p.get("english") === "1",
       sort: p.get("sort") === "pay" ? "pay" : "deadline",
+      fit: !!me && !ownFilters,
     });
     // blocked storage gives null: then only "new this week" shows
     setSince(visitSince());
@@ -170,7 +179,10 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       }
     };
     window.addEventListener("keydown", onKey);
+    const onProfile = () => setProfile(readProfile());
+    window.addEventListener(PROFILE_EVENT, onProfile);
     return () => {
+      window.removeEventListener(PROFILE_EVENT, onProfile);
       window.removeEventListener("hashchange", onHash);
       window.removeEventListener("popstate", onPop);
       window.removeEventListener("keydown", onKey);
@@ -189,6 +201,8 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
     if (f.visa) p.set("visa", "1");
     if (f.english) p.set("english", "1");
     if (f.sort === "pay") p.set("sort", "pay");
+    // turned off by hand: keep it off on reload
+    if (profile && !f.fit && !p.size) p.set("all", "1");
     if (page > 1) p.set("page", String(page));
     if (per !== 25) p.set("per", String(per));
     const qs = p.toString();
@@ -198,7 +212,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       else history.replaceState(null, "", url);
     }
     pushNext.current = false;
-  }, [f, countries, page, per]);
+  }, [f, countries, page, per, profile]);
 
   const isNew = (x: Item) => x.fresh || (since !== null && x.added > since && x.status !== "closed");
 
@@ -215,10 +229,11 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       if (f.level && x.levels && !x.levels.includes(f.level)) return false;
       if (f.visa && x.workRights) return false;
       if (f.english && x.languages.length) return false;
+      if (f.fit && profile && !fits(x, profile)) return false;
       if (test && !test(index.get(x.id)!)) return false;
       return true;
     });
-  }, [items, index, f.q, f.kind, f.field, f.country, f.saved, f.level, f.visa, f.english, saved]);
+  }, [items, index, f.q, f.kind, f.field, f.country, f.saved, f.level, f.visa, f.english, f.fit, profile, saved]);
 
   const shown = useMemo(
     () =>
@@ -306,6 +321,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
       setNotice("Copy the link below and open it on your other device.");
     }
   };
+  const profileText = profile ? profileWords(profile, (code) => countries.find((k) => k.code === code)?.name ?? code) : null;
   const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
 
   return (
@@ -324,7 +340,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           autoComplete="off"
           className="h-10 min-w-0 rounded-md border border-line bg-surface px-3 text-[15px] text-ink placeholder:text-dim hover:border-muted sm:min-w-[200px] sm:flex-1"
         />
-        <FilterSheet f={f} set={set} countries={countries} count={shown.length} counts={counts} />
+        <FilterSheet f={f} set={set} countries={countries} count={shown.length} counts={counts} profile={profileText} />
         <div className="contents max-md:hidden">
         <Select id="role-type" label="Type" value={f.kind} onChange={(v) => set({ kind: v })}>
           <option value="">Any type</option>
@@ -379,6 +395,21 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
             <option value="pay">Highest stated pay first ({withPay})</option>
           </select>
         </label>
+        {profileText ? (
+          <span className="flex items-center gap-1.5 text-muted max-md:hidden">
+            <label className="flex items-center gap-1.5" title={profileText}>
+              <input type="checkbox" checked={f.fit} onChange={(e) => set({ fit: e.target.checked })} className="h-4 w-4" />
+              Fits my profile
+            </label>
+            <Link href="/profile/" className="text-link underline underline-offset-2">
+              Edit
+            </Link>
+          </span>
+        ) : (
+          <Link href="/profile/" className="text-link underline underline-offset-2 max-md:hidden" data-track="profile-from-list">
+            Set your profile
+          </Link>
+        )}
         <label className="flex items-center gap-1.5 text-muted max-md:hidden" title="Hides roles that say they don't sponsor visas or that you need the right to work there already">
           <input type="checkbox" checked={f.visa} onChange={(e) => set({ visa: e.target.checked })} className="h-4 w-4" />
           I need a visa
@@ -392,7 +423,7 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
           Only saved ({saved.length})
         </label>
         {filtered && (
-          <button type="button" onClick={() => { setF(start); setPage(1); }} className="text-link underline underline-offset-2 max-md:hidden">
+          <button type="button" onClick={() => { setF({ ...start, fit: f.fit }); setPage(1); }} className="text-link underline underline-offset-2 max-md:hidden">
             Clear filters
           </button>
         )}

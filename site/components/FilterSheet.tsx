@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 import { fields, kinds } from "@/lib/items";
@@ -15,6 +16,8 @@ export type SheetFilters = {
   visa: boolean;
   english: boolean;
   sort: "deadline" | "pay";
+  /** only the roles that fit the profile set on /profile/ */
+  fit: boolean;
 };
 type CountryOption = { code: string; name: string; count: number };
 
@@ -40,18 +43,22 @@ export default function FilterSheet({
   countries,
   count,
   counts,
+  profile,
 }: {
   f: SheetFilters;
   set: (patch: Partial<SheetFilters>) => void;
   countries: CountryOption[];
   count: number;
   counts: { open: number; soon: number; new: number };
+  /** the profile in words, or null when there is none */
+  profile: string | null;
 }) {
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   const sheet = useRef<HTMLDivElement>(null);
 
   const on: { label: string; clear: Partial<SheetFilters> }[] = [
+    ...(f.fit && profile ? [{ label: "My profile", clear: { fit: false } }] : []),
     ...(f.status === "all" ? [{ label: statusNames.all, clear: { status: "open" as Status } }] : []),
     ...(f.kind ? [{ label: f.kind, clear: { kind: "" } }] : []),
     ...(f.field ? [{ label: f.field, clear: { field: "" } }] : []),
@@ -150,14 +157,36 @@ export default function FilterSheet({
               </h2>
               <button
                 type="button"
-                onClick={() => set({ status: "open", kind: "", field: "", country: "", level: "", visa: false, english: false, sort: "deadline" })}
+                onClick={() => set({ status: "open", kind: "", field: "", country: "", level: "", visa: false, english: false, sort: "deadline", fit: false })}
                 className="h-10 px-1 text-[15px] text-link underline underline-offset-2"
               >
                 Clear
               </button>
             </div>
 
-            <p className="mt-2 text-[13px] font-semibold text-muted">Status</p>
+            <p className="mt-2 text-[13px] font-semibold text-muted">My profile</p>
+            {profile ? (
+              <>
+                <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                  <Chip on={f.fit} onClick={() => set({ fit: !f.fit })}>
+                    Only roles that fit me
+                  </Chip>
+                  <Link href="/profile/" className="flex h-11 items-center px-1 text-[15px] text-link underline underline-offset-2">
+                    Edit
+                  </Link>
+                </div>
+                <p className="mt-1 text-[12px] text-muted">{profile}</p>
+              </>
+            ) : (
+              <p className="mt-1 text-[14px] leading-[1.5] text-muted">
+                <Link href="/profile/" className="link" data-track="profile-from-sheet">
+                  Set your level, countries and visa once
+                </Link>{" "}
+                and the list starts with the roles that fit you.
+              </p>
+            )}
+
+            <p className="mt-3 text-[13px] font-semibold text-muted">Status</p>
             <div className="mt-1 flex flex-wrap gap-1.5">
               {(["open", "soon", "new", "all"] as Status[]).map((s) => (
                 <Chip key={s} on={f.status === s} onClick={() => set({ status: s })}>

@@ -14,6 +14,32 @@ export const outcomes = [
 
 export const weekOptions = ["under 1", "1-2", "3-4", "5-8", "more than 8", "still waiting"] as const;
 
+/** How far someone got, as one pick. Each one gives the steps between applying and the end, and the outcome
+ * the full form would ask for. "test" is the online test, and only shows when they name one or the pick needs it. */
+export const quickEnds = [
+  { id: "waiting", label: "Applied, no answer yet", steps: [], end: "No answer yet", outcome: "Still in progress" },
+  { id: "cv", label: "Rejected without a test or interview", steps: [], end: "Rejected", outcome: "Rejected after assessment" },
+  { id: "test-wait", label: "Did the online test, waiting", steps: ["test!"], end: "Waiting for an answer", outcome: "Still in progress" },
+  { id: "test-no", label: "Rejected after the online test", steps: ["test!"], end: "Rejected", outcome: "Rejected after assessment" },
+  { id: "int-now", label: "In the interviews now", steps: ["test", "Interview"], end: "Waiting for an answer", outcome: "Still in progress" },
+  { id: "int-no", label: "Rejected after an interview", steps: ["test", "Interview"], end: "Rejected", outcome: "Rejected after interview" },
+  { id: "final-no", label: "Rejected after the final round", steps: ["test", "Interviews", "Final round"], end: "Rejected", outcome: "Rejected after interview" },
+  { id: "offer", label: "Got an offer", steps: ["test", "Interviews"], end: "Offer", outcome: "Offer" },
+  { id: "withdrew", label: "I withdrew", steps: [], end: "Withdrew", outcome: "Withdrew" },
+] as const;
+
+/** The steps for the report, from the pick and the test. */
+export function quickTimeline(endId: string, test: string): { timeline: string; outcome: string } {
+  const e = quickEnds.find((x) => x.id === endId)!;
+  const named = test && test !== "No test";
+  const steps = e.steps.flatMap((s): string[] => {
+    if (s === "test!") return [named ? `Online test (${test})` : "Online test"];
+    if (s === "test") return named ? [`Online test (${test})`] : [];
+    return [s];
+  });
+  return { timeline: ["Applied", ...steps, e.end].join("\n"), outcome: e.outcome };
+}
+
 /** Longest answer per field, in characters. */
 export const limits = { other: 120, role: 120, applied: 40, timeline: 2000, test: 300, notes: 1500 } as const;
 

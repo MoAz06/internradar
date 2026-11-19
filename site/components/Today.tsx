@@ -5,11 +5,12 @@ import Reminders from "@/components/Reminders";
 import { useEffect, useState } from "react";
 import { roleHref, shortWhen, type Item } from "@/lib/items";
 import { shortDate } from "@/lib/format";
+import { fits, PROFILE_EVENT, profileWords, readProfile, type Profile } from "@/lib/profile";
 import { daysBetween, FOLLOW_EVENT, localDay, readFollowing, readProgress, readSaved, SAVED_EVENT, stages, visitSince, type Progress } from "@/lib/mine";
 
 export type TodayItem = Pick<
   Item,
-  "id" | "key" | "slug" | "company" | "title" | "city" | "status" | "when" | "daysLeft" | "closes" | "added" | "fresh"
+  "id" | "key" | "slug" | "company" | "title" | "city" | "status" | "when" | "daysLeft" | "closes" | "added" | "fresh" | "country" | "kind" | "levels" | "workRights" | "languages"
 >;
 export type NextUp = { company: string; slug: string; role: string; opens: string };
 
@@ -41,12 +42,14 @@ export default function Today({
   next,
   built,
   names,
+  countryNames,
 }: {
   items: TodayItem[];
   next: NextUp[];
   built: string;
   /** Every company's name by slug, for followed companies with nothing open. */
   names: Record<string, string>;
+  countryNames: Record<string, string>;
 }) {
   // the build day until the visitor's own day is known, so the static page already makes sense
   const [day, setDay] = useState(built);
@@ -54,6 +57,7 @@ export default function Today({
   const [progress, setProgress] = useState<Progress>({});
   const [since, setSince] = useState<string | null>(null);
   const [following, setFollowing] = useState<string[] | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
 
   useEffect(() => {
     setDay(localDay());
@@ -63,13 +67,17 @@ export default function Today({
       setProgress(readProgress());
     };
     const readFollow = () => setFollowing(readFollowing());
+    const readMe = () => setProfile(readProfile());
     read();
     readFollow();
+    readMe();
+    window.addEventListener(PROFILE_EVENT, readMe);
     window.addEventListener(SAVED_EVENT, read);
     window.addEventListener(FOLLOW_EVENT, readFollow);
     return () => {
       window.removeEventListener(SAVED_EVENT, read);
       window.removeEventListener(FOLLOW_EVENT, readFollow);
+      window.removeEventListener(PROFILE_EVENT, readMe);
     };
   }, []);
 
@@ -88,11 +96,13 @@ export default function Today({
           .filter((x) => saved.includes(x.id) && live(x) && !["offer", "rejected"].includes(progress[x.id]?.stage ?? ""))
           .sort((a, b) => Number(!!progress[a.id]) - Number(!!progress[b.id]) || (left(a) ?? 999) - (left(b) ?? 999));
 
+  // with a profile, closing and new only show the roles that fit it
+  const forMe = (x: TodayItem) => !profile || fits(x, profile);
   const closing = merged(
-    items.filter((x) => live(x) && x.status !== "soon" && left(x) !== null && left(x)! <= 7).sort((a, b) => left(a)! - left(b)!),
+    items.filter((x) => live(x) && forMe(x) && x.status !== "soon" && left(x) !== null && left(x)! <= 7).sort((a, b) => left(a)! - left(b)!),
   );
   const fresh = merged(
-    items.filter((x) => live(x) && (since ? x.added > since : x.fresh)).sort((a, b) => b.added.localeCompare(a.added)),
+    items.filter((x) => live(x) && forMe(x) && (since ? x.added > since : x.fresh)).sort((a, b) => b.added.localeCompare(a.added)),
   );
   // per followed company: what's new since the last visit, what's open, or when it opens
   const followed = (following ?? [])
@@ -142,6 +152,23 @@ export default function Today({
     <>
       <h1 className="text-[26px] leading-tight font-bold">Today</h1>
       <p className="mt-0.5 font-sans text-[14px] text-muted">{weekday(day, true)}</p>
+      <p className="mt-1 font-sans text-[14px] leading-[1.5] text-muted">
+        {profile ? (
+          <>
+            Roles that fit you: {profileWords(profile, (c) => countryNames[c] ?? c)}.{" "}
+            <Link href="/profile/" className="text-link underline underline-offset-2">
+              Edit
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link href="/profile/" className="text-link underline underline-offset-2" data-track="profile-from-today">
+              Set your profile
+            </Link>{" "}
+            and this page only shows roles that fit you.
+          </>
+        )}
+      </p>
 
       {head("Your deadlines", mine && mine.length > SHOW + 2 ? { href: "/mine/", label: `All ${mine.length}` } : undefined)}
       {mine === null ? (

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
-import ShareForm, { type FormCountry } from "@/components/ShareForm";
+import ShareTabs from "@/components/ShareTabs";
+import type { FormCountry } from "@/components/ShareForm";
 import { companies, countries, links } from "@/data/companies";
 import { og } from "@/lib/og";
 
@@ -23,7 +24,7 @@ export default function SharePage() {
       name: k.name,
       companies: companies
         .filter((c) => c.country === k.code)
-        .map((c) => ({ slug: c.slug, label: `${c.name}, ${c.city}` }))
+        .map((c) => ({ slug: c.slug, label: `${c.name}, ${c.city}`, roles: [...new Set(c.roles.map((r) => r.title))] }))
         .sort((a, b) => a.label.localeCompare(b.label)),
     }))
     .filter((k) => k.companies.length > 0);
@@ -34,17 +35,8 @@ export default function SharePage() {
         <p className="mt-3 text-[17px] leading-[1.6] text-muted">
           Companies describe their process in a few lines. What they leave out is what you want to know before you
           apply: how long the test really was, how many days until they answered, and what came after. If you went
-          through one of the processes on this list, a few minutes of your time saves the next person a lot of guessing.
+          through one of the processes on this list, a minute of your time saves the next person a lot of guessing.
         </p>
-
-        <h2 className="mt-8 border-t-2 border-ink pt-3 text-[20px] font-bold">What I ask</h2>
-        <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[16px] leading-[1.55] text-muted">
-          <li>The company and the role, and when you applied.</li>
-          <li>The steps, one per line, with dates or the days between them.</li>
-          <li>The online test in a few words: the platform, how long, what kind of problems.</li>
-          <li>How many weeks from applying to the final answer, and how it ended.</li>
-          <li>Anything the next person should know, like a re-apply rule you were told.</li>
-        </ul>
 
         <h2 className="mt-8 border-t-2 border-ink pt-3 text-[20px] font-bold">What I don&apos;t want</h2>
         <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[16px] leading-[1.55] text-muted">
@@ -59,10 +51,11 @@ export default function SharePage() {
         {links.shareEndpoint ? (
           <>
             <p className="mt-2 mb-5 text-[15px] leading-[1.55] text-muted">
-              No account needed. I read every report before it goes on the company page, and I may shorten it.
+              No account needed. The quick form takes about a minute; the full one also takes dates and notes. I read
+              every report before it goes on the company page, and I may shorten it.
               {total > 0 ? ` So far ${total} ${total === 1 ? "person has" : "people have"} shared theirs.` : ""}
             </p>
-            <ShareForm
+            <ShareTabs
               countries={formCountries}
               endpoint={links.shareEndpoint}
               siteKey={links.turnstileSiteKey}
