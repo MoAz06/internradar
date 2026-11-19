@@ -8,9 +8,10 @@ import type { Company } from "../data/types.ts";
 export type Code = Company["country"];
 export type Place = { city: string; country: Code };
 
-/** North America, so "Cambridge, MA" is not Cambridge in England. */
-const america =
-  /\b(united states|usa|u\.s\.a?\.?|canada)\b|,\s*(al|ak|az|ar|ca|co|ct|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy|dc|on|qc|bc)\b(?!\.)/i;
+/** North America, so "Cambridge, MA" is not Cambridge in England. A state code only counts when the line names
+ * no country of ours: Analog Devices writes "United Kingdom, Edinburgh, SC". */
+const americaName = /\b(united states|usa|u\.s\.a?\.?|canada)\b/i;
+const americaState = /,\s*(al|ak|az|ar|ca|co|ct|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy|dc|on|qc|bc)\b(?!\.)/i;
 
 const fold = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 
@@ -92,6 +93,9 @@ function one(location: string): Place | null {
     // a town that isn't in the list, in a country the line names: the board's own spelling, first part only
     const [country] = [...countries];
     const first = parts[0].replace(/\([^)]*\)/g, "").trim();
+    // "Amsterdam Drenthe": a known city with something after it
+    const lead = asCity(first.split(" ")[0]);
+    if (lead && countries.has(lead.country)) return lead;
     if (!country || asCountry(parts[0]) || /\d|valley|county|region|area|state|province|district/i.test(first) || first.split(" ").length > 4) return null;
     return { city: first, country };
   }
@@ -105,7 +109,9 @@ function one(location: string): Place | null {
 /** One place from a location line, or null when it names several places, none we know, or two countries.
  * "London; London" is one place. */
 export function placeOf(location: string): Place | null {
-  if (!location || /\d+\s+locations?|multiple locations|remote/i.test(location) || america.test(location)) return null;
+  if (!location || /\d+\s+locations?|multiple locations|remote/i.test(location) || americaName.test(location)) return null;
+  const ours = location.split(/[,;|]|\s[-–]\s/).some((p) => byName.has(fold(p)));
+  if (americaState.test(location) && !ours) return null;
   const all = location.split(/[;|]/).map((l) => l.trim()).filter(Boolean);
   const found = all.map(one);
   if (found.some((p) => !p)) return null;
