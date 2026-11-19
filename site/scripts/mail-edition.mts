@@ -73,6 +73,7 @@ for (const e of editions) {
     method: "POST",
     body: JSON.stringify({
       name: e.tag,
+      color: "#0f5a46",
       public_description: e.code === "EU" ? "The weekly email for all countries" : `The weekly email for ${e.name}`,
       subscriber_editable: true,
     }),
