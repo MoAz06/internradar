@@ -41,9 +41,9 @@ export function buildItems(now = today()): Item[] {
         key: shortKey(id),
         company: c.name,
         slug: c.slug,
-        city: c.city,
-        country: c.country,
-        countryName,
+        city: r.city ?? c.city,
+        country: r.country ?? c.country,
+        countryName: r.country ? (countries.find((k) => k.code === r.country)?.name ?? r.country) : countryName,
         title: r.title,
         kind: r.kind,
         field: r.field,
@@ -55,14 +55,16 @@ export function buildItems(now = today()): Item[] {
         opens: r.opens,
         closes: r.closes,
         process: r.process,
-        reapply: /^not stated/i.test(r.reapply) ? null : r.reapply,
+        // a role straight from the job board has no rule of its own: the company's rule, which covers every role
+        reapply: r.reapply && !/^not stated/i.test(r.reapply) ? r.reapply : r.auto && !/^not stated/i.test(c.reapply) ? c.reapply : null,
         source: r.source,
         checked: r.checked,
         old: stale(r.checked, now),
         pay: payFor(c.slug, r.title, r.kind),
         levels: levelsOf(r.eligibility, r.title),
-        workRights: needsWorkRights(r.eligibility),
-        languages: languagesOf(r.eligibility),
+        workRights: needsWorkRights(r.eligibility) || !!r.workRights,
+        languages: r.language ? [...new Set([...languagesOf(r.eligibility), r.language])] : languagesOf(r.eligibility),
+        auto: !!r.auto,
       });
     });
   }

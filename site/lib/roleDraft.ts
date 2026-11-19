@@ -8,6 +8,7 @@
 import type { Company, Field, Role, RoleKind, Status } from "../data/types.ts";
 import { normTitle, postingKey, type BoardCompany, type Found } from "./boards.ts";
 import { sections } from "./issueSections.ts";
+import { placeOf, sameCity, type Place } from "./places.ts";
 
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];
 export const fields: Field[] = ["Software", "Data and AI", "Quant", "Hardware and embedded", "Other tech"];
@@ -86,6 +87,15 @@ export function matchCompanies(f: Pick<Found, "location" | "title" | "companies"
   return unreadable && f.companies.length === 1 ? { matched: f.companies, guess: true } : { matched: [], guess: false };
 }
 
+/** No entry for the posting's city, but one for the same company in the same country: the role goes there,
+ * with its own city. Bosch in Reutlingen goes to the Bosch entry in Germany. */
+export function entryInCountry(f: Pick<Found, "location" | "companies">, all: Company[]): { entry: BoardCompany; place: Place } | null {
+  const place = placeOf(f.location);
+  if (!place) return null;
+  const entry = f.companies.find((c) => all.find((x) => x.slug === c.slug)?.country === place.country);
+  return entry ? { entry, place } : null;
+}
+
 // ---------- kind and field, from the title ----------
 
 /** Sorting a role into the site's filters. A guess from the title: it always gets "(check)". */
@@ -102,7 +112,7 @@ export function kindOf(title: string): RoleKind | "" {
 }
 
 export function fieldOf(title: string): Field {
-  if (/\b(quant\w*|trading|trader|market mak\w*)\b/i.test(title)) return "Quant";
+  if (/\b(quant|quants|quantitative|trading|trader|market mak\w*)\b/i.test(title)) return "Quant";
   if (/\b(hardware|embedded|firmware|fpga|asic|chip|silicon|semiconductor|electronic\w*|elektronik|digital design|verification|dft|analog|rf|pcb|vlsi)\b/i.test(title))
     return "Hardware and embedded";
   if (/\b(data|machine learning|ml|ai|deep learning|analytics|llm|computer vision|research scientist|mlops|nlp)\b/i.test(title)) return "Data and AI";
@@ -269,7 +279,7 @@ export type RoleDraft = {
 const sameAll = (vals: string[]) => (vals.length && vals.every((v) => v === vals[0]) ? vals[0] : "");
 const checked = (v: string) => (v ? `${v} ${CHECK}` : "");
 const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const shortDate = (iso: string) => {
+export const shortDate = (iso: string) => {
   const [y, m, d] = iso.split("-").map(Number);
   return `${d} ${shortMonths[m - 1]} ${y}`;
 };
@@ -289,13 +299,13 @@ export function draftsFor(f: Found, text: string, all: Company[], checkedAt: str
   const base = postingKey(f);
   const name = f.companies[0]?.name ?? f.company;
 
-  const one = (c: BoardCompany | null): RoleDraft => {
+  const one = (c: BoardCompany | null, place?: Place): RoleDraft => {
     const full = c ? all.find((x) => x.slug === c.slug) : undefined;
     const siblings = full ? full.roles.filter((r) => !kind || r.kind === kind) : [];
     const process = sameAll(siblings.map((r) => r.process)) || sameAll(full?.roles.map((r) => r.process) ?? []);
     const reapply = sameAll(siblings.map((r) => r.reapply)) || full?.reapply || "";
     const applications = p.closes ? `Closes ${shortDate(p.closes)}` : p.rolling ? "Rolling, no deadline listed" : "Open, no deadline listed";
-    const where = c ? c.city : f.location;
+    const where = place ? place.city : c ? c.city : f.location;
     const companyLine = c ? `${c.name}, ${c.city} (\`${c.slug}\`)${guess ? ` ${CHECK}` : ""}` : `Not on the list: ${name}, ${f.location}`;
     const part = (h: string, v: string) => `### ${h}\n\n${v || "_No response_"}`;
     const intro = [
@@ -313,6 +323,7 @@ export function draftsFor(f: Found, text: string, all: Company[], checkedAt: str
     const body = [
       intro.join("\n"),
       part("Company", companyLine),
+      ...(place ? [part("City", `${place.city}, ${place.country}`)] : []),
       part("Title", f.title),
       part("Posting", f.url),
       part("Kind", checked(kind)),
@@ -337,26 +348,33 @@ export function draftsFor(f: Found, text: string, all: Company[], checkedAt: str
       slug: c?.slug ?? "",
     };
   };
-  return matched.length ? matched.map(one) : [one(null)];
+  if (matched.length) return matched.map((c) => one(c));
+  const near = entryInCountry(f, all);
+  return near ? [one(near.entry, near.place)] : [one(null)];
 }
 
 /** The tech roles that have no issue yet, best first: roles at entries already on the list, then the newest.
  * `seen` is the text of every earlier draft issue. A closed issue counts too: it means "not for the list". */
-export function pickNew(found: Found[], seen: string): { f: Found; keys: string[]; matched: boolean }[] {
+export function pickNew(found: Found[], seen: string, all: Company[] = []): { f: Found; keys: string[]; matched: boolean }[] {
   const picks: { f: Found; keys: string[]; matched: boolean }[] = [];
   const taken = new Set<string>();
   for (const f of found.filter((x) => x.tech)) {
     const { matched } = matchCompanies(f);
     const name = f.companies[0]?.name ?? f.company;
     const base = postingKey(f);
-    const keys = matched.length ? matched.map((c) => `${base}@${c.slug}`) : [`${base}@new`];
-    const reposts = matched.length ? matched.map((c) => repostKeyOf(name, f.title, c.city)) : [repostKeyOf(name, f.title, f.location)];
+    const near = matched.length ? null : entryInCountry(f, all);
+    const keys = matched.length ? matched.map((c) => `${base}@${c.slug}`) : near ? [`${base}@${near.entry.slug}`, `${base}@new`] : [`${base}@new`];
+    const reposts = matched.length
+      ? matched.map((c) => repostKeyOf(name, f.title, c.city))
+      : near
+        ? [repostKeyOf(name, f.title, near.place.city), repostKeyOf(name, f.title, f.location)]
+        : [repostKeyOf(name, f.title, f.location)];
     // an issue for this posting, or for the same role under an earlier posting id, already exists
     if (seen.includes(f.url) || keys.some((k) => seen.includes(k)) || reposts.some((k) => seen.includes(k))) continue;
     // the same role twice on one night: only once
     if (reposts.some((k) => taken.has(k))) continue;
     reposts.forEach((k) => taken.add(k));
-    picks.push({ f, keys, matched: matched.length > 0 });
+    picks.push({ f, keys, matched: matched.length > 0 || !!near });
   }
   return picks.sort(
     (a, b) => Number(b.matched) - Number(a.matched) || (b.f.posted || "").localeCompare(a.f.posted || "") || a.f.title.localeCompare(b.f.title),
@@ -365,7 +383,7 @@ export function pickNew(found: Found[], seen: string): { f: Found; keys: string[
 
 // ---------- reading a draft back, and checking it ----------
 
-const heads = ["company", "title", "posting", "kind", "field", "status", "applications", "opens", "closes", "start", "duration", "eligibility", "process", "reapply"] as const;
+const heads = ["company", "city", "title", "posting", "kind", "field", "status", "applications", "opens", "closes", "start", "duration", "eligibility", "process", "reapply"] as const;
 export type RoleIssue = Record<(typeof heads)[number], string> & { slug: string; key: string };
 
 export function readRoleIssue(body: string): RoleIssue {
@@ -436,8 +454,16 @@ export function checkRole(r: RoleIssue, all: Company[], today: string): Checked 
     const on = all.find((c) => c.roles.some((x) => x.source === r.posting));
     if (on) blockers.push(`This posting is already on the list, at ${on.name}, ${on.city}.`);
   }
-  if (company && company.roles.some((x) => normTitle(x.title) === normTitle(r.title)))
-    blockers.push(`${company.name}, ${company.city} already has a role called "${r.title}". Is it the same one?`);
+  // City: "Edinburgh, GB", for a role in another office than the entry's own city
+  const cityField = r.city.replace(CHECK, "").trim();
+  const cm = cityField.match(/^(.+),\s*([A-Z]{2})$/);
+  if (cityField && !cm) blockers.push(`City "${cityField}" should be the city and the country code, like Edinburgh, GB.`);
+  const own = cm && company && !sameCity(cm[1], company.city) ? { city: cm[1].trim(), country: cm[2] as Company["country"] } : null;
+  if (own && company && own.country !== company.country)
+    blockers.push(`${company.name}, ${company.city} is in ${company.country}, the city is in ${own.country}. Pick the entry in that country, or add one.`);
+  const sameRole = (x: Role) => normTitle(x.title) === normTitle(r.title) && (x.city ?? company?.city ?? "") === (own?.city ?? company?.city ?? "");
+  if (company && company.roles.some(sameRole))
+    blockers.push(`${company.name}, ${own?.city ?? company.city} already has a role called "${r.title}". Is it the same one?`);
 
   const written = [r.applications, r.start, r.duration, r.eligibility, r.process, r.reapply].join("\n");
   const machine = written.match(machineWords);
@@ -462,6 +488,7 @@ export function checkRole(r: RoleIssue, all: Company[], today: string): Checked 
     reapply: r.reapply,
     source: r.posting,
     checked: today,
+    ...(own ? { city: own.city, ...(own.country !== company.country ? { country: own.country } : {}) } : {}),
   };
   return { role, company, blockers, warnings };
 }

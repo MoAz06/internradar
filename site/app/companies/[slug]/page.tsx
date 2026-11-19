@@ -184,6 +184,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                     ) : (
                       <span className="text-sm font-semibold">{r.title}</span>
                     )}{" "}
+                    {r.city && <span className="text-[13px] text-muted">{r.city} </span>}
                     <a href={r.source} target="_blank" rel="noreferrer" className="link text-[13px]">
                       Posting
                       <NewTab />
@@ -214,10 +215,10 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                     <StatusLabel status={live(r).status} text={live(r).long} />
                   </td>
                   <td className="mono px-3 py-3 align-middle">
-                    {r.start}
+                    {r.start || "On the posting"}
                     {r.duration ? `, ${r.duration}` : ""}
                   </td>
-                  <td className="px-3 py-3 pr-4 align-middle text-muted">{r.eligibility}</td>
+                  <td className="px-3 py-3 pr-4 align-middle text-muted">{r.eligibility || "On the posting"}</td>
                 </tr>
               ))}
             </tbody>

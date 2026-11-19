@@ -4,8 +4,12 @@
 //                                        posting that has no issue yet: NNN.title.txt and NNN.body.md
 //   body.md [--dry] [--comment out.md]   sets the role in the draft to closed in site/data, with the Applications
 //                                        line from the draft. --dry only writes the comment.
+//   --auto open.json                     closes the roles whose posting is gone for a second night: an open closing
+//                                        draft from an earlier night, and the link still gone in .linkcheck.json.
+//                                        Prints the numbers of those drafts, one a line, for the workflow to close.
 //
-// A gone posting is only proposed, never closed by itself: a link can move, or a board can be down for a night.
+// A posting gone for one night is only proposed: a link can move, or a board can be down for a night.
+// Gone two nights in a row, it closes by itself, unless the draft was closed (= "it moved") before that.
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -22,6 +26,45 @@ const arg = (name: string) => (args.includes(name) ? args[args.indexOf(name) + 1
 
 /** The hidden line that ties an issue to one posting link. */
 export const closeKey = (url: string) => `<!-- close-key: ${url} -->`;
+
+/** Sets the role with this posting link to closed, in whichever data file has it. false when none has it. */
+function closeInData(url: string, applications: string): boolean {
+  for (const f of readdirSync(dataDir).filter((f) => /^[a-z]{2}\.ts$/.test(f))) {
+    const path = join(dataDir, f);
+    // a Windows checkout has CRLF; written back with LF, which git stores anyway
+    const text = readFileSync(path, "utf8").replace(/\r\n/g, "\n");
+    const at = text.indexOf(`source: ${JSON.stringify(url)},`);
+    if (at < 0) continue;
+    // the role object around the link: from the "{" before it to the "}," after it
+    const start = text.lastIndexOf("\n      {\n", at);
+    const end = text.indexOf("\n      },", at);
+    const block = text
+      .slice(start, end)
+      .replace(/(\n        status: )"[a-z]+",/, '$1"closed",')
+      .replace(/(\n        applications: )".*",/, `$1${JSON.stringify(applications)},`)
+      .replace(/(\n        checked: )"[\d-]+",/, `$1"${today}",`);
+    writeFileSync(path, text.slice(0, start) + block + text.slice(end));
+    return true;
+  }
+  return false;
+}
+
+if (args.includes("--auto")) {
+  const open = JSON.parse(readFileSync(arg("--auto"), "utf8")) as { number: number; body: string; createdAt: string }[];
+  const check = JSON.parse(readFileSync(join(site, ".linkcheck.json"), "utf8")) as { checkedAt: string; gone: { url: string }[] };
+  const gone = new Set(check.gone.map((g) => g.url));
+  const day = (iso: string) => new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date(iso));
+  for (const i of open) {
+    const url = i.body.match(/<!-- close-key: (\S+) -->/)?.[1];
+    // opened tonight: the first night it was gone, so it waits
+    if (!url || day(i.createdAt) >= today || !gone.has(url)) continue;
+    const role = companies.flatMap((c) => c.roles).find((r) => r.source === url);
+    const applications = (sections(i.body).get("applications") ?? "").replace(/\s+/g, " ").trim();
+    if (!role || role.status === "closed" || !applications || applications.length > 160 || /—/.test(applications)) continue;
+    if (closeInData(url, applications)) console.log(i.number);
+  }
+  process.exit(0);
+}
 
 if (args.includes("--drafts")) {
   const seen = arg("--seen") && existsSync(arg("--seen")) ? readFileSync(arg("--seen"), "utf8") : "";
@@ -44,7 +87,7 @@ if (args.includes("--drafts")) {
             "",
             `Open it to be sure: ${g.url}`,
             "",
-            "- Gone for good: add the label **publish**. The role turns to closed on the site, with the Applications line below.",
+            "- Gone for good: add the label **publish**. The role turns to closed on the site, with the Applications line below. Still gone the next night, it closes by itself.",
             "- It moved, or it's still open: close this issue and fix the link by hand if it moved. This posting won't be proposed again.",
             "",
             "### Applications",
@@ -102,24 +145,6 @@ if (!args.includes("--dry")) {
     console.error(blockers.join("\n"));
     process.exit(1);
   }
-  let done = false;
-  for (const f of readdirSync(dataDir).filter((f) => /^[a-z]{2}\.ts$/.test(f))) {
-    const path = join(dataDir, f);
-    // a Windows checkout has CRLF; written back with LF, which git stores anyway
-    const text = readFileSync(path, "utf8").replace(/\r\n/g, "\n");
-    const at = text.indexOf(`source: ${JSON.stringify(url)},`);
-    if (at < 0) continue;
-    // the role object around the link: from the "{" before it to the "}," after it
-    const start = text.lastIndexOf("\n      {\n", at);
-    const end = text.indexOf("\n      },", at);
-    const block = text
-      .slice(start, end)
-      .replace(/(\n        status: )"[a-z]+",/, '$1"closed",')
-      .replace(/(\n        applications: )".*",/, `$1${JSON.stringify(applications)},`)
-      .replace(/(\n        checked: )"[\d-]+",/, `$1"${today}",`);
-    writeFileSync(path, text.slice(0, start) + block + text.slice(end));
-    done = true;
-    break;
-  }
+  const done = closeInData(url, applications);
   if (!done) throw new Error(`No data file has ${url}`);
 }

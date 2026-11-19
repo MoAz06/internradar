@@ -83,6 +83,20 @@ function pageList(cur: number, pages: number): (number | "gap")[] {
   return out;
 }
 
+/** The process line in a role's details. A role straight from the job board points to the company page. */
+function Process({ x }: { x: Item }) {
+  if (x.auto || !x.process)
+    return (
+      <>
+        Added from {x.company}&apos;s job board, not checked by hand yet.{" "}
+        <Link href={`/companies/${x.slug}/`} className="link">
+          How {x.company} hires
+        </Link>
+      </>
+    );
+  return <>{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</>;
+}
+
 const statusColor = (x: Item) =>
   x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
 
@@ -509,10 +523,12 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                   </summary>
                   <div className="pb-3 text-[14px] leading-[1.5]">
                     <p className="text-muted">
-                      {x.when}. {x.kind}, {x.field}. {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
+                      {x.when}. {x.kind}, {x.field}. {!x.start || /^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
                       {x.old ? ", over 3 months ago" : ""}.
                     </p>
-                    <p className="mt-1.5">{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</p>
+                    <p className="mt-1.5">
+                      <Process x={x} />
+                    </p>
                     {x.pay && (
                       <p className="mt-1.5">
                         <span className="font-semibold">Pay:</span> {x.pay.label}
@@ -635,10 +651,12 @@ export default function RoleFinder({ items, countries }: { items: Item[]; countr
                       <td />
                       <td colSpan={5} className="pr-4 pb-3.5 text-[15px] leading-[1.55]">
                         <p className={`font-sans text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
-                          {x.when}. {x.kind}, {x.field}. {/^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
+                          {x.when}. {x.kind}, {x.field}. {!x.start || /^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
                           {x.old ? ", over 3 months ago" : ""}.
                         </p>
-                        <p className="mt-1">{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</p>
+                        <p className="mt-1">
+                          <Process x={x} />
+                        </p>
                         {x.pay && (
                           <p className="mt-1">
                             <span className="font-semibold">Pay:</span> {x.pay.label}

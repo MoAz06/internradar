@@ -42,8 +42,10 @@ export type Item = {
   levels: Level[] | null;
   /** The role says you need the right to work there already, or that it doesn't sponsor visas. */
   workRights: boolean;
-  /** Languages other than English the role asks for. */
+  /** Languages other than English the role asks for, or that the posting is written in. */
   languages: string[];
+  /** Put on the list straight from the job board, not looked at by a person yet. */
+  auto: boolean;
 };
 
 export const kinds: RoleKind[] = ["Internship", "Graduate", "Thesis"];

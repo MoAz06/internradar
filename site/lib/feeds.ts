@@ -31,7 +31,7 @@ export function rss(o: { title: string; path: string; page: string; description:
     const head = e.kind === "new" ? "New" : "Open now";
     // a date rather than "closes in 5 days", which would be wrong by the time someone reads it
     const when = i.closes && i.status !== "closed" ? `Apply by ${longDate(i.closes)}` : i.when;
-    const body = `${i.city}, ${i.countryName}. ${when}. Process: ${i.process.replace(/[.\s]+$/, "")}.`;
+    const body = `${i.city}, ${i.countryName}. ${when}.${i.process ? ` Process: ${i.process.replace(/[.\s]+$/, "")}.` : ""}`;
     return `<item>
 <title>${x(`${head}: ${i.company}, ${i.title}`)}</title>
 <link>${x(i.source)}</link>

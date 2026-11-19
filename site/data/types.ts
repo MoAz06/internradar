@@ -24,6 +24,17 @@ export type Role = {
   reapply: string;
   source: string;
   checked: string; // YYYY-MM-DD
+  /** Where the role is, when that is not the company entry's own city: another office in the same country. */
+  city?: string;
+  /** The role's country, when it differs from the entry's. Only set together with city. */
+  country?: Company["country"];
+  /** The language the posting is written in, when that isn't English. */
+  language?: string;
+  /** The posting says it doesn't sponsor visas, or that you need the right to work there already. */
+  workRights?: boolean;
+  /** Put on the list straight from the job board by the nightly run, and not looked at by a person yet.
+   * Such a role leaves start, eligibility, process and reapply empty: the company page has the process. */
+  auto?: boolean;
 };
 
 export type CandidateReport = {

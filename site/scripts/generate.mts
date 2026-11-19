@@ -84,9 +84,9 @@ function list(): string {
     for (const c of here) {
       for (const r of c.roles) {
         const shortDuration = r.duration && /^\d+(\.\d+)?\s*(weeks?|months?|wk|mo)/i.test(r.duration);
-        const start = r.start === "Not stated" ? "–" : shortDuration ? `${r.start}, ${r.duration}` : r.start;
+        const start = r.start === "Not stated" || !r.start ? "–" : shortDuration ? `${r.start}, ${r.duration}` : r.start;
         out.push(
-          `| [${cell(c.name)}](companies/${c.slug}.md) | ${cell(r.title)} | ${cell(city(c))} | ${cell(status(r))} | ${cell(start)} | ${cell(r.process)} | ${cell(r.reapply)} | ${short(r.checked)} |`,
+          `| [${cell(c.name)}](companies/${c.slug}.md) | ${cell(r.title)} | ${cell(r.city ?? city(c))} | ${cell(status(r))} | ${cell(start)} | ${cell(r.process || "See the company page")} | ${cell(r.reapply || c.reapply)} | ${short(r.checked)} |`,
         );
       }
     }

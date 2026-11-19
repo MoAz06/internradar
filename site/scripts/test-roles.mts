@@ -9,8 +9,10 @@ import { fileURLToPath } from "node:url";
 import { companies } from "../data/companies.ts";
 import type { Company } from "../data/types.ts";
 import { early, jobId, postingKey, type Found } from "../lib/boards.ts";
-import { addSource, insertEntry } from "../lib/dataFile.ts";
-import { checkRole, datesIn, draftsFor, fieldOf, htmlToText, kindOf, matchCompanies, pickNew, readPosting, readRoleIssue } from "../lib/roleDraft.ts";
+import { addSkip, addSource, editRole, insertEntry, removeRole } from "../lib/dataFile.ts";
+import { autoRole, morningIssue, postingLanguage, tickedIn } from "../lib/autoRole.ts";
+import { placeOf } from "../lib/places.ts";
+import { checkRole, datesIn, draftsFor, entryInCountry, fieldOf, htmlToText, kindOf, matchCompanies, pickNew, readPosting, readRoleIssue } from "../lib/roleDraft.ts";
 
 const dataDir = join(dirname(fileURLToPath(import.meta.url)), "..", "data");
 const today = "2026-11-18";
@@ -238,4 +240,125 @@ test("writing into a data file: role on top, link in the sources, reports still 
   assert.ok(withReport.length > text.length);
   // nothing else in the file moved
   assert.equal(withSource.replace(/      \{\n        title: "New Role",[\s\S]*?\n      \},\n/, "").replace(`\n      { url: "https://example.com/new", checked: "${today}" },`, ""), text);
+});
+
+
+// ---------- a role in another city, and roles that go on by themselves ----------
+
+const testco = [{ slug: "testco", name: "TestCo", city: "Delft" }];
+const atTestco = (over: Partial<Found>) => found({ board: "greenhouse:testco", companies: testco, company: "TestCo", url: "https://job-boards.greenhouse.io/testco/jobs/7100000001", location: "Delft, Netherlands", ...over });
+const english =
+  "About the role. You will join our team and work with engineers on the software that runs our systems. We are looking for students who like to build things and learn fast. You will write code, test it and ship it with the team. This is a six month internship for students in computer science or a related field. Apply by 1 December 2026 with your CV.";
+
+test("the place in a location line", () => {
+  assert.deepEqual(placeOf("Munich, Bavaria, Germany"), { city: "Munich", country: "DE" });
+  assert.deepEqual(placeOf("Berlin, BE, Germany"), { city: "Berlin", country: "DE" });
+  assert.deepEqual(placeOf("London; London"), { city: "London", country: "GB" });
+  assert.equal(placeOf("Cambridge, MA"), null, "Cambridge in the US");
+  assert.equal(placeOf("Cambridge, MA, USA"), null);
+  assert.equal(placeOf("3 Locations"), null);
+  assert.equal(placeOf("Amsterdam, Netherlands; Paris, France"), null, "two countries");
+});
+
+test("no entry for the city: the same company's entry in that country, with the city", () => {
+  const near = entryInCountry(atTestco({ location: "Rotterdam, Netherlands" }), all);
+  assert.equal(near?.entry.slug, "testco");
+  assert.equal(near?.place.city, "Rotterdam");
+  assert.equal(entryInCountry(atTestco({ location: "Paris, France" }), all), null, "not in another country");
+});
+
+test("a draft for another city goes in with that city", () => {
+  const [d] = draftsFor(atTestco({ location: "Rotterdam, Netherlands" }), english, all, today);
+  assert.equal(d.slug, "testco");
+  assert.match(d.body, /### City\n\nRotterdam, NL/);
+  const filled = d.body
+    .replaceAll(" (check)", "")
+    .replace("### Eligibility\n\n_No response_", "### Eligibility\n\nStudents")
+    .replace("### Start\n\n_No response_", "### Start\n\n2027");
+  const r = readRoleIssue(filled);
+  const c = checkRole(r, all, today);
+  assert.deepEqual(c.blockers, []);
+  assert.equal(c.role?.city, "Rotterdam");
+  assert.equal(c.role?.country, undefined, "same country as the entry");
+  const paris = checkRole({ ...r, city: "Paris, FR" }, all, today);
+  assert.ok(paris.blockers.some((b) => b.includes("is in NL")), "another country is blocked");
+  assert.ok(checkRole({ ...r, city: "Rotterdam" }, all, today).blockers.some((b) => b.includes("country code")));
+});
+
+test("roles that go on by themselves", () => {
+  const ok = autoRole(atTestco({ title: "Software Engineering Intern" }), english, all, today);
+  assert.ok(ok.ok);
+  if (ok.ok) {
+    assert.equal(ok.slug, "testco");
+    assert.equal(ok.role.kind, "Internship");
+    assert.equal(ok.role.closes, "2026-12-01");
+    assert.equal(ok.role.applications, "Closes 1 Dec 2026");
+    assert.equal(ok.role.auto, true);
+    assert.equal(ok.role.city, undefined);
+    assert.equal(ok.role.eligibility, "");
+    assert.equal(ok.role.workRights, undefined);
+  }
+  const near = autoRole(atTestco({ title: "Data Engineering Intern", location: "Rotterdam, Netherlands" }), english, all, today);
+  assert.ok(near.ok && near.role.city === "Rotterdam");
+
+  const why = (over: Partial<Found>, text = english, list = all, skip?: Set<string>) => {
+    const a = autoRole(atTestco(over), text, list, today, skip);
+    return a.ok ? "ok" : a.why;
+  };
+  assert.equal(why({ title: "Senior Software Engineer Intern" }), "senior title");
+  assert.equal(why({ title: "Marketing Data Intern" }), "not a tech job");
+  assert.equal(why({ title: "Data Center Technician Intern" }), "not a tech job");
+  assert.equal(why({ title: "Business Developer Intern" }), "not a tech job");
+  assert.equal(why({ title: "Ausbildung Fachinformatiker Anwendungsentwicklung" }), "junior or apprenticeship");
+  assert.equal(why({ title: "Stage-Tesi Quantum" }), "title not plainly tech");
+  assert.equal(why({ title: "Software Engineer" }), "kind not clear from the title");
+  assert.equal(why({ title: "Software Engineering Intern", location: "Paris, France" }), "no entry in that country");
+  assert.equal(why({ title: "Software Engineering Intern", location: "3 Locations" }), "no city given");
+  assert.equal(why({ title: "Software Engineering Intern" }, ""), "posting couldn't be read");
+  assert.equal(why({ title: "Software Engineering Intern" }, english + " You have 3+ years of experience in C++."), "asks for years of experience");
+  assert.equal(why({ title: "Software Engineering Intern" }, english.replace("1 December 2026", "1 November 2026")), "deadline has passed");
+  assert.equal(why({ title: "Software Engineering Intern" }, english, all, new Set([atTestco({}).url])), "on the skip list");
+  const taken = [...companies, { ...fake, roles: [{ ...fake.roles[0], title: "Software Engineering Intern" }] }];
+  assert.equal(why({ title: "Software Engineering Intern" }, english, taken), "same title already there");
+  const onList = [...companies, { ...fake, roles: [{ ...fake.roles[0], source: atTestco({}).url }] }];
+  assert.equal(why({ title: "Software Engineering Intern" }, english, onList), "already on the list");
+
+  const rights = autoRole(atTestco({ title: "Software Engineering Intern" }), english + " You must have the right to work in the Netherlands.", all, today);
+  assert.ok(rights.ok && rights.role.workRights === true);
+});
+
+test("the language a posting is in", () => {
+  assert.equal(postingLanguage(english), "");
+  const german =
+    "Was dich erwartet: Du arbeitest mit unserem Team an der Software für unsere Systeme. Du entwickelst neue Funktionen und testest sie mit der Hardware. Was du mitbringst: Du studierst Informatik oder ein vergleichbares Fach und hast Freude an der Arbeit im Team. Wir bieten dir eine spannende Aufgabe und die Möglichkeit, bei uns zu lernen. Bewirb dich jetzt mit deinem Lebenslauf und deinem Zeugnis bei uns.";
+  assert.equal(postingLanguage(german), "German");
+  assert.equal(postingLanguage("Kurz."), "", "too short to tell");
+});
+
+test("the morning issue: tick a role and it is read back", () => {
+  const a = autoRole(atTestco({ title: "Software Engineering Intern" }), english, all, today);
+  assert.ok(a.ok);
+  if (!a.ok) return;
+  const body = morningIssue([{ slug: a.slug, name: "TestCo", city: "Delft", role: a.role }], today);
+  assert.match(body, /<!-- auto-roles: 2026-11-18 -->/);
+  assert.match(body, /### TestCo, Delft/);
+  assert.ok(!body.includes("—"), "no em dash");
+  assert.deepEqual(tickedIn(body), [], "nothing ticked yet");
+  assert.deepEqual(tickedIn(body.replace("- [ ]", "- [x]")), [a.role.source]);
+});
+
+test("taking a role out of a data file, changing one, and the skip list", () => {
+  const text = readFileSync(join(dataDir, "nl.ts"), "utf8").replace(/\r\n/g, "\n");
+  const role = { title: "Auto Role", kind: "Internship", field: "Software", status: "open", applications: "Open", start: "", eligibility: "", process: "", reapply: "", source: "https://example.com/auto", checked: today, auto: true };
+  const withRole = insertEntry(text, "optiver", "roles", role)!;
+  assert.ok(withRole.includes("        auto: true,"));
+  assert.equal(removeRole(withRole, role.source), text, "back to how it was");
+  assert.equal(removeRole(text, role.source), null);
+  const edited = editRole(withRole, role.source, (b) => b.replace("        auto: true,\n", ""))!;
+  assert.equal(edited, withRole.replace("        auto: true,\n", ""));
+  assert.equal(editRole(text, role.source, (b) => b), null);
+  const skipText = readFileSync(join(dataDir, "skip.ts"), "utf8").replace(/\r\n/g, "\n");
+  const withSkip = addSkip(skipText, role.source, "Taken off");
+  assert.ok(withSkip.includes(`  { url: "https://example.com/auto", why: "Taken off" },\n];`));
+  assert.equal(addSkip(withSkip, role.source, "Again"), withSkip, "not twice");
 });

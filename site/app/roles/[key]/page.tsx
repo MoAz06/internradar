@@ -31,7 +31,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const p = page(key);
   if (!p) return {};
   const { item: x, company: c } = p;
-  const text = `${x.when}. ${x.city}, ${x.countryName}. ${stated(x.process) ? `Process: ${end(x.process)}.` : "The posting doesn't describe the process."}`;
+  const how = x.auto
+    ? `How ${c.name} hires and its re-apply rule are on the page.`
+    : stated(x.process)
+      ? `Process: ${end(x.process)}.`
+      : "The posting doesn't describe the process.";
+  const text = `${x.when}. ${x.city}, ${x.countryName}. ${how}`;
   return {
     title: `${x.title} at ${c.name}`,
     description: text,
@@ -66,7 +71,7 @@ function jobPosting(p: NonNullable<ReturnType<typeof page>>) {
     ...(x.pay?.salary ? { baseSalary: baseSalary(x.pay.salary) } : {}),
     employmentType: r.kind === "Graduate" ? "FULL_TIME" : "INTERN",
     hiringOrganization: { "@type": "Organization", name: c.name, sameAs: c.careersUrl },
-    jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: x.city, addressCountry: c.country } },
+    jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: x.city, addressCountry: x.country } },
     directApply: false,
     url: `https://internradar.eu${roleHref(x.key)}`,
   };
@@ -89,10 +94,13 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
     ["Start", stated(r.start)],
     ["Duration", stated(r.duration)],
     ["Pay", x.pay?.label],
-    ["Who can apply", stated(r.eligibility)],
+    ["Who can apply", stated(r.eligibility) ?? (r.auto ? "On the posting." : undefined)],
+    ["Language", r.language && `The posting is in ${r.language}.`],
+    ["Visa", r.workRights ? "The posting asks for the right to work there already, or says it doesn't sponsor visas." : undefined],
     ["Applications", stated(r.applications)],
-    ["Hiring process", stated(r.process) ?? "The posting doesn't describe it."],
-    ["Re-apply rule", stated(r.reapply)],
+    // a role straight from the job board: the company's own description, which covers all its roles
+    ["Hiring process", stated(r.process) ?? (r.auto ? `How ${c.name} describes it for all roles: ${c.process.join(" ")}` : "The posting doesn't describe it.")],
+    ["Re-apply rule", x.reapply ?? undefined],
   ];
 
   return (
@@ -142,7 +150,7 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
             {stripProtocol(r.source).split("/")[0]}
             <NewTab />
           </a>
-          , checked {longDate(r.checked)}.{" "}
+          , {r.auto ? `added from the job board on ${longDate(r.checked)}, not checked by hand yet` : `checked ${longDate(r.checked)}`}.{" "}
           <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="underline underline-offset-2">
             Something wrong?
             <NewTab />
