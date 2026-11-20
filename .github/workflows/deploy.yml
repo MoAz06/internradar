@@ -101,6 +101,8 @@ jobs:
 
   deploy:
     needs: build
+    # without this, the skipped spare job before build would skip the deploy too
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
     concurrency:
       group: pages-deploy
     runs-on: ubuntu-latest
