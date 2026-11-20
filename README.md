@@ -561,7 +561,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Google](companies/google-paris.md) | Student Researcher, 2027 | Paris | 🟢 until 13 Dec | – | Not stated | Not stated | 17 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, FAIR - Multimodal Foundations (PhD) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (PhD) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
-| [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (MSc) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
+| [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (MSc) | Paris | 🔴 | Various start dates through the year | Not stated | Not stated | 20 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, Muse RL and Agents Team (MSc) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
 | [Doctolib](companies/doctolib-paris.md) | Software Engineering Intern - Fullstack (x/f/m) - Paris | Paris | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 17 Nov |
 | [Doctolib](companies/doctolib-paris.md) | Machine Learning Engineer Intern (x/f/m) | Paris | 🟢 | April 2027 | Online coding game, talent partner interview (30 min), technical interview (1 hour), hiring manager interview (45 min) | Not stated | 17 Nov |

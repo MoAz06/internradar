@@ -309,7 +309,7 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "google-paris|Student Researcher, 2027|https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027":{"added":"2026-11-17","statuses":[["2026-11-17","open"]],"closes":[["2026-11-18","2026-12-13"]]},
   "meta-paris|Research Scientist Intern, FAIR - Multimodal Foundations (PhD)|https://www.metacareers.com/jobs/1886039392386822/":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "meta-paris|Research Scientist Intern, AI Core Machine Learning (PhD)|https://www.metacareers.com/jobs/969100159096154/":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
-  "meta-paris|Research Scientist Intern, AI Core Machine Learning (MSc)|https://www.metacareers.com/jobs/1126525590244595/":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
+  "meta-paris|Research Scientist Intern, AI Core Machine Learning (MSc)|https://www.metacareers.com/jobs/1126525590244595/":{"added":"2026-11-17","statuses":[["2026-11-17","open"],["2026-11-20","closed"]]},
   "meta-paris|Research Scientist Intern, Muse RL and Agents Team (MSc)|https://www.metacareers.com/jobs/1647286810370437/":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "doctolib-paris|Software Engineering Intern - Fullstack (x/f/m) - Paris|https://jobs.ashbyhq.com/doctolib/89f0374d-48e3-4774-8a46-edfeb0657e8a":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "doctolib-paris|Machine Learning Engineer Intern (x/f/m)|https://jobs.ashbyhq.com/doctolib/1a05fc07-99a5-4148-8b34-2b644d9ed030":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
@@ -675,10 +675,10 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "amazon-london|Data Engineer Internship|https://www.amazon.jobs/en/jobs/10602219/data-engineer-internship":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
   "amazon-london|Ring - ASIC DV Engineer Intern|https://www.amazon.jobs/en/jobs/10606931/ring-asic-dv-engineer-intern":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
   "deliveroo-london|Software Engineering Summer Internship 2027 (London)|https://job-boards.greenhouse.io/deliveroo/jobs/8398982":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
-  "graphcore-bristol|Software Engineering Summer Intern, Drivers and Utilities 2027|https://job-boards.greenhouse.io/graphcore/jobs/8894376002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
-  "graphcore-bristol|Silicon Summer Intern 2027|https://job-boards.greenhouse.io/graphcore/jobs/8879329002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "graphcore-bristol|Software Engineering Summer Intern, Drivers and Utilities 2027|https://job-boards.greenhouse.io/graphcore/jobs/8894376002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]],"closes":[["2026-11-20","2026-11-29"]]},
+  "graphcore-bristol|Silicon Summer Intern 2027|https://job-boards.greenhouse.io/graphcore/jobs/8879329002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]],"closes":[["2026-11-20","2026-11-29"]]},
   "graphcore-bristol|Graduate Software Engineer, System Software QA 2027|https://job-boards.greenhouse.io/graphcore/jobs/8894574002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]],"closes":[["2026-11-20","2026-11-29"]]},
-  "graphcore-bristol|Graduate Silicon Engineer 2027|https://job-boards.greenhouse.io/graphcore/jobs/8843258002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "graphcore-bristol|Graduate Silicon Engineer 2027|https://job-boards.greenhouse.io/graphcore/jobs/8843258002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]],"closes":[["2026-11-20","2026-11-29"]]},
   "graphcore-bristol|Graduate Hardware Engineer 2027|https://job-boards.greenhouse.io/graphcore/jobs/8894149002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]],"closes":[["2026-11-20","2026-11-29"]]},
   "graphcore-bristol|AI Technology PhD Research Internship|https://job-boards.greenhouse.io/graphcore/jobs/8894738002":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
   "bosch|Master Thesis AI-based Sensorless Edrive Control|https://jobs.smartrecruiters.com/BoschGroup/744000147155080":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
@@ -713,7 +713,19 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "bosch-braga|Extracurricular Internship: Data Engineering - Cloud Platform (f/m/div.)|https://jobs.smartrecruiters.com/BoschGroup/744000160598089":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
   "bosch-braga|Extracurricular Internship: AI Software Engineer (f/m/div.)|https://jobs.smartrecruiters.com/BoschGroup/744000162244270":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
   "bosch-braga|Extracurricular Internship: iOS Developer (f/m/div.)|https://jobs.smartrecruiters.com/BoschGroup/744000162492837":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
-  "bosch-braga|Extracurricular Internship: Android Developer (f/m/div.)|https://jobs.smartrecruiters.com/BoschGroup/744000162493309":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]}
+  "bosch-braga|Extracurricular Internship: Android Developer (f/m/div.)|https://jobs.smartrecruiters.com/BoschGroup/744000162493309":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|Stage 2027 - AI Solution Development (m/f)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---AI-Solution-Development--m-f-_JR10444690":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|Stage 2027 - Stage en outillage de monitoring plateforme IT (h/f)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---Stage-en-outillage-de-monitoring-plateforme-IT--h-f-_JR10434899":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|STAGE 2027 - Développement en langage Python d’un logiciel pour un banc de test radio-fréquence (f/h)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Paris-Area/STAGE-2027---Dveloppement-en-langage-Python-d-un-logiciel-pour-un-banc-de-test-radio-frquence--f-h-_JR10443859":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|Airbus UpNext Internship 2027 - AI for Satellite Operations & Test Automation Engineer (m/f)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse---Palays/Airbus-UpNext-Internship-2027---AI-for-Satellite-Operations---Test-Automation-Engineer--m-f-_JR10458505":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|Stage 2027 Développeur Cybersécurité - Étude et mise en œuvre sécurisée de Wayland sous FreeBSD (h/f)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Paris-Area/Stage-2027-Dveloppeur-Cyberscurit---tude-et-mise-en-uvre-scurise-de-Wayland-sous-FreeBSD--h-f-_JR10445406":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|STAGE 2027 - Operations Data Products Trainee|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/STAGE-2027---Operations-Data-Products-Trainee_JR10443751":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|STAGE 2027 – IA & Machine Learning : Données techniques de maintenance (H/F)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/STAGE-2027---IA---Machine-Learning---Donnes-techniques-de-maintenance--H-F-_JR10448651":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|ATR - Internship - Flight Data Analysis and IA|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/ATR---Internship---Flight-Data-Analysis-and-IA_JR10450784":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|ATR - Internship- Geospatial Data Science (F/M)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/ATR---Internship--Geospatial-Data-Science--F-M-_JR10448360":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|ATR – Internship 2027  -  Cybersecurity CTI|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/ATR---Internship-2027-----Cybersecurity-CTI_JR10450775":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|ATR – Internship 2027  - AI & Data Engineering - Automated Technical Knowledge Extraction|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/ATR---Internship-2027----AI---Data-Engineering---Automated-Technical-Knowledge-Extraction_JR10447326":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "airbus-toulouse|ATR – Internship 2027  - infra IA et deploiement de LLM|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/ATR---Internship-2027----infra-IA-et-deploiement-de-LLM_JR10450491":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]}
 };
 
 /** Per company slug: the day it was added. */
@@ -923,5 +935,6 @@ export const companyAdded: Record<string, string> = {
   "qualcomm-sophia-antipolis": "2026-11-19",
   "goldman-sachs-paris": "2026-11-19",
   "analog-devices-valencia": "2026-11-19",
-  "analog-devices-milan": "2026-11-19"
+  "analog-devices-milan": "2026-11-19",
+  "airbus-toulouse": "2026-11-20"
 };
