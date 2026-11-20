@@ -4,7 +4,8 @@ on:
   push:
     branches: [master]
   schedule:
-    # every night, so passed deadlines and start dates show as closed and dead links get caught
+    # every night, so passed deadlines and start dates show as closed and dead links get caught. The Worker
+    # starts it on time at 03:30 UTC; this schedule is the spare, see the job spare below.
     - cron: "30 3 * * *"
   workflow_dispatch:
 
@@ -13,13 +14,34 @@ permissions:
   pages: write
   id-token: write
   issues: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
+  actions: read
 
 jobs:
+  # GitHub's schedule runs hours late; the Worker (worker/src/index.ts in MoAz06/internradar) starts this
+  # workflow on time. The schedule is the spare: it only runs when nothing started the workflow in the last 20 hours.
+  spare:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          since="$(date -u -d '20 hours ago' +%FT%TZ)"
+          n="$(gh run list --workflow deploy.yml --event workflow_dispatch --created ">=$since" --json databaseId --jq length)"
+          echo "Started in the last 20 hours: $n"
+          echo "skip=$([ "${n:-0}" -gt 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
   build:
+    needs: spare
+    if: ${{ !cancelled() && needs.spare.outputs.skip != 'true' }}
+    # on the job, not the workflow, so a spare run that skips never cancels a build
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -79,6 +101,8 @@ jobs:
 
   deploy:
     needs: build
+    concurrency:
+      group: pages-deploy
     runs-on: ubuntu-latest
     environment:
       name: github-pages

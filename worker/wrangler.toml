@@ -9,3 +9,8 @@ ALLOWED_ORIGINS = "https://internradar.eu,http://localhost:3000"
 # Secrets, set with `npx wrangler secret put NAME`, never in this file:
 #   TURNSTILE_SECRET  the Turnstile secret key
 #   GITHUB_TOKEN      fine-grained token, only internradar-inbox, Issues read and write
+#   ACTIONS_TOKEN     fine-grained token, internradar and internradar-inbox, Actions read and write
+
+# The night jobs, on time (UTC). Each one starts a workflow, see wakeups in src/index.ts.
+[triggers]
+crons = ["30 3 * * *", "15 4 * * *"]

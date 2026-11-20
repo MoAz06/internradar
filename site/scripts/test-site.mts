@@ -1,5 +1,5 @@
 // Offline tests for the list features: search words, pay per role, the eligibility filters, the profile,
-// the quick share form and the reminders in the service worker. No network. Run: npm run test-site
+// the quick share form, the reminders in the service worker and the Worker that starts the night jobs. No network. Run: npm run test-site
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -17,6 +17,7 @@ import { buildItems } from "../lib/buildItems.ts";
 import { fits, isEmpty, type Profile } from "../lib/profile.ts";
 import { cleanTitle, dayWord, editions, mailEditions, shortProcess } from "../lib/mailEdition.ts";
 import { cleanSending, issueBody, outcomes, quickEnds, quickTimeline, readIssue } from "../lib/reportForm.ts";
+import { wake, wakeups } from "../../worker/src/index.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -261,4 +262,30 @@ test("home list: one row per role in several cities or per programme, headings b
   assert.equal(closesShort(role("A", "B", "2026-11-27", 8), true), "27 Nov");
   // every role on the site has a hiring line, or its company has none that says something
   for (const x of buildItems("2026-11-19")) assert.ok(!/not (described|stated)/i.test(x.how.slice(0, 30)), x.id);
+});
+
+test("night jobs: the Worker starts each workflow on time, and tries again only when GitHub is down", async () => {
+  // every cron in wrangler.toml has a job, and each job's workflow keeps the same time as its spare schedule
+  const toml = readFileSync(join(here, "..", "..", "worker", "wrangler.toml"), "utf8");
+  const crons = JSON.parse(toml.match(/^crons = (\[.*\])$/m)![1]) as string[];
+  assert.deepEqual(crons.sort(), Object.keys(wakeups).sort());
+  const deploy = readFileSync(join(here, "..", "..", ".github", "workflows", "deploy.yml"), "utf8");
+  assert.ok(deploy.includes(`cron: "${Object.keys(wakeups).find((c) => wakeups[c].workflow === "deploy.yml")}"`));
+  const env = { INBOX_REPO: "", ALLOWED_ORIGINS: "", TURNSTILE_SECRET: "", GITHUB_TOKEN: "", ACTIONS_TOKEN: "t" };
+  const calls: { url: string; body: string; auth: string }[] = [];
+  const answer = (...codes: number[]) =>
+    (async (url: string, init: RequestInit) => {
+      calls.push({ url, body: String(init.body), auth: (init.headers as Record<string, string>).Authorization });
+      return new Response(null, { status: codes.shift() ?? 204 });
+    }) as unknown as typeof fetch;
+  await wake("30 3 * * *", env, answer(204), 0);
+  assert.deepEqual(calls.at(-1), { url: "https://api.github.com/repos/MoAz06/internradar/actions/workflows/deploy.yml/dispatches", body: '{"ref":"master"}', auth: "Bearer t" });
+  calls.length = 0;
+  await wake("15 4 * * *", env, answer(502, 204), 0);
+  assert.equal(calls.length, 2);
+  assert.ok(calls[1].url.includes("internradar-inbox/actions/workflows/roles.yml"));
+  calls.length = 0;
+  await assert.rejects(wake("15 4 * * *", env, answer(401), 0), /401/);
+  assert.equal(calls.length, 1);
+  await assert.rejects(wake("0 0 * * *", env, answer(), 0), /No job/);
 });
