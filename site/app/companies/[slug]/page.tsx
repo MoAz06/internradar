@@ -159,12 +159,13 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
       </Section>
 
       <Section className="pb-16">
-        <Card className="scrollbar-thin overflow-x-auto" role="region" tabIndex={0} aria-labelledby="roles-caption">
-          <table className="w-full min-w-[820px] border-collapse text-left">
+        {/* a table from sm up; on phones every role is a card, so nothing scrolls sideways */}
+        <Card className="scrollbar-thin sm:overflow-x-auto" role="region" tabIndex={0} aria-labelledby="roles-caption">
+          <table className="w-full border-collapse text-left max-sm:block sm:min-w-[820px]">
             <caption id="roles-caption" className="sr-only">
               Roles at {c.name}
             </caption>
-            <thead>
+            <thead className="max-sm:hidden">
               <tr className="bg-raised text-[13px] text-muted">
                 {["Role", "Status", "Start", "Who can apply"].map((h) => (
                   <th key={h} scope="col" className="px-3 py-2.5 first:pl-4 last:pr-4 font-semibold">
@@ -173,10 +174,10 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="max-sm:block">
               {c.roles.map((r) => (
-                <tr key={r.title + r.source} className="border-t border-line text-[13px]">
-                  <td className="px-3 py-3 pl-4 align-middle">
+                <tr key={r.title + r.source} className="border-t border-line text-[13px] max-sm:block max-sm:px-4 max-sm:py-3.5 max-sm:first:border-t-0">
+                  <td className="px-3 py-3 pl-4 align-middle max-sm:block max-sm:p-0">
                     {itemOf(r.title, r.source) ? (
                       <Link href={roleHref(itemOf(r.title, r.source)!.key)} className="link text-sm font-semibold">
                         {r.title}
@@ -211,14 +212,18 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
                       );
                     })()}
                   </td>
-                  <td className="px-3 py-3 align-middle">
+                  <td className="px-3 py-3 align-middle max-sm:mt-2.5 max-sm:block max-sm:p-0">
                     <StatusLabel status={live(r).status} text={live(r).long} />
                   </td>
-                  <td className="mono px-3 py-3 align-middle">
+                  <td className="mono px-3 py-3 align-middle max-sm:mt-1.5 max-sm:block max-sm:p-0">
+                    <span className="font-sans text-muted sm:hidden">Start: </span>
                     {r.start || "On the posting"}
                     {r.duration ? `, ${r.duration}` : ""}
                   </td>
-                  <td className="px-3 py-3 pr-4 align-middle text-muted">{r.eligibility || "On the posting"}</td>
+                  <td className="px-3 py-3 pr-4 align-middle text-muted max-sm:mt-1.5 max-sm:block max-sm:p-0">
+                    <span className="text-ink sm:hidden">Who can apply: </span>
+                    {r.eligibility || "On the posting"}
+                  </td>
                 </tr>
               ))}
             </tbody>
