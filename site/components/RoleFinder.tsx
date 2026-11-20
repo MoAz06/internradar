@@ -546,13 +546,13 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
               type="button"
               onClick={() => flipRow(x.id)}
               aria-expanded={open}
-              className={`flex min-h-9 w-full items-start gap-1.5 py-1.5 text-left font-serif leading-snug hover:underline ${inner ? "pl-3 text-[15px]" : "text-[16px]"}`}
+              className={`flex min-h-9 w-full items-start py-1.5 text-left font-serif leading-snug ${inner ? "pl-3 text-[15px]" : "text-[16px]"}`}
             >
               <span>
                 {isNew(x) && newBadge}
-                {x.title}
+                <span className="hover:underline">{x.title}</span>
+                <CountChip text="details" open={open} />
               </span>
-              <Icon name="chevron" className={`mt-1 h-4 w-4 shrink-0 text-dim transition-transform ${open ? "rotate-180" : ""}`} />
             </button>
             {!inner && howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>

@@ -136,6 +136,15 @@ export default function Home() {
             <b className="font-semibold text-ink">{fresh}</b> new this week · <b className="font-semibold text-ink">{companies.length}</b> companies ·{" "}
             <b className="font-semibold text-ink">{options.length}</b> countries
           </p>
+          {/* phones have no side column, so the re-apply story goes here, above the list */}
+          <p className="mt-3 border-l-2 border-soon pl-3 text-[15px] leading-[1.45] md:hidden">
+            {story
+              ? "Rejected by Shell? Apply again within 10 months and it's turned down automatically. "
+              : "When can you apply again after a rejection? "}
+            <Link href="/reapply/" className="link font-semibold">
+              Re-apply rules
+            </Link>
+          </p>
         </div>
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
           <div className="min-w-0">
@@ -146,24 +155,14 @@ export default function Home() {
       </Section>
 
       <Section className="pb-14">
-        <div className="mb-5 border-t-2 border-ink pt-3 text-[16px] leading-[1.5] md:hidden">
-          <p>
-            {story
-              ? "Rejected by Shell? Apply again within 10 months and it's turned down automatically. "
-              : "When can you apply again after a rejection? "}
-            <Link href="/reapply/" className="link font-semibold">
-              Re-apply rules
+        {next[0] && (
+          <p className="mb-5 border-t-2 border-ink pt-3 text-[16px] leading-[1.5] md:hidden">
+            Opening next: {next[0].company}, {next[0].opens}.{" "}
+            <Link href="/radar/" className="link font-semibold">
+              All {next.length} on the radar
             </Link>
           </p>
-          {next[0] && (
-            <p className="mt-2">
-              Opening next: {next[0].company}, {next[0].opens}.{" "}
-              <Link href="/radar/" className="link font-semibold">
-                All {next.length} on the radar
-              </Link>
-            </p>
-          )}
-        </div>
+        )}
         <p className="border-t border-line pt-4 text-[16px] text-muted">
           Went through one of these processes?{" "}
           <Link href={shareUrl()} className="link">
