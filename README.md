@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-230-blue) ![roles](https://img.shields.io/badge/roles-763-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-229-blue) ![roles](https://img.shields.io/badge/roles-762-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -772,12 +772,11 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Analog Devices](companies/analog-devices-valencia.md) | FY27 Engineering Intern – Hardware, Software & Systems | Valencia | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Analog Devices](companies/analog-devices-valencia.md) | Software QA Intern | Valencia | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Analog Devices](companies/analog-devices-valencia.md) | Digital Design Engineering​ Intern | Valencia | 🟢 | – | See the company page | Not stated | 19 Nov |
-| [Delivery Hero](companies/delivery-hero-barcelona.md) | Data Intern | Barcelona | 🟢 | – | Recruiter talk, then interviews (Glovo's process page) | Not stated | 20 Nov |
 | [Back Market](companies/back-market-barcelona.md) | Data Analyst Intern | Barcelona | 🟢 | January 2027 | Skill-fit interview with a live case, a call with Talent Acquisition, then a culture-fit interview with the manager | Not stated | 20 Nov |
-| [Bitpanda](companies/bitpanda-barcelona.md) | Intern, Data Engineering | Barcelona | 🟢 | 1 February 2027 | See the company page | Not stated | 20 Nov |
+| [Bitpanda](companies/bitpanda-barcelona.md) | Intern, Data Engineering | Barcelona | 🟢 | 1 February 2027 | Hiring starts in October 2026; the steps for interns are not stated | Not stated | 20 Nov |
 | [Ericsson](companies/ericsson-malaga.md) | Ericsson Málaga Tech Internships - A Place for Impact | Málaga | 🟢 | – | Recruiter call, then one to three interviews | Not stated | 20 Nov |
 
-11 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+10 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="portugal"></a>
 ## 🇵🇹 Portugal

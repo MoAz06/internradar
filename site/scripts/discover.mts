@@ -13,7 +13,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { companies, countries } from "../data/companies.ts";
 import { skip } from "../data/skip.ts";
-import { boardKey, boardOf, division, early, inEurope, jobId, normTitle, tech, type Board, type BoardCompany, type Found } from "../lib/boards.ts";
+import { boardKey, boardOf, early, inEurope, jobId, normTitle, techTitle, type Board, type BoardCompany, type Found } from "../lib/boards.ts";
 import { readBoard, workdayPlaces } from "../lib/readBoard.ts";
 
 const site = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -108,7 +108,7 @@ await Promise.all(
           location: location || "not given",
           ref: j.ref,
           posted: j.posted,
-          tech: tech.test(j.title) || division.test(j.title),
+          tech: techTitle(j.title),
         });
       }
     }

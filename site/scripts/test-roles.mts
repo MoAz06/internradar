@@ -8,7 +8,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { companies } from "../data/companies.ts";
 import type { Company } from "../data/types.ts";
-import { early, jobId, postingKey, type Found } from "../lib/boards.ts";
+import { early, jobId, postingKey, techTitle, type Found } from "../lib/boards.ts";
 import { addSkip, addSource, editRole, insertEntry, removeRole } from "../lib/dataFile.ts";
 import { autoRole, morningIssue, postingLanguage, tickedIn } from "../lib/autoRole.ts";
 import { placeOf } from "../lib/places.ts";
@@ -74,6 +74,32 @@ test("titles: early-career words, not Internal or International", () => {
   // Goldman's campus site and its Oracle board name the same job by the same number
   assert.equal(jobId("https://higher.gs.com/roles/175426"), "175426");
   assert.equal(jobId("https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LateralHiring/job/175426"), "175426");
+});
+
+test("tech titles: a loose tech word next to another field is not a draft", () => {
+  // closed drafts from November 2026
+  for (const t of [
+    "Simulation von Druckpulsationen in Axialkolbenpumpen",
+    "Internship in Modeling and Simulation of Heat Pump Systems",
+    "Customer Supply Chain & Analytics Intern",
+    "Maintenance Analytics & Reliability Engineering Intern",
+    "(Physical) Security Specialist Intern - 2027 Internship",
+    "Praktikum im Bereich Werkslogistik Informationsfluss - remote möglich",
+  ])
+    assert.equal(techTitle(t), false, t);
+  // went on the list
+  for (const t of [
+    "STAGE 2027 – IA & Machine Learning : Données techniques de maintenance (H/F)",
+    "Internship / Working Student – Physics Simulation for Medical Soft-Body Modeling (f/m/x)",
+    "Working Student - Tech",
+    "Simulation CEM de cartes électroniques (H/F)",
+    "Security Research",
+    "Graduate Infrastructure Solutions Engineer 2027",
+    "Junior IT Systems& Automation Intern MI",
+    "Analyst | Engineering | Dallas",
+  ])
+    assert.equal(techTitle(t), true, t);
+  assert.equal(techTitle("Marketing Intern"), false);
 });
 
 test("company entry by city", () => {

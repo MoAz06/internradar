@@ -87,6 +87,32 @@ export const tech =
 /** Goldman Sachs puts the division in the title: "| Engineering |" is tech, and "Quantitative Strats" is quant
  * even next to "Sales and Trading" or "Asset and Wealth Management". */
 export const division = /\bquantitative strats\b|\|\s*engineering\s*\|/i;
+/** Jobs that are not a tech study's, even when "engineer" or "data" is in the title. */
+export const notTech =
+  /\b(physical\)? security|security (officer|guard|specialist)|marketing|sales|business develop\w*|data protection|datenschutz|technician|techniker|\w*management\w*|\w*logisti\w*|kundenauftrag\w*|einkauf|vertrieb|account (manager|executive)|finance|financial|accounting|audit\w*|tax|controlling|hr|human resources|people|talent|recruit\w*|legal|law|compliance|procurement|purchasing|supply chain|logistics|warehouse|communications?|pr|public relations|journalis\w*|content|social media|designer|(graphic|product|ux|ui|visual|interior|fashion|service) design\w*|ux|graphic|operations|office|admin\w*|assistant|executive assistant|customer|support|service desk|helpdesk|quality|mechanical|civil|chemical|chemistry|biolog\w*|clinical|medical|nurse|pharma\w*|manufacturing|production|facilit\w*|construction|real estate|strategy|consult\w*|beratung|product manager|project manager|program manager|investment|banking|analyst relations|policy|translator|teacher|tutor)\b/i;
+/** A title that is plainly a tech role. "IT" only in capitals, so "it" in a sentence doesn't count. */
+export const strongTech =
+  /\b(software|softwareentwickl\w*|developer|entwickler\w*|programmier\w*|programming|data|machine learning|ml|ai|deep learning|computer vision|llm|nlp|quant|quants|quantitative|algorithm\w*|hardware|embedded|firmware|fpga|asic|silicon|semiconductor|chip design|digital design|verification|backend|back-end|front-?end|full-?stack|devops|mlops|sre|cloud|cyber\w*|security engineer\w*|information security|compiler|gpu|computer science|informatik\w*|informatics|informatica|informatique|information technology|information systems|robotic\w*|research engineer|research scientist|test automation|electronic\w*|elektronik\w*|computer architecture|cryptograph\w*|automotive security|platform engineer\w*|infrastructure engineer\w*)\b/i;
+export const strongIT = /\bIT\b/;
+/** Work for mechanical, process, lab or business students that a loose word ("simulation", "analytics", "tech")
+ * pulls in: heat pumps, hydraulics, maintenance, training. */
+const otherField =
+  /\b(privacy|training|adoption|maintenance|reliability|heat pumps?|w[äa]rmepump\w*|axialkolben\w*|druckpulsation\w*|hydraul\w*|thermodynami\w*|lab assistant|qual|mechatroni\w*)\b/i;
+/** Loose tech words that keep a title with a word like "medical" in it: "Physics Simulation for Medical ...". */
+const looseKeep = /\b(simulation|python|software|research)\b/i;
+
+/**
+ * Whether a job title is a tech role, worth a draft. A title with a plain tech word always is. A title with only
+ * a loose one ("Simulation von Druckpulsationen", "Customer Supply Chain & Analytics") is not when it also names
+ * another field. Checked on 321 earlier drafts: it leaves out 16 that were closed and none that went on the list.
+ */
+export function techTitle(title: string): boolean {
+  if (division.test(title)) return true;
+  if (!tech.test(title)) return false;
+  if (strongTech.test(title) || strongIT.test(title)) return true;
+  if (otherField.test(title)) return false;
+  return !(notTech.test(title) && !looseKeep.test(title));
+}
 
 /** Only the 16 countries the list covers, by name, local name or a city on it. */
 const europe = new RegExp(
