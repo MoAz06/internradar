@@ -7,6 +7,8 @@ Careers page: https://jobs.smartrecruiters.com/Aumovio
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Mandatory Internship - Software Engineering & HMI Design - REF6497T | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/Aumovio/744000113753117) | 2026-11-20 |
+| Praktikum im Bereich Software-Entwicklung - REF8204W | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/Aumovio/744000119114588) | 2026-11-20 |
 | Praktikum - embedded Software-Entwicklung | Open, start as soon as possible | As soon as possible | Not stated | Studies in computer science, electrical engineering or similar; C and C++; good German and English | [link](https://jobs.smartrecruiters.com/Aumovio/744000160167744-praktikum-embedded-software-entwicklung-) | 2026-11-17 |
 | Pflichtpraktikum - .NET Entwicklung - ADAS Testsysteme | Open, for the summer semester 2027 | Summer semester 2027 | Not stated | Studies in computer science, electrical and information engineering or similar; German at C2, English at B2 or higher | [link](https://jobs.smartrecruiters.com/Aumovio/744000158219718-pflichtpraktikum-net-entwicklung-adas-testsysteme) | 2026-11-17 |
 | Pflichtpraktikum - Embedded Linux Entwicklung - ADAS Testsysteme | Open, for the summer semester 2027 | Summer semester 2027 | Not stated | Studies in computer science, electrical and information engineering or similar; Linux; German at C2, English at B2 or higher | [link](https://jobs.smartrecruiters.com/Aumovio/744000158219039-pflichtpraktikum-embedded-linux-entwicklung-adas-testsysteme) | 2026-11-17 |

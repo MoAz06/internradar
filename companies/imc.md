@@ -7,6 +7,7 @@ Careers page: https://www.imc.com/eu/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Quantitative Trader Intern | Open, no deadline listed |  | Not stated |  | [link](https://job-boards.eu.greenhouse.io/imc/jobs/4936262101) | 2026-11-20 |
 | Software Engineer Intern (summer 2027) | Open, no deadline listed | 28 June 2027, fixed | 10 weeks, typically end of June to end of August | Penultimate year of a computer science, software engineering or related degree, graduating in 2028. Java or C++ preferred. Interest in financial markets, no prior knowledge needed | [link](https://www.imc.com/eu/careers/jobs/4667854101) | 2026-11-16 |
 | Graduate Software Engineer (2027) | Open | February or August 2027 | Starts with a five-week Global Trainee Programme, then training at the local office | Final-year students in computer science, software engineering or related field; C++ or Java required. Also offered in Aarhus. You must be able to get the US business visa for the mandatory training in the US | [link](https://job-boards.eu.greenhouse.io/imc/jobs/4667814101) | 2026-11-16 |
 | Deep Learning Research Intern - Summer 2027 - Amsterdam | Open, no deadline listed | Last week of June 2027, in person | 9 weeks | Studying for a PhD or master's in CS, ML, AI, maths, statistics, engineering or a related field; Python and PyTorch, JAX or TensorFlow. Under 90 days, so no Highly Skilled Migrant visa | [link](https://job-boards.eu.greenhouse.io/imc/jobs/4912874101) | 2026-11-18 |

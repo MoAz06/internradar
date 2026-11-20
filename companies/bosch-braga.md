@@ -7,6 +7,14 @@ Careers page: https://careers.smartrecruiters.com/BoschGroup
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| DevOps Engineer - Internship (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000143455469) | 2026-11-20 |
+| Extracurricular Internship: AI & Automation Development (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000148960754) | 2026-11-20 |
+| Extracurricular Internship: C# Developer (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000152107800) | 2026-11-20 |
+| Extracurricular Internship: AI-Assisted Software Engineering Intern (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000156523049) | 2026-11-20 |
+| Extracurricular Internship: Data Engineering - Cloud Platform (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000160598089) | 2026-11-20 |
+| Extracurricular Internship: AI Software Engineer (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000162244270) | 2026-11-20 |
+| Extracurricular Internship: iOS Developer (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000162492837) | 2026-11-20 |
+| Extracurricular Internship: Android Developer (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000162493309) | 2026-11-20 |
 | Extracurricular Internship - DevOps & GenAI Engineer for Quality (f/m/div.) | Open, no deadline listed | Not stated | Not stated | Degree in CS, Engineering, Data Science or similar; English, German a plus | [link](https://jobs.smartrecruiters.com/BoschGroup/744000158794999) | 2026-11-17 |
 | Estágio Curricular em Engenharia Informática (f/m/div.) | Open, no deadline listed | Not stated | Not stated | Not stated | [link](https://jobs.smartrecruiters.com/BoschGroup/744000142098284) | 2026-11-17 |
 

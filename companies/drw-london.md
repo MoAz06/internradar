@@ -7,6 +7,7 @@ Careers page: https://www.drw.com/work-at-drw/interns
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Quantitative Trading Analyst Intern | Open, no deadline listed |  | 10 weeks |  | [link](https://job-boards.greenhouse.io/drweng/jobs/7957243) | 2026-11-20 |
 | Software Developer Intern | Posting live on the job board; applications reviewed on a rolling basis | Not stated | 10 weeks | Bachelor's, master's or PhD students in CS, EE, computer engineering, physics, maths or a related science, graduating between December 2027 and August 2028 | [link](https://job-boards.greenhouse.io/drweng/jobs/7942281) | 2026-11-17 |
 | Quantitative Research Intern | Posting live on the job board; applications reviewed on a rolling basis | Not stated | Not stated | Bachelor's, master's or PhD students in a technical field (statistics, optimisation, ML, AI, quant finance or related), graduating between December 2027 and October 2028 | [link](https://job-boards.greenhouse.io/drweng/jobs/7957756) | 2026-11-17 |
 | Software Developer | Posting live on the job board; applications reviewed on a rolling basis | Not stated | Not stated | Degree in computer science, physics, maths or a related engineering subject, graduating between December 2026 and August 2027 | [link](https://job-boards.greenhouse.io/drweng/jobs/8007851) | 2026-11-17 |

@@ -7,6 +7,7 @@ Careers page: https://www.jumptrading.com/hr/students-new-grads
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Campus Quantitative Trader (Intern) | Open, no deadline listed |  | Not stated |  | [link](https://www.jumptrading.com/hr/job?gh_jid=8050772) | 2026-11-20 |
 | Campus UI Software Engineer (Intern) | Posting live on the job board, no deadline listed | Not stated | 10 weeks | Students, including placement students; international students are encouraged to apply | [link](https://www.jumptrading.com/hr/job?gh_jid=7974943) | 2026-11-17 |
 | Campus Systems Engineer (Intern) | Posting live on the job board, no deadline listed | Not stated | 10 weeks | Major in Computer Science/Engineering, Information Systems or a related technical field | [link](https://www.jumptrading.com/hr/job?gh_jid=8000323) | 2026-11-17 |
 | Campus Quantitative Researcher (Intern) | Posting live on the job board, no deadline listed | Not stated | 10 weeks | Students from top undergraduate and graduate programs; no finance knowledge needed | [link](https://www.jumptrading.com/hr/job?gh_jid=8010307) | 2026-11-17 |

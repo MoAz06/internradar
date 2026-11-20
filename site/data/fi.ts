@@ -94,6 +94,20 @@ export const fi: Company[] = [
     careersUrl: "https://jobs.ericsson.com/careers",
     roles: [
       {
+        title: "Research Summer Interns: Compute and Software Research",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://jobs.ericsson.com/careers/job/563121777633381",
+        checked: "2026-11-20",
+        auto: true,
+      },
+      {
         title: "Research Intern: Cyber-Physical Systems",
         kind: "Internship",
         field: "Software",

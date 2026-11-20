@@ -80,6 +80,20 @@ export const nl: Company[] = [
     careersUrl: "https://www.imc.com/eu/careers",
     roles: [
       {
+        title: "Quantitative Trader Intern",
+        kind: "Internship",
+        field: "Quant",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://job-boards.eu.greenhouse.io/imc/jobs/4936262101",
+        checked: "2026-11-20",
+        auto: true,
+      },
+      {
         title: "Software Engineer Intern (summer 2027)",
         kind: "Internship",
         field: "Software",
@@ -617,6 +631,20 @@ export const nl: Company[] = [
     city: "Eindhoven",
     careersUrl: "https://www.careers.philips.com/student/nl/en",
     roles: [
+      {
+        title: "Internship: AI-based scene understanding for camera-based patient monitoring",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Internship--AI-based-scene-understanding-for-camera-based-patient-monitoring_595483",
+        checked: "2026-11-20",
+        auto: true,
+      },
       {
         title: "Product Innovation & AI Prototyping Internship – Philips Avent Experience Innovation",
         kind: "Internship",

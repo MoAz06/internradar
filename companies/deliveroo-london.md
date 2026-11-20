@@ -7,6 +7,7 @@ Careers page: https://careers.deliveroo.co.uk/software-engineering-at-deliveroo/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Software Engineering Summer Internship 2027 (London) | Open, no deadline listed |  | 12 weeks |  | [link](https://job-boards.greenhouse.io/deliveroo/jobs/8398982) | 2026-11-20 |
 | Software Engineer, New Grad | Live on Deliveroo's Greenhouse board, no deadline listed | Not stated | Not stated | Degree in Computer Science or a related technical field, graduated within the last year; must be authorised to work in the UK | [link](https://job-boards.greenhouse.io/deliveroo/jobs/8202627) | 2026-11-17 |
 
 ## Process, as the company describes it

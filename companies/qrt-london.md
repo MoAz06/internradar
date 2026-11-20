@@ -7,6 +7,7 @@ Careers page: https://www.qube-rt.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2027 - Internship, Business Data Analytics | Rolling, no deadline listed |  | 3-6 months |  | [link](https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8926633002) | 2026-11-20 |
 | 2027 - Internship, Software Engineering and Quantitative Development | Reviewed on a rolling basis; applying early is recommended | 2027 | 3 to 6 months, or a 12-month industrial placement | Penultimate or final-year bachelor's or master's students in a STEM subject, on track for a 2:1 or above | [link](https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8773084002) | 2026-11-17 |
 | 2027 - Internship, Data Engineering | Reviewed on a rolling basis | 2027 | 5 to 6 months | Penultimate or final-year bachelor's or master's students | [link](https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8623972002) | 2026-11-17 |
 | 2027 – Internship or Graduate, FPGA Engineering | Reviewed on a rolling basis; applying early is recommended | 2027 | 3 to 6 months, or a full-time graduate role | Penultimate or final-year bachelor's or master's students; HDL experience or coursework | [link](https://job-boards.greenhouse.io/quberesearchandtechnologies/jobs/8777855002) | 2026-11-17 |

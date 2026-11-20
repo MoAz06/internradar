@@ -7,6 +7,7 @@ Careers page: https://jobs.ericsson.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Research Summer Interns: Compute and Software Research | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777633381) | 2026-11-20 |
 | Research Intern: Cyber-Physical Systems | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777323126) | 2026-11-19 |
 | Software Developer Summer Intern: IMS GW (Test Tools & Automation) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777553320) | 2026-11-19 |
 | Software Developer Summer Intern: IMS GW (AI & Automation) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777496581) | 2026-11-19 |

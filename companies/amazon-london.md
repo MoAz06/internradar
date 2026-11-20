@@ -7,6 +7,8 @@ Careers page: https://www.amazon.jobs/content/en/career-programs/university
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Data Engineer Internship | Open, no deadline listed |  | 6 months |  | [link](https://www.amazon.jobs/en/jobs/10602219/data-engineer-internship) | 2026-11-20 |
+| Ring - ASIC DV Engineer Intern | Open, no deadline listed |  | Not stated |  | [link](https://www.amazon.jobs/en/jobs/10606931/ring-asic-dv-engineer-intern) | 2026-11-20 |
 | 2027 Software Dev Engineer Intern - United Kingdom | Open, no deadline listed | Not stated | Not stated | Enrolled in a Bachelor's degree or above in CS, Computer Engineering or a related field; at least one term of study left after the internship | [link](https://www.amazon.jobs/en/jobs/10554586/2027-software-dev-engineer-intern-united-kingdom) | 2026-11-17 |
 | 2027 Software Dev Engineer Intern (Machine Learning) - UK | Open, no deadline listed | Not stated | Not stated | Enrolled in a Bachelor's degree or above in CS, Computer Engineering or a related field; at least one term of study left after the internship | [link](https://www.amazon.jobs/en/jobs/10588762/2027-software-dev-engineer-intern-machine-learning-uk) | 2026-11-17 |
 | 2027 Software Dev Engineer Intern (Embedded Systems) - UK | Open, no deadline listed | Not stated | Not stated | Enrolled in a Bachelor's degree or above in CS, Computer Engineering or a related field; at least one term of study left after the internship | [link](https://www.amazon.jobs/en/jobs/10588998/2027-software-dev-engineer-intern-embedded-systems-uk) | 2026-11-17 |
