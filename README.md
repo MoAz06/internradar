@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-207-blue) ![roles](https://img.shields.io/badge/roles-715-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-210-blue) ![roles](https://img.shields.io/badge/roles-721-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -665,8 +665,11 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Volvo Group](companies/volvo-group-gothenburg.md) | Volvo Group Graduate Program 2027 - Data Analyst | Gothenburg | 🟢 until 22 Nov | August 2027 | Application review with the hiring manager; shortlisted candidates are contacted about next steps | Not stated | 17 Nov |
 | [Volvo Group](companies/volvo-group-gothenburg.md) | Volvo Group Graduate Program 2027 - Automation Engineer | Gothenburg | 🟢 until 22 Nov | August 2027 | Application review with the hiring manager; shortlisted candidates are contacted about next steps | Not stated | 17 Nov |
 | [Volvo Group](companies/volvo-group-gothenburg.md) | Volvo Group Graduate Program 2027 - Power Electronics Engineer | Gothenburg | 🟢 until 22 Nov | August 2027 | Application review with the hiring manager; shortlisted candidates are contacted about next steps | Not stated | 17 Nov |
+| [Bosch](companies/bosch-sweden.md) | Master Thesis - AgentOPS frameworks and infrastructure | Lund | 🟢 | – | Application review, then an interview at Bosch | Not stated | 20 Nov |
+| [Bosch](companies/bosch-sweden.md) | Master Thesis - Benchmarking AI on Resource-Constrained Micro Drones | Lund | 🟢 | – | Application review, then an interview at Bosch | Not stated | 20 Nov |
+| [Bosch](companies/bosch-sweden.md) | Internship in Software Engineering | Tranås | 🟢 | March 2027 (preferred) | Application review, then an interview at Bosch | Not stated | 20 Nov |
 
-6 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+7 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="denmark"></a>
 ## 🇩🇰 Denmark
@@ -839,8 +842,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [KBC](companies/kbc-vlaams-brabant.md) | Stage Analist/Software engineer - Pensioenprocessen | Vlaams-Brabant | 🟢 | “Januari-Juni” period, year not stated | Not stated | Not stated | 17 Nov |
 | [KBC](companies/kbc-vlaams-brabant.md) | Traineeship IT | Vlaams-Brabant | 🟡 A new IT traineeship launches in spring 2027 | – | Not stated | Not stated | 17 Nov |
 | [Proximus](companies/proximus-brussels.md) | Proximus Graduate Program | Brussels | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Bosch](companies/bosch-tienen.md) | Internship - Digitalization & AI for Wiper Blade Testing | Tienen | 🟢 | – | Application review, then an interview and maybe a tour of the plant | Not stated | 20 Nov |
+| [Bosch](companies/bosch-tienen.md) | Internship AI Lighthouse & Data engineering | Tienen | 🟢 | – | Application review, then an interview and maybe a tour of the plant | Not stated | 20 Nov |
 
-5 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+6 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="italy"></a>
 ## 🇮🇹 Italy
@@ -874,8 +879,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Analog Devices](companies/analog-devices-milan.md) | Digital Design Engineering Intern | Assago | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Analog Devices](companies/analog-devices-milan.md) | AMS Design Verification Intern | Assago | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Analog Devices](companies/analog-devices-milan.md) | Digital Verification Engineer Intern | Assago | 🟢 | – | See the company page | Not stated | 19 Nov |
+| [Bosch](companies/bosch-nonantola.md) | AI Manufacturing Engineer  – CURRICULAR INTERNSHIP (m/f/d) | Nonantola | 🟢 | – | Phone interview, then a second, deeper interview | Not stated | 20 Nov |
 
-11 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+12 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 <!-- /gen:list -->
 
 <a id="how-to-read-this"></a>

@@ -647,4 +647,42 @@ export const it: Company[] = [
       "ADI also posts internships in Catania and Bari.",
     ],
   },
+  {
+    slug: "bosch-nonantola",
+    name: "Bosch",
+    country: "IT",
+    city: "Nonantola",
+    careersUrl: "https://www.bosch.it/lavora-con-noi/studenti-e-laureati/",
+    roles: [
+      {
+        title: "AI Manufacturing Engineer  – CURRICULAR INTERNSHIP (m/f/d)",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "Bachelor or Master student in automation, mechatronics, computer, electronic or industrial engineering; fluent Italian and English; Python, computer vision or machine learning is a plus",
+        process: "Phone interview, then a second, deeper interview",
+        reapply: "Not stated",
+        source: "https://jobs.smartrecruiters.com/BoschGroup/744000157442289",
+        checked: "2026-11-20",
+      },
+    ],
+    process: [
+      "You apply with the online form on the Bosch job board; keep your CV and cover letter at hand, at most 10 MB.",
+      "A confirmation mail comes within minutes; depending on the role, expect an answer “entro due o tre settimane”.",
+      "If your application is picked, “un primo colloquio telefonico”, and if that goes well a further, deeper interview.",
+      "A curricular internship (stage curriculare) is done during your studies, also for writing your thesis; the role is at Bosch Rexroth Oil Control in Nonantola.",
+    ],
+    reapply: "Not stated",
+    pay: [
+      "Pay, housing and visa: not stated.",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://www.bosch.it/lavora-con-noi/studenti-e-laureati/", checked: "2026-11-20" },
+      { url: "https://www.bosch.it/lavora-con-noi/offerte-di-lavoro/", checked: "2026-11-20" },
+      { url: "https://jobs.smartrecruiters.com/BoschGroup/744000157442289", checked: "2026-11-20" },
+    ],
+  },
 ];
