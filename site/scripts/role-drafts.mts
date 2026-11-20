@@ -11,8 +11,9 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { companies } from "../data/companies.ts";
 import type { Found } from "../lib/boards.ts";
-import { postingText } from "../lib/postingText.ts";
+import { postingText, srRefNumber } from "../lib/postingText.ts";
 import { draftsFor, pickNew, type RoleDraft } from "../lib/roleDraft.ts";
+import { jobRefs } from "../lib/sameJob.ts";
 
 const args = process.argv.slice(2);
 const arg = (name: string) => (args.includes(name) ? args[args.indexOf(name) + 1] : "");
@@ -39,9 +40,19 @@ mkdirSync(out, { recursive: true });
 const drafts: RoleDraft[] = [];
 let unread = 0;
 let used = 0;
+let twice = 0;
+// the same job in another language, with the same reference number: no draft when it's on the list or drafted tonight
+const refs = jobRefs(companies, srRefNumber);
+const keys = new Set<string>();
 for (const p of picks) {
   if (drafts.length >= cap) break;
   used++;
+  const key = await refs.key(p.f);
+  if (key && (keys.has(key) || (await refs.listed(key)))) {
+    twice++;
+    continue;
+  }
+  if (key) keys.add(key);
   const text = await postingText(p.f).catch(() => "");
   if (!text) unread++;
   drafts.push(...draftsFor(p.f, text, companies, checkedAt));
@@ -56,7 +67,7 @@ drafts.forEach((d, i) => {
 const left = picks.length - used;
 const summary = [
   `Night of ${checkedAt}: ${found.filter((f) => f.tech).length} tech roles on the boards that are not on the list, ${picks.length} without an issue yet.`,
-  `${drafts.length} new drafts${unread ? `, ${unread} without the posting's text` : ""}. ${left} wait for a next night (at most ${cap} a night).`,
+  `${drafts.length} new drafts${unread ? `, ${unread} without the posting's text` : ""}${twice ? `, ${twice} left out as the same job in another language` : ""}. ${left} wait for a next night (at most ${cap} a night).`,
   failed.length ? `Could not read: ${failed.join(", ")}.` : "",
 ]
   .filter(Boolean)

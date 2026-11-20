@@ -20,8 +20,9 @@ import type { Company } from "../data/types.ts";
 import { autoRole, beforeText, morningIssue, tickedIn, type Planned } from "../lib/autoRole.ts";
 import type { Found } from "../lib/boards.ts";
 import { addSkip, insertEntry, removeRole } from "../lib/dataFile.ts";
-import { postingText } from "../lib/postingText.ts";
+import { postingText, srRefNumber } from "../lib/postingText.ts";
 import { pickNew } from "../lib/roleDraft.ts";
+import { jobRefs } from "../lib/sameJob.ts";
 
 const args = process.argv.slice(2);
 const arg = (name: string) => (args.includes(name) ? args[args.indexOf(name) + 1] : "");
@@ -43,11 +44,20 @@ if (args.includes("--plan")) {
   const tally = (w: string) => why.set(w, (why.get(w) ?? 0) + 1);
 
   const plan: Planned[] = [];
+  const refs = jobRefs(companies, srRefNumber);
+  // the job keys taken this run, and where in the plan
+  const taken = new Map<string, number>();
   for (const { f } of pickNew(found, seen, companies)) {
     if (plan.length >= cap) break;
     const b = beforeText(f, companies, skipped);
     if (!b.ok) {
       tally(b.why);
+      continue;
+    }
+    // the same job in another language, with the same reference number
+    const key = await refs.key(f);
+    if (await refs.listed(key)) {
+      tally("same job already on the list");
       continue;
     }
     const text = await postingText(f).catch(() => "");
@@ -58,7 +68,16 @@ if (args.includes("--plan")) {
       tally(a.why);
       continue;
     }
-    plan.push({ slug: a.slug, name: a.company.name, city: a.role.city ?? a.company.city, role: a.role });
+    const p: Planned = { slug: a.slug, name: a.company.name, city: a.role.city ?? a.company.city, role: a.role };
+    if (key && taken.has(key)) {
+      // both postings are new: the one in English goes in
+      const i = taken.get(key)!;
+      if (plan[i].role.language && !a.role.language) plan[i] = p;
+      tally("same job twice on the board");
+      continue;
+    }
+    if (key) taken.set(key, plan.length);
+    plan.push(p);
   }
 
   mkdirSync(out, { recursive: true });

@@ -12,6 +12,7 @@ import { early, jobId, postingKey, techTitle, type Found } from "../lib/boards.t
 import { addSkip, addSource, editRole, insertEntry, removeRole } from "../lib/dataFile.ts";
 import { autoRole, morningIssue, postingLanguage, tickedIn } from "../lib/autoRole.ts";
 import { placeOf } from "../lib/places.ts";
+import { jobRefs, srLink } from "../lib/sameJob.ts";
 import { checkRole, datesIn, draftsFor, entryInCountry, fieldOf, htmlToText, kindOf, matchCompanies, pickNew, readPosting, readRoleIssue } from "../lib/roleDraft.ts";
 
 const dataDir = join(dirname(fileURLToPath(import.meta.url)), "..", "data");
@@ -401,4 +402,23 @@ test("taking a role out of a data file, changing one, and the skip list", () => 
   const withSkip = addSkip(skipText, role.source, "Taken off");
   assert.ok(withSkip.includes(`  { url: "https://example.com/auto", why: "Taken off" },\n];`));
   assert.equal(addSkip(withSkip, role.source, "Again"), withSkip, "not twice");
+});
+
+test("one job posted in two languages: same reference number, same job", async () => {
+  assert.deepEqual(srLink("https://jobs.smartrecruiters.com/BoschGroup/744000159835435-internship-in-mems"), { board: "BoschGroup", id: "744000159835435" });
+  assert.equal(srLink("https://job-boards.greenhouse.io/optiver/jobs/7000000001"), null);
+  const numbers: Record<string, string> = { "744000159835435": "REF299524I", "744000159058604": "REF299524I", "744000100000001": "REF1" };
+  const asked: string[] = [];
+  const refOf = async (_board: string, id: string) => (asked.push(id), numbers[id] ?? "");
+  const listed = { ...fake, roles: [{ ...fake.roles[0], source: "https://jobs.smartrecruiters.com/BoschGroup/744000159835435" }] };
+  const refs = jobRefs([listed], refOf);
+  const sr = (ref: string) => found({ board: "smartrecruiters:BoschGroup", spec: { ats: "smartrecruiters", board: "BoschGroup" }, ref, url: `https://jobs.smartrecruiters.com/BoschGroup/${ref}` });
+  assert.equal(await refs.key(found({})), "", "only SmartRecruiters has the number");
+  assert.equal(asked.length, 0, "and nothing is read for other boards");
+  const german = await refs.key(sr("744000159058604"));
+  assert.equal(german, "boschgroup#REF299524I");
+  assert.equal(await refs.listed(german), true, "the English one is on the list");
+  assert.equal(await refs.listed(await refs.key(sr("744000100000001"))), false);
+  assert.equal(await refs.key(sr("744000199999999")), "", "no number, no key");
+  assert.equal(await refs.listed(""), false);
 });

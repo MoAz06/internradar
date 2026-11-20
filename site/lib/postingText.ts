@@ -8,6 +8,18 @@ import { htmlToText } from "./roleDraft.ts";
 
 const ashbyBoards = new Map<string, Promise<{ jobs: { id: string; descriptionPlain?: string; descriptionHtml?: string }[] } | null>>();
 
+type SrPosting = { refNumber?: string; jobAd?: { sections?: Record<string, { title?: string; text?: string }> } };
+const srPostings = new Map<string, Promise<SrPosting | null>>();
+/** One SmartRecruiters posting, read once a run: its text and its reference number come from the same answer. */
+const srPosting = (board: string, id: string) => {
+  const k = `${board.toLowerCase()}/${id}`;
+  if (!srPostings.has(k)) srPostings.set(k, json<SrPosting>(`https://api.smartrecruiters.com/v1/companies/${board}/postings/${id}`).catch(() => null));
+  return srPostings.get(k)!;
+};
+
+/** A SmartRecruiters posting's reference number, the company's own number for the job, or "". */
+export const srRefNumber = async (board: string, id: string) => (await srPosting(board, id))?.refNumber?.trim() ?? "";
+
 export async function postingText(f: Found): Promise<string> {
   const b: Board = f.spec;
   if (b.ats === "greenhouse") {
@@ -28,9 +40,7 @@ export async function postingText(f: Found): Promise<string> {
     return j ? (j.descriptionHtml ? htmlToText(j.descriptionHtml) : (j.descriptionPlain ?? "")) : "";
   }
   if (b.ats === "smartrecruiters") {
-    const d = await json<{ jobAd?: { sections?: Record<string, { title?: string; text?: string }> } }>(
-      `https://api.smartrecruiters.com/v1/companies/${b.board}/postings/${f.ref}`,
-    );
+    const d = await srPosting(b.board, f.ref);
     return Object.values(d?.jobAd?.sections ?? {})
       .map((s) => `${s.title ?? ""}\n${htmlToText(s.text ?? "")}`)
       .join("\n");
