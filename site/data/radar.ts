@@ -119,4 +119,13 @@ export const radar: RadarItem[] = [
     expect: "Window 4 Jan to 14 Feb 2027 · one application for all office roles · trainee period 1 May to 20 Sep 2027, 3 to 5 months · students in Finland",
     kind: "soon",
   },
+  {
+    opens: "Feb 2027",
+    sortKey: "2027-02-01",
+    company: "ESA ESTEC",
+    slug: "esa-estec",
+    role: "ESA Graduate Trainee programme, Noordwijk and other ESA sites",
+    expect: "One year, can be extended · up to three applications · citizens of ESA member states",
+    kind: "soon",
+  },
 ];

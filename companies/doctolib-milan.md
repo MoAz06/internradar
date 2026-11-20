@@ -8,7 +8,7 @@ Careers page: https://careers.doctolib.com/
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
 | Software Engineer Intern - Fullstack (x/f/m) - Milano | Open, no deadline listed | March 2027 | 6 months | Final year of a degree in software engineering, CS or a related field; fluent in English | [link](https://jobs.ashbyhq.com/doctolib/19f389f4-1374-4c61-ae03-aae839f65bf4) | 2026-11-18 |
-| AI Engineer Intern (x/f/m) - Milano | Open, no deadline listed | March 2027 | 6 months, full-time | Final year of a degree in CS, AI, software engineering or related; basic Python; comfortable in English; the posting lists Berlin, Paris, Nantes, Milan or Amsterdam as the location | [link](https://jobs.ashbyhq.com/doctolib/8eee07c8-dd36-4a3c-99cd-a95d65415dec) | 2026-11-18 |
+| AI Engineer Intern (x/f/m) - Milano | The posting was taken down by 20 Nov 2026 | March 2027 | 6 months, full-time | Final year of a degree in CS, AI, software engineering or related; basic Python; comfortable in English; the posting lists Berlin, Paris, Nantes, Milan or Amsterdam as the location | [link](https://jobs.ashbyhq.com/doctolib/8eee07c8-dd36-4a3c-99cd-a95d65415dec) | 2026-11-20 |
 
 ## Process, as the company describes it
 

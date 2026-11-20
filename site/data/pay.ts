@@ -38,6 +38,19 @@ export const payRules: Record<string, Rule[]> = {
   microsoft: [{ pay: { label: "€800 a month base pay", short: "€800/mo", ...paid("MONTH", "EUR", 800) } }],
   ing: [{ kind: "Internship", pay: { label: "€700 a month", short: "€700/mo", ...paid("MONTH", "EUR", 700) } }],
   "abn-amro": [{ kind: "Internship", pay: { label: "€750 a month for a 36-hour week", short: "€750/mo", ...paid("MONTH", "EUR", 750) } }],
+  "esa-estec": [{ kind: "Graduate", pay: { label: "€2,976.90 a month net in the Netherlands (2026, first step of grade F1)", short: "€2,977/mo net", ...paid("MONTH", "EUR", 2976.9) } }],
+  dnb: [{ kind: "Graduate", pay: { label: "€3,840 to €6,170 gross a month for 36 hours", short: "€3,840–6,170/mo", ...paid("MONTH", "EUR", 3840, 6170) } }],
+  achmea: [
+    { kind: "Internship", pay: { label: "€650 gross a month", short: "€650/mo", ...paid("MONTH", "EUR", 650) } },
+    { kind: "Graduate", pay: { label: "€3,323 a month for a 34-hour week", short: "€3,323/mo", ...paid("MONTH", "EUR", 3323) } },
+  ],
+  "deloitte-amsterdam": [{ kind: "Thesis", pay: { label: "€1,000 a month", short: "€1,000/mo", ...paid("MONTH", "EUR", 1000) } }],
+  "accenture-amsterdam": [{ title: /^(Afstudeerstage Data|Scriptiestage Cyber)/, pay: { label: "€500 a month for 40 hours, plus travel costs", short: "€500/mo", ...paid("MONTH", "EUR", 500) } }],
+  "capgemini-utrecht": [
+    { kind: "Graduate", pay: { label: "€3,730 a month to start, including a €750 mobility allowance and holiday pay", short: "€3,730/mo", ...paid("MONTH", "EUR", 3730) } },
+    { pay: { label: "€500 gross a month", short: "€500/mo", ...paid("MONTH", "EUR", 500) } },
+  ],
+  vanderlande: [{ pay: { label: "€500 a month for bachelor's, €550 for master's students (40 hours), plus travel costs", short: "€500–550/mo", ...paid("MONTH", "EUR", 500, 550) } }],
   rabobank: [
     { title: /DevOps/, pay: { label: "€4,007.80 a month for a 40-hour week, plus a thirteenth month and 8% holiday allowance", short: "€4,008/mo", ...paid("MONTH", "EUR", 4007.8) } },
     { title: /Data & Analytics|IT & Engineering/, pay: { label: "€4,007.80 on the programme page (period not stated there)", short: "€4,008" } },

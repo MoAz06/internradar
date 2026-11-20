@@ -123,6 +123,15 @@ export const reapplyRules: ReapplyRule[] = [
     waitMonths: 6,
   },
   {
+    company: "Accenture",
+    slug: "accenture-amsterdam",
+    group: "wait",
+    rule: "A failed online assessment can be taken again after 90 days. Applying again is welcome.",
+    quote: "If you do not pass an assessment, you must wait at least 90 days before retaking the same assessment.",
+    url: "https://www.accenture.com/nl-en/careers/explore-careers/area-of-interest/journey-to-accenture",
+    checked: "2026-11-20",
+  },
+  {
     company: "Databricks",
     slug: "databricks",
     group: "wait",
@@ -236,6 +245,16 @@ export const reapplyRules: ReapplyRule[] = [
     quote: "We encourage you to search for a job at ASML that matches your skill set and apply again.",
     url: "https://www.asml.com/en/careers/interview-tips",
     checked: day,
+  },
+  {
+    company: "Capgemini",
+    slug: "capgemini-utrecht",
+    group: "welcome",
+    rule: "Apply for other roles after a rejection.",
+    quote: "Ik heb een afwijzing ontvangen. Kan ik nog steeds op andere functies solliciteren? Zeker! We zijn altijd op zoek naar nieuw talent.",
+    lang: "Dutch",
+    url: "https://www.capgemini.com/nl-nl/carriere/kom-bij-ons-werken/recruitment-proces/",
+    checked: "2026-11-20",
   },
   {
     company: "Rabobank",

@@ -9,7 +9,7 @@ Careers page: https://careers.qualcomm.com/careers?query=intern&location=United%
 | --- | --- | --- | --- | --- | --- | --- |
 | FY27 Intern - GPU Compiler - 3 months, Cambridge | Open, no deadline listed |  | 3 months |  | [link](https://careers.qualcomm.com/careers/job/446722152489) | 2026-11-19 |
 | FY27 Intern - RF Systems / Software Engineering - 6 months, Farnborough | Open, no deadline listed |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446722197636) | 2026-11-19 |
-| FY27 Intern - Formal Verification Engineering Internship - 6 months, Cambridge | Open, no deadline listed |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446721822125) | 2026-11-19 |
+| FY27 Intern - Formal Verification Engineering Internship - 6 months, Cambridge | The posting was taken down by 20 Nov 2026 |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446721822125) | 2026-11-20 |
 
 ## Process, as the company describes it
 
