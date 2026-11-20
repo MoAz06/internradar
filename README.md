@@ -445,7 +445,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Intel](companies/intel-munich.md) | MLIR Compiler Engineering Undergraduate Intern (f/m/d) | Munich | 🟢 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 19 Nov |
 | [Intel](companies/intel-munich.md) | Middleware Software Engineering Intern (m/f/d) | Munich | 🟢 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 19 Nov |
 | [Intel](companies/intel-munich.md) | Software Design Engineer Intern for Physical Design (m/f/d) | Munich | 🟢 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 19 Nov |
-| [Intel](companies/intel-munich.md) | Software Engineering Undergraduate Intern (f/m/d) | Munich | 🟢 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 19 Nov |
+| [Intel](companies/intel-munich.md) | Software Engineering Undergraduate Intern (f/m/d) | Munich | 🔴 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 20 Nov |
 
 26 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 

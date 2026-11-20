@@ -10,7 +10,7 @@ Careers page: https://intel.wd1.myworkdayjobs.com/External
 | MLIR Compiler Engineering Undergraduate Intern (f/m/d) | Open, no deadline listed |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Germany-Munich/MLIR-Compiler-Engineering-Undergraduate-Intern--f-m-d-_JR0287942) | 2026-11-19 |
 | Middleware Software Engineering Intern (m/f/d) | Open, no deadline listed |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Germany-Munich/Middleware-Software-Engineering-Intern--m-f-d-_JR0288635) | 2026-11-19 |
 | Software Design Engineer Intern for Physical Design (m/f/d) | Open, no deadline listed |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Germany-Munich/Software-Design-Engineer-Intern-for-Physical-Design--m-f-d-_JR0288937) | 2026-11-19 |
-| Software Engineering Undergraduate Intern (f/m/d) | Open, no deadline listed |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Germany-Munich/Software-Engineering-Undergraduate-Intern--f-m-d-_JR0287923) | 2026-11-19 |
+| Software Engineering Undergraduate Intern (f/m/d) | The posting was taken down by 20 Nov 2026 |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Germany-Munich/Software-Engineering-Undergraduate-Intern--f-m-d-_JR0287923) | 2026-11-20 |
 
 ## Process, as the company describes it
 
