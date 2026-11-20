@@ -7,6 +7,7 @@ Careers page: https://careers.qualcomm.com/careers?query=intern&location=France
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| FY27 Intern - CHERI-Based Prototype for Root of Trust Security -  6 months, Sophia | Open, no deadline listed |  | 6 months | Pursuing an MS/PhD or engineering programme in computer science, computer engineering or related fields. | [link](https://careers.qualcomm.com/careers/job/446721986397) | 2026-11-20 |
 | FY27 Intern- AI-Driven Power Modeling for Evaluating Power Consumption in NoC IP Architectures - 6 months, Guyancourt | Open, no deadline listed |  | 6 months |  | [link](https://careers.qualcomm.com/careers/job/446721854346) | 2026-11-19 |
 | FY27 Intern - ML Compiler Research Intern - 6 months, Strasbourg | Open, no deadline listed |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446721901932) | 2026-11-19 |
 | FY27 Intern - HW/FW Architecture for Post-Quantum Cryptography - 6 months, Sophia | Open, no deadline listed |  | 6 months |  | [link](https://careers.qualcomm.com/careers/job/446721986592) | 2026-11-19 |

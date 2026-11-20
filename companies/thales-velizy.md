@@ -7,6 +7,8 @@ Careers page: https://thales.wd3.myworkdayjobs.com/Careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Intern: AI for Smarter ATE Test Development & Debug | Open, no deadline listed |  | 6 months | Final-year engineering student; background in electronics, microelectronics, embedded systems, computer science or related; basic programming, Python a plus. | [link](https://cadence.wd1.myworkdayjobs.com/External_Careers/job/VALBONNE-Sophia/Intern--AI-for-Smarter-ATE-Test-Development---Debug_R56811-1) | 2026-11-20 |
+| Intern: AI for Silicon Test Data Analytics & Failure Analysis | Open, no deadline listed |  | 6 months | Final-year engineering student; background in electronics, microelectronics, computer science, data science or related; basic Python. | [link](https://cadence.wd1.myworkdayjobs.com/External_Careers/job/VALBONNE-Sophia/Intern--AI-for-Silicon-Test-Data-Analytics---Failure-Analysis_R56810-1) | 2026-11-20 |
 | STAGE - Innovation et évaluation Cyber - F/H | Open, no deadline listed |  | 6 months |  | [link](https://thales.wd3.myworkdayjobs.com/Careers/job/Vlizy-Villacoublay/STAGE---Innovation-et-valuation-Cyber---F-H_R0342344-1) | 2026-11-19 |
 | STAGE - Développeur JAVA full stack et migration cloud AWS - F / H | Open, no deadline listed |  | 6 months |  | [link](https://thales.wd3.myworkdayjobs.com/Careers/job/Grenoble/STAGE---Dveloppement-JAVA---Angular---AWS---F---H_R0341742) | 2026-11-19 |
 | STAGE – Cellule Data, KPIs & Reporting – H/F | Open, no deadline listed |  | 6 months |  | [link](https://thales.wd3.myworkdayjobs.com/Careers/job/Vlizy-Villacoublay/STAGE---Cellule-Data--KPIs---Reporting---H-F_R0344323-1) | 2026-11-19 |

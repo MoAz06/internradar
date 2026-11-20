@@ -7,6 +7,7 @@ Careers page: https://www.graphcore.ai/early-careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Graduate Infrastructure Solutions Engineer 2027 | Closes 29 Nov 2026 | September 2027 | 2-year graduate programme | Bachelor's or Master's in Computer Science, Maths, Machine Learning, Data Science or related; must already have the right to work in the UK, no visa sponsorship. | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894042002) | 2026-11-20 |
 | Software Engineering Summer Intern, Drivers and Utilities 2027 | Closes 29 Nov 2026 |  | 12 weeks |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894376002) | 2026-11-20 |
 | Silicon Summer Intern 2027 | Closes 29 Nov 2026 |  | 12 weeks |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8879329002) | 2026-11-20 |
 | Graduate Software Engineer, System Software QA 2027 | Closes 29 Nov 2026 |  | Not stated |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894574002) | 2026-11-20 |

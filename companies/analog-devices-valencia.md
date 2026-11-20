@@ -7,6 +7,7 @@ Careers page: https://analogdevices.wd1.myworkdayjobs.com/External
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Software Quality Assurance (SQA) Intern | Open, no deadline listed |  | Not stated | Undergraduate in computer science, software engineering or related; non-US persons may need a US export licence review | [link](https://analogdevices.wd1.myworkdayjobs.com/External/job/Spain-Valencia-Cortes-Valencianas/Software-Quality-Assurance--SQA--Intern_R267320) | 2026-11-20 |
 | FY27 Engineering Intern – Hardware, Software & Systems | Open, no deadline listed |  | Not stated |  | [link](https://analogdevices.wd1.myworkdayjobs.com/External/job/Spain-Valencia-Cortes-Valencianas/FY27--Engineering-Intern---Hardware--Software---Systems_R265309) | 2026-11-19 |
 | Software QA Intern | Open, no deadline listed |  | Not stated |  | [link](https://analogdevices.wd1.myworkdayjobs.com/External/job/Spain-Valencia-Cortes-Valencianas/Software-QA-Intern_R267125) | 2026-11-19 |
 | Digital Design Engineering​ Intern | Open, no deadline listed |  | Not stated |  | [link](https://analogdevices.wd1.myworkdayjobs.com/External/job/Spain-Valencia-Cortes-Valencianas/Digital-Design-Engineering--Intern_R267043) | 2026-11-19 |

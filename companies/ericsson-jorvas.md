@@ -7,6 +7,7 @@ Careers page: https://jobs.ericsson.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Research Summer Interns: Security Research | Closes 7 Dec 2026 | Summer 2027 | Not stated | ICT students from their first year (computer science, telecommunications, security); hybrid with office days in Jorvas | [link](https://jobs.ericsson.com/careers/job/563121777584524) | 2026-11-20 |
 | Research Summer Interns: Compute and Software Research | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777633381) | 2026-11-20 |
 | Research Intern: Cyber-Physical Systems | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777323126) | 2026-11-19 |
 | Software Developer Summer Intern: IMS GW (Test Tools & Automation) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777553320) | 2026-11-19 |

@@ -7,6 +7,8 @@ Careers page: https://jobs.ericsson.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Junior IT Systems& Automation Intern RM | Open, no deadline listed |  | Not stated | Ongoing or recently completed degree in Computer Engineering, Computer Science, IT, Telecommunications Engineering, Management Engineering or related; good English. | [link](https://jobs.ericsson.com/careers/job/563121777608640) | 2026-11-20 |
+| Junior IT Systems& Automation Intern MI | Open, no deadline listed |  | Not stated | Ongoing or recently completed degree in Computer Engineering, Computer Science, IT, Telecommunications Engineering, Management Engineering or related; good English. | [link](https://jobs.ericsson.com/careers/job/563121777605247) | 2026-11-20 |
 | Cloud Infrastructure Engineer Intern | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121776796797) | 2026-11-19 |
 
 ## Process, as the company describes it

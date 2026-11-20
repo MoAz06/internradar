@@ -7,6 +7,7 @@ Careers page: https://nxp.myworkdayjobs.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Stage ingénieur : Simulation CEM de cartes électroniques (H/F) | Open, no deadline listed |  | 6 months | Bac+5: Master's or final-year engineering student in electronics, microelectronics or physical measurement | [link](https://nxp.myworkdayjobs.com/careers/job/Toulouse/Stage-ingnieur---Simulation-CEM-de-cartes-lectroniques--H-F-_R-10065565) | 2026-11-20 |
 | Stage Ingénieur : Ingénieur d’application – Hardware-in-the-Loop et technologie GaN 48 V F/M | Open, no deadline listed |  | 6 months |  | [link](https://nxp.myworkdayjobs.com/careers/job/Toulouse/Internship-Offer---Application-Engineer-Hardware-in-the-Loop-and-48-V-GaN_R-10067893) | 2026-11-19 |
 
 ## Process, as the company describes it

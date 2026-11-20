@@ -7,6 +7,7 @@ Careers page: https://careers.uk.leonardo.com/gb/en/early-careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Graduate Product Security Engineer | Open, no deadline listed |  | 12-month graduate programme, permanent contract | At least a 2:2 Bachelor's or integrated Master's (or MSc, PhD) in cyber security, information security, computer science or ethical hacking; right to work in the UK; SC vetting usually needs 5 years of UK residence; also Lincoln, Southampton, Basildon and Bristol | [link](https://leonardocompany.wd3.myworkdayjobs.com/LeonardoCareerSite/job/GB---Luton---Cap-Green-300/Graduate-Product-Security-Engineer_R0034173) | 2026-11-20 |
 | Summer Placement Test Software Engineer | Open, no deadline listed |  | Not stated |  | [link](https://leonardocompany.wd3.myworkdayjobs.com/LeonardoCareerSite/job/GB---Edinburgh/Summer-Placement-Test-Software-Engineer_R0034209) | 2026-11-19 |
 | Summer Placement Software Engineer | Open, no deadline listed |  | Not stated |  | [link](https://leonardocompany.wd3.myworkdayjobs.com/LeonardoCareerSite/job/GB---Basildon/Summer-Placement-Software-Engineer_R0034282) | 2026-11-19 |
 | Summer Placement Software Engineer | Open, no deadline listed |  | 13 weeks |  | [link](https://leonardocompany.wd3.myworkdayjobs.com/LeonardoCareerSite/job/GB---Edinburgh/Summer-Placement-Software-Engineer_R0033869-1) | 2026-11-19 |

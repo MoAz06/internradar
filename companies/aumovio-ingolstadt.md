@@ -7,6 +7,7 @@ Careers page: https://jobs.smartrecruiters.com/Aumovio
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Praktikum – Tech Scouting / Emerging Technologies | Open, no deadline listed | March 2027 | At least 4 months | Students of AI and data science, computer science, intelligent systems engineering or other technical subjects; good German and fluent English; non-EU applicants need a residence title and work permit | [link](https://jobs.smartrecruiters.com/Aumovio/744000152381969) | 2026-11-20 |
 | Mandatory Internship - Software Engineering & HMI Design - REF6497T | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/Aumovio/744000113753117) | 2026-11-20 |
 | Praktikum im Bereich Software-Entwicklung - REF8204W | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/Aumovio/744000119114588) | 2026-11-20 |
 | Praktikum - embedded Software-Entwicklung | Open, start as soon as possible | As soon as possible | Not stated | Studies in computer science, electrical engineering or similar; C and C++; good German and English | [link](https://jobs.smartrecruiters.com/Aumovio/744000160167744-praktikum-embedded-software-entwicklung-) | 2026-11-17 |
