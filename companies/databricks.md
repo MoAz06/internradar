@@ -8,7 +8,7 @@ Careers page: https://www.databricks.com/company/careers/university-recruiting
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
 | Software Engineering Intern (2027 Start) - Amsterdam | Open, no deadline listed; hiring is rolling | Summer 2027 | 12 weeks | Graduating between fall 2027 and summer 2028 with a degree in CS, engineering or a related subject | [link](https://databricks.com/company/careers/open-positions/job?gh_jid=6866534002) | 2026-11-16 |
-| Software Engineer - New Grad (2027 Start) - Amsterdam | Open, no deadline listed; hiring is rolling | 2027 | Not stated | Graduating between fall 2026 and summer 2027 with a degree in CS, engineering or a related subject | [link](https://databricks.com/company/careers/open-positions/job?gh_jid=6866549002) | 2026-11-16 |
+| Software Engineer - New Grad (2027 Start) - Amsterdam | The posting was taken down by 20 Nov 2026 | 2027 | Not stated | Graduating between fall 2026 and summer 2027 with a degree in CS, engineering or a related subject | [link](https://databricks.com/company/careers/open-positions/job?gh_jid=6866549002) | 2026-11-20 |
 
 ## Process, as the company describes it
 
