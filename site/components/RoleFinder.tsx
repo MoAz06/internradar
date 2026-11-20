@@ -99,6 +99,9 @@ function Process({ x }: { x: Item }) {
   return <>{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</>;
 }
 
+/** The pay cell when the company names no figure: said plainly, so the empty cell does not look like missing data. */
+const notStated = <span className="text-[12px] text-dim">not stated</span>;
+
 const statusColor = (x: Item) =>
   x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
 
@@ -557,7 +560,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             {!inner && howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{x.city}</td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{x.pay?.short}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{x.pay?.short ?? notStated}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
         {open && (
@@ -601,7 +604,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             {howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{citiesOf(r)}</td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{payOf(r)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{payOf(r) || (r.items.every((y) => !y.pay) ? notStated : "")}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
         {open && r.items.map((y) => itemRow(y, true))}

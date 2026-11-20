@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-229-blue) ![roles](https://img.shields.io/badge/roles-762-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-229-blue) ![roles](https://img.shields.io/badge/roles-762-blue) ![checked](https://img.shields.io/badge/last%20checked-20%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).

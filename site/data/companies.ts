@@ -37,9 +37,10 @@ export const countries: Country[] = [
   { code: "IT", name: "Italy", slug: "italy", flag: "🇮🇹" },
 ];
 
-export const lastChecked = "2026-11-17";
-
 export const companies: Company[] = [...nl, ...gb, ...de, ...ch, ...ie, ...fr, ...se, ...dk, ...fi, ...no, ...es, ...pt, ...pl, ...at, ...be, ...it];
+
+/** The newest day anything on the list was checked against a company's own page. */
+export const lastChecked = companies.flatMap((c) => [...c.roles.map((r) => r.checked), ...c.sources.map((x) => x.checked)]).filter(Boolean).sort().at(-1) ?? "";
 
 export const links = {
   repo: "https://github.com/MoAz06/internradar",

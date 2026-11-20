@@ -5,13 +5,14 @@ import { companies, countries, lastChecked, radar } from "@/data/companies";
 import { reapplyRules } from "@/data/reapply";
 import { buildItems } from "@/lib/buildItems";
 import { edition } from "@/lib/edition";
-import { longDate } from "@/lib/format";
+import { longDate, shortDate } from "@/lib/format";
 import { live, upcoming } from "@/lib/live";
+import type { Item } from "@/lib/items";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-const pages = ["home", "edition", "radar", "reapply", "share", "alerts", "calendar", "about", "companies", "pay"];
+const pages = ["home", "nl", "edition", "radar", "reapply", "share", "alerts", "calendar", "about", "companies", "pay"];
 
 export function generateStaticParams() {
   return [...pages, ...companies.map((c) => c.slug)].map((p) => ({ file: `${p}.png` }));
@@ -35,17 +36,49 @@ const firstSentence = (s: string, n: number) => {
 };
 const cut = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1).replace(/[\s,.;:]+\S*$/, "") + "…" : s);
 
-/** What each preview says: a small label, a headline and one line under it. */
-function text(page: string) {
+type Preview = { kicker: string; head: string; sub?: string; label?: string; rows?: Item[]; foot?: string };
+
+/** The roles that close first, one per company, so the preview shows what is urgent that day. */
+function closingFirst(items: Item[], n: number): Item[] {
+  const seen = new Set<string>();
+  return items
+    .filter((x) => x.status === "open" && x.closes && (x.daysLeft ?? 0) > 0)
+    .sort((a, b) => a.closes!.localeCompare(b.closes!))
+    .filter((x) => !seen.has(x.slug) && !!seen.add(x.slug))
+    .slice(0, n);
+}
+
+/** The Shell rule, while Shell states it: the strongest re-apply example on the list. */
+const shellLine = () =>
+  reapplyRules.some((r) => r.slug === "shell" && r.group === "wait") ? "Rejected by Shell? Apply again within 10 months and it's turned down automatically." : "";
+
+/** What each preview says: a small label, a headline and one line under it, or a few roles for the list pages. */
+function text(page: string): Preview {
   const items = buildItems();
-  const open = items.filter((x) => x.status === "open" || x.status === "rolling").length;
+  const isOpen = (x: Item) => x.status === "open" || x.status === "rolling";
+  const open = items.filter(isOpen).length;
   const nCountries = new Set(companies.map((c) => c.country)).size;
-  if (page === "home")
+  if (page === "home") {
+    const shell = shellLine();
     return {
-      kicker: `Updated ${longDate(lastChecked)}`,
+      kicker: `Updated ${longDate(lastChecked)} · ${open} roles open in ${nCountries} countries`,
       head: "Tech internships in Europe, and how each company hires",
-      sub: `${open} roles open at ${companies.length} offices in ${nCountries} countries, with the hiring process for each.`,
+      rows: closingFirst(items, 3),
+      foot: shell && `${shell} Every company's re-apply rule is on the list.`,
     };
+  }
+  if (page === "nl") {
+    const here = items.filter((x) => x.country === "NL" && isOpen(x));
+    const shell = shellLine();
+    const picnic = reapplyRules.some((r) => r.slug === "picnic" && r.group === "wait");
+    return {
+      label: "Netherlands",
+      kicker: `Updated ${longDate(lastChecked)} · ${new Set(here.map((x) => x.slug)).size} companies`,
+      head: `${here.length} tech internships and graduate roles in the Netherlands`,
+      rows: closingFirst(here, 3),
+      foot: shell && `${shell}${picnic ? " Picnic recommends a year." : ""}`,
+    };
+  }
   if (page === "edition") {
     const e = edition();
     return {
@@ -89,23 +122,59 @@ function text(page: string) {
   };
 }
 
+const line = "#d9d1c1";
+const soon = "#a3421a";
+
+/** The title without the company name in front, with dashes read as commas. */
+const rowTitle = (x: Item) =>
+  (x.title.toLowerCase().startsWith(`${x.company.toLowerCase()} `) ? x.title.slice(x.company.length + 1) : x.title).replace(/\s+[-–]\s+/g, ", ");
+
+/** A role as one line: company, title, pay and the deadline. */
+function Row({ x }: { x: Item }) {
+  return (
+    <div style={{ display: "flex", alignItems: "baseline", padding: "8px 0", borderBottom: `1px solid ${line}`, fontSize: 27 }}>
+      <span style={{ fontFamily: "Libre Baskerville", fontWeight: 700, width: 190, flexShrink: 0, fontSize: 26 }}>{cut(x.company, 13)}</span>
+      <span style={{ fontFamily: "Source Serif", flexGrow: 1, flexShrink: 1, marginRight: 18, whiteSpace: "nowrap", overflow: "hidden" }}>{cut(rowTitle(x), x.pay ? 40 : 50)}</span>
+      {x.pay && <span style={{ fontFamily: "Source Serif", fontSize: 25, color: muted, flexShrink: 0, marginRight: 18 }}>{x.pay.short}</span>}
+      <span style={{ fontFamily: "Source Serif", fontSize: 25, color: soon, flexShrink: 0 }}>{`Closes ${shortDate(x.closes!)}`}</span>
+    </div>
+  );
+}
+
 export async function GET(_req: Request, { params }: { params: Promise<{ file: string }> }) {
   const { file } = await params;
-  const t = text(file.replace(/\.png$/, ""));
+  const page = file.replace(/\.png$/, "");
+  const t = text(page);
+  const list = !!t.rows?.length;
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: paper, color: ink, padding: "48px 64px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontFamily: "Source Serif", fontSize: 24, color: muted }}>
-          <span>Europe edition</span>
+          <span>{t.label ?? "Europe edition"}</span>
           <span style={{ fontFamily: "Libre Baskerville", fontWeight: 700, fontSize: 64, color: ink, lineHeight: 1 }}>internradar</span>
-          <span>internradar.eu</span>
+          <span>{page === "nl" ? "internradar.eu/nl" : "internradar.eu"}</span>
         </div>
         <div style={{ display: "flex", marginTop: 22, borderTop: `3px solid ${ink}`, borderBottom: `1px solid ${ink}`, height: 8 }} />
-        <div style={{ display: "flex", flexDirection: "column", marginTop: 44 }}>
-          <span style={{ fontFamily: "Source Serif", fontSize: 28, color: green }}>{t.kicker}</span>
-          <span style={{ fontFamily: "Libre Baskerville", fontWeight: 700, fontSize: 58, lineHeight: 1.15, marginTop: 10 }}>{t.head}</span>
-          <span style={{ fontFamily: "Source Serif", fontSize: 30, lineHeight: 1.4, color: muted, marginTop: 22 }}>{t.sub}</span>
-        </div>
+        {list ? (
+          <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+            <span style={{ fontFamily: "Source Serif", fontSize: 26, color: green, marginTop: 24 }}>{t.kicker}</span>
+            <span style={{ fontFamily: "Libre Baskerville", fontWeight: 700, fontSize: 46, lineHeight: 1.15, marginTop: 6 }}>{t.head}</span>
+            <div style={{ display: "flex", flexDirection: "column", marginTop: 18, borderTop: `2px solid ${ink}` }}>
+              {t.rows!.map((x) => (
+                <Row key={x.id} x={x} />
+              ))}
+            </div>
+            {t.foot && (
+              <span style={{ marginTop: "auto", borderLeft: `5px solid ${soon}`, paddingLeft: 16, fontFamily: "Source Serif", fontSize: 26, lineHeight: 1.3 }}>{t.foot}</span>
+            )}
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", marginTop: 44 }}>
+            <span style={{ fontFamily: "Source Serif", fontSize: 28, color: green }}>{t.kicker}</span>
+            <span style={{ fontFamily: "Libre Baskerville", fontWeight: 700, fontSize: 58, lineHeight: 1.15, marginTop: 10 }}>{t.head}</span>
+            <span style={{ fontFamily: "Source Serif", fontSize: 30, lineHeight: 1.4, color: muted, marginTop: 22 }}>{t.sub}</span>
+          </div>
+        )}
       </div>
     ),
     { width: 1200, height: 630, fonts },
