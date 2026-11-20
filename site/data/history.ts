@@ -319,7 +319,7 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "dassault-systemes|STAGE - Ingénieur.e R&D en Intelligence Artificielle (LLM, Deep Learning) (F/H)|https://www.3ds.com/careers/jobs/stage-ingenieur-e-r-d-en-intelligence-artificielle-llm-deep-learning-f-h-550404":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "back-market-paris|Software Engineer Intern|https://jobs.ashbyhq.com/backmarket/154e6aa0-dbeb-4521-8135-3304118c822b":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "alan-paris|Summer Intern 2027 - Alan Summer Internship Program|https://jobs.ashbyhq.com/alan/22f1cd8e-0cff-4a31-8bf6-547c0dba45a7":{"added":"2026-11-17","statuses":[["2026-11-17","rolling"]]},
-  "alan-paris|Data Associate - Internship (6 months, flexible start)|https://jobs.ashbyhq.com/alan/042421fd-55af-40f2-85c0-20a2fb354c1e":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
+  "alan-paris|Data Associate - Internship (6 months, flexible start)|https://jobs.ashbyhq.com/alan/042421fd-55af-40f2-85c0-20a2fb354c1e":{"added":"2026-11-17","statuses":[["2026-11-17","open"],["2026-11-20","closed"]]},
   "alan-paris|Security Associate - Internship|https://jobs.ashbyhq.com/alan/a725479a-de87-45d9-afe6-e3273dc6d704":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "ubisoft-paris|Data Business Analyst Assistant – Internship (6-month) January 2027 (W/M/NB)|https://jobs.smartrecruiters.com/Ubisoft2/744000155221189":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "ubisoft-paris|Mobile Data Analyst Assistant – Stage (6 mois) Janvier 2027 (F/H/NB)|https://jobs.smartrecruiters.com/Ubisoft2/744000159641259":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},

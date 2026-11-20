@@ -8,7 +8,7 @@ Careers page: https://alan.com/en/careers
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
 | Summer Intern 2027 - Alan Summer Internship Program | Reviewed on a rolling basis | Early June 2027 | 3 months (June to end of August 2027) | Students whose curriculum includes a summer internship; fluent written English; tracks include Engineering and Data & AI | [link](https://jobs.ashbyhq.com/alan/22f1cd8e-0cff-4a31-8bf6-547c0dba45a7) | 2026-11-17 |
-| Data Associate - Internship (6 months, flexible start) | Open, no deadline listed | Flexible start date | 6 months | Final-year student (engineering or business, strong quantitative track) with an internship agreement; based in Paris | [link](https://jobs.ashbyhq.com/alan/042421fd-55af-40f2-85c0-20a2fb354c1e) | 2026-11-17 |
+| Data Associate - Internship (6 months, flexible start) | The posting was taken down by 20 Nov 2026 | Flexible start date | 6 months | Final-year student (engineering or business, strong quantitative track) with an internship agreement; based in Paris | [link](https://jobs.ashbyhq.com/alan/042421fd-55af-40f2-85c0-20a2fb354c1e) | 2026-11-20 |
 | Security Associate - Internship | Open, no deadline listed | Not stated | 6 months | End of studies, engineering or security track; codes in Python | [link](https://jobs.ashbyhq.com/alan/a725479a-de87-45d9-afe6-e3273dc6d704) | 2026-11-17 |
 
 ## Process, as the company describes it
