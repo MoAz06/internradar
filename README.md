@@ -242,10 +242,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Tower Research Capital](companies/tower-research-capital-london.md) | Quantitative Research Internship - 6 Months, Central Execution Research | London | 🟢 | When it suits you, preferably within 6 months | Not stated | Not stated | 18 Nov |
 | [Deliveroo](companies/deliveroo-london.md) | Software Engineering Summer Internship 2027 (London) | London | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Deliveroo](companies/deliveroo-london.md) | Software Engineer, New Grad | London | 🟢 | – | Typically 3-4 interview stages | Not stated | 17 Nov |
-| [Graphcore](companies/graphcore-bristol.md) | Software Engineering Summer Intern, Drivers and Utilities 2027 | Bristol | 🟢 | – | See the company page | Not stated | 20 Nov |
-| [Graphcore](companies/graphcore-bristol.md) | Silicon Summer Intern 2027 | Bristol | 🟢 | – | See the company page | Not stated | 20 Nov |
+| [Graphcore](companies/graphcore-bristol.md) | Software Engineering Summer Intern, Drivers and Utilities 2027 | Bristol | 🟢 until 29 Nov | – | See the company page | Not stated | 20 Nov |
+| [Graphcore](companies/graphcore-bristol.md) | Silicon Summer Intern 2027 | Bristol | 🟢 until 29 Nov | – | See the company page | Not stated | 20 Nov |
 | [Graphcore](companies/graphcore-bristol.md) | Graduate Software Engineer, System Software QA 2027 | Bristol | 🟢 until 29 Nov | – | See the company page | Not stated | 20 Nov |
-| [Graphcore](companies/graphcore-bristol.md) | Graduate Silicon Engineer 2027 | Bristol | 🟢 | – | See the company page | Not stated | 20 Nov |
+| [Graphcore](companies/graphcore-bristol.md) | Graduate Silicon Engineer 2027 | Bristol | 🟢 until 29 Nov | – | See the company page | Not stated | 20 Nov |
 | [Graphcore](companies/graphcore-bristol.md) | Graduate Hardware Engineer 2027 | Bristol | 🟢 until 29 Nov | – | See the company page | Not stated | 20 Nov |
 | [Graphcore](companies/graphcore-bristol.md) | AI Technology PhD Research Internship | Bristol | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Graphcore](companies/graphcore-bristol.md) | Graduate Software Engineer, AI Compute Libraries & Performance 2027 | Bristol | 🟢 until 29 Nov | September 2027 | CV and cover letter, outcome by early December, technical assessment, in-person final assessments in early spring | Not stated | 17 Nov |

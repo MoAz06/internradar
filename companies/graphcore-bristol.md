@@ -7,10 +7,10 @@ Careers page: https://www.graphcore.ai/early-careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Software Engineering Summer Intern, Drivers and Utilities 2027 | Open, no deadline listed |  | 12 weeks |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894376002) | 2026-11-20 |
-| Silicon Summer Intern 2027 | Open, no deadline listed |  | 12 weeks |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8879329002) | 2026-11-20 |
+| Software Engineering Summer Intern, Drivers and Utilities 2027 | Closes 29 Nov 2026 |  | 12 weeks |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894376002) | 2026-11-20 |
+| Silicon Summer Intern 2027 | Closes 29 Nov 2026 |  | 12 weeks |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8879329002) | 2026-11-20 |
 | Graduate Software Engineer, System Software QA 2027 | Closes 29 Nov 2026 |  | Not stated |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894574002) | 2026-11-20 |
-| Graduate Silicon Engineer 2027 | Open, no deadline listed |  | Not stated |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8843258002) | 2026-11-20 |
+| Graduate Silicon Engineer 2027 | Closes 29 Nov 2026 |  | Not stated |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8843258002) | 2026-11-20 |
 | Graduate Hardware Engineer 2027 | Closes 29 Nov 2026 |  | Not stated |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894149002) | 2026-11-20 |
 | AI Technology PhD Research Internship | Open, no deadline listed |  | Not stated |  | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894738002) | 2026-11-20 |
 | Graduate Software Engineer, AI Compute Libraries & Performance 2027 | Deadline midnight 29 November 2026; may close early | September 2027 | Two-year graduate programme | Bachelor's/Master's in CS, Maths, ML, Data Science or related; C++11 experience | [link](https://job-boards.greenhouse.io/graphcore/jobs/8894177002) | 2026-11-17 |

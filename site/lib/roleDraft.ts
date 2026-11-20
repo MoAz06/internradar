@@ -145,14 +145,27 @@ const realDate = (y: number, m: number, d: number) => {
   return t.getUTCFullYear() === y && t.getUTCMonth() === m - 1 && t.getUTCDate() === d ? `${y}-${pad2(m)}-${pad2(d)}` : "";
 };
 
-/** Full dates (with a year) in a sentence, as YYYY-MM-DD. 03/04/2027 is skipped: day and month can't be told apart. */
-export function datesIn(sentence: string): string[] {
+/** Dates in a sentence, as YYYY-MM-DD. 03/04/2027 is skipped: day and month can't be told apart. With `today`,
+ * a date without a year ("Midnight 29 th November") is the first such day from today on. */
+export function datesIn(sentence: string, today = ""): string[] {
   const s = fold(sentence);
   const out: string[] = [];
-  for (const m of s.matchAll(new RegExp(`\\b(\\d{1,2})(?:st|nd|rd|th|er)?\\.?\\s+(?:of\\s+)?${MONTH}\\.?,?\\s+(20\\d\\d)\\b`, "g")))
+  for (const m of s.matchAll(new RegExp(`\\b(\\d{1,2})\\s?(?:st|nd|rd|th|er)?\\.?\\s+(?:of\\s+)?${MONTH}\\.?,?\\s+(20\\d\\d)\\b`, "g")))
     out.push(realDate(Number(m[3]), monthOf.get(m[2])!, Number(m[1])));
-  for (const m of s.matchAll(new RegExp(`\\b${MONTH}\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?,?\\s+(20\\d\\d)\\b`, "g")))
+  for (const m of s.matchAll(new RegExp(`\\b${MONTH}\\.?\\s+(\\d{1,2})\\s?(?:st|nd|rd|th)?,?\\s+(20\\d\\d)\\b`, "g")))
     out.push(realDate(Number(m[3]), monthOf.get(m[1])!, Number(m[2])));
+  if (today) {
+    const y = Number(today.slice(0, 4));
+    const next = (mo: number, d: number) => {
+      const day = realDate(y, mo, d);
+      return day && day >= today ? day : realDate(y + 1, mo, d);
+    };
+    const noYear = "(?!\\.?,?\\s+20\\d\\d)";
+    for (const m of s.matchAll(new RegExp(`\\b(\\d{1,2})\\s?(?:st|nd|rd|th|er)?\\.?\\s+(?:of\\s+)?${MONTH}\\b${noYear}`, "g")))
+      out.push(next(monthOf.get(m[2])!, Number(m[1])));
+    for (const m of s.matchAll(new RegExp(`\\b${MONTH}\\.?\\s+(\\d{1,2})\\s?(?:st|nd|rd|th)?\\b${noYear}`, "g")))
+      out.push(next(monthOf.get(m[1])!, Number(m[2])));
+  }
   for (const m of s.matchAll(/\b(20\d\d)-(\d\d)-(\d\d)\b/g)) out.push(realDate(Number(m[1]), Number(m[2]), Number(m[3])));
   for (const m of s.matchAll(/\b(\d{1,2})[./](\d{1,2})[./](20\d\d)\b/g)) {
     const [d, mo] = [Number(m[1]), Number(m[2])];
@@ -181,7 +194,7 @@ export type Found2 = { duration: string; closes: string; start: string; rolling:
 
 /** What the posting's text says about duration, deadline and start, with the lines it comes from.
  * A value is only given when exactly one reading turns up; otherwise only the lines. */
-export function readPosting(text: string, title: string): Found2 {
+export function readPosting(text: string, title: string, today = ""): Found2 {
   const sents = sentencesOf(text);
   const quotes: Found2["quotes"] = [];
 
@@ -201,7 +214,7 @@ export function readPosting(text: string, title: string): Found2 {
   for (const s of sents) {
     if (!deadlineCue.test(s)) continue;
     dlLines.push(s);
-    for (const d of datesIn(s)) closes.add(d);
+    for (const d of datesIn(s, today)) closes.add(d);
   }
   if (dlLines.length) quotes.push({ head: "Deadline", lines: dlLines.slice(0, 3) });
 
@@ -293,7 +306,7 @@ export const repostKeyOf = (name: string, title: string, where: string) => `${fo
  */
 export function draftsFor(f: Found, text: string, all: Company[], checkedAt: string): RoleDraft[] {
   const { matched, guess } = matchCompanies(f);
-  const p = readPosting(text, f.title);
+  const p = readPosting(text, f.title, checkedAt.slice(0, 10));
   const kind = kindOf(f.title);
   const field = fieldOf(f.title);
   const base = postingKey(f);

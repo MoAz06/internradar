@@ -115,6 +115,13 @@ test("dates with a year only, and never a day and month that can be swapped", ()
   assert.deepEqual(datesIn("Closing date 03/04/2027"), []);
   assert.deepEqual(datesIn("Closing date 31/01/2027"), ["2027-01-31"]);
   assert.deepEqual(datesIn("Deadline 31 February 2027"), []);
+  // without a year: only with today, and then the first such day from today on
+  assert.deepEqual(datesIn("Application deadline: Midnight 29 th November"), []);
+  assert.deepEqual(datesIn("Application deadline: Midnight 29 th November", "2026-11-20"), ["2026-11-29"]);
+  assert.deepEqual(datesIn("Application deadline: Midnight 29th November We encourage you to apply early", "2026-11-20"), ["2026-11-29"]);
+  assert.deepEqual(datesIn("Applications close January 15", "2026-11-20"), ["2027-01-15"]);
+  assert.deepEqual(datesIn("Apply by 29 November 2026.", "2026-11-20"), ["2026-11-29"]);
+  assert.equal(readPosting("Start date: June 2027\nApplication deadline: Midnight 29 th November", "Intern", "2026-11-20").closes, "2026-11-29");
   assert.deepEqual(datesIn("Apply by 29 November"), []);
 });
 

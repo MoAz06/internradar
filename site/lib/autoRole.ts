@@ -110,7 +110,7 @@ export function autoRole(f: Found, text: string, all: Company[], today: string, 
   if (!text) return { ok: false, why: "posting couldn't be read" };
   if (yearsAsked.test(text)) return { ok: false, why: "asks for years of experience" };
 
-  const p = readPosting(text, title);
+  const p = readPosting(text, title, today);
   const closes = p.closes && p.closes >= today ? p.closes : "";
   if (p.closes && !closes) return { ok: false, why: "deadline has passed" };
   const language = postingLanguage(text);

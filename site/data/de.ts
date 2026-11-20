@@ -525,7 +525,7 @@ export const de: Company[] = [
       {
         title: "Praktikum im Bereich agentische KI für die automatisierte Codegenerierung in sicherheitskritischer Embedded-Software (w/m/div.)",
         kind: "Internship",
-        field: "Hardware and embedded",
+        field: "Data and AI",
         status: "open",
         applications: "Open, no deadline listed",
         start: "",
@@ -542,7 +542,7 @@ export const de: Company[] = [
       {
         title: "Mandatory Internship Full-Stack Development for Release Automation of Automotive Embedded Middleware Software",
         kind: "Internship",
-        field: "Hardware and embedded",
+        field: "Software",
         status: "open",
         applications: "Open, no deadline listed",
         start: "",
