@@ -56,6 +56,8 @@ const found: Found[] = [];
 const failed: string[] = [];
 /** "3 Locations" postings whose places were read from the posting itself. */
 let placesRead = 0;
+/** "3 Locations" postings whose places couldn't be read tonight. They wait for a next night. */
+let placesUnread = 0;
 /** Posting link on the list to the day its job board says it was first published. Kept by scripts/opened.mts. */
 const postedOn: Record<string, string> = {};
 // Workday answers 429 when several of its boards are read at once, so those go one by one in a lane of their own
@@ -89,8 +91,13 @@ await Promise.all(
           location = (await workdayPlaces(e.board, j.ref)) ?? location;
           if (location !== j.location) placesRead++;
         }
-        // a location we still can't read is kept, the check by hand decides
-        if (location && !/^\d+ locations?$/i.test(location) && !inEurope(location)) continue;
+        // places that couldn't be read wait for a next night: without them the posting lands on the company's only
+        // entry (41 NVIDIA roles in China, Taiwan and the US became Zurich drafts that way)
+        if (/^\d+ locations?$/i.test(location)) {
+          placesUnread++;
+          continue;
+        }
+        if (location && !inEurope(location)) continue;
         found.push({
           board: key,
           spec: e.board,
@@ -112,7 +119,7 @@ found.sort((a, b) => a.company.localeCompare(b.company) || a.title.localeCompare
 const checkedAt = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
 if (only.length) {
   writeFileSync(join(site, ".discover-only.json"), JSON.stringify({ checkedAt, boards: boards.size, failed, found }, null, 1));
-  console.log(`${boards.size} boards (${[...boards.keys()].join(", ")}), ${found.length} new (${found.filter((f) => f.tech).length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}, places read for ${placesRead} "N Locations" postings`);
+  console.log(`${boards.size} boards (${[...boards.keys()].join(", ")}), ${found.length} new (${found.filter((f) => f.tech).length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}, places read for ${placesRead} "N Locations" postings, ${placesUnread} left for a next night`);
   console.log("Wrote .discover-only.json; the full report is untouched. Next: auto-roles --plan --found .discover-only.json");
   process.exit(0);
 }
@@ -142,4 +149,4 @@ if (found.length) {
   writeFileSync(md, lines.join("\n") + "\n");
 }
 
-console.log(`${boards.size} boards, ${found.length} new (${techFound.length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}, places read for ${placesRead} "N Locations" postings`);
+console.log(`${boards.size} boards, ${found.length} new (${techFound.length} tech), ${failed.length} failed${failed.length ? ": " + failed.join(", ") : ""}, places read for ${placesRead} "N Locations" postings, ${placesUnread} left for a next night`);
