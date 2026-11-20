@@ -17,9 +17,7 @@ Careers page: https://www.bosch.de/karriere/dein-einstieg/studentinnen-und-stude
 | Mandatory Internship Full-Stack Development for Release Automation of Automotive Embedded Middleware Software | Open, no deadline listed |  | 6 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000153769414) | 2026-11-20 |
 | Mandatory Internship in State of Health Aware Bidirectional Charging Algorithm Development | Open, no deadline listed |  | 6 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000156783695) | 2026-11-20 |
 | Praktikum Softwareentwicklung für Bosch eBike Systems ABS | Open, no deadline listed |  | 6 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000157086850) | 2026-11-20 |
-| Praktikum im Bereich MEMS & Elektronik – Entwicklung, Charakterisierung und Musteraufbau | Open, no deadline listed |  | 5-6 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000159058604) | 2026-11-20 |
 | Working Student in Automotive Security (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000159333431) | 2026-11-20 |
-| Werkstudent im Bereich Automotive Security (w/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000159338949) | 2026-11-20 |
 | Praktikum im Bereich Enterprise Data & AI im Sondermaschinenbau | Open, no deadline listed |  | 6 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000159386310) | 2026-11-20 |
 | Internship in MEMS & Electronics – Development, Characterization, and Prototyping | Open, no deadline listed |  | 5-6 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000159835435) | 2026-11-20 |
 | Werkstudent im Testlabor – Hardware & Automation (w/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000161082579) | 2026-11-20 |

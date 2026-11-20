@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-238-blue) ![roles](https://img.shields.io/badge/roles-813-blue) ![checked](https://img.shields.io/badge/last%20checked-20%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-238-blue) ![roles](https://img.shields.io/badge/roles-811-blue) ![checked](https://img.shields.io/badge/last%20checked-20%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -419,9 +419,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Bosch](companies/bosch.md) | Mandatory Internship Full-Stack Development for Release Automation of Automotive Embedded Middleware Software | Abstatt | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Mandatory Internship in State of Health Aware Bidirectional Charging Algorithm Development | Schwieberdingen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Praktikum Softwareentwicklung für Bosch eBike Systems ABS | Reutlingen | 🟢 | – | See the company page | Not stated | 20 Nov |
-| [Bosch](companies/bosch.md) | Praktikum im Bereich MEMS & Elektronik – Entwicklung, Charakterisierung und Musteraufbau | Reutlingen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Working Student in Automotive Security (f/m/div.) | Stuttgart | 🟢 | – | See the company page | Not stated | 20 Nov |
-| [Bosch](companies/bosch.md) | Werkstudent im Bereich Automotive Security (w/m/div.) | Stuttgart | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Praktikum im Bereich Enterprise Data & AI im Sondermaschinenbau | Stuttgart | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Internship in MEMS & Electronics – Development, Characterization, and Prototyping | Reutlingen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Werkstudent im Testlabor – Hardware & Automation (w/m/div.) | Hildesheim | 🟢 | – | See the company page | Not stated | 20 Nov |
