@@ -38,7 +38,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         {describe(p.city, p.items.length, p.companies)} Deadlines first. The company pages have the interview steps and the
         re-apply rule.
       </p>
-      <div className="mt-7 grid gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
+      <div className="mt-7 grid grid-cols-1 gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
         <div className="lg:border-r lg:border-line lg:pr-7">
           <h2 className="text-[20px] font-bold">Open now ({open.length})</h2>
           <RoleList list={open} empty={`Nothing open in ${p.city} right now.`} />
@@ -47,9 +47,9 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           <h2 className="text-[20px] font-bold">Opening soon ({soon.length})</h2>
           <RoleList list={soon} empty="No role here is marked as opening soon." />
           <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">Other cities</h2>
-          <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
+          <p className="mt-1 flex flex-wrap gap-x-4 text-[15px]">
             {others.map((x) => (
-              <Link key={x.slug} href={`/cities/${x.slug}/`} className="link">
+              <Link key={x.slug} href={`/cities/${x.slug}/`} className="link inline-flex min-h-11 items-center">
                 {x.city}
               </Link>
             ))}

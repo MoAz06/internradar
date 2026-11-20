@@ -33,7 +33,7 @@ export default function Edition() {
         .
       </p>
 
-      <div className="mt-7 grid gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
+      <div className="mt-7 grid grid-cols-1 gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
         <div className="lg:border-r lg:border-line lg:pr-7">
           <h2 className="text-[20px] font-bold">Closing this week</h2>
           <RoleList list={e.closingThis} empty="Nothing with a deadline in the next seven days." />

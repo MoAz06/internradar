@@ -41,7 +41,7 @@ export default async function FieldPage({ params }: { params: Promise<{ field: s
         </Link>
         .
       </p>
-      <div className="mt-7 grid gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
+      <div className="mt-7 grid grid-cols-1 gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
         <div className="lg:border-r lg:border-line lg:pr-7">
           <h2 className="text-[20px] font-bold">Open now ({open.length})</h2>
           <RoleList list={open} empty="Nothing open in this field right now." />
@@ -50,19 +50,19 @@ export default async function FieldPage({ params }: { params: Promise<{ field: s
           <h2 className="text-[20px] font-bold">Opening soon ({soon.length})</h2>
           <RoleList list={soon} empty="No role in this field is marked as opening soon." />
           <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">Other fields</h2>
-          <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
+          <p className="mt-1 flex flex-wrap gap-x-4 text-[15px]">
             {fieldPages()
               .filter((x) => x.slug !== p.slug)
               .map((x) => (
-                <Link key={x.slug} href={`/fields/${x.slug}/`} className="link">
+                <Link key={x.slug} href={`/fields/${x.slug}/`} className="link inline-flex min-h-11 items-center">
                   {fieldTitle[x.field]}
                 </Link>
               ))}
           </p>
           <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">By city</h2>
-          <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5 text-[15px]">
+          <p className="mt-1 flex flex-wrap gap-x-4 text-[15px]">
             {cityPages().map((x) => (
-              <Link key={x.slug} href={`/cities/${x.slug}/`} className="link">
+              <Link key={x.slug} href={`/cities/${x.slug}/`} className="link inline-flex min-h-11 items-center">
                 {x.city}
               </Link>
             ))}
