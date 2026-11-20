@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-206-blue) ![roles](https://img.shields.io/badge/roles-703-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-207-blue) ![roles](https://img.shields.io/badge/roles-715-blue) ![checked](https://img.shields.io/badge/last%20checked-17%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -614,8 +614,20 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Qualcomm](companies/qualcomm-sophia-antipolis.md) | FY27 Intern - Hardware Design for Post-Quantum Cryptography - 6 months, Sophia | Sophia Antipolis | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 19 Nov |
 | [Goldman Sachs](companies/goldman-sachs-paris.md) | 2027 \| EMEA \| Paris \| The Core Quantitative Strats \| Seasonal/Off Cycle Internship | Paris | 🟢 | – | See the company page | Not stated. To apply to a fifth role, “you must withdraw a current application that has not been turned down”. | 19 Nov |
 | [Goldman Sachs](companies/goldman-sachs-paris.md) | 2027 \| EMEA \| Paris \| FICC and Equities (Sales and Trading) Quantitative Strats \| Seasonal/Off Cycle Internship | Paris | 🟢 | – | See the company page | Not stated. To apply to a fifth role, “you must withdraw a current application that has not been turned down”. | 19 Nov |
+| [Airbus](companies/airbus-toulouse.md) | Stage 2027 - AI Solution Development (m/f) | Toulouse | 🟢 | February 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | Stage 2027 - Stage en outillage de monitoring plateforme IT (h/f) | Toulouse | 🟢 | January 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | STAGE 2027 - Développement en langage Python d’un logiciel pour un banc de test radio-fréquence (f/h) | Paris | 🟢 | February or March 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | Airbus UpNext Internship 2027 - AI for Satellite Operations & Test Automation Engineer (m/f) | Toulouse | 🟢 | As soon as possible | See the company page | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | Stage 2027 Développeur Cybersécurité - Étude et mise en œuvre sécurisée de Wayland sous FreeBSD (h/f) | Paris | 🟢 | January 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | STAGE 2027 - Operations Data Products Trainee | Toulouse | 🟢 | First half of 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | STAGE 2027 – IA & Machine Learning : Données techniques de maintenance (H/F) | Toulouse | 🟢 | February 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | ATR - Internship - Flight Data Analysis and IA | Toulouse | 🟢 | January to March 2027 | ATR role: CV review, then a technical interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | ATR - Internship- Geospatial Data Science (F/M) | Toulouse | 🟢 | March or April 2027 | ATR role: interview with the future manager, then a technical interview with a data scientist | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027  -  Cybersecurity CTI | Toulouse | 🟢 | 4 January 2027 | ATR role: CV review, then a technical interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027  - AI & Data Engineering - Automated Technical Knowledge Extraction | Toulouse | 🟢 | February or March 2027 | ATR role: CV review, then a technical interview with the manager | Not stated | 20 Nov |
+| [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027  - infra IA et deploiement de LLM | Toulouse | 🟢 | 4 January 2027 | ATR role: CV review, then a technical interview with the manager | Not stated | 20 Nov |
 
-26 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+27 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="sweden"></a>
 ## 🇸🇪 Sweden
