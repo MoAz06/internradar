@@ -125,3 +125,17 @@ body {
   background: var(--color-line);
   border-radius: 4px;
 }
+
+/* the poster page prints only its sheet: no menu, footer or app tabs, and no page margin */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body:has(.poster-sheet) {
+    background: #fff;
+  }
+  body:has(.poster-sheet) > :not(main) {
+    display: none !important;
+  }
+}

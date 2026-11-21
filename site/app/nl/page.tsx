@@ -115,6 +115,9 @@ export default function NetherlandsPage() {
             <a href="/calendar/netherlands.ics" className="link inline-flex min-h-11 items-center text-[15px]" data-track="nl-calendar">
               Calendar feed for the {NAME}
             </a>
+            <Link href="/poster/" className="link flex min-h-11 items-center text-[15px]" data-track="nl-poster">
+              A poster with these deadlines, to print or send
+            </Link>
           </div>
 
           <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">Other countries</h2>
