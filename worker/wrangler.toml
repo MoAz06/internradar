@@ -5,6 +5,9 @@ compatibility_date = "2026-10-01"
 [vars]
 INBOX_REPO = "MoAz06/internradar-inbox"
 ALLOWED_ORIGINS = "https://internradar.eu,http://localhost:3000"
+# suggestions from /feedback/ go here by email; RESEND_KEY is a secret (wrangler secret put RESEND_KEY)
+FEEDBACK_TO = "contact@internradar.eu"
+FEEDBACK_FROM = "internradar <feedback@internradar.eu>"
 
 # Secrets, set with `npx wrangler secret put NAME`, never in this file:
 #   TURNSTILE_SECRET  the Turnstile secret key

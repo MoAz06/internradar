@@ -45,7 +45,7 @@ export default function Privacy() {
           the one responsible for it. You can reach me with <Contact />.
         </p>
         <p className={p}>
-          {`In short: you can use the whole site without telling me who you are. There are no cookies and no accounts. What you save, follow or pick in your profile stays in your browser. I only get something from you when you sign up for the email or send a report, and then only what you type in.`}
+          {`In short: you can use the whole site without telling me who you are. There are no cookies and no accounts. What you save, follow or pick in your profile stays in your browser. I only get something from you when you sign up for the email, send a report or send a suggestion, and then only what you type in.`}
         </p>
 
         <h2 className={h2}>Visiting the site</h2>
@@ -85,6 +85,13 @@ export default function Privacy() {
             its privacy policy
           </a>
           .
+        </p>
+
+        <h2 id="suggestions" className={h2}>
+          Suggestions
+        </h2>
+        <p className={p}>
+          {`The suggestion form asks only for your suggestion, and your email address if you want an answer. It goes through the same Cloudflare Worker and Turnstile check as the share form, and then Resend, a company in the United States that sends email, delivers it to my inbox as one email. The Worker keeps nothing; what Resend keeps is in its own privacy policy. I use your address only to answer you, and you can ask me to delete the email.`}
         </p>
 
         <h2 className={h2}>Sharing your hiring process</h2>

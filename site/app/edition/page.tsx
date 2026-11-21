@@ -117,6 +117,13 @@ export default function Edition() {
           </section>
         </div>
       </div>
+      <p className="mt-10 border-t border-line pt-4 text-[16px] text-muted">
+        Missing a company, or something unclear on this page?{" "}
+        <Link href="/feedback/?from=/edition/" className="link">
+          Tell me
+        </Link>
+        .
+      </p>
     </Section>
   );
 }

@@ -1,7 +1,9 @@
 // Takes a sending from the share form on internradar.eu/share/, checks Turnstile,
-// and opens an issue in the private inbox repo. Nothing is stored here.
+// and opens an issue in the private inbox repo. A suggestion from internradar.eu/feedback/
+// goes out as an email through Resend to the contact address instead. Nothing is stored here.
 // At night it also starts the nightly workflows on time (see the bottom of this file).
 
+import { cleanFeedback, feedbackMail } from "../../site/lib/feedbackForm.ts";
 import { cleanSending, issueBody, issueTitle } from "../../site/lib/reportForm.ts";
 
 export type Env = {
@@ -10,6 +12,9 @@ export type Env = {
   TURNSTILE_SECRET: string;
   GITHUB_TOKEN: string;
   ACTIONS_TOKEN: string;
+  RESEND_KEY: string; // secret, from resend.com
+  FEEDBACK_TO: string; // "contact@internradar.eu"
+  FEEDBACK_FROM: string; // "internradar <feedback@internradar.eu>", on the domain verified at Resend
 };
 
 const json = (status: number, body: unknown, origin: string) =>
@@ -46,6 +51,8 @@ export async function handle(req: Request, env: Env, fetcher: typeof fetch = fet
   const verdict = (await check.json().catch(() => ({}))) as { success?: boolean };
   if (!verdict.success) return json(403, { error: "The spam check failed. Reload the page and try again." }, ok);
 
+  if (raw.kind === "feedback") return sendFeedback(raw, env, fetcher, ok);
+
   const { sending, problems } = cleanSending(raw);
   if (problems.length) return json(400, { error: `Missing: ${problems.join(", ")}.` }, ok);
 
@@ -62,6 +69,33 @@ export async function handle(req: Request, env: Env, fetcher: typeof fetch = fet
   });
   if (!gh.ok) {
     console.log("GitHub said", gh.status, await gh.text().catch(() => ""));
+    return json(502, { error: "It didn't come through on my side." }, ok);
+  }
+  return json(200, { ok: true }, ok);
+}
+
+/** A suggestion goes to the inbox as an email. Reply-To is the visitor's address when they left one. */
+async function sendFeedback(raw: Record<string, unknown>, env: Env, fetcher: typeof fetch, ok: string): Promise<Response> {
+  const { feedback, problems } = cleanFeedback(raw);
+  if (problems.length) return json(400, { error: `Missing: ${problems.join(", ")}.` }, ok);
+  const { subject, text } = feedbackMail(feedback);
+  const res = await fetcher("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${env.RESEND_KEY}`,
+      "Content-Type": "application/json",
+      "User-Agent": "internradar-share",
+    },
+    body: JSON.stringify({
+      from: env.FEEDBACK_FROM,
+      to: [env.FEEDBACK_TO],
+      subject,
+      text,
+      ...(feedback.email ? { reply_to: feedback.email } : {}),
+    }),
+  });
+  if (!res.ok) {
+    console.log("Resend said", res.status, await res.text().catch(() => ""));
     return json(502, { error: "It didn't come through on my side." }, ok);
   }
   return json(200, { ok: true }, ok);

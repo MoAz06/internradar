@@ -17,7 +17,8 @@ import { buildItems } from "../lib/buildItems.ts";
 import { fits, isEmpty, type Profile } from "../lib/profile.ts";
 import { cleanTitle, dayWord, editions, mailEditions, shortProcess } from "../lib/mailEdition.ts";
 import { cleanSending, issueBody, outcomes, quickEnds, quickTimeline, readIssue } from "../lib/reportForm.ts";
-import { wake, wakeups } from "../../worker/src/index.ts";
+import { handle, wake, wakeups } from "../../worker/src/index.ts";
+import { cleanFeedback } from "../lib/feedbackForm.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -271,7 +272,7 @@ test("night jobs: the Worker starts each workflow on time, and tries again only 
   assert.deepEqual(crons.sort(), Object.keys(wakeups).sort());
   const deploy = readFileSync(join(here, "..", "..", ".github", "workflows", "deploy.yml"), "utf8");
   assert.ok(deploy.includes(`cron: "${Object.keys(wakeups).find((c) => wakeups[c].workflow === "deploy.yml")}"`));
-  const env = { INBOX_REPO: "", ALLOWED_ORIGINS: "", TURNSTILE_SECRET: "", GITHUB_TOKEN: "", ACTIONS_TOKEN: "t" };
+  const env = { INBOX_REPO: "", ALLOWED_ORIGINS: "", TURNSTILE_SECRET: "", GITHUB_TOKEN: "", ACTIONS_TOKEN: "t", RESEND_KEY: "", FEEDBACK_TO: "", FEEDBACK_FROM: "" };
   const calls: { url: string; body: string; auth: string }[] = [];
   const answer = (...codes: number[]) =>
     (async (url: string, init: RequestInit) => {
@@ -288,4 +289,46 @@ test("night jobs: the Worker starts each workflow on time, and tries again only 
   await assert.rejects(wake("15 4 * * *", env, answer(401), 0), /401/);
   assert.equal(calls.length, 1);
   await assert.rejects(wake("0 0 * * *", env, answer(), 0), /No job/);
+});
+
+test("feedback: a suggestion goes out as one email, with the visitor's address as Reply-To", async () => {
+  const env = {
+    INBOX_REPO: "x/y",
+    ALLOWED_ORIGINS: "https://internradar.eu",
+    TURNSTILE_SECRET: "s",
+    GITHUB_TOKEN: "g",
+    ACTIONS_TOKEN: "a",
+    RESEND_KEY: "r",
+    FEEDBACK_TO: "contact@internradar.eu",
+    FEEDBACK_FROM: "internradar <feedback@internradar.eu>",
+  };
+  const sent: { url: string; body: string }[] = [];
+  const fetcher = (async (url: string, init: RequestInit) => {
+    sent.push({ url, body: String(init.body) });
+    if (url.includes("turnstile")) return new Response(JSON.stringify({ success: true }));
+    return new Response("{}", { status: 200 });
+  }) as unknown as typeof fetch;
+  const post = (body: unknown) =>
+    handle(new Request("https://w.dev", { method: "POST", headers: { Origin: "https://internradar.eu" }, body: JSON.stringify(body) }), env, fetcher);
+
+  const res = await post({ kind: "feedback", message: "  Add Belgium  please ", email: "a@b.nl", page: "/edition/", token: "t" });
+  assert.equal(res.status, 200);
+  const mail = JSON.parse(sent.at(-1)!.body);
+  assert.equal(sent.at(-1)!.url, "https://api.resend.com/emails");
+  assert.deepEqual(mail.to, ["contact@internradar.eu"]);
+  assert.equal(mail.reply_to, "a@b.nl");
+  assert.equal(mail.subject, "Suggestion: Add Belgium please");
+  assert.ok(mail.text.includes("https://internradar.eu/edition/"));
+  // no GitHub issue for a suggestion
+  assert.ok(!sent.some((x) => x.url.includes("api.github.com")));
+
+  sent.length = 0;
+  const empty = await post({ kind: "feedback", message: " ", token: "t" });
+  assert.equal(empty.status, 400);
+  assert.ok(!sent.some((x) => x.url.includes("resend")));
+
+  // a bad address is refused, a page outside the site is dropped
+  assert.deepEqual(cleanFeedback({ message: "hi there", email: "nope" }).problems, ["an email address that works (or leave it empty)"]);
+  assert.equal(cleanFeedback({ message: "hi there", page: "https://evil.example/" }).feedback.page, "");
+  assert.equal(JSON.parse(JSON.stringify(cleanFeedback({ message: "hi there" }).feedback)).email, "");
 });

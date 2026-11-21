@@ -9,7 +9,7 @@ export const dynamic = "force-static";
 const site = "https://internradar.eu";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["/", "/edition/", "/radar/", "/reapply/", "/share/", "/alerts/", "/calendar/", "/companies/", "/pay/", "/nl/", "/poster/", "/about/", "/privacy/"].map((p) => ({
+  const pages = ["/", "/edition/", "/radar/", "/reapply/", "/share/", "/alerts/", "/calendar/", "/companies/", "/pay/", "/nl/", "/poster/", "/feedback/", "/about/", "/privacy/"].map((p) => ({
     url: `${site}${p}`,
     lastModified: lastChecked,
     changeFrequency: p === "/" || p === "/edition/" ? ("daily" as const) : ("weekly" as const),
