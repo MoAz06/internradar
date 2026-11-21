@@ -7,6 +7,7 @@ Careers page: https://careers.qualcomm.com/careers?query=intern&location=Ireland
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| FY27 Intern - IT Artificial Intelligence & Automation - Up to 8 Months, Cork | Open, no deadline listed |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446722246579) | 2026-11-21 |
 | FY27 Intern - Software Engineering Internship 2027 - 6 months, Cork | Open, no deadline listed |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446718630683) | 2026-11-19 |
 | FY27 Intern - Engineering Internship 2027 - 6 months, Cork | Open, posting is live | From as early as January 2027 | 6 months | Finished second year of a Bachelor's, ideally in second year of a Master's; EE or Computer Engineering | [link](https://careers.qualcomm.com/careers/job/446718345493) | 2026-11-17 |
 | FY27 Intern - CPU Engineering Internship 2027 - 6 months, Cork | Open, posting is live | From as early as January 2027 | 6 months | Finished second year of a Bachelor's, ideally in second year of a Master's | [link](https://careers.qualcomm.com/careers/job/446721979476) | 2026-11-17 |

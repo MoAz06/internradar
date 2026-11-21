@@ -824,7 +824,12 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "vanderlande|Internship/Graduation: Agentic AI Systems for Software Re-engineering|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Internship-Graduation--Agentic-AI-Systems-for-Software-Re-engineering_JR38496":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
   "vanderlande|Graduation: Operational Digital Twin Automation|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Graduation--Operational-Digital-Twin-Automation_JR38414":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
   "vanderlande|Graduation: Supply chain risk assessment through an analytical digital twin|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel/Graduation--Supply-chain-risk-assessment-through-an-analytical-digital-twin_JR38778":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
-  "vanderlande|Graduation/Internship: AI Process Optimization in Engineering|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Graduation-Internship--AI-Process-Optimization-in-Engineering_JR38558":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]}
+  "vanderlande|Graduation/Internship: AI Process Optimization in Engineering|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Graduation-Internship--AI-Process-Optimization-in-Engineering_JR38558":{"added":"2026-11-20","statuses":[["2026-11-20","open"]]},
+  "prosus|AI Automation Intern (Sustainability)|https://jobs.ashbyhq.com/prosus/0e900995-e270-4dbd-9c92-448af821b442":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
+  "vanderlande|Internship: IT Infrastructure & systems|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Internship--IT-Infrastructure---systems_JR38223":{"added":"2026-11-21","statuses":[["2026-11-21","rolling"]]},
+  "vanderlande|Internship: Building the Future of Work with Low-Code AI Skills for Vanderlande|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Build-the-future-of-work--Create-reusable-AI-skills-for-Vanderlande_JR38184":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
+  "qualcomm-cambridge|FY27 Intern - Software - Systems Engineering Team (Data Center Group)- 6 months, Cambridge|https://careers.qualcomm.com/careers/job/446722247294":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
+  "qualcomm-cork|FY27 Intern - IT Artificial Intelligence & Automation - Up to 8 Months, Cork|https://careers.qualcomm.com/careers/job/446722246579":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]}
 };
 
 /** Per company slug: the day it was added. */

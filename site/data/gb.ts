@@ -4180,6 +4180,21 @@ export const gb: Company[] = [
     careersUrl: "https://careers.qualcomm.com/careers?query=intern&location=United%20Kingdom",
     roles: [
       {
+        title: "FY27 Intern - Software - Systems Engineering Team (Data Center Group)- 6 months, Cambridge",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "6 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://careers.qualcomm.com/careers/job/446722247294",
+        checked: "2026-11-21",
+        auto: true,
+      },
+      {
         title: "FY27 Intern - GPU Compiler - 3 months, Cambridge",
         kind: "Internship",
         field: "Software",

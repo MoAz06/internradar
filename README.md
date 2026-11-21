@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-238-blue) ![roles](https://img.shields.io/badge/roles-811-blue) ![checked](https://img.shields.io/badge/last%20checked-20%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-238-blue) ![roles](https://img.shields.io/badge/roles-816-blue) ![checked](https://img.shields.io/badge/last%20checked-21%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -141,6 +141,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Achmea](companies/achmea.md) | IT Management Trainee | Apeldoorn | 🟢 | March 2027 | Motivation questions, intelligence and learning test, interview, business case, second interview | Not stated | 20 Nov |
 | [Achmea](companies/achmea.md) | Hbo Meewerkstagiair Software Testing & Quality Assurance | Tilburg | 🟢 | February 2027, earlier by agreement | Reply within 5 working days, a first meeting, then the assignment is agreed | Not stated | 20 Nov |
 | [Achmea](companies/achmea.md) | Hbo/wo Meewerkstagiair Datagovernance & Dataproducten | Apeldoorn | 🟢 | February 2027 | Reply within 5 working days, a first meeting, then the assignment is agreed | Not stated | 20 Nov |
+| [Prosus](companies/prosus.md) | AI Automation Intern (Sustainability) | AMS | 🟢 | – | See the company page | Not stated. | 21 Nov |
 | [Prosus](companies/prosus.md) | (MSc/PhD) AI Research Intern - LLMs, Causal Inference & Decision Making | AMS | 🟢 | As soon as possible | Not stated | Not stated | 20 Nov |
 | [Prosus](companies/prosus.md) | ML Engineering Intern - LLM Research & Development | AMS | 🟢 | As soon as possible | Not stated | Not stated | 20 Nov |
 | [Deloitte](companies/deloitte-amsterdam.md) | Scriptiestage Technology Transformation | AMS | 🟢 | – | CV and motivation letter, online assessment of 4 games, interviews, sometimes a case | Not stated | 20 Nov |
@@ -161,6 +162,8 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Capgemini](companies/capgemini-utrecht.md) | Afstudeerstage Testing | Utrecht | 🟢 | February 2027 | CV, optional motivation letter, interviews that can include technical tests, background check | Not stated | 20 Nov |
 | [Capgemini](companies/capgemini-utrecht.md) | Young Professional Track Java Developer met AI kennis | Groningen | 🟢 | 1 February 2027 | CV, optional motivation letter, interviews that can include technical tests, background check | Not stated | 20 Nov |
 | [Capgemini](companies/capgemini-utrecht.md) | Young Professional Track Cloud | Utrecht | 🟢 | – | CV, optional motivation letter, interviews that can include technical tests, background check | Not stated | 20 Nov |
+| [Vanderlande](companies/vanderlande.md) | Internship: IT Infrastructure & systems | Veghel | 🟢 rolling | – | See the company page | Not stated. | 21 Nov |
+| [Vanderlande](companies/vanderlande.md) | Internship: Building the Future of Work with Low-Code AI Skills for Vanderlande | Veghel | 🟢 | – | See the company page | Not stated. | 21 Nov |
 | [Vanderlande](companies/vanderlande.md) | Internship/Graduation: Agentic AI Systems for Software Re-engineering | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation: Operational Digital Twin Automation | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation: Supply chain risk assessment through an analytical digital twin | Veghel | 🟢 | January or February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
@@ -377,6 +380,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Analog Devices](companies/analog-devices-edinburgh.md) | Software Tools Engineering Intern | Edinburgh | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Analog Devices](companies/analog-devices-edinburgh.md) | Design Verification Engineering Intern | Edinburgh | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Analog Devices](companies/analog-devices-edinburgh.md) | Design Verification Engineering Intern | Newbury | 🟢 | – | See the company page | Not stated | 19 Nov |
+| [Qualcomm](companies/qualcomm-cambridge.md) | FY27 Intern - Software - Systems Engineering Team (Data Center Group)- 6 months, Cambridge | Cambridge | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 21 Nov |
 | [Qualcomm](companies/qualcomm-cambridge.md) | FY27 Intern - GPU Compiler - 3 months, Cambridge | Cambridge | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 19 Nov |
 | [Qualcomm](companies/qualcomm-cambridge.md) | FY27 Intern - RF Systems / Software Engineering - 6 months, Farnborough | Farnborough | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 19 Nov |
 | [Qualcomm](companies/qualcomm-cambridge.md) | FY27 Intern - Formal Verification Engineering Internship - 6 months, Cambridge | Cambridge | 🔴 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 20 Nov |
@@ -605,6 +609,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Analog Devices](companies/analog-devices-limerick.md) | FY27 Intern Opportunities | Limerick | 🟢 | Aligned to your college co-op schedule | Not stated | Not stated | 17 Nov |
 | [Analog Devices](companies/analog-devices-limerick.md) | FY27 Software Engineering Graduate Opportunities | Limerick | 🟢 rolling | – | Not stated | Not stated | 17 Nov |
 | [Analog Devices](companies/analog-devices-limerick.md) | FY27 Electronic Engineering Graduate Opportunities | Limerick | 🟢 rolling | – | Not stated | Not stated | 17 Nov |
+| [Qualcomm](companies/qualcomm-cork.md) | FY27 Intern - IT Artificial Intelligence & Automation - Up to 8 Months, Cork | Cork | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 21 Nov |
 | [Qualcomm](companies/qualcomm-cork.md) | FY27 Intern - Software Engineering Internship 2027 - 6 months, Cork | Cork | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 19 Nov |
 | [Qualcomm](companies/qualcomm-cork.md) | FY27 Intern - Engineering Internship 2027 - 6 months, Cork | Cork | 🟢 | From as early as January 2027 | Not stated | Not stated | 17 Nov |
 | [Qualcomm](companies/qualcomm-cork.md) | FY27 Intern - CPU Engineering Internship 2027 - 6 months, Cork | Cork | 🟢 | From as early as January 2027 | Not stated | Not stated | 17 Nov |

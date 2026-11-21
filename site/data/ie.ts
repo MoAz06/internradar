@@ -478,6 +478,20 @@ export const ie: Company[] = [
     careersUrl: "https://careers.qualcomm.com/careers?query=intern&location=Ireland",
     roles: [
       {
+        title: "FY27 Intern - IT Artificial Intelligence & Automation - Up to 8 Months, Cork",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://careers.qualcomm.com/careers/job/446722246579",
+        checked: "2026-11-21",
+        auto: true,
+      },
+      {
         title: "FY27 Intern - Software Engineering Internship 2027 - 6 months, Cork",
         kind: "Internship",
         field: "Software",
