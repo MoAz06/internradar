@@ -138,3 +138,17 @@ export function closesShort(x: Item, headings: boolean): string | null {
   const [, m, d] = x.closes.split("-").map(Number);
   return `${d} ${monthShort[m - 1]}`;
 }
+
+/**
+ * For a role that opens soon: a short label for the top right ("Opens 4 Jan", "Expected March", "No exact date") and
+ * the company's own words as a note under the title, left out when they say no more than the label.
+ */
+export function soonLabel(x: Item): { label: string; note: string } {
+  if (x.status !== "soon" || x.when.startsWith("Due ")) return { label: x.when, note: "" };
+  let label = "No exact date";
+  if (x.opens) {
+    const [, m, d] = x.opens.split("-").map(Number);
+    label = d ? `Opens ${d} ${monthShort[m - 1]}` : `Expected ${monthLong[m - 1]}`;
+  }
+  return { label, note: /^Opens [\w ]+$/.test(x.when) ? "" : x.when };
+}

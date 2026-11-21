@@ -8,18 +8,23 @@ export default function AddToCalendar({
   file,
   align = "left",
   className = "",
+  tall = false,
 }: {
   events: CalEvent[];
   file: string;
   align?: "left" | "right";
   className?: string;
+  /** 44 px high on phones, for a row of links meant for a finger */
+  tall?: boolean;
 }) {
   const e = events[0];
   if (!e) return null;
   const l = eventLinks(e, file);
   return (
     <details className={`relative ${className}`}>
-      <summary className="inline cursor-pointer list-none text-muted underline underline-offset-2 hover:text-ink [&::-webkit-details-marker]:hidden">
+      <summary
+        className={`${tall ? "flex min-h-11 items-center sm:min-h-0" : "inline"} cursor-pointer list-none text-muted underline underline-offset-2 hover:text-ink [&::-webkit-details-marker]:hidden`}
+      >
         Add to calendar
         <span className="sr-only">: {e.summary}</span>
       </summary>

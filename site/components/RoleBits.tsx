@@ -1,11 +1,20 @@
 import Icon from "@/components/Icon";
 import type { Item } from "@/lib/items";
 
-/** One line under a title: a strict re-apply rule first, so it never falls off, then how they hire. */
-export function HowLine({ x, className = "" }: { x: Pick<Item, "how" | "reapplyTag" | "reapplyRule">; className?: string }) {
+/** One line under a title: a strict re-apply rule first, so it never falls off, then how they hire. `full` lets it
+ * run onto more lines instead of ending in "…". */
+export function HowLine({
+  x,
+  className = "",
+  full = false,
+}: {
+  x: Pick<Item, "how" | "reapplyTag" | "reapplyRule">;
+  className?: string;
+  full?: boolean;
+}) {
   if (!x.how && !x.reapplyTag) return null;
   return (
-    <span className={`block truncate font-sans text-dim ${className}`}>
+    <span className={`block ${full ? "" : "truncate"} font-sans text-dim ${className}`}>
       {x.reapplyTag && (
         <span className="font-semibold text-soon" title={x.reapplyRule}>
           Re-apply: {x.reapplyTag}

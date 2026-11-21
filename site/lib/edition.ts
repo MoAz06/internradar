@@ -30,6 +30,8 @@ export function edition(now = today()) {
     closingNext: open.filter((x) => x.daysLeft !== null && x.daysLeft >= 7 && x.daysLeft <= 13),
     opening: items.filter((x) => x.status === "soon"),
     radarNext: upcoming(radar, now).slice(0, 8),
+    /** all of it, for the edition page, which shows eight of the country you pick */
+    radarAll: upcoming(radar, now),
     openCount: open.length,
   };
 }
