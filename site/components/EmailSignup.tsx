@@ -1,9 +1,23 @@
+import Link from "next/link";
 import { links } from "@/data/companies";
 import { editions } from "@/lib/mailEdition";
 
 /** The Buttondown sign-up form: which edition, the address and a button. The edition goes to Buttondown as a tag,
  * so each reader only gets the email for their country (scripts/mail-edition.mts). Renders nothing while there is no newsletter. */
-export default function EmailSignup({ id, track, edition = "All of Europe", className = "" }: { id: string; track: string; edition?: string; className?: string }) {
+export default function EmailSignup({
+  id,
+  track,
+  edition = "All of Europe",
+  className = "",
+  note = true,
+}: {
+  id: string;
+  track: string;
+  edition?: string;
+  className?: string;
+  /** false where the text around the form already says where the address goes */
+  note?: boolean;
+}) {
   if (!links.newsletter) return null;
   return (
     <form
@@ -48,6 +62,15 @@ export default function EmailSignup({ id, track, edition = "All of Europe", clas
           Sign up
         </button>
       </div>
+      {/* said where the address goes at the moment it's asked for */}
+      {note && (
+        <p className="mt-1.5 text-[13px] leading-snug text-dim">
+          Your address goes to Buttondown, which sends the email. One a week, unsubscribe any time.{" "}
+          <Link href="/privacy/" className="link">
+            Privacy
+          </Link>
+        </p>
+      )}
     </form>
   );
 }

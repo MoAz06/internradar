@@ -101,7 +101,8 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
 
   return (
     <div className="sticky top-0 z-30 md:hidden">
-      <div className="border-b-[3px] border-double border-ink bg-bg">
+      {/* a header, so screen readers find the site name and the menu as the page's banner */}
+      <header className="border-b-[3px] border-double border-ink bg-bg">
         <div className="flex h-12 items-center justify-between px-2">
           <button
             ref={button}
@@ -128,7 +129,7 @@ export default function MobileNav({ roles, radar, checked }: { roles: number; ra
             <span className="sr-only">Saved roles{saved ? `, ${saved}` : ""}</span>
           </Link>
         </div>
-      </div>
+      </header>
 
       {open && (
         <div className="fixed inset-0 z-40">

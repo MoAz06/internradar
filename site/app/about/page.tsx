@@ -53,13 +53,25 @@ export default function About() {
           ))}
         </dl>
 
+        <h2 className="mt-9 text-lg font-bold">Check before you apply</h2>
+        <p className="mt-3 text-[15px] leading-[1.6] text-muted">
+          Everything here comes from the companies&apos; own pages, with the date I checked it. Companies change deadlines,
+          close roles early and rewrite their rules without notice, so the list can be behind. The company&apos;s own
+          posting is what counts: check it before you apply, and don&apos;t plan around a deadline you only saw here. The
+          site is free and comes without any guarantee.
+        </p>
+
         <h2 className="mt-9 text-lg font-bold">Adding or fixing something</h2>
         <p className="mt-3 text-[15px] leading-[1.6] text-muted">
           The data is on{" "}
           <a href={links.repo} className="link">
             GitHub
           </a>
-          . Found a mistake or a missing company? Open an issue or send a PR,{" "}
+          . Found a mistake or a missing company?{" "}
+          <Link href="/feedback/" className="link">
+            Tell me here
+          </Link>
+          , or open an issue or send a PR;{" "}
           <a href={links.contributing} className="link">
             CONTRIBUTING
           </a>{" "}

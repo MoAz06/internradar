@@ -41,7 +41,7 @@ export default function AlertsPage() {
               </Link>
               .
             </p>
-            <EmailSignup id="alert-email" track="alerts-email" className="mt-3" />
+            <EmailSignup id="alert-email" track="alerts-email" className="mt-3" note={false} />
           </>
         )}
 

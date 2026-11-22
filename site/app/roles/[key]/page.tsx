@@ -150,7 +150,8 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
             {stripProtocol(r.source).split("/")[0]}
             <NewTab />
           </a>
-          , {r.auto ? `added from the job board on ${longDate(r.checked)}, not checked by hand yet` : `checked ${longDate(r.checked)}`}.{" "}
+          , {r.auto ? `added from the job board on ${longDate(r.checked)}, not checked by hand yet` : `checked ${longDate(r.checked)}`}.
+          Dates and rules can change, so check the posting before you apply.{" "}
           <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="underline underline-offset-2">
             Something wrong?
             <NewTab />

@@ -48,8 +48,11 @@ export async function handle(req: Request, env: Env, fetcher: typeof fetch = fet
       remoteip: req.headers.get("CF-Connecting-IP") ?? "",
     }),
   });
-  const verdict = (await check.json().catch(() => ({}))) as { success?: boolean };
-  if (!verdict.success) return json(403, { error: "The spam check failed. Reload the page and try again." }, ok);
+  const verdict = (await check.json().catch(() => ({}))) as { success?: boolean; hostname?: string };
+  // a token is only good on our own site: one solved somewhere else with the same site key doesn't count
+  const hosts = allowed.map((o) => new URL(o).hostname);
+  if (!verdict.success || !hosts.includes(verdict.hostname ?? ""))
+    return json(403, { error: "The spam check failed. Reload the page and try again." }, ok);
 
   if (raw.kind === "feedback") return sendFeedback(raw, env, fetcher, ok);
 

@@ -36,7 +36,8 @@ function Rail({ story, next }: { story: boolean; next: ReturnType<typeof upcomin
     </h2>
   );
   return (
-    <aside className="grid gap-x-8 gap-y-7 max-md:hidden md:mt-10 md:grid-cols-2 lg:mt-0 lg:grid-cols-1 lg:content-start">
+    // a labelled section, not an aside: it sits inside main, and an aside there confuses screen reader landmarks
+    <section aria-label="More on internradar" className="grid gap-x-8 gap-y-7 max-md:hidden md:mt-10 md:grid-cols-2 lg:mt-0 lg:grid-cols-1 lg:content-start">
       <section>
         {head("Re-apply rules", { href: "/reapply/", label: `All ${reapplyRules.length}` })}
         {story ? (
@@ -106,7 +107,7 @@ function Rail({ story, next }: { story: boolean; next: ReturnType<typeof upcomin
           </Link>
         </p>
       </section>
-    </aside>
+    </section>
   );
 }
 

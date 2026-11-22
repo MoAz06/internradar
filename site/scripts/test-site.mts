@@ -303,9 +303,10 @@ test("feedback: a suggestion goes out as one email, with the visitor's address a
     FEEDBACK_FROM: "internradar <feedback@internradar.eu>",
   };
   const sent: { url: string; body: string }[] = [];
+  let solvedOn = "internradar.eu";
   const fetcher = (async (url: string, init: RequestInit) => {
     sent.push({ url, body: String(init.body) });
-    if (url.includes("turnstile")) return new Response(JSON.stringify({ success: true }));
+    if (url.includes("turnstile")) return new Response(JSON.stringify({ success: true, hostname: solvedOn }));
     return new Response("{}", { status: 200 });
   }) as unknown as typeof fetch;
   const post = (body: unknown) =>
@@ -326,6 +327,14 @@ test("feedback: a suggestion goes out as one email, with the visitor's address a
   const empty = await post({ kind: "feedback", message: " ", token: "t" });
   assert.equal(empty.status, 400);
   assert.ok(!sent.some((x) => x.url.includes("resend")));
+
+  // a spam check solved on another site doesn't count
+  solvedOn = "elsewhere.example";
+  sent.length = 0;
+  const foreign = await post({ kind: "feedback", message: "hello there", token: "t" });
+  assert.equal(foreign.status, 403);
+  assert.ok(!sent.some((x) => x.url.includes("resend")));
+  solvedOn = "internradar.eu";
 
   // a bad address is refused, a page outside the site is dropped
   assert.deepEqual(cleanFeedback({ message: "hi there", email: "nope" }).problems, ["an email address that works (or leave it empty)"]);
