@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { fields, fold, kinds, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
-import { citiesOf, closesGroup, closesShort, FIRST_PAGE, payOf, toRows, type Row, type StartView } from "@/lib/rows";
+import { citiesOf, closesGroup, closesShort, FIRST_PAGE, payOf, payParts, toRows, type Row, type StartView } from "@/lib/rows";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
@@ -101,6 +101,17 @@ function Process({ x }: { x: Item }) {
 
 /** The pay cell when the company names no figure: said plainly, so the empty cell does not look like missing data. */
 const notStated = <span className="text-[12px] text-dim">not stated</span>;
+
+/** Pay in the narrow desktop column: the figure, with the period in small type below it, so a long range never runs into the deadline. */
+const payCell = (short: string) => {
+  const { figure, period } = payParts(short);
+  return (
+    <>
+      <span className="whitespace-nowrap">{figure}</span>
+      {period && <span className="block text-[12px] text-dim">{period}</span>}
+    </>
+  );
+};
 
 const statusColor = (x: Item) =>
   x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
@@ -530,6 +541,13 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
   };
   const chip = (r: Row, open: boolean) => <CountChip text={r.chip ?? ""} open={open} />;
 
+  // the country after the city, unless one country is picked already
+  const place = (x: Item) => (f.country || !x.countryName || x.city.includes(x.countryName) ? x.city : [x.city, x.countryName].filter(Boolean).join(", "));
+  const placeOf = (r: Row) => {
+    const names = new Set(r.items.map((y) => y.countryName));
+    return f.country || names.size !== 1 || !r.items[0].countryName ? citiesOf(r) : `${citiesOf(r)}, ${r.items[0].countryName}`;
+  };
+
   /** Desktop: one role as a table row, with its details below when open. `inner` for a role inside a merged row. */
   const itemRow = (x: Item, inner = false) => {
     const open = openRows.has(x.id);
@@ -559,8 +577,8 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             </button>
             {!inner && howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{x.city}</td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{x.pay?.short ?? notStated}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{place(x)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted tabular-nums">{x.pay ? payCell(x.pay.short) : notStated}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
         {open && (
@@ -578,6 +596,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
   /** Desktop: a row with several roles. The chip opens the roles, each with its own bookmark and details. */
   const groupRow = (r: Row) => {
     const x = r.items[0];
+    const pay = payOf(r);
     const open = openRows.has(`group:${r.id}`);
     return (
       <Fragment key={r.id}>
@@ -603,8 +622,8 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             </button>
             {howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{citiesOf(r)}</td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug whitespace-nowrap text-muted tabular-nums">{payOf(r) || (r.items.every((y) => !y.pay) ? notStated : "")}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{placeOf(r)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted tabular-nums">{pay ? payCell(pay) : r.items.every((y) => !y.pay) ? notStated : ""}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
         {open && r.items.map((y) => itemRow(y, true))}
@@ -635,11 +654,11 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             {!inner && howLine(x, "mt-0.5 text-[13px]")}
             {inner ? (
               <span className="mt-0.5 flex gap-2 font-sans text-[13px] text-muted">
-                <span className="min-w-0 flex-1">{[x.city, x.pay?.short].filter(Boolean).join(" · ")}</span>
+                <span className="min-w-0 flex-1">{[place(x), x.pay?.short].filter(Boolean).join(" · ")}</span>
                 <span className={`shrink-0 tabular-nums ${hot}`}>{day(x)}</span>
               </span>
             ) : (
-              <span className="mt-0.5 block font-sans text-[13px] text-muted">{[x.city, x.pay?.short].filter(Boolean).join(" · ")}</span>
+              <span className="mt-0.5 block font-sans text-[13px] text-muted">{[place(x), x.pay?.short].filter(Boolean).join(" · ")}</span>
             )}
           </summary>
           {seen.has(x.id) && <div className="pr-1 pb-3 text-[14px] leading-[1.5]">{details(x)}</div>}
@@ -669,7 +688,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
               {chip(r, false)}
             </span>
             {howLine(x, "mt-0.5 text-[13px]")}
-            <span className="mt-0.5 block font-sans text-[13px] text-muted">{[citiesOf(r), payOf(r)].filter(Boolean).join(" · ")}</span>
+            <span className="mt-0.5 block font-sans text-[13px] text-muted">{[placeOf(r), payOf(r)].filter(Boolean).join(" · ")}</span>
           </summary>
           {seen.has(`group:${r.id}`) && <ul className="mb-2">{r.items.map((y) => itemCard(y, true))}</ul>}
         </details>

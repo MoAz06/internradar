@@ -112,6 +112,16 @@ export function payOf(r: Row): string {
   return all.size === 1 ? [...all][0] : "";
 }
 
+const perWord: Record<string, string> = { hr: "an hour", wk: "a week", mo: "a month", yr: "a year" };
+
+/** A short pay figure in two parts for the narrow pay column: "€2,977/mo net" gives "€2,977" and "a month, net". */
+export function payParts(short: string): { figure: string; period: string } {
+  const slash = short.indexOf("/");
+  if (slash < 0) return { figure: short, period: "" };
+  const [unit, ...note] = short.slice(slash + 1).split(" ");
+  return { figure: short.slice(0, slash), period: [perWord[unit] ?? unit, ...note].join(", ") };
+}
+
 /** Weekday of a YYYY-MM-DD day, Monday 0. */
 const weekday = (day: string) => (new Date(`${day}T12:00:00Z`).getUTCDay() + 6) % 7;
 

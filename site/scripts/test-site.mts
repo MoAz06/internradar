@@ -12,7 +12,7 @@ import { payFor, payRules } from "../data/pay.ts";
 import { languagesOf, levelsOf, needsWorkRights } from "../lib/eligibility.ts";
 import { query, searchable } from "../lib/search.ts";
 import { reminderRow, shortKey, type Item } from "../lib/items.ts";
-import { citiesOf, closesGroup, closesShort, toRows } from "../lib/rows.ts";
+import { citiesOf, closesGroup, closesShort, payParts, toRows } from "../lib/rows.ts";
 import { buildItems } from "../lib/buildItems.ts";
 import { fits, isEmpty, type Profile } from "../lib/profile.ts";
 import { cleanTitle, dayWord, editions, mailEditions, shortProcess } from "../lib/mailEdition.ts";
@@ -60,7 +60,7 @@ test("pay: every rule matches a company and a role", () => {
       assert.ok(c.roles.some((r) => payFor(slug, r.title, r.kind) === rule.pay) || slug === "ing" || /€3,600|€600\/mo/.test(rule.pay.short), `${slug}: ${rule.pay.short} matches no role`);
     }
   }
-  assert.equal(payFor("graphcore-bristol", "Graduate Firmware Engineer 2027", "Graduate")?.short, "£45k/yr");
+  assert.equal(payFor("graphcore-bristol", "Graduate Firmware Engineer 2027", "Graduate")?.short, "≈ £3,750/mo");
   assert.equal(payFor("graphcore-bristol", "Firmware Summer Intern 2027", "Internship")?.short, "£2,500/mo");
   assert.equal(payFor("google-amsterdam", "Student Researcher, 2027", "Internship")?.month, undefined, "no period, no sorting value");
   assert.equal(payFor("optiver", "Software Engineer Intern", "Internship"), undefined);
@@ -78,6 +78,19 @@ test("pay: a figure for Google only where the period is stated", () => {
     }
   assert.deepEqual(payFor("graphcore-bristol", "Firmware Summer Intern 2027", "Internship")?.salary, { currency: "GBP", unit: "MONTH", min: 2500 });
   assert.deepEqual(payFor("intel-gdansk", "Graduate Talent Program", "Graduate")?.salary, { currency: "PLN", unit: "YEAR", min: 68880, max: "open" });
+});
+
+test("pay: the pay column shows the figure, with the period below it", () => {
+  assert.deepEqual(payParts("€3,840–6,170/mo"), { figure: "€3,840–6,170", period: "a month" });
+  assert.deepEqual(payParts("€2,977/mo net"), { figure: "€2,977", period: "a month, net" });
+  assert.deepEqual(payParts("£48,500"), { figure: "£48,500", period: "" });
+  for (const rules of Object.values(payRules))
+    for (const { pay } of rules) {
+      const { figure, period } = payParts(pay.short);
+      // the column is 100px wide, about 12 characters of 13px Inter
+      assert.ok(figure.length <= 12, `${pay.short}: "${figure}" is too long for the pay column`);
+      assert.match(period, /^((an hour|a week|a month|a year)(, \w+)?)?$/, `${pay.short}: unknown period`);
+    }
 });
 
 test("eligibility: levels, work rights and languages", () => {

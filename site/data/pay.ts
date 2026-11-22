@@ -126,6 +126,32 @@ export const payRules: Record<string, Rule[]> = {
   "doctolib-milan": [{ title: /AI Engineer Intern/, pay: { label: "€1,000 a month gross", short: "€1,000/mo", ...paid("MONTH", "EUR", 1000) } }],
 };
 
+const symbol: Record<keyof typeof rates, string> = { EUR: "€", GBP: "£", CHF: "CHF ", PLN: "PLN " };
+const toMonth = (n: number, unit: "WEEK" | "YEAR") => Math.round((unit === "WEEK" ? (n * 52) / 12 : n / 12) / 10) * 10;
+
+/** A yearly or weekly figure as about a month, in the company's own currency: "≈ £18,850". Undefined for
+ * a figure that is already monthly, an hourly rate (the hours vary) or a page that names no period.
+ * `full` gives a range in whole numbers ("≈ €4,340–6,520"), `short` in thousands for the narrow pay
+ * column ("≈ €4.3–6.5k"), `from` only the lowest figure ("≈ €4,340+"). */
+export function aboutMonth(s: Salary | undefined, style: "full" | "short" | "from" = "full"): string | undefined {
+  if (!s || (s.unit !== "YEAR" && s.unit !== "WEEK")) return undefined;
+  const unit = s.unit;
+  const n = (v: number) => toMonth(v, unit).toLocaleString("en-GB");
+  const k = (v: number) => String(Math.round(toMonth(v, unit) / 100) / 10);
+  const at = `≈ ${symbol[s.currency]}`;
+  if (typeof s.max === "number" && style === "full") return `${at}${n(s.min)}–${n(s.max)}`;
+  if (typeof s.max === "number" && style === "short") return `${at}${k(s.min)}–${k(s.max)}k`;
+  return `${at}${n(s.min)}${s.max !== undefined ? "+" : ""}`;
+}
+
+// The list shows every yearly or weekly figure as about a month, so pay compares at a glance. The label
+// keeps the figure as the company states it, for the role page and the details.
+for (const rules of Object.values(payRules))
+  for (const { pay } of rules) {
+    const month = aboutMonth(pay.salary, pay.short.includes("–") ? "short" : "from");
+    if (month) pay.short = `${month}/mo`;
+  }
+
 /** The stated pay for one role, if its company states one that covers it. */
 export function payFor(slug: string, title: string, kind: RoleKind): Pay | undefined {
   return payRules[slug]?.find((r) => (!r.kind || r.kind === kind) && (!r.title || r.title.test(title)))?.pay;

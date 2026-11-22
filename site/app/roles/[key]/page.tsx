@@ -6,7 +6,7 @@ import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
 import SaveButton from "@/components/SaveButton";
 import { opened } from "@/data/opened";
-import type { Salary } from "@/data/pay";
+import { aboutMonth, type Salary } from "@/data/pay";
 import { eventsFor } from "@/lib/ics";
 import { longDate, stripProtocol } from "@/lib/format";
 import { reportUrl, roleHref, shortWhen } from "@/lib/items";
@@ -78,6 +78,13 @@ function jobPosting(p: NonNullable<ReturnType<typeof page>>) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
+/** "That works out to about £18,850 a month." for a yearly or weekly figure. */
+function perMonth(s: Salary | undefined): string | undefined {
+  const m = aboutMonth(s)?.slice(2);
+  if (!m) return undefined;
+  return m.endsWith("+") ? `That works out to about ${m.slice(0, -1)} a month or more.` : `That works out to about ${m} a month.`;
+}
+
 export default async function RolePage({ params }: { params: Promise<Params> }) {
   const { key } = await params;
   const p = page(key);
@@ -93,7 +100,7 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
     ["Type", `${r.kind}, ${r.field}`],
     ["Start", stated(r.start)],
     ["Duration", stated(r.duration)],
-    ["Pay", x.pay?.label],
+    ["Pay", x.pay && [x.pay.label.replace(/\.?$/, "."), perMonth(x.pay.salary)].filter(Boolean).join(" ")],
     ["Who can apply", stated(r.eligibility) ?? (r.auto ? "On the posting." : undefined)],
     ["Language", r.language && `The posting is in ${r.language}.`],
     ["Visa", r.workRights ? "The posting asks for the right to work there already, or says it doesn't sponsor visas." : undefined],
