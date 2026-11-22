@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FeedbackLink from "@/components/FeedbackLink";
 import { links } from "@/data/companies";
 
 export default function Footer() {
@@ -13,9 +14,7 @@ export default function Footer() {
           , a CS student in Leiden. Open data, MIT licence.
         </span>
         <span className="flex flex-wrap gap-x-4 gap-y-1">
-          <Link href="/feedback/" className="link">
-            Suggest something
-          </Link>
+          <FeedbackLink className="link" />
           <Link href="/privacy/" className="link">
             Privacy
           </Link>

@@ -15,9 +15,14 @@ export default function FeedbackForm({ endpoint, siteKey, contact }: { endpoint:
   const [page, setPage] = useState("");
   const { token, widget, reset } = useTurnstile(siteKey);
 
-  // the page they came from: /feedback/?from=/edition/
+  // the page they came from: ?from=/edition/, else the page on this site that linked here (the footer link)
   useEffect(() => {
-    setPage(new URLSearchParams(window.location.search).get("from") ?? "");
+    const from = new URLSearchParams(window.location.search).get("from");
+    if (from) return setPage(from);
+    try {
+      const r = new URL(document.referrer);
+      if (r.origin === window.location.origin && !r.pathname.startsWith("/feedback")) setPage(r.pathname + r.search);
+    } catch {}
   }, []);
 
   async function send(e: React.FormEvent<HTMLFormElement>) {
