@@ -272,6 +272,9 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
     if (profile && !f.fit && !p.size) p.set("all", "1");
     if (page > 1) p.set("page", String(page));
     if (per !== 25) p.set("per", String(per));
+    // keep ?ref= from a mail or a poster: GoatCounter counts after the page has loaded and reads it from the URL then
+    const ref = new URLSearchParams(location.search).get("ref");
+    if (ref) p.set("ref", ref);
     const qs = p.toString();
     const url = `${location.pathname}${qs ? `?${qs}` : ""}${countries.some((k) => `#${k.slug}` === location.hash) ? "" : location.hash}`;
     if (url !== location.pathname + location.search + location.hash) {
