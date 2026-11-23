@@ -11,7 +11,6 @@ export type SheetFilters = {
   status: Status;
   kind: string;
   field: string;
-  country: string;
   level: Level | "";
   visa: boolean;
   english: boolean;

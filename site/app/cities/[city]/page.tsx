@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
-import RoleList from "@/components/RoleList";
-import { cityPages } from "@/lib/landing";
+import RoleFinder from "@/components/RoleFinder";
+import { countries } from "@/data/companies";
+import { buildItems } from "@/lib/buildItems";
+import { cityPages, citiesOf } from "@/lib/landing";
+import { today } from "@/lib/live";
 import { og } from "@/lib/og";
+import { startView } from "@/lib/rows";
 
 export const dynamicParams = false;
 
@@ -27,8 +31,14 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   const { city } = await params;
   const p = cityPages().find((x) => x.slug === city);
   if (!p) notFound();
-  const open = p.items.filter((x) => x.status !== "soon");
-  const soon = p.items.filter((x) => x.status === "soon");
+  const now = today();
+  const every = buildItems(now);
+  // the closed ones too, so "All, also closed" in the filters works here as on the front page
+  const items = every.filter((x) => citiesOf(x.city).some((c) => c.slug === p.slug));
+  // there is no country menu here; the names are for the profile in the filters
+  const options = countries
+    .map((k) => ({ code: k.code, name: k.name, slug: k.slug, count: every.filter((x) => x.country === k.code).length }))
+    .filter((k) => k.count > 0);
   const others = cityPages().filter((x) => x.slug !== p.slug);
   return (
     <Section className="pt-8 pb-16 sm:pt-10">
@@ -38,15 +48,14 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         {describe(p.city, p.items.length, p.companies)} Deadlines first. The company pages have the interview steps and the
         re-apply rule.
       </p>
-      <div className="mt-7 grid grid-cols-1 gap-8 border-t-2 border-ink pt-4 lg:grid-cols-2 lg:gap-0">
-        <div className="lg:border-r lg:border-line lg:pr-7">
-          <h2 className="text-[20px] font-bold">Open now ({open.length})</h2>
-          <RoleList list={open} empty={`Nothing open in ${p.city} right now.`} />
+      <div className="mt-7 lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
+        <div className="min-w-0">
+          <RoleFinder view={startView(items, now)} countries={options} now={now} scope={{ place: p.city, keys: items.map((x) => x.key) }} />
         </div>
-        <div className="lg:pl-7">
-          <h2 className="text-[20px] font-bold">Opening soon ({soon.length})</h2>
-          <RoleList list={soon} empty="No role here is marked as opening soon." />
-          <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">Other cities</h2>
+        <section aria-labelledby="other-cities" className="max-lg:mt-10">
+          <h2 id="other-cities" className="border-t-2 border-ink pt-2.5 font-sans text-[13px] font-bold text-accent">
+            Other cities
+          </h2>
           <p className="mt-1 flex flex-wrap gap-x-4 text-[15px]">
             {others.map((x) => (
               <Link key={x.slug} href={`/cities/${x.slug}/`} className="link inline-flex min-h-11 items-center">
@@ -54,7 +63,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </Link>
             ))}
           </p>
-        </div>
+        </section>
       </div>
     </Section>
   );

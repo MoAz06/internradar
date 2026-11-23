@@ -93,6 +93,9 @@ export function cleanTitle(title: string, city: string, company: string): string
 /** Where a role's own page lives (app/roles/[key]). */
 export const roleHref = (key: string) => `/roles/${key}/`;
 
+/** The list on the front page with one country picked. The list reads the code as well as the slug. */
+export const countryHref = (code: string) => `/?country=${code.toLowerCase()}`;
+
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /** The status in two or three words, for narrow rows: "3 days", "12 Dec", "Rolling", "Opens Jan 2027".

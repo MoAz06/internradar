@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import { fields, fold, kinds, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
+import { countryHref, fields, fold, kinds, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
 import { citiesOf, closesGroup, closesShort, FIRST_PAGE, payOf, payParts, toRows, type Row, type StartView } from "@/lib/rows";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
+import CountryLink from "@/components/CountryLink";
 import { readSaved, visitSince, writeSaved } from "@/lib/mine";
 import FilterSheet from "@/components/FilterSheet";
 import Icon from "@/components/Icon";
@@ -25,7 +27,8 @@ type Filters = {
   status: StatusFilter;
   kind: string;
   field: string;
-  country: string;
+  /** country codes; none means every country */
+  countries: string[];
   saved: boolean;
   level: Level | "";
   /** hide roles that need work rights already or don't sponsor */
@@ -37,9 +40,14 @@ type Filters = {
   fit: boolean;
 };
 
-const start: Filters = { q: "", status: "open", kind: "", field: "", country: "", saved: false, level: "", visa: false, english: false, sort: "deadline", fit: false };
+const start: Filters = { q: "", status: "open", kind: "", field: "", countries: [], saved: false, level: "", visa: false, english: false, sort: "deadline", fit: false };
 const PER_KEY = "internradar:per-page";
 const PER_PAGE = [25, 50, 75, 100];
+/** The query parameters the list writes itself. Any other one stays in the URL, like ?ref= from a mail. */
+const OWN = ["q", "status", "type", "field", "country", "level", "visa", "english", "sort", "saved", "all", "page", "per"];
+
+/** Country codes in the order of the menu, each once, so the same choice always gives the same link. */
+const inOrder = (codes: string[], options: CountryOption[]) => options.map((k) => k.code).filter((c) => codes.includes(c));
 
 function Select({
   id,
@@ -116,14 +124,30 @@ const payCell = (short: string) => {
 const statusColor = (x: Item) =>
   x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
 
-/** The list on the home page. The page carries the first page of the plain view (`view`); every role comes from
- * /roles.json right after, and a link with its own filters waits for that. */
-export default function RoleFinder({ view, countries, now }: { view: StartView; countries: CountryOption[]; now: string }) {
+/** The list on the home page and the city pages. The page carries the first page of the plain view (`view`); every
+ * role comes from /roles.json right after, and a link with its own filters waits for that. */
+export default function RoleFinder({
+  view,
+  countries,
+  now,
+  scope,
+}: {
+  view: StartView;
+  countries: CountryOption[];
+  now: string;
+  /** A city page: only these roles, by key. No country menu there, and the profile filter starts off, since a
+   * profile with other countries in it would empty the list. */
+  scope?: { place: string; keys: string[] };
+}) {
   const [all, setAll] = useState<Item[] | null>(null);
   const [failed, setFailed] = useState(false);
-  const items = all ?? view.first;
+  const inScope = useMemo(() => (scope ? new Set(scope.keys) : null), [scope]);
+  const items = useMemo(() => (all && inScope ? all.filter((x) => inScope.has(x.key)) : (all ?? view.first)), [all, inScope, view.first]);
   const ready = all !== null || failed;
   const [f, setF] = useState<Filters>(start);
+  // false until the filters have been read from the URL; the list doesn't write the URL before that
+  const [urlRead, setUrlRead] = useState(false);
+  const pathname = usePathname();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [saved, setSaved] = useState<string[]>([]);
   const [notice, setNotice] = useState("");
@@ -147,53 +171,75 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
     });
   const search = useRef<HTMLInputElement>(null);
   const top = useRef<HTMLDivElement>(null);
+  // the countries: a button in the row opens them under it, so the count and the list stay in view while you pick
+  const [countryOpen, setCountryOpen] = useState(false);
+  const countryButton = useRef<HTMLButtonElement>(null);
+  const countryPanel = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (countryOpen) countryPanel.current?.focus({ preventScroll: true });
+  }, [countryOpen]);
   // set when a page button is clicked, so that step gets its own history entry for the back button
   const pushNext = useRef(false);
 
   // filters from the URL (?q=&status=&type=&field=&country=) and old #country links
   useEffect(() => {
-    const p = new URLSearchParams(location.search);
     const bySlug = (slug: string) => countries.find((k) => k.slug === slug || k.code.toLowerCase() === slug)?.code ?? "";
-    const fromHash = bySlug(location.hash.slice(1));
-    // a link with its own filters shows those; a plain visit starts with the roles that fit the profile
-    const me = readProfile();
-    setProfile(me);
-    const ownFilters = ["q", "status", "type", "field", "country", "level", "visa", "english", "sort", "saved", "all"].some((k) => p.has(k)) || !!fromHash;
-    setF({
-      q: p.get("q") ?? "",
-      status: (["open", "soon", "new", "all"] as const).find((s) => s === p.get("status")) ?? "open",
-      kind: kinds.find((k) => k.toLowerCase() === p.get("type")) ?? "",
-      field: fields.find((x) => fold(x).replace(/ /g, "-") === p.get("field")) ?? "",
-      country: bySlug(p.get("country") ?? "") || fromHash,
-      saved: false,
-      level: levels.find((l) => l.value === p.get("level"))?.value ?? "",
-      visa: p.get("visa") === "1",
-      english: p.get("english") === "1",
-      sort: p.get("sort") === "pay" ? "pay" : p.get("sort") === "new" ? "new" : "deadline",
-      fit: !!me && !ownFilters,
-    });
-    // blocked storage gives null: then only "new this week" shows
-    setSince(visitSince());
-    const perFromUrl = Number(p.get("per"));
-    let perStored = 0;
-    try {
-      perStored = Number(localStorage.getItem(PER_KEY));
-    } catch {
-      // blocked storage: the default is fine
-    }
-    setPer(PER_PAGE.find((n) => n === perFromUrl) ?? PER_PAGE.find((n) => n === perStored) ?? FIRST_PAGE);
-    setPage(Math.max(1, Math.floor(Number(p.get("page")) || 1)));
-    // ?saved=key.key.key from "open on another device": those roles are added once the list has loaded
-    savedKeys.current = (p.get("saved") ?? "").split(".").filter(Boolean);
-    if (savedKeys.current.length) setF((x) => ({ ...x, saved: true }));
-    setSaved(readSaved());
     // scroll after the filtered list has rendered, else the browser lands somewhere above it
     const toList = () => setTimeout(() => top.current?.scrollIntoView(), 60);
-    if (fromHash || p.get("q")) toList();
+    const read = () => {
+      const p = new URLSearchParams(location.search);
+      const fromHash = scope ? "" : bySlug(location.hash.slice(1));
+      // ?country=netherlands, as in the mails and on the posters, or several joined by a dot: ?country=netherlands.germany
+      const fromUrl = (p.get("country") ?? "").split(/[.,\s]+/).map(bySlug).filter(Boolean);
+      // a link with its own filters shows those; a plain visit starts with the roles that fit the profile
+      const me = readProfile();
+      setProfile(me);
+      const ownFilters = ["q", "status", "type", "field", "country", "level", "visa", "english", "sort", "saved", "all"].some((k) => p.has(k)) || !!fromHash;
+      setF({
+        q: p.get("q") ?? "",
+        status: (["open", "soon", "new", "all"] as const).find((s) => s === p.get("status")) ?? "open",
+        kind: kinds.find((k) => k.toLowerCase() === p.get("type")) ?? "",
+        field: fields.find((x) => fold(x).replace(/ /g, "-") === p.get("field")) ?? "",
+        countries: scope ? [] : inOrder(fromUrl.length ? fromUrl : [fromHash], countries),
+        saved: false,
+        level: levels.find((l) => l.value === p.get("level"))?.value ?? "",
+        visa: p.get("visa") === "1",
+        english: p.get("english") === "1",
+        sort: p.get("sort") === "pay" ? "pay" : p.get("sort") === "new" ? "new" : "deadline",
+        fit: !!me && !ownFilters && !scope,
+      });
+      // blocked storage gives null: then only "new this week" shows
+      setSince(visitSince());
+      const perFromUrl = Number(p.get("per"));
+      let perStored = 0;
+      try {
+        perStored = Number(localStorage.getItem(PER_KEY));
+      } catch {
+        // blocked storage: the default is fine
+      }
+      setPer(PER_PAGE.find((n) => n === perFromUrl) ?? PER_PAGE.find((n) => n === perStored) ?? FIRST_PAGE);
+      setPage(Math.max(1, Math.floor(Number(p.get("page")) || 1)));
+      // ?saved=key.key.key from "open on another device": those roles are added once the list has loaded
+      savedKeys.current = (p.get("saved") ?? "").split(".").filter(Boolean);
+      if (savedKeys.current.length) setF((x) => ({ ...x, saved: true }));
+      setSaved(readSaved());
+      if (fromHash || p.get("q")) toList();
+      setUrlRead(true);
+    };
+    // A link inside the site (a country in a row, "search on the front page") puts its address in the bar only after
+    // this has run, so read the URL once the bar shows this page. A link from a mail or a poster is there at once.
+    const here = () => location.pathname.replace(/\/+$/, "") === pathname.replace(/\/+$/, "");
+    let tries = 0;
+    let timer = 0;
+    const whenHere = () => {
+      if (here() || ++tries > 50) read();
+      else timer = window.setTimeout(whenHere, 10);
+    };
+    whenHere();
     const onHash = () => {
       const code = bySlug(location.hash.slice(1));
-      if (code) {
-        setF((x) => ({ ...x, country: code }));
+      if (code && !scope) {
+        setF((x) => ({ ...x, countries: [code] }));
         setPage(1);
         toList();
       }
@@ -214,12 +260,13 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
     const onProfile = () => setProfile(readProfile());
     window.addEventListener(PROFILE_EVENT, onProfile);
     return () => {
+      clearTimeout(timer);
       window.removeEventListener(PROFILE_EVENT, onProfile);
       window.removeEventListener("hashchange", onHash);
       window.removeEventListener("popstate", onPop);
       window.removeEventListener("keydown", onKey);
     };
-  }, [countries]);
+  }, [countries, scope, pathname]);
 
   // every role, right after the first paint
   useEffect(() => {
@@ -258,23 +305,25 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
 
   // keep the URL in step, so a filtered list can be shared as a link
   useEffect(() => {
+    // not before the filters have been read from it, or the first run would wipe them
+    if (!urlRead) return;
     const p = new URLSearchParams();
     if (f.q) p.set("q", f.q);
     if (f.status !== "open") p.set("status", f.status);
     if (f.kind) p.set("type", f.kind.toLowerCase());
     if (f.field) p.set("field", fold(f.field).replace(/ /g, "-"));
-    if (f.country) p.set("country", countries.find((k) => k.code === f.country)?.slug ?? "");
+    if (f.countries.length) p.set("country", f.countries.map((c) => countries.find((k) => k.code === c)?.slug).filter(Boolean).join("."));
     if (f.level) p.set("level", f.level);
     if (f.visa) p.set("visa", "1");
     if (f.english) p.set("english", "1");
     if (f.sort !== "deadline") p.set("sort", f.sort);
-    // turned off by hand: keep it off on reload
-    if (profile && !f.fit && !p.size) p.set("all", "1");
+    // turned off by hand: keep it off on reload. A city page starts with it off anyway.
+    if (profile && !f.fit && !p.size && !scope) p.set("all", "1");
     if (page > 1) p.set("page", String(page));
     if (per !== 25) p.set("per", String(per));
-    // keep ?ref= from a mail or a poster: GoatCounter counts after the page has loaded and reads it from the URL then
-    const ref = new URLSearchParams(location.search).get("ref");
-    if (ref) p.set("ref", ref);
+    // keep what the list doesn't write itself, like ?ref= from a mail or a poster: GoatCounter counts after the page
+    // has loaded and reads it from the URL then
+    for (const [k, v] of new URLSearchParams(location.search)) if (!OWN.includes(k)) p.append(k, v);
     const qs = p.toString();
     const url = `${location.pathname}${qs ? `?${qs}` : ""}${countries.some((k) => `#${k.slug}` === location.hash) ? "" : location.hash}`;
     if (url !== location.pathname + location.search + location.hash) {
@@ -282,18 +331,17 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
       else history.replaceState(null, "", url);
     }
     pushNext.current = false;
-  }, [f, countries, page, per, profile]);
+  }, [f, countries, page, per, profile, scope, urlRead]);
 
   const isNew = (x: Item) => x.fresh || (since !== null && x.added > since && x.status !== "closed");
 
-  // every filter except the status, so the status chips can say how many each one would show
   const index = useMemo(() => new Map(items.map((x) => [x.id, searchable([x.company, x.title, x.city, x.countryName, x.field, x.kind])])), [items]);
-  const matched = useMemo(() => {
+  // every filter except the country and the status: the numbers in the country picker come from this
+  const anyCountry = useMemo(() => {
     const test = query(f.q);
     return items.filter((x) => {
       if (f.kind && x.kind !== f.kind) return false;
       if (f.field && x.field !== f.field) return false;
-      if (f.country && x.country !== f.country) return false;
       if (f.saved && !saved.includes(x.id)) return false;
       // a role that names no level fits every level
       if (f.level && x.levels && !x.levels.includes(f.level)) return false;
@@ -303,18 +351,19 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
       if (test && !test(index.get(x.id)!)) return false;
       return true;
     });
-  }, [items, index, f.q, f.kind, f.field, f.country, f.saved, f.level, f.visa, f.english, f.fit, profile, saved]);
+  }, [items, index, f.q, f.kind, f.field, f.saved, f.level, f.visa, f.english, f.fit, profile, saved]);
+  // every filter except the status, so the status chips can say how many each one would show
+  const matched = useMemo(() => (f.countries.length ? anyCountry.filter((x) => f.countries.includes(x.country)) : anyCountry), [anyCountry, f.countries]);
 
-  const shown = useMemo(
-    () =>
-      matched.filter((x) => {
-        if (f.status === "open") return x.status === "open" || x.status === "rolling";
-        if (f.status === "soon") return x.status === "soon";
-        if (f.status === "new") return x.fresh || (since !== null && x.added > since && x.status !== "closed");
-        return true;
-      }),
-    [matched, f.status, since],
-  );
+  const statusOk = (x: Item) =>
+    f.status === "open" ? x.status === "open" || x.status === "rolling" : f.status === "soon" ? x.status === "soon" : f.status === "new" ? isNew(x) : true;
+  const shown = useMemo(() => matched.filter(statusOk), [matched, f.status, since]);
+  // next to each country in the picker: how many roles it has with the other filters as they are
+  const perCountry = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const x of anyCountry) if (statusOk(x)) m.set(x.country, (m.get(x.country) ?? 0) + 1);
+    return m;
+  }, [anyCountry, f.status, since]);
   // highest stated pay first, then figures without a period, then the rest in deadline order; or the newest first
   const sorted = useMemo(() => {
     if (f.sort === "new") return [...shown].sort((a, b) => b.added.localeCompare(a.added));
@@ -335,7 +384,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
       }
     return m;
   }, [rows, headings, now]);
-  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.country || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
+  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.countries.length > 0 || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
   // before every role has loaded: the plain view shows the first page and the build's numbers, any other view waits
   const waiting = !ready && !!(filtered || f.fit || page > 1 || per !== FIRST_PAGE);
   const pre = !ready && !waiting;
@@ -359,6 +408,22 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
   const set = (patch: Partial<Filters>) => {
     setF((x) => ({ ...x, ...patch }));
     setPage(1);
+  };
+  const nameOf = (code: string) => countries.find((k) => k.code === code)?.name ?? code;
+  const toggleCountry = (code: string) =>
+    set({ countries: f.countries.includes(code) ? f.countries.filter((c) => c !== code) : inOrder([...f.countries, code], countries) });
+  const closeCountries = () => {
+    setCountryOpen(false);
+    countryButton.current?.focus({ preventScroll: true });
+  };
+  /** A country clicked in the list joins the filter, and the list starts again at the top. */
+  const pickCountry = (e: React.MouseEvent, code: string) => {
+    // a new tab or window opens the link itself
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    set({ countries: inOrder([...f.countries, code], countries) });
+    // after the shorter list has rendered, else the browser lands somewhere below the top
+    setTimeout(() => top.current?.scrollIntoView(), 60);
   };
   const goTo = (n: number) => {
     if (n === cur) return;
@@ -434,7 +499,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
       setNotice("Copy the link below and open it on your other device.");
     }
   };
-  const profileText = profile ? profileWords(profile, (code) => countries.find((k) => k.code === code)?.name ?? code) : null;
+  const profileText = profile ? profileWords(profile, nameOf) : null;
   // the filters from "More filters" that are on, each with a way to turn it off from the list
   const on: { label: string; clear: Partial<Filters> }[] = [
     ...(f.fit && profileText ? [{ label: "Fits my profile", clear: { fit: false } }] : []),
@@ -481,6 +546,13 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
         <Link href={`/companies/${x.slug}/`} className="link">
           How {x.company} hires
         </Link>
+        {!scope && x.countryName && !f.countries.includes(x.country) && (
+          // phones only: there the place sits in the part you tap to open the role, which can't hold a link;
+          // wider screens have it in the City column
+          <a href={countryHref(x.country)} onClick={(e) => pickCountry(e, x.country)} className="link md:hidden">
+            {x.countryName} only
+          </a>
+        )}
         <AddToCalendar events={eventsFor([x])} file={`/cal/${x.key}.ics`} />
         <a href={reportUrl(x)} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-2 hover:text-ink">
           Something wrong?
@@ -544,12 +616,35 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
   };
   const chip = (r: Row, open: boolean) => <CountChip text={r.chip ?? ""} open={open} />;
 
-  // the country after the city, unless one country is picked already
-  const place = (x: Item) => (f.country || !x.countryName || x.city.includes(x.countryName) ? x.city : [x.city, x.countryName].filter(Boolean).join(", "));
-  const placeOf = (r: Row) => {
+  // the country after the city, unless one country is picked already or the page is about one city
+  const withCountry = (x: Item) => !(f.countries.length === 1 || scope || !x.countryName || x.city.includes(x.countryName));
+  const place = (x: Item) => (withCountry(x) ? [x.city, x.countryName].filter(Boolean).join(", ") : x.city);
+  // a row's country only when every role in it is in that country
+  const rowCountry = (r: Row) => {
     const names = new Set(r.items.map((y) => y.countryName));
-    return f.country || names.size !== 1 || !r.items[0].countryName ? citiesOf(r) : `${citiesOf(r)}, ${r.items[0].countryName}`;
+    return !(f.countries.length === 1 || scope || names.size !== 1 || !r.items[0].countryName);
   };
+  const placeOf = (r: Row) => (rowCountry(r) ? `${citiesOf(r)}, ${r.items[0].countryName}` : citiesOf(r));
+  // desktop: the same, with the country as a link that picks it, unless it is in the filter already
+  const countryOf = (x: Item) =>
+    f.countries.includes(x.country) ? x.countryName : <CountryLink code={x.country} name={x.countryName} onClick={(e) => pickCountry(e, x.country)} />;
+  const placeCell = (x: Item) =>
+    withCountry(x) ? (
+      <>
+        {x.city && `${x.city}, `}
+        {countryOf(x)}
+      </>
+    ) : (
+      x.city
+    );
+  const placeOfCell = (r: Row) =>
+    rowCountry(r) ? (
+      <>
+        {citiesOf(r)}, {countryOf(r.items[0])}
+      </>
+    ) : (
+      citiesOf(r)
+    );
 
   /** Desktop: one role as a table row, with its details below when open. `inner` for a role inside a merged row. */
   const itemRow = (x: Item, inner = false) => {
@@ -580,7 +675,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             </button>
             {!inner && howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{place(x)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{placeCell(x)}</td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted tabular-nums">{x.pay ? payCell(x.pay.short) : notStated}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
@@ -625,7 +720,7 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             </button>
             {howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{placeOf(r)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{placeOfCell(r)}</td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted tabular-nums">{pay ? payCell(pay) : r.items.every((y) => !y.pay) ? notStated : ""}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
@@ -716,14 +811,23 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
           autoComplete="off"
           className="h-11 min-w-0 flex-[1_1_260px] rounded-md border border-line bg-surface px-3 text-[16px] text-ink placeholder:text-dim hover:border-muted"
         />
-        <Select id="role-country" label="Country" value={f.country} onChange={(v) => set({ country: v })}>
-          <option value="">All countries</option>
-          {countries.map((k) => (
-            <option key={k.code} value={k.code}>
-              {k.name} ({k.count})
-            </option>
-          ))}
-        </Select>
+        {!scope && (
+          <button
+            ref={countryButton}
+            type="button"
+            onClick={() => setCountryOpen((o) => !o)}
+            aria-expanded={countryOpen}
+            aria-controls="role-countries"
+            data-track="countries-open"
+            className={`flex h-11 items-center justify-between gap-1.5 rounded-md border bg-surface px-2.5 text-left text-[15px] text-ink hover:border-muted max-md:flex-[1_1_40%] md:w-[190px] ${countryOpen ? "border-ink" : "border-line"}`}
+          >
+            <span className="truncate">
+              <span className="sr-only">Countries: </span>
+              {f.countries.length === 0 ? "All countries" : f.countries.length === 1 ? nameOf(f.countries[0]) : `${f.countries.length} countries`}
+            </span>
+            <Icon name="chevron" className={`h-4 w-4 shrink-0 transition-transform ${countryOpen ? "rotate-180" : ""}`} />
+          </button>
+        )}
         <Select id="role-type" label="Type" value={f.kind} onChange={(v) => set({ kind: v })}>
           <option value="">Any type</option>
           {kinds.map((k) => (
@@ -759,6 +863,50 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
         </select>
       </div>
 
+      {countryOpen && !scope && (
+        <div
+          ref={countryPanel}
+          id="role-countries"
+          role="group"
+          aria-labelledby="role-countries-title"
+          tabIndex={-1}
+          onKeyDown={(e) => e.key === "Escape" && closeCountries()}
+          className="mt-2 rounded-md border border-line p-3 focus:outline-none"
+        >
+          <div className="flex items-center justify-between gap-3">
+            <p id="role-countries-title" className="text-[13px] font-semibold text-muted">
+              Pick one or more countries
+            </p>
+            {f.countries.length > 0 && (
+              <button type="button" onClick={() => set({ countries: [] })} className="h-9 text-[14px] text-link underline underline-offset-2">
+                All countries
+              </button>
+            )}
+          </div>
+          <div className="mt-1 flex flex-wrap gap-1.5">
+            {countries.map((k) => {
+              const on = f.countries.includes(k.code);
+              return (
+                <button
+                  key={k.code}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => toggleCountry(k.code)}
+                  className={`h-11 rounded-full border px-3.5 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink hover:border-muted"}`}
+                >
+                  {k.name}
+                  {/* the full list first: before that the numbers would only count the first page */}
+                  {ready && <span className={on ? "font-normal" : "text-muted"}> {perCountry.get(k.code) ?? 0}</span>}
+                </button>
+              );
+            })}
+          </div>
+          <button type="button" onClick={closeCountries} className="mt-3 h-11 w-full rounded-md bg-ink px-5 text-[16px] font-semibold text-bg md:w-auto">
+            {waiting ? "Show the roles" : `Show ${shownCount} ${shownCount === 1 ? "role" : "roles"}`}
+          </button>
+        </div>
+      )}
+
       <div className="mt-3 mb-1 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-sans text-[14px] text-muted">
         <p aria-live="polite" className="font-semibold text-ink">
           {waiting ? (
@@ -793,6 +941,19 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
             </button>
           )
         )}
+        {f.countries.length > 1 &&
+          f.countries.map((code) => (
+            <button
+              key={code}
+              type="button"
+              onClick={() => set({ countries: f.countries.filter((c) => c !== code) })}
+              className="flex h-8 items-center gap-1 rounded-full bg-raised px-2.5 text-[13px] font-semibold whitespace-nowrap text-ink max-md:h-11"
+            >
+              {nameOf(code)}
+              <Icon name="x" className="h-3.5 w-3.5" />
+              <span className="sr-only">, remove this country</span>
+            </button>
+          ))}
         {on.map((x) => (
           <button
             key={x.label}
@@ -850,7 +1011,9 @@ export default function RoleFinder({ view, countries, now }: { view: StartView; 
         <p className="border-t border-line py-6 text-[15px] text-muted">Loading the roles.</p>
       ) : shown.length === 0 ? (
         <p className="border-t border-line py-6 text-[15px] text-muted">
-          No roles match. Try fewer filters, or search for a city instead of a company.
+          {scope && !filtered && !f.fit
+            ? `Nothing open in ${scope.place} right now.`
+            : `No roles match. Try fewer filters${scope ? "" : ", or search for a city instead of a company"}.`}
         </p>
       ) : (
         <>

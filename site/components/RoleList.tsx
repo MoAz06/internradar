@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
+import CountryLink from "@/components/CountryLink";
 import { CountChip, HowLine } from "@/components/RoleBits";
 import { eventsFor } from "@/lib/ics";
 import { roleHref, type Item } from "@/lib/items";
@@ -29,7 +30,7 @@ export default function RoleList({
         const x = r.items[0];
         // the country only when every role in the row is in it
         const oneCountry = new Set(r.items.map((y) => y.countryName)).size === 1;
-        const where = r.items.length === 1 ? `${x.city}, ${x.countryName}` : oneCountry ? `${citiesOf(r)}, ${x.countryName}` : citiesOf(r);
+        const cities = r.items.length === 1 ? x.city : citiesOf(r);
         const pay = r.items.length === 1 ? (x.pay?.short ?? "") : payOf(r);
         const { label, note } = soonLabel(x);
         return (
@@ -68,7 +69,12 @@ export default function RoleList({
             {note && <p className="mt-0.5 font-sans text-[13.5px] leading-snug text-muted">{note}</p>}
             <HowLine x={x} full={fullHow} className="mt-0.5 text-[13.5px]" />
             <p className="mt-0.5 font-sans text-[14px] text-muted">
-              {where}
+              {cities}
+              {oneCountry && (
+                <>
+                  , <CountryLink code={x.country} name={x.countryName} />
+                </>
+              )}
               {pay && ` · ${pay}`}
             </p>
             {r.items.length === 1 && (

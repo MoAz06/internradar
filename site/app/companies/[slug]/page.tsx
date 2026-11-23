@@ -18,6 +18,7 @@ import { eventsFor } from "@/lib/ics";
 import { historyStart } from "@/data/history";
 import { opened } from "@/data/opened";
 import AddToCalendar from "@/components/AddToCalendar";
+import CountryLink from "@/components/CountryLink";
 import FollowButton from "@/components/FollowButton";
 import EmailSignup from "@/components/EmailSignup";
 import { cityPages, citiesOf } from "@/lib/landing";
@@ -87,7 +88,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
           <div>
             <h1 className="text-[28px] font-bold leading-tight sm:text-[36px]">{c.name}</h1>
             <p className="mt-1.5 text-[15px] text-muted">
-              {c.city}, {countryName(c.country)}
+              {c.city}, <CountryLink code={c.country} name={countryName(c.country)} />
             </p>
             <div className="mt-3">
               <FollowButton slug={c.slug} name={c.name} />

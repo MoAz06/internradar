@@ -6,6 +6,7 @@ import { roleHref, type Item } from "@/lib/items";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { longDate, shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
+import CountryLink from "@/components/CountryLink";
 import {
   after,
   daysBetween,
@@ -171,7 +172,7 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
           </Link>
         </p>
         <p className="mt-0.5 text-[15px] text-muted">
-          {x.city}, {x.countryName}.{" "}
+          {x.city}, <CountryLink code={x.country} name={x.countryName} />.{" "}
           <a href={x.source} target="_blank" rel="noreferrer" className="link" data-track="mine-posting">
             Posting
             <NewTab />

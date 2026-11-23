@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
+import CountryLink from "@/components/CountryLink";
 import SaveButton from "@/components/SaveButton";
 import { opened } from "@/data/opened";
 import { aboutMonth, type Salary } from "@/data/pay";
@@ -118,7 +119,7 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
           <Link href={`/companies/${c.slug}/`} className="link font-semibold">
             {c.name}
           </Link>{" "}
-          · {x.city}, {x.countryName}
+          · {x.city}, <CountryLink code={x.country} name={x.countryName} />
         </p>
         <h1 className="mt-1.5 text-[26px] leading-tight font-bold text-balance sm:text-[34px]">{r.title}</h1>
         <p className={`mt-2 font-sans text-[16px] font-semibold ${tone}`}>
