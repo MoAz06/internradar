@@ -7,7 +7,7 @@ Careers page: https://jobs.kpn.com/option/expertises/talent-programmas
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Tech & Data Young Talent Program | Closes Sunday 22 November 2026 at 23:59 | 1 March 2027 | 3 years | About to graduate or just graduated from a WO bachelor or master in Computer Science, Data Science, AI, Telecommunications, Network Technology, Electrical Engineering, maths, physics, econometrics or Cyber Security; fluent Dutch | [link](https://jobs.kpn.com/vacature/2048/tech-data-young-talent-program-3) | 2026-11-17 |
+| Tech & Data Young Talent Program | The posting was taken down by 23 Nov 2026 | 1 March 2027 | 3 years | About to graduate or just graduated from a WO bachelor or master in Computer Science, Data Science, AI, Telecommunications, Network Technology, Electrical Engineering, maths, physics, econometrics or Cyber Security; fluent Dutch | [link](https://jobs.kpn.com/vacature/2048/tech-data-young-talent-program-3) | 2026-11-23 |
 
 ## Process, as the company describes it
 

@@ -85,7 +85,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Nebius](companies/nebius.md) | Software Engineer (Early Talent) | AMS | 🟢 | Winter 2027 | Coding interviews are part of the process | Not stated | 17 Nov |
 | [Nebius](companies/nebius.md) | Site Reliability Engineer (SRE) - Early Talent | AMS | 🟢 | January 2027 | Nebius SRE interview page: three technical interviews, then a final interview | Not stated | 17 Nov |
 | [Mendix](companies/mendix.md) | Junior Front-end Developer | Rotterdam | 🟢 | – | Not stated on the posting; see the general process below | Not stated | 17 Nov |
-| [KPN](companies/kpn.md) | Tech & Data Young Talent Program | AMS | 🟢 until 22 Nov | 1 March 2027 | Phone introduction, assessment, online first interview, then a second and sometimes third interview on site | Not stated | 17 Nov |
+| [KPN](companies/kpn.md) | Tech & Data Young Talent Program | AMS | 🔴 | 1 March 2027 | Phone introduction, assessment, online first interview, then a second and sometimes third interview on site | Not stated | 23 Nov |
 | [Thales Nederland](companies/thales.md) | Stage-/Afstudeeropdrachten- HBO/WO - computer science, software engineering - Sensor Platform Assignments | Hengelo | 🟢 | – | Apply online; name your chosen assignment in the motivation letter | Not stated | 17 Nov |
 | [Thales Nederland](companies/thales.md) | Stage-/afstudeeropdracht - HBO -Thales Naval Game - Game Developer | Hengelo | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Thales Nederland](companies/thales.md) | Internship/graduation assignment - VSM Portal | Hengelo | 🟢 | – | Not stated | Not stated | 17 Nov |

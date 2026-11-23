@@ -205,7 +205,7 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "nebius|Software Engineer (Early Talent)|https://careers.nebius.com/job?gh_jid=5026027101":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "nebius|Site Reliability Engineer (SRE) - Early Talent|https://careers.nebius.com/job?gh_jid=4967085101":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "mendix|Junior Front-end Developer|https://jobs.lever.co/mendix/f3e656f5-cb47-4c35-9e7a-00bce29c6a2d":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
-  "kpn|Tech & Data Young Talent Program|https://jobs.kpn.com/vacature/2048/tech-data-young-talent-program-3":{"added":"2026-11-17","statuses":[["2026-11-17","open"]],"closes":[["2026-11-17","2026-11-22"]]},
+  "kpn|Tech & Data Young Talent Program|https://jobs.kpn.com/vacature/2048/tech-data-young-talent-program-3":{"added":"2026-11-17","statuses":[["2026-11-17","open"],["2026-11-23","closed"]],"closes":[["2026-11-17","2026-11-22"]]},
   "thales|Stage-/Afstudeeropdrachten- HBO/WO - computer science, software engineering - Sensor Platform Assignments|https://careers.thalesgroup.com/global/en/job/R0222821":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "thales|Stage-/afstudeeropdracht - HBO -Thales Naval Game - Game Developer|https://careers.thalesgroup.com/global/en/job/R0310566":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
   "thales|Internship/graduation assignment - VSM Portal|https://careers.thalesgroup.com/global/en/job/R0345542":{"added":"2026-11-17","statuses":[["2026-11-17","open"]]},
