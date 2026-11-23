@@ -18,8 +18,10 @@ import { toast } from "@/lib/toast";
 import { levels, type Level } from "@/lib/eligibility";
 import { query, searchable } from "@/lib/search";
 import { fits, PROFILE_EVENT, profileWords, readProfile, type Profile } from "@/lib/profile";
+import { shareUrl } from "@/lib/share";
 
-type CountryOption = { code: string; name: string; slug: string; count: number };
+/** `open`: the roles open there now, for the country chips before the full list has loaded. */
+type CountryOption = { code: string; name: string; slug: string; count: number; open?: number };
 type StatusFilter = "open" | "soon" | "new" | "all";
 type Sort = "deadline" | "pay" | "new";
 type Filters = {
@@ -48,6 +50,36 @@ const OWN = ["q", "status", "type", "field", "country", "level", "visa", "englis
 
 /** Country codes in the order of the menu, each once, so the same choice always gives the same link. */
 const inOrder = (codes: string[], options: CountryOption[]) => options.map((k) => k.code).filter((c) => codes.includes(c));
+
+/** Each country's time zones. The browser's own zone puts the visitor's country first among the chips. It is read
+ * in the browser and goes nowhere. */
+const zoneCountry: Record<string, string> = {
+  "Europe/Amsterdam": "NL",
+  "Europe/London": "GB",
+  "Europe/Belfast": "GB",
+  "Europe/Berlin": "DE",
+  "Europe/Busingen": "DE",
+  "Europe/Paris": "FR",
+  "Europe/Zurich": "CH",
+  "Europe/Warsaw": "PL",
+  "Europe/Rome": "IT",
+  "Europe/Stockholm": "SE",
+  "Europe/Dublin": "IE",
+  "Europe/Madrid": "ES",
+  "Atlantic/Canary": "ES",
+  "Europe/Brussels": "BE",
+  "Europe/Lisbon": "PT",
+  "Atlantic/Madeira": "PT",
+  "Atlantic/Azores": "PT",
+  "Europe/Vienna": "AT",
+  "Europe/Helsinki": "FI",
+  "Europe/Oslo": "NO",
+  "Europe/Copenhagen": "DK",
+};
+/** Country chips on wider screens before "More countries". Phones swipe through all of them. */
+const CHIPS_WIDE = 4;
+/** On phones the home page asks for application stories after this many rows. */
+const SHARE_AFTER = 6;
 
 function Select({
   id,
@@ -178,6 +210,16 @@ export default function RoleFinder({
   useEffect(() => {
     if (countryOpen) countryPanel.current?.focus({ preventScroll: true });
   }, [countryOpen]);
+  // the visitor's country, from the time zone, for the order of the chips; empty on the server and when unknown
+  const [home, setHome] = useState<string[]>([]);
+  useEffect(() => {
+    try {
+      const code = zoneCountry[Intl.DateTimeFormat().resolvedOptions().timeZone];
+      if (code) setHome([code]);
+    } catch {
+      // no time zone: the countries with the most roles lead
+    }
+  }, []);
   // set when a page button is clicked, so that step gets its own history entry for the back button
   const pushNext = useRef(false);
 
@@ -410,6 +452,15 @@ export default function RoleFinder({
     setPage(1);
   };
   const nameOf = (code: string) => countries.find((k) => k.code === code)?.name ?? code;
+  // the chips: the countries in the visitor's profile, else their own country, then the ones with the most roles.
+  // The order stays put while the filters change, so a chip never jumps away from a finger.
+  const chipOrder = useMemo(() => {
+    const lead = profile?.countries?.length ? profile.countries : home;
+    const byOpen = [...countries].sort((a, b) => (b.open ?? b.count) - (a.open ?? a.count));
+    return [...byOpen.filter((k) => lead.includes(k.code)), ...byOpen.filter((k) => !lead.includes(k.code))];
+  }, [countries, home, profile]);
+  // the number on a chip: live once every role is in, the build's own count before that
+  const chipCount = (k: CountryOption) => (ready ? (perCountry.get(k.code) ?? 0) : pre ? (k.open ?? null) : null);
   const toggleCountry = (code: string) =>
     set({ countries: f.countries.includes(code) ? f.countries.filter((c) => c !== code) : inOrder([...f.countries, code], countries) });
   const closeCountries = () => {
@@ -811,22 +862,47 @@ export default function RoleFinder({
           autoComplete="off"
           className="h-11 min-w-0 flex-[1_1_260px] rounded-md border border-line bg-surface px-3 text-[16px] text-ink placeholder:text-dim hover:border-muted"
         />
+        {/* the countries as chips, one tap each, so a visitor sees their own country before touching anything.
+            Phones swipe through the whole row under the search; wider screens show the biggest few under the
+            row and keep the rest in the panel. */}
         {!scope && (
-          <button
-            ref={countryButton}
-            type="button"
-            onClick={() => setCountryOpen((o) => !o)}
-            aria-expanded={countryOpen}
-            aria-controls="role-countries"
-            data-track="countries-open"
-            className={`flex h-11 items-center justify-between gap-1.5 rounded-md border bg-surface px-2.5 text-left text-[15px] text-ink hover:border-muted max-md:flex-[1_1_40%] md:w-[190px] ${countryOpen ? "border-ink" : "border-line"}`}
+          <div
+            role="group"
+            aria-label="Countries"
+            className="flex basis-full gap-1.5 max-md:-mx-4 max-md:basis-[calc(100%+2rem)] max-md:overflow-x-auto max-md:px-4 max-md:[scrollbar-width:none] sm:max-md:-mx-6 sm:max-md:basis-[calc(100%+3rem)] sm:max-md:px-6 md:order-last md:flex-wrap"
           >
-            <span className="truncate">
-              <span className="sr-only">Countries: </span>
-              {f.countries.length === 0 ? "All countries" : f.countries.length === 1 ? nameOf(f.countries[0]) : `${f.countries.length} countries`}
-            </span>
-            <Icon name="chevron" className={`h-4 w-4 shrink-0 transition-transform ${countryOpen ? "rotate-180" : ""}`} />
-          </button>
+            {chipOrder.map((k, i) => {
+              const on = f.countries.includes(k.code);
+              const n = chipCount(k);
+              return (
+                <button
+                  key={k.code}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => toggleCountry(k.code)}
+                  data-track="country-chip"
+                  className={`h-11 shrink-0 rounded-full border px-3.5 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink hover:border-muted"} ${i >= CHIPS_WIDE && !on ? "md:hidden" : ""}`}
+                >
+                  {k.name}
+                  {n !== null && <span className={on ? "font-normal" : "text-muted"}> {n}</span>}
+                </button>
+              );
+            })}
+            {countries.length > CHIPS_WIDE && (
+              <button
+                ref={countryButton}
+                type="button"
+                onClick={() => setCountryOpen((o) => !o)}
+                aria-expanded={countryOpen}
+                aria-controls="role-countries"
+                data-track="countries-open"
+                className={`flex h-11 shrink-0 items-center gap-1.5 rounded-full border bg-surface px-3.5 text-[15px] whitespace-nowrap text-ink hover:border-muted max-md:hidden ${countryOpen ? "border-ink" : "border-line"}`}
+              >
+                More countries
+                <Icon name="chevron" className={`h-4 w-4 shrink-0 transition-transform ${countryOpen ? "rotate-180" : ""}`} />
+              </button>
+            )}
+          </div>
         )}
         <Select id="role-type" label="Type" value={f.kind} onChange={(v) => set({ kind: v })}>
           <option value="">Any type</option>
@@ -847,20 +923,6 @@ export default function RoleFinder({
           onCalendar={downloadCalendar}
           onCopyLink={copyLink}
         />
-        {/* phones: the order next to More filters, so the line below stays one line */}
-        <label htmlFor="role-sort-phone" className="sr-only">
-          Sort
-        </label>
-        <select
-          id="role-sort-phone"
-          value={f.sort}
-          onChange={(e) => set({ sort: e.target.value as Sort })}
-          className="h-11 flex-[1_1_40%] rounded-md border border-line bg-surface px-2.5 text-[15px] text-ink md:hidden"
-        >
-          <option value="deadline">Closing soonest</option>
-          <option value="pay">Highest pay ({withPay})</option>
-          <option value="new">Newest</option>
-        </select>
       </div>
 
       {countryOpen && !scope && (
@@ -918,8 +980,9 @@ export default function RoleFinder({
             </>
           )}
         </p>
-        <label className="flex items-center gap-1.5 max-md:hidden">
-          Sort
+        {/* on phones too: the order sits with the count, so the filters above take one row */}
+        <label className="flex items-center gap-1.5">
+          <span className="max-md:sr-only">Sort</span>
           <select
             value={f.sort}
             onChange={(e) => set({ sort: e.target.value as Sort })}
@@ -935,8 +998,9 @@ export default function RoleFinder({
             Back to open roles
           </button>
         ) : (
+          // phones keep the count line to one row: there it's under More filters, Status
           counts.soon > 0 && (
-            <button type="button" onClick={() => set({ status: "soon" })} className="text-link underline underline-offset-2 max-md:min-h-11">
+            <button type="button" onClick={() => set({ status: "soon" })} className="text-link underline underline-offset-2 max-md:hidden">
               Opening soon ({counts.soon})
             </button>
           )
@@ -1030,6 +1094,18 @@ export default function RoleFinder({
                     </li>
                   )}
                   {r.items.length === 1 ? itemCard(r.items[0]) : groupCard(r)}
+                  {/* the home page asks for application stories once a phone has scrolled into the list; wider
+                      screens have the link in the menu bar */}
+                  {!scope && cur === 1 && i === SHARE_AFTER - 1 && (
+                    <li className="my-3 rounded-md bg-raised px-3.5 py-3 text-[15px] leading-[1.5]">
+                      <b className="font-semibold">Applied to one of these?</b>{" "}
+                      Tell the next student how it went: the test, the rounds, how long it took. It&apos;s anonymous and
+                      takes a minute.{" "}
+                      <Link href={shareUrl()} className="link font-semibold whitespace-nowrap" data-track="share-from-list">
+                        Share your process
+                      </Link>
+                    </li>
+                  )}
                 </Fragment>
               );
             })}

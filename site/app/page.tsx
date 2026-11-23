@@ -119,12 +119,18 @@ export default function Home() {
   const story = now <= STORY_UNTIL;
   const next = upcoming(radar, now);
   const options = countries
-    .map((k) => ({ code: k.code, name: k.name, slug: k.slug, count: items.filter((x) => x.country === k.code).length }))
+    .map((k) => ({
+      code: k.code,
+      name: k.name,
+      slug: k.slug,
+      count: items.filter((x) => x.country === k.code).length,
+      open: open.filter((x) => x.country === k.code).length,
+    }))
     .filter((k) => k.count > 0);
 
   return (
     <>
-      {/* the list first, on every screen: one line on top, the stories beside the list (or below it on phones) */}
+      {/* the list first, on every screen: the headline on top, the stories beside the list (or below it on phones) */}
       <Section className="pt-5 pb-10 max-md:pt-3 max-md:pb-6">
         <div className="mb-5 max-md:mb-4">
           <h1 className="text-[32px] leading-tight font-bold text-balance max-md:text-[24px]">
@@ -137,15 +143,6 @@ export default function Home() {
             <b className="font-semibold text-ink">{fresh}</b> new this week · <b className="font-semibold text-ink">{companies.length}</b> companies ·{" "}
             <b className="font-semibold text-ink">{options.length}</b> countries
           </p>
-          {/* phones have no side column, so the re-apply story goes here, above the list */}
-          <p className="mt-3 border-l-2 border-soon pl-3 text-[15px] leading-[1.45] md:hidden">
-            {story
-              ? "Rejected by Shell? Apply again within 10 months and it's turned down automatically. "
-              : "When can you apply again after a rejection? "}
-            <Link href="/reapply/" className="link font-semibold">
-              Re-apply rules
-            </Link>
-          </p>
         </div>
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
           <div className="min-w-0">
@@ -156,6 +153,16 @@ export default function Home() {
       </Section>
 
       <Section className="pb-14">
+        {/* phones have no side column: the re-apply story comes after the list, so the first roles fit on the
+            first screen */}
+        <p className="mb-5 border-t-2 border-ink pt-3 text-[16px] leading-[1.5] md:hidden">
+          {story
+            ? "Rejected by Shell? Apply again within 10 months and it's turned down automatically. "
+            : "When can you apply again after a rejection? "}
+          <Link href="/reapply/" className="link font-semibold">
+            All {reapplyRules.length} re-apply rules
+          </Link>
+        </p>
         {next[0] && (
           <p className="mb-5 border-t-2 border-ink pt-3 text-[16px] leading-[1.5] md:hidden">
             Opening next: {next[0].company}, {next[0].opens}.{" "}
