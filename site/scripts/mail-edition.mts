@@ -47,7 +47,9 @@ if (dry) {
   process.exit(0);
 }
 
-const headers = { Authorization: `Token ${key}`, "Content-Type": "application/json" };
+const headers: Record<string, string> = { Authorization: `Token ${key}`, "Content-Type": "application/json" };
+// Buttondown refuses an API key's first send without this header (400 sending_requires_confirmation)
+if (status === "about_to_send") headers["X-Buttondown-Live-Dangerously"] = "true";
 
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
   const res = await fetch(`${API}${path}`, { ...init, headers });
