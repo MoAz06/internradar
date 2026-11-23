@@ -2514,6 +2514,20 @@ export const de: Company[] = [
     careersUrl: "https://www.nvidia.com/de-de/about-nvidia/careers/university-recruiting/",
     roles: [
       {
+        title: "Software Engineering Intern",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Germany-Munich/Software-Engineering-Intern_JR2029967",
+        checked: "2026-11-23",
+        auto: true,
+      },
+      {
         title: "Developer Technology Engineering Intern - Compute Performance",
         kind: "Internship",
         field: "Software",

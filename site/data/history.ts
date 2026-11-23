@@ -829,7 +829,8 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "vanderlande|Internship: IT Infrastructure & systems|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Internship--IT-Infrastructure---systems_JR38223":{"added":"2026-11-21","statuses":[["2026-11-21","rolling"]]},
   "vanderlande|Internship: Building the Future of Work with Low-Code AI Skills for Vanderlande|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Build-the-future-of-work--Create-reusable-AI-skills-for-Vanderlande_JR38184":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
   "qualcomm-cambridge|FY27 Intern - Software - Systems Engineering Team (Data Center Group)- 6 months, Cambridge|https://careers.qualcomm.com/careers/job/446722247294":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
-  "qualcomm-cork|FY27 Intern - IT Artificial Intelligence & Automation - Up to 8 Months, Cork|https://careers.qualcomm.com/careers/job/446722246579":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]}
+  "qualcomm-cork|FY27 Intern - IT Artificial Intelligence & Automation - Up to 8 Months, Cork|https://careers.qualcomm.com/careers/job/446722246579":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
+  "nvidia-germany|Software Engineering Intern|https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Germany-Munich/Software-Engineering-Intern_JR2029967":{"added":"2026-11-23","statuses":[["2026-11-23","open"]]}
 };
 
 /** Per company slug: the day it was added. */

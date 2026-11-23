@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-238-blue) ![roles](https://img.shields.io/badge/roles-816-blue) ![checked](https://img.shields.io/badge/last%20checked-21%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-238-blue) ![roles](https://img.shields.io/badge/roles-817-blue) ![checked](https://img.shields.io/badge/last%20checked-23%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -515,6 +515,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Intel](companies/intel-munich.md) | Middleware Software Engineering Intern (m/f/d) | Munich | 🟢 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 19 Nov |
 | [Intel](companies/intel-munich.md) | Software Design Engineer Intern for Physical Design (m/f/d) | Munich | 🟢 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 19 Nov |
 | [Intel](companies/intel-munich.md) | Software Engineering Undergraduate Intern (f/m/d) | Munich | 🔴 | – | See the company page | Not stated after a rejection. If a role is filled, Intel keeps your application and encourages you to “continue applying for positions that interest you.” | 20 Nov |
+| [NVIDIA](companies/nvidia-germany.md) | Software Engineering Intern | Munich | 🟢 | – | See the company page | Not stated | 23 Nov |
 | [NVIDIA](companies/nvidia-germany.md) | Developer Technology Engineering Intern - Compute Performance | Munich | 🟢 | – | Usually phone interviews only; technical roles may include a coding exercise | Not stated | 20 Nov |
 | [NVIDIA](companies/nvidia-germany.md) | Relational Foundation Model Intern, Modern Data Stack – 2027 | Remote | 🟢 | – | Usually phone interviews only; technical roles may include a coding exercise | Not stated | 20 Nov |
 | [Qualcomm](companies/qualcomm-munich.md) | FY27 PhD Internship: Data-Centric AI for End-to-End Autonomous Driving - 6 months, Munich, Unterschleißheim, Germany | Unterschleißheim | 🟢 | – | Talent team contacts you for an interview if you match | Not stated | 20 Nov |
