@@ -107,13 +107,15 @@ async function sendFeedback(raw: Record<string, unknown>, env: Env, fetcher: typ
 // ---------- the night jobs ----------
 // GitHub's own schedule starts them 8 to 9 hours late. Cloudflare's cron is on time, so each cron in
 // wrangler.toml starts one workflow here. The schedule in the workflow stays as a spare: it skips the night
-// when this one already ran.
+// when this one already ran, and the weekly mail skips the editions it made that week.
 
 export const wakeups: Record<string, { repo: string; workflow: string; ref: string }> = {
   // the site rebuilds, so passed deadlines show as closed in the morning
   "30 3 * * *": { repo: "MoAz06/internradar", workflow: "deploy.yml", ref: "master" },
   // new roles from the job boards, and the morning issue
   "15 4 * * *": { repo: "MoAz06/internradar-inbox", workflow: "roles.yml", ref: "main" },
+  // Mondays: the weekly mail, after the night's deploy. MON, not 1: on Cloudflare 1 is Sunday.
+  "0 6 * * MON": { repo: "MoAz06/internradar", workflow: "mail.yml", ref: "master" },
 };
 
 export async function wake(cron: string, env: Env, fetcher: typeof fetch = fetch, pause = 30_000): Promise<void> {

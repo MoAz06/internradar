@@ -1,6 +1,8 @@
 name: Weekly mail
 
 # Every Monday the weekly edition goes to Buttondown, after the night's deploy (03:30 UTC) has made the new feed.xml.
+# The Worker (worker/src/index.ts) starts it on time at 06:00 UTC. This schedule is the spare, since GitHub starts it
+# hours late; a second run in the same week skips the editions it made already, so nothing is made twice.
 # Repo variable MAIL_STATUS: draft (default) leaves a draft to send by hand, about_to_send sends it.
 on:
   schedule:

@@ -285,6 +285,12 @@ test("night jobs: the Worker starts each workflow on time, and tries again only 
   assert.deepEqual(crons.sort(), Object.keys(wakeups).sort());
   const deploy = readFileSync(join(here, "..", "..", ".github", "workflows", "deploy.yml"), "utf8");
   assert.ok(deploy.includes(`cron: "${Object.keys(wakeups).find((c) => wakeups[c].workflow === "deploy.yml")}"`));
+  // the weekly mail on Monday in both: MON in the Worker, since Cloudflare counts 1 as Sunday, and 1 in the workflow
+  const mail = readFileSync(join(here, "..", "..", ".github", "workflows", "mail.yml"), "utf8");
+  assert.equal(wakeups["0 6 * * MON"]?.workflow, "mail.yml");
+  assert.ok(mail.includes('cron: "0 6 * * 1"'));
+  // a weekday as a number is another day on Cloudflare than on GitHub, so a Worker cron names it
+  for (const c of crons) assert.match(c.split(" ")[4], /^(\*|[A-Za-z]{3}([-,][A-Za-z]{3})*)$/, c);
   const env = { INBOX_REPO: "", ALLOWED_ORIGINS: "", TURNSTILE_SECRET: "", GITHUB_TOKEN: "", ACTIONS_TOKEN: "t", RESEND_KEY: "", FEEDBACK_TO: "", FEEDBACK_FROM: "" };
   const calls: { url: string; body: string; auth: string }[] = [];
   const answer = (...codes: number[]) =>
@@ -301,6 +307,9 @@ test("night jobs: the Worker starts each workflow on time, and tries again only 
   calls.length = 0;
   await assert.rejects(wake("15 4 * * *", env, answer(401), 0), /401/);
   assert.equal(calls.length, 1);
+  calls.length = 0;
+  await wake("0 6 * * MON", env, answer(204), 0);
+  assert.deepEqual(calls.at(-1), { url: "https://api.github.com/repos/MoAz06/internradar/actions/workflows/mail.yml/dispatches", body: '{"ref":"master"}', auth: "Bearer t" });
   await assert.rejects(wake("0 0 * * *", env, answer(), 0), /No job/);
 });
 
