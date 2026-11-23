@@ -228,6 +228,8 @@ test("weekly mail: one edition per country, short lines, links to role pages", (
     assert.match(m.key, /^[a-z]{2}-2026-w48$/);
     assert.ok(m.subject.length > 5 && m.subject.length <= 90, m.subject);
     assert.ok(!/undefined|null|NaN/.test(m.subject + m.preheader + m.html), m.key);
+    // the naked template adds nothing, so without this the mail has no way to unsubscribe
+    assert.ok(m.html.includes('<a href="{{ unsubscribe_url }}"'), m.key);
     assert.ok(m.closing.length + m.fresh.length + m.coming.length > 0);
     for (const g of [...m.closing, ...m.fresh, ...m.coming]) for (const r of g.roles) assert.match(r.href, /^https:\/\/internradar\.eu\/roles\/[\w-]+\/$/);
     if (m.edition.code !== "EU") for (const g of m.closing) assert.ok(g.daysLeft !== null && g.daysLeft <= 7);

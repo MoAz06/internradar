@@ -227,6 +227,7 @@ function render(m: Omit<MailEdition, "html">, perCountry: boolean): string {
   }
   if (m.coming.length) parts.push(label("OPENS SOON", dim, parts.length > 0), ...m.coming.map(comingRow));
 
+  // Buttondown's naked template sends this body as it is, so the unsubscribe link has to be in it ({{ unsubscribe_url }})
   return `<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${esc(m.preheader)}</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${paper};">
 <tr><td align="center" style="padding:24px 12px;">
@@ -243,6 +244,7 @@ ${parts.join("\n")}
 </td></tr>
 </table>
 <div style="margin-top:18px;font-family:${serif};font-size:13px;font-style:italic;line-height:1.55;color:${dim};">Applied to one of these? ${a(`${site}/share/`, "Tell the next person how it went")}, without your name.${perCountry ? ` Want other countries? ${a(`${site}/alerts/`, "Pick another edition")}.` : ""}</div>
+<div style="margin-top:14px;font-family:${sans};font-size:12px;color:${dim};">${a("{{ unsubscribe_url }}", "Unsubscribe", `color:${dim};`)}</div>
 </td></tr>
 </table>
 </td></tr>
