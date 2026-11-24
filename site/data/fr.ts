@@ -59,6 +59,7 @@ export const fr: Company[] = [
       { url: "https://careers.datadoghq.com/detail/8181440/?gh_jid=8181440", checked: "2026-11-17" },
       { url: "https://careers.datadoghq.com/candidate-experience/", checked: "2026-11-17" },
       { url: "https://careers.datadoghq.com/early-careers/", checked: "2026-11-17" },
+      { url: "https://job-boards.greenhouse.io/datadog", checked: "2026-11-24" },
     ],
   },
   {
@@ -1960,6 +1961,50 @@ export const fr: Company[] = [
       { url: "https://tower-research.com/careers/", checked: "2026-11-20" },
       { url: "https://tower-research.com/quant-internships-quant-trading-vs-quant-research-vs-quant-engineering/", checked: "2026-11-20" },
       { url: "https://www.tower-research.com/open-positions/?gh_jid=7011493", checked: "2026-11-20" },
+    ],
+  },
+  {
+    slug: "salesforce-paris",
+    name: "Salesforce",
+    country: "FR",
+    city: "Paris",
+    careersUrl: "https://www.salesforce.com/company/careers/university/internships/",
+    roles: [
+      {
+        title: "Data Science & Analytics Intern, Alliances & Channels - February 2027",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "6 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/France---Paris/Data-Science---Analytics-Intern--Alliances---Channels---February-2027_JR368786-1",
+        checked: "2026-11-24",
+        auto: true,
+      },
+    ],
+    process: [
+      "Salesforce's page for tech students: after a resume review, “our interview process begins with a HackerRank assessment”.",
+      "If you pass, your resume goes to the engineering team, then an interview with a hiring manager of up to 60 minutes, technical and behavioural.",
+      "After that, a technical interview or team interviews, depending on the role. The page doesn't say whether this differs in Europe.",
+      "Salesforce recommends applying to at most 3 roles within 12 months.",
+    ],
+    reapply: "Not stated. Salesforce suggests applying to at most 3 roles within 12 months.",
+    pay: [
+      "Pay: no figure on the Paris internship postings.",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://www.salesforce.com/company/careers/university/internships/", checked: "2026-11-24" },
+      { url: "https://www.salesforce.com/company/careers/university-recruiting/tech-core/", checked: "2026-11-24" },
+      { url: "https://www.salesforce.com/company/careers/how-we-hire/", checked: "2026-11-24" },
+      { url: "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site", checked: "2026-11-24" },
+    ],
+    notes: [
+      "The Paris internships start in February 2027 and last 6 months; the solution engineer internship asks for a master's student graduating in 2027 or 2028 who is fluent in English and French.",
     ],
   },
 ];

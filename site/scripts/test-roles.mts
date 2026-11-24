@@ -149,6 +149,8 @@ test("dates with a year only, and never a day and month that can be swapped", ()
   assert.deepEqual(datesIn("Applications close January 15", "2026-11-20"), ["2027-01-15"]);
   assert.deepEqual(datesIn("Apply by 29 November 2026.", "2026-11-20"), ["2026-11-29"]);
   assert.equal(readPosting("Start date: June 2027\nApplication deadline: Midnight 29 th November", "Intern", "2026-11-20").closes, "2026-11-29");
+  // when the internship ends is not when applications close (Adobe London, November 2026)
+  assert.equal(readPosting("Starting date: From February 2027\nEnd date: No later than 30 November 2027", "Intern", "2026-11-24").closes, "");
   assert.deepEqual(datesIn("Apply by 29 November"), []);
 });
 

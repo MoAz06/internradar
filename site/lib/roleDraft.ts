@@ -182,6 +182,9 @@ const sentencesOf = (text: string) =>
     .filter((s) => s.length > 3);
 
 const deadlineCue = /\b(deadline|apply by|applications? (?:will )?close|closing date|closes on|no later than|bewerbungsschluss|bewerben bis|einsendeschluss|date limite|uiterlijk|sluitingsdatum)\b/i;
+/** "End date: No later than 30 November 2027" is when the internship ends, not when applications close. */
+const endCue = /\b(end date|ends? (?:on|by|no later)|ending|finish\w*|enddatum|date de fin|fin du stage)\b/i;
+const applyCue = /\b(apply|application|applications|bewerb\w*|candidature|solliciteer\w*)\b/i;
 const startCue = /\b(start(?:s|ing)?|commenc\w*|begin(?:s|ning)?|beginnt|d[ée]but|startdatum|eintritt|ab sofort)\b/i;
 const notDuration = /\b(experience|notice|within|every|per|ago|after|before|respond|response|hear back|leave|holiday|vacation|parental|years? of|probation|contract renewal|older|younger|graduated)\b/i;
 const durationRe = /\b(\d{1,2})(?:\s*(?:-|–|to)\s*(\d{1,2}))?[\s-]*(weeks?|months?|wochen|monate|maanden|weken|mois|semaines)\b/gi;
@@ -213,6 +216,7 @@ export function readPosting(text: string, title: string, today = ""): Found2 {
   const closes = new Set<string>();
   for (const s of sents) {
     if (!deadlineCue.test(s)) continue;
+    if (endCue.test(s) && !applyCue.test(s)) continue;
     dlLines.push(s);
     for (const d of datesIn(s, today)) closes.add(d);
   }

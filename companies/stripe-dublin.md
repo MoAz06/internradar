@@ -25,7 +25,7 @@ Not stated
 
 ## Pay, relocation, visa
 
-- Pay: no figure on the Dublin postings.
+- Pay: the Dublin intern posting gives “€52,800 - €52,800” a year, the new grad postings €64,000 to €96,000 a year.
 - Learning: early-career hires get “an annual education stipend for courses, conferences and other learning resources”.
 - Relocation: not mentioned.
 - Visa: not mentioned.
@@ -40,5 +40,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://stripe.com/jobs/search?gh_jid=8097801 checked 2026-11-16
 - https://stripe.com/jobs/search?gh_jid=8130881 checked 2026-11-16
 - https://stripe.com/jobs/search?gh_jid=8257892 checked 2026-11-16
+- https://job-boards.greenhouse.io/stripe checked 2026-11-24
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

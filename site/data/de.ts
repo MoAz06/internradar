@@ -2730,4 +2730,46 @@ export const de: Company[] = [
       { url: "https://thales.wd3.myworkdayjobs.com/Careers/job/Stuttgart/Werkstudent--m-w-d--fr-autonome-Knstliche-Intelligenz--KI--Systeme-zur-Cyberabwehr_R0347718", checked: "2026-11-20" },
     ],
   },
+  {
+    slug: "abb-mannheim",
+    name: "ABB",
+    country: "DE",
+    city: "Mannheim",
+    careersUrl: "https://careers.abb/dach/de/early-careers",
+    roles: [
+      {
+        title: "MSc or BSc Thesis / Internship (m/f/d) AI for Intent-Based Networking",
+        kind: "Thesis",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Mannheim-Baden-Wurttemberg-Germany/MSc-or-BSc-Thesis---Internship--m-f-d--AI-for-Intent-Based-Networking_JR00043251-1",
+        checked: "2026-11-24",
+        auto: true,
+      },
+    ],
+    process: [
+      "Apply online with your CV, a cover letter and your transcript of records.",
+      "ABB's general steps: possibly a video interview or assessment first, then “a series of interviews with HR and hiring managers”.",
+      "After the interviews you get feedback; if that and the compliance checks are positive, you get an offer.",
+    ],
+    reapply: "Not stated",
+    pay: [
+      "Pay: not stated.",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://careers.abb/dach/de/early-careers", checked: "2026-11-24" },
+      { url: "https://careers.abb/global/en/how-to-apply", checked: "2026-11-24" },
+      { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Mannheim-Baden-Wurttemberg-Germany/MSc-or-BSc-Thesis---Internship--m-f-d--AI-for-Intent-Based-Networking_JR00043251-1", checked: "2026-11-24" },
+      { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page", checked: "2026-11-24" },
+    ],
+    notes: [
+      "The Mannheim research center takes thesis students and interns with a background in computer science or a related engineering field; fluent English is required.",
+    ],
+  },
 ];

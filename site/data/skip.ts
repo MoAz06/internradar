@@ -7,4 +7,10 @@ export const skip: { url: string; why: string }[] = [
   { url: "https://jobs.ashbyhq.com/doctolib/bc312b03-fa9f-4eb0-9e5e-11e14281f584", why: "Laptop and phone stock for the IT team, not a software or data role" },
   { url: "https://jobs.smartrecruiters.com/BoschGroup/744000159058604", why: "Taken off in the check of the roles added on 2026-11-20" },
   { url: "https://jobs.smartrecruiters.com/BoschGroup/744000159338949", why: "Taken off in the check of the roles added on 2026-11-20" },
+  { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaesteras-Vastmanland-County-Sweden/Thesis-Work-on-Post-Fault-Recovery-Stability-of-AI-Data-Center-in-Weak-Grids_JR00049708", why: "Taken off in the check of the roles added on 2026-11-24" },
+  { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaesteras-Vastmanland-County-Sweden/Thesis-Work---AI-Assisted-Design-and-FEM-Based-Development-of-a-Spherical-Electrical-Machine-for-Robotic-Actuation_JR00049503", why: "Taken off in the check of the roles added on 2026-11-24" },
+  { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaesteras-Vastmanland-County-Sweden/Thesis-Work--Current-Source-Inverters-for-High-Performance-Electrical-Drives-in-Robotic-Applications_JR00049513", why: "Taken off in the check of the roles added on 2026-11-24" },
+  { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaesteras-Sweden/Thesis-Work---Investigating-the-environmental-impact-of-AI---Future-Technologies-at-ABB-Robotics_JR00046791-1", why: "Taken off in the check of the roles added on 2026-11-24" },
+  { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaesteras-Vastmanland-County-Sweden/Thesis-Work-on-AI-assisted-Automated-Stability-Assessment-for-Industrial-Grids-with-MATLAB-Simulink-interface_JR00049736-1", why: "Taken off in the check of the roles added on 2026-11-24" },
+  { url: "https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/Winnersh-Berkshire-United-Kingdom/Interns_1216748", why: "Taken off in the check of the roles added on 2026-11-24" },
 ];

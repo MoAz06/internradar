@@ -40,5 +40,6 @@ None yet. Went through this process? [Share what it looked like](https://internr
 - https://careers.datadoghq.com/detail/8181440/?gh_jid=8181440 checked 2026-11-17
 - https://careers.datadoghq.com/candidate-experience/ checked 2026-11-17
 - https://careers.datadoghq.com/early-careers/ checked 2026-11-17
+- https://job-boards.greenhouse.io/datadog checked 2026-11-24
 
 <!-- Generated from site/data. Edit the data file, then run npm run gen in site/. -->

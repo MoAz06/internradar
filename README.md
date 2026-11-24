@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-238-blue) ![roles](https://img.shields.io/badge/roles-829-blue) ![checked](https://img.shields.io/badge/last%20checked-24%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-257-blue) ![roles](https://img.shields.io/badge/roles-856-blue) ![checked](https://img.shields.io/badge/last%20checked-24%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -392,8 +392,13 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Motorola Solutions](companies/motorola-solutions-glasgow.md) | Graduate Software Engineer | Glasgow | 🟢 | January 2027 | See the company page | Not stated | 20 Nov |
 | [Shell](companies/shell-uk.md) | Shell Assessed Internship Programme 2027 – United Kingdom | London | 🟢 until 31 Jan | 15 June 2027 | Virtual Job Tryout and recorded interview, then a virtual case study with two Shell staff | Not stated | 20 Nov |
 | [Shell](companies/shell-uk.md) | Information & Digital Technology (IDT) - Shell Graduate Programme 2027 - United Kingdom | London | 🟢 until 15 Dec | September 2027 | Virtual Job Tryout and recorded interview, then a virtual case study and interview with two Shell staff | Not stated | 20 Nov |
+| [Stripe](companies/stripe-london.md) | Software Engineer, New Grad | London | 🟢 rolling | – | Not stated | Not stated | 24 Nov |
+| [Stripe](companies/stripe-london.md) | Software Engineer, Intern | London | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Adobe](companies/adobe-london.md) | 2027 Intern - Research Scientist | London | 🟢 | – | See the company page | Not stated. Adobe says you can apply to several openings at once if you meet the requirements. | 24 Nov |
+| [Cisco](companies/cisco-uk.md) | Software Engineer - Intern | Harpenden | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [HP](companies/hp-uk.md) | Browser Software Engineer Intern | Cambridge | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-47 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+52 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="germany"></a>
 ## 🇩🇪 Germany
@@ -527,8 +532,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [NVIDIA](companies/nvidia-germany.md) | Relational Foundation Model Intern, Modern Data Stack – 2027 | Remote | 🟢 | – | Usually phone interviews only; technical roles may include a coding exercise | Not stated | 20 Nov |
 | [Qualcomm](companies/qualcomm-munich.md) | FY27 PhD Internship: Data-Centric AI for End-to-End Autonomous Driving - 6 months, Munich, Unterschleißheim, Germany | Unterschleißheim | 🟢 | – | Talent team contacts you for an interview if you match | Not stated | 20 Nov |
 | [Thales](companies/thales-germany.md) | Masterarbeit Chip-Placement mittels Strömungs-/Temperatur-Modellierung: Entropiebasiertes globales Placement als Alternative zu elektrostatischen Partikelmodellen | Stuttgart | 🟢 | – | Online application; supervised at the ITLR institute of the University of Stuttgart | Not stated | 20 Nov |
+| [ABB](companies/abb-mannheim.md) | MSc or BSc Thesis / Internship (m/f/d) AI for Intent-Based Networking | Mannheim | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-29 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+30 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="switzerland"></a>
 ## 🇨🇭 Switzerland
@@ -588,8 +594,11 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Swiss Post (Die Post)](companies/swiss-post-bern.md) | Hochschulpraktikum | Bern | 🟢 rolling | Any time | Not stated | Not stated | 17 Nov |
 | [Amazon](companies/amazon-zurich.md) | SLAM / Computer Vision Intern, RIVR | Zurich | 🟢 | – | Rolling review; you are matched to a team before the interviews | Not stated | 20 Nov |
 | [Amazon](companies/amazon-zurich.md) | Applied Scientist Intern - VLA and DATA, RIVR | Zurich | 🟢 | – | Online assessment, then interviews | Not stated | 20 Nov |
+| [Adobe](companies/adobe-basel.md) | 2027 Intern- Software Engineer | Basel | 🟢 | – | See the company page | Not stated. Adobe says you can apply to several openings at once if you meet the requirements. | 24 Nov |
+| [Marvell Technology](companies/marvell-zurich.md) | Silicon Photonics Test & Characterisation Intern | Adliswil | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Marvell Technology](companies/marvell-zurich.md) | Silicon Photonic Design Intern | Adliswil | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-16 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+18 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="ireland"></a>
 ## 🇮🇪 Ireland
@@ -625,8 +634,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Qualcomm](companies/qualcomm-cork.md) | FY27 IT Cloud Engineering Intern - Cork 8 months | Cork | 🟢 | 2027 | Not stated | Not stated | 17 Nov |
 | [Logitech](companies/logitech-cork.md) | Data Science Intern (12-months contract) | Cork | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Motorola Solutions](companies/motorola-solutions-cork.md) | Software Engineering Work Placement | Cork | 🟢 | February or March | See the company page | Not stated | 20 Nov |
+| [Cisco](companies/cisco-galway.md) | Software Engineer Intern | Galway | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Cisco](companies/cisco-galway.md) | Graduate Software Engineer | Galway | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-9 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+10 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="france"></a>
 ## 🇫🇷 France
@@ -718,8 +729,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027  - AI & Data Engineering - Automated Technical Knowledge Extraction | Toulouse | 🟢 | February or March 2027 | ATR role: CV review, then a technical interview with the manager | Not stated | 20 Nov |
 | [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027  - infra IA et deploiement de LLM | Toulouse | 🟢 | 4 January 2027 | ATR role: CV review, then a technical interview with the manager | Not stated | 20 Nov |
 | [Tower Research Capital](companies/tower-research-capital-paris.md) | Quantitative Developer Intern | Paris | 🟢 | February 2027 | See the company page | Not stated | 20 Nov |
+| [Salesforce](companies/salesforce-paris.md) | Data Science & Analytics Intern, Alliances & Channels - February 2027 | Paris | 🟢 | – | See the company page | Not stated. Salesforce suggests applying to at most 3 roles within 12 months. | 24 Nov |
 
-28 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+29 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="sweden"></a>
 ## 🇸🇪 Sweden
@@ -763,8 +775,14 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Qualcomm](companies/qualcomm-stockholm.md) | FY27 Summer Intern - Build Tools and Data Solutions for Smarter Vehicles - Linkoping, Sweden | Linkoping | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Qualcomm](companies/qualcomm-stockholm.md) | FY27 - Software Test Modernization Summer Intern - June-Aug 2027, Linköping, Sweden | Linkoping | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Qualcomm](companies/qualcomm-stockholm.md) | FY27 Intern - Multimedia R&D Intern – Video & AI - 6 months, Stockholm (Bromma) - Sweden | Stockholm | 🟢 | – | Talent team contacts you for an interview if you match | Not stated | 20 Nov |
+| [ABB](companies/abb-vasteras.md) | Master's Thesis: Secure IT/OT Convergence in Network-Centric Control Architectures | Vaesteras | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [ABB](companies/abb-vasteras.md) | THESIS WORK: VERIFICATION, MAINTENANCE AND UPGRADE OF THE STRESSOMETER SYSTEM TEST ENVIRONMENT | Vaesteras | 🟢 rolling | – | See the company page | Not stated | 24 Nov |
+| [ABB](companies/abb-vasteras.md) | Master Thesis Work - Industrializing e-SBOM Traceability across DevOps, Windchill and Product Lifecycle Systems | Malmo | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [ABB](companies/abb-vasteras.md) | Thesis Work: Physical AI Through Simulation-Driven Learning and Planning for Industrial Robots | Vaesteras | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [ABB](companies/abb-vasteras.md) | Thesis Work -Depth-Aware Physical AI Models for Robot Manipulation | Vaesteras | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [ABB](companies/abb-vasteras.md) | Thesis work - Learning Robot-Individual Physics-Models from Calibration Data and Test Measurements | Vaesteras | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-8 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+9 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="denmark"></a>
 ## 🇩🇰 Denmark
@@ -796,8 +814,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Ericsson](companies/ericsson-jorvas.md) | Software Developer Summer Intern: IMS GW (AI & Automation) | Jorvas | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Ericsson](companies/ericsson-jorvas.md) | Software Developer Summer Intern: Transport Automation | Jorvas | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Ericsson](companies/ericsson-jorvas.md) | New Graduate Developer | Jorvas | 🟢 | – | See the company page | Not stated | 19 Nov |
+| [ABB](companies/abb-vaasa.md) | Data Analyst Trainee | Vaasa | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-3 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+4 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="norway"></a>
 ## 🇳🇴 Norway
@@ -842,8 +861,12 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Back Market](companies/back-market-barcelona.md) | Data Analyst Intern | Barcelona | 🟢 | January 2027 | Skill-fit interview with a live case, a call with Talent Acquisition, then a culture-fit interview with the manager | Not stated | 20 Nov |
 | [Bitpanda](companies/bitpanda-barcelona.md) | Intern, Data Engineering | Barcelona | 🟢 | 1 February 2027 | Hiring starts in October 2026; the steps for interns are not stated | Not stated | 20 Nov |
 | [Ericsson](companies/ericsson-malaga.md) | Ericsson Málaga Tech Internships - A Place for Impact | Málaga | 🟢 | – | Recruiter call, then one to three interviews | Not stated | 20 Nov |
+| [Stripe](companies/stripe-barcelona.md) | Software Engineer, New Grad - Frontend | Barcelona | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Datadog](companies/datadog-madrid.md) | Software Engineering Intern | Madrid | 🟢 | February 2027 | Not stated | Not stated | 24 Nov |
+| [Hewlett Packard Enterprise](companies/hpe-madrid.md) | AI and Data Intern | Las Rozas, Madrid | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [HP](companies/hp-barcelona.md) | Data Science Intern | Sant Cugat del Vallès | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-10 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+14 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="portugal"></a>
 ## 🇵🇹 Portugal
@@ -906,8 +929,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [NVIDIA](companies/nvidia-warsaw.md) | Developer Tools DevOps Engineering Intern - 2027 | Warsaw | 🟢 | – | Usually phone interviews only; technical roles may include a coding exercise | Not stated | 20 Nov |
 | [Amazon](companies/amazon-gdansk.md) | 2027 Software Dev Engineer Intern - Poland | Gdańsk | 🟢 | – | Online assessment, then a loop of interviews | Not stated | 20 Nov |
 | [Ericsson](companies/ericsson-krakow.md) | Software Developer \| Early Career Program | Kraków | 🟢 | August 2027 (April at the earliest) | Assessment, recruiter call, then 2 to 3 interviews | Not stated | 20 Nov |
+| [ABB](companies/abb-krakow.md) | Student Internship - Master Data Cross Domain Service | Kraków | 🟢 | – | See the company page | If ABB can't match you to an internship within 6 months, your application is rejected; you are welcome to apply again. | 24 Nov |
 
-12 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+13 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="austria"></a>
 ## 🇦🇹 Austria
@@ -989,8 +1013,11 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Analog Devices](companies/analog-devices-milan.md) | AMS Design Verification Intern | Assago | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Analog Devices](companies/analog-devices-milan.md) | Digital Verification Engineer Intern | Assago | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Bosch](companies/bosch-nonantola.md) | AI Manufacturing Engineer  – CURRICULAR INTERNSHIP (m/f/d) | Nonantola | 🟢 | – | Phone interview, then a second, deeper interview | Not stated | 20 Nov |
+| [Hewlett Packard Enterprise](companies/hpe-italy.md) | Data Analytics Intern – Channel Team | Milan | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Hewlett Packard Enterprise](companies/hpe-italy.md) | DevOps Intern (Undergraduate) | Bolzano Vicentino | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Marvell Technology](companies/marvell-pavia.md) | Firmware Engineering Intern | Pavia | 🟢 | – | See the company page | Not stated | 24 Nov |
 
-12 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+14 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 <!-- /gen:list -->
 
 <a id="how-to-read-this"></a>

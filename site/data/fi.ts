@@ -218,4 +218,47 @@ export const fi: Company[] = [
       "Ericsson Finland employs about 600 people. Postings describe a hybrid setup: office days in Jorvas and remote days.",
     ],
   },
+  {
+    slug: "abb-vaasa",
+    name: "ABB",
+    country: "FI",
+    city: "Vaasa",
+    careersUrl: "https://careers.abb/finland/fi/summerinternship",
+    roles: [
+      {
+        title: "Data Analyst Trainee",
+        kind: "Graduate",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaasa-Ostrobothnia-Finland/Intern_JR00021419-1",
+        checked: "2026-11-24",
+        auto: true,
+      },
+    ],
+    process: [
+      "Summer jobs: one online form where you pick up to 5 areas, with your CV and optionally a letter.",
+      "Each hiring manager contacts the candidates they want to interview.",
+      "Applications can be handled during the application period. Only applications through ABB's system count.",
+    ],
+    reapply: "Not stated",
+    pay: [
+      "Pay: not stated.",
+    ],
+    reports: [],
+    sources: [
+      { url: "https://careers.abb/finland/fi/summerinternship", checked: "2026-11-24" },
+      { url: "https://careers.abb/finland/fi/early-careers", checked: "2026-11-24" },
+      { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaasa-Ostrobothnia-Finland/Intern_JR00021419-1", checked: "2026-11-24" },
+      { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page", checked: "2026-11-24" },
+    ],
+    notes: [
+      "The 2027 summer internship application period is 4 January to 14 February 2027; the jobs run between May and September, for one to four months.",
+      "You must be at least 18 when the summer internship starts.",
+    ],
+  },
 ];

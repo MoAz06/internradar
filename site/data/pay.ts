@@ -124,6 +124,19 @@ export const payRules: Record<string, Rule[]> = {
   "bending-spoons-milan": [{ kind: "Graduate", pay: { label: "Typical offers €66,065 to €107,837 a year outside London", short: "€66–108k/yr", ...paid("YEAR", "EUR", 66065, 107837) } }],
   "amazon-italy": [{ pay: { label: "€1,800 a month", short: "€1,800/mo", ...paid("MONTH", "EUR", 1800) } }],
   "doctolib-milan": [{ title: /AI Engineer Intern/, pay: { label: "€1,000 a month gross", short: "€1,000/mo", ...paid("MONTH", "EUR", 1000) } }],
+  "stripe-dublin": [
+    { kind: "Internship", pay: { label: "€52,800 a year", short: "€52,800/yr", ...paid("YEAR", "EUR", 52800) } },
+    { kind: "Graduate", pay: { label: "€64,000 to €96,000 a year", short: "€64–96k/yr", ...paid("YEAR", "EUR", 64000, 96000) } },
+  ],
+  "stripe-london": [
+    { kind: "Internship", pay: { label: "£49,200 a year", short: "£49,200/yr", ...paid("YEAR", "GBP", 49200) } },
+    { kind: "Graduate", pay: { label: "£60,000 to £90,000 a year", short: "£60–90k/yr", ...paid("YEAR", "GBP", 60000, 90000) } },
+  ],
+  "stripe-barcelona": [{ kind: "Graduate", pay: { label: "€46,200 to €69,400 a year", short: "€46–69k/yr", ...paid("YEAR", "EUR", 46200, 69400) } }],
+  "adobe-basel": [{ kind: "Internship", pay: { label: "CHF 96,000 a year", short: "CHF 96k/yr", ...paid("YEAR", "CHF", 96000) } }],
+  "adobe-london": [{ kind: "Internship", pay: { label: "£75,000 a year", short: "£75,000/yr", ...paid("YEAR", "GBP", 75000) } }],
+  "hpe-italy": [{ kind: "Internship", pay: { label: "€800 a month", short: "€800/mo", ...paid("MONTH", "EUR", 800) } }],
+  "marvell-pavia": [{ kind: "Internship", pay: { label: "€21,250 to €28,750 a year base pay", short: "€21–29k/yr", ...paid("YEAR", "EUR", 21250, 28750) } }],
 };
 
 const symbol: Record<keyof typeof rates, string> = { EUR: "€", GBP: "£", CHF: "CHF ", PLN: "PLN " };
