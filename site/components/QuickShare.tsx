@@ -33,11 +33,14 @@ export default function QuickShare({ countries, endpoint, siteKey, githubForm, o
   const monthList = useMemo(months, []);
 
   // from a company or role page: /share/?company=optiver&role=Software%20Engineer%20Intern
+  // and from My applications also &end=test-wait, how far they got
   useEffect(() => {
     const p = new URLSearchParams(window.location.search);
     const slug = p.get("company");
     if (slug && countries.some((k) => k.companies.some((c) => c.slug === slug))) setCompany(slug);
     if (p.get("role")) setRole(p.get("role")!.slice(0, limits.role));
+    const from = ends.find((x) => x.id === p.get("end"));
+    if (from) setEnd(from.id);
   }, [countries]);
 
   const pick = countries.flatMap((k) => k.companies).find((c) => c.slug === company);

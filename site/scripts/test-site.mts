@@ -20,6 +20,8 @@ import { cleanSending, issueBody, outcomes, quickEnds, quickTimeline, readIssue 
 import { ALERTS_CRON, handle, sendAlerts, wake, wakeups, type Env, type Follower, type Store } from "../../worker/src/index.ts";
 import { alertMail, changesFrom, cleanFollow, sign, userId, type Changes } from "../lib/follow.ts";
 import { cleanFeedback } from "../lib/feedbackForm.ts";
+import { askAt, returnEvent } from "../lib/mine.ts";
+import { shareUrl } from "../lib/share.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
@@ -505,4 +507,20 @@ test("company alerts: the night's changes are new roles and roles that just open
   );
   assert.equal(mail.subject, "New roles at IMC and DRW");
   assert.ok(mail.text.includes("Stop IMC: stop-imc") && mail.text.includes("Stop all: stop-all"));
+});
+
+test("my applications: the share question opens the quick form at the right answer", () => {
+  for (const a of Object.values(askAt)) if (a.end) assert.ok(quickEnds.some((e) => e.id === a.end), a.end);
+  assert.equal(shareUrl("imc", "Software Engineer Intern", "test-wait"), "/share/?company=imc&role=Software%20Engineer%20Intern&end=test-wait#form");
+  assert.equal(shareUrl("imc"), "/share/?company=imc#form");
+});
+
+test("returning visitors: one event a day, by how long since the first visit", () => {
+  const first = returnEvent(null, "2026-11-24");
+  assert.deepEqual(first, { event: "first-visit", seen: { first: "2026-11-24", last: "2026-11-24" } });
+  assert.equal(returnEvent(first.seen, "2026-11-24").event, null);
+  assert.equal(returnEvent(first.seen, "2026-11-25").event, "back-week-1");
+  assert.equal(returnEvent(first.seen, "2026-12-01").event, "back-weeks-2-4");
+  assert.equal(returnEvent(first.seen, "2026-12-22").event, "back-month-plus");
+  assert.deepEqual(returnEvent({ first: "2026-11-24", last: "2026-11-25" }, "2026-11-26").seen, { first: "2026-11-24", last: "2026-11-26" });
 });

@@ -102,6 +102,47 @@ export function decodeOne(part: string): { key: string; progress?: { stage: Stag
   return { key, progress: { stage, on: `${day.slice(0, 4)}-${day.slice(4, 6)}-${day.slice(6)}` } };
 }
 
+/** Whether people come back, without cookies or ids: the browser keeps its own first and last visit day,
+ * and once a day sends only an event name. "first-visit" on the first day, then "back-week-1" (1 to 6 days
+ * after the first visit), "back-weeks-2-4" or "back-month-plus". GoatCounter only ever sees those names. */
+export function returnEvent(seen: { first: string; last: string } | null, day: string): { event: string | null; seen: { first: string; last: string } } {
+  if (!seen?.first) return { event: "first-visit", seen: { first: day, last: day } };
+  if (seen.last === day) return { event: null, seen };
+  const days = Math.round((Date.parse(`${day}T12:00:00Z`) - Date.parse(`${seen.first}T12:00:00Z`)) / 86_400_000);
+  const event = days < 7 ? "back-week-1" : days < 28 ? "back-weeks-2-4" : "back-month-plus";
+  return { event, seen: { first: seen.first, last: day } };
+}
+
+export const ASKED_KEY = "internradar:asked";
+
+/** "role id:stage" for every stage where the visitor already answered the "share how it went" question,
+ * by sharing or by "Not now", so it isn't asked twice. */
+export function readAsked(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(ASKED_KEY) ?? "[]");
+    return Array.isArray(v) ? v : [];
+  } catch {
+    return [];
+  }
+}
+
+export function writeAsked(list: string[]) {
+  try {
+    localStorage.setItem(ASKED_KEY, JSON.stringify(list.slice(-300)));
+  } catch {
+    // blocked storage: the question comes back next time, nothing worse
+  }
+}
+
+/** The stages worth a report, and what the quick share form should have picked for each.
+ * Rejected has no pick: the list doesn't know whether it came after the test or the interview. */
+export const askAt: Partial<Record<Stage, { end?: string; ask: string }>> = {
+  test: { end: "test-wait", ask: "You did the online test. Which one was it, and how long?" },
+  interview: { end: "int-now", ask: "You're in the interviews. Which test came before, and how many rounds so far?" },
+  offer: { end: "offer", ask: "Congratulations. How did the process go, from the test to the offer?" },
+  rejected: { ask: "Sorry it didn't work out. How far you got still helps the next person." },
+};
+
 export const FOLLOW_KEY = "internradar:following";
 /** Fired on window after the followed companies change. */
 export const FOLLOW_EVENT = "internradar:following";

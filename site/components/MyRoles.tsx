@@ -3,19 +3,23 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { roleHref, type Item } from "@/lib/items";
+import { shareUrl } from "@/lib/share";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { longDate, shortDate } from "@/lib/format";
 import NewTab from "@/components/NewTab";
 import CountryLink from "@/components/CountryLink";
 import {
   after,
+  askAt,
   daysBetween,
   decodeOne,
   encodeOne,
   localDay,
+  readAsked,
   readProgress,
   readSaved,
   stages,
+  writeAsked,
   writeProgress,
   writeSaved,
   type Progress,
@@ -34,6 +38,7 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
   const [notice, setNotice] = useState("");
   const [shareLink, setShareLink] = useState("");
   const [today, setToday] = useState("");
+  const [asked, setAsked] = useState<string[]>([]);
 
   useEffect(() => {
     let ids = readSaved();
@@ -59,6 +64,7 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
     }
     setSaved(ids);
     setProgress(prog);
+    setAsked(readAsked());
     setToday(localDay());
     setReady(true);
   }, [items]);
@@ -66,7 +72,16 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
   const mine = useMemo(() => items.filter((x) => saved.includes(x.id)), [items, saved]);
   const gone = saved.length - mine.length;
 
+  const answer = (key: string) =>
+    setAsked((cur) => {
+      const next = [...cur, key];
+      writeAsked(next);
+      return next;
+    });
+
   const setStage = (id: string, stage: Stage | "") => {
+    // counts how often the question is shown, next to the clicks on it (data-track below)
+    if (stage && askAt[stage] && !asked.includes(`${id}:${stage}`)) window.goatcounter?.count?.({ path: "mine-ask-shown", event: true });
     setProgress((cur) => {
       const next = { ...cur };
       if (stage) next[id] = { stage, on: localDay() };
@@ -179,6 +194,29 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
           </a>
         </p>
         {p?.stage === "rejected" && <p className="mt-1 text-[14px] text-soon">{again(x)}</p>}
+        {p && askAt[p.stage] && !asked.includes(`${x.id}:${p.stage}`) && (
+          <div className="mt-2 border-l-4 border-accent bg-surface px-3 py-2 text-[15px] leading-[1.5]">
+            <p>{askAt[p.stage]!.ask}</p>
+            <p className="mt-1 flex flex-wrap items-center gap-x-4">
+              <Link
+                href={shareUrl(x.slug, x.title, askAt[p.stage]!.end)}
+                onClick={() => answer(`${x.id}:${p.stage}`)}
+                className="inline-flex min-h-11 items-center font-semibold text-link underline underline-offset-2"
+                data-track="mine-ask-share"
+              >
+                Tell the next person, one minute
+              </Link>
+              <button
+                type="button"
+                onClick={() => answer(`${x.id}:${p.stage}`)}
+                className="min-h-11 text-muted underline underline-offset-2 hover:text-ink"
+                data-track="mine-ask-later"
+              >
+                Not now
+              </button>
+            </p>
+          </div>
+        )}
         {!p && x.reapply && (
           <p className="mt-1 text-[14px] text-muted">
             <span className="font-semibold text-ink">Before you apply:</span> {x.reapply}

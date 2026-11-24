@@ -65,7 +65,9 @@ export default function Privacy() {
             </a>
             . It sets no cookies and doesn&apos;t store your IP address. It keeps totals per page: the page, the site you
             came from, browser, operating system, screen width, language and country. I use it to see which pages people
-            use. If your browser blocks it, the site works the same.
+            use. To see whether people come back, your browser also remembers the day of your first and your last
+            visit, and once a day tells GoatCounter only whether this is a first visit or a return within a week, a
+            month or later. That says nothing about who you are. If your browser blocks it, the site works the same.
           </li>
           <li className={li}>The fonts are on internradar.eu itself, so loading a page asks nothing from Google.</li>
         </ul>
