@@ -18,6 +18,12 @@ const paths: Record<string, React.ReactNode> = {
     </>
   ),
   bell: <path d="M6 16V11a6 6 0 0112 0v5l2 2H4zM10 20a2 2 0 004 0" />,
+  mail: (
+    <>
+      <rect x="3.5" y="5.5" width="17" height="13" rx="1" />
+      <path d="M4 6.5l8 6 8-6" />
+    </>
+  ),
   building: (
     <>
       <rect x="5" y="3" width="14" height="18" rx="1" />

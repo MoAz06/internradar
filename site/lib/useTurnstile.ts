@@ -11,13 +11,15 @@ declare global {
   }
 }
 
-/** Cloudflare Turnstile, the spam check for the share forms. It only shows a box when it's unsure. */
-export function useTurnstile(siteKey: string) {
+/** Cloudflare Turnstile, the spam check for the share forms. It only shows a box when it's unsure.
+ * `active` false waits with loading it, for a form that only opens on a click. */
+export function useTurnstile(siteKey: string, active = true) {
   const [token, setToken] = useState("");
   const widget = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | undefined>(undefined);
 
   useEffect(() => {
+    if (!active) return;
     const draw = () => {
       if (!widget.current || !window.turnstile || widgetId.current !== undefined) return;
       widgetId.current = window.turnstile.render(widget.current, {
@@ -33,7 +35,7 @@ export function useTurnstile(siteKey: string) {
     s.async = true;
     s.onload = draw;
     document.head.appendChild(s);
-  }, [siteKey]);
+  }, [siteKey, active]);
 
   const reset = () => {
     setToken("");

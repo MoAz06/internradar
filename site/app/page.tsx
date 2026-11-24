@@ -2,8 +2,9 @@ import { shareUrl } from "@/lib/share";
 import Link from "next/link";
 import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
+import EmailSignup from "@/components/EmailSignup";
 import RoleFinder from "@/components/RoleFinder";
-import { companies, countries, radar } from "@/data/companies";
+import { companies, countries, links, radar } from "@/data/companies";
 import { reapplyRules } from "@/data/reapply";
 import { longDate } from "@/lib/format";
 import { today, upcoming } from "@/lib/live";
@@ -22,8 +23,33 @@ const strictest: [slug: string, short: string][] = [
   ["da-vinci-trading", "the test only once"],
 ];
 
-/** Desktop's side column: the re-apply rules, what opens next, and who makes the list. Below the list on tablets. */
-function Rail({ story, next }: { story: boolean; next: ReturnType<typeof upcoming> }) {
+type Week = { fresh: number; closing: number };
+
+/** What the Monday email is, with this week's numbers, so the sign-up says what you'd get. */
+function MondayMail({ week, id }: { week: Week; id: string }) {
+  return (
+    <>
+      <p className="mt-2 text-[15px] leading-[1.5] text-muted">
+        One email on Monday: what closes that week, what is new and what opens soon. Right now{" "}
+        <b className="font-semibold text-ink">{week.closing}</b> {week.closing === 1 ? "role closes" : "roles close"} within a week and{" "}
+        <b className="font-semibold text-ink">{week.fresh}</b> {week.fresh === 1 ? "is" : "are"} new.{" "}
+        <Link href="/edition/" className="link">
+          See this week&apos;s
+        </Link>
+      </p>
+      <EmailSignup id={id} track={id} className="mt-2.5" note={false} />
+      <p className="mt-1.5 text-[13px] leading-snug text-dim">
+        Sent by Buttondown. Unsubscribe any time.{" "}
+        <Link href="/privacy/" className="link">
+          Privacy
+        </Link>
+      </p>
+    </>
+  );
+}
+
+/** Desktop's side column: the re-apply rules, the Monday email, what opens next, and who makes the list. Below the list on tablets. */
+function Rail({ story, next, week }: { story: boolean; next: ReturnType<typeof upcoming>; week: Week }) {
   const shell = reapplyRules.find((r) => r.slug === "shell")!;
   const head = (title: string, more?: { href: string; label: string }) => (
     <h2 className="flex items-baseline justify-between border-t-2 border-ink pt-2.5 font-sans text-[13px] font-bold text-accent">
@@ -72,6 +98,13 @@ function Rail({ story, next }: { story: boolean; next: ReturnType<typeof upcomin
         </ul>
       </section>
 
+      {links.newsletter && (
+        <section>
+          {head("The Monday email")}
+          <MondayMail week={week} id="home-email" />
+        </section>
+      )}
+
       <section id="radar">
         {head("Opens next", next.length ? { href: "/radar/", label: `All ${next.length}` } : undefined)}
         {next.length === 0 ? (
@@ -116,6 +149,7 @@ export default function Home() {
   const items = buildItems(now);
   const open = items.filter((x) => x.status === "open" || x.status === "rolling");
   const fresh = items.filter((x) => x.fresh).length;
+  const week: Week = { fresh, closing: open.filter((x) => x.urgent).length };
   const story = now <= STORY_UNTIL;
   const next = upcoming(radar, now);
   const options = countries
@@ -142,19 +176,34 @@ export default function Home() {
           <p className="mt-1.5 font-sans text-[15px] text-muted max-md:text-[14px]">
             <b className="font-semibold text-ink">{fresh}</b> new this week · <b className="font-semibold text-ink">{companies.length}</b> companies ·{" "}
             <b className="font-semibold text-ink">{options.length}</b> countries
+            {links.newsletter && (
+              <span className="md:hidden">
+                {" "}
+                ·{" "}
+                <a href="#monday-email" className="link">
+                  by email
+                </a>
+              </span>
+            )}
           </p>
         </div>
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
           <div className="min-w-0">
             <RoleFinder view={startView(items, now)} countries={options} now={now} />
           </div>
-          <Rail story={story} next={next} />
+          <Rail story={story} next={next} week={week} />
         </div>
       </Section>
 
       <Section className="pb-14">
-        {/* phones have no side column: the re-apply story comes after the list, so the first roles fit on the
-            first screen */}
+        {/* phones have no side column: the email, the re-apply story and what opens next come after the list,
+            so the first roles fit on the first screen */}
+        {links.newsletter && (
+          <section id="monday-email" className="mb-6 scroll-mt-4 border-t-2 border-ink pt-3 md:hidden">
+            <h2 className="font-sans text-[13px] font-bold text-accent">The Monday email</h2>
+            <MondayMail week={week} id="home-email-phone" />
+          </section>
+        )}
         <p className="mb-5 border-t-2 border-ink pt-3 text-[16px] leading-[1.5] md:hidden">
           {story
             ? "Rejected by Shell? Apply again within 10 months and it's turned down automatically. "

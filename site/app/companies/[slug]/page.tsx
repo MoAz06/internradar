@@ -20,6 +20,7 @@ import { opened } from "@/data/opened";
 import AddToCalendar from "@/components/AddToCalendar";
 import CountryLink from "@/components/CountryLink";
 import FollowButton from "@/components/FollowButton";
+import FollowEmail from "@/components/FollowEmail";
 import EmailSignup from "@/components/EmailSignup";
 import { cityPages, citiesOf } from "@/lib/landing";
 
@@ -90,8 +91,11 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             <p className="mt-1.5 text-[15px] text-muted">
               {c.city}, <CountryLink code={c.country} name={countryName(c.country)} />
             </p>
-            <div className="mt-3">
+            <div className="mt-3 flex flex-wrap items-start gap-2">
               <FollowButton slug={c.slug} name={c.name} />
+              {links.shareEndpoint && links.turnstileSiteKey && (
+                <FollowEmail slug={c.slug} name={c.name} endpoint={links.shareEndpoint} siteKey={links.turnstileSiteKey} />
+              )}
             </div>
           </div>
           <span className={`text-sm ${stale(checked) ? "text-soon" : "text-muted"}`}>

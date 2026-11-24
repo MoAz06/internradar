@@ -8,13 +8,26 @@ ALLOWED_ORIGINS = "https://internradar.eu,http://localhost:3000"
 # suggestions from /feedback/ go here by email; RESEND_KEY is a secret (wrangler secret put RESEND_KEY)
 FEEDBACK_TO = "contact@internradar.eu"
 FEEDBACK_FROM = "internradar <feedback@internradar.eu>"
+# "email me when this company opens a role": the confirm and alert emails, and this Worker's own address for
+# the links in them. FOLLOW_SECRET is a secret (wrangler secret put FOLLOW_SECRET), any long random string.
+FOLLOW_FROM = "internradar <alerts@internradar.eu>"
+SELF_URL = "https://internradar-share.moaz06.workers.dev"
+
+# The people following a company, by the hash of their address. Make it once with
+#   npx wrangler kv namespace create FOLLOWS
+# and put the id it prints below.
+[[kv_namespaces]]
+binding = "FOLLOWS"
+id = "72e6aaa45a724a98ba5b39c738d56e4d"
 
 # Secrets, set with `npx wrangler secret put NAME`, never in this file:
 #   TURNSTILE_SECRET  the Turnstile secret key
 #   GITHUB_TOKEN      fine-grained token, only internradar-inbox, Issues read and write
 #   ACTIONS_TOKEN     fine-grained token, internradar and internradar-inbox, Actions read and write
+#   FOLLOW_SECRET     any long random string, signs the links in the company alert emails
 
 # The night jobs, on time (UTC). Each one starts a workflow, see wakeups in src/index.ts.
 # A weekday goes by name: Cloudflare counts 1 as Sunday, GitHub counts it as Monday.
 [triggers]
-crons = ["30 3 * * *", "15 4 * * *", "0 6 * * MON"]
+# 45 6: the company alert emails (src/index.ts, sendAlerts), after both deploys of the night.
+crons = ["30 3 * * *", "15 4 * * *", "0 6 * * MON", "45 6 * * *"]

@@ -17,7 +17,8 @@ import { buildItems } from "../lib/buildItems.ts";
 import { fits, isEmpty, type Profile } from "../lib/profile.ts";
 import { cleanTitle, dayWord, editions, mailEditions, shortProcess } from "../lib/mailEdition.ts";
 import { cleanSending, issueBody, outcomes, quickEnds, quickTimeline, readIssue } from "../lib/reportForm.ts";
-import { handle, wake, wakeups } from "../../worker/src/index.ts";
+import { ALERTS_CRON, handle, sendAlerts, wake, wakeups, type Env, type Follower, type Store } from "../../worker/src/index.ts";
+import { alertMail, changesFrom, cleanFollow, sign, userId, type Changes } from "../lib/follow.ts";
 import { cleanFeedback } from "../lib/feedbackForm.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -284,7 +285,9 @@ test("night jobs: the Worker starts each workflow on time, and tries again only 
   // every cron in wrangler.toml has a job, and each job's workflow keeps the same time as its spare schedule
   const toml = readFileSync(join(here, "..", "..", "worker", "wrangler.toml"), "utf8");
   const crons = JSON.parse(toml.match(/^crons = (\[.*\])$/m)![1]) as string[];
-  assert.deepEqual(crons.sort(), Object.keys(wakeups).sort());
+  // every cron starts a workflow, except the morning one that sends the company alert emails
+  assert.ok(crons.includes(ALERTS_CRON));
+  assert.deepEqual(crons.filter((c) => c !== ALERTS_CRON).sort(), Object.keys(wakeups).sort());
   const deploy = readFileSync(join(here, "..", "..", ".github", "workflows", "deploy.yml"), "utf8");
   assert.ok(deploy.includes(`cron: "${Object.keys(wakeups).find((c) => wakeups[c].workflow === "deploy.yml")}"`));
   // the weekly mail on Monday in both: MON in the Worker, since Cloudflare counts 1 as Sunday, and 1 in the workflow
@@ -293,7 +296,7 @@ test("night jobs: the Worker starts each workflow on time, and tries again only 
   assert.ok(mail.includes('cron: "0 6 * * 1"'));
   // a weekday as a number is another day on Cloudflare than on GitHub, so a Worker cron names it
   for (const c of crons) assert.match(c.split(" ")[4], /^(\*|[A-Za-z]{3}([-,][A-Za-z]{3})*)$/, c);
-  const env = { INBOX_REPO: "", ALLOWED_ORIGINS: "", TURNSTILE_SECRET: "", GITHUB_TOKEN: "", ACTIONS_TOKEN: "t", RESEND_KEY: "", FEEDBACK_TO: "", FEEDBACK_FROM: "" };
+  const env = { INBOX_REPO: "", ALLOWED_ORIGINS: "", TURNSTILE_SECRET: "", GITHUB_TOKEN: "", ACTIONS_TOKEN: "t", RESEND_KEY: "", FEEDBACK_TO: "", FEEDBACK_FROM: "" } as Env;
   const calls: { url: string; body: string; auth: string }[] = [];
   const answer = (...codes: number[]) =>
     (async (url: string, init: RequestInit) => {
@@ -325,7 +328,7 @@ test("feedback: a suggestion goes out as one email, with the visitor's address a
     RESEND_KEY: "r",
     FEEDBACK_TO: "contact@internradar.eu",
     FEEDBACK_FROM: "internradar <feedback@internradar.eu>",
-  };
+  } as Env;
   const sent: { url: string; body: string }[] = [];
   let solvedOn = "internradar.eu";
   const fetcher = (async (url: string, init: RequestInit) => {
@@ -364,4 +367,142 @@ test("feedback: a suggestion goes out as one email, with the visitor's address a
   assert.deepEqual(cleanFeedback({ message: "hi there", email: "nope" }).problems, ["an email address that works (or leave it empty)"]);
   assert.equal(cleanFeedback({ message: "hi there", page: "https://evil.example/" }).feedback.page, "");
   assert.equal(JSON.parse(JSON.stringify(cleanFeedback({ message: "hi there" }).feedback)).email, "");
+});
+
+/** Workers KV as a Map, for the tests. */
+function memoryStore(): Store & { data: Map<string, string> } {
+  const data = new Map<string, string>();
+  return {
+    data,
+    get: async (k) => data.get(k) ?? null,
+    put: async (k, v) => void data.set(k, v),
+    delete: async (k) => void data.delete(k),
+    list: async ({ prefix }) => ({ keys: [...data.keys()].filter((k) => k.startsWith(prefix)).map((name) => ({ name })), list_complete: true }),
+  };
+}
+
+test("company alerts: confirm by email, one morning email per person, stop with one click", async () => {
+  const store = memoryStore();
+  const env = {
+    INBOX_REPO: "x/y",
+    ALLOWED_ORIGINS: "https://internradar.eu",
+    TURNSTILE_SECRET: "s",
+    GITHUB_TOKEN: "g",
+    ACTIONS_TOKEN: "a",
+    RESEND_KEY: "r",
+    FEEDBACK_TO: "contact@internradar.eu",
+    FEEDBACK_FROM: "internradar <feedback@internradar.eu>",
+    FOLLOWS: store,
+    FOLLOW_SECRET: "secret",
+    FOLLOW_FROM: "internradar <alerts@internradar.eu>",
+    SELF_URL: "https://w.dev",
+  } as Env;
+  let changes: Changes = { built: "2026-11-24", companies: { imc: "IMC", optiver: "Optiver" }, events: [] };
+  const mails: Record<string, unknown>[] = [];
+  const fetcher = (async (url: string, init?: RequestInit) => {
+    if (url.includes("turnstile")) return new Response(JSON.stringify({ success: true, hostname: "internradar.eu" }));
+    if (url.startsWith("https://internradar.eu/changes.json")) return new Response(JSON.stringify(changes));
+    if (url === "https://api.resend.com/emails") mails.push(JSON.parse(String(init!.body)));
+    return new Response("{}", { status: 200 });
+  }) as unknown as typeof fetch;
+  const at = (iso: string) => new Date(iso);
+  const follow = (body: Record<string, unknown>, now = at("2026-11-24T10:00:00Z")) =>
+    handle(
+      new Request("https://w.dev", { method: "POST", headers: { Origin: "https://internradar.eu" }, body: JSON.stringify({ kind: "follow", token: "t", ...body }) }),
+      env,
+      fetcher,
+      now,
+    );
+  const open = (href: string, method = "GET") => handle(new Request(href, { method }), env, fetcher, at("2026-11-24T10:05:00Z"));
+  const linkIn = (text: string, kind: string) => text.match(new RegExp(`https://w\\.dev/follow/${kind}\\?[^\\s]+`))![0];
+
+  // the form: an unknown company or a bad address is refused, a good one gets a confirm email and nothing else
+  assert.equal((await follow({ email: "a@b.nl", company: "nope" })).status, 400);
+  assert.deepEqual(cleanFollow({ email: "nope", company: "imc" }).problems, ["an email address that works"]);
+  assert.equal((await follow({ email: " A@B.nl ", company: "imc" })).status, 200);
+  assert.equal(mails.length, 1);
+  assert.deepEqual(mails[0].to, ["a@b.nl"]);
+  assert.match(String(mails[0].subject), /IMC/);
+  const user = await userId("a@b.nl");
+  // the address is never the key, and never in a link
+  assert.ok(store.data.has(`sub:${user}`));
+  assert.ok(!String(mails[0].text).includes("a%40b") && !linkIn(String(mails[0].text), "confirm").includes("a@b"));
+  // asking again within ten minutes sends no second email
+  await follow({ email: "a@b.nl", company: "imc" }, at("2026-11-24T10:03:00Z"));
+  assert.equal(mails.length, 1);
+
+  // nothing is sent before the click
+  changes = { ...changes, events: [{ id: "k1:new", slug: "imc", company: "IMC", title: "SWE Intern", city: "Amsterdam", kind: "new", day: "2026-11-24", when: "Open", url: "https://internradar.eu/roles/k1/" }] };
+  assert.deepEqual(await sendAlerts(env, fetcher, 90, at("2026-11-24T11:00:00Z")), { sent: 0, left: 0 });
+
+  // a link with a wrong signature does nothing; the right one confirms and goes back to the site
+  const confirm = linkIn(String(mails[0].text), "confirm");
+  const bad = await open(confirm.replace(/t=[^&]+/, "t=wrong"));
+  assert.equal(bad.headers.get("Location"), "https://internradar.eu/follow/?done=bad&c=imc");
+  const good = await open(confirm);
+  assert.equal(good.status, 303);
+  assert.equal(good.headers.get("Location"), "https://internradar.eu/follow/?done=on&c=imc");
+  assert.equal((JSON.parse(store.data.get(`sub:${user}`)!) as Follower).companies.imc.since, "2026-11-24");
+
+  // the morning: one email with the role, then never the same role again
+  mails.length = 0;
+  assert.deepEqual(await sendAlerts(env, fetcher, 90, at("2026-11-24T11:00:00Z")), { sent: 1, left: 0 });
+  assert.equal(mails[0].subject, "IMC has a new role: SWE Intern");
+  assert.ok(String(mails[0].text).includes("https://internradar.eu/roles/k1/"));
+  assert.match((mails[0].headers as Record<string, string>)["List-Unsubscribe"], /follow\/stop/);
+  assert.deepEqual(await sendAlerts(env, fetcher, 90, at("2026-11-24T11:00:00Z")), { sent: 0, left: 0 });
+  // a role from before the confirm day doesn't count
+  changes = { ...changes, events: [{ ...changes.events[0], id: "k0:new", day: "2026-11-23" }] };
+  assert.deepEqual(await sendAlerts(env, fetcher, 90, at("2026-11-24T11:00:00Z")), { sent: 0, left: 0 });
+
+  // stop: the one-click POST from a mail app, then the address is gone from the store
+  const stop = linkIn(String(mails[0].text), "stop");
+  assert.equal((await open(stop, "POST")).status, 200);
+  assert.ok(!store.data.has(`sub:${user}`));
+  // a stop link can't be made without the secret
+  assert.notEqual(await sign("other", "off", user, "*"), await sign("secret", "off", user, "*"));
+
+  // more than the day's limit waits for the next morning
+  for (const e of ["c@d.nl", "e@f.nl"]) {
+    const id = await userId(e);
+    await store.put(`sub:${id}`, JSON.stringify({ email: e, companies: { imc: { on: true, since: "2026-11-20", asked: "" } }, sent: [] }));
+  }
+  mails.length = 0;
+  assert.deepEqual(await sendAlerts(env, fetcher, 1, at("2026-11-24T11:00:00Z")), { sent: 1, left: 1 });
+
+  // a request nobody confirmed is forgotten after a week
+  await follow({ email: "g@h.nl", company: "imc" });
+  const g = `sub:${await userId("g@h.nl")}`;
+  assert.ok(store.data.has(g));
+  await sendAlerts(env, fetcher, 90, at("2026-11-28T10:00:00Z"));
+  assert.ok(store.data.has(g));
+  await sendAlerts(env, fetcher, 90, at("2026-12-02T10:00:00Z"));
+  assert.ok(!store.data.has(g));
+});
+
+test("company alerts: the night's changes are new roles and roles that just opened, from the last three days", () => {
+  const now = "2026-11-24";
+  const items = buildItems(now).slice(0, 3);
+  const base = items[0];
+  const fake = [
+    { ...base, id: "a", key: "ka", added: "2026-11-24", status: "open" as const },
+    { ...base, id: "b", key: "kb", added: "2026-11-01", status: "open" as const, opens: "2026-11-23" },
+    { ...base, id: "c", key: "kc", added: "2026-11-10", status: "open" as const },
+    { ...base, id: "d", key: "kd", added: "2026-11-20", status: "closed" as const },
+    { ...base, id: "e", key: "ke", added: "2026-11-01", status: "rolling" as const },
+  ];
+  const history = { e: { added: "2026-11-01", statuses: [["2026-11-01", "soon"], ["2026-11-22", "rolling"]] as [string, string][] } };
+  const got = changesFrom(fake, history, "2026-11-17", now).map((e) => `${e.id} ${e.day}`);
+  assert.deepEqual(got, ["ka:new 2026-11-24", "kb:opened 2026-11-23", "ke:opened 2026-11-22"]);
+  // the email names every company and gives a stop link for each
+  const mail = alertMail(
+    [
+      { id: "1", slug: "imc", company: "IMC", title: "A", city: "Amsterdam", kind: "new", day: now, when: "Open", url: "u1" },
+      { id: "2", slug: "drw", company: "DRW", title: "B", city: "Amsterdam", kind: "opened", day: now, when: "Open", url: "u2" },
+    ],
+    { imc: "stop-imc", drw: "stop-drw" },
+    "stop-all",
+  );
+  assert.equal(mail.subject, "New roles at IMC and DRW");
+  assert.ok(mail.text.includes("Stop IMC: stop-imc") && mail.text.includes("Stop all: stop-all"));
 });

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ...og("Privacy on internradar", blurb, "about", "/privacy/"),
 };
 
-const changed = "19 November 2026";
+const changed = "24 November 2026";
 
 function Contact() {
   return links.contact ? (
@@ -45,7 +45,7 @@ export default function Privacy() {
           the one responsible for it. You can reach me with <Contact />.
         </p>
         <p className={p}>
-          {`In short: you can use the whole site without telling me who you are. There are no cookies and no accounts. What you save, follow or pick in your profile stays in your browser. I only get something from you when you sign up for the email, send a report or send a suggestion, and then only what you type in.`}
+          {`In short: you can use the whole site without telling me who you are. There are no cookies and no accounts. What you save, follow or pick in your profile stays in your browser. I only get something from you when you sign up for an email, send a report or send a suggestion, and then only what you type in.`}
         </p>
 
         <h2 className={h2}>Visiting the site</h2>
@@ -87,6 +87,16 @@ export default function Privacy() {
           .
         </p>
 
+        <h2 id="company-alerts" className={h2}>
+          Emails about one company
+        </h2>
+        <p className={p}>
+          {`On a company page you can ask for an email when that company opens a role. The form sends your email address and the company to the same Cloudflare Worker and Turnstile check as the share form. The Worker keeps your address and the companies you picked in Cloudflare's storage, under a code made from your address, and sends you one email to confirm. Nothing else is sent until you click that link. A request nobody confirms is deleted after a week.`}
+        </p>
+        <p className={p}>
+          {`After you confirm, you get an email on the mornings one of your companies has a new role or opens one. The emails go out through Resend, a company in the United States that sends email. Every email has a link to stop one company and a link to stop all of them; when you stop the last one, your address is deleted. I use your address only for these emails. Cloudflare's and Resend's own terms are in their privacy policies.`}
+        </p>
+
         <h2 id="suggestions" className={h2}>
           Suggestions
         </h2>
@@ -107,13 +117,13 @@ export default function Privacy() {
 
         <h2 className={h2}>Why I may do this</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5">
-          <li className={li}>The email and the reports: because you asked for it or sent it, with your consent. You can take it back at any time.</li>
+          <li className={li}>The emails and the reports: because you asked for them or sent them, with your consent. You can take it back at any time.</li>
           <li className={li}>The visit count and the bot check: my legitimate interest in knowing which pages are used and keeping spam out, with as little data as I can.</li>
         </ul>
 
         <h2 className={h2}>How long</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5">
-          <li className={li}>Your email address: until you unsubscribe or ask me to delete it.</li>
+          <li className={li}>Your email address: until you unsubscribe or ask me to delete it. For the company emails: until you stop the last company, or a week if you never confirm.</li>
           <li className={li}>A report: as long as it is useful on the site, or until you ask me to remove it.</li>
           <li className={li}>Visit totals: kept as totals, without anything that points to you.</li>
         </ul>
