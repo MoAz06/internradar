@@ -830,7 +830,19 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "vanderlande|Internship: Building the Future of Work with Low-Code AI Skills for Vanderlande|https://vanderlande.wd3.myworkdayjobs.com/careers/job/Veghel-Netherlands/Build-the-future-of-work--Create-reusable-AI-skills-for-Vanderlande_JR38184":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
   "qualcomm-cambridge|FY27 Intern - Software - Systems Engineering Team (Data Center Group)- 6 months, Cambridge|https://careers.qualcomm.com/careers/job/446722247294":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
   "qualcomm-cork|FY27 Intern - IT Artificial Intelligence & Automation - Up to 8 Months, Cork|https://careers.qualcomm.com/careers/job/446722246579":{"added":"2026-11-21","statuses":[["2026-11-21","open"]]},
-  "nvidia-germany|Software Engineering Intern|https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Germany-Munich/Software-Engineering-Intern_JR2029967":{"added":"2026-11-23","statuses":[["2026-11-23","open"]]}
+  "nvidia-germany|Software Engineering Intern|https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/Germany-Munich/Software-Engineering-Intern_JR2029967":{"added":"2026-11-23","statuses":[["2026-11-23","open"]]},
+  "philips|Internship: Synthetic Data Generation for Dental AI (Master)|https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Internship--Synthetic-Data-Generation-for-Dental-AI--Master-_593359":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "jpmorgan-chase-london|2027 Machine Learning Center of Excellence - Time Series and Reinforcement Learning (TSRL) - Internship|https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210806784":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "cadence-edinburgh|Digital Electronics Engineering Intern (3-6 months)|https://cadence.wd1.myworkdayjobs.com/External_Careers/job/EDINBURGH-01/Digital-Electronics-Engineering-Intern--3-6-months-_R57319":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "bosch|Werkstudent Agentic AI & Microsoft Copilot Studio (w/m/div.)|https://jobs.smartrecruiters.com/BoschGroup/744000163210699":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "infineon|Working Student – Standard Cells Verification (f/m/div) – HRC1893656|https://jobs.infineon.com/careers/job/563808972398712":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "infineon|Master Thesis - SiC for Data Center Cooling (f/m/div)|https://jobs.infineon.com/careers/job/563808972420840":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "aumovio-ingolstadt|Praktikum / Thesis – AI-driven Target Costing & Cost Engineering|https://jobs.smartrecruiters.com/Aumovio/744000163148529":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "nxp-sophia-antipolis|Alternance : Apprenti(e) Ingénieur AI & Automation for Project Execution|https://nxp.myworkdayjobs.com/careers/job/Toulouse/Alternance---Apprenti-e--Ingnieur-AI---Automation-for-Project-Execution_R-10068052":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "airbus-toulouse|Stage 2027 - Cyber Lab Creator (All Gender)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Paris-Area/Stage-2027---Cyber-Lab-Creator--All-Gender-_JR10449625":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "qualcomm-stockholm|FY27 Summer Intern - Build Tools and Data Solutions for Smarter Vehicles - Linkoping, Sweden|https://careers.qualcomm.com/careers/job/446722309859":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "qualcomm-stockholm|FY27 - Software Test Modernization Summer Intern - June-Aug 2027, Linköping, Sweden|https://careers.qualcomm.com/careers/job/446722311211":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]},
+  "intel-gdansk|Compiler Development Intern|https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Compiler-Development-Intern_JR0289478":{"added":"2026-11-24","statuses":[["2026-11-24","open"]]}
 };
 
 /** Per company slug: the day it was added. */

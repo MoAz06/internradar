@@ -7,6 +7,8 @@ Careers page: https://www.infineon.com/careers/students-graduates/students
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Working Student – Standard Cells Verification (f/m/div) – HRC1893656 | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972398712) | 2026-11-24 |
+| Master Thesis - SiC for Data Center Cooling (f/m/div) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.infineon.com/careers/job/563808972420840) | 2026-11-24 |
 | Working Student - Quality Assurance & Software Testing (f/m/div) | Open, no deadline listed |  | At least 6 months, up to 20 hours a week | Enrolled student in computer science, software engineering, electrical engineering or related; strong English, German a plus; live near Munich | [link](https://jobs.infineon.com/careers/job/563808972341588) | 2026-11-20 |
 | Werkstudent - Productivity Improvement Frontend (w/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972129957) | 2026-11-19 |
 | Working Student - Digital Functional Verification (f/m/div) | Open, no deadline listed |  | 6 months |  | [link](https://jobs.infineon.com/careers/job/563808972249019) | 2026-11-19 |

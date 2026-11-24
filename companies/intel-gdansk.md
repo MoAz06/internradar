@@ -7,6 +7,7 @@ Careers page: https://intel.wd1.myworkdayjobs.com/External
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Compiler Development Intern | Open, no deadline listed |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Compiler-Development-Intern_JR0289478) | 2026-11-24 |
 | Intern C++ Developer - Graphics Compute Driver (AI, HPC) | Open, no deadline listed |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Intern-C---Developer---Graphics-Compute-Driver--AI--HPC-_JR0287886) | 2026-11-19 |
 | AI Software Engineering - Workloads Validation Intern | The posting was taken down by 20 Nov 2026 |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/AI-Software-Engineering---Workloads-Validation-Intern_JR0287890) | 2026-11-20 |
 | Intern Software QA Test Engineer | Open, no deadline listed |  | Not stated |  | [link](https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Intern-Software-QA-Test-Engineer_JR0288220) | 2026-11-19 |

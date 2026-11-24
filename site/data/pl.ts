@@ -10,6 +10,20 @@ export const pl: Company[] = [
     careersUrl: "https://intel.wd1.myworkdayjobs.com/External",
     roles: [
       {
+        title: "Compiler Development Intern",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://intel.wd1.myworkdayjobs.com/External/job/Poland-Gdansk/Compiler-Development-Intern_JR0289478",
+        checked: "2026-11-24",
+        auto: true,
+      },
+      {
         title: "Intern C++ Developer - Graphics Compute Driver (AI, HPC)",
         kind: "Internship",
         field: "Data and AI",

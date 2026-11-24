@@ -7,6 +7,7 @@ Careers page: https://www.jpmorganchase.com/careers/explore-opportunities/studen
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2027 Machine Learning Center of Excellence - Time Series and Reinforcement Learning (TSRL) - Internship | Open, no deadline listed |  | Not stated |  | [link](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210806784) | 2026-11-24 |
 | 2027 Machine Learning Center of Excellence (NLP) - Internship | Open, no deadline listed | June, depending on your academic calendar | Not stated | Enrolled in a PhD or MS in CS, EE, maths, OR, data science or a related field, graduating between December 2027 and August 2028 | [link](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210806793) | 2026-11-17 |
 | 2027 AI Research Associate Program - Internship | Open, no deadline listed | Not stated | Not stated | PhD student in CS, engineering or a related field with AI/ML research experience and publications in top AI/ML venues | [link](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210800615) | 2026-11-17 |
 | 2027 Quantitative Research Markets Associate Program – Off-Cycle Internship – London | Programs close as positions are filled | Not stated | Not stated | Enrolled in a PhD in a relevant field, graduating between September 2026 and March 2028 | [link](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210775780) | 2026-11-17 |

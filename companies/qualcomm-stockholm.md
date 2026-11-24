@@ -7,6 +7,8 @@ Careers page: https://www.qualcomm.com/company/careers/internships-and-early-in-
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| FY27 Summer Intern - Build Tools and Data Solutions for Smarter Vehicles - Linkoping, Sweden | Open, no deadline listed |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446722309859) | 2026-11-24 |
+| FY27 - Software Test Modernization Summer Intern - June-Aug 2027, Linköping, Sweden | Open, no deadline listed |  | Not stated |  | [link](https://careers.qualcomm.com/careers/job/446722311211) | 2026-11-24 |
 | FY27 Intern - Multimedia R&D Intern – Video & AI - 6 months, Stockholm (Bromma) - Sweden | Open, no deadline listed |  | 6 months | Pursuing a master's degree in video compression, video/image processing, computer vision or machine learning; strong written and spoken English. | [link](https://careers.qualcomm.com/careers/job/446722110729) | 2026-11-20 |
 
 ## Process, as the company describes it

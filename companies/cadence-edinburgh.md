@@ -7,6 +7,7 @@ Careers page: https://cadence.wd1.myworkdayjobs.com/External_Careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Digital Electronics Engineering Intern (3-6 months) | Open, no deadline listed |  | 3-6 months |  | [link](https://cadence.wd1.myworkdayjobs.com/External_Careers/job/EDINBURGH-01/Digital-Electronics-Engineering-Intern--3-6-months-_R57319) | 2026-11-24 |
 | Intern Software Engineer, Summer 2027, Three Month Duration | Open, no deadline listed |  | Not stated |  | [link](https://cadence.wd1.myworkdayjobs.com/External_Careers/job/EDINBURGH-01/Intern-Software-Engineer--Summer-2027--Three-Month-Duration----_R57170) | 2026-11-19 |
 
 ## Process, as the company describes it

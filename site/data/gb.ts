@@ -2191,6 +2191,20 @@ export const gb: Company[] = [
     careersUrl: "https://www.jpmorganchase.com/careers/explore-opportunities/students-and-graduates",
     roles: [
       {
+        title: "2027 Machine Learning Center of Excellence - Time Series and Reinforcement Learning (TSRL) - Internship",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210806784",
+        checked: "2026-11-24",
+        auto: true,
+      },
+      {
         title: "2027 Machine Learning Center of Excellence (NLP) - Internship",
         kind: "Internship",
         field: "Data and AI",
@@ -3628,6 +3642,21 @@ export const gb: Company[] = [
     city: "Edinburgh",
     careersUrl: "https://cadence.wd1.myworkdayjobs.com/External_Careers",
     roles: [
+      {
+        title: "Digital Electronics Engineering Intern (3-6 months)",
+        kind: "Internship",
+        field: "Hardware and embedded",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "3-6 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://cadence.wd1.myworkdayjobs.com/External_Careers/job/EDINBURGH-01/Digital-Electronics-Engineering-Intern--3-6-months-_R57319",
+        checked: "2026-11-24",
+        auto: true,
+      },
       {
         title: "Intern Software Engineer, Summer 2027, Three Month Duration",
         kind: "Internship",

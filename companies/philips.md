@@ -7,6 +7,7 @@ Careers page: https://www.careers.philips.com/student/nl/en
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Internship: Synthetic Data Generation for Dental AI (Master) | Open, no deadline listed |  | 6 months |  | [link](https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Internship--Synthetic-Data-Generation-for-Dental-AI--Master-_593359) | 2026-11-24 |
 | Internship: AI-based scene understanding for camera-based patient monitoring | Open, no deadline listed |  | Not stated |  | [link](https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Internship--AI-based-scene-understanding-for-camera-based-patient-monitoring_595483) | 2026-11-20 |
 | Product Innovation & AI Prototyping Internship – Philips Avent Experience Innovation | Open, no deadline listed |  | 6 months |  | [link](https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Product-Innovation---AI-Powered-Video-Creation-Internship---Philips-Avent-Experience-Innovation_586187) | 2026-11-19 |
 | Internship: Full Stack Developer in Finance Domain | Open, no deadline listed | December 2026 | Minimum 6 months | Last-year BSc or MSc in software engineering, IT or related; enrolled for the whole internship | [link](https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Internship--Full-Stack-Developer-in-Finance-Domain_592556) | 2026-11-16 |

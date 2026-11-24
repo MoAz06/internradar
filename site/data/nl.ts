@@ -632,6 +632,21 @@ export const nl: Company[] = [
     careersUrl: "https://www.careers.philips.com/student/nl/en",
     roles: [
       {
+        title: "Internship: Synthetic Data Generation for Dental AI (Master)",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "6 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://philips.wd3.myworkdayjobs.com/jobs-and-careers/job/Eindhoven/Internship--Synthetic-Data-Generation-for-Dental-AI--Master-_593359",
+        checked: "2026-11-24",
+        auto: true,
+      },
+      {
         title: "Internship: AI-based scene understanding for camera-based patient monitoring",
         kind: "Internship",
         field: "Data and AI",

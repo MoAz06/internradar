@@ -7,6 +7,7 @@ Careers page: https://www.bosch.de/karriere/dein-einstieg/studentinnen-und-stude
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Werkstudent Agentic AI & Microsoft Copilot Studio (w/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000163210699) | 2026-11-24 |
 | Master Thesis AI-based Sensorless Edrive Control | Open, no deadline listed |  | 6 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000147155080) | 2026-11-20 |
 | Praktikum Softwareentwicklung und Datenanalyse | Open, no deadline listed |  | 20 weeks |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000147895909) | 2026-11-20 |
 | Praktikum Elektrotechnik, hardwarenahe Softwareentwicklung auf embedded Systems | Open, no deadline listed |  | 20 weeks |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000147892629) | 2026-11-20 |
