@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { shareUrl } from "@/lib/share";
 import Link from "next/link";
 import Section from "@/components/Section";
@@ -10,6 +11,19 @@ import { longDate } from "@/lib/format";
 import { today, upcoming } from "@/lib/live";
 import { buildItems } from "@/lib/buildItems";
 import { startView } from "@/lib/rows";
+
+/** What people type into Google is "tech internships" and "tech internships london", so the home page says that
+ * in its title. The count comes from the night's build, like the headline. */
+export function generateMetadata(): Metadata {
+  const items = buildItems(today());
+  const open = items.filter((x) => x.status === "open" || x.status === "rolling").length;
+  const countries = new Set(items.map((x) => x.country)).size;
+  return {
+    title: { absolute: "Tech internships in Europe 2027 - internradar" },
+    description: `${open} tech internships and graduate roles open in ${countries} European countries, with the deadline, the hiring process and when you can apply again after a rejection.`,
+    alternates: { canonical: "/" },
+  };
+}
 
 /** The re-apply story leads the side column until this day. */
 const STORY_UNTIL = "2026-12-15";
