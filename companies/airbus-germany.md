@@ -7,6 +7,7 @@ Careers page: https://www.airbus.com/en/careers/students-and-graduates/interns/i
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Praktikum "AI Softwareentwicklung" (d/m/w) | Open, no deadline listed |  |  |  | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Stuttgart-Area/Praktikum--AI-Softwareentwicklung---d-m-w-_JR10460095) | 2026-11-25 |
 | Werkstudent (w/m/d) A320 Family FCO AI Implementation & Process Automation | Open, no deadline listed |  | 12 months |  | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Hamburg-Area/Werkstudent---w-m-d--A320-Family-FCO-AI-Implementation---Process-Automation_JR10454297-1) | 2026-11-19 |
 | Internship (d/f/m) within the mission software department | Open, no deadline listed | February 2027 | 6 months | Full-time student in IT, computer science or similar; fluent English | [link](https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Donauwrth/Internship--d-f-m--within-the-mission-software-department_JR10434978) | 2026-11-17 |
 | Internship (d/f/m) Embedded Software Engineering for Weapon Systems | Open, no deadline listed | February 2027 | 6 months | Full-time student in IT, computer science or similar; fluent English | [link](https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Donauwrth/Internship--d-f-m--Embedded-Software-Engineering-for-Weapon-Systems_JR10442671-2) | 2026-11-17 |

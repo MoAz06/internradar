@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-257-blue) ![roles](https://img.shields.io/badge/roles-856-blue) ![checked](https://img.shields.io/badge/last%20checked-24%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-285-blue) ![roles](https://img.shields.io/badge/roles-918-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -169,8 +169,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Vanderlande](companies/vanderlande.md) | Graduation: Operational Digital Twin Automation | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation: Supply chain risk assessment through an analytical digital twin | Veghel | 🟢 | January or February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation/Internship: AI Process Optimization in Engineering | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
+| [TomTom](companies/tomtom-amsterdam.md) | Software Engineering Internship - API Management | AMS | 🟢 | – | See the company page | Yes. TomTom's FAQ answers “Absolutely! We’re excited to see all the experience you’ve gained in the last year.” to people who were not selected last year. | 25 Nov |
+| [TomTom](companies/tomtom-amsterdam.md) | Platform Engineering Internship - Observability | AMS | 🟢 | – | See the company page | Yes. TomTom's FAQ answers “Absolutely! We’re excited to see all the experience you’ve gained in the last year.” to people who were not selected last year. | 25 Nov |
 
-41 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+42 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="united-kingdom"></a>
 ## 🇬🇧 United Kingdom
@@ -397,8 +399,22 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Adobe](companies/adobe-london.md) | 2027 Intern - Research Scientist | London | 🟢 | – | See the company page | Not stated. Adobe says you can apply to several openings at once if you meet the requirements. | 24 Nov |
 | [Cisco](companies/cisco-uk.md) | Software Engineer - Intern | Harpenden | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [HP](companies/hp-uk.md) | Browser Software Engineer Intern | Cambridge | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Point72](companies/point72-london.md) | Quantitative Researcher - Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Mako](companies/mako-london.md) | Graduate Software Engineer, London | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Schonfeld](companies/schonfeld-london.md) | 2027 PhD Quantitative Research Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Winton](companies/winton-london.md) | Quantitative Developer/Researcher, Graduate | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Aquatic Capital Management](companies/aquatic-london.md) | Quantitative Researcher, Intern (Summer 2027) | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Figma](companies/figma-london.md) | Software Engineer Intern (London, United Kingdom) (Summer 2027) | London | 🟢 rolling | – | See the company page | Figma says candidates “may not reapply to the same role while an application is active or within 90 days of receiving a rejection.” You may also send at most 5 applications in any rolling 30 day period. | 25 Nov |
+| [Affirm](companies/affirm-london.md) | Software Engineer I, Early Career (London) | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Scale AI](companies/scale-ai-london.md) | Software Engineer - New Grad | London | 🟢 | – | See the company page | The posting says: “Our policy requires a 90-day waiting period before reconsidering candidates for the same role.” | 25 Nov |
+| [Visa](companies/visa-uk.md) | Software Engineer Intern | Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Visa](companies/visa-uk.md) | Software Engineer Intern | Reading | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Thales](companies/thales-uk.md) | 2027 Software Engineering Graduate | Glasgow | 🟢 until 6 Jan | – | See the company page | Not stated | 25 Nov |
+| [GSA Capital](companies/gsa-capital-london.md) | Software Developer - Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [GSA Capital](companies/gsa-capital-london.md) | Quantitative Researcher - Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Epic Games](companies/epic-games-london.md) | Machine Learning Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-52 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+64 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="germany"></a>
 ## 🇩🇪 Germany
@@ -447,6 +463,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Bosch](companies/bosch.md) | Mandatory Internship AI Agent for Automated Machine Diagnostics and Root-Cause Analysis | Gerlingen, Abstatt, Schwieberdingen (Baden-Württemberg) and Elchingen (Bavaria) | 🟢 | February 2027 | Not stated on posting; general internship process: document pre-selection, interview with department | Not stated | 16 Nov |
 | [Bosch](companies/bosch.md) | Internship Agentic AI for Automated Code Generation in Safety-Critical Embedded Software | Gerlingen, Abstatt, Schwieberdingen (Baden-Württemberg) and Elchingen (Bavaria) | 🟢 | By agreement | Not stated on posting; general internship process: document pre-selection, interview with department | Not stated | 16 Nov |
 | [Bosch](companies/bosch.md) | Pflichtpraktikum im Bereich Agile Softwareentwicklung, Automatisierung & KI (ETAS) | Gerlingen, Abstatt, Schwieberdingen (Baden-Württemberg) and Elchingen (Bavaria) | 🟢 | By agreement | Not stated on posting; general internship process: document pre-selection, interview with department | Not stated | 16 Nov |
+| [Infineon Technologies](companies/infineon.md) | Working Student - Test Automation (f/m/div) | Munich | 🟢 | – | See the company page | Not stated. You may apply to more than one position at the same time. | 25 Nov |
 | [Infineon Technologies](companies/infineon.md) | Working Student – Standard Cells Verification (f/m/div) – HRC1893656 | Munich | 🟢 | – | See the company page | Not stated. You may apply to more than one position at the same time. | 24 Nov |
 | [Infineon Technologies](companies/infineon.md) | Master Thesis - SiC for Data Center Cooling (f/m/div) | Munich | 🟢 | – | See the company page | Not stated. You may apply to more than one position at the same time. | 24 Nov |
 | [Infineon Technologies](companies/infineon.md) | Working Student - Quality Assurance & Software Testing (f/m/div) | Munich | 🟢 | – | Send CV in English, enrolment certificate, a recent transcript and your school-leaving certificate | Not stated | 20 Nov |
@@ -492,6 +509,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [ZEISS](companies/zeiss-germany.md) | Praktikum im Bereich FPGA-Entwicklung (m/w/x) | Jena, Karlsruhe and Oberkochen | 🟢 | Agreed with the team | CV screening, then an interview with the team | Not stated | 17 Nov |
 | [ZEISS](companies/zeiss-germany.md) | Praktikum Softwareentwicklung eingebettete Systeme (m/w/x) | Jena, Karlsruhe and Oberkochen | 🟢 | Agreed with the team | CV screening, then an interview with the team | Not stated | 17 Nov |
 | [Allianz Technology](companies/allianz-technology-munich.md) | Intern Innovation Experience Technologist - R&D Center Europe (m/f/d) | Unterföhring (Munich) | 🟢 | Immediately | Resume review, then interview or assessment centre | Not stated | 17 Nov |
+| [Airbus](companies/airbus-germany.md) | Praktikum "AI Softwareentwicklung" (d/m/w) | Stuttgart area and Backnang | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Airbus](companies/airbus-germany.md) | Werkstudent (w/m/d) A320 Family FCO AI Implementation & Process Automation | Hamburg | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Airbus](companies/airbus-germany.md) | Internship (d/f/m) within the mission software department | Donauwörth and Immenstaad am Bodensee | 🟢 | February 2027 | Video or on-site interview with the future manager | Not stated | 17 Nov |
 | [Airbus](companies/airbus-germany.md) | Internship (d/f/m) Embedded Software Engineering for Weapon Systems | Donauwörth and Immenstaad am Bodensee | 🟢 | February 2027 | Video or on-site interview with the future manager | Not stated | 17 Nov |
@@ -597,8 +615,11 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Adobe](companies/adobe-basel.md) | 2027 Intern- Software Engineer | Basel | 🟢 | – | See the company page | Not stated. Adobe says you can apply to several openings at once if you meet the requirements. | 24 Nov |
 | [Marvell Technology](companies/marvell-zurich.md) | Silicon Photonics Test & Characterisation Intern | Adliswil | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Marvell Technology](companies/marvell-zurich.md) | Silicon Photonic Design Intern | Adliswil | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Pinterest](companies/pinterest-zurich.md) | Software Engineering Intern 2027 (Zurich) | Zurich | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Pinterest](companies/pinterest-zurich.md) | Machine Learning Intern 2027 (Zurich) | Zurich | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Roche](companies/roche-basel.md) | AI & Automation Intern, Data Access and Sharing (Basel, 6 months) | Basel | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-18 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+20 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="ireland"></a>
 ## 🇮🇪 Ireland
@@ -636,8 +657,15 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Motorola Solutions](companies/motorola-solutions-cork.md) | Software Engineering Work Placement | Cork | 🟢 | February or March | See the company page | Not stated | 20 Nov |
 | [Cisco](companies/cisco-galway.md) | Software Engineer Intern | Galway | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Cisco](companies/cisco-galway.md) | Graduate Software Engineer | Galway | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Virtu Financial](companies/virtu-dublin.md) | 2027 Internship - Quantitative Trading | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Virtu Financial](companies/virtu-dublin.md) | 2027 Internship - Quantitative Researcher (Master or PhD) | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Virtu Financial](companies/virtu-dublin.md) | 2027 Internship - Software Engineer | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [MongoDB](companies/mongodb-dublin.md) | 2027 - Software Engineer Intern, Dublin - 6 Month Internship | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [MongoDB](companies/mongodb-dublin.md) | 2027 - Summer Software Engineer Intern, Dublin | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Pinterest](companies/pinterest-dublin.md) | Software Engineering Intern 2027 (Dublin) | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Pinterest](companies/pinterest-dublin.md) | Machine Learning Intern 2027 (Dublin) | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-10 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+13 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="france"></a>
 ## 🇫🇷 France
@@ -650,6 +678,8 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Criteo](companies/criteo-paris.md) | Software Engineer Intern - Front-End or Fullstack | Paris and Grenoble | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Criteo](companies/criteo-paris.md) | Machine Learning Engineer Intern | Paris and Grenoble | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Criteo](companies/criteo-paris.md) | Research Intern | Paris and Grenoble | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Mistral AI](companies/mistral-ai-paris.md) | AI Scientist - Physics Models (Internship, Masters or Phd) | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Mistral AI](companies/mistral-ai-paris.md) | AI Scientist - Agentic Engineering - AI4Engineering - (Internship, Masters or PhD) | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Mistral AI](companies/mistral-ai-paris.md) | Applied AI, Forward Deployed Machine Learning Engineer - (Internship) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Mistral AI](companies/mistral-ai-paris.md) | Applied Scientist (Internship) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Mistral AI](companies/mistral-ai-paris.md) | AI Scientist - (Internship, Masters or Phd) | Paris | 🟢 | – | Not stated | Not stated | 17 Nov |
@@ -700,6 +730,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Natixis CIB](companies/natixis-cib-paris.md) | Internship - 6 months - Data Scientist - F/M | Paris | 🟢 | January 2027 | Not stated | Not stated | 17 Nov |
 | [Murex](companies/murex-paris.md) | INTERNSHIP 2027 - Software Engineer Java | Paris | 🟢 | – | Online test, then a first chat interview and usually one or more further interviews | Not stated | 17 Nov |
 | [Palantir](companies/palantir-paris.md) | Forward Deployed Software Engineer, Internship | Paris | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 18 Nov |
+| [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Stage Ingénieur : Application de l'Intelligence Artificielle à l'intégration de blocs RTL (ASIC/FPGA) (H/F) | Sophia Antipolis | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 25 Nov |
 | [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Alternance : Apprenti(e) Ingénieur AI & Automation for Project Execution | Toulouse | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 24 Nov |
 | [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Stage ingénieur : Simulation CEM de cartes électroniques (H/F) | Toulouse | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Stage Ingénieur : Ingénieur d’application – Hardware-in-the-Loop et technologie GaN 48 V F/M | Toulouse | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 19 Nov |
@@ -715,6 +746,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Qualcomm](companies/qualcomm-sophia-antipolis.md) | FY27 Intern - Hardware Design for Post-Quantum Cryptography - 6 months, Sophia | Sophia Antipolis | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 19 Nov |
 | [Goldman Sachs](companies/goldman-sachs-paris.md) | 2027 \| EMEA \| Paris \| The Core Quantitative Strats \| Seasonal/Off Cycle Internship | Paris | 🟢 | – | See the company page | Not stated. To apply to a fifth role, “you must withdraw a current application that has not been turned down”. | 19 Nov |
 | [Goldman Sachs](companies/goldman-sachs-paris.md) | 2027 \| EMEA \| Paris \| FICC and Equities (Sales and Trading) Quantitative Strats \| Seasonal/Off Cycle Internship | Paris | 🟢 | – | See the company page | Not stated. To apply to a fifth role, “you must withdraw a current application that has not been turned down”. | 19 Nov |
+| [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027 – AI and structural in -service repairs | Toulouse | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Airbus](companies/airbus-toulouse.md) | Stage 2027 - Cyber Lab Creator (All Gender) | Paris | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Airbus](companies/airbus-toulouse.md) | Stage 2027 - AI Solution Development (m/f) | Toulouse | 🟢 | February 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
 | [Airbus](companies/airbus-toulouse.md) | Stage 2027 - Stage en outillage de monitoring plateforme IT (h/f) | Toulouse | 🟢 | January 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
@@ -730,8 +762,27 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027  - infra IA et deploiement de LLM | Toulouse | 🟢 | 4 January 2027 | ATR role: CV review, then a technical interview with the manager | Not stated | 20 Nov |
 | [Tower Research Capital](companies/tower-research-capital-paris.md) | Quantitative Developer Intern | Paris | 🟢 | February 2027 | See the company page | Not stated | 20 Nov |
 | [Salesforce](companies/salesforce-paris.md) | Data Science & Analytics Intern, Alliances & Channels - February 2027 | Paris | 🟢 | – | See the company page | Not stated. Salesforce suggests applying to at most 3 roles within 12 months. | 24 Nov |
+| [Point72](companies/point72-paris.md) | Quantitative Researcher - Intern | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Pigment](companies/pigment-paris.md) | Internship - Software Engineer (Back, Fullstack) | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Pigment](companies/pigment-paris.md) | Data Scientist Internship | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur/se - Fullstack - Services Publics - Rouen | Rouen | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) DevOps - Toulon | Six-Fours-les-Plages | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) Data - Aéroline - Aix-en-Provence | Aix-en-Provence | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur/se Fullstack Java/Angular - Aéroline - Toulon | Six-Fours-les-Plages | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur/se Fullstack - Telecom, Medias & Entertainment - Orléans | Orleans | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur Fullstack – Défense & Sécurité – Île-de-France | Courbevoie | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Data Engineer - Services Financiers - Nantes | Nantes | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage Développeur(euse) Full-stack – Défense et Sécurité - Tours | Tours | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage de fin d’étude – Ingénieur(e) Data/IA – Structuration et exploitation intelligente des données | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage de fin d’étude – Ingénieur(e) IA/ML – Prototypage d’un modèle de suivi de clairance aéronautiques | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage de fin d’étude – Ingénieur(e) IA/ML – Exploration et prototypage de solutions de Machine Learning | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) EPP / EDR - Cybersécurité - Île-de-France | Courbevoie | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) Cybersécurité - Architecture et IA - Protect by Design - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur(se) Front-end React.js - Cybersécurité - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage – Ingénieur/e IA générative & industrialisation Cloud – Aeroline – Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Dataiku](companies/dataiku-paris.md) | Software Engineer Intern - France, Paris | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-29 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+33 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="sweden"></a>
 ## 🇸🇪 Sweden
@@ -815,8 +866,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Ericsson](companies/ericsson-jorvas.md) | Software Developer Summer Intern: Transport Automation | Jorvas | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Ericsson](companies/ericsson-jorvas.md) | New Graduate Developer | Jorvas | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [ABB](companies/abb-vaasa.md) | Data Analyst Trainee | Vaasa | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Qualcomm](companies/qualcomm-espoo.md) | FY27 Intern - Radio Unit System Design and Verification Intern - 6 months, Espoo | Espoo | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 25 Nov |
 
-4 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+5 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="norway"></a>
 ## 🇳🇴 Norway
@@ -874,6 +926,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | Company | Role | City | Status | Start | Process | Re-apply | Checked |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Cloudflare](companies/cloudflare-lisbon.md) | Software Engineer Intern (2027) | Lisbon | 🟢 rolling | January 2027 (Winter/Spring term) or May 2027 (Summer term) | Not stated | Not stated | 17 Nov |
+| [Bosch](companies/bosch-braga.md) | Academic Internship in Computer Science (f/m/div.) | Braga | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Bosch](companies/bosch-braga.md) | DevOps Engineer - Internship (f/m/div.) | Ovar | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch-braga.md) | Extracurricular Internship: AI & Automation Development (f/m/div.) | Aveiro | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch-braga.md) | Extracurricular Internship: C# Developer (f/m/div.) | Ovar | 🟢 | – | See the company page | Not stated | 20 Nov |
@@ -888,8 +941,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Natixis in Portugal](companies/natixis-porto.md) | IT Intern, Natixis Trainee Program 2027 S1 | Porto and Lisbon | 🟢 | April to May 2027 | Not stated | Not stated | 17 Nov |
 | [BNP Paribas](companies/bnp-paribas-lisbon.md) | Risk Quantitative Analyst Trainee | Lisbon | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Santander](companies/santander-lisbon.md) | Estágios Profissionais Tecnologia | Lisbon | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Accenture](companies/accenture-portugal.md) | Data & AI Graduate Programme '27 | Lisbon | 🟢 | – | See the company page | Yes. Accenture Portugal’s hiring page says “Sim, podes voltar a candidatar-te” (yes, you can apply again), and each role needs a new application. | 25 Nov |
 
-5 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+6 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="poland"></a>
 ## 🇵🇱 Poland
@@ -930,8 +984,12 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Amazon](companies/amazon-gdansk.md) | 2027 Software Dev Engineer Intern - Poland | Gdańsk | 🟢 | – | Online assessment, then a loop of interviews | Not stated | 20 Nov |
 | [Ericsson](companies/ericsson-krakow.md) | Software Developer \| Early Career Program | Kraków | 🟢 | August 2027 (April at the earliest) | Assessment, recruiter call, then 2 to 3 interviews | Not stated | 20 Nov |
 | [ABB](companies/abb-krakow.md) | Student Internship - Master Data Cross Domain Service | Kraków | 🟢 | – | See the company page | If ABB can't match you to an internship within 6 months, your application is rejected; you are welcome to apply again. | 24 Nov |
+| [Visa](companies/visa-warsaw.md) | Software Engineer Intern | Warsaw | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Accenture](companies/accenture-poland.md) | Software Testing Internship Program (She/He/They) | Łódź | 🟢 | – | See the company page | Yes. Accenture’s hiring page says “you’re welcome to reapply”, and each role needs a new application. If you fail the online test, you must wait at least 90 days before you take the same test again, even for another role. | 25 Nov |
+| [Accenture](companies/accenture-poland.md) | LLM Engineer Internship Program (She/He/They) | Warsaw | 🟢 | – | See the company page | Yes. Accenture’s hiring page says “you’re welcome to reapply”, and each role needs a new application. If you fail the online test, you must wait at least 90 days before you take the same test again, even for another role. | 25 Nov |
+| [Accenture](companies/accenture-poland.md) | AI/MLOps Internship Program (She/He/They) | Warsaw | 🟢 | – | See the company page | Yes. Accenture’s hiring page says “you’re welcome to reapply”, and each role needs a new application. If you fail the online test, you must wait at least 90 days before you take the same test again, even for another role. | 25 Nov |
 
-13 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+15 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="austria"></a>
 ## 🇦🇹 Austria
@@ -942,6 +1000,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Bitpanda](companies/bitpanda-vienna.md) | Intern, Business Intelligence | Vienna | 🟢 | 1 February 2027 | Not stated | Not stated | 17 Nov |
 | [Dynatrace](companies/dynatrace-linz.md) | Software Engineering - Summer Internships 2027 (m/f/x) / Upper Austria | Linz and Vienna | 🟢 | Summer 2027 | CV and transcript of grades in English | Not stated | 17 Nov |
 | [Dynatrace](companies/dynatrace-linz.md) | Software Engineering - Summer Internships 2027 (m/f/x) / Vienna | Linz and Vienna | 🟢 | Summer 2027 | CV and transcript of grades in English | Not stated | 17 Nov |
+| [Infineon](companies/infineon-villach.md) | Internship - AMS System-Level Simulation and AI Automation (f/m/div) | Villach | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Infineon](companies/infineon-villach.md) | Internship - Lab Verification Engineer in the AMS Lab of the Development Center Villach (f/m/div) | Villach | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Infineon](companies/infineon-villach.md) | Internship: 3rd Party IP Automation using Agentic AI (f/m/div) | Villach | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Infineon](companies/infineon-villach.md) | Internship - Software Developer for Test Engineering (f/m/div) | Villach | 🟢 | – | Not stated | Not stated | 17 Nov |
@@ -974,8 +1033,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Proximus](companies/proximus-brussels.md) | Proximus Graduate Program | Brussels | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Bosch](companies/bosch-tienen.md) | Internship - Digitalization & AI for Wiper Blade Testing | Tienen | 🟢 | – | Application review, then an interview and maybe a tour of the plant | Not stated | 20 Nov |
 | [Bosch](companies/bosch-tienen.md) | Internship AI Lighthouse & Data engineering | Tienen | 🟢 | – | Application review, then an interview and maybe a tour of the plant | Not stated | 20 Nov |
+| [Accenture](companies/accenture-belgium.md) | Internship – Digital Core Architect (Cloud) – as of February 2027 | Brussels | 🟢 | February 2027 | See the company page | Yes. Accenture’s hiring page says “you’re welcome to reapply”, and each role needs a new application. If you fail the online test, you must wait at least 90 days before you take the same test again, even for another role. | 25 Nov |
+| [Accenture](companies/accenture-belgium.md) | Internship – Data&AI Tech – as of February 2027 | Brussels | 🟢 | February 2027 | See the company page | Yes. Accenture’s hiring page says “you’re welcome to reapply”, and each role needs a new application. If you fail the online test, you must wait at least 90 days before you take the same test again, even for another role. | 25 Nov |
 
-6 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+7 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="italy"></a>
 ## 🇮🇹 Italy
@@ -1016,8 +1077,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Hewlett Packard Enterprise](companies/hpe-italy.md) | Data Analytics Intern – Channel Team | Milan | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Hewlett Packard Enterprise](companies/hpe-italy.md) | DevOps Intern (Undergraduate) | Bolzano Vicentino | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Marvell Technology](companies/marvell-pavia.md) | Firmware Engineering Intern | Pavia | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Accenture](companies/accenture-italy.md) | Cloud Transformation Internship | Milan | 🟢 | – | See the company page | Yes. Accenture Italy’s hiring page says “Certo, puoi presentare nuovamente la tua candidatura” (yes, you can apply again), and each role needs a new application. | 25 Nov |
 
-14 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+15 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 <!-- /gen:list -->
 
 <a id="how-to-read-this"></a>

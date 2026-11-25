@@ -7,6 +7,8 @@ Careers page: https://mistral.ai/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| AI Scientist - Physics Models (Internship, Masters or Phd) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ashbyhq.com/mistral.ai/36f5f453-92c1-4f55-ac2a-bcfad5ffe2d2) | 2026-11-25 |
+| AI Scientist - Agentic Engineering - AI4Engineering - (Internship, Masters or PhD) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ashbyhq.com/mistral.ai/f2443351-6105-44fb-8024-f31b9ba60d0b) | 2026-11-25 |
 | Applied AI, Forward Deployed Machine Learning Engineer - (Internship) | Open, no deadline listed | Not stated | 6 months | Pursuing a degree in AI, data science or a related field at a tier 1 school or university; internship only in France | [link](https://jobs.ashbyhq.com/mistral.ai/fcdb8407-20b9-4179-81b6-f2ca2c79a39b) | 2026-11-17 |
 | Applied Scientist (Internship) | Open, no deadline listed | Not stated | At least 6 months preferred | Nice to have: pursuing a PhD or Master in a relevant field; priority to students about to finish; internship only in France or the UK | [link](https://jobs.ashbyhq.com/mistral.ai/de46ba8b-00cb-4618-83df-66e15a78434e) | 2026-11-17 |
 | AI Scientist - (Internship, Masters or Phd) | Open, no deadline listed | Not stated | 6 months | End-of-studies Master or PhD students at tier 1 engineering schools or universities | [link](https://jobs.ashbyhq.com/mistral.ai/f7245b49-92a0-4111-bba1-343183de7d97) | 2026-11-17 |

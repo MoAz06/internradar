@@ -13,4 +13,8 @@ export const skip: { url: string; why: string }[] = [
   { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaesteras-Sweden/Thesis-Work---Investigating-the-environmental-impact-of-AI---Future-Technologies-at-ABB-Robotics_JR00046791-1", why: "Taken off in the check of the roles added on 2026-11-24" },
   { url: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaesteras-Vastmanland-County-Sweden/Thesis-Work-on-AI-assisted-Automated-Stability-Assessment-for-Industrial-Grids-with-MATLAB-Simulink-interface_JR00049736-1", why: "Taken off in the check of the roles added on 2026-11-24" },
   { url: "https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/Winnersh-Berkshire-United-Kingdom/Interns_1216748", why: "Taken off in the check of the roles added on 2026-11-24" },
+  { url: "https://jobs.smartrecruiters.com/SopraSteria1/744000163550788", why: "Taken off in the check of the roles added on 2026-11-25" },
+  { url: "https://jobs.smartrecruiters.com/SopraSteria1/744000163549169", why: "Taken off in the check of the roles added on 2026-11-25" },
+  { url: "https://jobs.smartrecruiters.com/DeliveryHero/744000161452755", why: "Taken off in the check of the roles added on 2026-11-25" },
+  { url: "https://jobs.smartrecruiters.com/DeliveryHero/744000161454849", why: "Taken off in the check of the roles added on 2026-11-25" },
 ];

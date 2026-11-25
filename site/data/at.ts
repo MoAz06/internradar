@@ -113,6 +113,21 @@ export const at: Company[] = [
     careersUrl: "https://jobs.infineon.com/careers?location=Austria",
     roles: [
       {
+        title: "Internship - AMS System-Level Simulation and AI Automation (f/m/div)",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "12 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://jobs.infineon.com/careers/job/563808972409303",
+        checked: "2026-11-25",
+        auto: true,
+      },
+      {
         title: "Internship - Lab Verification Engineer in the AMS Lab of the Development Center Villach (f/m/div)",
         kind: "Internship",
         field: "Hardware and embedded",

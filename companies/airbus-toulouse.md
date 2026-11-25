@@ -7,6 +7,7 @@ Careers page: https://www.airbus.com/en/careers/students-and-graduates/interns/i
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| ATR – Internship 2027 – AI and structural in -service repairs | Open, no deadline listed |  | 6 months |  | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/ATR---Internship-2027---AI-and-structural-in--service-repairs_JR10450722) | 2026-11-25 |
 | Stage 2027 - Cyber Lab Creator (All Gender) | Open, no deadline listed |  | 6 months |  | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Paris-Area/Stage-2027---Cyber-Lab-Creator--All-Gender-_JR10449625) | 2026-11-24 |
 | Stage 2027 - AI Solution Development (m/f) | Open, no deadline listed | February 2027 (can move) | 6 months | Bac+5 student in computer science, data science or geospatial technology; French nationality required (IGI 1300); fluent French and English | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---AI-Solution-Development--m-f-_JR10444690) | 2026-11-20 |
 | Stage 2027 - Stage en outillage de monitoring plateforme IT (h/f) | Open, no deadline listed | January 2027 (can move) | 6 months | Bac+5 student (engineering school or Master in computer science) in systems engineering, IT or cybersecurity; needs a French security clearance or to be eligible for one; fluent French | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---Stage-en-outillage-de-monitoring-plateforme-IT--h-f-_JR10434899) | 2026-11-20 |

@@ -7,6 +7,7 @@ Careers page: https://careers.smartrecruiters.com/BoschGroup
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Academic Internship in Computer Science (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000163410519) | 2026-11-25 |
 | DevOps Engineer - Internship (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000143455469) | 2026-11-20 |
 | Extracurricular Internship: AI & Automation Development (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000148960754) | 2026-11-20 |
 | Extracurricular Internship: C# Developer (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000152107800) | 2026-11-20 |

@@ -137,6 +137,14 @@ export const payRules: Record<string, Rule[]> = {
   "adobe-london": [{ kind: "Internship", pay: { label: "£75,000 a year", short: "£75,000/yr", ...paid("YEAR", "GBP", 75000) } }],
   "hpe-italy": [{ kind: "Internship", pay: { label: "€800 a month", short: "€800/mo", ...paid("MONTH", "EUR", 800) } }],
   "marvell-pavia": [{ kind: "Internship", pay: { label: "€21,250 to €28,750 a year base pay", short: "€21–29k/yr", ...paid("YEAR", "EUR", 21250, 28750) } }],
+  "affirm-london": [{ kind: "Graduate", pay: { label: "£80,000 to £118,000 a year base pay", short: "£80–118k/yr", ...paid("YEAR", "GBP", 80000, 118000) } }],
+  "pinterest-dublin": [
+    { title: /Software Engineering/, pay: { label: "€3,500 to €3,700 a month", short: "€3,500–3,700/mo", ...paid("MONTH", "EUR", 3500, 3700) } },
+    { title: /Machine Learning/, pay: { label: "€5,000 to €6,250 (the posting doesn't say if this is a month)", short: "€5,000–6,250" } },
+  ],
+  "pigment-paris": [{ kind: "Internship", pay: { label: "€2,000 a month", short: "€2,000/mo", ...paid("MONTH", "EUR", 2000) } }],
+  "thales-uk": [{ kind: "Graduate", pay: { label: "£34,000 a year", short: "£34,000/yr", ...paid("YEAR", "GBP", 34000) } }],
+  "visa-warsaw": [{ kind: "Internship", pay: { label: "PLN 120,000 a year", short: "PLN 120k/yr", ...paid("YEAR", "PLN", 120000) } }],
 };
 
 const symbol: Record<keyof typeof rates, string> = { EUR: "€", GBP: "£", CHF: "CHF ", PLN: "PLN " };

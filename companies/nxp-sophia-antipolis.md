@@ -7,6 +7,7 @@ Careers page: https://nxp.myworkdayjobs.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Stage Ingénieur : Application de l'Intelligence Artificielle à l'intégration de blocs RTL (ASIC/FPGA) (H/F) | Open, no deadline listed |  |  |  | [link](https://nxp.myworkdayjobs.com/careers/job/Sophia-Antipolis-Valbonne/Stage-Ingnieur---Application-de-l-Intelligence-Artificielle--l-intgration-de-blocs-RTL--ASIC-FPGA---H-F-_R-10064620-1) | 2026-11-25 |
 | Alternance : Apprenti(e) Ingénieur AI & Automation for Project Execution | Open, no deadline listed |  | Not stated |  | [link](https://nxp.myworkdayjobs.com/careers/job/Toulouse/Alternance---Apprenti-e--Ingnieur-AI---Automation-for-Project-Execution_R-10068052) | 2026-11-24 |
 | Stage ingénieur : Simulation CEM de cartes électroniques (H/F) | Open, no deadline listed |  | 6 months | Bac+5: Master's or final-year engineering student in electronics, microelectronics or physical measurement | [link](https://nxp.myworkdayjobs.com/careers/job/Toulouse/Stage-ingnieur---Simulation-CEM-de-cartes-lectroniques--H-F-_R-10065565) | 2026-11-20 |
 | Stage Ingénieur : Ingénieur d’application – Hardware-in-the-Loop et technologie GaN 48 V F/M | Open, no deadline listed |  | 6 months |  | [link](https://nxp.myworkdayjobs.com/careers/job/Toulouse/Internship-Offer---Application-Engineer-Hardware-in-the-Loop-and-48-V-GaN_R-10067893) | 2026-11-19 |
