@@ -15,7 +15,7 @@ import { entryInCountry, fieldOf, kindOf, matchCompanies, readPosting, roleLimit
 /** Not early career, whatever else the title says. */
 const senior = /\b(senior|sr\.?|lead|principal|staff|manager|head|director|experienced|expert|vp|chief)\b/i;
 /** Early career, but a trade school or an apprenticeship, not for students at a university. */
-const notStudy = /\b(junior|entry[- ]level|apprentice\w*|ausbildung|duales studium|dual study|azubi|lehrling|vocational)\b/i;
+const notStudy = /\b(junior|entry[- ]level|apprentice\w*|apprenti(?:e|s|es)?|ausbildung|duales studium|dual study|azubi|lehrling|vocational)\b/i;
 /** "3+ years of experience": a job for people who have worked already. */
 const yearsAsked = /\b([2-9]|1\d)\s*\+?\s*(?:-\s*\d+\s*)?(?:years?|jahre\w*|jaar|ans|años|anni)\s+(?:of\s+)?(?:\w+\s+){0,2}(?:experience|erfahrung|ervaring|expérience|experiencia|esperienza)/i;
 

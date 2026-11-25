@@ -353,6 +353,7 @@ test("roles that go on by themselves", () => {
   assert.notEqual(why({ title: "2027 | EMEA | The Hague | Engineering | Seasonal/Off Cycle Internship" }), "title not plainly tech");
   assert.equal(why({ title: "2027 | EMEA | Paris | FICC and Equities (Sales and Trading) | Summer Analyst" }), "not a tech job");
   assert.equal(why({ title: "Ausbildung Fachinformatiker Anwendungsentwicklung" }), "junior or apprenticeship");
+  assert.equal(why({ title: "Alternance : Apprenti(e) Ingénieur AI & Automation for Project Execution" }), "junior or apprenticeship");
   assert.equal(why({ title: "Stage-Tesi Quantum" }), "title not plainly tech");
   assert.equal(why({ title: "Software Engineer" }), "kind not clear from the title");
   assert.equal(why({ title: "Software Engineering Intern", location: "Paris, France" }), "no entry in that country");
