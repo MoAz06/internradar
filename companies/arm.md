@@ -7,7 +7,7 @@ Careers page: https://careers.arm.com/graduates
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Graduate Program - Engineering Pathways | Closes 22 Nov 2026 | Not stated | Not stated | Degree (BSc, MSc or PhD) in EE, CE, CS, software engineering or similar by the start date; Cambridge, Manchester, Sheffield or Bristol | [link](https://careers.arm.com/job/cambridge/graduate-program-engineering-pathways/33099/102629004672) | 2026-11-16 |
+| Graduate Program - Engineering Pathways | The posting was taken down by 24 Nov 2026 | Not stated | Not stated | Degree (BSc, MSc or PhD) in EE, CE, CS, software engineering or similar by the start date; Cambridge, Manchester, Sheffield or Bristol | [link](https://careers.arm.com/job/cambridge/graduate-program-engineering-pathways/33099/102629004672) | 2026-11-25 |
 | Graduate Quality Analytics and Automation Engineer | Closes 29 Nov 2026; reviewed first come, first served | Not stated | Not stated | Degree in CS, data science, software engineering or similar by the start date; Python and SQL | [link](https://careers.arm.com/job/cambridge/graduate-quality-analytics-and-automation-engineer/33099/103071142448) | 2026-11-16 |
 
 ## Process, as the company describes it

@@ -7,7 +7,7 @@ Careers page: https://job-boards.eu.greenhouse.io/bitpanda
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Intern, Java Engineer | Hiring started in October 2026, no deadline listed | 1 February 2027 | 6 months, full-time | Early-career engineer with a CS or related foundation; Java from projects, coursework or practice | [link](https://job-boards.eu.greenhouse.io/bitpanda/jobs/4987398101) | 2026-11-17 |
+| Intern, Java Engineer | The posting was taken down by 24 Nov 2026 | 1 February 2027 | 6 months, full-time | Early-career engineer with a CS or related foundation; Java from projects, coursework or practice | [link](https://job-boards.eu.greenhouse.io/bitpanda/jobs/4987398101) | 2026-11-25 |
 | Intern, Business Intelligence | Hiring started in October 2026, no deadline listed | 1 February 2027 | 6 months, full-time | Current student near graduation or recent graduate in BI, data engineering, CS or related; SQL and data modeling | [link](https://job-boards.eu.greenhouse.io/bitpanda/jobs/4999439101) | 2026-11-17 |
 
 ## Process, as the company describes it

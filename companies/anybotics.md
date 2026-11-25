@@ -8,7 +8,7 @@ Careers page: https://www.anybotics.com/about-us/careers/
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
 | Internship - Reinforcement Learning for Navigation | Internships open all year, no deadline listed | Preferred September 2026; any month, on the 1st | 6 months | Enrolled BSc, MSc or PhD student; Schengen citizens, or ETH/EPFL students who need a compulsory internship; non-EU only for a mandatory internship and living in CH | [link](https://jobs.lever.co/anybotics/9d34ce1f-0dae-4cf3-85b0-d231dfb4851b) | 2026-11-16 |
-| Internship – 3D Perception, Computer Vision & AI | Internships open all year, no deadline listed | Preferred September 2026; any month, on the 1st | 6 months | Enrolled BSc, MSc or PhD student; Schengen citizens, or ETH/EPFL students who need a compulsory internship; non-EU only for a mandatory internship and living in CH | [link](https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e) | 2026-11-16 |
+| Internship – 3D Perception, Computer Vision & AI | The posting was taken down by 24 Nov 2026 | Preferred September 2026; any month, on the 1st | 6 months | Enrolled BSc, MSc or PhD student; Schengen citizens, or ETH/EPFL students who need a compulsory internship; non-EU only for a mandatory internship and living in CH | [link](https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e) | 2026-11-25 |
 
 ## Process, as the company describes it
 

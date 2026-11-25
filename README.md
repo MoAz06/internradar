@@ -98,7 +98,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Tesla](companies/tesla-amsterdam.md) | Power Systems Modeling Internship | AMS | 🟢 | January/February 2027 | Interview | Not stated | 17 Nov |
 | [TNO](companies/tno-den-haag.md) | Graduation Internship, AI-based 6G RAN capacity management | Den Haag and Soesterberg | 🔴 | – | Apply with CV and cover letter; TNO then arranges an internship agreement | Not stated | 19 Nov |
 | [TNO](companies/tno-den-haag.md) | Internship, Operationalising a Mobile 3D Scanning Setup | Den Haag and Soesterberg | 🟢 | – | Apply with CV and cover letter, then an AIVD security screening of about 8 weeks | Not stated | 17 Nov |
-| [TNO](companies/tno-den-haag.md) | Graduation internship, MMIC/RFIC design | Den Haag and Soesterberg | 🟢 until 23 Nov | – | Apply with CV and cover letter, then an AIVD security screening of about 8 weeks | Not stated | 17 Nov |
+| [TNO](companies/tno-den-haag.md) | Graduation internship, MMIC/RFIC design | Den Haag and Soesterberg | 🔴 | – | Apply with CV and cover letter, then an AIVD security screening of about 8 weeks | Not stated | 25 Nov |
 | [TNO](companies/tno-den-haag.md) | TNO Traineeship | Den Haag and Soesterberg | 🟡 Closed now; applications for the next cohort open in spring 2027 | 1 September 2027 | CV, motivation letter and an assignment on your impact and learning goals | Not stated | 17 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Intern Software Scientist - X-ray Spectroscopy | Eindhoven | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Intern Software Scientist - Theoretical Spectroscopy | Eindhoven | 🟢 | – | Not stated | Not stated | 18 Nov |
@@ -146,7 +146,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Prosus](companies/prosus.md) | (MSc/PhD) AI Research Intern - LLMs, Causal Inference & Decision Making | AMS | 🟢 | As soon as possible | Not stated | Not stated | 20 Nov |
 | [Prosus](companies/prosus.md) | ML Engineering Intern - LLM Research & Development | AMS | 🟢 | As soon as possible | Not stated | Not stated | 20 Nov |
 | [Deloitte](companies/deloitte-amsterdam.md) | Scriptiestage Technology Transformation | AMS | 🟢 | – | CV and motivation letter, online assessment of 4 games, interviews, sometimes a case | Not stated | 20 Nov |
-| [Deloitte](companies/deloitte-amsterdam.md) | Junior Consultant - Artificial Intelligence & Automation | AMS | 🟢 until 22 Nov | – | CV and motivation letter, online assessment, interview rounds on 1, 8 and 10 December | Not stated | 20 Nov |
+| [Deloitte](companies/deloitte-amsterdam.md) | Junior Consultant - Artificial Intelligence & Automation | AMS | 🔴 | – | CV and motivation letter, online assessment, interview rounds on 1, 8 and 10 December | Not stated | 25 Nov |
 | [Deloitte](companies/deloitte-amsterdam.md) | Junior Engineer next-generation Customer Solutions | AMS | 🟢 | – | CV and motivation letter, online assessment of 4 games, interviews, sometimes a case | Not stated | 20 Nov |
 | [Deloitte](companies/deloitte-amsterdam.md) | Junior Software Engineer (Cloud) | AMS | 🟢 | – | CV and motivation letter, online assessment of 4 games, interviews, sometimes a case | Not stated | 20 Nov |
 | [Deloitte](companies/deloitte-amsterdam.md) | Data & Technology Analyst | AMS | 🟢 | – | CV and motivation letter, online assessment of 4 games, interviews, sometimes a case | Not stated | 20 Nov |
@@ -204,7 +204,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Palantir](companies/palantir-london.md) | Software Engineer, Internship | London | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 16 Nov |
 | [Palantir](companies/palantir-london.md) | Forward Deployed Software Engineer, Internship - UK Government | London | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 16 Nov |
 | [Palantir](companies/palantir-london.md) | Software Engineer, New Grad | London | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 16 Nov |
-| [Palantir](companies/palantir-london.md) | Forward Deployed Software Engineer, New Grad - Commercial | London | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 16 Nov |
+| [Palantir](companies/palantir-london.md) | Forward Deployed Software Engineer, New Grad - Commercial | London | 🔴 | – | 1-2 phone interviews, then onsite round | Not stated | 25 Nov |
 | [Palantir](companies/palantir-london.md) | Forward Deployed Software Engineer, New Grad - UK Government | London | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 16 Nov |
 | [Palantir](companies/palantir-london.md) | Software Engineer, Internship - Infrastructure | London | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 18 Nov |
 | [Palantir](companies/palantir-london.md) | Software Engineer, Internship - Query Engines | London | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 18 Nov |
@@ -234,7 +234,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [G-Research](companies/g-research.md) | Data Science Internship | London | 🟢 | 21 June 2027 | Online quant test, technical interviews, final interview with functional lead | Not stated | 16 Nov |
 | [G-Research](companies/g-research.md) | Graduate Machine Learning Engineer | London | 🟢 | 31 August 2027 | Technical interview or remote test, behavioural, further technical, management interviews | Not stated | 16 Nov |
 | [G-Research](companies/g-research.md) | Quantitative Researcher - Postgraduate | London | 🟢 | – | Online quant quiz, four 1-hour technical interviews (two if ML), leadership interviews | Not stated | 16 Nov |
-| [Arm](companies/arm.md) | Graduate Program - Engineering Pathways | Cambridge | 🟢 until 22 Nov | – | HireVue or phone interview, then deeper interviews with team | Yes, re-apply next year | 16 Nov |
+| [Arm](companies/arm.md) | Graduate Program - Engineering Pathways | Cambridge | 🔴 | – | HireVue or phone interview, then deeper interviews with team | Yes, re-apply next year | 25 Nov |
 | [Arm](companies/arm.md) | Graduate Quality Analytics and Automation Engineer | Cambridge | 🟢 until 29 Nov | – | HireVue or phone interview, then deeper interviews with team | Yes, re-apply next year | 16 Nov |
 | [Google DeepMind](companies/google-deepmind.md) | Student Researcher, 2027 | London | 🟢 until 13 Dec | – | Not stated on the posting | Not stated | 16 Nov |
 | [Squarepoint Capital](companies/squarepoint-capital-london.md) | Intern Software Developer - London - 2027 | London | 🟢 | You pick a start month; the internship runs throughout the year | Not stated | Not stated | 17 Nov |
@@ -333,8 +333,8 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Marshall Wace](companies/marshall-wace-london.md) | Quant Research Intern - London - 2027 | London | 🟢 | 28 June 2027 | Not stated | Not stated | 17 Nov |
 | [Five Rings](companies/five-rings-london.md) | Campus Full Time 2027 - Software Developer - London | London | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Barclays](companies/barclays-london.md) | 2027 Technology Developer Summer Internship Programme London | London and Glasgow | 🟢 until 27 Nov | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 17 Nov |
-| [Barclays](companies/barclays-london.md) | 2027 Technology Developer Graduate Programme Glasgow | London and Glasgow | 🟢 until 27 Nov | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 17 Nov |
-| [Barclays](companies/barclays-london.md) | 2027 Technology Developer Summer Internship Programme Glasgow | London and Glasgow | 🟢 until 27 Nov | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 17 Nov |
+| [Barclays](companies/barclays-london.md) | 2027 Technology Developer Graduate Programme Glasgow | London and Glasgow | 🔴 | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 25 Nov |
+| [Barclays](companies/barclays-london.md) | 2027 Technology Developer Summer Internship Programme Glasgow | London and Glasgow | 🔴 | – | Application, two short online assessments plus a technical assessment, then an assessment centre | Not stated | 25 Nov |
 | [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineer Graduate Scheme | Leeds | 🟢 until 29 Nov | – | 130-minute online coding assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
 | [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Data Science & AI Graduate Scheme | Leeds | 🟢 until 29 Nov | – | 120-minute online assessment, job insight assessment, virtual assessment day | Not stated | 17 Nov |
 | [Lloyds Banking Group](companies/lloyds-banking-group-leeds.md) | Software Engineering Industrial Placement (Leeds) | Leeds | 🟢 until 29 Nov | – | Not stated | Not stated | 17 Nov |
@@ -627,7 +627,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Meta](companies/meta-zurich.md) | Research Scientist Intern, Robotics Foundation Models Post-Training (PhD) | Zurich | 🟢 | Various start dates through the year | Not stated | Not stated | 16 Nov |
 | [Meta](companies/meta-zurich.md) | Research Scientist Intern, Robotics - Meta Reality Labs Research (PhD) | Zurich | 🟢 | Various start dates through the year | Not stated | Not stated | 16 Nov |
 | [ANYbotics](companies/anybotics.md) | Internship - Reinforcement Learning for Navigation | Zurich | 🟢 rolling | Preferred September 2026; any month, on the 1st | Not stated | Not stated | 16 Nov |
-| [ANYbotics](companies/anybotics.md) | Internship – 3D Perception, Computer Vision & AI | Zurich | 🟢 rolling | Preferred September 2026; any month, on the 1st | Not stated | Not stated | 16 Nov |
+| [ANYbotics](companies/anybotics.md) | Internship – 3D Perception, Computer Vision & AI | Zurich | 🔴 | Preferred September 2026; any month, on the 1st | Not stated | Not stated | 25 Nov |
 | [Sensirion](companies/sensirion.md) | Intern Automotive and Environmental Sensors | Stäfa | 🟢 | Around January 2027 | Online interview, then on-site interview with a short task | Not stated | 16 Nov |
 | [Huawei Zurich](companies/huawei-zurich.md) | Research Intern – Adaptive CPU Microarchitecture and Memory Hierarchy | Zurich | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Huawei Zurich](companies/huawei-zurich.md) | Research Intern – Hardware Optimization for AI Accelerators | Zurich | 🟢 | Flexible, with preference for people who can start soon | Motivation letter with preferred start date | Not stated | 17 Nov |
@@ -1033,7 +1033,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 
 | Company | Role | City | Status | Start | Process | Re-apply | Checked |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Bitpanda](companies/bitpanda-vienna.md) | Intern, Java Engineer | Vienna | 🟢 | 1 February 2027 | Not stated | Not stated | 17 Nov |
+| [Bitpanda](companies/bitpanda-vienna.md) | Intern, Java Engineer | Vienna | 🔴 | 1 February 2027 | Not stated | Not stated | 25 Nov |
 | [Bitpanda](companies/bitpanda-vienna.md) | Intern, Business Intelligence | Vienna | 🟢 | 1 February 2027 | Not stated | Not stated | 17 Nov |
 | [Dynatrace](companies/dynatrace-linz.md) | Software Engineering - Summer Internships 2027 (m/f/x) / Upper Austria | Linz and Vienna | 🟢 | Summer 2027 | CV and transcript of grades in English | Not stated | 17 Nov |
 | [Dynatrace](companies/dynatrace-linz.md) | Software Engineering - Summer Internships 2027 (m/f/x) / Vienna | Linz and Vienna | 🟢 | Summer 2027 | CV and transcript of grades in English | Not stated | 17 Nov |
