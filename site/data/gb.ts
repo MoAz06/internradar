@@ -5115,6 +5115,23 @@ export const gb: Company[] = [
     careersUrl: "https://careers.thalesgroup.com/global/en/united-kingdom-graduates",
     roles: [
       {
+        title: "2027 Industrial Information Systems Graduate",
+        kind: "Graduate",
+        field: "Other tech",
+        status: "open",
+        applications: "Closes 6 Jan 2027",
+        closes: "2027-01-06",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://thales.wd3.myworkdayjobs.com/Careers/job/Belfast/XMLNAME-2027-Industrial-Information-Systems-Graduate_R0337802-1",
+        checked: "2026-11-25",
+        city: "Belfast",
+        workRights: true,
+        auto: true,
+      },
+      {
         title: "2027 Software Engineering Graduate",
         kind: "Graduate",
         field: "Software",

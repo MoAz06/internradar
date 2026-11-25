@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-956-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-957-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -411,6 +411,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Scale AI](companies/scale-ai-london.md) | Software Engineer - New Grad | London | 🟢 | – | See the company page | The posting says: “Our policy requires a 90-day waiting period before reconsidering candidates for the same role.” | 25 Nov |
 | [Visa](companies/visa-uk.md) | Software Engineer Intern | Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Visa](companies/visa-uk.md) | Software Engineer Intern | Reading | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Thales](companies/thales-uk.md) | 2027 Industrial Information Systems Graduate | Belfast | 🟢 until 6 Jan | – | See the company page | Not stated | 25 Nov |
 | [Thales](companies/thales-uk.md) | 2027 Software Engineering Graduate | Glasgow | 🟢 until 6 Jan | – | See the company page | Not stated | 25 Nov |
 | [GSA Capital](companies/gsa-capital-london.md) | Software Developer - Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [GSA Capital](companies/gsa-capital-london.md) | Quantitative Researcher - Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |

@@ -7,6 +7,7 @@ Careers page: https://careers.thalesgroup.com/global/en/united-kingdom-graduates
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2027 Industrial Information Systems Graduate | Closes 6 Jan 2027 |  | Not stated |  | [link](https://thales.wd3.myworkdayjobs.com/Careers/job/Belfast/XMLNAME-2027-Industrial-Information-Systems-Graduate_R0337802-1) | 2026-11-25 |
 | 2027 Software Engineering Graduate | Closes 6 Jan 2027 |  | Not stated |  | [link](https://thales.wd3.myworkdayjobs.com/Careers/job/Glasgow/XMLNAME-2027-Software-Engineering-Graduate_R0337840) | 2026-11-25 |
 
 ## Process, as the company describes it
