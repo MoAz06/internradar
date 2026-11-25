@@ -42,6 +42,12 @@ export type Item = {
   levels: Level[] | null;
   /** The role says you need the right to work there already, or that it doesn't sponsor visas. */
   workRights: boolean;
+  /** The role, or a line on the company that covers every role of its kind, asks for a security clearance. */
+  clearance: boolean;
+  /** The company names help with moving or housing for this kind of role (relocation money, a flat, the first rent). */
+  relocation: boolean;
+  /** The day the job board says the posting went up (YYYY-MM-DD), from data/opened.ts. Only for boards that say. */
+  posted?: string;
   /** Languages other than English the role asks for, or that the posting is written in. */
   languages: string[];
   /** Online test and interview tools the company names in its hiring steps ("HackerRank", "HireVue"). Empty when it names none. */
@@ -97,6 +103,25 @@ export const roleHref = (key: string) => `/roles/${key}/`;
 
 /** The list on the front page with one country picked. The list reads the code as well as the slug. */
 export const countryHref = (code: string) => `/?country=${code.toLowerCase()}`;
+
+/** "today", "1d ago", "12d ago", "3mo ago": how old a posting is, from the day it went up. */
+export function postedAgo(posted: string, today: string): string {
+  const d = Math.round((Date.parse(today) - Date.parse(posted)) / 86_400_000);
+  if (isNaN(d) || d < 0) return "";
+  if (d === 0) return "today";
+  if (d < 60) return `${d}d ago`;
+  return `${Math.floor(d / 30)}mo ago`;
+}
+
+/** The same in words, for the details and the role page: "Posted today", "Posted 3 days ago". */
+export function postedWords(posted: string, today: string): string {
+  const d = Math.round((Date.parse(today) - Date.parse(posted)) / 86_400_000);
+  if (isNaN(d) || d < 0) return "";
+  if (d === 0) return "Posted today";
+  if (d === 1) return "Posted yesterday";
+  if (d < 60) return `Posted ${d} days ago`;
+  return `Posted ${Math.floor(d / 30)} months ago`;
+}
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

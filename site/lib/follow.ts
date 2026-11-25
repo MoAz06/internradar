@@ -17,6 +17,8 @@ export type FollowEvent = {
   title: string;
   city: string;
   kind: "new" | "opened";
+  /** the company had this role before and closed it: it is open again */
+  again?: boolean;
   /** the day it happened, YYYY-MM-DD in Amsterdam */
   day: string;
   when: string;
@@ -39,12 +41,16 @@ export function changesFrom(
 ): FollowEvent[] {
   const since = back(now, 2);
   const out: FollowEvent[] = [];
+  // a closed role at the same company with the same title in the same city: the new one is that role, open again
+  const title = (t: string) => t.toLowerCase().replace(/\s+/g, " ").trim();
+  const closedBefore = new Set(items.filter((x) => x.status === "closed").map((x) => `${x.slug}|${title(x.title)}|${x.city}`));
   for (const x of items) {
     if (x.status !== "open" && x.status !== "rolling" && x.status !== "soon") continue;
     const base = { slug: x.slug, company: x.company, title: x.title, city: x.city, when: x.when, url: `${SITE}/roles/${x.key}/` };
     // new on the list: not part of the starting set
     if (x.added > historyStart && x.added >= since && x.added <= now) {
-      out.push({ ...base, id: `${x.key}:new`, kind: "new", day: x.added });
+      const again = closedBefore.has(`${x.slug}|${title(x.title)}|${x.city}`);
+      out.push({ ...base, id: `${x.key}:new`, kind: "new", day: x.added, ...(again ? { again } : {}) });
       continue;
     }
     if (x.status === "soon") continue;
@@ -55,7 +61,9 @@ export function changesFrom(
     const before = statuses.at(-2);
     const flipped = last && before && (last[1] === "open" || last[1] === "rolling") && before[1] !== "open" && before[1] !== "rolling" ? last[0] : "";
     const day = [opensDay, flipped].filter((d) => d && d >= since && d <= now).sort().at(-1);
-    if (day) out.push({ ...base, id: `${x.key}:opened`, kind: "opened", day });
+    // from closed to open, not from soon: the role is open again
+    const again = !!flipped && flipped === day && before?.[1] === "closed";
+    if (day) out.push({ ...base, id: `${x.key}:opened`, kind: "opened", day, ...(again ? { again } : {}) });
   }
   return out;
 }
@@ -137,7 +145,7 @@ export function alertMail(events: FollowEvent[], stops: Record<string, string>, 
   const names = [...new Set(events.map((e) => e.company))];
   const one = events.length === 1 ? events[0] : null;
   const subject = one
-    ? `${one.company} ${one.kind === "new" ? "has a new role" : "opened a role"}: ${one.title}`
+    ? `${one.company} ${one.again ? "opened a role again" : one.kind === "new" ? "has a new role" : "opened a role"}: ${one.title}`
     : names.length === 1
       ? `${events.length} roles at ${names[0]}`
       : `New roles at ${names.slice(0, -1).join(", ")} and ${names.at(-1)}`;
@@ -145,7 +153,7 @@ export function alertMail(events: FollowEvent[], stops: Record<string, string>, 
   for (const name of names) {
     lines.push(name, "");
     for (const e of events.filter((x) => x.company === name)) {
-      lines.push(`${e.title}`, `${e.city}. ${e.kind === "new" ? "New on the list" : "Just opened"}. ${e.when}.`, e.url, "");
+      lines.push(`${e.title}`, `${e.city}. ${e.again ? "Open again" : e.kind === "new" ? "New on the list" : "Just opened"}. ${e.when}.`, e.url, "");
     }
   }
   const slugs = [...new Set(events.map((e) => e.slug))];

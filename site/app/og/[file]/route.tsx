@@ -12,7 +12,7 @@ import type { Item } from "@/lib/items";
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-const pages = ["home", "nl", "edition", "radar", "reapply", "share", "alerts", "calendar", "about", "companies", "pay"];
+const pages = ["home", "nl", "edition", "radar", "reapply", "share", "alerts", "calendar", "about", "companies", "pay", "stats"];
 
 export function generateStaticParams() {
   return [...pages, ...companies.map((c) => c.slug)].map((p) => ({ file: `${p}.png` }));
@@ -106,6 +106,11 @@ function text(page: string): Preview {
   if (page === "pay") {
     const n = new Set(buildItems().filter((x) => x.pay).map((x) => x.slug)).size;
     return { kicker: "Pay", head: "What tech internships in Europe pay", sub: `The figures ${n} companies state on their own pages, per country, in their own currency.` };
+  }
+  if (page === "stats") {
+    const open = buildItems().filter((x) => x.status === "open" || x.status === "rolling");
+    const tool = open.filter((x) => x.tests.length).length;
+    return { kicker: "The season in numbers", head: `${open.length} tech roles open in Europe`, sub: `${Math.round((tool / Math.max(1, open.length)) * 100)}% are at a company that names its online test tool. When postings go up, who sponsors, what they pay.` };
   }
   if (page === "about")
     return { kicker: "About", head: "How to read the list", sub: "Where the data comes from, and how to add to it." };

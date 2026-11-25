@@ -14,6 +14,8 @@ export type SheetFilters = {
   level: Level | "";
   visa: boolean;
   english: boolean;
+  noClearance: boolean;
+  relocation: boolean;
   /** a test tool by name, "none" for roles whose company names none, "" for all */
   test: string;
   /** only the roles that fit the profile set on /profile/ */
@@ -129,7 +131,7 @@ export default function FilterSheet({
               </h2>
               <button
                 type="button"
-                onClick={() => set({ status: "open", field: "", level: "", visa: false, english: false, test: "", fit: false, saved: false })}
+                onClick={() => set({ status: "open", field: "", level: "", visa: false, english: false, noClearance: false, relocation: false, test: "", fit: false, saved: false })}
                 className="h-10 px-1 text-[15px] text-link underline underline-offset-2"
               >
                 Clear
@@ -186,16 +188,27 @@ export default function FilterSheet({
             </div>
             <p className="mt-1 text-[12px] text-muted">Roles that name no level stay in.</p>
 
-            <p className="mt-3 text-[13px] font-semibold text-muted">Visa and language</p>
+            <p className="mt-3 text-[13px] font-semibold text-muted">Visa, clearance and language</p>
             <div className="mt-1 flex flex-wrap gap-1.5">
               <Chip on={f.visa} onClick={() => set({ visa: !f.visa })}>
                 I need a visa
+              </Chip>
+              <Chip on={f.noClearance} onClick={() => set({ noClearance: !f.noClearance })}>
+                No security clearance
               </Chip>
               <Chip on={f.english} onClick={() => set({ english: !f.english })}>
                 English only
               </Chip>
             </div>
-            <p className="mt-1 text-[12px] text-muted">Hides roles that say they don't sponsor, or that ask for another language.</p>
+            <p className="mt-1 text-[12px] text-muted">Hides roles that say they don't sponsor, that need a security clearance, or that ask for another language.</p>
+
+            <p className="mt-3 text-[13px] font-semibold text-muted">Moving</p>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              <Chip on={f.relocation} onClick={() => set({ relocation: !f.relocation })}>
+                Relocation or housing help named
+              </Chip>
+            </div>
+            <p className="mt-1 text-[12px] text-muted">From the company&apos;s own pages. Some help is for some postings only: the role page quotes the line.</p>
 
             {tools.length > 0 && (
               <>

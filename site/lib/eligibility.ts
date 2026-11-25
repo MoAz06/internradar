@@ -31,12 +31,47 @@ export function companyNoSponsor(lines: string[], kind: string): boolean {
     if (/not stated|not mentioned|does not say|doesn't say|may be|case-by-case|some roles|depends on|will consider|will accept|\bwe sponsor|\bdo sponsor|\bcan sponsor|\bcan provide|\bis available|\bare available|form asks/i.test(line)) return false;
     // one posting, programme or city: "the Galway graduate role", "the PhD intern posting", "Visa (Engineering Graduate):", "Visa for the London software internship:"
     if (/\bthe (?!posting\b|whole\b)(?:(?!the\b)[\w'-]+ ){0,7}(postings?|roles?|programmes?|internships?|tracks?)\b|^Visa \(|^Visa for |\bbut not for\b/i.test(line)) return false;
-    const interns = /\bintern/i.test(line);
-    const grads = /\bgraduat/i.test(line);
-    if (interns && !grads) return kind === "Internship";
-    if (grads && !interns) return kind === "Graduate";
-    return true;
+    return fitsKind(line, kind);
   });
+}
+
+/** A company line that names only interns counts for internships, one that names only graduates for graduate roles.
+ * "international" is not about interns. */
+function fitsKind(line: string, kind: string): boolean {
+  const interns = /\bintern(s|ships?)?\b/i.test(line);
+  const grads = /\b(graduat|new grads?\b)/i.test(line);
+  if (interns && !grads) return kind === "Internship";
+  if (grads && !interns) return kind === "Graduate";
+  return true;
+}
+
+const clearanceWords = /security clearance|security vetting|national security vetting|\bvetting\b|\bSC clearance|\bclearance by the/i;
+
+/** True when the role's own line asks for a security clearance, or a company line says every candidate needs one
+ * ("All candidates must get security clearance"). A line that leaves room ("many roles", "may require",
+ * "several postings") doesn't count for every role. */
+export function needsClearance(eligibility: string, lines: string[], kind: string): boolean {
+  if (clearanceWords.test(eligibility) && !/may require|if needed|a plus/i.test(eligibility)) return true;
+  return lines.some(
+    (line) =>
+      clearanceWords.test(line) &&
+      /\b(must|all candidates|you need|required|requires|needs? to)\b/i.test(line) &&
+      !/many roles|some roles|several|may require|sensitive posts|defence-related|for candidates in|the final candidates|some postings|the FAQ says/i.test(line) &&
+      fitsKind(line, kind),
+  );
+}
+
+/** The company's lines that name help with moving or housing: relocation money, a flat, the first month's rent.
+ * Lines that say there is none, that it isn't stated, or that it only might be there ("may", "case-by-case") are left
+ * out, and so is help with travel to an interview. */
+export function relocationLines(lines: string[], kind: string): string[] {
+  return lines.filter(
+    (line) =>
+      /relocat|housing|accommodation|apartments?\b|\brent\b/i.test(line) &&
+      /support|assistance|allowance|budget|package|provided|provide|help|covers?|covered|cover housing|apartments|accommodation for|€|£|\d/i.test(line) &&
+      !/not (mentioned|stated)|^Relocation: none|does not assist|doesn't provide|no relocation|none is provided|you must “Be able to relocate|may include|may be|might be|may also|case-by-case|depend|some postings|some positions|onsite interviews|subject to availability|ready to relocate|named for hubs|does not say how|itself does not mention/i.test(line) &&
+      fitsKind(line, kind),
+  );
 }
 
 /** True when the role says you must already be allowed to work there, or that it doesn't sponsor visas. */

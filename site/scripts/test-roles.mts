@@ -369,6 +369,9 @@ test("roles that go on by themselves", () => {
   assert.equal(why({ title: "Software Engineering Intern" }, english, all, new Set([atTestco({}).url])), "on the skip list");
   const taken = [...companies, { ...fake, roles: [{ ...fake.roles[0], title: "Software Engineering Intern" }] }];
   assert.equal(why({ title: "Software Engineering Intern" }, english, taken), "same title already there");
+  // the same title, but that role is closed: the company put it up again under a new link
+  const closedTaken = [...companies, { ...fake, roles: [{ ...fake.roles[0], title: "Software Engineering Intern", status: "closed" as const }] }];
+  assert.equal(why({ title: "Software Engineering Intern" }, english, closedTaken), "ok");
   const onList = [...companies, { ...fake, roles: [{ ...fake.roles[0], source: atTestco({}).url }] }];
   assert.equal(why({ title: "Software Engineering Intern" }, english, onList), "already on the list");
 

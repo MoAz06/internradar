@@ -3,7 +3,8 @@ import { fuzzyDate, live, stale, today } from "./live.ts";
 import { shortKey, type Item } from "./items.ts";
 import { historyStart, roleHistory } from "../data/history.ts";
 import { payFor } from "../data/pay.ts";
-import { companyNoSponsor, languagesOf, levelsOf, needsWorkRights } from "./eligibility.ts";
+import { companyNoSponsor, languagesOf, levelsOf, needsClearance, needsWorkRights, relocationLines } from "./eligibility.ts";
+import { opened } from "../data/opened.ts";
 import { testsOf } from "./tests.ts";
 import { reapplyRules, type ReapplyRule } from "../data/reapply.ts";
 
@@ -62,6 +63,7 @@ export function buildItems(now = today()): Item[] {
       seen.add(id);
       const added = roleHistory[id]?.added ?? now;
       const strict = strictRule(c.slug, c.name);
+      const companyLines = [...(c.pay ?? []), ...(c.notes ?? [])];
       items.push({
         id,
         added,
@@ -91,7 +93,11 @@ export function buildItems(now = today()): Item[] {
         pay: payFor(c.slug, r.title, r.kind),
         levels: levelsOf(r.eligibility, r.title),
         // the role's own line, or a line on the company that says it sponsors no early careers role of this kind
-        workRights: needsWorkRights(r.eligibility) || !!r.workRights || companyNoSponsor([...(c.pay ?? []), ...(c.notes ?? [])], r.kind),
+        workRights: needsWorkRights(r.eligibility) || !!r.workRights || companyNoSponsor(companyLines, r.kind),
+        clearance: needsClearance(r.eligibility, companyLines, r.kind),
+        relocation: relocationLines(companyLines, r.kind).length > 0,
+        // the day the job board says it went up; only boards that say so
+        ...(opened[r.source] ? { posted: opened[r.source] } : {}),
         languages: r.language ? [...new Set([...languagesOf(r.eligibility), r.language])] : languagesOf(r.eligibility),
         auto: !!r.auto,
         tests: testsOf([...c.process, r.process ?? ""]),

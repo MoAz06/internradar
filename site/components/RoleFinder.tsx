@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import { countryHref, fields, fold, kinds, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
+import { countryHref, fields, fold, kinds, postedAgo, postedWords, reportUrl, roleHref, shortWhen, type Item } from "@/lib/items";
 import { citiesOf, closesGroup, closesShort, FIRST_PAGE, payOf, payParts, toRows, type Row, type StartView } from "@/lib/rows";
 import { eventsFor, toIcs } from "@/lib/ics";
 import { shortDate } from "@/lib/format";
@@ -38,6 +38,10 @@ type Filters = {
   visa: boolean;
   /** hide roles that ask for a language besides English */
   english: boolean;
+  /** hide roles that need a security clearance */
+  noClearance: boolean;
+  /** only roles whose company names help with moving or housing */
+  relocation: boolean;
   /** an online test tool the company names ("HackerRank"), "none" for roles whose company names none, "" for all */
   test: string;
   sort: Sort;
@@ -45,11 +49,11 @@ type Filters = {
   fit: boolean;
 };
 
-const start: Filters = { q: "", status: "open", kind: "", field: "", countries: [], saved: false, level: "", visa: false, english: false, test: "", sort: "deadline", fit: false };
+const start: Filters = { q: "", status: "open", kind: "", field: "", countries: [], saved: false, level: "", visa: false, english: false, noClearance: false, relocation: false, test: "", sort: "deadline", fit: false };
 const PER_KEY = "internradar:per-page";
 const PER_PAGE = [25, 50, 75, 100];
 /** The query parameters the list writes itself. Any other one stays in the URL, like ?ref= from a mail. */
-const OWN = ["q", "status", "type", "field", "country", "level", "visa", "english", "test", "sort", "saved", "all", "page", "per"];
+const OWN = ["q", "status", "type", "field", "country", "level", "visa", "english", "clearance", "relocation", "test", "sort", "saved", "all", "page", "per"];
 
 /** Country codes in the order of the menu, each once, so the same choice always gives the same link. */
 const inOrder = (codes: string[], options: CountryOption[]) => options.map((k) => k.code).filter((c) => codes.includes(c));
@@ -239,7 +243,7 @@ export default function RoleFinder({
       // a link with its own filters shows those; a plain visit starts with the roles that fit the profile
       const me = readProfile();
       setProfile(me);
-      const ownFilters = ["q", "status", "type", "field", "country", "level", "visa", "english", "test", "sort", "saved", "all"].some((k) => p.has(k)) || !!fromHash;
+      const ownFilters = ["q", "status", "type", "field", "country", "level", "visa", "english", "clearance", "relocation", "test", "sort", "saved", "all"].some((k) => p.has(k)) || !!fromHash;
       setF({
         q: p.get("q") ?? "",
         status: (["open", "soon", "new", "all"] as const).find((s) => s === p.get("status")) ?? "open",
@@ -250,6 +254,8 @@ export default function RoleFinder({
         level: levels.find((l) => l.value === p.get("level"))?.value ?? "",
         visa: p.get("visa") === "1",
         english: p.get("english") === "1",
+        noClearance: p.get("clearance") === "no",
+        relocation: p.get("relocation") === "1",
         test: p.get("test") === "none" ? "none" : (testTools.find((t) => toolSlug(t.name) === p.get("test"))?.name ?? ""),
         sort: p.get("sort") === "pay" ? "pay" : p.get("sort") === "new" ? "new" : "deadline",
         fit: !!me && !ownFilters && !scope,
@@ -362,6 +368,8 @@ export default function RoleFinder({
     if (f.level) p.set("level", f.level);
     if (f.visa) p.set("visa", "1");
     if (f.english) p.set("english", "1");
+    if (f.noClearance) p.set("clearance", "no");
+    if (f.relocation) p.set("relocation", "1");
     if (f.test) p.set("test", f.test === "none" ? "none" : toolSlug(f.test));
     if (f.sort !== "deadline") p.set("sort", f.sort);
     // turned off by hand: keep it off on reload. A city page starts with it off anyway.
@@ -394,12 +402,14 @@ export default function RoleFinder({
       if (f.level && x.levels && !x.levels.includes(f.level)) return false;
       if (f.visa && x.workRights) return false;
       if (f.english && x.languages.length) return false;
+      if (f.noClearance && x.clearance) return false;
+      if (f.relocation && !x.relocation) return false;
       if (f.test === "none" ? x.tests.length > 0 : f.test && !x.tests.includes(f.test)) return false;
       if (f.fit && profile && !fits(x, profile)) return false;
       if (test && !test(index.get(x.id)!)) return false;
       return true;
     });
-  }, [items, index, f.q, f.kind, f.field, f.saved, f.level, f.visa, f.english, f.test, f.fit, profile, saved]);
+  }, [items, index, f.q, f.kind, f.field, f.saved, f.level, f.visa, f.english, f.noClearance, f.relocation, f.test, f.fit, profile, saved]);
   // every filter except the status, so the status chips can say how many each one would show
   const matched = useMemo(() => (f.countries.length ? anyCountry.filter((x) => f.countries.includes(x.country)) : anyCountry), [anyCountry, f.countries]);
 
@@ -414,7 +424,8 @@ export default function RoleFinder({
   }, [anyCountry, f.status, since]);
   // highest stated pay first, then figures without a period, then the rest in deadline order; or the newest first
   const sorted = useMemo(() => {
-    if (f.sort === "new") return [...shown].sort((a, b) => b.added.localeCompare(a.added));
+    // newest: the day the job board says it went up, else the day it came on the list
+    if (f.sort === "new") return [...shown].sort((a, b) => (b.posted ?? b.added).localeCompare(a.posted ?? a.added));
     if (f.sort !== "pay") return shown;
     const rank = (x: Item) => (x.pay?.month !== undefined ? 0 : x.pay ? 1 : 2);
     return [...shown].sort((a, b) => rank(a) - rank(b) || (b.pay?.month ?? 0) - (a.pay?.month ?? 0));
@@ -432,7 +443,7 @@ export default function RoleFinder({
       }
     return m;
   }, [rows, headings, now]);
-  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.countries.length > 0 || f.saved || f.level || f.visa || f.english || f.test || f.sort !== "deadline";
+  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.countries.length > 0 || f.saved || f.level || f.visa || f.english || f.noClearance || f.relocation || f.test || f.sort !== "deadline";
   // before every role has loaded: the plain view shows the first page and the build's numbers, any other view waits
   const waiting = !ready && !!(filtered || f.fit || page > 1 || per !== FIRST_PAGE);
   const pre = !ready && !waiting;
@@ -572,6 +583,8 @@ export default function RoleFinder({
     ...(f.level ? [{ label: levels.find((l) => l.value === f.level)?.label ?? f.level, clear: { level: "" as const } }] : []),
     ...(f.visa ? [{ label: "I need a visa", clear: { visa: false } }] : []),
     ...(f.english ? [{ label: "English only", clear: { english: false } }] : []),
+    ...(f.noClearance ? [{ label: "No security clearance", clear: { noClearance: false } }] : []),
+    ...(f.relocation ? [{ label: "Relocation help named", clear: { relocation: false } }] : []),
     ...(f.test ? [{ label: f.test === "none" ? "No test tool named" : `Test: ${f.test}`, clear: { test: "" } }] : []),
     ...(f.saved ? [{ label: "Only saved", clear: { saved: false } }] : []),
   ];
@@ -582,7 +595,8 @@ export default function RoleFinder({
   const details = (x: Item) => (
     <>
       <p className={`font-sans text-[13px] ${x.old ? "text-soon" : "text-muted"}`}>
-        {x.when}. {x.kind}, {x.field}. {!x.start || /^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}Checked {shortDate(x.checked)}
+        {x.when}. {x.kind}, {x.field}. {!x.start || /^not stated/i.test(x.start) ? "" : `Starts ${x.start}. `}
+        {x.posted && postedWords(x.posted, now) ? `${postedWords(x.posted, now)}. ` : ""}Checked {shortDate(x.checked)}
         {x.old ? ", over 3 months ago" : ""}.
       </p>
       <p className="mt-1">
@@ -599,6 +613,8 @@ export default function RoleFinder({
         </p>
       )}
       {x.languages.length > 0 && <p className="mt-1 text-muted">Asks for {x.languages.join(" and ")}.</p>}
+      {x.clearance && <p className="mt-1 text-muted">Needs a security clearance, or the right to get one.</p>}
+      {x.relocation && <p className="mt-1 text-muted">{x.company} names help with moving or housing. The role page quotes it.</p>}
       {x.reapply && (
         <p className="mt-1 text-soon">
           <span className="font-semibold">Re-apply rule:</span> {x.reapply}
@@ -651,6 +667,17 @@ export default function RoleFinder({
   };
 
   const howLine = (x: Item, className: string) => <HowLine x={x} className={className} />;
+  /** How old the newest posting in a merged row is, "" when no board says. */
+  const newestAge = (r: Row) => {
+    const d = r.items.map((y) => y.posted ?? "").sort().at(-1);
+    const a = d ? postedAgo(d, now) : "";
+    return a === "today" ? "today" : a;
+  };
+  /** How old the posting is, under the place on desktop, when the job board says when it went up. */
+  const age = (x: Item) => {
+    const a = x.posted ? postedAgo(x.posted, now) : "";
+    return a ? <span className="block text-[12px] text-dim" title={`The job board says it went up on ${shortDate(x.posted!)}`}>{a === "today" ? "Posted today" : a}</span> : null;
+  };
 
   /** The bookmark of a merged row: it saves all its roles. Partly saved shows in colour, not filled. */
   const groupSave = (r: Row, align: string, size: string) => {
@@ -744,7 +771,10 @@ export default function RoleFinder({
             </button>
             {!inner && howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{placeCell(x)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">
+            {placeCell(x)}
+            {age(x)}
+          </td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted tabular-nums">{x.pay ? payCell(x.pay.short) : notStated}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
@@ -789,7 +819,10 @@ export default function RoleFinder({
             </button>
             {howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
           </td>
-          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">{placeOfCell(r)}</td>
+          <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted">
+            {placeOfCell(r)}
+            {newestAge(r) && <span className="block text-[12px] text-dim">Newest {newestAge(r)}</span>}
+          </td>
           <td className="py-2.5 pr-3 align-top font-sans text-[13px] leading-snug text-muted tabular-nums">{pay ? payCell(pay) : r.items.every((y) => !y.pay) ? notStated : ""}</td>
           <td className={`py-2.5 pr-2 align-top font-sans text-[13px] leading-snug font-semibold whitespace-nowrap tabular-nums ${statusColor(x)}`}>{day(x)}</td>
         </tr>
@@ -825,7 +858,7 @@ export default function RoleFinder({
                 <span className={`shrink-0 tabular-nums ${hot}`}>{day(x)}</span>
               </span>
             ) : (
-              <span className="mt-0.5 block font-sans text-[13px] text-muted">{[place(x), x.pay?.short].filter(Boolean).join(" · ")}</span>
+              <span className="mt-0.5 block font-sans text-[13px] text-muted">{[place(x), x.pay?.short, x.posted && postedAgo(x.posted, now)].filter(Boolean).join(" · ")}</span>
             )}
           </summary>
           {seen.has(x.id) && <div className="pr-1 pb-3 text-[14px] leading-[1.5]">{details(x)}</div>}
@@ -855,7 +888,7 @@ export default function RoleFinder({
               {chip(r, false)}
             </span>
             {howLine(x, "mt-0.5 text-[13px]")}
-            <span className="mt-0.5 block font-sans text-[13px] text-muted">{[placeOf(r), payOf(r)].filter(Boolean).join(" · ")}</span>
+            <span className="mt-0.5 block font-sans text-[13px] text-muted">{[placeOf(r), payOf(r), newestAge(r) && `newest ${newestAge(r)}`].filter(Boolean).join(" · ")}</span>
           </summary>
           {seen.has(`group:${r.id}`) && <ul className="mb-2">{r.items.map((y) => itemCard(y, true))}</ul>}
         </details>

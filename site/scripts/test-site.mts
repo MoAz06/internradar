@@ -9,10 +9,12 @@ import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import { companies } from "../data/companies.ts";
 import { payFor, payRules } from "../data/pay.ts";
-import { companyNoSponsor, languagesOf, levelsOf, needsWorkRights } from "../lib/eligibility.ts";
+import { companyNoSponsor, languagesOf, levelsOf, needsClearance, needsWorkRights, relocationLines } from "../lib/eligibility.ts";
+import { openRoles, toCsv } from "../lib/openRoles.ts";
+import { firstSeen, seasonBefore, seasonOf } from "../lib/seasons.ts";
 import { testsOf, toolTag } from "../lib/tests.ts";
 import { query, searchable } from "../lib/search.ts";
-import { reminderRow, shortKey, type Item } from "../lib/items.ts";
+import { postedAgo, postedWords, reminderRow, shortKey, type Item } from "../lib/items.ts";
 import { citiesOf, closesGroup, closesShort, payParts, toRows } from "../lib/rows.ts";
 import { buildItems } from "../lib/buildItems.ts";
 import { fits, isEmpty, type Profile } from "../lib/profile.ts";
@@ -133,6 +135,70 @@ test("visa: a company line that says it sponsors no early careers role", () => {
   const items = buildItems("2026-11-25");
   const leonardo = items.filter((x) => x.slug === "leonardo-uk");
   if (leonardo.length) assert.ok(leonardo.every((x) => x.workRights));
+});
+
+test("security clearance: the role's own line, or a company line for every candidate", () => {
+  assert.ok(needsClearance("Graduating 2028; security clearance or able to get one", [], "Internship"));
+  assert.ok(needsClearance("", ["All candidates must get security clearance. PA says time abroad can affect it."], "Graduate"));
+  assert.ok(needsClearance("", ["Visa: You must be eligible for UK Security Clearance, normally SC."], "Internship"));
+  // a line that leaves room is not a rule for every role
+  assert.ok(!needsClearance("", ["Security: many roles need National Security Vetting."], "Internship"));
+  assert.ok(!needsClearance("", ["Seatex: the job “may require clearance by the Norwegian National Security Authority”."], "Internship"));
+  assert.ok(!needsClearance("Student in Computer Science", ["Pay: €500 a month."], "Internship"));
+});
+
+test("relocation: lines that name help with moving or housing, never the ones that say there is none", () => {
+  const rel = (line: string, kind = "Internship") => relocationLines([line], kind).length > 0;
+  assert.ok(rel("Housing: “DRW provides fully furnished apartments located close to the office”."));
+  assert.ok(rel("Relocation: the postings say “Relocation Provided”.", "Graduate"));
+  assert.ok(rel("Relocation for new grads: covered if you move to an office 50 miles or more from home.", "Graduate"));
+  assert.ok(!rel("Relocation for new grads: covered if you move to an office 50 miles or more from home.", "Internship"), "a line about graduates says nothing about interns");
+  assert.ok(!rel("Relocation: not mentioned."));
+  assert.ok(!rel("Relocation: “Rabobank does not assist with relocation for junior positions.”"));
+  assert.ok(!rel("Relocation: “on a case-by-case basis”, according to the entry-level FAQ."));
+  assert.ok(!rel("Interview travel: IMC books flights and accommodation for onsite interviews."));
+  assert.ok(!rel("Visa: “Ericsson supports work permits, but you’ll need to be based in, or ready to relocate to, the location of the role you apply for.”"));
+  // "international" is not about interns
+  assert.ok(rel("Graduate Programme: international applicants moving to a tech hub get “visa assistance, travel costs, and your first month of accommodation (conditions apply)”.", "Graduate"));
+});
+
+test("posting age: from the day the job board says it went up", () => {
+  assert.equal(postedAgo("2026-11-25", "2026-11-25"), "today");
+  assert.equal(postedAgo("2026-11-22", "2026-11-25"), "3d ago");
+  assert.equal(postedAgo("2026-08-01", "2026-11-25"), "3mo ago");
+  assert.equal(postedAgo("2026-11-26", "2026-11-25"), "");
+  assert.equal(postedWords("2026-11-24", "2026-11-25"), "Posted yesterday");
+  assert.equal(postedWords("2026-11-15", "2026-11-25"), "Posted 10 days ago");
+  // only roles from a board that says so have it, and never a day after the build
+  for (const x of buildItems("2026-11-25")) if (x.posted) assert.match(x.posted, /^\d{4}-\d{2}-\d{2}$/);
+});
+
+test("open roles as CSV: a header, one line a role, quotes where a cell needs them", () => {
+  const rows = openRoles(buildItems("2026-11-25"));
+  const csv = toCsv(rows);
+  const lines = csv.trimEnd().split("\r\n");
+  assert.equal(lines.length, rows.length + 1);
+  assert.ok(lines[0].startsWith("company,city,country,"));
+  assert.ok(lines[0].includes("needsClearance") && lines[0].includes("posted"));
+  const one = toCsv([{ ...rows[0], title: 'Intern, "Data"', tests: ["HackerRank", "HireVue"] }]).split("\r\n")[1];
+  assert.ok(one.includes('"Intern, ""Data"""') && one.includes("HackerRank; HireVue"));
+});
+
+test("seasons: June to May, and the first day a company's role went up", () => {
+  assert.equal(seasonOf("2026-11-25"), "2026-27");
+  assert.equal(seasonOf("2027-05-31"), "2026-27");
+  assert.equal(seasonOf("2026-07-13"), "2026-27", "quant postings in July are for next summer");
+  assert.equal(seasonOf("2027-06-01"), "2027-28");
+  assert.equal(seasonBefore("2026-27"), "2025-26");
+  const c = companies[0];
+  const r = c.roles[0];
+  const id = `${c.slug}|${r.title}|${r.source}`;
+  // a role on the list from the start doesn't count, a role that opened later does
+  const history = { [id]: { added: "2026-11-16", statuses: [["2026-11-16", "soon"], ["2026-11-20", "open"]] as [string, string][] } };
+  const seen = firstSeen({ ...c, roles: [{ ...r, source: "https://example.com/no-board-date" }] }, { [`${c.slug}|${r.title}|https://example.com/no-board-date`]: history[id] }, "2026-11-17");
+  assert.equal(seen.get("2026-27")?.day, "2026-11-20");
+  const fromStart = firstSeen({ ...c, roles: [{ ...r, source: "https://example.com/no-board-date" }] }, { [`${c.slug}|${r.title}|https://example.com/no-board-date`]: { added: "2026-11-16", statuses: [["2026-11-16", "open"]] } }, "2026-11-17");
+  assert.equal(fromStart.size, 0);
 });
 
 test("online test tools: only names the company writes, never a guess", () => {
@@ -529,6 +595,19 @@ test("company alerts: the night's changes are new roles and roles that just open
   const history = { e: { added: "2026-11-01", statuses: [["2026-11-01", "soon"], ["2026-11-22", "rolling"]] as [string, string][] } };
   const got = changesFrom(fake, history, "2026-11-17", now).map((e) => `${e.id} ${e.day}`);
   assert.deepEqual(got, ["ka:new 2026-11-24", "kb:opened 2026-11-23", "ke:opened 2026-11-22"]);
+  // a closed role that comes back, under a new link or as the same role: "open again"
+  const again = changesFrom(
+    [
+      { ...base, id: "old", key: "kold", title: "Quant Intern", city: "Amsterdam", added: "2026-11-01", status: "closed" as const },
+      { ...base, id: "new", key: "knew", title: "Quant  intern", city: "Amsterdam", added: "2026-11-24", status: "open" as const },
+      { ...base, id: "f", key: "kf", title: "Other", added: "2026-11-01", status: "open" as const },
+    ],
+    { f: { added: "2026-11-01", statuses: [["2026-11-01", "open"], ["2026-11-10", "closed"], ["2026-11-23", "open"]] } },
+    "2026-11-17",
+    now,
+  );
+  assert.deepEqual(again.map((e) => `${e.id} ${e.again ?? false}`), ["knew:new true", "kf:opened true"]);
+  assert.ok(alertMail([again[0]], { [base.slug]: "s" }, "a").subject.includes("opened a role again"));
   // the email names every company and gives a stop link for each
   const mail = alertMail(
     [

@@ -15,6 +15,7 @@ import { rolePages } from "@/lib/rolePages";
 import { og } from "@/lib/og";
 import { shareUrl } from "@/lib/share";
 import { toolWords } from "@/lib/tests";
+import { relocationLines } from "@/lib/eligibility";
 
 type Params = { key: string };
 
@@ -100,12 +101,15 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
     .sort((a, b) => Number(a.item.status === "closed") - Number(b.item.status === "closed"));
   const facts: [string, string | undefined][] = [
     ["Type", `${r.kind}, ${r.field}`],
+    ["Posted", x.posted ? `The job board says it went up on ${longDate(x.posted)}.` : undefined],
     ["Start", stated(r.start)],
     ["Duration", stated(r.duration)],
     ["Pay", x.pay && [x.pay.label.replace(/\.?$/, "."), perMonth(x.pay.salary)].filter(Boolean).join(" ")],
     ["Who can apply", stated(r.eligibility) ?? (r.auto ? "On the posting." : undefined)],
     ["Language", r.language && `The posting is in ${r.language}.`],
     ["Visa", x.workRights ? "The posting or the company's own page asks for the right to work there already, or says it doesn't sponsor visas." : undefined],
+    ["Clearance", x.clearance ? "The posting or the company's own page says you need a security clearance, or must be able to get one." : undefined],
+    ["Moving", x.relocation ? relocationLines([...(c.pay ?? []), ...(c.notes ?? [])], r.kind).join(" ") : undefined],
     ["Online rounds", x.tests.length ? `${c.name} names ${x.tests.map(toolWords).join(" and ")} in its hiring steps.` : undefined],
     ["Applications", stated(r.applications)],
     // a role straight from the job board: the company's own description, which covers all its roles

@@ -17,6 +17,7 @@ import { buildItems } from "@/lib/buildItems";
 import { eventsFor } from "@/lib/ics";
 import { historyStart } from "@/data/history";
 import { opened } from "@/data/opened";
+import { firstSeason, firstSeen, seasonBefore, seasonOf } from "@/lib/seasons";
 import AddToCalendar from "@/components/AddToCalendar";
 import CountryLink from "@/components/CountryLink";
 import FollowButton from "@/components/FollowButton";
@@ -25,6 +26,19 @@ import EmailSignup from "@/components/EmailSignup";
 import { cityPages, citiesOf } from "@/lib/landing";
 
 type Params = { slug: string };
+
+/** "First role this season" and, from the second season on, "Last season": the first day one of its roles went up. */
+function seasonFacts(c: Parameters<typeof firstSeen>[0]): [string, string][] {
+  const seen = firstSeen(c);
+  const now = seasonOf(today());
+  const out: [string, string][] = [];
+  const day = (f: { day: string; from: string }) => (f.from === "board" ? `First posting went up on ${longDate(f.day)}` : `First role seen open on ${longDate(f.day)}`);
+  const last = seen.get(seasonBefore(now));
+  if (last && seasonBefore(now) >= firstSeason) out.push(["Last season", day(last)]);
+  const here = seen.get(now);
+  if (here) out.push(["This season", day(here)]);
+  return out;
+}
 
 const weeksText = (w: string) => (w === "under 1" ? "under a week" : w === "more than 8" ? "more than 8 weeks" : `${w} weeks`);
 
@@ -110,6 +124,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
             ["Open now", `${open.length} of ${c.roles.length} ${c.roles.length === 1 ? "role" : "roles"}`],
             ["Next deadline", nextDeadline ? `${fuzzyDate(nextDeadline)}${daysTo(nextDeadline) <= 0 ? ", today" : daysTo(nextDeadline) === 1 ? ", tomorrow" : daysTo(nextDeadline) <= 14 ? `, in ${daysTo(nextDeadline)} days` : ""}` : "None listed"],
             ["Opening soon", soonRoles.length ? `${soonRoles.length} ${soonRoles.length === 1 ? "role" : "roles"}` : "None"],
+            ...seasonFacts(c),
             ["Pay mentioned", c.pay.some((p) => /\d/.test(p) && /€|£|CHF|EUR|GBP|DKK|SEK|NOK|PLN|salary|pay|allowance|remuneration/i.test(p)) ? "Yes, see below" : "No"],
           ].map(([k, v]) => (
             <div key={k} className="contents">

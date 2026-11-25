@@ -31,6 +31,12 @@ export type OpenRole = {
   tests: string[];
   /** the role or the company says you need the right to work there already, or that it doesn't sponsor visas */
   needsWorkRights: boolean;
+  /** the role or the company says you need a security clearance */
+  needsClearance: boolean;
+  /** the company names help with moving or housing for this kind of role */
+  relocationHelp: boolean;
+  /** the day the job board says it went up, YYYY-MM-DD, or null when the board doesn't say */
+  posted: string | null;
   /** the day it came on the list */
   added: string;
 };
@@ -55,8 +61,21 @@ export function openRoles(items: Item[]): OpenRole[] {
       pay: x.pay?.label ?? null,
       tests: x.tests,
       needsWorkRights: x.workRights,
+      needsClearance: x.clearance,
+      relocationHelp: x.relocation,
+      posted: x.posted ?? null,
       added: x.added,
     }));
+}
+
+/** The same rows as CSV, for a spreadsheet: one line a role, a header first, tools joined with "; ". */
+export function toCsv(rows: OpenRole[]): string {
+  const cols = Object.keys(rows[0] ?? {}) as (keyof OpenRole)[];
+  const cell = (v: unknown) => {
+    const t = v === null || v === undefined ? "" : Array.isArray(v) ? v.join("; ") : String(v);
+    return /[",\n\r]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t;
+  };
+  return [cols.join(","), ...rows.map((r) => cols.map((c) => cell(r[c])).join(","))].join("\r\n") + "\r\n";
 }
 
 /** How many companies, open roles and countries, for the text in /llms.txt. */

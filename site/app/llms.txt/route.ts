@@ -22,7 +22,7 @@ The list is rebuilt every night. New postings on the companies' job boards are a
 
 ## Data
 
-- [Open roles as JSON](${site}/open-roles.json): company, city, country, title, type, field, status, last day to apply, posting link, role page, company page, stated pay, named test tools and whether the role needs work rights already. Rebuilt every night.
+- [Open roles as JSON](${site}/open-roles.json): company, city, country, title, type, field, status, last day to apply, posting link, role page, company page, stated pay, named test tools, whether the role needs work rights already or a security clearance, whether the company names relocation help, and the day the job board says it went up. Rebuilt every night. The same as a spreadsheet: [open-roles.csv](${site}/open-roles.csv).
 - [New roles as RSS](${site}/feeds/new.xml), and one feed per country
 - [The weekly edition as RSS](${site}/feed.xml)
 - [Deadlines as a calendar](${site}/deadlines.ics)

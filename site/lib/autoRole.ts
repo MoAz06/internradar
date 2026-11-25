@@ -90,7 +90,8 @@ export function beforeText(f: Found, all: Company[], skip: Set<string> = new Set
 
   if (all.some((c) => c.roles.some((r) => r.source === f.url))) return no("already on the list");
   const where = city || company.city;
-  if (company.roles.some((r) => normTitle(r.title) === normTitle(title) && sameCity(r.city ?? company.city, where))) return no("same title already there");
+  // a closed role with the same title doesn't stop it: the company put the role up again, under a new link
+  if (company.roles.some((r) => r.status !== "closed" && normTitle(r.title) === normTitle(title) && sameCity(r.city ?? company.city, where))) return no("same title already there");
   return { ok: true, company, city, title, kind };
 }
 
