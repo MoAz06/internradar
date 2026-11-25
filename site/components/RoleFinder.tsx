@@ -19,6 +19,7 @@ import { levels, type Level } from "@/lib/eligibility";
 import { query, searchable } from "@/lib/search";
 import { fits, PROFILE_EVENT, profileWords, readProfile, type Profile } from "@/lib/profile";
 import { shareUrl } from "@/lib/share";
+import { testTools, toolSlug, toolWords } from "@/lib/tests";
 
 /** `open`: the roles open there now, for the country chips before the full list has loaded. */
 type CountryOption = { code: string; name: string; slug: string; count: number; open?: number };
@@ -37,16 +38,18 @@ type Filters = {
   visa: boolean;
   /** hide roles that ask for a language besides English */
   english: boolean;
+  /** an online test tool the company names ("HackerRank"), "none" for roles whose company names none, "" for all */
+  test: string;
   sort: Sort;
   /** only roles that fit the profile from /profile/ */
   fit: boolean;
 };
 
-const start: Filters = { q: "", status: "open", kind: "", field: "", countries: [], saved: false, level: "", visa: false, english: false, sort: "deadline", fit: false };
+const start: Filters = { q: "", status: "open", kind: "", field: "", countries: [], saved: false, level: "", visa: false, english: false, test: "", sort: "deadline", fit: false };
 const PER_KEY = "internradar:per-page";
 const PER_PAGE = [25, 50, 75, 100];
 /** The query parameters the list writes itself. Any other one stays in the URL, like ?ref= from a mail. */
-const OWN = ["q", "status", "type", "field", "country", "level", "visa", "english", "sort", "saved", "all", "page", "per"];
+const OWN = ["q", "status", "type", "field", "country", "level", "visa", "english", "test", "sort", "saved", "all", "page", "per"];
 
 /** Country codes in the order of the menu, each once, so the same choice always gives the same link. */
 const inOrder = (codes: string[], options: CountryOption[]) => options.map((k) => k.code).filter((c) => codes.includes(c));
@@ -236,7 +239,7 @@ export default function RoleFinder({
       // a link with its own filters shows those; a plain visit starts with the roles that fit the profile
       const me = readProfile();
       setProfile(me);
-      const ownFilters = ["q", "status", "type", "field", "country", "level", "visa", "english", "sort", "saved", "all"].some((k) => p.has(k)) || !!fromHash;
+      const ownFilters = ["q", "status", "type", "field", "country", "level", "visa", "english", "test", "sort", "saved", "all"].some((k) => p.has(k)) || !!fromHash;
       setF({
         q: p.get("q") ?? "",
         status: (["open", "soon", "new", "all"] as const).find((s) => s === p.get("status")) ?? "open",
@@ -247,6 +250,7 @@ export default function RoleFinder({
         level: levels.find((l) => l.value === p.get("level"))?.value ?? "",
         visa: p.get("visa") === "1",
         english: p.get("english") === "1",
+        test: p.get("test") === "none" ? "none" : (testTools.find((t) => toolSlug(t.name) === p.get("test"))?.name ?? ""),
         sort: p.get("sort") === "pay" ? "pay" : p.get("sort") === "new" ? "new" : "deadline",
         fit: !!me && !ownFilters && !scope,
       });
@@ -358,6 +362,7 @@ export default function RoleFinder({
     if (f.level) p.set("level", f.level);
     if (f.visa) p.set("visa", "1");
     if (f.english) p.set("english", "1");
+    if (f.test) p.set("test", f.test === "none" ? "none" : toolSlug(f.test));
     if (f.sort !== "deadline") p.set("sort", f.sort);
     // turned off by hand: keep it off on reload. A city page starts with it off anyway.
     if (profile && !f.fit && !p.size && !scope) p.set("all", "1");
@@ -389,11 +394,12 @@ export default function RoleFinder({
       if (f.level && x.levels && !x.levels.includes(f.level)) return false;
       if (f.visa && x.workRights) return false;
       if (f.english && x.languages.length) return false;
+      if (f.test === "none" ? x.tests.length > 0 : f.test && !x.tests.includes(f.test)) return false;
       if (f.fit && profile && !fits(x, profile)) return false;
       if (test && !test(index.get(x.id)!)) return false;
       return true;
     });
-  }, [items, index, f.q, f.kind, f.field, f.saved, f.level, f.visa, f.english, f.fit, profile, saved]);
+  }, [items, index, f.q, f.kind, f.field, f.saved, f.level, f.visa, f.english, f.test, f.fit, profile, saved]);
   // every filter except the status, so the status chips can say how many each one would show
   const matched = useMemo(() => (f.countries.length ? anyCountry.filter((x) => f.countries.includes(x.country)) : anyCountry), [anyCountry, f.countries]);
 
@@ -426,7 +432,7 @@ export default function RoleFinder({
       }
     return m;
   }, [rows, headings, now]);
-  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.countries.length > 0 || f.saved || f.level || f.visa || f.english || f.sort !== "deadline";
+  const filtered = f.q || f.status !== "open" || f.kind || f.field || f.countries.length > 0 || f.saved || f.level || f.visa || f.english || f.test || f.sort !== "deadline";
   // before every role has loaded: the plain view shows the first page and the build's numbers, any other view waits
   const waiting = !ready && !!(filtered || f.fit || page > 1 || per !== FIRST_PAGE);
   const pre = !ready && !waiting;
@@ -440,6 +446,12 @@ export default function RoleFinder({
         new: matched.filter(isNew).length,
       };
   const heads = pre ? new Map(view.perHeading) : perHeading;
+  // the test tools some company on the list names, with how many open roles name each, for "More filters"
+  const tools = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const x of items) if (x.status === "open" || x.status === "rolling") for (const t of x.tests) m.set(t, (m.get(t) ?? 0) + 1);
+    return testTools.filter((t) => m.has(t.name)).map((t) => ({ name: t.name, count: m.get(t.name)! }));
+  }, [items]);
 
   const pages = Math.max(1, Math.ceil((pre ? view.rows : rows.length) / per));
   const cur = Math.min(page, pages);
@@ -560,6 +572,7 @@ export default function RoleFinder({
     ...(f.level ? [{ label: levels.find((l) => l.value === f.level)?.label ?? f.level, clear: { level: "" as const } }] : []),
     ...(f.visa ? [{ label: "I need a visa", clear: { visa: false } }] : []),
     ...(f.english ? [{ label: "English only", clear: { english: false } }] : []),
+    ...(f.test ? [{ label: f.test === "none" ? "No test tool named" : `Test: ${f.test}`, clear: { test: "" } }] : []),
     ...(f.saved ? [{ label: "Only saved", clear: { saved: false } }] : []),
   ];
   const day = (x: Item) => closesShort(x, headings) ?? shortWhen(x);
@@ -578,6 +591,11 @@ export default function RoleFinder({
       {x.pay && (
         <p className="mt-1">
           <span className="font-semibold">Pay:</span> {x.pay.label}
+        </p>
+      )}
+      {x.tests.length > 0 && (
+        <p className="mt-1">
+          <span className="font-semibold">Online rounds:</span> {x.tests.map(toolWords).join(", ")}, as {x.company} names them in its hiring steps.
         </p>
       )}
       {x.languages.length > 0 && <p className="mt-1 text-muted">Asks for {x.languages.join(" and ")}.</p>}
@@ -920,6 +938,7 @@ export default function RoleFinder({
           profile={profileText}
           on={on.length}
           saved={saved.length}
+          tools={tools}
           onCalendar={downloadCalendar}
           onCopyLink={copyLink}
         />

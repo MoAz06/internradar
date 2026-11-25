@@ -11,7 +11,8 @@ import type { Company } from "../data/types.ts";
 import { early, jobId, postingKey, techTitle, type Found } from "../lib/boards.ts";
 import { addSkip, addSource, editRole, insertEntry, removeRole } from "../lib/dataFile.ts";
 import { autoRole, morningIssue, postingLanguage, tickedIn } from "../lib/autoRole.ts";
-import { placeOf } from "../lib/places.ts";
+import { placeOf, titlePlace } from "../lib/places.ts";
+import { workdayPathPlace } from "../lib/readBoard.ts";
 import { jobRefs, srLink } from "../lib/sameJob.ts";
 import { checkRole, datesIn, draftsFor, entryInCountry, fieldOf, htmlToText, kindOf, matchCompanies, pickNew, readPosting, readRoleIssue } from "../lib/roleDraft.ts";
 
@@ -355,6 +356,10 @@ test("roles that go on by themselves", () => {
   assert.equal(why({ title: "Ausbildung Fachinformatiker Anwendungsentwicklung" }), "junior or apprenticeship");
   assert.equal(why({ title: "Alternance : Apprenti(e) Ingénieur AI & Automation for Project Execution" }), "junior or apprenticeship");
   assert.equal(why({ title: "Stage-Tesi Quantum" }), "title not plainly tech");
+  // a consultancy's tech roles: "Consultant" with a plain tech word is fine, on its own it isn't
+  assert.equal(why({ title: "Graduate Consultant - Software Engineering - 2027" }), "ok");
+  assert.equal(why({ title: "Summer Internship - Cyber / AI Consultant - 2027" }), "ok");
+  assert.equal(why({ title: "Graduate Consultant - Strategy - 2027" }), "not a tech job");
   assert.equal(why({ title: "Software Engineer" }), "kind not clear from the title");
   assert.equal(why({ title: "Software Engineering Intern", location: "Paris, France" }), "no entry in that country");
   assert.equal(why({ title: "Software Engineering Intern", location: "3 Locations" }), "no city given");
@@ -424,4 +429,16 @@ test("one job posted in two languages: same reference number, same job", async (
   assert.equal(await refs.listed(await refs.key(sr("744000100000001"))), false);
   assert.equal(await refs.key(sr("744000199999999")), "", "no number, no key");
   assert.equal(await refs.listed(""), false);
+});
+
+test("a place from the link or the title when the board's location says nothing", () => {
+  assert.equal(workdayPathPlace("/job/Warsaw/Software-Engineering-Intern_R00350001"), "Warsaw, Poland");
+  assert.equal(workdayPathPlace("/job/Lodz/Data-Intern_R00350002"), "Lodz, Poland");
+  assert.equal(workdayPathPlace("/job/Assago-Via-del-Mulino-11a/Cloud-Transformation-Internship_R00355331"), "Assago, Italy");
+  assert.equal(workdayPathPlace("/job/Multiple-Locations/Intern_R1"), "");
+  assert.equal(workdayPathPlace("/job/Remote/Intern_R1"), "");
+  assert.equal(titlePlace("Software Engineer Intern (2027) - London, UK"), "London, UK");
+  assert.equal(titlePlace("Software Engineer Intern (2027)"), "");
+  assert.equal(titlePlace("Graduate Consultant - Software Engineering - 2027"), "");
+  assert.deepEqual(placeOf(titlePlace("Software Engineer Intern (2027) - London, UK")), { city: "London", country: "GB" });
 });

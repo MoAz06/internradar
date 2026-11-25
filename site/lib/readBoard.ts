@@ -4,6 +4,7 @@
 import type { Board } from "./boards.ts";
 import { countries } from "../data/companies.ts";
 import { json } from "./fetchGently.ts";
+import { placeOf } from "./places.ts";
 
 const day = (d: Date) => (isNaN(d.getTime()) ? "" : d.toISOString().slice(0, 10));
 
@@ -165,11 +166,24 @@ export async function readBoard(b: Board): Promise<Listed[] | null> {
       if (!d) return out.length ? out : null;
       if (offset === 0) total = d.total;
       for (const j of d.jobPostings)
-        out.push({ title: j.title, url: `${b.origin}/${b.site}${j.externalPath}`, location: j.locationsText ?? "", ref: j.externalPath, posted: workdayPosted(j.postedOn) });
+        out.push({ title: j.title, url: `${b.origin}/${b.site}${j.externalPath}`, location: j.locationsText || workdayPathPlace(j.externalPath), ref: j.externalPath, posted: workdayPosted(j.postedOn) });
       if (offset + 20 >= total || d.jobPostings.length === 0) break;
     }
   }
   return out;
+}
+
+/** Some Workday boards list a posting with no place at all, but put it in the link: "/job/Warsaw/…",
+ * "/job/Assago-Via-del-Mulino-11a/…". The longest start of that part that is a known place, with its country
+ * ("Lodz, Poland"), or "" when none is. */
+export function workdayPathPlace(path: string): string {
+  const words = (path.match(/\/job\/([^/]+)\//)?.[1] ?? "").split("-").filter(Boolean);
+  for (let n = Math.min(words.length, 4); n > 0; n--) {
+    const name = words.slice(0, n).join(" ");
+    const p = placeOf(name);
+    if (p) return `${name}, ${countries.find((k) => k.code === p.country)?.name ?? p.country}`;
+  }
+  return "";
 }
 
 /** Where a Workday posting is, when the list only says "3 Locations": its main place and the others, from the

@@ -44,6 +44,8 @@ export type Item = {
   workRights: boolean;
   /** Languages other than English the role asks for, or that the posting is written in. */
   languages: string[];
+  /** Online test and interview tools the company names in its hiring steps ("HackerRank", "HireVue"). Empty when it names none. */
+  tests: string[];
   /** Put on the list straight from the job board, not looked at by a person yet. */
   auto: boolean;
   /** How they hire, in one short line: the role's own process, or the company's for a role without one. */

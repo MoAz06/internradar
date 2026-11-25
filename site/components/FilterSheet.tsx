@@ -14,6 +14,8 @@ export type SheetFilters = {
   level: Level | "";
   visa: boolean;
   english: boolean;
+  /** a test tool by name, "none" for roles whose company names none, "" for all */
+  test: string;
   /** only the roles that fit the profile set on /profile/ */
   fit: boolean;
   saved: boolean;
@@ -43,6 +45,7 @@ export default function FilterSheet({
   profile,
   on,
   saved,
+  tools,
   onCalendar,
   onCopyLink,
 }: {
@@ -56,6 +59,8 @@ export default function FilterSheet({
   on: number;
   /** how many roles are saved in this browser */
   saved: number;
+  /** the test tools named on the list, with their open roles */
+  tools: { name: string; count: number }[];
   onCalendar: () => void;
   onCopyLink: () => void;
 }) {
@@ -124,7 +129,7 @@ export default function FilterSheet({
               </h2>
               <button
                 type="button"
-                onClick={() => set({ status: "open", field: "", level: "", visa: false, english: false, fit: false, saved: false })}
+                onClick={() => set({ status: "open", field: "", level: "", visa: false, english: false, test: "", fit: false, saved: false })}
                 className="h-10 px-1 text-[15px] text-link underline underline-offset-2"
               >
                 Clear
@@ -191,6 +196,23 @@ export default function FilterSheet({
               </Chip>
             </div>
             <p className="mt-1 text-[12px] text-muted">Hides roles that say they don't sponsor, or that ask for another language.</p>
+
+            {tools.length > 0 && (
+              <>
+                <p className="mt-3 text-[13px] font-semibold text-muted">Online test</p>
+                <div className="mt-1 flex flex-wrap gap-1.5">
+                  {tools.map((t) => (
+                    <Chip key={t.name} on={f.test === t.name} onClick={() => set({ test: f.test === t.name ? "" : t.name })}>
+                      {t.name} {t.count}
+                    </Chip>
+                  ))}
+                  <Chip on={f.test === "none"} onClick={() => set({ test: f.test === "none" ? "" : "none" })}>
+                    No tool named
+                  </Chip>
+                </div>
+                <p className="mt-1 text-[12px] text-muted">From the hiring steps each company describes. No tool named doesn't mean there is no test.</p>
+              </>
+            )}
 
             <p className="mt-3 text-[13px] font-semibold text-muted">Saved roles</p>
             {saved ? (

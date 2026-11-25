@@ -1,0 +1,40 @@
+import { buildItems } from "@/lib/buildItems";
+import { today } from "@/lib/live";
+import { counts, openRoles } from "@/lib/openRoles";
+
+export const dynamic = "force-static";
+
+const site = "https://internradar.eu";
+
+/** What the site is and where its data is, in plain text, for language models and the tools that read them. */
+export function GET() {
+  const now = today();
+  const n = counts(openRoles(buildItems(now)));
+  const text = `# internradar
+
+> Tech internships and new grad roles in Europe, with the hiring process at each company.
+
+internradar lists internships, graduate roles and thesis projects in software, data and AI, quant, and hardware and embedded at ${n.companies} companies in ${n.countries} countries. ${n.roles} roles are open or opening soon, as of ${now}.
+
+For each company it says how hiring works: the steps, the tests, the number of interviews, the pay where the company states it, and the rule on applying again after a rejection. Every fact comes from the company's own careers pages and job postings. Where a company doesn't say something, the site says it isn't stated.
+
+The list is rebuilt every night. New postings on the companies' job boards are added, some only after a person has checked them, and postings that are gone two nights in a row are marked closed.
+
+## Data
+
+- [Open roles as JSON](${site}/open-roles.json): company, city, country, title, type, field, status, last day to apply, posting link, role page, company page, stated pay, named test tools and whether the role needs work rights already. Rebuilt every night.
+- [New roles as RSS](${site}/feeds/new.xml), and one feed per country
+- [The weekly edition as RSS](${site}/feed.xml)
+- [Deadlines as a calendar](${site}/deadlines.ics)
+
+## Pages
+
+- [The list](${site}/): every role, by deadline, with filters for country, type, field, study level, visa and test tool
+- [Companies](${site}/companies/): one page per company and city with its hiring process
+- [Pay](${site}/pay/): the pay companies state, side by side
+- [Re-apply rules](${site}/reapply/): companies with a waiting time after a rejection
+- [Opening soon](${site}/radar/): programmes that open later in the season
+- [About](${site}/about/): where the data comes from and how to add to it
+`;
+  return new Response(text, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+}

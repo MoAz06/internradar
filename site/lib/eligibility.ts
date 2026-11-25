@@ -21,6 +21,24 @@ export function levelsOf(eligibility: string, title: string): Level[] | null {
   return out.size ? [...out] : null;
 }
 
+/** A company line (pay or notes) that says, for all its early careers roles, that it doesn't sponsor visas.
+ * Lines about one posting, one programme or one city ("the PhD intern posting says", "Visa (Engineering Graduate):")
+ * don't count, nor lines that leave room ("may be", "case-by-case", "for some roles"). A line that names only
+ * interns, or only graduates, counts for that kind of role. */
+export function companyNoSponsor(lines: string[], kind: string): boolean {
+  return lines.some((line) => {
+    if (!/\b(does not|doesn't|do not|don't|cannot|can't|unable to|not able to|will not)\b[^.“”]{0,40}\bsponsor|\bsponsorship (or support )?(is )?(not available|unavailable|not offered)|\bno (visa |immigration )?sponsorship\b(?! statement)|\bdoes not qualify for [\w ]*sponsorship/i.test(line)) return false;
+    if (/not stated|not mentioned|does not say|doesn't say|may be|case-by-case|some roles|depends on|will consider|will accept|\bwe sponsor|\bdo sponsor|\bcan sponsor|\bcan provide|\bis available|\bare available|form asks/i.test(line)) return false;
+    // one posting, programme or city: "the Galway graduate role", "the PhD intern posting", "Visa (Engineering Graduate):", "Visa for the London software internship:"
+    if (/\bthe (?!posting\b|whole\b)(?:(?!the\b)[\w'-]+ ){0,7}(postings?|roles?|programmes?|internships?|tracks?)\b|^Visa \(|^Visa for |\bbut not for\b/i.test(line)) return false;
+    const interns = /\bintern/i.test(line);
+    const grads = /\bgraduat/i.test(line);
+    if (interns && !grads) return kind === "Internship";
+    if (grads && !interns) return kind === "Graduate";
+    return true;
+  });
+}
+
 /** True when the role says you must already be allowed to work there, or that it doesn't sponsor visas. */
 export function needsWorkRights(eligibility: string): boolean {
   return /no (visa |immigration )?sponsorship|without (visa )?sponsorship|cannot sponsor|EU national|Schengen citizens|right to work|eligible to work in|authori[sz]ed to work|work rights|valid (local |Swiss )?work permit|work authori[sz]ation in \w+ from|already based in|need a valid work and residence permit/i.test(

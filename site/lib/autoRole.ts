@@ -64,7 +64,9 @@ export function beforeText(f: Found, all: Company[], skip: Set<string> = new Set
   if (title.length > roleLimits.title) return no("title too long");
   if (senior.test(title)) return no("senior title");
   if (notStudy.test(title)) return no("junior or apprenticeship");
-  if (notTech.test(title) && !division.test(title)) return no("not a tech job");
+  // "Consultant" next to a plain tech word is a tech job at a consultancy: "Graduate Software Consultant"
+  const forNotTech = strongTech.test(title) ? title.replace(/\bconsult\w*/gi, "") : title;
+  if (notTech.test(forNotTech) && !division.test(title)) return no("not a tech job");
   if (!strongTech.test(title) && !strongIT.test(title) && !division.test(title)) return no("title not plainly tech");
   const kind = kindOf(title);
   if (!kind) return no("kind not clear from the title");

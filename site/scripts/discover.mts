@@ -15,6 +15,7 @@ import { companies, countries } from "../data/companies.ts";
 import { skip } from "../data/skip.ts";
 import { boardKey, boardOf, early, inEurope, jobId, normTitle, techTitle, type Board, type BoardCompany, type Found } from "../lib/boards.ts";
 import { readBoard, workdayPlaces } from "../lib/readBoard.ts";
+import { titlePlace } from "../lib/places.ts";
 
 const site = join(dirname(fileURLToPath(import.meta.url)), "..");
 /** At most this many per board in the report; a big board gets a link to the rest. */
@@ -97,6 +98,8 @@ await Promise.all(
           placesUnread++;
           continue;
         }
+        // "In-Office" or "Remote" says nothing about the city; the title often does: "… Intern (2027) - London, UK"
+        if (/^(in-office|remote|hybrid|on-?site)$/i.test(location.trim())) location = titlePlace(j.title) || location;
         if (location && !inEurope(location)) continue;
         found.push({
           board: key,

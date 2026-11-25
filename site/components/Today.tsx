@@ -31,6 +31,7 @@ export type TodayItem = Pick<
   | "how"
   | "reapplyTag"
   | "reapplyRule"
+  | "tests"
 >;
 export type NextUp = { company: string; slug: string; role: string; opens: string };
 

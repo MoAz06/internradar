@@ -134,3 +134,14 @@ export function entryCities(city: string): string[] {
     .map((x) => x.trim())
     .filter(Boolean);
 }
+
+/** A place named at the end of a title, for a board whose location says only "In-Office" or "Remote":
+ * "Software Engineer Intern (2027) - London, UK" gives "London, UK". "" when the title names none. */
+export function titlePlace(title: string): string {
+  const parts = title
+    .split(/\s[-–|]\s|[()]/)
+    .slice(1)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  return parts.reverse().find((p) => placeOf(p)) ?? "";
+}

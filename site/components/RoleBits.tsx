@@ -1,18 +1,21 @@
 import Icon from "@/components/Icon";
 import type { Item } from "@/lib/items";
+import { toolTag } from "@/lib/tests";
 
-/** One line under a title: a strict re-apply rule first, so it never falls off, then how they hire. `full` lets it
+/** One line under a title: a strict re-apply rule first, so it never falls off, then the test tools the company
+ * names, then how they hire. `full` lets it
  * run onto more lines instead of ending in "…". */
 export function HowLine({
   x,
   className = "",
   full = false,
 }: {
-  x: Pick<Item, "how" | "reapplyTag" | "reapplyRule">;
+  x: Pick<Item, "how" | "reapplyTag" | "reapplyRule"> & { tests?: string[] };
   className?: string;
   full?: boolean;
 }) {
-  if (!x.how && !x.reapplyTag) return null;
+  const tag = toolTag(x.tests ?? []);
+  if (!x.how && !x.reapplyTag && !tag) return null;
   return (
     <span className={`block ${full ? "" : "truncate"} font-sans text-dim ${className}`}>
       {x.reapplyTag && (
@@ -20,7 +23,9 @@ export function HowLine({
           Re-apply: {x.reapplyTag}
         </span>
       )}
-      {x.reapplyTag && x.how && " · "}
+      {x.reapplyTag && (tag || x.how) && " · "}
+      {tag && <span className="font-semibold text-muted">{tag}</span>}
+      {tag && x.how && " · "}
       {x.how}
     </span>
   );

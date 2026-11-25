@@ -9,7 +9,8 @@ import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import { companies } from "../data/companies.ts";
 import { payFor, payRules } from "../data/pay.ts";
-import { languagesOf, levelsOf, needsWorkRights } from "../lib/eligibility.ts";
+import { companyNoSponsor, languagesOf, levelsOf, needsWorkRights } from "../lib/eligibility.ts";
+import { testsOf, toolTag } from "../lib/tests.ts";
 import { query, searchable } from "../lib/search.ts";
 import { reminderRow, shortKey, type Item } from "../lib/items.ts";
 import { citiesOf, closesGroup, closesShort, payParts, toRows } from "../lib/rows.ts";
@@ -111,6 +112,38 @@ test("eligibility: levels, work rights and languages", () => {
   assert.deepEqual(languagesOf("Bachelor's with GPA 2.5 or better (German scale); excellent English"), []);
   assert.deepEqual(languagesOf("Master degree; fluent in Dutch or French plus excellent English"), ["Dutch or French"]);
   assert.deepEqual(languagesOf("Graduating from a Dutch university"), []);
+});
+
+test("visa: a company line that says it sponsors no early careers role", () => {
+  const no = (line: string, kind = "Internship") => companyNoSponsor([line], kind);
+  assert.ok(no("Visa: “We cannot sponsor visas.”"));
+  assert.ok(no("Visa: “Unfortunately we are unable to sponsor visa applications for any early careers vacancies.”", "Graduate"));
+  assert.ok(no("Visa: “Sponsorship is not offered for graduate schemes.”", "Graduate"));
+  assert.ok(!no("Visa: “Sponsorship is not offered for graduate schemes.”", "Internship"), "a line about graduates says nothing about interns");
+  assert.ok(no("Visa: “visa sponsorship or support is unavailable for this role”. You need an existing right to work in the UK for the whole internship."));
+  // one posting, a line that leaves room, a form question or no statement: not a rule for every role
+  assert.ok(!no("Visa: the Software Engineering PhD Intern posting says applicants “will not be eligible for immigration sponsorship”."));
+  assert.ok(!no("Visa (Engineering Graduate): the programme “does not satisfy the Home Office eligibility criteria for visa sponsorship”.", "Graduate"));
+  assert.ok(!no("Visa: “We evaluate visa sponsorship on a case-by-case basis.”"));
+  assert.ok(!no("Visa: postings ask for “a valid work and residence permit” if indicated; no sponsorship statement."));
+  assert.ok(!no("Visa: the posting says you “Must obtain work authorization in the country of employment at the time of hire”; it does not say whether Meta sponsors."));
+  assert.ok(!no("The form asks whether you need sponsorship to work in the UK. Whether Schonfeld sponsors is not stated."));
+  assert.ok(!no("Visa sponsorship is available for international candidates, but not for interns."));
+  // on the list: a company line counts for its roles
+  const items = buildItems("2026-11-25");
+  const leonardo = items.filter((x) => x.slug === "leonardo-uk");
+  if (leonardo.length) assert.ok(leonardo.every((x) => x.workRights));
+});
+
+test("online test tools: only names the company writes, never a guess", () => {
+  assert.deepEqual(testsOf(["An email invitation to complete a coding challenge through Hackerrank, then a video interview."]), ["HackerRank"]);
+  assert.deepEqual(testsOf(["You will be asked to participate in a recorded HireVue video interview.", "A CodeSignal skills assessment."]), ["CodeSignal", "HireVue"]);
+  assert.deepEqual(testsOf(["An online test, then two interviews."]), [], "a test with no name names no tool");
+  assert.deepEqual(testsOf(["Meets the eligibility criteria", "A qualified engineer"]), [], "ordinary words are no tool");
+  assert.equal(toolTag(["HackerRank", "HireVue"]), "Test: HackerRank · Video: HireVue");
+  assert.equal(toolTag([]), "");
+  const items = buildItems("2026-11-25");
+  assert.ok(items.some((x) => x.tests.includes("HackerRank")));
 });
 
 test("reminders: deadlines once per step, new roles at followed companies", () => {
