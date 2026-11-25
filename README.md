@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-957-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-955-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -547,7 +547,6 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Rohde & Schwarz](companies/rohde-schwarz-munich.md) | Intern EMC Software Development (m/f/d) | München | 🟢 | As early as possible | Apply online with the reference number | Not stated | 17 Nov |
 | [Rohde & Schwarz](companies/rohde-schwarz-munich.md) | Intern near field antenna measurement algorithms (m/f/d) | München | 🟢 | As early as possible | Apply online with the reference number | Not stated | 17 Nov |
 | [CARIAD (Volkswagen Group)](companies/cariad-ingolstadt.md) | Internship - App Store & Companion App Development (m/f/d) | Ingolstadt | 🟢 | – | Online application, a technical assessment for some roles, then a technical interview and an HR interview | Not stated | 17 Nov |
-| [AUMOVIO (former Continental Automotive)](companies/aumovio-ingolstadt.md) | Praktikum / Thesis – AI-driven Target Costing & Cost Engineering | Frankfurt | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [AUMOVIO (former Continental Automotive)](companies/aumovio-ingolstadt.md) | Praktikum – Tech Scouting / Emerging Technologies | Regensburg | 🟢 | March 2027 | Send enrolment certificate and transcript; a thesis is possible by arrangement | Not stated | 20 Nov |
 | [AUMOVIO (former Continental Automotive)](companies/aumovio-ingolstadt.md) | Mandatory Internship - Software Engineering & HMI Design - REF6497T | Babenhausen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [AUMOVIO (former Continental Automotive)](companies/aumovio-ingolstadt.md) | Praktikum im Bereich Software-Entwicklung - REF8204W | Ingolstadt | 🟢 | – | See the company page | Not stated | 20 Nov |
@@ -762,7 +761,6 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Murex](companies/murex-paris.md) | INTERNSHIP 2027 - Software Engineer Java | Paris | 🟢 | – | Online test, then a first chat interview and usually one or more further interviews | Not stated | 17 Nov |
 | [Palantir](companies/palantir-paris.md) | Forward Deployed Software Engineer, Internship | Paris | 🟢 | – | 1-2 phone interviews, then onsite round | Not stated | 18 Nov |
 | [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Stage Ingénieur : Application de l'Intelligence Artificielle à l'intégration de blocs RTL (ASIC/FPGA) (H/F) | Sophia Antipolis | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 25 Nov |
-| [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Alternance : Apprenti(e) Ingénieur AI & Automation for Project Execution | Toulouse | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 24 Nov |
 | [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Stage ingénieur : Simulation CEM de cartes électroniques (H/F) | Toulouse | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [NXP Semiconductors](companies/nxp-sophia-antipolis.md) | Stage Ingénieur : Ingénieur d’application – Hardware-in-the-Loop et technologie GaN 48 V F/M | Toulouse | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 19 Nov |
 | [Thales](companies/thales-velizy.md) | Intern: AI for Smarter ATE Test Development & Debug | Vélizy-Villacoublay | 🟢 | – | See the company page | Not stated | 20 Nov |

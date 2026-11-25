@@ -2157,23 +2157,6 @@ export const de: Company[] = [
     careersUrl: "https://jobs.smartrecruiters.com/Aumovio",
     roles: [
       {
-        title: "Praktikum / Thesis – AI-driven Target Costing & Cost Engineering",
-        kind: "Thesis",
-        field: "Data and AI",
-        status: "open",
-        applications: "Open, no deadline listed",
-        start: "",
-        duration: "5 months",
-        eligibility: "",
-        process: "",
-        reapply: "",
-        source: "https://jobs.smartrecruiters.com/Aumovio/744000163148529",
-        checked: "2026-11-24",
-        city: "Frankfurt",
-        language: "German",
-        auto: true,
-      },
-      {
         title: "Praktikum – Tech Scouting / Emerging Technologies",
         kind: "Internship",
         field: "Software",
