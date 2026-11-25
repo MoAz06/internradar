@@ -17,4 +17,5 @@ export const skip: { url: string; why: string }[] = [
   { url: "https://jobs.smartrecruiters.com/SopraSteria1/744000163549169", why: "Taken off in the check of the roles added on 2026-11-25" },
   { url: "https://jobs.smartrecruiters.com/DeliveryHero/744000161452755", why: "Taken off in the check of the roles added on 2026-11-25" },
   { url: "https://jobs.smartrecruiters.com/DeliveryHero/744000161454849", why: "Taken off in the check of the roles added on 2026-11-25" },
+  { url: "https://lseg.wd3.myworkdayjobs.com/Graduate_Careers/job/London-United-Kingdom/AI-Product---Business-Graduate-Associate_R0125570", why: "Taken off in the check of the roles added on 2026-11-25" },
 ];

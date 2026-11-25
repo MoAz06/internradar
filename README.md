@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-285-blue) ![roles](https://img.shields.io/badge/roles-918-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-956-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -171,8 +171,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Vanderlande](companies/vanderlande.md) | Graduation/Internship: AI Process Optimization in Engineering | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
 | [TomTom](companies/tomtom-amsterdam.md) | Software Engineering Internship - API Management | AMS | 🟢 | – | See the company page | Yes. TomTom's FAQ answers “Absolutely! We’re excited to see all the experience you’ve gained in the last year.” to people who were not selected last year. | 25 Nov |
 | [TomTom](companies/tomtom-amsterdam.md) | Platform Engineering Internship - Observability | AMS | 🟢 | – | See the company page | Yes. TomTom's FAQ answers “Absolutely! We’re excited to see all the experience you’ve gained in the last year.” to people who were not selected last year. | 25 Nov |
+| [GlobalFoundries](companies/globalfoundries-eindhoven.md) | Intern in the field of RISC-V System-Level Verification & Validation | Eindhoven | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [GlobalFoundries](companies/globalfoundries-eindhoven.md) | Intern ASIC Digital Design - System IP Verification | Eindhoven | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-42 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+43 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="united-kingdom"></a>
 ## 🇬🇧 United Kingdom
@@ -413,8 +415,27 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [GSA Capital](companies/gsa-capital-london.md) | Software Developer - Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [GSA Capital](companies/gsa-capital-london.md) | Quantitative Researcher - Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Epic Games](companies/epic-games-london.md) | Machine Learning Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [LSEG](companies/lseg-london.md) | Intern - Software Engineer | London | 🟢 rolling until 30 Nov | – | See the company page | One application per recruitment cycle of 12 months. LSEG says: “If your application is unsuccessful, you are welcome to reapply in a future recruitment cycle, provided you continue to meet the programme’s eligibility criteria.” | 25 Nov |
+| [LSEG](companies/lseg-london.md) | Intern - Quantitative Services | London | 🟢 rolling until 30 Nov | – | See the company page | One application per recruitment cycle of 12 months. LSEG says: “If your application is unsuccessful, you are welcome to reapply in a future recruitment cycle, provided you continue to meet the programme’s eligibility criteria.” | 25 Nov |
+| [Cloudflare](companies/cloudflare-london.md) | Software Engineer Intern (2027) - London, UK | London | 🟢 rolling | – | See the company page | Not stated | 25 Nov |
+| [Sierra](companies/sierra-london.md) | Software Engineer Intern, Agent (London 2027) | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sierra](companies/sierra-london.md) | Software Engineer, Agent (New Grad 2027) | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Talos](companies/talos-london.md) | Quantitative Analyst Intern | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Talos](companies/talos-london.md) | Software Engineer Intern, Trading | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Talos](companies/talos-london.md) | Software Engineer Intern, Infrastructure | London | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [TD Securities](companies/td-belfast.md) | 2027 Summer Internship - Technology | Belfast | 🟢 until 13 Dec | 21 June 2027 | See the company page | Not stated | 25 Nov |
+| [TD Securities](companies/td-belfast.md) | 2027 Technology Graduate Programme | Belfast | 🟢 until 13 Dec | July 2027 | See the company page | Not stated | 25 Nov |
+| [TTP](companies/ttp-cambridge.md) | Year In Industry Placement - Electronic Engineering Consultant - 2027 | Melbourn, near Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [TTP](companies/ttp-cambridge.md) | Graduate Consultant - Electronic Engineering - 2027 | Melbourn, near Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [TTP](companies/ttp-cambridge.md) | Graduate Consultant - Cyber / AI - 2027 | Melbourn, near Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [TTP](companies/ttp-cambridge.md) | Graduate Consultant - Software Engineering - 2027 | Melbourn, near Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [TTP](companies/ttp-cambridge.md) | Summer Internship - Cyber / AI Consultant - 2027 | Melbourn, near Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [TTP](companies/ttp-cambridge.md) | Summer Internship - Software Engineering Consultant - 2027 | Melbourn, near Cambridge | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [PA Consulting](companies/pa-consulting-uk.md) | 2027 Graduate - Electronic Engineer - Cambridge | Melbourn | 🟢 | – | See the company page | You can apply for only one early careers role. If you are rejected at any stage “you will need to wait six months before applying for another role”. | 25 Nov |
+| [PA Consulting](companies/pa-consulting-uk.md) | 2027 Graduate - Digital (Digital & Data) Analyst - London | London | 🟢 | – | See the company page | You can apply for only one early careers role. If you are rejected at any stage “you will need to wait six months before applying for another role”. | 25 Nov |
+| [PA Consulting](companies/pa-consulting-uk.md) | 2027 Summer Internship - Digital (Digital Trust & Cyber Security) - London | London | 🟢 until 30 Nov | – | See the company page | You can apply for only one early careers role. If you are rejected at any stage “you will need to wait six months before applying for another role”. | 25 Nov |
 
-64 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+71 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="germany"></a>
 ## 🇩🇪 Germany
@@ -551,8 +572,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Qualcomm](companies/qualcomm-munich.md) | FY27 PhD Internship: Data-Centric AI for End-to-End Autonomous Driving - 6 months, Munich, Unterschleißheim, Germany | Unterschleißheim | 🟢 | – | Talent team contacts you for an interview if you match | Not stated | 20 Nov |
 | [Thales](companies/thales-germany.md) | Masterarbeit Chip-Placement mittels Strömungs-/Temperatur-Modellierung: Entropiebasiertes globales Placement als Alternative zu elektrostatischen Partikelmodellen | Stuttgart | 🟢 | – | Online application; supervised at the ITLR institute of the University of Stuttgart | Not stated | 20 Nov |
 | [ABB](companies/abb-mannheim.md) | MSc or BSc Thesis / Internship (m/f/d) AI for Intent-Based Networking | Mannheim | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Taktile](companies/taktile-berlin.md) | Software Engineer Intern | Berlin | 🟢 | – | See the company page | Taktile encourages you to “reapply in six months”. If you have recently been through its interviews, it usually recommends waiting “a few months” until you have new experience to share. | 25 Nov |
+| [Taktile](companies/taktile-berlin.md) | Software Engineer Internship for HPI Students | Berlin | 🟢 | – | See the company page | Taktile encourages you to “reapply in six months”. If you have recently been through its interviews, it usually recommends waiting “a few months” until you have new experience to share. | 25 Nov |
 
-30 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+31 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="switzerland"></a>
 ## 🇨🇭 Switzerland
@@ -618,8 +641,13 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Pinterest](companies/pinterest-zurich.md) | Software Engineering Intern 2027 (Zurich) | Zurich | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pinterest](companies/pinterest-zurich.md) | Machine Learning Intern 2027 (Zurich) | Zurich | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Roche](companies/roche-basel.md) | AI & Automation Intern, Data Access and Sharing (Basel, 6 months) | Basel | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [CERN](companies/cern-geneva.md) | Short Term Internship 2027 - Information Technologies | Geneva | 🟢 | – | See the company page | CERN's tips page says “You’re welcome to reapply.” For the summer programmes you are not eligible if you already took part in the Summer Student Programme or worked at CERN for more than 3 months under another status. | 25 Nov |
+| [CERN](companies/cern-geneva.md) | CERN openlab Summer Student Programme 2027 | Geneva | 🟢 until 21 Jan | 21 or 28 June 2027 | See the company page | CERN's tips page says “You’re welcome to reapply.” For the summer programmes you are not eligible if you already took part in the Summer Student Programme or worked at CERN for more than 3 months under another status. | 25 Nov |
+| [CERN](companies/cern-geneva.md) | CERN Summer Student Programme 2027 (Member and Non-Member State) | Geneva | 🟢 until 21 Jan | 14 June 2027 | See the company page | CERN's tips page says “You’re welcome to reapply.” For the summer programmes you are not eligible if you already took part in the Summer Student Programme or worked at CERN for more than 3 months under another status. | 25 Nov |
+| [CERN](companies/cern-geneva.md) | Short Term Internship 2027 - Electronics Engineering | Geneva | 🟢 | – | See the company page | CERN's tips page says “You’re welcome to reapply.” For the summer programmes you are not eligible if you already took part in the Summer Student Programme or worked at CERN for more than 3 months under another status. | 25 Nov |
+| [CERN](companies/cern-geneva.md) | Short Term Internship 2027 - Data Science, AI & Analytics | Geneva | 🟢 | – | See the company page | CERN's tips page says “You’re welcome to reapply.” For the summer programmes you are not eligible if you already took part in the Summer Student Programme or worked at CERN for more than 3 months under another status. | 25 Nov |
 
-20 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+21 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="ireland"></a>
 ## 🇮🇪 Ireland
@@ -664,8 +692,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [MongoDB](companies/mongodb-dublin.md) | 2027 - Summer Software Engineer Intern, Dublin | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pinterest](companies/pinterest-dublin.md) | Software Engineering Intern 2027 (Dublin) | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pinterest](companies/pinterest-dublin.md) | Machine Learning Intern 2027 (Dublin) | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Anduril Industries](companies/anduril-dublin.md) | 2027 Early Career Software Development in Test | Dublin | 🟢 | – | See the company page | If you do not hear back, the early careers page says “we highly encourage you to keep building your skills and apply again in the future.” No waiting period is stated. | 25 Nov |
+| [Anduril Industries](companies/anduril-dublin.md) | 2027 Early Career Software Engineer | Dublin | 🟢 | – | See the company page | If you do not hear back, the early careers page says “we highly encourage you to keep building your skills and apply again in the future.” No waiting period is stated. | 25 Nov |
 
-13 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+14 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="france"></a>
 ## 🇫🇷 France
@@ -781,8 +811,9 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur(se) Front-end React.js - Cybersécurité - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage – Ingénieur/e IA générative & industrialisation Cloud – Aeroline – Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Dataiku](companies/dataiku-paris.md) | Software Engineer Intern - France, Paris | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Bigblue](companies/bigblue-paris.md) | Software Engineer Intern | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-33 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+34 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="sweden"></a>
 ## 🇸🇪 Sweden
@@ -917,8 +948,13 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Datadog](companies/datadog-madrid.md) | Software Engineering Intern | Madrid | 🟢 | February 2027 | Not stated | Not stated | 24 Nov |
 | [Hewlett Packard Enterprise](companies/hpe-madrid.md) | AI and Data Intern | Las Rozas, Madrid | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [HP](companies/hp-barcelona.md) | Data Science Intern | Sant Cugat del Vallès | 🟢 | – | See the company page | Not stated | 24 Nov |
+| [Airbus](companies/airbus-spain.md) | #Discover I 2027-2028 AI Repair Solutions Internship | Sevilla | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Airbus](companies/airbus-spain.md) | #Xplorer 2027 AI deployment to support production Intern | Getafe | 🟢 | February 2027 | See the company page | Not stated | 25 Nov |
+| [Airbus](companies/airbus-spain.md) | #Discover I 2027-2028 Software Engineering DevOps, Test Automation & AI Agents Intern | Getafe | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Airbus](companies/airbus-spain.md) | #Discover I 2027-2028 Network and Storage Systems Intern – Mission-Critical Data Integration | Getafe | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Airbus](companies/airbus-spain.md) | #Discover II 2026-2027 Internship in Service Data Integration | Getafe | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-14 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+15 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="portugal"></a>
 ## 🇵🇹 Portugal
@@ -1007,8 +1043,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Infineon](companies/infineon-villach.md) | Internship - AI and Machine Learning Software Engineering (f/m/div) | Villach | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Infineon](companies/infineon-villach.md) | Internship - AI, Digitalization & Software Development in Product Marketing (f/m/div) | Villach | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Infineon](companies/infineon-villach.md) | Ferial-/Pflichtpraktikum bei Infineon Österreich (Villach, Klagenfurt, Graz, Linz, Innsbruck) Sommer 2027 Initiativbewerbung (w/m/div) | Villach | 🟢 | July, August or September 2027 | Students send CV, motivation letter, enrolment certificate, proof of study progress and latest school or degree certificate | Not stated | 17 Nov |
+| [Sentry](companies/sentry-vienna.md) | Software Engineer, New Grad (2027) | Vienna | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sentry](companies/sentry-vienna.md) | Software Engineer, Intern (Summer 2027) | Vienna | 🟢 | – | See the company page | Not stated | 25 Nov |
 
-3 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
+4 companies. Eligibility, pay, visa and the full process are on the company pages. [⬆ back to top](#internradar)
 
 <a id="belgium"></a>
 ## 🇧🇪 Belgium

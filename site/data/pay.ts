@@ -143,6 +143,22 @@ export const payRules: Record<string, Rule[]> = {
     { title: /Machine Learning/, pay: { label: "€5,000 to €6,250 (the posting doesn't say if this is a month)", short: "€5,000–6,250" } },
   ],
   "pigment-paris": [{ kind: "Internship", pay: { label: "€2,000 a month", short: "€2,000/mo", ...paid("MONTH", "EUR", 2000) } }],
+  "sierra-london": [{ kind: "Graduate", pay: { label: "£120,000 to £140,000 a year plus equity", short: "£120–140k/yr", ...paid("YEAR", "GBP", 120000, 140000) } }],
+  "talos-london": [{ title: /Quantitative Analyst/, pay: { label: "£24 an hour", short: "£24/hr" } }],
+  "sentry-vienna": [
+    { kind: "Internship", pay: { label: "€2,800 to €3,285 a month", short: "€2,800–3,285/mo", ...paid("MONTH", "EUR", 2800, 3285) } },
+    { kind: "Graduate", pay: { label: "€75,000 to €80,000 a year plus equity", short: "€75–80k/yr", ...paid("YEAR", "EUR", 75000, 80000) } },
+  ],
+  "cern-geneva": [
+    { title: /Summer Student/, pay: { label: "CHF 94 a day, tax free", short: "CHF 94/day" } },
+    { title: /Short Term Internship/, pay: { label: "CHF 1,593 a month", short: "CHF 1,593/mo", ...paid("MONTH", "CHF", 1593) } },
+  ],
+  "pa-consulting-uk": [
+    { title: /Summer Internship/, pay: { label: "£27,000 (the posting doesn't say if this is a year)", short: "£27,000" } },
+    { title: /Digital & Data/, pay: { label: "£36,500 a year", short: "£36,500/yr", ...paid("YEAR", "GBP", 36500) } },
+    { title: /Electronic Engineer/, pay: { label: "£31,000 a year plus a £3,500 transport allowance", short: "£31,000/yr", ...paid("YEAR", "GBP", 31000) } },
+  ],
+  "airbus-spain": [{ title: /Xplorer/, pay: { label: "€450 a month gross for 25 hours a week (Xplorer programme)", short: "€450/mo", ...paid("MONTH", "EUR", 450) } }],
   "thales-uk": [{ kind: "Graduate", pay: { label: "£34,000 a year", short: "£34,000/yr", ...paid("YEAR", "GBP", 34000) } }],
   "visa-warsaw": [{ kind: "Internship", pay: { label: "PLN 120,000 a year", short: "PLN 120k/yr", ...paid("YEAR", "PLN", 120000) } }],
 };

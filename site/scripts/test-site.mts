@@ -92,7 +92,7 @@ test("pay: the pay column shows the figure, with the period below it", () => {
       const { figure, period } = payParts(pay.short);
       // the column is 100px wide, about 12 characters of 13px Inter
       assert.ok(figure.length <= 12, `${pay.short}: "${figure}" is too long for the pay column`);
-      assert.match(period, /^((an hour|a week|a month|a year)(, \w+)?)?$/, `${pay.short}: unknown period`);
+      assert.match(period, /^((an hour|a day|a week|a month|a year)(, \w+)?)?$/, `${pay.short}: unknown period`);
     }
 });
 
