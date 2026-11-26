@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-960-blue) ![checked](https://img.shields.io/badge/last%20checked-26%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-958-blue) ![checked](https://img.shields.io/badge/last%20checked-26%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -796,8 +796,6 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Point72](companies/point72-paris.md) | Quantitative Researcher - Intern | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pigment](companies/pigment-paris.md) | Internship - Software Engineer (Back, Fullstack) | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pigment](companies/pigment-paris.md) | Data Scientist Internship | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
-| [Sopra Steria](companies/sopra-steria-france.md) | Stage : Consultant/e Cybersécurité GRC - Défense & Sécurité - Le Plessis Robinson | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 26 Nov |
-| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Consultant(e) Conformité Réglementaire Cybersécurité - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 26 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur/se - Fullstack - Services Publics - Rouen | Rouen | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) DevOps - Toulon | Six-Fours-les-Plages | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) Data - Aéroline - Aix-en-Provence | Aix-en-Provence | 🟢 | – | See the company page | Not stated | 25 Nov |
