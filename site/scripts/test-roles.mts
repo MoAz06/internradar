@@ -360,6 +360,9 @@ test("roles that go on by themselves", () => {
   assert.equal(why({ title: "Graduate Consultant - Software Engineering - 2027" }), "ok");
   assert.equal(why({ title: "Summer Internship - Cyber / AI Consultant - 2027" }), "ok");
   assert.equal(why({ title: "Graduate Consultant - Strategy - 2027" }), "not a tech job");
+  // security compliance and governance work is advice on rules, not engineering
+  assert.equal(why({ title: "Stage - Consultant(e) Conformité Réglementaire Cybersécurité - Toulouse" }), "not a tech job");
+  assert.equal(why({ title: "Stage : Consultant/e Cybersécurité GRC - Défense & Sécurité" }), "not a tech job");
   assert.equal(why({ title: "Software Engineer" }), "kind not clear from the title");
   assert.equal(why({ title: "Software Engineering Intern", location: "Paris, France" }), "no entry in that country");
   assert.equal(why({ title: "Software Engineering Intern", location: "3 Locations" }), "no city given");
