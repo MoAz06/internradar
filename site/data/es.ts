@@ -558,6 +558,21 @@ export const es: Company[] = [
     careersUrl: "https://www.ericsson.com/en/careers/global-locations/spain",
     roles: [
       {
+        title: "AI Adoption Developer Internship",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://jobs.ericsson.com/careers/job/563121777586863",
+        checked: "2026-11-26",
+        city: "Madrid",
+        auto: true,
+      },
+      {
         title: "Ericsson Málaga Tech Internships - A Place for Impact",
         kind: "Internship",
         field: "Software",

@@ -970,7 +970,12 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "airbus-spain|#Discover II 2026-2027 Internship in Service Data Integration|https://ag.wd3.myworkdayjobs.com/Airbus/job/Getafe/XMLNAME--Discover-II-2026-2027-Internship-in--Service-Data-Integration_JR10455954":{"added":"2026-11-25","statuses":[["2026-11-25","open"]]},
   "sentry-vienna|Software Engineer, New Grad (2027)|https://jobs.ashbyhq.com/sentry/f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2":{"added":"2026-11-25","statuses":[["2026-11-25","open"]]},
   "sentry-vienna|Software Engineer, Intern (Summer 2027)|https://jobs.ashbyhq.com/sentry/fa522ac5-fc9f-4ce1-a191-842496a235a2":{"added":"2026-11-25","statuses":[["2026-11-25","open"]]},
-  "thales-uk|2027 Industrial Information Systems Graduate|https://thales.wd3.myworkdayjobs.com/Careers/job/Belfast/XMLNAME-2027-Industrial-Information-Systems-Graduate_R0337802-1":{"added":"2026-11-25","statuses":[["2026-11-25","open"]],"closes":[["2026-11-25","2027-01-06"]]}
+  "thales-uk|2027 Industrial Information Systems Graduate|https://thales.wd3.myworkdayjobs.com/Careers/job/Belfast/XMLNAME-2027-Industrial-Information-Systems-Graduate_R0337802-1":{"added":"2026-11-25","statuses":[["2026-11-25","open"]],"closes":[["2026-11-25","2027-01-06"]]},
+  "thermo-fisher-scientific-eindhoven|Intern, Computational / Data Scientist for Transmission Electron Microscopy (Materials Science)|https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Computational---Data-Scientist-for-Transmission-Electron-Microscopy--Materials-Science-_R-01374080":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
+  "nxp-eindhoven|Software, Electrical, Industrial or Computer Engineering AI Internship|https://nxp.myworkdayjobs.com/careers/job/Eindhoven/Software--Electrical--Industrial-or-Computer-Engineering-AI-Internship_R-10067974":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
+  "sopra-steria-france|Stage : Consultant/e Cybersécurité GRC - Défense & Sécurité - Le Plessis Robinson|https://jobs.smartrecruiters.com/SopraSteria1/744000159352249":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
+  "sopra-steria-france|Stage - Consultant(e) Conformité Réglementaire Cybersécurité - Toulouse|https://jobs.smartrecruiters.com/SopraSteria1/744000163393298":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
+  "ericsson-malaga|AI Adoption Developer Internship|https://jobs.ericsson.com/careers/job/563121777586863":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]}
 };
 
 /** Per company slug: the day it was added. */

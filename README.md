@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-955-blue) ![checked](https://img.shields.io/badge/last%20checked-25%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-960-blue) ![checked](https://img.shields.io/badge/last%20checked-26%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -100,6 +100,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [TNO](companies/tno-den-haag.md) | Internship, Operationalising a Mobile 3D Scanning Setup | Den Haag and Soesterberg | 🟢 | – | Apply with CV and cover letter, then an AIVD security screening of about 8 weeks | Not stated | 17 Nov |
 | [TNO](companies/tno-den-haag.md) | Graduation internship, MMIC/RFIC design | Den Haag and Soesterberg | 🔴 | – | Apply with CV and cover letter, then an AIVD security screening of about 8 weeks | Not stated | 25 Nov |
 | [TNO](companies/tno-den-haag.md) | TNO Traineeship | Den Haag and Soesterberg | 🟡 Closed now; applications for the next cohort open in spring 2027 | 1 September 2027 | CV, motivation letter and an assignment on your impact and learning goals | Not stated | 17 Nov |
+| [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Intern, Computational / Data Scientist for Transmission Electron Microscopy (Materials Science) | Eindhoven | 🟢 | – | See the company page | Not stated | 26 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Intern Software Scientist - X-ray Spectroscopy | Eindhoven | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Intern Software Scientist - Theoretical Spectroscopy | Eindhoven | 🟢 | – | Not stated | Not stated | 18 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Software Engineering / AI Engineering Intern | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
@@ -107,6 +108,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Internship - Build an agentic software refactoring workflow | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Thermo Fisher Scientific](companies/thermo-fisher-scientific-eindhoven.md) | Sr. GenAI Intern | Eindhoven | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Doctolib](companies/doctolib-amsterdam.md) | Software Engineer Intern - Fullstack (x/f/m) - Amsterdam | AMS | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 18 Nov |
+| [NXP Semiconductors](companies/nxp-eindhoven.md) | Software, Electrical, Industrial or Computer Engineering AI Internship | Eindhoven | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 26 Nov |
 | [NXP Semiconductors](companies/nxp-eindhoven.md) | Master Thesis Internship – Intelligent Thread across Semiconductor Product Lifecycle | Eindhoven | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 19 Nov |
 | [NXP Semiconductors](companies/nxp-eindhoven.md) | Master Thesis Internship - AI-Driven Transistor Design Exploration | Eindhoven | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 19 Nov |
 | [NXP Semiconductors](companies/nxp-eindhoven.md) | Internship/Thesis – Signal Processing and AI for autonomous driving | Eindhoven | 🟢 | – | See the company page | No waiting period is stated. NXP's FAQ: “If you were not selected for a particular role, you may always reapply to a similar or alternate role at any time.” | 19 Nov |
@@ -794,6 +796,8 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Point72](companies/point72-paris.md) | Quantitative Researcher - Intern | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pigment](companies/pigment-paris.md) | Internship - Software Engineer (Back, Fullstack) | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pigment](companies/pigment-paris.md) | Data Scientist Internship | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage : Consultant/e Cybersécurité GRC - Défense & Sécurité - Le Plessis Robinson | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 26 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Consultant(e) Conformité Réglementaire Cybersécurité - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 26 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur/se - Fullstack - Services Publics - Rouen | Rouen | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) DevOps - Toulon | Six-Fours-les-Plages | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) Data - Aéroline - Aix-en-Provence | Aix-en-Provence | 🟢 | – | See the company page | Not stated | 25 Nov |
@@ -942,6 +946,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Analog Devices](companies/analog-devices-valencia.md) | Digital Design Engineering​ Intern | Valencia | 🟢 | – | See the company page | Not stated | 19 Nov |
 | [Back Market](companies/back-market-barcelona.md) | Data Analyst Intern | Barcelona | 🟢 | January 2027 | Skill-fit interview with a live case, a call with Talent Acquisition, then a culture-fit interview with the manager | Not stated | 20 Nov |
 | [Bitpanda](companies/bitpanda-barcelona.md) | Intern, Data Engineering | Barcelona | 🟢 | 1 February 2027 | Hiring starts in October 2026; the steps for interns are not stated | Not stated | 20 Nov |
+| [Ericsson](companies/ericsson-malaga.md) | AI Adoption Developer Internship | Madrid | 🟢 | – | See the company page | Not stated | 26 Nov |
 | [Ericsson](companies/ericsson-malaga.md) | Ericsson Málaga Tech Internships - A Place for Impact | Málaga | 🟢 | – | Recruiter call, then one to three interviews | Not stated | 20 Nov |
 | [Stripe](companies/stripe-barcelona.md) | Software Engineer, New Grad - Frontend | Barcelona | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Datadog](companies/datadog-madrid.md) | Software Engineering Intern | Madrid | 🟢 | February 2027 | Not stated | Not stated | 24 Nov |

@@ -1626,6 +1626,20 @@ export const nl: Company[] = [
     careersUrl: "https://thermofisher.wd5.myworkdayjobs.com/en-US/ThermoFisherCareers",
     roles: [
       {
+        title: "Intern, Computational / Data Scientist for Transmission Electron Microscopy (Materials Science)",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Eindhoven-Netherlands/Computational---Data-Scientist-for-Transmission-Electron-Microscopy--Materials-Science-_R-01374080",
+        checked: "2026-11-26",
+        auto: true,
+      },
+      {
         title: "Intern Software Scientist - X-ray Spectroscopy",
         kind: "Internship",
         field: "Software",
@@ -1773,6 +1787,21 @@ export const nl: Company[] = [
     city: "Eindhoven",
     careersUrl: "https://nxp.myworkdayjobs.com/careers",
     roles: [
+      {
+        title: "Software, Electrical, Industrial or Computer Engineering AI Internship",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "6 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://nxp.myworkdayjobs.com/careers/job/Eindhoven/Software--Electrical--Industrial-or-Computer-Engineering-AI-Internship_R-10067974",
+        checked: "2026-11-26",
+        auto: true,
+      },
       {
         title: "Master Thesis Internship – Intelligent Thread across Semiconductor Product Lifecycle",
         kind: "Thesis",

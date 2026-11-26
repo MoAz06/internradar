@@ -7,6 +7,7 @@ Careers page: https://nxp.myworkdayjobs.com/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Software, Electrical, Industrial or Computer Engineering AI Internship | Open, no deadline listed |  | 6 months |  | [link](https://nxp.myworkdayjobs.com/careers/job/Eindhoven/Software--Electrical--Industrial-or-Computer-Engineering-AI-Internship_R-10067974) | 2026-11-26 |
 | Master Thesis Internship – Intelligent Thread across Semiconductor Product Lifecycle | Open, no deadline listed |  | Not stated |  | [link](https://nxp.myworkdayjobs.com/careers/job/Eindhoven/Master-Thesis-Internship---Intelligent-Thread-across-Semiconductor-Product-Lifecycle_R-10067003-1) | 2026-11-19 |
 | Master Thesis Internship - AI-Driven Transistor Design Exploration | Open, no deadline listed |  | Not stated |  | [link](https://nxp.myworkdayjobs.com/careers/job/Eindhoven/Master-Thesis-Internship---AI-Driven-Transistor-Design-Exploration_R-10067224) | 2026-11-19 |
 | Internship/Thesis – Signal Processing and AI for autonomous driving | Open, no deadline listed |  | 9-12 months |  | [link](https://nxp.myworkdayjobs.com/careers/job/Eindhoven/Internship-Thesis---Signal-Processing-and-AI-for-autonomous-driving-_R-10064090) | 2026-11-19 |

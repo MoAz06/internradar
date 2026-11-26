@@ -7,6 +7,7 @@ Careers page: https://www.ericsson.com/en/careers/global-locations/spain
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| AI Adoption Developer Internship | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ericsson.com/careers/job/563121777586863) | 2026-11-26 |
 | Ericsson Málaga Tech Internships - A Place for Impact | Open, no deadline listed |  | Not stated | Student in computer science, telecommunications, data science, AI, software engineering, statistics or maths; some programming, ideally Python; English; work on testing and test automation | [link](https://jobs.ericsson.com/careers/job/563121777274641) | 2026-11-20 |
 
 ## Process, as the company describes it
