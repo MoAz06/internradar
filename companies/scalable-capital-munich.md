@@ -7,8 +7,8 @@ Careers page: https://de.scalable.capital/careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Internship - AI/ML Engineering (m/f/x), Munich | Open, no deadline listed | Not stated | At least 3 months | Current Bachelor or Master student in a quantitative field; Python; fluent English | [link](https://jobs.smartrecruiters.com/ScalableGmbH/744000156503599-internship-ai-ml-engineering-m-f-x-) | 2026-11-17 |
-| Internship - AI/ML Engineering (m/f/x), Berlin | Open, no deadline listed | Not stated | At least 3 months | Current Bachelor or Master student in a quantitative field; Python; fluent English | [link](https://jobs.smartrecruiters.com/ScalableGmbH/744000156493644-internship-ai-ml-engineering-m-f-x-) | 2026-11-17 |
+| Internship - AI/ML Engineering (m/f/x), Munich | The posting was taken down by 25 Nov 2026 | Not stated | At least 3 months | Current Bachelor or Master student in a quantitative field; Python; fluent English | [link](https://jobs.smartrecruiters.com/ScalableGmbH/744000156503599-internship-ai-ml-engineering-m-f-x-) | 2026-11-26 |
+| Internship - AI/ML Engineering (m/f/x), Berlin | The posting was taken down by 25 Nov 2026 | Not stated | At least 3 months | Current Bachelor or Master student in a quantitative field; Python; fluent English | [link](https://jobs.smartrecruiters.com/ScalableGmbH/744000156493644-internship-ai-ml-engineering-m-f-x-) | 2026-11-26 |
 
 ## Process, as the company describes it
 

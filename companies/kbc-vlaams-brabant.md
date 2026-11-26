@@ -9,7 +9,7 @@ Careers page: https://www.kbc.be/jobs/nl/stages.html
 | --- | --- | --- | --- | --- | --- | --- |
 | Stage Software Engineer Testautomatisatie | Open, no deadline listed | “Januari-Juni” period, year not stated | 1 to 3 months | Bachelor or master students with an internship contract from their school | [link](https://www.kbc.be/jobs/nl/stages/ID91009.html) | 2026-11-17 |
 | Stage Analist/Developer & Data Documentatie | Open, no deadline listed | “Januari-Juni” period, year not stated | 1 to 3 months | Bachelor or master students with an internship contract from their school | [link](https://www.kbc.be/jobs/nl/stages/ID90998.html) | 2026-11-17 |
-| Stage Analist/Software engineer - Pensioenprocessen | Open, no deadline listed | “Januari-Juni” period, year not stated | 1 to 3 months | Bachelor or master students with an internship contract from their school | [link](https://www.kbc.be/jobs/nl/stages/ID91008.html) | 2026-11-17 |
+| Stage Analist/Software engineer - Pensioenprocessen | The posting was taken down by 25 Nov 2026 | “Januari-Juni” period, year not stated | 1 to 3 months | Bachelor or master students with an internship contract from their school | [link](https://www.kbc.be/jobs/nl/stages/ID91008.html) | 2026-11-26 |
 | Traineeship IT | A new IT traineeship launches in spring 2027 | Not stated | Not stated | Not stated | [link](https://www.kbc.be/jobs/nl/in-de-kijker/traineeships.html) | 2026-11-17 |
 
 ## Process, as the company describes it

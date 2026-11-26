@@ -7,7 +7,7 @@ Careers page: https://www.getyourguide.careers/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Working Student, Security Engineer | Open, no deadline listed | Not stated | Not stated | Enrolled in a Bachelor's or Master's in Computer Science, Information Security or related; based locally | [link](https://jobs.ashbyhq.com/GetYourGuide/a6881808-615e-4e66-99a5-b51794b38785) | 2026-11-16 |
+| Working Student, Security Engineer | The posting was taken down by 25 Nov 2026 | Not stated | Not stated | Enrolled in a Bachelor's or Master's in Computer Science, Information Security or related; based locally | [link](https://jobs.ashbyhq.com/GetYourGuide/a6881808-615e-4e66-99a5-b51794b38785) | 2026-11-26 |
 
 ## Process, as the company describes it
 

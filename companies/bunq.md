@@ -7,7 +7,7 @@ Careers page: https://careers.bunq.com/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Technical Website Intern | Open, no deadline listed | Not stated | Not stated | HTML, CSS and TypeScript, web fundamentals, basic React and testing | [link](https://careers.bunq.com/o/technical-website-intern) | 2026-11-16 |
+| Technical Website Intern | The posting was taken down by 25 Nov 2026 | Not stated | Not stated | HTML, CSS and TypeScript, web fundamentals, basic React and testing | [link](https://careers.bunq.com/o/technical-website-intern) | 2026-11-26 |
 
 ## Process, as the company describes it
 

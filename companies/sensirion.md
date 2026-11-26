@@ -7,7 +7,7 @@ Careers page: https://sensirion.com/career/your-way-to-sensirion/students
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| Intern Automotive and Environmental Sensors | Open, no deadline listed | Around January 2027 | 6 months | Ongoing BSc or MSc in physics or engineering sciences; Python; car driving licence | [link](https://jobs.sensirion.com/job-vacancies/students/intern-automotive-and-environmental-sensors/4bdf8fe5-f7ae-466f-9899-d7d4c3419696) | 2026-11-16 |
+| Intern Automotive and Environmental Sensors | The posting was taken down by 25 Nov 2026 | Around January 2027 | 6 months | Ongoing BSc or MSc in physics or engineering sciences; Python; car driving licence | [link](https://jobs.sensirion.com/job-vacancies/students/intern-automotive-and-environmental-sensors/4bdf8fe5-f7ae-466f-9899-d7d4c3419696) | 2026-11-26 |
 
 ## Process, as the company describes it
 
