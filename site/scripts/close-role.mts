@@ -8,6 +8,9 @@
 //                                        draft from an earlier night, and the link still gone in .linkcheck.json.
 //                                        Prints the numbers of those drafts, one a line, for the workflow to close.
 //
+//   --reopen .listed.json                opens a role again that closed by itself because its posting was gone, when
+//                                        its job board lists that same posting again. Prints the links, one a line.
+//
 // A posting gone for one night is only proposed: a link can move, or a board can be down for a night.
 // Gone two nights in a row, it closes by itself, unless the draft was closed (= "it moved") before that.
 
@@ -17,6 +20,7 @@ import { fileURLToPath } from "node:url";
 import { companies } from "../data/companies.ts";
 import { longDate } from "../lib/format.ts";
 import { sections } from "../lib/issueSections.ts";
+import { reopenBlock } from "../lib/reopen.ts";
 
 const site = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = join(site, "data");
@@ -47,6 +51,29 @@ function closeInData(url: string, applications: string): boolean {
     return true;
   }
   return false;
+}
+
+if (args.includes("--reopen")) {
+  const listed = new Set(JSON.parse(readFileSync(arg("--reopen"), "utf8")) as string[]);
+  for (const f of readdirSync(dataDir).filter((f) => /^[a-z]{2}\.ts$/.test(f))) {
+    const path = join(dataDir, f);
+    // a Windows checkout has CRLF; written back with LF, which git stores anyway
+    let text = readFileSync(path, "utf8").replace(/\r\n/g, "\n");
+    let changed = false;
+    for (const url of listed) {
+      const at = text.indexOf(`source: ${JSON.stringify(url)},`);
+      if (at < 0) continue;
+      const start = text.lastIndexOf("\n      {\n", at);
+      const end = text.indexOf("\n      },", at);
+      const open = reopenBlock(text.slice(start, end), today);
+      if (!open) continue;
+      text = text.slice(0, start) + open + text.slice(end);
+      changed = true;
+      console.log(url);
+    }
+    if (changed) writeFileSync(path, text);
+  }
+  process.exit(0);
 }
 
 if (args.includes("--auto")) {

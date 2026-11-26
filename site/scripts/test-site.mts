@@ -12,6 +12,9 @@ import { payFor, payRules } from "../data/pay.ts";
 import { companyNoSponsor, languagesOf, levelsOf, needsClearance, needsWorkRights, relocationLines } from "../lib/eligibility.ts";
 import { openRoles, toCsv } from "../lib/openRoles.ts";
 import { firstSeen, seasonBefore, seasonOf } from "../lib/seasons.ts";
+import { reopenBlock } from "../lib/reopen.ts";
+import { FEW, rolesFor, rolesNear, universities } from "../lib/universities.ts";
+import { weekOf } from "../lib/week.ts";
 import { testsOf, toolTag } from "../lib/tests.ts";
 import { query, searchable } from "../lib/search.ts";
 import { postedAgo, postedWords, reminderRow, shortKey, type Item } from "../lib/items.ts";
@@ -182,6 +185,43 @@ test("open roles as CSV: a header, one line a role, quotes where a cell needs th
   assert.ok(lines[0].includes("needsClearance") && lines[0].includes("posted"));
   const one = toCsv([{ ...rows[0], title: 'Intern, "Data"', tests: ["HackerRank", "HireVue"] }]).split("\r\n")[1];
   assert.ok(one.includes('"Intern, ""Data"""') && one.includes("HackerRank; HireVue"));
+});
+
+test("universities: unique pages, each with roles near it, and the week in one image", () => {
+  const slugs = universities.map((u) => u.slug);
+  assert.equal(new Set(slugs).size, slugs.length, "one page per university");
+  const refs = universities.flatMap((u) => u.associations.map((a) => a.ref));
+  assert.equal(new Set(refs).size, refs.length, "one ref per association");
+  const items = buildItems("2026-11-26");
+  const delft = rolesNear(universities.find((u) => u.slug === "tu-delft")!, items);
+  assert.ok(delft.length > 10 && delft.every((x) => x.status !== "closed"));
+  // a role in "Amsterdam and Eindhoven" is near, one only in Eindhoven isn't
+  assert.ok(delft.some((x) => x.city.includes("Amsterdam")) && !delft.some((x) => x.city === "Eindhoven"));
+  // every page has something to show, so no university gets an empty box on its association's site
+  for (const u of universities) assert.ok(rolesFor(u, items).roles.length >= FEW || rolesFor(u, items).wide, `${u.name} has too few roles`);
+  const chalmers = rolesFor(universities.find((u) => u.slug === "chalmers")!, items);
+  if (rolesNear(universities.find((u) => u.slug === "chalmers")!, items).length < FEW) assert.equal(chalmers.where, "in Sweden");
+
+  const w = weekOf(items, "2026-11-26");
+  assert.match(w.head, /^\d+ tech (roles close|role closes|new|roles open|role open)/);
+  assert.ok(w.rows.length <= 6, "six rows at most");
+  // the head says what closes: the rows show those first, tagged, at most two per company
+  if (w.closing) assert.ok(w.rows[0].tag === "closes" && w.rows.filter((r) => r.tag === "closes").length >= Math.min(w.closing, 2));
+  for (const r of w.rows) assert.ok(r.tag !== "closes" || r.x.closes, "a closes tag has a date");
+  for (const r of w.rows) assert.ok(w.rows.filter((y) => y.x.company === r.x.company).length <= 2);
+  assert.equal(weekOf([], "2026-11-26").head, "0 tech roles open now");
+});
+
+test("open again: a role the nightly run closed, back on its board under the same link", () => {
+  const block = (status: string, applications: string, closes = "") =>
+    ["", "      {", '        title: "Intern",', `        status: "${status}",`, `        applications: "${applications}",`, ...(closes ? [`        closes: "${closes}",`] : []), '        checked: "2026-11-20",'].join("\n");
+  const open = reopenBlock(block("closed", "The posting was taken down by 25 Nov 2026"), "2026-11-27");
+  assert.ok(open?.includes('status: "open"') && open.includes("Open, no deadline listed") && open.includes('checked: "2026-11-27"'));
+  assert.ok(reopenBlock(block("closed", "The posting was taken down by 25 Nov 2026", "2026-12-15"), "2026-11-27")?.includes("Closes"));
+  // a deadline that passed, a role a person closed, or one that is open: left alone
+  assert.equal(reopenBlock(block("closed", "The posting was taken down by 25 Nov 2026", "2026-11-20"), "2026-11-27"), null);
+  assert.equal(reopenBlock(block("closed", "Closed for 2027, opens again in autumn"), "2026-11-27"), null);
+  assert.equal(reopenBlock(block("open", "Open, no deadline listed"), "2026-11-27"), null);
 });
 
 test("seasons: June to May, and the first day a company's role went up", () => {

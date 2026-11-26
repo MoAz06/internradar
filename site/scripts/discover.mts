@@ -14,7 +14,8 @@ import { fileURLToPath } from "node:url";
 import { companies, countries } from "../data/companies.ts";
 import { skip } from "../data/skip.ts";
 import { boardKey, boardOf, early, inEurope, jobId, normTitle, techTitle, type Board, type BoardCompany, type Found } from "../lib/boards.ts";
-import { readBoard, workdayPlaces } from "../lib/readBoard.ts";
+import { readBoard, workdayPlaces, type Listed } from "../lib/readBoard.ts";
+import { sleep } from "../lib/fetchGently.ts";
 import { titlePlace } from "../lib/places.ts";
 
 const site = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -61,62 +62,78 @@ let placesRead = 0;
 let placesUnread = 0;
 /** Posting link on the list to the day its job board says it was first published. Kept by scripts/opened.mts. */
 const postedOn: Record<string, string> = {};
+/** Posting links on the list that their job board still lists tonight, closed ones too. close-role.mts --reopen
+ * opens a role again that was closed because its posting was gone, when the board lists it once more. */
+const listed = new Set<string>();
 // Workday answers 429 when several of its boards are read at once, so those go one by one in a lane of their own
 const all = [...boards.entries()];
 const rest = all.filter(([, e]) => e.board.ats !== "workday");
 const lanes = [all.filter(([, e]) => e.board.ats === "workday"), ...[0, 1, 2, 3].map((i) => rest.filter((_, j) => j % 4 === i))];
+/** One board's postings: new ones into found, known ones into the posting dates and the still-listed set. */
+async function take(key: string, e: (typeof all)[number][1], jobs: Listed[]) {
+  const seen = new Set<string>();
+  for (const j of jobs) {
+    if (!j.title || !j.url) continue;
+    const id = jobId(j.url) ?? j.url;
+    if (seen.has(id)) continue;
+    seen.add(id);
+    if (e.known.has(id)) {
+      for (const src of e.known.get(id)!) {
+        listed.add(src);
+        if (j.posted) postedOn[src] = j.posted;
+      }
+      continue;
+    }
+    if (skipIds.has(id) || skipIds.has(j.url)) continue;
+    if (e.titles.has(normTitle(j.title))) continue;
+    if (!early.test(j.title)) continue;
+    // Workday lists some postings as "3 Locations"; the posting itself names them
+    let location = j.location;
+    if (e.board.ats === "workday" && /^\d+ locations?$/i.test(location)) {
+      location = (await workdayPlaces(e.board, j.ref)) ?? location;
+      if (location !== j.location) placesRead++;
+    }
+    // places that couldn't be read wait for a next night: without them the posting lands on the company's only
+    // entry (41 NVIDIA roles in China, Taiwan and the US became Zurich drafts that way)
+    if (/^\d+ locations?$/i.test(location)) {
+      placesUnread++;
+      continue;
+    }
+    // "In-Office" or "Remote" says nothing about the city; the title often does: "… Intern (2027) - London, UK"
+    if (/^(in-office|remote|hybrid|on-?site)$/i.test(location.trim())) location = titlePlace(j.title) || location;
+    if (location && !inEurope(location)) continue;
+    found.push({
+      board: key,
+      spec: e.board,
+      companies: [...e.entries.values()],
+      company: [...e.names].join(" / "),
+      title: j.title.trim(),
+      url: j.url,
+      location: location || "not given",
+      ref: j.ref,
+      posted: j.posted,
+      tech: techTitle(j.title),
+    });
+  }
+}
+
+const again: (typeof all)[number][] = [];
 await Promise.all(
   lanes.map(async (list) => {
     for (const [key, e] of list) {
       const jobs = await readBoard(e.board).catch(() => null);
-      if (!jobs) {
-        failed.push(key);
-        continue;
-      }
-      const seen = new Set<string>();
-      for (const j of jobs) {
-        if (!j.title || !j.url) continue;
-        const id = jobId(j.url) ?? j.url;
-        if (seen.has(id)) continue;
-        seen.add(id);
-        if (e.known.has(id)) {
-          if (j.posted) for (const src of e.known.get(id)!) postedOn[src] = j.posted;
-          continue;
-        }
-        if (skipIds.has(id) || skipIds.has(j.url)) continue;
-        if (e.titles.has(normTitle(j.title))) continue;
-        if (!early.test(j.title)) continue;
-        // Workday lists some postings as "3 Locations"; the posting itself names them
-        let location = j.location;
-        if (e.board.ats === "workday" && /^\d+ locations?$/i.test(location)) {
-          location = (await workdayPlaces(e.board, j.ref)) ?? location;
-          if (location !== j.location) placesRead++;
-        }
-        // places that couldn't be read wait for a next night: without them the posting lands on the company's only
-        // entry (41 NVIDIA roles in China, Taiwan and the US became Zurich drafts that way)
-        if (/^\d+ locations?$/i.test(location)) {
-          placesUnread++;
-          continue;
-        }
-        // "In-Office" or "Remote" says nothing about the city; the title often does: "… Intern (2027) - London, UK"
-        if (/^(in-office|remote|hybrid|on-?site)$/i.test(location.trim())) location = titlePlace(j.title) || location;
-        if (location && !inEurope(location)) continue;
-        found.push({
-          board: key,
-          spec: e.board,
-          companies: [...e.entries.values()],
-          company: [...e.names].join(" / "),
-          title: j.title.trim(),
-          url: j.url,
-          location: location || "not given",
-          ref: j.ref,
-          posted: j.posted,
-          tech: techTitle(j.title),
-        });
-      }
+      if (jobs) await take(key, e, jobs);
+      else again.push([key, e]);
     }
   }),
 );
+// a board that didn't answer gets one more try at the end, after a minute: one bad moment shouldn't cost a night
+if (again.length) await sleep(60_000);
+for (const [key, e] of again) {
+  const jobs = await readBoard(e.board).catch(() => null);
+  if (jobs) await take(key, e, jobs);
+  else failed.push(key);
+}
 
 found.sort((a, b) => a.company.localeCompare(b.company) || a.title.localeCompare(b.title));
 const checkedAt = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Amsterdam" }).format(new Date());
@@ -128,6 +145,7 @@ if (only.length) {
 }
 writeFileSync(join(site, ".discover.json"), JSON.stringify({ checkedAt, boards: boards.size, failed, found }, null, 1));
 writeFileSync(join(site, ".opened.json"), JSON.stringify(postedOn, null, 1));
+writeFileSync(join(site, ".listed.json"), JSON.stringify([...listed].sort(), null, 1));
 
 const md = join(site, ".discover.md");
 rmSync(md, { force: true });

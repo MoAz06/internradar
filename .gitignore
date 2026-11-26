@@ -11,6 +11,7 @@ site/.discover.json
 site/.discover-only.json
 site/.discover.md
 site/.opened.json
+site/.listed.json
 
 # wrangler cache
 .wrangler/
