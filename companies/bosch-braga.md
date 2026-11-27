@@ -9,7 +9,7 @@ Careers page: https://careers.smartrecruiters.com/BoschGroup
 | --- | --- | --- | --- | --- | --- | --- |
 | Academic Internship in Computer Science (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000163410519) | 2026-11-25 |
 | DevOps Engineer - Internship (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000143455469) | 2026-11-20 |
-| Extracurricular Internship: AI & Automation Development (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000148960754) | 2026-11-20 |
+| Extracurricular Internship: AI & Automation Development (f/m/div.) | The posting was taken down by 26 Nov 2026 |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000148960754) | 2026-11-27 |
 | Extracurricular Internship: C# Developer (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000152107800) | 2026-11-20 |
 | Extracurricular Internship: AI-Assisted Software Engineering Intern (f/m/div.) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000156523049) | 2026-11-20 |
 | Extracurricular Internship: Data Engineering - Cloud Platform (f/m/div.) | Open, no deadline listed |  | 12 months |  | [link](https://jobs.smartrecruiters.com/BoschGroup/744000160598089) | 2026-11-20 |

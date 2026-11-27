@@ -8,13 +8,13 @@ Careers page: https://www.jumptrading.com/hr/students-new-grads
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
 | Campus Quantitative Trader (Intern) | Open, no deadline listed |  | Not stated |  | [link](https://www.jumptrading.com/hr/job?gh_jid=8050772) | 2026-11-20 |
-| Campus UI Software Engineer (Intern) | Posting live on the job board, no deadline listed | Not stated | 10 weeks | Students, including placement students; international students are encouraged to apply | [link](https://www.jumptrading.com/hr/job?gh_jid=7974943) | 2026-11-17 |
+| Campus UI Software Engineer (Intern) | The posting was taken down by 26 Nov 2026 | Not stated | 10 weeks | Students, including placement students; international students are encouraged to apply | [link](https://www.jumptrading.com/hr/job?gh_jid=7974943) | 2026-11-27 |
 | Campus Systems Engineer (Intern) | Posting live on the job board, no deadline listed | Not stated | 10 weeks | Major in Computer Science/Engineering, Information Systems or a related technical field | [link](https://www.jumptrading.com/hr/job?gh_jid=8000323) | 2026-11-17 |
 | Campus Quantitative Researcher (Intern) | Posting live on the job board, no deadline listed | Not stated | 10 weeks | Students from top undergraduate and graduate programs; no finance knowledge needed | [link](https://www.jumptrading.com/hr/job?gh_jid=8010307) | 2026-11-17 |
 | Campus Quantitative Researcher (M1/M2 Intern) | Posting live on the job board, no deadline listed | Not stated | Not stated | Students from French schools that require an M1/M2 research internship | [link](https://www.jumptrading.com/hr/job?gh_jid=8059384) | 2026-11-17 |
-| Campus AI Researcher, PhD/Postdoc (Intern) | Posting live on the job board, no deadline listed | Not stated | Not stated | PhD or postdoc level (per the title), with a strong publication record at ML venues or open-source AI work | [link](https://www.jumptrading.com/hr/job?gh_jid=7976964) | 2026-11-17 |
+| Campus AI Researcher, PhD/Postdoc (Intern) | The posting was taken down by 26 Nov 2026 | Not stated | Not stated | PhD or postdoc level (per the title), with a strong publication record at ML venues or open-source AI work | [link](https://www.jumptrading.com/hr/job?gh_jid=7976964) | 2026-11-27 |
 | Campus Quantitative Researcher (Full-Time) | Posting live on the job board, no deadline listed | Not stated | Not stated | Graduates of top undergraduate and graduate programs; no finance knowledge needed | [link](https://www.jumptrading.com/hr/job?gh_jid=8050796) | 2026-11-17 |
-| Campus ML Research Engineer (Full-Time) | Posting live on the job board, no deadline listed | Not stated | Not stated | Not stated | [link](https://www.jumptrading.com/hr/job?gh_jid=7977132) | 2026-11-17 |
+| Campus ML Research Engineer (Full-Time) | The posting was taken down by 26 Nov 2026 | Not stated | Not stated | Not stated | [link](https://www.jumptrading.com/hr/job?gh_jid=7977132) | 2026-11-27 |
 | Campus Systems Engineer (Full-Time) | Posting live on the job board, no deadline listed | Not stated | Not stated | Major in Computer Science/Engineering, Information Systems or a related technical field | [link](https://www.jumptrading.com/hr/job?gh_jid=7215943) | 2026-11-17 |
 
 ## Process, as the company describes it

@@ -7,7 +7,7 @@ Careers page: https://jobs.ashbyhq.com/prosus
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| AI Automation Intern (Sustainability) | Open, no deadline listed |  | Not stated |  | [link](https://jobs.ashbyhq.com/prosus/0e900995-e270-4dbd-9c92-448af821b442) | 2026-11-21 |
+| AI Automation Intern (Sustainability) | The posting was taken down by 26 Nov 2026 |  | Not stated |  | [link](https://jobs.ashbyhq.com/prosus/0e900995-e270-4dbd-9c92-448af821b442) | 2026-11-27 |
 | (MSc/PhD) AI Research Intern - LLMs, Causal Inference & Decision Making | Open, no deadline listed | As soon as possible | 6 to 12 months, best 4 or more days a week | MSc or PhD students. Enrolled at a university, with EU citizenship or studying in the Netherlands; no visa support | [link](https://jobs.ashbyhq.com/prosus/016c6c82-8f34-4f2d-94cd-6392b6cf2c43) | 2026-11-20 |
 | ML Engineering Intern - LLM Research & Development | Open, no deadline listed | As soon as possible | 6 to 12 months, best 4 or more days a week | Enrolled at a university, with EU citizenship or studying in the Netherlands; no visa support | [link](https://jobs.ashbyhq.com/prosus/eeb0e0d9-9d3f-4321-8acd-11558dde7c7d) | 2026-11-20 |
 

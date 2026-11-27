@@ -7,7 +7,7 @@ Careers page: https://www.virtu.com/careers/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2027 Internship - Quantitative Trading | Open, no deadline listed |  | 10 weeks |  | [link](https://job-boards.greenhouse.io/virtu/jobs/8547254002) | 2026-11-25 |
+| 2027 Internship - Quantitative Trading | The posting was taken down by 26 Nov 2026 |  | 10 weeks |  | [link](https://job-boards.greenhouse.io/virtu/jobs/8547254002) | 2026-11-27 |
 | 2027 Internship - Quantitative Researcher (Master or PhD) | Open, no deadline listed |  | 10 weeks |  | [link](https://job-boards.greenhouse.io/virtu/jobs/8631180002) | 2026-11-25 |
 | 2027 Internship - Software Engineer | Open, no deadline listed |  | 10 weeks |  | [link](https://job-boards.greenhouse.io/virtu/jobs/8551566002) | 2026-11-25 |
 

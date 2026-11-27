@@ -144,7 +144,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Achmea](companies/achmea.md) | IT Management Trainee | Apeldoorn | 🟢 | March 2027 | Motivation questions, intelligence and learning test, interview, business case, second interview | Not stated | 20 Nov |
 | [Achmea](companies/achmea.md) | Hbo Meewerkstagiair Software Testing & Quality Assurance | Tilburg | 🟢 | February 2027, earlier by agreement | Reply within 5 working days, a first meeting, then the assignment is agreed | Not stated | 20 Nov |
 | [Achmea](companies/achmea.md) | Hbo/wo Meewerkstagiair Datagovernance & Dataproducten | Apeldoorn | 🟢 | February 2027 | Reply within 5 working days, a first meeting, then the assignment is agreed | Not stated | 20 Nov |
-| [Prosus](companies/prosus.md) | AI Automation Intern (Sustainability) | AMS | 🟢 | – | See the company page | Not stated. | 21 Nov |
+| [Prosus](companies/prosus.md) | AI Automation Intern (Sustainability) | AMS | 🔴 | – | See the company page | Not stated. | 27 Nov |
 | [Prosus](companies/prosus.md) | (MSc/PhD) AI Research Intern - LLMs, Causal Inference & Decision Making | AMS | 🟢 | As soon as possible | Not stated | Not stated | 20 Nov |
 | [Prosus](companies/prosus.md) | ML Engineering Intern - LLM Research & Development | AMS | 🟢 | As soon as possible | Not stated | Not stated | 20 Nov |
 | [Deloitte](companies/deloitte-amsterdam.md) | Scriptiestage Technology Transformation | AMS | 🔴 | – | CV and motivation letter, online assessment of 4 games, interviews, sometimes a case | Not stated | 26 Nov |
@@ -167,10 +167,10 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Capgemini](companies/capgemini-utrecht.md) | Young Professional Track Cloud | Utrecht | 🟢 | – | CV, optional motivation letter, interviews that can include technical tests, background check | Not stated | 20 Nov |
 | [Vanderlande](companies/vanderlande.md) | Internship: IT Infrastructure & systems | Veghel | 🟢 rolling | – | See the company page | Not stated. | 21 Nov |
 | [Vanderlande](companies/vanderlande.md) | Internship: Building the Future of Work with Low-Code AI Skills for Vanderlande | Veghel | 🔴 | – | See the company page | Not stated. | 26 Nov |
-| [Vanderlande](companies/vanderlande.md) | Internship/Graduation: Agentic AI Systems for Software Re-engineering | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
+| [Vanderlande](companies/vanderlande.md) | Internship/Graduation: Agentic AI Systems for Software Re-engineering | Veghel | 🔴 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 27 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation: Operational Digital Twin Automation | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation: Supply chain risk assessment through an analytical digital twin | Veghel | 🟢 | January or February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
-| [Vanderlande](companies/vanderlande.md) | Graduation/Internship: AI Process Optimization in Engineering | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
+| [Vanderlande](companies/vanderlande.md) | Graduation/Internship: AI Process Optimization in Engineering | Veghel | 🔴 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 27 Nov |
 | [TomTom](companies/tomtom-amsterdam.md) | Software Engineering Internship - API Management | AMS | 🟢 | – | See the company page | Yes. TomTom's FAQ answers “Absolutely! We’re excited to see all the experience you’ve gained in the last year.” to people who were not selected last year. | 25 Nov |
 | [TomTom](companies/tomtom-amsterdam.md) | Platform Engineering Internship - Observability | AMS | 🟢 | – | See the company page | Yes. TomTom's FAQ answers “Absolutely! We’re excited to see all the experience you’ve gained in the last year.” to people who were not selected last year. | 25 Nov |
 | [GlobalFoundries](companies/globalfoundries-eindhoven.md) | Intern in the field of RISC-V System-Level Verification & Validation | Eindhoven | 🟢 | – | See the company page | Not stated | 25 Nov |
@@ -245,13 +245,13 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Squarepoint Capital](companies/squarepoint-capital-london.md) | Graduate Quant Developer | London | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Squarepoint Capital](companies/squarepoint-capital-london.md) | Trading Infrastructure Specialist – Graduate Program | London | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Jump Trading](companies/jump-trading-london.md) | Campus Quantitative Trader (Intern) | London | 🟢 | – | See the company page | Not stated | 20 Nov |
-| [Jump Trading](companies/jump-trading-london.md) | Campus UI Software Engineer (Intern) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Jump Trading](companies/jump-trading-london.md) | Campus UI Software Engineer (Intern) | London | 🔴 | – | Not stated | Not stated | 27 Nov |
 | [Jump Trading](companies/jump-trading-london.md) | Campus Systems Engineer (Intern) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Jump Trading](companies/jump-trading-london.md) | Campus Quantitative Researcher (Intern) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Jump Trading](companies/jump-trading-london.md) | Campus Quantitative Researcher (M1/M2 Intern) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
-| [Jump Trading](companies/jump-trading-london.md) | Campus AI Researcher, PhD/Postdoc (Intern) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Jump Trading](companies/jump-trading-london.md) | Campus AI Researcher, PhD/Postdoc (Intern) | London | 🔴 | – | Not stated | Not stated | 27 Nov |
 | [Jump Trading](companies/jump-trading-london.md) | Campus Quantitative Researcher (Full-Time) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
-| [Jump Trading](companies/jump-trading-london.md) | Campus ML Research Engineer (Full-Time) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Jump Trading](companies/jump-trading-london.md) | Campus ML Research Engineer (Full-Time) | London | 🔴 | – | Not stated | Not stated | 27 Nov |
 | [Jump Trading](companies/jump-trading-london.md) | Campus Systems Engineer (Full-Time) | London | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Qube Research & Technologies (QRT)](companies/qrt-london.md) | 2027 - Internship, Business Data Analytics | London | 🟢 rolling | – | See the company page | Not stated | 20 Nov |
 | [Qube Research & Technologies (QRT)](companies/qrt-london.md) | 2027 - Internship, Software Engineering and Quantitative Development | London | 🟢 | 2027 | Coding challenge, then interviews at an assessment centre or on Microsoft Teams | Not stated | 17 Nov |
@@ -689,7 +689,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Motorola Solutions](companies/motorola-solutions-cork.md) | Software Engineering Work Placement | Cork | 🟢 | February or March | See the company page | Not stated | 20 Nov |
 | [Cisco](companies/cisco-galway.md) | Software Engineer Intern | Galway | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Cisco](companies/cisco-galway.md) | Graduate Software Engineer | Galway | 🟢 | – | See the company page | Not stated | 24 Nov |
-| [Virtu Financial](companies/virtu-dublin.md) | 2027 Internship - Quantitative Trading | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Virtu Financial](companies/virtu-dublin.md) | 2027 Internship - Quantitative Trading | Dublin | 🔴 | – | See the company page | Not stated | 27 Nov |
 | [Virtu Financial](companies/virtu-dublin.md) | 2027 Internship - Quantitative Researcher (Master or PhD) | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Virtu Financial](companies/virtu-dublin.md) | 2027 Internship - Software Engineer | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [MongoDB](companies/mongodb-dublin.md) | 2027 - Software Engineer Intern, Dublin - 6 Month Internship | Dublin | 🟢 | – | See the company page | Not stated | 25 Nov |
@@ -971,7 +971,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Cloudflare](companies/cloudflare-lisbon.md) | Software Engineer Intern (2027) | Lisbon | 🟢 rolling | January 2027 (Winter/Spring term) or May 2027 (Summer term) | Not stated | Not stated | 17 Nov |
 | [Bosch](companies/bosch-braga.md) | Academic Internship in Computer Science (f/m/div.) | Braga | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Bosch](companies/bosch-braga.md) | DevOps Engineer - Internship (f/m/div.) | Ovar | 🟢 | – | See the company page | Not stated | 20 Nov |
-| [Bosch](companies/bosch-braga.md) | Extracurricular Internship: AI & Automation Development (f/m/div.) | Aveiro | 🟢 | – | See the company page | Not stated | 20 Nov |
+| [Bosch](companies/bosch-braga.md) | Extracurricular Internship: AI & Automation Development (f/m/div.) | Aveiro | 🔴 | – | See the company page | Not stated | 27 Nov |
 | [Bosch](companies/bosch-braga.md) | Extracurricular Internship: C# Developer (f/m/div.) | Ovar | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch-braga.md) | Extracurricular Internship: AI-Assisted Software Engineering Intern (f/m/div.) | Ovar | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch-braga.md) | Extracurricular Internship: Data Engineering - Cloud Platform (f/m/div.) | Aveiro | 🟢 | – | See the company page | Not stated | 20 Nov |
