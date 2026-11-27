@@ -7,6 +7,7 @@ Careers page: https://careers.abb/dach/de/early-careers
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Internship mobile robotics software development | Open, no deadline listed |  | Not stated |  | [link](https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Gilching-Bavaria-Germany/Internship-mobile-robotics-software-development_JR00054304) | 2026-11-27 |
 | MSc or BSc Thesis / Internship (m/f/d) AI for Intent-Based Networking | Open, no deadline listed |  | Not stated |  | [link](https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Mannheim-Baden-Wurttemberg-Germany/MSc-or-BSc-Thesis---Internship--m-f-d--AI-for-Intent-Based-Networking_JR00043251-1) | 2026-11-24 |
 
 ## Process, as the company describes it

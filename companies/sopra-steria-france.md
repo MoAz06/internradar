@@ -7,6 +7,7 @@ Careers page: https://careers.soprasteria.fr/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Stage - Chargé(e) de recrutement - Cybersécurité - Toulouse | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/SopraSteria1/744000163847868) | 2026-11-27 |
 | Stage - Développeur/se - Fullstack - Services Publics - Rouen | Open, no deadline listed |  | Not stated |  | [link](https://jobs.smartrecruiters.com/SopraSteria1/744000149328834) | 2026-11-25 |
 | Stage - Ingénieur(e) DevOps - Toulon | Open, no deadline listed |  | 6 months |  | [link](https://jobs.smartrecruiters.com/SopraSteria1/744000156338996) | 2026-11-25 |
 | Stage - Ingénieur(e) Data - Aéroline - Aix-en-Provence | Open, no deadline listed |  | 6 months |  | [link](https://jobs.smartrecruiters.com/SopraSteria1/744000157770268) | 2026-11-25 |

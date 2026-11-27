@@ -7,6 +7,7 @@ Careers page: https://www.amazon.jobs/en/search?base_query=intern&country=DEU
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2027 Software Dev Engineer Internship, AWS EC2 | Open, no deadline listed |  | Not stated |  | [link](https://www.amazon.jobs/en/jobs/10615428/2027-software-dev-engineer-internship-aws-ec2) | 2026-11-27 |
 | 2027 Software Dev Engineer Intern - Germany | Posted 21 Sep 2026, no deadline listed | Not stated | Not stated | Bachelor's or above in CS or related STEM; one general-purpose language; at least one term left after the internship | [link](https://www.amazon.jobs/en/jobs/10554701/2027-software-dev-engineer-intern-germany) | 2026-11-16 |
 | 2027 Applied Scientist Internship – PhD, Amazon University Talent Acquisition | Posted 9 Oct 2026; applications “reviewed on a rolling basis” | Throughout the year | 3 to 6 months | Enrolled in a PhD in CS, ML, engineering or related; Java, C++ or Python; fluent English | [link](https://www.amazon.jobs/en/jobs/10574996/2027-applied-scientist-internship-phd-amazon-university-talent-acquisition) | 2026-11-16 |
 | Business Intelligence Engineer Intern Germany (2027) | Posted 2 Oct 2026, no deadline listed | Not stated | 6 months | Enrolled in a Bachelor's or above in CS, computer engineering or related; SQL; Python, Java or R | [link](https://www.amazon.jobs/en/jobs/10567688/business-intelligence-engineer-intern-germany) | 2026-11-16 |

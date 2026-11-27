@@ -975,7 +975,12 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "nxp-eindhoven|Software, Electrical, Industrial or Computer Engineering AI Internship|https://nxp.myworkdayjobs.com/careers/job/Eindhoven/Software--Electrical--Industrial-or-Computer-Engineering-AI-Internship_R-10067974":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
   "sopra-steria-france|Stage : Consultant/e Cybersécurité GRC - Défense & Sécurité - Le Plessis Robinson|https://jobs.smartrecruiters.com/SopraSteria1/744000159352249":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
   "sopra-steria-france|Stage - Consultant(e) Conformité Réglementaire Cybersécurité - Toulouse|https://jobs.smartrecruiters.com/SopraSteria1/744000163393298":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
-  "ericsson-malaga|AI Adoption Developer Internship|https://jobs.ericsson.com/careers/job/563121777586863":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]}
+  "ericsson-malaga|AI Adoption Developer Internship|https://jobs.ericsson.com/careers/job/563121777586863":{"added":"2026-11-26","statuses":[["2026-11-26","open"]]},
+  "amazon-germany|2027 Software Dev Engineer Internship, AWS EC2|https://www.amazon.jobs/en/jobs/10615428/2027-software-dev-engineer-internship-aws-ec2":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
+  "abb-mannheim|Internship mobile robotics software development|https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Gilching-Bavaria-Germany/Internship-mobile-robotics-software-development_JR00054304":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
+  "doctolib-paris|Stage - Business Data Analyst (x/f/m) - janvier 2027|https://jobs.ashbyhq.com/doctolib/a8c6599a-7aa7-4e0c-82e1-f8c410ff36f3":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
+  "airbus-toulouse|Stage 2027 - Commercial(e) Cyberdéfense (F/H)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---Commercial-e--Cyberdfense--F-H-_JR10445143":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
+  "sopra-steria-france|Stage - Chargé(e) de recrutement - Cybersécurité - Toulouse|https://jobs.smartrecruiters.com/SopraSteria1/744000163847868":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]}
 };
 
 /** Per company slug: the day it was added. */

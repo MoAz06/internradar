@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-958-blue) ![checked](https://img.shields.io/badge/last%20checked-26%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-963-blue) ![checked](https://img.shields.io/badge/last%20checked-27%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -511,6 +511,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Mercedes-Benz](companies/mercedes-benz.md) | Praktikant*in KI-gestütztes Testing & Connected Car | Stuttgart area (Sindelfingen, Immendingen) | 🟢 | 1 Mar 2027 | Not stated on posting | Not stated | 16 Nov |
 | [Google (Munich)](companies/google-munich.md) | Research Scientist PhD Intern, 2027 | Munich | 🟢 until 14 Dec | May, June or July 2027 | Not stated | Not stated | 16 Nov |
 | [Google (Munich)](companies/google-munich.md) | Student Researcher, 2027 | Munich | 🟢 until 13 Dec | – | Not stated | Not stated | 16 Nov |
+| [Amazon / AWS (Germany)](companies/amazon-germany.md) | 2027 Software Dev Engineer Internship, AWS EC2 | Berlin | 🟢 | – | See the company page | Not stated | 27 Nov |
 | [Amazon / AWS (Germany)](companies/amazon-germany.md) | 2027 Software Dev Engineer Intern - Germany | Berlin, Munich, Tübingen, Aachen | 🟢 | – | Online assessment (coding + work styles), then interviews | Not stated | 16 Nov |
 | [Amazon / AWS (Germany)](companies/amazon-germany.md) | 2027 Applied Scientist Internship – PhD, Amazon University Talent Acquisition | Berlin, Munich, Tübingen, Aachen | 🟢 rolling | Throughout the year | Online assessment (coding + work styles), team match, interviews | Not stated | 16 Nov |
 | [Amazon / AWS (Germany)](companies/amazon-germany.md) | Business Intelligence Engineer Intern Germany (2027) | Berlin, Munich, Tübingen, Aachen | 🟢 | – | Not stated | Not stated | 16 Nov |
@@ -573,6 +574,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [NVIDIA](companies/nvidia-germany.md) | Relational Foundation Model Intern, Modern Data Stack – 2027 | Remote | 🟢 | – | Usually phone interviews only; technical roles may include a coding exercise | Not stated | 20 Nov |
 | [Qualcomm](companies/qualcomm-munich.md) | FY27 PhD Internship: Data-Centric AI for End-to-End Autonomous Driving - 6 months, Munich, Unterschleißheim, Germany | Unterschleißheim | 🟢 | – | Talent team contacts you for an interview if you match | Not stated | 20 Nov |
 | [Thales](companies/thales-germany.md) | Masterarbeit Chip-Placement mittels Strömungs-/Temperatur-Modellierung: Entropiebasiertes globales Placement als Alternative zu elektrostatischen Partikelmodellen | Stuttgart | 🟢 | – | Online application; supervised at the ITLR institute of the University of Stuttgart | Not stated | 20 Nov |
+| [ABB](companies/abb-mannheim.md) | Internship mobile robotics software development | Gilching | 🟢 | – | See the company page | Not stated | 27 Nov |
 | [ABB](companies/abb-mannheim.md) | MSc or BSc Thesis / Internship (m/f/d) AI for Intent-Based Networking | Mannheim | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Taktile](companies/taktile-berlin.md) | Software Engineer Intern | Berlin | 🟢 | – | See the company page | Taktile encourages you to “reapply in six months”. If you have recently been through its interviews, it usually recommends waiting “a few months” until you have new experience to share. | 25 Nov |
 | [Taktile](companies/taktile-berlin.md) | Software Engineer Internship for HPI Students | Berlin | 🟢 | – | See the company page | Taktile encourages you to “reapply in six months”. If you have recently been through its interviews, it usually recommends waiting “a few months” until you have new experience to share. | 25 Nov |
@@ -721,6 +723,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (PhD) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, AI Core Machine Learning (MSc) | Paris | 🔴 | Various start dates through the year | Not stated | Not stated | 20 Nov |
 | [Meta](companies/meta-paris.md) | Research Scientist Intern, Muse RL and Agents Team (MSc) | Paris | 🟢 | Various start dates through the year | Not stated | Not stated | 17 Nov |
+| [Doctolib](companies/doctolib-paris.md) | Stage - Business Data Analyst (x/f/m) - janvier 2027 | Paris | 🟢 | – | See the company page | Not stated | 27 Nov |
 | [Doctolib](companies/doctolib-paris.md) | Software Engineering Intern - Fullstack (x/f/m) - Paris | Paris | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 17 Nov |
 | [Doctolib](companies/doctolib-paris.md) | Machine Learning Engineer Intern (x/f/m) | Paris | 🟢 | April 2027 | Online coding game, talent partner interview (30 min), technical interview (1 hour), hiring manager interview (45 min) | Not stated | 17 Nov |
 | [Doctolib](companies/doctolib-paris.md) | AI Engineer Intern (x/f/m) - Paris | Paris | 🔴 | March 2027 | Coding Game, recruiter interview, technical interview, behavioral interview | Not stated | 20 Nov |
@@ -777,6 +780,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Qualcomm](companies/qualcomm-sophia-antipolis.md) | FY27 Intern - Hardware Design for Post-Quantum Cryptography - 6 months, Sophia | Sophia Antipolis | 🟢 | – | See the company page | Not stated. Qualcomm says you can apply to as many positions as you like. | 19 Nov |
 | [Goldman Sachs](companies/goldman-sachs-paris.md) | 2027 \| EMEA \| Paris \| The Core Quantitative Strats \| Seasonal/Off Cycle Internship | Paris | 🟢 | – | See the company page | Not stated. To apply to a fifth role, “you must withdraw a current application that has not been turned down”. | 19 Nov |
 | [Goldman Sachs](companies/goldman-sachs-paris.md) | 2027 \| EMEA \| Paris \| FICC and Equities (Sales and Trading) Quantitative Strats \| Seasonal/Off Cycle Internship | Paris | 🟢 | – | See the company page | Not stated. To apply to a fifth role, “you must withdraw a current application that has not been turned down”. | 19 Nov |
+| [Airbus](companies/airbus-toulouse.md) | Stage 2027 - Commercial(e) Cyberdéfense (F/H) | Toulouse | 🟢 | – | See the company page | Not stated | 27 Nov |
 | [Airbus](companies/airbus-toulouse.md) | ATR – Internship 2027 – AI and structural in -service repairs | Toulouse | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Airbus](companies/airbus-toulouse.md) | Stage 2027 - Cyber Lab Creator (All Gender) | Paris | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Airbus](companies/airbus-toulouse.md) | Stage 2027 - AI Solution Development (m/f) | Toulouse | 🟢 | February 2027 (can move) | Video interview reviewed by a recruiter, then an interview with the manager | Not stated | 20 Nov |
@@ -796,6 +800,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Point72](companies/point72-paris.md) | Quantitative Researcher - Intern | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pigment](companies/pigment-paris.md) | Internship - Software Engineer (Back, Fullstack) | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pigment](companies/pigment-paris.md) | Data Scientist Internship | Paris | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Chargé(e) de recrutement - Cybersécurité - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 27 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur/se - Fullstack - Services Publics - Rouen | Rouen | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) DevOps - Toulon | Six-Fours-les-Plages | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) Data - Aéroline - Aix-en-Provence | Aix-en-Provence | 🟢 | – | See the company page | Not stated | 25 Nov |

@@ -7,6 +7,7 @@ Careers page: https://www.airbus.com/en/careers/students-and-graduates/interns/i
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Stage 2027 - Commercial(e) Cyberdéfense (F/H) | Open, no deadline listed |  | 6 months |  | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---Commercial-e--Cyberdfense--F-H-_JR10445143) | 2026-11-27 |
 | ATR – Internship 2027 – AI and structural in -service repairs | Open, no deadline listed |  | 6 months |  | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/ATR---Internship-2027---AI-and-structural-in--service-repairs_JR10450722) | 2026-11-25 |
 | Stage 2027 - Cyber Lab Creator (All Gender) | Open, no deadline listed |  | 6 months |  | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Paris-Area/Stage-2027---Cyber-Lab-Creator--All-Gender-_JR10449625) | 2026-11-24 |
 | Stage 2027 - AI Solution Development (m/f) | Open, no deadline listed | February 2027 (can move) | 6 months | Bac+5 student in computer science, data science or geospatial technology; French nationality required (IGI 1300); fluent French and English | [link](https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---AI-Solution-Development--m-f-_JR10444690) | 2026-11-20 |

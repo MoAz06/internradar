@@ -1323,6 +1323,21 @@ export const de: Company[] = [
     careersUrl: "https://www.amazon.jobs/en/search?base_query=intern&country=DEU",
     roles: [
       {
+        title: "2027 Software Dev Engineer Internship, AWS EC2",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://www.amazon.jobs/en/jobs/10615428/2027-software-dev-engineer-internship-aws-ec2",
+        checked: "2026-11-27",
+        city: "Berlin",
+        auto: true,
+      },
+      {
         title: "2027 Software Dev Engineer Intern - Germany",
         kind: "Internship",
         field: "Software",
@@ -2751,6 +2766,21 @@ export const de: Company[] = [
     city: "Mannheim",
     careersUrl: "https://careers.abb/dach/de/early-careers",
     roles: [
+      {
+        title: "Internship mobile robotics software development",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Gilching-Bavaria-Germany/Internship-mobile-robotics-software-development_JR00054304",
+        checked: "2026-11-27",
+        city: "Gilching",
+        auto: true,
+      },
       {
         title: "MSc or BSc Thesis / Internship (m/f/d) AI for Intent-Based Networking",
         kind: "Thesis",
