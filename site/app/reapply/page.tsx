@@ -10,8 +10,9 @@ import { og } from "@/lib/og";
 const blurb = `${reapplyRules.length} companies say when you can apply again after a rejection. Every rule word for word from their own page, with the source.`;
 
 export const metadata: Metadata = {
-  title: "When can you apply again?",
+  title: `Can you reapply after a rejection? The rules at ${reapplyRules.length} companies`,
   description: blurb,
+  alternates: { canonical: "/reapply/" },
   ...og("When can you apply again after a rejection?", blurb, "reapply", "/reapply/"),
 };
 

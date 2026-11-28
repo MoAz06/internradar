@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { companies, lastChecked } from "@/data/companies";
-import { cityPages, countryPages, fieldPages, fieldPlacePages } from "@/lib/landing";
+import { allPlacePages, cityPages, countryPages, fieldPages } from "@/lib/landing";
 import { rolePages } from "@/lib/rolePages";
 import { roleHref } from "@/lib/items";
 import { universities } from "@/lib/universities";
@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 const site = "https://internradar.eu";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["/", "/edition/", "/radar/", "/reapply/", "/share/", "/alerts/", "/calendar/", "/companies/", "/pay/", "/stats/", "/for/", "/nl/", "/countries/", "/poster/", "/feedback/", "/about/", "/privacy/"].map((p) => ({
+  const pages = ["/", "/edition/", "/radar/", "/reapply/", "/share/", "/alerts/", "/calendar/", "/companies/", "/pay/", "/stats/", "/for/", "/nl/", "/countries/", "/answers/", "/poster/", "/feedback/", "/about/", "/privacy/"].map((p) => ({
     url: `${site}${p}`,
     lastModified: lastChecked,
     changeFrequency: p === "/" || p === "/edition/" ? ("daily" as const) : ("weekly" as const),
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .map((p) => `/countries/${p.slug}/`),
     ...cityPages().map((p) => `/cities/${p.slug}/`),
     ...fieldPages().map((p) => `/fields/${p.slug}/`),
-    ...fieldPlacePages().map((p) => p.path),
+    ...allPlacePages().map((p) => p.path),
     ...universities.map((u) => `/for/${u.slug}/`),
   ].map((p) => ({
     url: `${site}${p}`,

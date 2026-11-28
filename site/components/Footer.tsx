@@ -14,6 +14,9 @@ export default function Footer() {
           , a CS student in Leiden. Open data, MIT licence.
         </span>
         <span className="flex flex-wrap gap-x-4 gap-y-1">
+          <Link href="/answers/" className="link">
+            Questions, answered
+          </Link>
           <Link href="/countries/" className="link">
             By country
           </Link>

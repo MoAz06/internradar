@@ -13,6 +13,7 @@ import { aboutMonth, type Salary } from "@/data/pay";
 import { eventsFor } from "@/lib/ics";
 import { longDate, stripProtocol } from "@/lib/format";
 import { reportUrl, roleHref, shortWhen } from "@/lib/items";
+import { inCountry, placePagesFor, whatWords } from "@/lib/landing";
 import { rolePages } from "@/lib/rolePages";
 import { og } from "@/lib/og";
 import { shareUrl } from "@/lib/share";
@@ -125,6 +126,8 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
     .filter((o) => o.company.slug === c.slug && o.item.key !== key)
     .sort((a, b) => Number(a.item.status === "closed") - Number(b.item.status === "closed"));
   const facts = factsOf(p);
+  // the city page comes before the country page; the graduate pages after the field ones
+  const places = placePagesFor(x).sort((a, b) => Number(a.what === "Graduate") - Number(b.what === "Graduate") || Number(a.kind === "country") - Number(b.kind === "country"));
 
   return (
     <Section className="pt-6 pb-16 sm:pt-8">
@@ -201,6 +204,21 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
           </Link>
           . It takes a minute.
         </p>
+
+        {places.length > 0 && (
+          <p className="mt-3 text-[17px] leading-[1.6]">
+            More like this:{" "}
+            {places.map((pl, i) => (
+              <span key={pl.path}>
+                {i > 0 && " · "}
+                <Link href={pl.path} className="link">
+                  {whatWords(pl)} in {pl.kind === "country" ? inCountry(pl.placeName) : pl.placeName}
+                </Link>
+              </span>
+            ))}
+            .
+          </p>
+        )}
 
         {others.length > 0 && (
           <>

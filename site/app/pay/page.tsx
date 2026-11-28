@@ -9,10 +9,10 @@ import { longDate } from "@/lib/format";
 import { today } from "@/lib/live";
 import { og } from "@/lib/og";
 
-const blurb = "What tech internships and graduate roles in Europe pay, as the companies state it on their own pages. Per country, with a link to each company.";
+const blurb = "What tech internships and graduate roles in Europe pay, as the companies state it on their own pages: the best paid first, per country, with a link to each company.";
 
 export const metadata: Metadata = {
-  title: "Pay",
+  title: "Best paid tech internships in Europe 2027",
   description: blurb,
   alternates: { canonical: "/pay/" },
   ...og("What tech internships in Europe pay", blurb, "pay", "/pay/"),

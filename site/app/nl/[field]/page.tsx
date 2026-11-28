@@ -10,10 +10,10 @@ export const dynamicParams = false;
 type Params = { field: string };
 
 const pages = () => fieldPlacePages().filter((p) => p.kind === "country" && p.code === "NL");
-const find = (q: Params) => pages().find((p) => p.fieldSlug === q.field);
+const find = (q: Params) => pages().find((p) => p.whatSlug === q.field);
 
 export function generateStaticParams(): Params[] {
-  return pages().map((p) => ({ field: p.fieldSlug }));
+  return pages().map((p) => ({ field: p.whatSlug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {

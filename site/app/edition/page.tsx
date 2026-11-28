@@ -10,10 +10,10 @@ import type { Item } from "@/lib/items";
 import { og } from "@/lib/og";
 
 export const metadata: Metadata = {
-  title: "This week's edition",
-  description: "Internship deadlines that close this week and next, and what opens soon, across Europe.",
+  title: "Tech internships closing this week in Europe",
+  description: "Internship deadlines that close this week and next, and what opens soon, across Europe. A new edition every Monday.",
+  alternates: { canonical: "/edition/" },
   ...og("This week on internradar", "Internship deadlines that close this week and next, and what opens soon, across Europe.", "edition", "/edition/"),
-  alternates: { types: { "application/rss+xml": "/feed.xml" } },
 };
 
 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

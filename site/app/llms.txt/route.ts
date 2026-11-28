@@ -36,6 +36,8 @@ The list is rebuilt every night. New postings on the companies' job boards are a
 - [By city](${site}/cities/london/): one page per city, London, Amsterdam, Munich, Dublin, Zurich and more
 - [By field](${site}/fields/software/): software, data and AI, quant, hardware and embedded
 - A field in a place, like [software engineering in London](${site}/cities/london/software/) or [data and AI in the United Kingdom](${site}/countries/united-kingdom/data-and-ai/): under every country and city page
+- Graduate jobs in a place, like [graduate jobs in the United Kingdom](${site}/countries/united-kingdom/graduate/)
+- [Questions, answered](${site}/answers/): which internships pay the most, who lets you reapply, which online tests companies name, what opens next, what closes this week, each answered from the data
 - [Near your university](${site}/for/): the roles within reach of each university
 - [Pay](${site}/pay/): the pay companies state, side by side
 - [Re-apply rules](${site}/reapply/): companies with a waiting time after a rejection

@@ -11,6 +11,7 @@ import { reapplyRules } from "@/data/reapply";
 import { longDate } from "@/lib/format";
 import { today, upcoming } from "@/lib/live";
 import { buildItems } from "@/lib/buildItems";
+import { allPlacePages, fieldTitle, inCountry } from "@/lib/landing";
 import { startView } from "@/lib/rows";
 import { dataset, siteGraph } from "@/lib/schema";
 
@@ -240,6 +241,23 @@ export default function Home() {
             </Link>
           </p>
         )}
+        {/* the pages people search for word by word, so they are one click from the front page */}
+        <section className="mb-5 border-t-2 border-ink pt-3">
+          <h2 className="font-sans text-[13px] font-bold text-accent">By place and field</h2>
+          <p className="mt-1 flex flex-wrap gap-x-4 gap-y-0.5 text-[15px]">
+            {[...allPlacePages()]
+              .sort((a, b) => b.items.length - a.items.length)
+              .slice(0, 14)
+              .map((p) => (
+                <Link key={p.path} href={p.path} className="link inline-flex min-h-11 items-center">
+                  {p.what === "Graduate" ? "Graduate jobs" : fieldTitle[p.what]} in {p.kind === "country" ? inCountry(p.placeName) : p.placeName}
+                </Link>
+              ))}
+            <Link href="/countries/" className="link inline-flex min-h-11 items-center font-semibold">
+              Every country
+            </Link>
+          </p>
+        </section>
         <p className="border-t border-line pt-4 text-[16px] text-muted">
           Went through one of these processes?{" "}
           <Link href={shareUrl()} className="link">

@@ -94,40 +94,62 @@ export function fieldPages(): FieldPage[] {
 /** "software engineering", "data and AI": a field in the middle of a sentence. */
 export const lowerField = (field: Field) => fieldTitle[field].charAt(0).toLowerCase() + fieldTitle[field].slice(1);
 
-export type FieldPlacePage = {
+export type PlacePage = {
   kind: "country" | "city";
   /** The slug of the country or city. */
   place: string;
   placeName: string;
   placeHref: string;
   code?: string;
-  field: Field;
-  fieldSlug: string;
+  /** A field, or "Graduate" for the graduate roles of every field. */
+  what: Field | "Graduate";
+  whatSlug: string;
   path: string;
   items: Item[];
   companies: number;
 };
 
-let fieldPlaceCache: FieldPlacePage[] | null = null;
+/** The name the field routes use. */
+export type FieldPlacePage = PlacePage;
 
-/** A field in a place, "software engineering in London": the pages people search for word by word. A page exists
- * once the pair has MIN roles at two companies. "Other tech" gets none: nobody searches for it by that name. */
-export function fieldPlacePages(): FieldPlacePage[] {
-  if (fieldPlaceCache) return fieldPlaceCache;
-  const out: FieldPlacePage[] = [];
+let placeCache: PlacePage[] | null = null;
+
+/** A field or the graduate roles in a place, "software engineering in London", "graduate jobs in the United
+ * Kingdom": the pages people search for word by word. A page exists once the pair has MIN roles at two companies.
+ * "Other tech" gets none: nobody searches for it by that name. */
+export function allPlacePages(): PlacePage[] {
+  if (placeCache) return placeCache;
+  const out: PlacePage[] = [];
+  const whats: (Field | "Graduate")[] = [...fields.filter((f) => f !== "Other tech"), "Graduate"];
   const add = (kind: "country" | "city", place: string, placeName: string, placeHref: string, code: string | undefined, items: Item[]) => {
-    for (const field of fields) {
-      if (field === "Other tech") continue;
-      const here = items.filter((x) => x.field === field);
+    for (const what of whats) {
+      const here = what === "Graduate" ? items.filter((x) => x.kind === "Graduate") : items.filter((x) => x.field === what);
       const companies = new Set(here.map((x) => x.slug)).size;
       if (here.length < MIN || companies < 2) continue;
-      const fieldSlug = slugOf(field);
-      const path = kind === "city" ? `/cities/${place}/${fieldSlug}/` : code === "NL" ? `/nl/${fieldSlug}/` : `/countries/${place}/${fieldSlug}/`;
-      out.push({ kind, place, placeName, placeHref, code, field, fieldSlug, path, items: here, companies });
+      const whatSlug = what === "Graduate" ? "graduate" : slugOf(what);
+      const path = kind === "city" ? `/cities/${place}/${whatSlug}/` : code === "NL" ? `/nl/${whatSlug}/` : `/countries/${place}/${whatSlug}/`;
+      out.push({ kind, place, placeName, placeHref, code, what, whatSlug, path, items: here, companies });
     }
   };
   for (const k of countryPages()) add("country", k.slug, k.name, countryPageHref(k.code, k.name), k.code, k.items);
   for (const c of cityPages()) add("city", c.slug, c.city, `/cities/${c.slug}/`, undefined, c.items);
-  fieldPlaceCache = out;
+  placeCache = out;
   return out;
 }
+
+export const fieldPlacePages = () => allPlacePages().filter((p) => p.what !== "Graduate");
+export const graduatePlacePages = () => allPlacePages().filter((p) => p.what === "Graduate");
+
+/** The place pages a role belongs on: its field in its city and its country, and the graduate pages when it is one. */
+export function placePagesFor(x: Item): PlacePage[] {
+  const cities = new Set(citiesOf(x.city).map((c) => c.slug));
+  return allPlacePages().filter(
+    (p) => (p.what === x.field || (p.what === "Graduate" && x.kind === "Graduate")) && (p.kind === "city" ? cities.has(p.place) : p.code === x.country),
+  );
+}
+
+/** "Software engineering internships" or "Tech graduate jobs": what a place page is about, for a title. */
+export const whatTitle = (p: PlacePage) => (p.what === "Graduate" ? "Tech graduate jobs" : `${fieldTitle[p.what]} internships`);
+
+/** "software engineering" or "graduate jobs": the same thing mid-sentence. */
+export const whatWords = (p: PlacePage) => (p.what === "Graduate" ? "graduate jobs" : lowerField(p.what));

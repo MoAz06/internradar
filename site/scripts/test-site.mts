@@ -18,7 +18,7 @@ import { weekOf } from "../lib/week.ts";
 import { testsOf, toolTag } from "../lib/tests.ts";
 import { query, searchable } from "../lib/search.ts";
 import { countryPageHref, postedAgo, postedWords, reminderRow, shortKey, type Item } from "../lib/items.ts";
-import { countryPages, fieldPlacePages, inCountry, lowerField, titleName } from "../lib/landing.ts";
+import { allPlacePages, countryPages, fieldPlacePages, graduatePlacePages, inCountry, lowerField, placePagesFor, titleName } from "../lib/landing.ts";
 import { changedPages } from "../lib/indexing.ts";
 import { plan } from "./google-index.mts";
 import { citiesOf, closesGroup, closesShort, payParts, toRows } from "../lib/rows.ts";
@@ -720,10 +720,23 @@ test("field pages per place: only pairs with enough roles, unique paths, the Net
   const pages = fieldPlacePages();
   assert.ok(pages.length >= 40);
   assert.equal(new Set(pages.map((p) => p.path)).size, pages.length);
-  assert.ok(pages.every((p) => p.items.length >= 3 && p.companies >= 2 && p.field !== "Other tech"));
+  assert.ok(pages.every((p) => p.items.length >= 3 && p.companies >= 2 && p.what !== "Other tech" && p.what !== "Graduate"));
   assert.ok(pages.some((p) => p.path === "/cities/london/software/"));
   assert.ok(pages.some((p) => p.path === "/countries/united-kingdom/software/"));
   assert.ok(pages.filter((p) => p.code === "NL").every((p) => p.path.startsWith("/nl/")));
   assert.equal(lowerField("Data and AI"), "data and AI");
   assert.equal(lowerField("Software"), "software engineering");
+});
+
+test("graduate pages per place and the links a role gets back to its place pages", () => {
+  const grads = graduatePlacePages();
+  assert.ok(grads.length >= 5);
+  assert.ok(grads.every((p) => p.what === "Graduate" && p.whatSlug === "graduate" && p.items.every((x) => x.kind === "Graduate")));
+  assert.ok(grads.some((p) => p.path === "/countries/united-kingdom/graduate/"));
+  assert.equal(new Set(allPlacePages().map((p) => p.path)).size, allPlacePages().length);
+  const london = buildItems().find((x) => x.status === "open" && /^London$/.test(x.city) && x.field === "Software" && x.kind === "Internship")!;
+  const back = placePagesFor(london).map((p) => p.path);
+  assert.ok(back.includes("/cities/london/software/"));
+  assert.ok(back.includes("/countries/united-kingdom/software/"));
+  assert.ok(!back.some((p) => p.endsWith("/graduate/")));
 });
