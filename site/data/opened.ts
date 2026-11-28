@@ -2,6 +2,7 @@
 
 /** Posting link to the day its job board says it was first published (YYYY-MM-DD). */
 export const opened: Record<string, string> = {
+  "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Gilching-Bavaria-Germany/Internship-mobile-robotics-software-development_JR00054304": "2026-11-27",
   "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Krakow-Lesser-Poland-Poland/Student-Internship---Master-Data-Cross-Domain-Service_JR00054282": "2026-11-21",
   "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Malmo-Skane-County-Sweden/Master-Thesis-Work---Industrializing-e-SBOM-Traceability-across-DevOps--Windchill-and-Product-Lifecycle-Systems_JR00053120": "2026-11-12",
   "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Vaasa-Ostrobothnia-Finland/Intern_JR00021419-1": "2026-11-21",
@@ -33,6 +34,7 @@ export const opened: Record<string, string> = {
   "https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse---Palays/Airbus-UpNext-Internship-2027---AI-for-Satellite-Operations---Test-Automation-Engineer--m-f-_JR10458505": "2026-11-17",
   "https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/STAGE-2027---Operations-Data-Products-Trainee_JR10443751": "2026-11-06",
   "https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---AI-Solution-Development--m-f-_JR10444690": "2026-11-19",
+  "https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---Commercial-e--Cyberdfense--F-H-_JR10445143": "2026-11-27",
   "https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---Stage-en-outillage-de-monitoring-plateforme-IT--h-f-_JR10434899": "2026-11-19",
   "https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Donauwrth/Internship--d-f-m--Embedded-Software-Engineering-for-Weapon-Systems_JR10442671-2": "2026-11-13",
   "https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Donauwrth/Internship--d-f-m--within-the-mission-software-department_JR10434978": "2026-11-13",
@@ -199,6 +201,7 @@ export const opened: Record<string, string> = {
   "https://jobs.ashbyhq.com/doctolib/4588a32b-f865-48ec-a2b3-2c89d735c7cb": "2026-11-18",
   "https://jobs.ashbyhq.com/doctolib/89f0374d-48e3-4774-8a46-edfeb0657e8a": "2026-10-12",
   "https://jobs.ashbyhq.com/doctolib/8eee07c8-dd36-4a3c-99cd-a95d65415dec": "2026-11-18",
+  "https://jobs.ashbyhq.com/doctolib/a8c6599a-7aa7-4e0c-82e1-f8c410ff36f3": "2026-11-26",
   "https://jobs.ashbyhq.com/doctolib/dda0530c-043e-4ee5-8e82-f1e98c944af4": "2026-10-12",
   "https://jobs.ashbyhq.com/doctolib/f3605428-4d4f-414c-88d1-787b55518e1c": "2026-10-12",
   "https://jobs.ashbyhq.com/mistral.ai/36f5f453-92c1-4f55-ac2a-bcfad5ffe2d2": "2026-11-24",
@@ -482,6 +485,7 @@ export const opened: Record<string, string> = {
   "https://www.amazon.jobs/en/jobs/10602219/data-engineer-internship": "2026-11-11",
   "https://www.amazon.jobs/en/jobs/10606931/ring-asic-dv-engineer-intern": "2026-11-17",
   "https://www.amazon.jobs/en/jobs/10608081/associate-delivery-consultant-intern-professional-services-a2c-delivery-2027": "2026-11-18",
+  "https://www.amazon.jobs/en/jobs/10615428/2027-software-dev-engineer-internship-aws-ec2": "2026-11-26",
   "https://www.amazon.jobs/en/jobs/3087178/graduate-devops-engineer-aws": "2025-09-18",
   "https://www.imc.com/eu/careers/jobs/4667854101": "2026-05-07",
   "https://www.jumptrading.com/hr/job?gh_jid=7215943": "2025-09-26",
