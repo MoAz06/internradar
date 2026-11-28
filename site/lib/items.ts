@@ -104,6 +104,15 @@ export const roleHref = (key: string) => `/roles/${key}/`;
 /** The list on the front page with one country picked. The list reads the code as well as the slug. */
 export const countryHref = (code: string) => `/?country=${code.toLowerCase()}`;
 
+/** The page for a country: the Netherlands has its short link, the others live under /countries/. The slug is the
+ * name folded, which is how data/companies spells them too (scripts/test-site checks that). */
+export const countryPageHref = (code: string, name: string) =>
+  code === "NL"
+    ? "/nl/"
+    : `/countries/${fold(name)
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")}/`;
+
 /** "today", "1d ago", "12d ago", "3mo ago": how old a posting is, from the day it went up. */
 export function postedAgo(posted: string, today: string): string {
   const d = Math.round((Date.parse(today) - Date.parse(posted)) / 86_400_000);

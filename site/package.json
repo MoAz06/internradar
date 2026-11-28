@@ -16,7 +16,9 @@
     "add-role": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/add-role.mts",
     "role-drafts": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/role-drafts.mts",
     "test-roles": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/test-roles.mts",
-    "test-site": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/test-site.mts"
+    "test-site": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/test-site.mts",
+    "google-index": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/google-index.mts",
+    "indexnow": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/indexnow.mts"
   },
   "dependencies": {
     "next": "16.2.4",

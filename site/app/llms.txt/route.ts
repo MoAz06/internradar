@@ -26,11 +26,16 @@ The list is rebuilt every night. New postings on the companies' job boards are a
 - [New roles as RSS](${site}/feeds/new.xml), and one feed per country
 - [The weekly edition as RSS](${site}/feed.xml)
 - [Deadlines as a calendar](${site}/deadlines.ics)
+- [Every open role as one text file](${site}/llms-full.txt): by country and company, with the deadline, the pay, how the company hires, the posting and the role's page
 
 ## Pages
 
 - [The list](${site}/): every role, by deadline, with filters for country, type, field, study level, visa and test tool
 - [Companies](${site}/companies/): one page per company and city with its hiring process
+- [By country](${site}/countries/): one page per country, with its cities and what its companies say about applying again
+- [By city](${site}/cities/london/): one page per city, London, Amsterdam, Munich, Dublin, Zurich and more
+- [By field](${site}/fields/software/): software, data and AI, quant, hardware and embedded
+- [Near your university](${site}/for/): the roles within reach of each university
 - [Pay](${site}/pay/): the pay companies state, side by side
 - [Re-apply rules](${site}/reapply/): companies with a waiting time after a rejection
 - [Opening soon](${site}/radar/): programmes that open later in the season

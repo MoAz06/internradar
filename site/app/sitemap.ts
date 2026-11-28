@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { companies, lastChecked } from "@/data/companies";
-import { cityPages, fieldPages } from "@/lib/landing";
+import { cityPages, countryPages, fieldPages } from "@/lib/landing";
 import { rolePages } from "@/lib/rolePages";
 import { roleHref } from "@/lib/items";
 import { universities } from "@/lib/universities";
@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 const site = "https://internradar.eu";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["/", "/edition/", "/radar/", "/reapply/", "/share/", "/alerts/", "/calendar/", "/companies/", "/pay/", "/stats/", "/for/", "/nl/", "/poster/", "/feedback/", "/about/", "/privacy/"].map((p) => ({
+  const pages = ["/", "/edition/", "/radar/", "/reapply/", "/share/", "/alerts/", "/calendar/", "/companies/", "/pay/", "/stats/", "/for/", "/nl/", "/countries/", "/poster/", "/feedback/", "/about/", "/privacy/"].map((p) => ({
     url: `${site}${p}`,
     lastModified: lastChecked,
     changeFrequency: p === "/" || p === "/edition/" ? ("daily" as const) : ("weekly" as const),
@@ -20,7 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: c.sources.map((s) => s.checked).sort().at(-1) ?? lastChecked,
     changeFrequency: "weekly" as const,
   }));
-  const landing = [...cityPages().map((p) => `/cities/${p.slug}/`), ...fieldPages().map((p) => `/fields/${p.slug}/`), ...universities.map((u) => `/for/${u.slug}/`)].map((p) => ({
+  const landing = [
+    ...countryPages()
+      .filter((p) => p.code !== "NL")
+      .map((p) => `/countries/${p.slug}/`),
+    ...cityPages().map((p) => `/cities/${p.slug}/`),
+    ...fieldPages().map((p) => `/fields/${p.slug}/`),
+    ...universities.map((u) => `/for/${u.slug}/`),
+  ].map((p) => ({
     url: `${site}${p}`,
     lastModified: lastChecked,
     changeFrequency: "weekly" as const,

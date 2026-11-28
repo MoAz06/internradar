@@ -5,6 +5,8 @@ import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
 import AddToCalendar from "@/components/AddToCalendar";
 import CountryLink from "@/components/CountryLink";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbs } from "@/lib/schema";
 import SaveButton from "@/components/SaveButton";
 import { opened } from "@/data/opened";
 import { aboutMonth, type Salary } from "@/data/pay";
@@ -49,36 +51,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
-/** Google's job search reads this. Only for roles you can apply to now, and only facts from the posting. */
 /** Only a figure the company states with its period; one amount, a range, or "at least". */
 function baseSalary(s: Salary) {
   const value = s.max === undefined ? { value: s.min } : s.max === "open" ? { minValue: s.min } : { minValue: s.min, maxValue: s.max };
   return { "@type": "MonetaryAmount", currency: s.currency, value: { "@type": "QuantitativeValue", ...value, unitText: s.unit } };
-}
-
-function jobPosting(p: NonNullable<ReturnType<typeof page>>) {
-  const { item: x, role: r, company: c } = p;
-  const parts = [
-    stated(r.eligibility) && `<p>Who can apply: ${r.eligibility}</p>`,
-    stated(r.start) && `<p>Start: ${r.start}</p>`,
-    stated(r.duration) && `<p>Duration: ${r.duration}</p>`,
-    stated(r.process) && `<p>Hiring process: ${r.process}</p>`,
-  ].filter(Boolean);
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "JobPosting",
-    title: r.title,
-    description: parts.join("") || `<p>${r.title} at ${c.name}.</p>`,
-    datePosted: opened[r.source] ?? x.added,
-    ...(r.closes ? { validThrough: `${r.closes}T23:59:59` } : {}),
-    ...(x.pay?.salary ? { baseSalary: baseSalary(x.pay.salary) } : {}),
-    employmentType: r.kind === "Graduate" ? "FULL_TIME" : "INTERN",
-    hiringOrganization: { "@type": "Organization", name: c.name, sameAs: c.careersUrl },
-    jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: x.city, addressCountry: x.country } },
-    directApply: false,
-    url: `https://internradar.eu${roleHref(x.key)}`,
-  };
-  return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
 /** "That works out to about £18,850 a month." for a yearly or weekly figure. */
@@ -88,17 +64,9 @@ function perMonth(s: Salary | undefined): string | undefined {
   return m.endsWith("+") ? `That works out to about ${m.slice(0, -1)} a month or more.` : `That works out to about ${m} a month.`;
 }
 
-export default async function RolePage({ params }: { params: Promise<Params> }) {
-  const { key } = await params;
-  const p = page(key);
-  if (!p) notFound();
+/** The facts the page lists, in order, without the ones we don't have. */
+function factsOf(p: NonNullable<ReturnType<typeof page>>): [string, string][] {
   const { item: x, role: r, company: c } = p;
-  const open = x.status === "open" || x.status === "rolling";
-  const tone = x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
-  const exact = r.closes && open ? `Last day to apply: ${longDate(r.closes)}.` : r.opens && x.status === "soon" ? `Applications open ${/^\d{4}-\d{2}-\d{2}$/.test(r.opens) ? longDate(r.opens) : r.opens}.` : "";
-  const others = rolePages()
-    .filter((o) => o.company.slug === c.slug && o.item.key !== key)
-    .sort((a, b) => Number(a.item.status === "closed") - Number(b.item.status === "closed"));
   const facts: [string, string | undefined][] = [
     ["Type", `${r.kind}, ${r.field}`],
     ["Posted", x.posted ? `The job board says it went up on ${longDate(x.posted)}.` : undefined],
@@ -116,10 +84,59 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
     ["Hiring process", stated(r.process) ?? (r.auto ? `How ${c.name} describes it for all roles: ${c.process.join(" ")}` : "The posting doesn't describe it.")],
     ["Re-apply rule", x.reapply ?? undefined],
   ];
+  return facts.filter((f): f is [string, string] => !!f[1]);
+}
+
+const escapeHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/** Google's job search reads this. Only for roles you can apply to now, and only facts from the posting: the same
+ * lines the page shows, so the description says everything we know about the role. */
+function jobPosting(p: NonNullable<ReturnType<typeof page>>, facts: [string, string][]) {
+  const { item: x, role: r, company: c } = p;
+  const lead = `<p>${escapeHtml(r.title)} at ${escapeHtml(c.name)}, ${escapeHtml(x.city)}, ${escapeHtml(x.countryName)}. ${escapeHtml(x.when)}.</p>`;
+  const lines = facts.map(([k, v]) => `<p><b>${escapeHtml(k)}:</b> ${escapeHtml(v)}</p>`).join("");
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: r.title,
+    description: lead + lines,
+    identifier: { "@type": "PropertyValue", name: c.name, value: x.key },
+    datePosted: opened[r.source] ?? x.added,
+    ...(r.closes ? { validThrough: `${r.closes}T23:59:59` } : {}),
+    ...(x.pay?.salary ? { baseSalary: baseSalary(x.pay.salary) } : {}),
+    employmentType: r.kind === "Graduate" ? "FULL_TIME" : "INTERN",
+    hiringOrganization: { "@type": "Organization", name: c.name, sameAs: c.careersUrl },
+    jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: x.city, addressCountry: x.country } },
+    directApply: false,
+    url: `https://internradar.eu${roleHref(x.key)}`,
+  };
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
+export default async function RolePage({ params }: { params: Promise<Params> }) {
+  const { key } = await params;
+  const p = page(key);
+  if (!p) notFound();
+  const { item: x, role: r, company: c } = p;
+  const open = x.status === "open" || x.status === "rolling";
+  const tone = x.status === "closed" ? "text-closed" : x.status === "soon" || x.urgent ? "text-soon" : "text-signal";
+  const exact = r.closes && open ? `Last day to apply: ${longDate(r.closes)}.` : r.opens && x.status === "soon" ? `Applications open ${/^\d{4}-\d{2}-\d{2}$/.test(r.opens) ? longDate(r.opens) : r.opens}.` : "";
+  const others = rolePages()
+    .filter((o) => o.company.slug === c.slug && o.item.key !== key)
+    .sort((a, b) => Number(a.item.status === "closed") - Number(b.item.status === "closed"));
+  const facts = factsOf(p);
 
   return (
     <Section className="pt-6 pb-16 sm:pt-8">
-      {open && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jobPosting(p) }} />}
+      {open && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jobPosting(p, facts) }} />}
+      <JsonLd
+        data={breadcrumbs([
+          { name: "internradar", path: "/" },
+          { name: "Companies", path: "/companies/" },
+          { name: c.name, path: `/companies/${c.slug}/` },
+          { name: r.title, path: roleHref(x.key) },
+        ])}
+      />
       <div className="max-w-[720px]">
         <p className="font-sans text-[14px] text-muted">
           <Link href={`/companies/${c.slug}/`} className="link font-semibold">
@@ -149,9 +166,7 @@ export default async function RolePage({ params }: { params: Promise<Params> }) 
         </div>
 
         <dl className="mt-7 border-t-2 border-ink">
-          {facts
-            .filter((f): f is [string, string] => !!f[1])
-            .map(([k, v]) => (
+          {facts.map(([k, v]) => (
               <div key={k} className="grid gap-x-6 gap-y-0.5 border-b border-line py-3 sm:grid-cols-[150px_1fr]">
                 <dt className="font-sans text-[13px] font-semibold text-muted">{k}</dt>
                 <dd className="text-[17px] leading-[1.55]">{v}</dd>

@@ -5,12 +5,14 @@ import Section from "@/components/Section";
 import NewTab from "@/components/NewTab";
 import EmailSignup from "@/components/EmailSignup";
 import RoleFinder from "@/components/RoleFinder";
+import JsonLd from "@/components/JsonLd";
 import { companies, countries, links, radar } from "@/data/companies";
 import { reapplyRules } from "@/data/reapply";
 import { longDate } from "@/lib/format";
 import { today, upcoming } from "@/lib/live";
 import { buildItems } from "@/lib/buildItems";
 import { startView } from "@/lib/rows";
+import { dataset, siteGraph } from "@/lib/schema";
 
 /** What people type into Google is "tech internships" and "tech internships london", so the home page says that
  * in its title. The count comes from the night's build, like the headline. */
@@ -178,6 +180,8 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={siteGraph("Tech internships and graduate roles in Europe, with each company's hiring process, its rule on applying again and the pay it states.")} />
+      <JsonLd data={dataset({ roles: items.filter((x) => x.status !== "closed").length, companies: companies.length, countries: options.length }, now)} />
       {/* the list first, on every screen: the headline on top, the stories beside the list (or below it on phones) */}
       <Section className="pt-5 pb-10 max-md:pt-3 max-md:pb-6">
         <div className="mb-5 max-md:mb-4">
@@ -189,7 +193,9 @@ export default function Home() {
           </p>
           <p className="mt-1.5 font-sans text-[15px] text-muted max-md:text-[14px]">
             <b className="font-semibold text-ink">{fresh}</b> new this week · <b className="font-semibold text-ink">{companies.length}</b> companies ·{" "}
-            <b className="font-semibold text-ink">{options.length}</b> countries
+            <Link href="/countries/" className="link">
+              <b className="font-semibold text-ink">{options.length}</b> countries
+            </Link>
             {links.newsletter && (
               <span className="md:hidden">
                 {" "}

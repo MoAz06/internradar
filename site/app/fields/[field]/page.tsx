@@ -3,8 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
 import RoleList from "@/components/RoleList";
+import JsonLd from "@/components/JsonLd";
+import { roleHref } from "@/lib/items";
 import { cityPages, fieldPages, fieldTitle } from "@/lib/landing";
 import { og } from "@/lib/og";
+import { breadcrumbs, itemList } from "@/lib/schema";
 
 export const dynamicParams = false;
 
@@ -31,6 +34,13 @@ export default async function FieldPage({ params }: { params: Promise<{ field: s
   const soon = p.items.filter((x) => x.status === "soon");
   return (
     <Section className="pt-8 pb-16 sm:pt-10">
+      <JsonLd
+        data={breadcrumbs([
+          { name: "internradar", path: "/" },
+          { name: fieldTitle[p.field], path: `/fields/${p.slug}/` },
+        ])}
+      />
+      <JsonLd data={itemList(`${fieldTitle[p.field]} internships and graduate roles in Europe`, open.map((x) => roleHref(x.key)))} />
       <p className="text-[14px] font-bold text-accent">Europe</p>
       <h1 className="mt-1 text-[28px] leading-tight font-bold sm:text-[40px]">{fieldTitle[p.field]} internships and graduate roles</h1>
       <p className="mt-3 max-w-[720px] text-[17px] leading-[1.6] text-muted">

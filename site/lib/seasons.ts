@@ -14,6 +14,11 @@ export function seasonOf(day: string): string {
   return `${start}-${String(start + 1).slice(2)}`;
 }
 
+/** The summer the season's internships are for: 2027 on any day of the 2026-27 season. */
+export function summerYear(day: string): number {
+  return Number(seasonOf(day).slice(0, 4)) + 1;
+}
+
 export type FirstSeen = { day: string; title: string; source: string; from: "board" | "list" };
 
 /** Per season, the first day one of the company's roles went up. The list's own dates count only after

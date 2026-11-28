@@ -3,6 +3,7 @@
 // page that only repeats one company page.
 
 import type { Field } from "../data/types.ts";
+import { countries } from "../data/companies.ts";
 import { buildItems } from "./buildItems.ts";
 import { fields, fold, type Item } from "./items.ts";
 
@@ -47,6 +48,28 @@ export function cityPages(): CityPage[] {
     .filter(([, p]) => p.items.length >= MIN && new Set(p.items.map((x) => x.slug)).size >= 2)
     .map(([slug, p]) => ({ slug, city: p.city, countryName: p.items[0].countryName, items: p.items, companies: new Set(p.items.map((x) => x.slug)).size }))
     .sort((a, b) => b.items.length - a.items.length || a.city.localeCompare(b.city));
+}
+
+export type CountryPage = { code: string; name: string; slug: string; items: Item[]; companies: number; cities: CityPage[] };
+
+/** "the Netherlands", "the United Kingdom", "Germany": a country in the middle of a sentence. */
+export const inCountry = (name: string) => (/^(Netherlands|United Kingdom)$/.test(name) ? `the ${name}` : name);
+
+/** The country in a page title, the way people type it in a search box. */
+export const titleName = (p: { code: string; name: string }) => (p.code === "GB" ? "the UK" : inCountry(p.name));
+
+/** Every country with at least one role that is open or open soon, most roles first. The Netherlands is in the
+ * list for the index and the "other countries" links; its page is /nl/, not /countries/netherlands/. */
+export function countryPages(): CountryPage[] {
+  const items = current(buildItems());
+  const cities = cityPages();
+  return countries
+    .map((k) => {
+      const here = items.filter((x) => x.country === k.code);
+      return { code: k.code, name: k.name, slug: k.slug, items: here, companies: new Set(here.map((x) => x.slug)).size, cities: cities.filter((c) => c.countryName === k.name) };
+    })
+    .filter((p) => p.items.length > 0)
+    .sort((a, b) => b.items.length - a.items.length || a.name.localeCompare(b.name));
 }
 
 /** How a field reads in a headline. */

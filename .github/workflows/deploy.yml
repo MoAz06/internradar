@@ -94,6 +94,9 @@ jobs:
       # new roles on the job boards are found by the private inbox repo at night (npm run discover and
       # role-drafts), where each one becomes a draft to check before it goes on the list
       - run: npm run build
+        env:
+          # served at /indexnow.txt, so the search engines on IndexNow can check the nightly pings
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
       - run: echo internradar.eu > out/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -112,3 +115,29 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # tells Google (its Indexing API, for the job pages) and the search engines on IndexNow which pages changed
+  # tonight, so they come back within hours instead of weeks. Both scripts do nothing without their secret.
+  notify:
+    needs: deploy
+    if: ${{ !cancelled() && needs.deploy.result == 'success' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+      - run: npm run indexnow
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+      - run: npm run google-index
+        continue-on-error: true
+        env:
+          GOOGLE_INDEXING_KEY: ${{ secrets.GOOGLE_INDEXING_KEY }}

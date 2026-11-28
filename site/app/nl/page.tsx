@@ -6,8 +6,11 @@ import EmailSignup from "@/components/EmailSignup";
 import { companies, countries } from "@/data/companies";
 import { reapplyRules } from "@/data/reapply";
 import { buildItems } from "@/lib/buildItems";
+import { countryPageHref } from "@/lib/items";
 import { cityPages } from "@/lib/landing";
+import { today } from "@/lib/live";
 import { og } from "@/lib/og";
+import { summerYear } from "@/lib/seasons";
 
 // The Netherlands on one short link: every Dutch role, the cities, and what Dutch companies say about a second try.
 
@@ -16,12 +19,12 @@ const NAME = "Netherlands";
 
 const here = () => buildItems().filter((x) => x.country === CODE && x.status !== "closed");
 const describe = (n: number, m: number) =>
-  `${n} tech internships and graduate roles in the ${NAME} that are open or open soon, at ${m} companies, each with the hiring process.`;
+  `${n} tech internships and graduate roles in the ${NAME} for summer ${summerYear(today())}, open or open soon, at ${m} companies, each with the deadline, the hiring process and the rule on applying again.`;
 
 export function generateMetadata(): Metadata {
   const items = here();
   const d = describe(items.length, new Set(items.map((x) => x.slug)).size);
-  const title = `Tech internships in the ${NAME}`;
+  const title = `Tech internships in the ${NAME} ${summerYear(today())}`;
   return { title, description: d, alternates: { canonical: "/nl/" }, ...og(title, d, "nl", "/nl/") };
 }
 
@@ -123,7 +126,7 @@ export default function NetherlandsPage() {
           <h2 className="mt-7 border-t border-ink pt-3 text-[20px] font-bold">Other countries</h2>
           <p className="mt-1 flex flex-wrap gap-x-4 text-[15px]">
             {others.map((k) => (
-              <Link key={k.code} href={`/?country=${k.slug}`} className="link inline-flex min-h-11 items-center">
+              <Link key={k.code} href={countryPageHref(k.code, k.name)} className="link inline-flex min-h-11 items-center">
                 {k.name}
               </Link>
             ))}

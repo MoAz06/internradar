@@ -3,12 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Section from "@/components/Section";
 import RoleFinder from "@/components/RoleFinder";
+import JsonLd from "@/components/JsonLd";
 import { countries } from "@/data/companies";
 import { buildItems } from "@/lib/buildItems";
+import { countryPageHref, roleHref } from "@/lib/items";
 import { cityPages, citiesOf } from "@/lib/landing";
 import { today } from "@/lib/live";
 import { og } from "@/lib/og";
 import { startView } from "@/lib/rows";
+import { breadcrumbs, itemList } from "@/lib/schema";
+import { summerYear } from "@/lib/seasons";
 
 export const dynamicParams = false;
 
@@ -16,15 +20,17 @@ export function generateStaticParams() {
   return cityPages().map((p) => ({ city: p.slug }));
 }
 
-const describe = (city: string, n: number, m: number) =>
-  `${n} tech internships and graduate roles in ${city} that are open or open soon, at ${m} ${m === 1 ? "company" : "companies"}, each with the hiring process.`;
+const describe = (city: string, n: number, m: number, year: number) =>
+  `${n} tech internships and graduate roles in ${city} for summer ${year}, open or open soon, at ${m} ${m === 1 ? "company" : "companies"}, each with the deadline and the hiring process.`;
 
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
   const { city } = await params;
   const p = cityPages().find((x) => x.slug === city);
   if (!p) return {};
-  const title = `Tech internships in ${p.city}`;
-  return { title, description: describe(p.city, p.items.length, p.companies), ...og(title, describe(p.city, p.items.length, p.companies), "companies", `/cities/${p.slug}/`) };
+  const year = summerYear(today());
+  const title = `Tech internships in ${p.city} ${year}`;
+  const d = describe(p.city, p.items.length, p.companies, year);
+  return { title, description: d, alternates: { canonical: `/cities/${p.slug}/` }, ...og(title, d, "companies", `/cities/${p.slug}/`) };
 }
 
 export default async function CityPage({ params }: { params: Promise<{ city: string }> }) {
@@ -40,13 +46,22 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     .map((k) => ({ code: k.code, name: k.name, slug: k.slug, count: every.filter((x) => x.country === k.code).length }))
     .filter((k) => k.count > 0);
   const others = cityPages().filter((x) => x.slug !== p.slug);
+  const country = countries.find((k) => k.name === p.countryName);
   return (
     <Section className="pt-8 pb-16 sm:pt-10">
+      <JsonLd
+        data={breadcrumbs([
+          { name: "internradar", path: "/" },
+          ...(country ? [{ name: country.name, path: countryPageHref(country.code, country.name) }] : []),
+          { name: p.city, path: `/cities/${p.slug}/` },
+        ])}
+      />
+      <JsonLd data={itemList(`Tech internships and graduate roles in ${p.city}`, p.items.filter((x) => x.status !== "soon").map((x) => roleHref(x.key)))} />
       <p className="text-[14px] font-bold text-accent">{p.countryName}</p>
       <h1 className="mt-1 text-[28px] leading-tight font-bold sm:text-[40px]">Tech internships and graduate roles in {p.city}</h1>
       <p className="mt-3 max-w-[720px] text-[17px] leading-[1.6] text-muted">
-        {describe(p.city, p.items.length, p.companies)} Deadlines first. The company pages have the interview steps and the
-        re-apply rule.
+        {describe(p.city, p.items.length, p.companies, summerYear(now))} Deadlines first. The company pages have the interview steps
+        and the re-apply rule.
       </p>
       <div className="mt-7 lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
         <div className="min-w-0">

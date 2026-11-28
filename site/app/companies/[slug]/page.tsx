@@ -23,7 +23,9 @@ import CountryLink from "@/components/CountryLink";
 import FollowButton from "@/components/FollowButton";
 import FollowEmail from "@/components/FollowEmail";
 import EmailSignup from "@/components/EmailSignup";
+import JsonLd from "@/components/JsonLd";
 import { cityPages, citiesOf } from "@/lib/landing";
+import { breadcrumbs } from "@/lib/schema";
 
 type Params = { slug: string };
 
@@ -95,6 +97,13 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbs([
+          { name: "internradar", path: "/" },
+          { name: "Companies", path: "/companies/" },
+          { name: c.name, path: `/companies/${c.slug}/` },
+        ])}
+      />
       <Section className="pt-10 pb-6 sm:pt-14">
         <Link href="/companies/" className="link text-sm">
           All companies
