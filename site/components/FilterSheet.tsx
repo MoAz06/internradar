@@ -31,7 +31,7 @@ function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; chi
       type="button"
       aria-pressed={on}
       onClick={onClick}
-      className={`h-11 rounded-full border px-3.5 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink"}`}
+      className={`h-11 rounded-full border px-3.5 text-[15px] whitespace-nowrap ${on ? "border-ink bg-ink font-semibold text-bg" : "border-line bg-surface text-ink hover:border-muted"}`}
     >
       {children}
     </button>
@@ -122,7 +122,7 @@ export default function FilterSheet({
             aria-modal="true"
             aria-labelledby="filters-title"
             tabIndex={-1}
-            className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-2xl bg-bg px-4 pt-2 pb-5 focus:outline-none md:inset-x-auto md:top-[8vh] md:bottom-auto md:left-1/2 md:w-[520px] md:-translate-x-1/2 md:rounded-2xl md:px-6 md:pt-5"
+            className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-2xl bg-bg px-4 pt-2 pb-5 focus:outline-none md:inset-x-auto md:top-[8vh] md:bottom-auto md:left-1/2 md:w-[520px] md:-translate-x-1/2 md:rounded-2xl md:border md:border-line md:px-6 md:pt-5 md:shadow-xl"
           >
             <div className="mx-auto mb-2 h-1 w-9 rounded-full bg-line md:hidden" />
             <div className="flex items-center justify-between">

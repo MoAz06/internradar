@@ -127,12 +127,10 @@ jobs:
         working-directory: site
     steps:
       - uses: actions/checkout@v4
+      # the two scripts use only Node itself and the site's own files, so nothing is installed
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - run: npm ci
       # the night's posting check, so a role whose posting is gone counts as closed here too
       - uses: actions/cache/restore@v4
         with:

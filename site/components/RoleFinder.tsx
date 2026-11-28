@@ -146,8 +146,16 @@ function Process({ x }: { x: Item }) {
   return <>{/^not stated/i.test(x.process) ? "The posting doesn't describe the process." : x.process}</>;
 }
 
-/** The pay cell when the company names no figure: said plainly, so the empty cell does not look like missing data. */
-const notStated = <span className="text-[12px] text-dim">not stated</span>;
+/** The pay cell when the company names no figure: a quiet dash, read out in words, so the companies that do name
+ * one stand out in the column. */
+const notStated = (
+  <>
+    <span aria-hidden="true" className="text-dim">
+      —
+    </span>
+    <span className="sr-only">not stated</span>
+  </>
+);
 
 /** Pay in the narrow desktop column: the figure, with the period in small type below it, so a long range never runs into the deadline. */
 const payCell = (short: string) => {
@@ -297,8 +305,8 @@ export default function RoleFinder({
       }
     };
     window.addEventListener("hashchange", onHash);
-    // back and forward between pages of the list
-    const onPop = () => setPage(Math.max(1, Math.floor(Number(new URLSearchParams(location.search).get("page")) || 1)));
+    // back and forward: the filters and the page of that step, from its URL
+    const onPop = () => read();
     window.addEventListener("popstate", onPop);
     // "/" jumps to the search box
     const onKey = (e: KeyboardEvent) => {
@@ -482,6 +490,18 @@ export default function RoleFinder({
     const byOpen = [...countries].sort((a, b) => (b.open ?? b.count) - (a.open ?? a.count));
     return [...byOpen.filter((k) => lead.includes(k.code)), ...byOpen.filter((k) => !lead.includes(k.code))];
   }, [countries, home, profile]);
+  // phones scroll the chips sideways: a fade at the right edge says there is more, and goes at the end of the row
+  const chipRow = useRef<HTMLDivElement>(null);
+  const [chipsMore, setChipsMore] = useState(false);
+  const chipsScrolled = () => {
+    const el = chipRow.current;
+    if (el) setChipsMore(el.scrollWidth - el.scrollLeft - el.clientWidth > 8);
+  };
+  useEffect(() => {
+    chipsScrolled();
+    window.addEventListener("resize", chipsScrolled);
+    return () => window.removeEventListener("resize", chipsScrolled);
+  }, [chipOrder]);
   // the number on a chip: live once every role is in, the build's own count before that
   const chipCount = (k: CountryOption) => (ready ? (perCountry.get(k.code) ?? 0) : pre ? (k.open ?? null) : null);
   const toggleCountry = (code: string) =>
@@ -523,19 +543,19 @@ export default function RoleFinder({
       return next;
     });
   };
-  /** Saves every role in a merged row, or takes them all off when they are all saved already. Undo puts back the list as it was. */
+  /** Saves every role in a merged row, or takes them all off when they are all saved already. Undo puts those roles
+   * back the way they were and leaves what was saved or removed since alone. */
   const toggleSaveAll = (ids: string[]) => {
     const all = ids.every((id) => saved.includes(id));
-    const before = saved;
-    toast(all ? `Removed ${ids.length} roles from your list` : `Saved ${ids.length} roles to your list`, () => {
-      writeSaved(before);
-      setSaved(before);
-    });
-    setSaved((cur) => {
-      const next = all ? cur.filter((s) => !ids.includes(s)) : [...new Set([...cur, ...ids])];
+    const were = ids.filter((id) => saved.includes(id));
+    const write = (next: string[]) => {
       writeSaved(next);
       return next;
-    });
+    };
+    toast(all ? `Removed ${ids.length} roles from your list` : `Saved ${ids.length} roles to your list`, () =>
+      setSaved((cur) => write(all ? [...new Set([...cur, ...ids])] : cur.filter((s) => !ids.includes(s) || were.includes(s)))),
+    );
+    setSaved((cur) => write(all ? cur.filter((s) => !ids.includes(s)) : [...new Set([...cur, ...ids])]));
   };
   const savedItems = items.filter((x) => saved.includes(x.id));
   const stillLoading = () => {
@@ -766,7 +786,7 @@ export default function RoleFinder({
               <span>
                 {isNew(x) && newBadge}
                 <span className="hover:underline">{x.title}</span>
-                <CountChip text="details" open={open} />
+                <CountChip text="" open={open} />
               </span>
             </button>
             {!inner && howLine(x, "-mt-1 mb-1.5 text-[13.5px]")}
@@ -836,7 +856,7 @@ export default function RoleFinder({
     const hot = x.status === "soon" ? "text-soon" : x.urgent ? "font-semibold text-soon" : "text-muted";
     return (
       <li key={x.id} className={`relative border-line ${inner ? "border-t pl-3" : "border-b"}`}>
-        <details onToggle={(e) => e.currentTarget.open && saw(x.id)}>
+        <details className="group" onToggle={(e) => e.currentTarget.open && saw(x.id)}>
           <summary className="block cursor-pointer list-none py-2.5 pr-11 [&::-webkit-details-marker]:hidden">
             {!inner && (
               <span className="flex items-baseline gap-2">
@@ -850,6 +870,7 @@ export default function RoleFinder({
             <span className={`block font-serif leading-snug ${inner ? "text-[15px]" : "mt-0.5 text-[16px]"}`}>
               {inner && isNew(x) && newBadge}
               {x.title}
+              <CountChip text="" />
             </span>
             {!inner && howLine(x, "mt-0.5 text-[13px]")}
             {inner ? (
@@ -874,7 +895,7 @@ export default function RoleFinder({
     const hot = x.urgent ? "font-semibold text-soon" : "text-muted";
     return (
       <li key={r.id} className="relative border-b border-line">
-        <details onToggle={(e) => e.currentTarget.open && saw(`group:${r.id}`)}>
+        <details className="group" onToggle={(e) => e.currentTarget.open && saw(`group:${r.id}`)}>
           <summary className="block cursor-pointer list-none py-2.5 pr-11 [&::-webkit-details-marker]:hidden">
             <span className="flex items-baseline gap-2">
               <span className="min-w-0 flex-1 truncate">
@@ -918,9 +939,13 @@ export default function RoleFinder({
             row and keep the rest in the panel. */}
         {!scope && (
           <div
+            ref={chipRow}
+            onScroll={chipsScrolled}
             role="group"
             aria-label="Countries"
-            className="flex basis-full gap-1.5 max-md:-mx-4 max-md:basis-[calc(100%+2rem)] max-md:overflow-x-auto max-md:px-4 max-md:[scrollbar-width:none] sm:max-md:-mx-6 sm:max-md:basis-[calc(100%+3rem)] sm:max-md:px-6 md:order-last md:flex-wrap"
+            className={`flex basis-full gap-1.5 max-md:-mx-4 max-md:basis-[calc(100%+2rem)] max-md:overflow-x-auto max-md:px-4 max-md:[scrollbar-width:none] sm:max-md:-mx-6 sm:max-md:basis-[calc(100%+3rem)] sm:max-md:px-6 md:order-last md:flex-wrap ${
+              chipsMore ? "max-md:[mask-image:linear-gradient(to_right,#000_calc(100%-2.5rem),transparent)]" : ""
+            }`}
           >
             {chipOrder.map((k, i) => {
               const on = f.countries.includes(k.code);
@@ -1021,88 +1046,99 @@ export default function RoleFinder({
         </div>
       )}
 
-      <div className="mt-3 mb-1 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-sans text-[14px] text-muted">
-        <p aria-live="polite" className="font-semibold text-ink">
-          {waiting ? (
-            "Loading roles"
-          ) : (
-            <>
-              {shownCount} {shownCount === 1 ? "role" : "roles"}
-              {f.status === "soon" ? " opening soon" : f.status === "new" ? " new" : ""}
-            </>
-          )}
-        </p>
-        {/* on phones too: the order sits with the count, so the filters above take one row */}
-        <label className="flex items-center gap-1.5">
-          <span className="max-md:sr-only">Sort</span>
-          <select
-            value={f.sort}
-            onChange={(e) => set({ sort: e.target.value as Sort })}
-            className="h-9 rounded-md border border-line bg-surface px-1.5 text-[14px] text-ink hover:border-muted max-md:h-11"
-          >
-            <option value="deadline">Closing soonest</option>
-            <option value="pay">Highest pay ({withPay})</option>
-            <option value="new">Newest</option>
-          </select>
-        </label>
-        {f.status === "soon" ? (
-          <button type="button" onClick={() => set({ status: "open" })} className="text-link underline underline-offset-2 max-md:min-h-11">
-            Back to open roles
-          </button>
-        ) : (
-          // phones keep the count line to one row: there it's under More filters, Status
-          counts.soon > 0 && (
-            <button type="button" onClick={() => set({ status: "soon" })} className="text-link underline underline-offset-2 max-md:hidden">
-              Opening soon ({counts.soon})
-            </button>
-          )
-        )}
-        {f.countries.length > 1 &&
-          f.countries.map((code) => (
-            <button
-              key={code}
-              type="button"
-              onClick={() => set({ countries: f.countries.filter((c) => c !== code) })}
-              className="flex h-8 items-center gap-1 rounded-full bg-raised px-2.5 text-[13px] font-semibold whitespace-nowrap text-ink max-md:h-11"
+      <div className="mt-3 mb-1 font-sans text-[14px] text-muted">
+        {/* the count, the order and the quick links on one line; the filters that are on get a line of their own below */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+          <p aria-live="polite" className="font-semibold text-ink">
+            {waiting ? (
+              "Loading roles"
+            ) : (
+              <>
+                {shownCount} {shownCount === 1 ? "role" : "roles"}
+                {f.status === "soon" ? " opening soon" : f.status === "new" ? " new" : ""}
+              </>
+            )}
+          </p>
+          {/* on phones too: the order sits with the count, so the filters above take one row */}
+          <label className="flex items-center gap-1.5">
+            <span className="max-md:sr-only">Sort</span>
+            <select
+              value={f.sort}
+              onChange={(e) => set({ sort: e.target.value as Sort })}
+              className="h-9 rounded-md border border-line bg-surface px-1.5 text-[14px] text-ink hover:border-muted max-md:h-11"
             >
-              {nameOf(code)}
-              <Icon name="x" className="h-3.5 w-3.5" />
-              <span className="sr-only">, remove this country</span>
+              <option value="deadline">Closing soonest</option>
+              <option value="pay">Highest pay ({withPay})</option>
+              <option value="new">Newest</option>
+            </select>
+          </label>
+          {f.status === "soon" ? (
+            <button type="button" onClick={() => set({ status: "open" })} className="text-link underline underline-offset-2 max-md:min-h-11">
+              Back to open roles
             </button>
-          ))}
-        {on.map((x) => (
-          <button
-            key={x.label}
-            type="button"
-            onClick={() => set(x.clear)}
-            className="flex h-8 items-center gap-1 rounded-full bg-raised px-2.5 text-[13px] font-semibold whitespace-nowrap text-ink max-md:h-11"
-          >
-            {x.label}
-            <Icon name="x" className="h-3.5 w-3.5" />
-            <span className="sr-only">, remove this filter</span>
-          </button>
-        ))}
-        {filtered && (
-          <button
-            type="button"
-            onClick={() => {
-              setF({ ...start, fit: f.fit });
-              setPage(1);
-            }}
-            className="text-link underline underline-offset-2 max-md:min-h-11"
-          >
-            Clear filters
-          </button>
-        )}
-        {saved.length > 0 && (
-          <Link href="/mine/" className="font-semibold text-link underline underline-offset-2 max-md:hidden" data-track="to-mine">
-            My applications ({saved.length})
-          </Link>
-        )}
-        {!profileText && (
-          <Link href="/profile/" className="text-link underline underline-offset-2 max-md:hidden" data-track="profile-from-list">
-            Set your profile
-          </Link>
+          ) : (
+            // phones keep the count line to one row: there it's under More filters, Status
+            counts.soon > 0 && (
+              <button type="button" onClick={() => set({ status: "soon" })} className="text-link underline underline-offset-2 max-md:hidden">
+                Opening soon ({counts.soon})
+              </button>
+            )
+          )}
+          {(saved.length > 0 || !profileText) && (
+            <span className="ml-auto flex flex-wrap items-center gap-x-4 gap-y-1.5 max-md:hidden">
+              {saved.length > 0 && (
+                <Link href="/mine/" className="font-semibold text-link underline underline-offset-2" data-track="to-mine">
+                  My applications ({saved.length})
+                </Link>
+              )}
+              {!profileText && (
+                <Link href="/profile/" className="text-link underline underline-offset-2" data-track="profile-from-list">
+                  Set your profile
+                </Link>
+              )}
+            </span>
+          )}
+        </div>
+        {(f.countries.length > 1 || on.length > 0 || filtered) && (
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+            {f.countries.length > 1 &&
+              f.countries.map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => set({ countries: f.countries.filter((c) => c !== code) })}
+                  className="flex h-8 items-center gap-1 rounded-full bg-raised px-2.5 text-[13px] font-semibold whitespace-nowrap text-ink max-md:h-11"
+                >
+                  {nameOf(code)}
+                  <Icon name="x" className="h-3.5 w-3.5" />
+                  <span className="sr-only">, remove this country</span>
+                </button>
+              ))}
+            {on.map((x) => (
+              <button
+                key={x.label}
+                type="button"
+                onClick={() => set(x.clear)}
+                className="flex h-8 items-center gap-1 rounded-full bg-raised px-2.5 text-[13px] font-semibold whitespace-nowrap text-ink max-md:h-11"
+              >
+                {x.label}
+                <Icon name="x" className="h-3.5 w-3.5" />
+                <span className="sr-only">, remove this filter</span>
+              </button>
+            ))}
+            {filtered && (
+              <button
+                type="button"
+                onClick={() => {
+                  setF({ ...start, fit: f.fit });
+                  setPage(1);
+                }}
+                className="text-link underline underline-offset-2 max-md:min-h-11"
+              >
+                Clear filters
+              </button>
+            )}
+          </div>
         )}
       </div>
       <div aria-live="polite" className="text-[14px]">

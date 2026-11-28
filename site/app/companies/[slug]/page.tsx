@@ -106,7 +106,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
           { name: c.name, path: `/companies/${c.slug}/` },
         ])}
       />
-      <Section className="pt-10 pb-6 sm:pt-14">
+      <Section className="pt-8 pb-6 sm:pt-10">
         <Link href="/companies/" className="link text-sm">
           All companies
         </Link>

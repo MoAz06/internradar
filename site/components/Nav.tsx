@@ -3,6 +3,7 @@ import { lastChecked } from "@/data/companies";
 import { longDate, shortDate } from "@/lib/format";
 import { buildItems } from "@/lib/buildItems";
 import MobileNav from "@/components/MobileNav";
+import NavLinks from "@/components/NavLinks";
 import ThemeToggle from "@/components/ThemeToggle";
 import { today } from "@/lib/live";
 
@@ -40,13 +41,7 @@ export default function Nav() {
       </div>
       <nav aria-label="Main" className="mt-2 border-y-[3px] border-double border-ink">
         <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 py-1.5 text-[15px]">
-          {items.map((i) => (
-            <li key={i.href}>
-              <Link href={i.href} className="py-1 hover:underline">
-                {i.label}
-              </Link>
-            </li>
-          ))}
+          <NavLinks items={items} />
           <li>
             <Link href="/share/" className="py-1 hover:underline" data-track="share-process">
               Share your process

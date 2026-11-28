@@ -92,6 +92,16 @@ const escapeHtml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;")
 
 /** Google's job search reads this. Only for roles you can apply to now, and only facts from the posting: the same
  * lines the page shows, so the description says everything we know about the role. */
+/** The last second of a deadline day in Dutch time, offset included, so a crawler doesn't read the day as UTC and
+ * end the posting an hour or two early. */
+function endOfDay(day: string): string {
+  const zone = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Amsterdam", timeZoneName: "longOffset" })
+    .formatToParts(new Date(`${day}T12:00:00Z`))
+    .find((p) => p.type === "timeZoneName")?.value;
+  const offset = !zone || zone === "GMT" ? "+00:00" : zone.replace("GMT", "");
+  return `${day}T23:59:59${offset}`;
+}
+
 function jobPosting(p: NonNullable<ReturnType<typeof page>>, facts: [string, string][]) {
   const { item: x, role: r, company: c } = p;
   const lead = `<p>${escapeHtml(r.title)} at ${escapeHtml(c.name)}, ${escapeHtml(x.city)}, ${escapeHtml(x.countryName)}. ${escapeHtml(x.when)}.</p>`;
@@ -103,7 +113,7 @@ function jobPosting(p: NonNullable<ReturnType<typeof page>>, facts: [string, str
     description: lead + lines,
     identifier: { "@type": "PropertyValue", name: c.name, value: x.key },
     datePosted: opened[r.source] ?? x.added,
-    ...(r.closes ? { validThrough: `${r.closes}T23:59:59` } : {}),
+    ...(r.closes ? { validThrough: endOfDay(r.closes) } : {}),
     ...(x.pay?.salary ? { baseSalary: baseSalary(x.pay.salary) } : {}),
     employmentType: r.kind === "Graduate" ? "FULL_TIME" : "INTERN",
     hiringOrganization: { "@type": "Organization", name: c.name, sameAs: c.careersUrl },

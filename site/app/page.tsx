@@ -80,7 +80,7 @@ function Rail({ story, next, week }: { story: boolean; next: ReturnType<typeof u
   );
   return (
     // a labelled section, not an aside: it sits inside main, and an aside there confuses screen reader landmarks
-    <section aria-label="More on internradar" className="grid gap-x-8 gap-y-7 max-md:hidden md:mt-10 md:grid-cols-2 lg:mt-0 lg:grid-cols-1 lg:content-start">
+    <section aria-label="More on internradar" className="grid gap-x-8 gap-y-7 max-md:hidden md:mt-10 md:grid-cols-2 xl:mt-0 xl:grid-cols-1 xl:content-start">
       <section>
         {head("Re-apply rules", { href: "/reapply/", label: `All ${reapplyRules.length}` })}
         {story ? (
@@ -183,7 +183,8 @@ export default function Home() {
     <>
       <JsonLd data={siteGraph("Tech internships and graduate roles in Europe, with each company's hiring process, its rule on applying again and the pay it states.")} />
       <JsonLd data={dataset({ roles: items.filter((x) => x.status !== "closed").length, companies: companies.length, countries: options.length }, now)} />
-      {/* the list first, on every screen: the headline on top, the stories beside the list (or below it on phones) */}
+      {/* the list first, on every screen: the headline on top, the stories beside the list on wide screens and
+          below it on phones, tablets and small laptops, where the table needs the whole width */}
       <Section className="pt-5 pb-10 max-md:pt-3 max-md:pb-6">
         <div className="mb-5 max-md:mb-4">
           <h1 className="text-[32px] leading-tight font-bold text-balance max-md:text-[24px]">
@@ -208,7 +209,7 @@ export default function Home() {
             )}
           </p>
         </div>
-        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
+        <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_280px] xl:gap-10">
           <div className="min-w-0">
             <RoleFinder view={startView(items, now)} countries={options} now={now} />
           </div>

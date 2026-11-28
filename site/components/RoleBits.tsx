@@ -31,12 +31,15 @@ export function HowLine({
   );
 }
 
-/** "4 roles" or "2 cities" next to a merged row's title; the arrow turns when it is open. */
+/** "4 roles" or "2 cities" next to a merged row's title; the arrow turns when it is open. Without text it is the
+ * arrow alone: the hint on a single role that it opens. In a `group` details element the arrow turns by itself. */
 export function CountChip({ text, open = false }: { text: string; open?: boolean }) {
+  const arrow = <Icon name="chevron" className={`h-3.5 w-3.5 transition-transform group-open:rotate-180 ${open ? "rotate-180" : ""}`} />;
+  if (!text) return <span className="ml-1 inline-flex align-[1px] text-dim">{arrow}</span>;
   return (
     <span className="ml-1.5 inline-flex items-center gap-0.5 rounded-sm border border-line bg-surface px-1.5 align-[1px] font-sans text-[12.5px] whitespace-nowrap text-muted">
       {text}
-      <Icon name="chevron" className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      {arrow}
     </span>
   );
 }

@@ -56,7 +56,8 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       aria-pressed={theme === t}
       aria-label={label}
       title={label}
-      className={`flex h-11 w-11 items-center justify-center rounded-full ${theme === t ? "bg-ink text-bg" : "text-muted hover:text-ink"}`}
+      // a finger needs 44px; beside the masthead's small type a pointer gets a smaller switch
+      className={`flex h-11 w-11 items-center justify-center rounded-full md:h-8 md:w-8 ${theme === t ? "bg-ink text-bg" : "text-muted hover:text-ink"}`}
     >
       <Icon name={t === "light" ? "sun" : "moon"} className="h-[18px] w-[18px]" />
     </button>
