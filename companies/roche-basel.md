@@ -7,6 +7,7 @@ Careers page: https://careers.roche.com/global/en/ch-faq
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| AI Research Internship – Retrospective Safety Prediction and Evidence-Based Validation (for 6 months in Basel) | Open, no deadline listed |  | 6 months |  | [link](https://roche.wd3.myworkdayjobs.com/roche-ext/job/Basel/AI-Research-Internship---Retrospective-Safety-Prediction-and-Evidence-Based-Validation--for-6-months-in-Basel-_202611-130530) | 2026-11-28 |
 | AI & Automation Intern, Data Access and Sharing (Basel, 6 months) | Open, no deadline listed |  | 6 months |  | [link](https://roche.wd3.myworkdayjobs.com/roche-ext/job/Basel/AI---Automation-Intern--Data-Access-and-Sharing--Basel--6-months-_202610-127145) | 2026-11-25 |
 
 ## Process, as the company describes it

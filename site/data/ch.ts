@@ -1400,6 +1400,21 @@ export const ch: Company[] = [
     careersUrl: "https://careers.roche.com/global/en/ch-faq",
     roles: [
       {
+        title: "AI Research Internship – Retrospective Safety Prediction and Evidence-Based Validation (for 6 months in Basel)",
+        kind: "Internship",
+        field: "Data and AI",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        duration: "6 months",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://roche.wd3.myworkdayjobs.com/roche-ext/job/Basel/AI-Research-Internship---Retrospective-Safety-Prediction-and-Evidence-Based-Validation--for-6-months-in-Basel-_202611-130530",
+        checked: "2026-11-28",
+        auto: true,
+      },
+      {
         title: "AI & Automation Intern, Data Access and Sharing (Basel, 6 months)",
         kind: "Internship",
         field: "Data and AI",

@@ -7,6 +7,7 @@ Careers page: https://careers.abb/poland/pl/
 
 | Role | Applications | Start | Duration | Who can apply | Source | Checked |
 | --- | --- | --- | --- | --- | --- | --- |
+| Student Internship - Front-End Software Development | Open, no deadline listed |  | Not stated |  | [link](https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Krakow-Lesser-Poland-Poland/Internship---FrontEnd-Software-Engineer_JR00034867) | 2026-11-28 |
 | Student Internship - Master Data Cross Domain Service | Open, no deadline listed |  | Not stated |  | [link](https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Krakow-Lesser-Poland-Poland/Student-Internship---Master-Data-Cross-Domain-Service_JR00054282) | 2026-11-24 |
 
 ## Process, as the company describes it

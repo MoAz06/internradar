@@ -488,6 +488,21 @@ export const pl: Company[] = [
     careersUrl: "https://jobs.eu.lever.co/tomtom",
     roles: [
       {
+        title: "Software Engineering Intern",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://jobs.eu.lever.co/tomtom/d99c29a1-1a18-491c-857e-5c79a005c6fb",
+        checked: "2026-11-28",
+        city: "Lodz",
+        auto: true,
+      },
+      {
         title: "Software Engineer Internship",
         kind: "Internship",
         field: "Software",
@@ -791,6 +806,20 @@ export const pl: Company[] = [
     city: "Kraków",
     careersUrl: "https://careers.abb/poland/pl/",
     roles: [
+      {
+        title: "Student Internship - Front-End Software Development",
+        kind: "Internship",
+        field: "Software",
+        status: "open",
+        applications: "Open, no deadline listed",
+        start: "",
+        eligibility: "",
+        process: "",
+        reapply: "",
+        source: "https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Krakow-Lesser-Poland-Poland/Internship---FrontEnd-Software-Engineer_JR00034867",
+        checked: "2026-11-28",
+        auto: true,
+      },
       {
         title: "Student Internship - Master Data Cross Domain Service",
         kind: "Internship",

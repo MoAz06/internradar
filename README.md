@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-963-blue) ![checked](https://img.shields.io/badge/last%20checked-28%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-966-blue) ![checked](https://img.shields.io/badge/last%20checked-28%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -644,6 +644,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Marvell Technology](companies/marvell-zurich.md) | Silicon Photonic Design Intern | Adliswil | 🟢 | – | See the company page | Not stated | 24 Nov |
 | [Pinterest](companies/pinterest-zurich.md) | Software Engineering Intern 2027 (Zurich) | Zurich | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Pinterest](companies/pinterest-zurich.md) | Machine Learning Intern 2027 (Zurich) | Zurich | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Roche](companies/roche-basel.md) | AI Research Internship – Retrospective Safety Prediction and Evidence-Based Validation (for 6 months in Basel) | Basel | 🟢 | – | See the company page | Not stated | 28 Nov |
 | [Roche](companies/roche-basel.md) | AI & Automation Intern, Data Access and Sharing (Basel, 6 months) | Basel | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [CERN](companies/cern-geneva.md) | Short Term Internship 2027 - Information Technologies | Geneva | 🟢 | – | See the company page | CERN's tips page says “You’re welcome to reapply.” For the summer programmes you are not eligible if you already took part in the Summer Student Programme or worked at CERN for more than 3 months under another status. | 25 Nov |
 | [CERN](companies/cern-geneva.md) | CERN openlab Summer Student Programme 2027 | Geneva | 🟢 until 21 Jan | 21 or 28 June 2027 | See the company page | CERN's tips page says “You’re welcome to reapply.” For the summer programmes you are not eligible if you already took part in the Summer Student Programme or worked at CERN for more than 3 months under another status. | 25 Nov |
@@ -1016,6 +1017,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Citi](companies/citi-warsaw.md) | Technology - Infrastructure, Full Time Analyst, Warsaw 2027 | Warsaw | 🟢 | July | Technical interviews with basic algorithmic programming exercises | Not stated | 17 Nov |
 | [Revolut](companies/revolut-krakow.md) | Graduate Programme 2027: Software Engineer (Java) | Kraków | 🟢 | March or September 2027 | Recruitment runs July to December 2026 | Not stated | 17 Nov |
 | [Revolut](companies/revolut-krakow.md) | Internship Programme 2027: Software Engineer (Java) | Kraków | 🟢 | June / July 2027 | Recruitment runs July to December 2026 | Not stated | 17 Nov |
+| [TomTom](companies/tomtom-lodz.md) | Software Engineering Intern | Lodz | 🟢 | – | See the company page | Not stated | 28 Nov |
 | [TomTom](companies/tomtom-lodz.md) | Software Engineer Internship | Łódź | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Squarepoint Capital](companies/squarepoint-capital-warsaw.md) | Intern Software Developer - Warsaw 2027 | Warsaw | 🟢 | You pick a start month; the internship runs throughout the year | Not stated | Not stated | 18 Nov |
 | [Squarepoint Capital](companies/squarepoint-capital-warsaw.md) | Graduate Software Developer | Warsaw | 🟢 | – | You pick one or more tracks (Python, C++, Front-End) when applying | Not stated | 18 Nov |
@@ -1026,6 +1028,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [NVIDIA](companies/nvidia-warsaw.md) | Developer Tools DevOps Engineering Intern - 2027 | Warsaw | 🟢 | – | Usually phone interviews only; technical roles may include a coding exercise | Not stated | 20 Nov |
 | [Amazon](companies/amazon-gdansk.md) | 2027 Software Dev Engineer Intern - Poland | Gdańsk | 🟢 | – | Online assessment, then a loop of interviews | Not stated | 20 Nov |
 | [Ericsson](companies/ericsson-krakow.md) | Software Developer \| Early Career Program | Kraków | 🟢 | August 2027 (April at the earliest) | Assessment, recruiter call, then 2 to 3 interviews | Not stated | 20 Nov |
+| [ABB](companies/abb-krakow.md) | Student Internship - Front-End Software Development | Kraków | 🟢 | – | See the company page | If ABB can't match you to an internship within 6 months, your application is rejected; you are welcome to apply again. | 28 Nov |
 | [ABB](companies/abb-krakow.md) | Student Internship - Master Data Cross Domain Service | Kraków | 🟢 | – | See the company page | If ABB can't match you to an internship within 6 months, your application is rejected; you are welcome to apply again. | 24 Nov |
 | [Visa](companies/visa-warsaw.md) | Software Engineer Intern | Warsaw | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Accenture](companies/accenture-poland.md) | Software Testing Internship Program (She/He/They) | Łódź | 🟢 | – | See the company page | Yes. Accenture’s hiring page says “you’re welcome to reapply”, and each role needs a new application. If you fail the online test, you must wait at least 90 days before you take the same test again, even for another role. | 25 Nov |

@@ -980,7 +980,10 @@ export const roleHistory: Record<string, { added: string; statuses: [string, str
   "abb-mannheim|Internship mobile robotics software development|https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Gilching-Bavaria-Germany/Internship-mobile-robotics-software-development_JR00054304":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
   "doctolib-paris|Stage - Business Data Analyst (x/f/m) - janvier 2027|https://jobs.ashbyhq.com/doctolib/a8c6599a-7aa7-4e0c-82e1-f8c410ff36f3":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
   "airbus-toulouse|Stage 2027 - Commercial(e) Cyberdéfense (F/H)|https://ag.wd3.myworkdayjobs.com/Airbus/job/Toulouse-Area/Stage-2027---Commercial-e--Cyberdfense--F-H-_JR10445143":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
-  "sopra-steria-france|Stage - Chargé(e) de recrutement - Cybersécurité - Toulouse|https://jobs.smartrecruiters.com/SopraSteria1/744000163847868":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]}
+  "sopra-steria-france|Stage - Chargé(e) de recrutement - Cybersécurité - Toulouse|https://jobs.smartrecruiters.com/SopraSteria1/744000163847868":{"added":"2026-11-27","statuses":[["2026-11-27","open"]]},
+  "roche-basel|AI Research Internship – Retrospective Safety Prediction and Evidence-Based Validation (for 6 months in Basel)|https://roche.wd3.myworkdayjobs.com/roche-ext/job/Basel/AI-Research-Internship---Retrospective-Safety-Prediction-and-Evidence-Based-Validation--for-6-months-in-Basel-_202611-130530":{"added":"2026-11-28","statuses":[["2026-11-28","open"]]},
+  "tomtom-lodz|Software Engineering Intern|https://jobs.eu.lever.co/tomtom/d99c29a1-1a18-491c-857e-5c79a005c6fb":{"added":"2026-11-28","statuses":[["2026-11-28","open"]]},
+  "abb-krakow|Student Internship - Front-End Software Development|https://abb.wd3.myworkdayjobs.com/External_Career_Page/job/Krakow-Lesser-Poland-Poland/Internship---FrontEnd-Software-Engineer_JR00034867":{"added":"2026-11-28","statuses":[["2026-11-28","open"]]}
 };
 
 /** Per company slug: the day it was added. */
