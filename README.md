@@ -168,7 +168,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Vanderlande](companies/vanderlande.md) | Internship: IT Infrastructure & systems | Veghel | 🟢 rolling | – | See the company page | Not stated. | 21 Nov |
 | [Vanderlande](companies/vanderlande.md) | Internship: Building the Future of Work with Low-Code AI Skills for Vanderlande | Veghel | 🔴 | – | See the company page | Not stated. | 26 Nov |
 | [Vanderlande](companies/vanderlande.md) | Internship/Graduation: Agentic AI Systems for Software Re-engineering | Veghel | 🔴 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 27 Nov |
-| [Vanderlande](companies/vanderlande.md) | Graduation: Operational Digital Twin Automation | Veghel | 🟢 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
+| [Vanderlande](companies/vanderlande.md) | Graduation: Operational Digital Twin Automation | Veghel | 🔴 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 28 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation: Supply chain risk assessment through an analytical digital twin | Veghel | 🟢 | January or February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 20 Nov |
 | [Vanderlande](companies/vanderlande.md) | Graduation/Internship: AI Process Optimization in Engineering | Veghel | 🔴 | February 2027 | Form with CV and cover letter, review, screening, interviews | Not stated | 27 Nov |
 | [TomTom](companies/tomtom-amsterdam.md) | Software Engineering Internship - API Management | AMS | 🟢 | – | See the company page | Yes. TomTom's FAQ answers “Absolutely! We’re excited to see all the experience you’ve gained in the last year.” to people who were not selected last year. | 25 Nov |
@@ -237,7 +237,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [G-Research](companies/g-research.md) | Graduate Machine Learning Engineer | London | 🟢 | 31 August 2027 | Technical interview or remote test, behavioural, further technical, management interviews | Not stated | 16 Nov |
 | [G-Research](companies/g-research.md) | Quantitative Researcher - Postgraduate | London | 🟢 | – | Online quant quiz, four 1-hour technical interviews (two if ML), leadership interviews | Not stated | 16 Nov |
 | [Arm](companies/arm.md) | Graduate Program - Engineering Pathways | Cambridge | 🔴 | – | HireVue or phone interview, then deeper interviews with team | Yes, re-apply next year | 25 Nov |
-| [Arm](companies/arm.md) | Graduate Quality Analytics and Automation Engineer | Cambridge | 🟢 until 29 Nov | – | HireVue or phone interview, then deeper interviews with team | Yes, re-apply next year | 16 Nov |
+| [Arm](companies/arm.md) | Graduate Quality Analytics and Automation Engineer | Cambridge | 🔴 | – | HireVue or phone interview, then deeper interviews with team | Yes, re-apply next year | 28 Nov |
 | [Google DeepMind](companies/google-deepmind.md) | Student Researcher, 2027 | London | 🟢 until 13 Dec | – | Not stated on the posting | Not stated | 16 Nov |
 | [Squarepoint Capital](companies/squarepoint-capital-london.md) | Intern Software Developer - London - 2027 | London | 🟢 | You pick a start month; the internship runs throughout the year | Not stated | Not stated | 17 Nov |
 | [Squarepoint Capital](companies/squarepoint-capital-london.md) | Intern Quant Researcher | London | 🟢 | – | Not stated | Not stated | 17 Nov |
@@ -462,7 +462,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Siemens](companies/siemens.md) | Siemens Graduate Program Germany, Digital Industries Automation, Research & Development (f/m/d) | Fürth, Regensburg | 🟢 | – | CV screening, initial interview, assessment centre | Not stated | 16 Nov |
 | [Siemens](companies/siemens.md) | Pflichtpraktikum im Bereich Elektronik & Elektrotechnik in der R&D Abteilung | Fürth, Regensburg | 🟢 | – | Not stated | Not stated | 16 Nov |
 | [Bosch](companies/bosch.md) | Werkstudent Agentic AI & Microsoft Copilot Studio (w/m/div.) | Waltenhofen | 🟢 | – | See the company page | Not stated | 24 Nov |
-| [Bosch](companies/bosch.md) | Master Thesis AI-based Sensorless Edrive Control | Renningen | 🟢 | – | See the company page | Not stated | 20 Nov |
+| [Bosch](companies/bosch.md) | Master Thesis AI-based Sensorless Edrive Control | Renningen | 🔴 | – | See the company page | Not stated | 28 Nov |
 | [Bosch](companies/bosch.md) | Praktikum Softwareentwicklung und Datenanalyse | Ansbach | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Praktikum Elektrotechnik, hardwarenahe Softwareentwicklung auf embedded Systems | Ansbach | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Werkstudent in der Hardware-Entwicklung für Technologiebewertung und Benchmarking bei Bosch eBike Systems (w/m/div.) | Reutlingen | 🟢 | – | See the company page | Not stated | 20 Nov |
@@ -473,14 +473,14 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Bosch](companies/bosch.md) | Mandatory Internship in State of Health Aware Bidirectional Charging Algorithm Development | Schwieberdingen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Praktikum Softwareentwicklung für Bosch eBike Systems ABS | Reutlingen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Working Student in Automotive Security (f/m/div.) | Stuttgart | 🟢 | – | See the company page | Not stated | 20 Nov |
-| [Bosch](companies/bosch.md) | Praktikum im Bereich Enterprise Data & AI im Sondermaschinenbau | Stuttgart | 🟢 | – | See the company page | Not stated | 20 Nov |
+| [Bosch](companies/bosch.md) | Praktikum im Bereich Enterprise Data & AI im Sondermaschinenbau | Stuttgart | 🔴 | – | See the company page | Not stated | 28 Nov |
 | [Bosch](companies/bosch.md) | Internship in MEMS & Electronics – Development, Characterization, and Prototyping | Reutlingen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Werkstudent im Testlabor – Hardware & Automation (w/m/div.) | Hildesheim | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Thesis AI Agent for Automated Machine Diagnostics and Root-Cause Analysis | Elchingen | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Werkstudent IT (w/m/div.) | Arnstadt | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Werkstudent Data Engineering & Backend (w/m/div.) | Wernau | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Werkstudent Data Analytics & Business Intelligence (w/m/div.) | Gunzenhausen | 🟢 | – | See the company page | Not stated | 20 Nov |
-| [Bosch](companies/bosch.md) | Mandatory Internship Automotive Networking Innovation and Software-Defined Vehicle Technologies | Stuttgart | 🟢 | – | See the company page | Not stated | 20 Nov |
+| [Bosch](companies/bosch.md) | Mandatory Internship Automotive Networking Innovation and Software-Defined Vehicle Technologies | Stuttgart | 🔴 | – | See the company page | Not stated | 28 Nov |
 | [Bosch](companies/bosch.md) | Internship in Development of an AI-Based Competitive Database and Product Matching Tool | Ulm | 🟢 | – | See the company page | Not stated | 20 Nov |
 | [Bosch](companies/bosch.md) | Junior Managers Program (Trainee) - Start your Leadership Journey in Information Technology | Gerlingen, Abstatt, Schwieberdingen (Baden-Württemberg) and Elchingen (Bavaria) | 🟢 | Flexible start date | Telephone interview, assessment center, final interview | Not stated | 16 Nov |
 | [Bosch](companies/bosch.md) | Junior Managers Program (Trainee) - Start your Leadership Journey in Corporate Research | Gerlingen, Abstatt, Schwieberdingen (Baden-Württemberg) and Elchingen (Bavaria) | 🟢 | Flexible start date | Telephone interview, assessment center, final interview | Not stated | 16 Nov |
@@ -813,7 +813,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage de fin d’étude – Ingénieur(e) Data/IA – Structuration et exploitation intelligente des données | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage de fin d’étude – Ingénieur(e) IA/ML – Prototypage d’un modèle de suivi de clairance aéronautiques | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage de fin d’étude – Ingénieur(e) IA/ML – Exploration et prototypage de solutions de Machine Learning | Le Plessis-Robinson | 🟢 | – | See the company page | Not stated | 25 Nov |
-| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) EPP / EDR - Cybersécurité - Île-de-France | Courbevoie | 🟢 | – | See the company page | Not stated | 25 Nov |
+| [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) EPP / EDR - Cybersécurité - Île-de-France | Courbevoie | 🔴 | – | See the company page | Not stated | 28 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Ingénieur(e) Cybersécurité - Architecture et IA - Protect by Design - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage - Développeur(se) Front-end React.js - Cybersécurité - Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
 | [Sopra Steria](companies/sopra-steria-france.md) | Stage – Ingénieur/e IA générative & industrialisation Cloud – Aeroline – Toulouse | Colomiers | 🟢 | – | See the company page | Not stated | 25 Nov |
@@ -1002,7 +1002,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Intel](companies/intel-gdansk.md) | Automation Developer - Graphics Software Internship | Gdańsk | 🟢 | – | Not stated | Not stated | 18 Nov |
 | [Intel](companies/intel-gdansk.md) | AI Software Development Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 18 Nov |
 | [Intel](companies/intel-gdansk.md) | Compiler Engineering Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 17 Nov |
-| [Intel](companies/intel-gdansk.md) | GPU Software Engineering Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 17 Nov |
+| [Intel](companies/intel-gdansk.md) | GPU Software Engineering Intern | Gdańsk | 🔴 | – | Not stated | Not stated | 28 Nov |
 | [Intel](companies/intel-gdansk.md) | Middleware Software Engineering Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Intel](companies/intel-gdansk.md) | Media AI Software Intern | Gdańsk | 🔴 | – | Not stated | Not stated | 19 Nov |
 | [Intel](companies/intel-gdansk.md) | System Software Engineering Intern | Gdańsk | 🟢 | – | Not stated | Not stated | 17 Nov |
