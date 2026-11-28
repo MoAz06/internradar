@@ -137,7 +137,9 @@ jobs:
         continue-on-error: true
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+      # Google allows about 200 notifications a day, so only the night's run spends them, not every push
       - run: npm run google-index
+        if: github.event_name != 'push'
         continue-on-error: true
         env:
           GOOGLE_INDEXING_KEY: ${{ secrets.GOOGLE_INDEXING_KEY }}
