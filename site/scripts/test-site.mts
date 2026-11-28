@@ -8,6 +8,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import { companies, countries } from "../data/companies.ts";
+import { roleHistory } from "../data/history.ts";
 import { payFor, payRules } from "../data/pay.ts";
 import { companyNoSponsor, languagesOf, levelsOf, needsClearance, needsWorkRights, relocationLines } from "../lib/eligibility.ts";
 import { openRoles, toCsv } from "../lib/openRoles.ts";
@@ -750,6 +751,7 @@ test("change days: newest first, every day has a change, a role is not both adde
   for (const d of days) {
     const added = new Set(d.added.map((x) => x.key));
     assert.ok(!d.opened.some((x) => added.has(x.key)));
-    assert.ok(!d.closed.some((x) => x.status !== "closed"));
+    // closed on that day by the history or by its deadline; it may well be open again today
+    assert.ok(d.closed.every((x) => roleHistory[x.id]?.statuses.some(([day, s]) => day === d.day && s === "closed") || x.closes === d.day));
   }
 });
