@@ -107,8 +107,9 @@ async function check(url: string): Promise<Result> {
   }
 
   // Lever
-  const lv = u.hostname === "jobs.lever.co" && u.pathname.match(/^\/([^/]+)\/([0-9a-f-]{36})/);
-  if (lv) return byStatus(await get(`https://api.lever.co/v0/postings/${lv[1]}/${lv[2]}`, "application/json"), "Lever");
+  const lvHost = u.hostname === "jobs.lever.co" ? "api.lever.co" : u.hostname === "jobs.eu.lever.co" ? "api.eu.lever.co" : "";
+  const lv = lvHost && u.pathname.match(/^\/([^/]+)\/([0-9a-f-]{36})/);
+  if (lv) return byStatus(await get(`https://${lvHost}/v0/postings/${lv[1]}/${lv[2]}`, "application/json"), "Lever");
 
   // Ashby: the board API lists every live job
   const ab = u.hostname === "jobs.ashbyhq.com" && u.pathname.match(/^\/([^/]+)\/([0-9a-f-]{36})/);

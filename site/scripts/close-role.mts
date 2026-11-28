@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { companies } from "../data/companies.ts";
+import { editRoleOf } from "../lib/dataFile.ts";
 import { longDate } from "../lib/format.ts";
 import { sections } from "../lib/issueSections.ts";
 import { reopenBlock } from "../lib/reopen.ts";
@@ -31,23 +32,39 @@ const arg = (name: string) => (args.includes(name) ? args[args.indexOf(name) + 1
 /** The hidden line that ties an issue to one posting link. */
 export const closeKey = (url: string) => `<!-- close-key: ${url} -->`;
 
-/** Sets the role with this posting link to closed, in whichever data file has it. false when none has it. */
-function closeInData(url: string, applications: string): boolean {
+/** The hidden line that says which role on that link: one posting can be six cities or two programmes. */
+export const closeRole = (slug: string, title: string) => `<!-- close-role: ${slug} | ${title} -->`;
+
+/** The company and the title named in an issue, when the issue has the line. Older issues only have the link. */
+export function whichRole(body: string): { slug: string; title: string } | null {
+  const m = body.match(/<!-- close-role: (\S+) \| (.+?) -->/);
+  return m ? { slug: m[1], title: m[2] } : null;
+}
+
+/** The role an issue is about: by company and title when the issue names them, else the first open role on the link. */
+function roleOf(url: string, who: { slug: string; title: string } | null) {
+  const company = who ? companies.find((c) => c.slug === who.slug) : companies.find((c) => c.roles.some((r) => r.source === url));
+  const role = who
+    ? company?.roles.find((r) => r.source === url && r.title === who.title)
+    : (company?.roles.find((r) => r.source === url && r.status !== "closed") ?? company?.roles.find((r) => r.source === url));
+  return { company, role };
+}
+
+/** Sets the role with this posting link to closed, in whichever data file has it. With a company and a title it
+ * is that role; without, the first on the link that is still open. false when none has it. */
+function closeInData(url: string, applications: string, who: { slug: string; title: string } | null): boolean {
+  const edit = (block: string) =>
+    block
+      .replace(/(\n        status: )"[a-z]+",/, '$1"closed",')
+      .replace(/(\n        applications: )".*",/, `$1${JSON.stringify(applications)},`)
+      .replace(/(\n        checked: )"[\d-]+",/, `$1"${today}",`);
   for (const f of readdirSync(dataDir).filter((f) => /^[a-z]{2}\.ts$/.test(f))) {
     const path = join(dataDir, f);
     // a Windows checkout has CRLF; written back with LF, which git stores anyway
     const text = readFileSync(path, "utf8").replace(/\r\n/g, "\n");
-    const at = text.indexOf(`source: ${JSON.stringify(url)},`);
-    if (at < 0) continue;
-    // the role object around the link: from the "{" before it to the "}," after it
-    const start = text.lastIndexOf("\n      {\n", at);
-    const end = text.indexOf("\n      },", at);
-    const block = text
-      .slice(start, end)
-      .replace(/(\n        status: )"[a-z]+",/, '$1"closed",')
-      .replace(/(\n        applications: )".*",/, `$1${JSON.stringify(applications)},`)
-      .replace(/(\n        checked: )"[\d-]+",/, `$1"${today}",`);
-    writeFileSync(path, text.slice(0, start) + block + text.slice(end));
+    const out = editRoleOf(text, url, edit, who?.slug, who?.title);
+    if (out === null) continue;
+    writeFileSync(path, out);
     return true;
   }
   return false;
@@ -61,15 +78,22 @@ if (args.includes("--reopen")) {
     let text = readFileSync(path, "utf8").replace(/\r\n/g, "\n");
     let changed = false;
     for (const url of listed) {
-      const at = text.indexOf(`source: ${JSON.stringify(url)},`);
-      if (at < 0) continue;
-      const start = text.lastIndexOf("\n      {\n", at);
-      const end = text.indexOf("\n      },", at);
-      const open = reopenBlock(text.slice(start, end), today);
-      if (!open) continue;
-      text = text.slice(0, start) + open + text.slice(end);
-      changed = true;
-      console.log(url);
+      // every role on the link, not only the first: one posting can be several cities
+      let from = 0;
+      for (;;) {
+        const at = text.indexOf(`source: ${JSON.stringify(url)},`, from);
+        if (at < 0) break;
+        const start = text.lastIndexOf("\n      {\n", at);
+        const end = text.indexOf("\n      },", at);
+        if (start < 0 || end < 0) break;
+        from = end;
+        const open = reopenBlock(text.slice(start, end), today);
+        if (!open) continue;
+        text = text.slice(0, start) + open + text.slice(end);
+        from = start + open.length;
+        changed = true;
+        console.log(url);
+      }
     }
     if (changed) writeFileSync(path, text);
   }
@@ -85,10 +109,11 @@ if (args.includes("--auto")) {
     const url = i.body.match(/<!-- close-key: (\S+) -->/)?.[1];
     // opened tonight: the first night it was gone, so it waits
     if (!url || day(i.createdAt) >= today || !gone.has(url)) continue;
-    const role = companies.flatMap((c) => c.roles).find((r) => r.source === url);
+    const who = whichRole(i.body);
+    const { role } = roleOf(url, who);
     const applications = (sections(i.body).get("applications") ?? "").replace(/\s+/g, " ").trim();
     if (!role || role.status === "closed" || !applications || applications.length > 160 || /—/.test(applications)) continue;
-    if (closeInData(url, applications)) console.log(i.number);
+    if (closeInData(url, applications, who)) console.log(i.number);
   }
   process.exit(0);
 }
@@ -98,11 +123,21 @@ if (args.includes("--drafts")) {
   const out = arg("--out");
   mkdirSync(out, { recursive: true });
   const check = JSON.parse(readFileSync(join(site, ".linkcheck.json"), "utf8")) as { checkedAt: string; gone: { url: string; why: string }[] };
+  // an issue from before the close-role line only names the link, and settled every role on it; since then each
+  // role on a shared link gets an issue of its own
+  const settled = (url: string) => {
+    const key = closeKey(url);
+    for (let at = seen.indexOf(key); at >= 0; at = seen.indexOf(key, at + key.length)) {
+      if (!seen.slice(at + key.length).trimStart().startsWith("<!-- close-role: ")) return true;
+    }
+    return false;
+  };
   let n = 0;
   for (const g of check.gone) {
-    if (seen.includes(closeKey(g.url))) continue;
+    if (settled(g.url)) continue;
     for (const c of companies) {
       for (const r of c.roles.filter((r) => r.source === g.url && r.status !== "closed")) {
+        if (seen.includes(closeRole(c.slug, r.title))) continue;
         n++;
         const id = String(n).padStart(3, "0");
         writeFileSync(join(out, `${id}.title.txt`), `[closed] ${c.name}, ${c.city}: ${r.title}`);
@@ -110,6 +145,7 @@ if (args.includes("--drafts")) {
           join(out, `${id}.body.md`),
           [
             closeKey(g.url),
+            closeRole(c.slug, r.title),
             `The posting for **${r.title}** at ${c.name}, ${c.city} (\`${c.slug}\`) was gone when the nightly check ran on ${longDate(check.checkedAt)} (${g.why}).`,
             "",
             `Open it to be sure: ${g.url}`,
@@ -123,7 +159,7 @@ if (args.includes("--drafts")) {
             "",
           ].join("\n"),
         );
-        // only one role per link is closed by one issue; a second role on the same link gets its own next night
+        // one issue per company per night on a shared link; a second role of the same company gets its own next night
         break;
       }
     }
@@ -140,9 +176,9 @@ if (!file) {
 }
 const body = readFileSync(file, "utf8");
 const url = body.match(/<!-- close-key: (\S+) -->/)?.[1] ?? "";
+const who = whichRole(body);
 const applications = (sections(body).get("applications") ?? "").replace(/\s+/g, " ").trim();
-const company = companies.find((c) => c.roles.some((r) => r.source === url));
-const role = company?.roles.find((r) => r.source === url);
+const { company, role } = roleOf(url, who);
 const blockers = [
   !url && "The hidden close-key line is missing from the issue.",
   url && !role && "No role on the list has this posting link any more.",
@@ -172,6 +208,6 @@ if (!args.includes("--dry")) {
     console.error(blockers.join("\n"));
     process.exit(1);
   }
-  const done = closeInData(url, applications);
-  if (!done) throw new Error(`No data file has ${url}`);
+  const done = closeInData(url, applications, who);
+  if (!done) throw new Error(`No data file has ${url}${who ? ` for ${who.slug}` : ""}`);
 }

@@ -55,7 +55,7 @@ const json = (status: number, body: unknown, origin: string) =>
 export async function handle(req: Request, env: Env, fetcher: typeof fetch = fetch, now = new Date()): Promise<Response> {
   // the links in the emails: a GET from the email, or the one-click POST a mail app sends
   const path = new URL(req.url).pathname;
-  if (path === "/follow/confirm" || path === "/follow/stop") return followLink(req, env, now);
+  if (path === "/follow/confirm" || path === "/follow/stop") return followLink(req, env, now, fetcher);
 
   const origin = req.headers.get("Origin") ?? "";
   const allowed = env.ALLOWED_ORIGINS.split(",").map((s) => s.trim());
@@ -174,25 +174,56 @@ async function startFollow(raw: Record<string, unknown>, env: Env, fetcher: type
   // one confirm email per company per 10 minutes, so the form can't flood someone's inbox
   if (had && now.getTime() - Date.parse(had.asked) < 10 * 60_000) return json(200, { ok: true }, ok);
 
-  f.companies[slug] = { on: false, since: "", asked: now.toISOString() };
-  await env.FOLLOWS.put(`sub:${user}`, JSON.stringify(f));
+  // the mail first, the request after: a request that is kept while the mail failed would tell the next try
+  // "check your inbox" for ten minutes, with nothing in it
   const { subject, text } = confirmMail(company, await link(env.SELF_URL, env.FOLLOW_SECRET, "on", user, slug));
   if (!(await resend(env, fetcher, { to: [email], subject, text }))) return json(502, { error: "The email didn't go out. Try again in a minute." }, ok);
+  f.companies[slug] = { on: false, since: "", asked: now.toISOString() };
+  await env.FOLLOWS.put(`sub:${user}`, JSON.stringify(f));
   return json(200, { ok: true }, ok);
 }
 
-/** Confirm and stop links. Both check the signature, then send the person to a page on the site that says what happened. */
-async function followLink(req: Request, env: Env, now: Date): Promise<Response> {
+const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+/** The page behind a link in an email: a question and one button. Mail scanners open links, they don't press
+ * buttons, so nothing changes until a person does. */
+function askPage(on: boolean, all: boolean, company: string): Response {
+  const title = on ? `Email alerts for ${company}` : all ? "Stop all alerts" : `Stop the alerts for ${company}`;
+  const text = on
+    ? `Press the button and you get one email each morning there is a new role at ${company}. Nothing is sent before you do.`
+    : all
+      ? "Press the button and no alert from internradar reaches you any more."
+      : `Press the button and the alerts for ${company} stop. Alerts for other companies you follow carry on.`;
+  const button = on ? "Turn the alerts on" : "Stop the alerts";
+  const html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)} - internradar</title>
+<style>body{font:17px/1.55 Georgia,"Times New Roman",serif;color:#1a1a1a;background:#fbfaf7;max-width:32rem;margin:3rem auto;padding:0 1rem}h1{font-size:1.5rem;line-height:1.25}button{font:inherit;font-weight:600;padding:.65rem 1.25rem;background:#1a1a1a;color:#fff;border:0;border-radius:6px;cursor:pointer;min-height:44px}a{color:inherit}</style>
+<h1>${esc(title)}</h1><p>${esc(text)}</p><form method="post"><input type="hidden" name="go" value="1"><button type="submit">${esc(button)}</button></form>
+<p><a href="${SITE}/">internradar.eu</a></p></html>`;
+  return new Response(html, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } });
+}
+
+/** Confirm and stop links. A GET shows a page with a button, a POST (the button, or a mail app's one-click
+ * unsubscribe) checks the signature and makes the change, then sends the person to a page on the site that says
+ * what happened. A HEAD, which link checkers send, does nothing. */
+async function followLink(req: Request, env: Env, now: Date, fetcher: typeof fetch = fetch): Promise<Response> {
   const url = new URL(req.url);
   const on = url.pathname === "/follow/confirm";
   const user = url.searchParams.get("u") ?? "";
   const slug = url.searchParams.get("c") ?? "";
   const token = url.searchParams.get("t") ?? "";
+  if (req.method === "HEAD") return new Response(null, { status: 200 });
+  // the one-click unsubscribe a mail app sends has no form field of ours; the button has one
+  const form = req.method === "POST" ? await req.text().catch(() => "") : "";
+  const pressed = /(^|&)go=1(&|$)/.test(form);
   const back = (done: string) =>
-    req.method === "POST"
+    req.method === "POST" && !pressed
       ? new Response(null, { status: done === "bad" ? 400 : 200 })
       : Response.redirect(`${SITE}/follow/?done=${done}&c=${encodeURIComponent(slug)}`, 303);
   if (!/^[0-9a-f]{32}$/.test(user) || !same(token, await sign(env.FOLLOW_SECRET, on ? "on" : "off", user, slug))) return back("bad");
+  if (req.method !== "POST") {
+    const site = await siteChanges(fetcher);
+    return askPage(on, slug === "*", site?.companies[slug] ?? "this company");
+  }
 
   const f = await readFollower(env, user);
   if (on) {

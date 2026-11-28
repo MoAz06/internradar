@@ -56,7 +56,7 @@ const look = warnings([r.role, r.applied, r.timeline, r.test, r.notes].join("\n"
 function insert(slug: string): string {
   for (const f of readdirSync(dataDir).filter((f) => /^[a-z]{2}\.ts$/.test(f))) {
     const path = join(dataDir, f);
-    const out = insertEntry(readFileSync(path, "utf8"), slug, "reports", entry);
+    const out = insertEntry(readFileSync(path, "utf8").replace(/\r\n/g, "\n"), slug, "reports", entry);
     if (out === null) continue;
     writeFileSync(path, out);
     return f;

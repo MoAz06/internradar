@@ -81,7 +81,8 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
   const { slug } = await params;
   const c = companies.find((x) => x.slug === slug);
   if (!c) notFound();
-  const checked = c.sources.map((s) => s.checked).sort().at(-1) ?? "";
+  // the newest check of any of its pages: the sources, and the roles that came straight from the job board
+  const checked = [...c.sources.map((s) => s.checked), ...c.roles.map((r) => r.checked)].filter(Boolean).sort().at(-1) ?? "";
   const share = shareUrl(c.slug);
   const cities = cityPages().filter((p) => citiesOf(c.city).some((x) => x.slug === p.slug));
   const follow = calendarLinks(`/calendar/companies/${c.slug}.ics`, `internradar, ${c.name}`);

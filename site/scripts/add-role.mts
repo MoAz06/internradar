@@ -76,7 +76,7 @@ if (!dry) {
   let done = "";
   for (const f of readdirSync(dataDir).filter((f) => /^[a-z]{2}\.ts$/.test(f))) {
     const path = join(dataDir, f);
-    const withRole = insertEntry(readFileSync(path, "utf8"), company.slug, "roles", role);
+    const withRole = insertEntry(readFileSync(path, "utf8").replace(/\r\n/g, "\n"), company.slug, "roles", role);
     if (withRole === null) continue;
     writeFileSync(path, addSource(withRole, company.slug, role.source, today));
     done = f;

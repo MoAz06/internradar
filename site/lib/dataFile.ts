@@ -68,6 +68,35 @@ function roleBlock(text: string, url: string): { start: number; end: number } | 
   return start < 0 || end < at ? null : { start, end };
 }
 
+/** Where one role of one company is, by its posting link. Several roles can share a link (one posting for six
+ * cities, or two programmes on one page), so the search stays inside the company's block, skips roles that are
+ * closed already, and takes the one with `title` when a title is given. null when it isn't in this file. */
+export function roleBlockOf(text: string, url: string, slug?: string, title?: string): { start: number; end: number } | null {
+  const b = slug ? companyBlock(text, slug) : { at: 0, end: text.length };
+  if (!b) return null;
+  const needle = `source: ${JSON.stringify(url)},`;
+  let from = b.at;
+  for (;;) {
+    const at = text.indexOf(needle, from);
+    if (at < 0 || at >= b.end) return null;
+    const start = text.lastIndexOf("\n      {\n", at);
+    const endAt = text.indexOf("\n      },", at);
+    if (start < b.at || endAt < 0) return null;
+    const end = endAt + "\n      },".length;
+    const block = text.slice(start, end);
+    const wanted = title ? block.includes(`title: ${JSON.stringify(title)},`) : !block.includes('\n        status: "closed",');
+    if (wanted) return { start, end };
+    from = end;
+  }
+}
+
+/** Changes one role of one company: `edit` gets the role's lines and gives them back. null when it isn't here. */
+export function editRoleOf(text: string, url: string, edit: (block: string) => string, slug?: string, title?: string): string | null {
+  const b = roleBlockOf(text, url, slug, title);
+  if (!b) return null;
+  return text.slice(0, b.start) + edit(text.slice(b.start, b.end)) + text.slice(b.end);
+}
+
 /** Takes one role out of a data file, by its posting link. null when the link isn't in this file. */
 export function removeRole(text: string, url: string): string | null {
   const b = roleBlock(text, url);

@@ -133,6 +133,12 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      # the night's posting check, so a role whose posting is gone counts as closed here too
+      - uses: actions/cache/restore@v4
+        with:
+          path: site/.linkcheck.json
+          key: linkcheck-${{ github.run_id }}
+          restore-keys: linkcheck-
       - run: npm run indexnow
         continue-on-error: true
         env:

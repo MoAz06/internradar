@@ -14,6 +14,7 @@ import { companyNoSponsor, languagesOf, levelsOf, needsClearance, needsWorkRight
 import { openRoles, toCsv } from "../lib/openRoles.ts";
 import { firstSeen, seasonBefore, seasonOf, summerYear } from "../lib/seasons.ts";
 import { reopenBlock } from "../lib/reopen.ts";
+import { editRoleOf, roleBlockOf } from "../lib/dataFile.ts";
 import { FEW, rolesFor, rolesNear, universities } from "../lib/universities.ts";
 import { weekOf } from "../lib/week.ts";
 import { testsOf, toolTag } from "../lib/tests.ts";
@@ -227,6 +228,37 @@ test("open again: a role the nightly run closed, back on its board under the sam
   assert.equal(reopenBlock(block("closed", "The posting was taken down by 25 Nov 2026", "2026-11-20"), "2026-11-27"), null);
   assert.equal(reopenBlock(block("closed", "Closed for 2027, opens again in autumn"), "2026-11-27"), null);
   assert.equal(reopenBlock(block("open", "Open, no deadline listed"), "2026-11-27"), null);
+});
+
+test("closing a role: on a link several roles share, each company and each title gets its own", () => {
+  const role = (title: string, status: string, url: string) =>
+    ["      {", `        title: ${JSON.stringify(title)},`, `        status: "${status}",`, '        applications: "Open, no deadline listed",', `        source: ${JSON.stringify(url)},`, '        checked: "2026-11-20",', "      },"].join("\n");
+  const company = (slug: string, roles: string[]) => ["  {", `    slug: "${slug}",`, "    roles: [", ...roles, "    ],", "  },"].join("\n");
+  const shared = "https://x.example/jobs/1";
+  const text = [
+    "export const data = [",
+    company("google-munich", [role("Student Researcher", "open", shared)]),
+    company("google-zurich", [role("Student Researcher", "open", shared), role("SWE Intern", "open", shared)]),
+    "];",
+    "",
+  ].join("\n");
+  const close = (block: string) => block.replace(/(\n        status: )"[a-z]+",/, '$1"closed",');
+  const closed = (s: string) => (s.match(/status: "closed"/g) ?? []).length;
+  // the second company's role, not the first one in the file
+  const zurich = editRoleOf(text, shared, close, "google-zurich", "Student Researcher")!;
+  assert.equal(closed(zurich), 1);
+  assert.ok(zurich.indexOf('status: "closed"') > zurich.indexOf('slug: "google-zurich"'));
+  // the second title of the same company on the same link
+  const swe = editRoleOf(zurich, shared, close, "google-zurich", "SWE Intern")!;
+  assert.equal(closed(swe), 2);
+  assert.ok(swe.includes('title: "SWE Intern",\n        status: "closed",'));
+  // without a company: the first role on the link that is still open, never one that is closed already
+  const munich = editRoleOf(swe, shared, close)!;
+  assert.equal(closed(munich), 3);
+  assert.equal(editRoleOf(munich, shared, close), null);
+  // a company that isn't in this file, or a title it doesn't have on that link
+  assert.equal(roleBlockOf(text, shared, "google-london"), null);
+  assert.equal(roleBlockOf(text, shared, "google-munich", "SWE Intern"), null);
 });
 
 test("seasons: June to May, and the first day a company's role went up", () => {
@@ -545,10 +577,14 @@ test("company alerts: confirm by email, one morning email per person, stop with 
   } as Env;
   let changes: Changes = { built: "2026-11-24", companies: { imc: "IMC", optiver: "Optiver" }, events: [] };
   const mails: Record<string, unknown>[] = [];
+  let mailDown = false;
   const fetcher = (async (url: string, init?: RequestInit) => {
     if (url.includes("turnstile")) return new Response(JSON.stringify({ success: true, hostname: "internradar.eu" }));
     if (url.startsWith("https://internradar.eu/changes.json")) return new Response(JSON.stringify(changes));
-    if (url === "https://api.resend.com/emails") mails.push(JSON.parse(String(init!.body)));
+    if (url === "https://api.resend.com/emails") {
+      if (mailDown) return new Response("{}", { status: 500 });
+      mails.push(JSON.parse(String(init!.body)));
+    }
     return new Response("{}", { status: 200 });
   }) as unknown as typeof fetch;
   const at = (iso: string) => new Date(iso);
@@ -560,6 +596,9 @@ test("company alerts: confirm by email, one morning email per person, stop with 
       now,
     );
   const open = (href: string, method = "GET") => handle(new Request(href, { method }), env, fetcher, at("2026-11-24T10:05:00Z"));
+  // the button on the page behind a link
+  const press = (href: string) =>
+    handle(new Request(href, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: "go=1" }), env, fetcher, at("2026-11-24T10:05:00Z"));
   const linkIn = (text: string, kind: string) => text.match(new RegExp(`https://w\\.dev/follow/${kind}\\?[^\\s]+`))![0];
 
   // the form: an unknown company or a bad address is refused, a good one gets a confirm email and nothing else
@@ -576,16 +615,31 @@ test("company alerts: confirm by email, one morning email per person, stop with 
   // asking again within ten minutes sends no second email
   await follow({ email: "a@b.nl", company: "imc" }, at("2026-11-24T10:03:00Z"));
   assert.equal(mails.length, 1);
+  // the email didn't go out: nothing is kept, so the next try sends it instead of saying "check your inbox"
+  mailDown = true;
+  assert.equal((await follow({ email: "i@j.nl", company: "imc" })).status, 502);
+  assert.ok(!store.data.has(`sub:${await userId("i@j.nl")}`));
+  mailDown = false;
+  assert.equal((await follow({ email: "i@j.nl", company: "imc" })).status, 200);
+  assert.equal(mails.length, 2);
 
   // nothing is sent before the click
   changes = { ...changes, events: [{ id: "k1:new", slug: "imc", company: "IMC", title: "SWE Intern", city: "Amsterdam", kind: "new", day: "2026-11-24", when: "Open", url: "https://internradar.eu/roles/k1/" }] };
   assert.deepEqual(await sendAlerts(env, fetcher, 90, at("2026-11-24T11:00:00Z")), { sent: 0, left: 0 });
 
-  // a link with a wrong signature does nothing; the right one confirms and goes back to the site
+  // opening the link shows a page with a button and changes nothing: mail scanners open links, people press buttons
   const confirm = linkIn(String(mails[0].text), "confirm");
-  const bad = await open(confirm.replace(/t=[^&]+/, "t=wrong"));
+  const page = await open(confirm);
+  assert.equal(page.status, 200);
+  assert.match(await page.text(), /<form method="post">[\s\S]*Turn the alerts on/);
+  assert.match(await (await open(confirm)).text(), /Email alerts for IMC/);
+  assert.equal((await open(confirm, "HEAD")).status, 200);
+  assert.equal((JSON.parse(store.data.get(`sub:${user}`)!) as Follower).companies.imc.on, false);
+  // the button with a wrong signature does nothing; the right one confirms and goes back to the site
+  const bad = await press(confirm.replace(/t=[^&]+/, "t=wrong"));
   assert.equal(bad.headers.get("Location"), "https://internradar.eu/follow/?done=bad&c=imc");
-  const good = await open(confirm);
+  assert.equal((JSON.parse(store.data.get(`sub:${user}`)!) as Follower).companies.imc.on, false);
+  const good = await press(confirm);
   assert.equal(good.status, 303);
   assert.equal(good.headers.get("Location"), "https://internradar.eu/follow/?done=on&c=imc");
   assert.equal((JSON.parse(store.data.get(`sub:${user}`)!) as Follower).companies.imc.since, "2026-11-24");
@@ -601,8 +655,10 @@ test("company alerts: confirm by email, one morning email per person, stop with 
   changes = { ...changes, events: [{ ...changes.events[0], id: "k0:new", day: "2026-11-23" }] };
   assert.deepEqual(await sendAlerts(env, fetcher, 90, at("2026-11-24T11:00:00Z")), { sent: 0, left: 0 });
 
-  // stop: the one-click POST from a mail app, then the address is gone from the store
+  // stop: opening the link only shows the page; the one-click POST from a mail app stops it, and the address is gone
   const stop = linkIn(String(mails[0].text), "stop");
+  assert.match(await (await open(stop)).text(), /Stop the alerts for IMC/);
+  assert.ok(store.data.has(`sub:${user}`));
   assert.equal((await open(stop, "POST")).status, 200);
   assert.ok(!store.data.has(`sub:${user}`));
   // a stop link can't be made without the secret

@@ -39,7 +39,11 @@ function daysBetween(from: string, to: string): number {
 
 /** Every role, with its status as of the build date, sorted the way the list shows it:
  * open roles by deadline (soonest first, no deadline last), then the ones opening soon, then closed. */
+let cache: { now: string; items: Item[] } | null = null;
+
 export function buildItems(now = today()): Item[] {
+  // every page asks for the list; the roles are the same all build long, so it is computed once a day
+  if (cache?.now === now) return [...cache.items];
   const items: Item[] = [];
   const seen = new Set<string>();
   for (const c of companies) {

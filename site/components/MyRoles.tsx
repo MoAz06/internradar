@@ -133,7 +133,8 @@ export default function MyRoles({ items, waits }: { items: Item[]; waits: Waits 
     a.href = URL.createObjectURL(blob);
     a.download = "internradar-applications.ics";
     a.click();
-    URL.revokeObjectURL(a.href);
+    // Safari and iOS start the download after click returns, so the blob has to live a little longer
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   };
 
   const copyLink = async () => {
