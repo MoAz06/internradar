@@ -35,6 +35,7 @@ The list is rebuilt every night. New postings on the companies' job boards are a
 - [By country](${site}/countries/): one page per country, with its cities and what its companies say about applying again
 - [By city](${site}/cities/london/): one page per city, London, Amsterdam, Munich, Dublin, Zurich and more
 - [By field](${site}/fields/software/): software, data and AI, quant, hardware and embedded
+- A field in a place, like [software engineering in London](${site}/cities/london/software/) or [data and AI in the United Kingdom](${site}/countries/united-kingdom/data-and-ai/): under every country and city page
 - [Near your university](${site}/for/): the roles within reach of each university
 - [Pay](${site}/pay/): the pay companies state, side by side
 - [Re-apply rules](${site}/reapply/): companies with a waiting time after a rejection

@@ -5,7 +5,7 @@
 import type { Field } from "../data/types.ts";
 import { countries } from "../data/companies.ts";
 import { buildItems } from "./buildItems.ts";
-import { fields, fold, type Item } from "./items.ts";
+import { countryPageHref, fields, fold, type Item } from "./items.ts";
 
 const MIN = 3;
 
@@ -89,4 +89,45 @@ export function fieldPages(): FieldPage[] {
     const here = items.filter((x) => x.field === field);
     return { slug: slugOf(field), field, items: here, companies: new Set(here.map((x) => x.slug)).size };
   });
+}
+
+/** "software engineering", "data and AI": a field in the middle of a sentence. */
+export const lowerField = (field: Field) => fieldTitle[field].charAt(0).toLowerCase() + fieldTitle[field].slice(1);
+
+export type FieldPlacePage = {
+  kind: "country" | "city";
+  /** The slug of the country or city. */
+  place: string;
+  placeName: string;
+  placeHref: string;
+  code?: string;
+  field: Field;
+  fieldSlug: string;
+  path: string;
+  items: Item[];
+  companies: number;
+};
+
+let fieldPlaceCache: FieldPlacePage[] | null = null;
+
+/** A field in a place, "software engineering in London": the pages people search for word by word. A page exists
+ * once the pair has MIN roles at two companies. "Other tech" gets none: nobody searches for it by that name. */
+export function fieldPlacePages(): FieldPlacePage[] {
+  if (fieldPlaceCache) return fieldPlaceCache;
+  const out: FieldPlacePage[] = [];
+  const add = (kind: "country" | "city", place: string, placeName: string, placeHref: string, code: string | undefined, items: Item[]) => {
+    for (const field of fields) {
+      if (field === "Other tech") continue;
+      const here = items.filter((x) => x.field === field);
+      const companies = new Set(here.map((x) => x.slug)).size;
+      if (here.length < MIN || companies < 2) continue;
+      const fieldSlug = slugOf(field);
+      const path = kind === "city" ? `/cities/${place}/${fieldSlug}/` : code === "NL" ? `/nl/${fieldSlug}/` : `/countries/${place}/${fieldSlug}/`;
+      out.push({ kind, place, placeName, placeHref, code, field, fieldSlug, path, items: here, companies });
+    }
+  };
+  for (const k of countryPages()) add("country", k.slug, k.name, countryPageHref(k.code, k.name), k.code, k.items);
+  for (const c of cityPages()) add("city", c.slug, c.city, `/cities/${c.slug}/`, undefined, c.items);
+  fieldPlaceCache = out;
+  return out;
 }

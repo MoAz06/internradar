@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { companies, lastChecked } from "@/data/companies";
-import { cityPages, countryPages, fieldPages } from "@/lib/landing";
+import { cityPages, countryPages, fieldPages, fieldPlacePages } from "@/lib/landing";
 import { rolePages } from "@/lib/rolePages";
 import { roleHref } from "@/lib/items";
 import { universities } from "@/lib/universities";
@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .map((p) => `/countries/${p.slug}/`),
     ...cityPages().map((p) => `/cities/${p.slug}/`),
     ...fieldPages().map((p) => `/fields/${p.slug}/`),
+    ...fieldPlacePages().map((p) => p.path),
     ...universities.map((u) => `/for/${u.slug}/`),
   ].map((p) => ({
     url: `${site}${p}`,

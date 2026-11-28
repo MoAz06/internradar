@@ -18,7 +18,7 @@ import { weekOf } from "../lib/week.ts";
 import { testsOf, toolTag } from "../lib/tests.ts";
 import { query, searchable } from "../lib/search.ts";
 import { countryPageHref, postedAgo, postedWords, reminderRow, shortKey, type Item } from "../lib/items.ts";
-import { countryPages, inCountry, titleName } from "../lib/landing.ts";
+import { countryPages, fieldPlacePages, inCountry, lowerField, titleName } from "../lib/landing.ts";
 import { changedPages } from "../lib/indexing.ts";
 import { plan } from "./google-index.mts";
 import { citiesOf, closesGroup, closesShort, payParts, toRows } from "../lib/rows.ts";
@@ -714,4 +714,16 @@ test("search engine pings: role pages only in the plan, closed roles first, with
   assert.ok(p.every((n) => n.url.startsWith("https://internradar.eu/roles/")));
   const all = plan(now, 5000);
   assert.ok(all.length >= c.open.length);
+});
+
+test("field pages per place: only pairs with enough roles, unique paths, the Netherlands under /nl/", () => {
+  const pages = fieldPlacePages();
+  assert.ok(pages.length >= 40);
+  assert.equal(new Set(pages.map((p) => p.path)).size, pages.length);
+  assert.ok(pages.every((p) => p.items.length >= 3 && p.companies >= 2 && p.field !== "Other tech"));
+  assert.ok(pages.some((p) => p.path === "/cities/london/software/"));
+  assert.ok(pages.some((p) => p.path === "/countries/united-kingdom/software/"));
+  assert.ok(pages.filter((p) => p.code === "NL").every((p) => p.path.startsWith("/nl/")));
+  assert.equal(lowerField("Data and AI"), "data and AI");
+  assert.equal(lowerField("Software"), "software engineering");
 });

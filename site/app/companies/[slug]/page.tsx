@@ -17,7 +17,7 @@ import { buildItems } from "@/lib/buildItems";
 import { eventsFor } from "@/lib/ics";
 import { historyStart } from "@/data/history";
 import { opened } from "@/data/opened";
-import { firstSeason, firstSeen, seasonBefore, seasonOf } from "@/lib/seasons";
+import { firstSeason, firstSeen, seasonBefore, seasonOf, summerYear } from "@/lib/seasons";
 import AddToCalendar from "@/components/AddToCalendar";
 import CountryLink from "@/components/CountryLink";
 import FollowButton from "@/components/FollowButton";
@@ -69,11 +69,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const c = companies.find((x) => x.slug === slug);
   if (!c) return {};
-  return {
-    title: `${c.name} hiring process 2027`,
-    description: `Roles, process, re-apply rule and pay at ${c.name}, from the company's own careers page, with the date checked.`,
-    ...og(`How ${c.name} hires`, `Roles, process, re-apply rule and pay at ${c.name}, from the company's own careers page.`, c.slug, `/companies/${c.slug}/`),
-  };
+  // "Optiver internships" is what people type; the process is why they stay
+  const kinds = new Set(c.roles.map((r) => r.kind));
+  const what = kinds.has("Internship") ? (kinds.size > 1 ? "internships and graduate roles" : "internships") : "graduate roles";
+  const title = `${c.name} ${what} ${summerYear(today())}: hiring process and re-apply rule`;
+  const d = `${c.name}'s ${what}: the hiring steps, the pay it states and its rule on applying again after a rejection, from the company's own careers page, with the date checked.`;
+  return { title, description: d, alternates: { canonical: `/companies/${c.slug}/` }, ...og(`How ${c.name} hires`, d, c.slug, `/companies/${c.slug}/`) };
 }
 
 export default async function CompanyPage({ params }: { params: Promise<Params> }) {
@@ -148,8 +149,8 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
               hasRule ? "border-soon/40 bg-soon/10 text-soon" : "border-line text-muted"
             }`}
           >
-            <span className="font-semibold">Re-apply rule: </span>
-            {hasRule ? c.reapply : "not stated by the company."}
+            <span className="font-semibold">Can you apply to {c.name} again after a rejection? </span>
+            {hasRule ? c.reapply : "The company doesn't say."}
           </p>
           <a
             href={c.careersUrl}
@@ -262,7 +263,8 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
         <div className="mt-7 flex flex-col gap-6 lg:flex-row lg:items-start">
           <div className="flex-1 space-y-6">
             <div>
-              <h2 className="text-base font-bold">Process, as the company describes it</h2>
+              <h2 className="text-base font-bold">How does {c.name} hire?</h2>
+              <p className="mt-1 text-[13px] text-muted">The steps as the company describes them on its own pages.</p>
               <ol className="mt-2.5 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted marker:text-ink">
                 {c.process.map((p, i) => (
                   <li key={i}>{p}</li>
@@ -283,7 +285,7 @@ export default async function CompanyPage({ params }: { params: Promise<Params> 
 
           <div className="w-full space-y-6 lg:w-[400px]">
             <div>
-              <h2 className="text-base font-bold">Pay, relocation, visa</h2>
+              <h2 className="text-base font-bold">What does {c.name} pay, and does it help with visas or moving?</h2>
               <ul className="mt-2.5 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
                 {c.pay.map((p, i) => (
                   <li key={i}>{p}</li>
