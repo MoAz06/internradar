@@ -20,6 +20,7 @@ import { query, searchable } from "../lib/search.ts";
 import { countryPageHref, postedAgo, postedWords, reminderRow, shortKey, type Item } from "../lib/items.ts";
 import { allPlacePages, countryPages, fieldPlacePages, graduatePlacePages, inCountry, lowerField, placePagesFor, titleName } from "../lib/landing.ts";
 import { changedPages } from "../lib/indexing.ts";
+import { changeDays, countOf } from "../lib/changes.ts";
 import { plan } from "./google-index.mts";
 import { citiesOf, closesGroup, closesShort, payParts, toRows } from "../lib/rows.ts";
 import { buildItems } from "../lib/buildItems.ts";
@@ -739,4 +740,16 @@ test("graduate pages per place and the links a role gets back to its place pages
   assert.ok(back.includes("/cities/london/software/"));
   assert.ok(back.includes("/countries/united-kingdom/software/"));
   assert.ok(!back.some((p) => p.endsWith("/graduate/")));
+});
+
+test("change days: newest first, every day has a change, a role is not both added and opened on its first day", () => {
+  const days = changeDays("2026-11-28");
+  assert.ok(days.length >= 5);
+  for (let i = 1; i < days.length; i++) assert.ok(days[i - 1].day > days[i].day);
+  assert.ok(days.every((d) => countOf(d) > 0 && d.day > "2026-11-17" && d.day <= "2026-11-28"));
+  for (const d of days) {
+    const added = new Set(d.added.map((x) => x.key));
+    assert.ok(!d.opened.some((x) => added.has(x.key)));
+    assert.ok(!d.closed.some((x) => x.status !== "closed"));
+  }
 });

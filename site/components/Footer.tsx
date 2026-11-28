@@ -17,6 +17,9 @@ export default function Footer() {
           <Link href="/answers/" className="link">
             Questions, answered
           </Link>
+          <Link href="/changes/" className="link">
+            What changed
+          </Link>
           <Link href="/countries/" className="link">
             By country
           </Link>

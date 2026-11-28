@@ -37,7 +37,8 @@ export async function generateMetadata({ params }: { params: Promise<{ country: 
   const year = summerYear(today());
   const title = `Tech internships in ${titleName(p)} ${year}`;
   const d = describe(p, year);
-  return { title, description: d, alternates: { canonical: `/countries/${p.slug}/` }, ...og(title, d, "companies", `/countries/${p.slug}/`) };
+  const languages = p.code === "DE" ? { en: `/countries/${p.slug}/`, de: "/praktika/" } : undefined;
+  return { title, description: d, alternates: { canonical: `/countries/${p.slug}/`, ...(languages ? { languages } : {}) }, ...og(title, d, "companies", `/countries/${p.slug}/`) };
 }
 
 function Cities({ p, className = "" }: { p: CountryPage; className?: string }) {
@@ -89,6 +90,15 @@ export default async function CountryPage({ params }: { params: Promise<{ countr
       <h1 className="mt-1 text-[28px] leading-tight font-bold sm:text-[40px]">Tech internships and graduate roles in {inCountry(p.name)}</h1>
       <p className="mt-3 max-w-[720px] text-[17px] leading-[1.6] text-muted">
         {describe(p, year)} Deadlines first. The company pages have the interview steps and the re-apply rule.
+        {p.code === "DE" && (
+          <>
+            {" "}
+            <Link href="/praktika/" className="link" lang="de">
+              Diese Seite auf Deutsch
+            </Link>
+            .
+          </>
+        )}
       </p>
       {/* on phones the list comes first, so the cities wait in the second column */}
       <Cities p={p} className="mt-4 max-lg:hidden" />

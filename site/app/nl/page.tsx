@@ -25,7 +25,7 @@ export function generateMetadata(): Metadata {
   const items = here();
   const d = describe(items.length, new Set(items.map((x) => x.slug)).size);
   const title = `Tech internships in the ${NAME} ${summerYear(today())}`;
-  return { title, description: d, alternates: { canonical: "/nl/" }, ...og(title, d, "nl", "/nl/") };
+  return { title, description: d, alternates: { canonical: "/nl/", languages: { en: "/nl/", nl: "/stages/" } }, ...og(title, d, "nl", "/nl/") };
 }
 
 function Cities({ className = "" }: { className?: string }) {
@@ -68,7 +68,11 @@ export default function NetherlandsPage() {
       <p className="text-[14px] font-bold text-accent">{NAME}</p>
       <h1 className="mt-1 text-[28px] leading-tight font-bold sm:text-[40px]">Tech internships and graduate roles in the {NAME}</h1>
       <p className="mt-3 max-w-[720px] text-[17px] leading-[1.6] text-muted">
-        {describe(items.length, nCompanies)} Deadlines first. The company pages have the interview steps and the re-apply rule.
+        {describe(items.length, nCompanies)} Deadlines first. The company pages have the interview steps and the re-apply rule.{" "}
+        <Link href="/stages/" className="link" lang="nl">
+          Deze pagina in het Nederlands
+        </Link>
+        .
       </p>
       {/* on phones the list comes first, so the cities wait in the second column */}
       <Cities className="mt-4 max-lg:hidden" />

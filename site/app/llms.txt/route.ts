@@ -37,6 +37,9 @@ The list is rebuilt every night. New postings on the companies' job boards are a
 - [By field](${site}/fields/software/): software, data and AI, quant, hardware and embedded
 - A field in a place, like [software engineering in London](${site}/cities/london/software/) or [data and AI in the United Kingdom](${site}/countries/united-kingdom/data-and-ai/): under every country and city page
 - Graduate jobs in a place, like [graduate jobs in the United Kingdom](${site}/countries/united-kingdom/graduate/)
+- [When do applications open?](${site}/opening-dates/): the day each company's first role of the season went up
+- [What changed, day by day](${site}/changes/): what the nightly check added, opened and closed, one page per day
+- [Stages in Nederland](${site}/stages/) in Dutch and [Praktika in Deutschland](${site}/praktika/) in German
 - [Questions, answered](${site}/answers/): which internships pay the most, who lets you reapply, which online tests companies name, what opens next, what closes this week, each answered from the data
 - [Near your university](${site}/for/): the roles within reach of each university
 - [Pay](${site}/pay/): the pay companies state, side by side

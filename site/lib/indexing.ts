@@ -2,6 +2,7 @@
 
 import { roleHistory } from "../data/history.ts";
 import { roleHref } from "./items.ts";
+import { changeDays } from "./changes.ts";
 import { allPlacePages, cityPages, countryPages, fieldPages } from "./landing.ts";
 import { today } from "./live.ts";
 import { rolePages } from "./rolePages.ts";
@@ -47,13 +48,20 @@ export function changedPages(now = today(), days = 2): Changed {
     "/radar/",
     "/countries/",
     "/answers/",
+    "/opening-dates/",
+    "/changes/",
     "/nl/",
+    "/stages/",
+    "/praktika/",
     ...countryPages()
       .filter((p) => p.code !== "NL")
       .map((p) => `/countries/${p.slug}/`),
     ...cityPages().map((p) => `/cities/${p.slug}/`),
     ...fieldPages().map((p) => `/fields/${p.slug}/`),
     ...allPlacePages().map((p) => p.path),
+    ...changeDays(now)
+      .slice(0, 2)
+      .map((d) => `/changes/${d.day}/`),
   ].map((p) => `${site}${p}`);
   return { updated, deleted, lists, open };
 }
