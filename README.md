@@ -3,7 +3,7 @@
 Tech internships and new grad roles in Europe, with the part nobody writes down: when it opens, what the test is, and when you can try again.
 
 <!-- gen:badges -->
-![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-963-blue) ![checked](https://img.shields.io/badge/last%20checked-27%20Nov%202026-green)
+![companies](https://img.shields.io/badge/companies-299-blue) ![roles](https://img.shields.io/badge/roles-963-blue) ![checked](https://img.shields.io/badge/last%20checked-28%20Nov%202026-green)
 <!-- /gen:badges -->
 
 Every line comes from the company's own careers page or from a candidate who went through it, with a date next to it. Netherlands first, because that is where I study. Other countries are welcome, see [Contributing](CONTRIBUTING.md).
@@ -726,7 +726,7 @@ What opens next. Put it in your calendar now, most of these close within weeks.
 | [Doctolib](companies/doctolib-paris.md) | Stage - Business Data Analyst (x/f/m) - janvier 2027 | Paris | 🟢 | – | See the company page | Not stated | 27 Nov |
 | [Doctolib](companies/doctolib-paris.md) | Software Engineering Intern - Fullstack (x/f/m) - Paris | Paris | 🟢 | March 2027 | Coding Game (1h), recruiter interview (30 min), feature building interview (1h), behavioral interview (1h) | Not stated | 17 Nov |
 | [Doctolib](companies/doctolib-paris.md) | Machine Learning Engineer Intern (x/f/m) | Paris | 🟢 | April 2027 | Online coding game, talent partner interview (30 min), technical interview (1 hour), hiring manager interview (45 min) | Not stated | 17 Nov |
-| [Doctolib](companies/doctolib-paris.md) | AI Engineer Intern (x/f/m) - Paris | Paris | 🔴 | March 2027 | Coding Game, recruiter interview, technical interview, behavioral interview | Not stated | 20 Nov |
+| [Doctolib](companies/doctolib-paris.md) | AI Engineer Intern (x/f/m) - Paris | Paris | 🟢 | March 2027 | Coding Game, recruiter interview, technical interview, behavioral interview | Not stated | 28 Nov |
 | [Dassault Systèmes](companies/dassault-systemes.md) | STAGE – Ingénieur logiciel (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur Logiciel & Machine Learning (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
 | [Dassault Systèmes](companies/dassault-systemes.md) | STAGE - Ingénieur.e C++ - Développement d'Assistants IA (F/H) | Vélizy-Villacoublay | 🟢 | – | Not stated | Not stated | 17 Nov |
